@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mission Cadet Upgrade | Newspaper</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+:root {
+  --bg: #ffffff;
+  --panel: #f9f9f9;
+  --panel-soft: #f1f1f1;
+  --border: #e0e0e0;
+  --text: #000000;
+  --muted: #555555;
+  --accent: #ff0000;
+  --accent-dark: #c20000;
+  --radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-bottom: 75px;
+}
+
+
+/* =========================================
+   TOP NAVIGATION
+========================================= */
+
+.top-nav {
+  height: 55px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 15px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.brand #army {
+  color: #ff0000;
+}
+
+.brand #navy {
+  color: #0000ff;
+}
+
+.brand #air {
+  color: #00b6ff;
+}
+
+.reload-btn {
+  background: none;
+  border: none;
+
+  font-size: 18px;
+  color: var(--accent);
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.page-header {
+  margin-top: 75px;
+  padding: 0 15px 15px;
+}
+
+.page-header h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.page-header p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+/* =========================================
+   FILTER AREA
+========================================= */
+
+.filter-container {
+  margin: 0 12px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-container input {
+  width: 100%;
+  padding: 12px;
+
+  border-radius: 12px;
+  border: 1px solid var(--border);
+
+  background: var(--panel-soft);
+  color: var(--text);
+
+  font-size: 14px;
+}
+
+.filter-container input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.clear-date-btn {
+  width: 100%;
+  padding: 11px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #222222;
+  color: white;
+
+  font-size: 13px;
+  cursor: pointer;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-container {
+  margin: 0 12px 15px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px;
+
+  border-radius: 12px;
+  border: 1px solid var(--border);
+
+  background: var(--panel-soft);
+  color: var(--text);
+
+  font-size: 14px;
+}
+
+.search-container input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+
+/* =========================================
+   NEWSPAPER CONTAINER
+========================================= */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 14px;
+
+  margin: 12px;
+}
+
+
+/* =========================================
+   NEWSPAPER CARD
+========================================= */
+
+.paper-card {
+  display: block;
+
+  background: var(--panel);
+
+  border-left: 6px solid var(--accent);
+
+  border-radius: var(--radius);
+
+  padding: 16px;
+
+  text-decoration: none;
+
+  color: var(--text);
+
+  transition: 0.2s;
+
+  cursor: pointer;
+}
+
+.paper-card:hover {
+  transform: scale(1.01);
+
+  box-shadow:
+    0 0 14px
+    rgba(255, 0, 0, 0.2);
+}
+
+.paper-icon {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.paper-icon i {
+  font-size: 55px;
+  color: var(--accent);
+}
+
+.paper-card h2 {
+  font-size: 16px;
+  text-align: center;
+
+  margin-bottom: 8px;
+
+  text-transform: uppercase;
+}
+
+.paper-date {
+  text-align: center;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty {
+  text-align: center;
+
+  padding: 40px 15px;
+
+  color: var(--muted);
+}
+
+.empty i {
+  display: block;
+
+  font-size: 45px;
+
+  color: var(--accent);
+
+  margin-bottom: 12px;
+}
+
+.empty h3 {
+  color: var(--text);
+
+  font-size: 17px;
+
+  margin-bottom: 6px;
+}
+
+.empty p {
+  font-size: 13px;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading {
+  text-align: center;
+
+  padding: 40px 15px;
+
+  color: var(--muted);
+}
+
+.loading i {
+  font-size: 28px;
+
+  color: var(--accent);
+
+  margin-bottom: 10px;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.cta {
+  margin: 20px 12px;
+
+  padding: 14px;
+
+  text-align: center;
+
+  background: var(--accent);
+
+  color: #ffffff;
+
+  border-radius: 12px;
+
+  font-weight: 700;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   BOTTOM NAVIGATION
+========================================= */
+
+.bottom-nav {
+  height: 60px;
+
+  background: #ffffff;
+
+  border-top: 1px solid var(--border);
+
+  display: flex;
+
+  justify-content: space-around;
+
+  align-items: center;
+
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+}
+
+.nav-item {
+  text-align: center;
+
+  font-size: 10px;
+
+  color: var(--muted);
+
+  text-decoration: none;
+
+  min-width: 50px;
+}
+
+.nav-item i {
+  display: block;
+
+  font-size: 17px;
+
+  margin-bottom: 4px;
+}
+
+.nav-item.active {
+  color: var(--accent);
+}
+
+.nav-item.active i {
+  color: var(--accent);
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     TOP NAVIGATION
+========================================= -->
+
+<div class="top-nav">
+
+  <div class="brand">
+
+    <span id="army">
+      Mission
+    </span>
+
+    <span id="navy">
+      &nbsp;Cadet&nbsp;
+    </span>
+
+    <span id="air">
+      Upgrade
+    </span>
+
+  </div>
+
+
+  <button
+    class="reload-btn"
+    onclick="reloadPage()"
+  >
+
+    <i class="fas fa-rotate"></i>
+
+  </button>
+
+</div>
+
+
+<!-- =========================================
+     PAGE HEADER
+========================================= -->
+
+<div class="page-header">
+
+  <h2>
+    <i class="fas fa-newspaper"></i>
+    Daily Newspapers
+  </h2>
+
+  <p>
+    Select a date to view available newspapers.
+  </p>
+
+</div>
+
+
+<!-- =========================================
+     DATE FILTER
+========================================= -->
+
+<div class="filter-container">
+
+  <input
+    type="date"
+    id="dateFilter"
+    onchange="loadNewspapers()"
+  >
+
+
+  <button
+    class="clear-date-btn"
+    onclick="clearDateFilter()"
+  >
+
+    <i class="fas fa-list"></i>
+
+    Show All Newspapers
+
+  </button>
+
+</div>
+
+
+<!-- =========================================
+     TITLE SEARCH
+========================================= -->
+
+<div class="search-container">
+
+  <input
+    type="text"
+    id="titleSearch"
+    placeholder="Search newspaper..."
+    oninput="filterByTitle()"
+  >
+
+</div>
+
+
+<!-- =========================================
+     NEWSPAPER LIST
+========================================= -->
+
+<div
+  class="container"
+  id="newspaperContainer"
+>
+
+  <div class="loading">
+
+    <i class="fas fa-spinner fa-spin"></i>
+
+    <p>
+      Loading newspapers...
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<div class="cta">
+
+  Discipline • Knowledge • Leadership
+
+</div>
+
+
+<!-- =========================================
+     BOTTOM NAVIGATION
+========================================= -->
+
+<div class="bottom-nav">
+
+  <a
+    class="nav-item"
+    href="../index.html"
+  >
+
+    <i class="fas fa-home"></i>
+
+    Home
+
+  </a>
+
+
+  <a
+    class="nav-item active"
+    href="../Books.html"
+  >
+
+    <i class="fas fa-newspaper"></i>
+
+    Newspaper
+
+  </a>
+
+
+  <a
+    class="nav-item"
+    href="../Assignments.html"
+  >
+
+    <i class="fas fa-clipboard"></i>
+
+    Tasks
+
+  </a>
+
+
+  <a
+    class="nav-item"
+    href="../Faq.html"
+  >
+
+    <i class="fas fa-question-circle"></i>
+
+    FAQ
+
+  </a>
+
+
+  <a
+    class="nav-item"
+    href="../Aboutus.html"
+  >
+
+    <i class="fas fa-user"></i>
+
+    About
+
+  </a>
+
+</div>
+
+
+<!-- =========================================
+     SUPABASE
+========================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+
+/* =========================================
+   SUPABASE CONFIGURATION
+========================================= */
+
+const SUPABASE_URL =
+  "https://ndpmisgcnwtalxzlsgdh.supabase.co";
+
+const SUPABASE_ANON_KEY =
+  "sb_publishable_VA-TOQxa5NucY7L1hPStkg_3eAj42PM";
+
+
+const supabaseClient =
+  supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
+
+
+/* =========================================
+   STORE LOADED DATA
+========================================= */
+
+let allNewspapers = [];
+
+
+/* =========================================
+   LOAD NEWSPAPERS
+========================================= */
+
+async function loadNewspapers() {
+
+  const selectedDate =
+    document
+      .getElementById("dateFilter")
+      .value;
+
+
+  const container =
+    document
+      .getElementById(
+        "newspaperContainer"
+      );
+
+
+  container.innerHTML = `
+
+    <div class="loading">
+
+      <i class="fas fa-spinner fa-spin"></i>
+
+      <p>
+        Loading newspapers...
+      </p>
+
+    </div>
+
+  `;
+
+
+  try {
+
+
+    let query =
+      supabaseClient
+        .from("NewspaperPapers")
+        .select("*")
+        .order(
+          "paper_date",
+          {
+            ascending: false
+          }
+        )
+        .order(
+          "paper_title",
+          {
+            ascending: true
+          }
+        );
+
+
+    /* FILTER BY DATE */
+
+    if (selectedDate) {
+
+      query =
+        query.eq(
+          "paper_date",
+          selectedDate
+        );
+
+    }
+
+
+    const {
+      data,
+      error
+    } =
+    await query;
+
+
+    if (error) {
+
+      throw error;
+
+    }
+
+
+    allNewspapers =
+      data || [];
+
+
+    displayNewspapers(
+      allNewspapers
+    );
+
+
+  }
+
+
+  catch (error) {
+
+    console.error(error);
+
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <i class="fas fa-triangle-exclamation"></i>
+
+        <h3>
+          Unable to Load Newspapers
+        </h3>
+
+        <p>
+          ${escapeHTML(error.message)}
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =========================================
+   DISPLAY NEWSPAPERS
+========================================= */
+
+function displayNewspapers(data) {
+
+  const container =
+    document
+      .getElementById(
+        "newspaperContainer"
+      );
+
+
+  container.innerHTML = "";
+
+
+  /* NO DATA */
+
+  if (
+    !data ||
+    data.length === 0
+  ) {
+
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <i class="fas fa-newspaper"></i>
+
+        <h3>
+          No Newspapers Found
+        </h3>
+
+        <p>
+          Try selecting another date.
+        </p>
+
+      </div>
+
+    `;
+
+
+    return;
+
+  }
+
+
+  /* CREATE CARDS */
+
+  data.forEach(
+    function(paper) {
+
+
+      const card =
+        document.createElement("a");
+
+
+      card.className =
+        "paper-card";
+
+
+      card.href =
+        convertGoogleDriveLink(
+          paper.paper_link
+        );
+
+
+      card.target =
+        "_blank";
+
+
+      card.rel =
+        "noopener noreferrer";
+
+
+      card.innerHTML = `
+
+        <div class="paper-icon">
+
+          <i class="fas fa-newspaper"></i>
+
+        </div>
+
+
+        <h2>
+
+          ${escapeHTML(
+            paper.paper_title
+          )}
+
+        </h2>
+
+
+        <div class="paper-date">
+
+          <i class="fas fa-calendar"></i>
+
+          ${formatDate(
+            paper.paper_date
+          )}
+
+        </div>
+
+      `;
+
+
+      container.appendChild(
+        card
+      );
+
+
+    }
+  );
+
+}
+
+
+/* =========================================
+   SEARCH BY TITLE
+========================================= */
+
+function filterByTitle() {
+
+  const searchText =
+    document
+      .getElementById(
+        "titleSearch"
+      )
+      .value
+      .toLowerCase()
+      .trim();
+
+
+  const filteredData =
+    allNewspapers.filter(
+      function(paper) {
+
+        return (
+          paper.paper_title
+            .toLowerCase()
+            .includes(
+              searchText
+            )
+        );
+
+      }
+    );
+
+
+  displayNewspapers(
+    filteredData
+  );
+
+}
+
+
+/* =========================================
+   CLEAR DATE FILTER
+========================================= */
+
+function clearDateFilter() {
+
+  document
+    .getElementById(
+      "dateFilter"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "titleSearch"
+    )
+    .value = "";
+
+
+  loadNewspapers();
+
+}
+
+
+/* =========================================
+   GOOGLE DRIVE LINK CONVERTER
+========================================= */
+
+function convertGoogleDriveLink(link) {
+
+  if (!link) {
+
+    return "#";
+
+  }
+
+
+  const match =
+    link.match(
+      /\/d\/([^/]+)/
+    );
+
+
+  if (
+    match &&
+    match[1]
+  ) {
+
+    return (
+      "https://drive.google.com/file/d/"
+      +
+      match[1]
+      +
+      "/preview"
+    );
+
+  }
+
+
+  return link;
+
+}
+
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(dateString) {
+
+  const date =
+    new Date(
+      dateString +
+      "T00:00:00"
+    );
+
+
+  return date.toLocaleDateString(
+    "en-IN",
+    {
+
+      day: "2-digit",
+
+      month: "long",
+
+      year: "numeric"
+
+    }
+  );
+
+}
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(text) {
+
+  const div =
+    document.createElement(
+      "div"
+    );
+
+
+  div.textContent =
+    text || "";
+
+
+  return div.innerHTML;
+
+}
+
+
+/* =========================================
+   RELOAD PAGE
+========================================= */
+
+function reloadPage() {
+
+  location.reload();
+
+}
+
+
+/* =========================================
+   PAGE START
+========================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function() {
+
+    /* Automatically select today's date */
+
+    const today =
+      new Date()
+      .toISOString()
+      .split("T")[0];
+
+
+    document
+      .getElementById(
+        "dateFilter"
+      )
+      .value =
+      today;
+
+
+    loadNewspapers();
+
+  }
+);
+
+
+</script>
+
+</body>
+</html>

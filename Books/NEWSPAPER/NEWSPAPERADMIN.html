@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MCU | Newspaper Admin</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+:root {
+  --bg: #ffffff;
+  --panel: #f8f8f8;
+  --border: #e0e0e0;
+  --text: #111111;
+  --muted: #666666;
+  --accent: #ff0000;
+  --accent-dark: #c90000;
+  --radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding-bottom: 30px;
+}
+
+
+/* =========================================
+   ACCESS KEY SCREEN
+========================================= */
+
+#accessScreen {
+  position: fixed;
+  inset: 0;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  z-index: 99999;
+}
+
+.access-box {
+  width: 100%;
+  max-width: 360px;
+
+  background: #f8f8f8;
+
+  border: 1px solid #e0e0e0;
+
+  border-radius: 16px;
+
+  padding: 30px 20px;
+
+  text-align: center;
+}
+
+.access-icon {
+  font-size: 48px;
+  color: #ff0000;
+  margin-bottom: 15px;
+}
+
+.access-box h2 {
+  font-size: 21px;
+  margin-bottom: 8px;
+}
+
+.access-box p {
+  color: #666666;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.access-box input {
+  width: 100%;
+
+  padding: 13px;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  outline: none;
+
+  margin-bottom: 12px;
+}
+
+.access-box input:focus {
+  border-color: #ff0000;
+}
+
+.access-box button {
+  width: 100%;
+
+  padding: 13px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #ff0000;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.access-box button:hover {
+  background: #c90000;
+}
+
+#accessMessage {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   ADMIN CONTENT
+========================================= */
+
+#adminContent {
+  display: none;
+}
+
+
+/* =========================================
+   TOP NAV
+========================================= */
+
+.top-nav {
+  height: 55px;
+
+  width: 100%;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 15px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+}
+
+.brand {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.brand #mission {
+  color: #ff0000;
+}
+
+.brand #cadet {
+  color: #0000ff;
+}
+
+.brand #upgrade {
+  color: #00aaff;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  border: none;
+
+  background: none;
+
+  font-size: 17px;
+
+  color: var(--accent);
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main-container {
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: auto;
+
+  padding: 15px;
+}
+
+.page-title {
+  margin-bottom: 20px;
+}
+
+.page-title h2 {
+  font-size: 20px;
+}
+
+.page-title p {
+  color: var(--muted);
+
+  font-size: 13px;
+
+  margin-top: 5px;
+}
+
+
+/* =========================================
+   ADMIN CARD
+========================================= */
+
+.admin-card {
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  padding: 15px;
+
+  margin-bottom: 20px;
+}
+
+.admin-card h3 {
+  margin-bottom: 15px;
+
+  font-size: 16px;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-group {
+  margin-bottom: 12px;
+}
+
+.input-group label {
+  display: block;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
+  outline: none;
+
+  background: #ffffff;
+}
+
+.input-group input:focus {
+  border-color: var(--accent);
+}
+
+
+/* =========================================
+   PRIMARY BUTTON
+========================================= */
+
+.primary-btn {
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: var(--accent);
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: var(--accent-dark);
+}
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+.filter-box {
+  display: flex;
+
+  gap: 10px;
+}
+
+.filter-box input {
+  flex: 1;
+
+  padding: 10px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+}
+
+.clear-btn {
+  border: none;
+
+  padding: 10px 14px;
+
+  border-radius: 8px;
+
+  background: #222;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   PAPER CARD
+========================================= */
+
+.paper-card {
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+
+  border-left: 5px solid var(--accent);
+
+  border-radius: var(--radius);
+
+  padding: 15px;
+
+  margin-bottom: 12px;
+}
+
+.paper-card h3 {
+  font-size: 15px;
+
+  margin-bottom: 8px;
+}
+
+.paper-date {
+  color: var(--muted);
+
+  font-size: 13px;
+
+  margin-bottom: 12px;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.action-buttons {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+.action-buttons button,
+.action-buttons a {
+  border: none;
+
+  padding: 8px 10px;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  text-decoration: none;
+}
+
+.view-btn {
+  background: #e8e8e8;
+
+  color: #111;
+}
+
+.edit-btn {
+  background: #0066ff;
+
+  color: white;
+}
+
+.delete-btn {
+  background: #ff0000;
+
+  color: white;
+}
+
+
+/* =========================================
+   EMPTY / LOADING
+========================================= */
+
+.empty {
+  text-align: center;
+
+  padding: 35px 10px;
+
+  color: var(--muted);
+}
+
+.empty i {
+  font-size: 40px;
+
+  color: var(--accent);
+
+  margin-bottom: 10px;
+}
+
+.loading {
+  text-align: center;
+
+  padding: 25px;
+
+  color: var(--muted);
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================================
+     ACCESS KEY VERIFICATION
+========================================= -->
+
+<div id="accessScreen">
+
+  <div class="access-box">
+
+    <div class="access-icon">
+
+      <i class="fas fa-shield-halved"></i>
+
+    </div>
+
+    <h2>Admin Verification</h2>
+
+    <p>
+      Enter the Access Key to continue.
+    </p>
+
+    <input
+      type="password"
+      id="accessKeyInput"
+      placeholder="Enter Access Key"
+      autocomplete="off"
+    >
+
+    <button onclick="verifyAccessKey()">
+
+      <i class="fas fa-unlock"></i>
+
+      Verify Access
+
+    </button>
+
+    <div id="accessMessage"></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     ADMIN CONTENT
+========================================= -->
+
+<div id="adminContent">
+
+
+  <!-- TOP NAV -->
+
+  <div class="top-nav">
+
+    <div class="brand">
+
+      <span id="mission">Mission </span>
+
+      <span id="cadet">Cadet </span>
+
+      <span id="upgrade">Upgrade</span>
+
+    </div>
+
+
+    <div class="nav-buttons">
+
+      <button
+        class="nav-btn"
+        onclick="loadPapers()"
+        title="Reload"
+      >
+
+        <i class="fas fa-rotate"></i>
+
+      </button>
+
+
+      <button
+        class="nav-btn"
+        onclick="adminLogout()"
+        title="Logout"
+      >
+
+        <i class="fas fa-right-from-bracket"></i>
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- MAIN CONTENT -->
+
+  <div class="main-container">
+
+
+    <div class="page-title">
+
+      <h2>
+
+        <i class="fas fa-newspaper"></i>
+
+        Newspaper Admin
+
+      </h2>
+
+      <p>
+        Add, edit and manage newspaper PDF links.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================
+         ADD / EDIT FORM
+    ====================================== -->
+
+    <div class="admin-card">
+
+      <h3 id="formTitle">
+
+        Upload Newspaper
+
+      </h3>
+
+
+      <input
+        type="hidden"
+        id="editId"
+      >
+
+
+      <div class="input-group">
+
+        <label>
+          Newspaper Date
+        </label>
+
+        <input
+          type="date"
+          id="paperDate"
+        >
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label>
+          Paper Title
+        </label>
+
+        <input
+          type="text"
+          id="paperTitle"
+          placeholder="Example: The Hindu - 24 August 2026"
+        >
+
+      </div>
+
+
+      <div class="input-group">
+
+        <label>
+          Google Drive PDF Link
+        </label>
+
+        <input
+          type="url"
+          id="paperLink"
+          placeholder="Paste Google Drive PDF link"
+        >
+
+      </div>
+
+
+      <button
+        class="primary-btn"
+        id="saveBtn"
+        onclick="savePaper()"
+      >
+
+        <i class="fas fa-upload"></i>
+
+        Upload Newspaper
+
+      </button>
+
+    </div>
+
+
+    <!-- =====================================
+         DATE FILTER
+    ====================================== -->
+
+    <div class="admin-card">
+
+      <h3>
+
+        <i class="fas fa-filter"></i>
+
+        Filter by Date
+
+      </h3>
+
+
+      <div class="filter-box">
+
+        <input
+          type="date"
+          id="filterDate"
+          onchange="loadPapers()"
+        >
+
+
+        <button
+          class="clear-btn"
+          onclick="clearFilter()"
+        >
+
+          All
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         NEWSPAPER LIST
+    ====================================== -->
+
+    <div id="paperList">
+
+      <div class="loading">
+
+        <i class="fas fa-spinner fa-spin"></i>
+
+        Loading newspapers...
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     SUPABASE
+========================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+/* =====================================================
+   SUPABASE CONFIGURATION
+===================================================== */
+
+const SUPABASE_URL =
+  "https://ndpmisgcnwtalxzlsgdh.supabase.co";
+
+const SUPABASE_ANON_KEY =
+  "sb_publishable_VA-TOQxa5NucY7L1hPStkg_3eAj42PM";
+
+
+const supabaseClient =
+  supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
+
+
+/* =====================================================
+   ACCESS KEY
+===================================================== */
+
+let ACCESS_KEY = "";
+
+
+/* LOAD ACCESS KEY FROM JSON */
+
+async function loadAccessKey() {
+
+  try {
+
+    const response =
+      await fetch("access-key.json");
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        "Unable to load Access Key"
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    ACCESS_KEY =
+      data.accessKey;
+
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+
+    const message =
+      document.getElementById(
+        "accessMessage"
+      );
+
+
+    message.style.color =
+      "#ff0000";
+
+
+    message.innerHTML =
+      "Authentication system error.";
+
+  }
+
+}
+
+
+/* =====================================================
+   VERIFY ACCESS KEY
+===================================================== */
+
+async function verifyAccessKey() {
+
+  const inputKey =
+    document
+      .getElementById(
+        "accessKeyInput"
+      )
+      .value
+      .trim();
+
+
+  const message =
+    document.getElementById(
+      "accessMessage"
+    );
+
+
+  if (!inputKey) {
+
+    message.style.color =
+      "#ff0000";
+
+
+    message.innerHTML =
+      "Please enter the Access Key.";
+
+    return;
+
+  }
+
+
+  /* LOAD KEY IF NOT LOADED */
+
+  if (!ACCESS_KEY) {
+
+    await loadAccessKey();
+
+  }
+
+
+  /* CORRECT KEY */
+
+  if (
+    inputKey === ACCESS_KEY
+  ) {
+
+
+    sessionStorage.setItem(
+      "MCU_NEWSPAPER_ADMIN",
+      "verified"
+    );
+
+
+    document
+      .getElementById(
+        "accessScreen"
+      )
+      .style.display =
+      "none";
+
+
+    document
+      .getElementById(
+        "adminContent"
+      )
+      .style.display =
+      "block";
+
+
+    loadPapers();
+
+  }
+
+
+  /* WRONG KEY */
+
+  else {
+
+    message.style.color =
+      "#ff0000";
+
+
+    message.innerHTML =
+      "Invalid Access Key.";
+
+  }
+
+}
+
+
+/* =====================================================
+   CHECK SESSION
+===================================================== */
+
+async function checkAdminAccess() {
+
+  const verified =
+    sessionStorage.getItem(
+      "MCU_NEWSPAPER_ADMIN"
+    );
+
+
+  if (
+    verified === "verified"
+  ) {
+
+
+    document
+      .getElementById(
+        "accessScreen"
+      )
+      .style.display =
+      "none";
+
+
+    document
+      .getElementById(
+        "adminContent"
+      )
+      .style.display =
+      "block";
+
+
+    loadPapers();
+
+  }
+
+
+  else {
+
+
+    document
+      .getElementById(
+        "accessScreen"
+      )
+      .style.display =
+      "flex";
+
+
+    document
+      .getElementById(
+        "adminContent"
+      )
+      .style.display =
+      "none";
+
+
+    await loadAccessKey();
+
+  }
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function adminLogout() {
+
+  sessionStorage.removeItem(
+    "MCU_NEWSPAPER_ADMIN"
+  );
+
+
+  document
+    .getElementById(
+      "adminContent"
+    )
+    .style.display =
+    "none";
+
+
+  document
+    .getElementById(
+      "accessScreen"
+    )
+    .style.display =
+    "flex";
+
+
+  document
+    .getElementById(
+      "accessKeyInput"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "accessMessage"
+    )
+    .innerHTML = "";
+
+}
+
+
+/* =====================================================
+   SAVE NEWSPAPER
+===================================================== */
+
+async function savePaper() {
+
+  const editId =
+    document
+      .getElementById(
+        "editId"
+      )
+      .value;
+
+
+  const paperDate =
+    document
+      .getElementById(
+        "paperDate"
+      )
+      .value;
+
+
+  const paperTitle =
+    document
+      .getElementById(
+        "paperTitle"
+      )
+      .value
+      .trim();
+
+
+  const paperLink =
+    document
+      .getElementById(
+        "paperLink"
+      )
+      .value
+      .trim();
+
+
+  /* VALIDATION */
+
+  if (!paperDate) {
+
+    alert(
+      "Please select newspaper date"
+    );
+
+    return;
+
+  }
+
+
+  if (!paperTitle) {
+
+    alert(
+      "Please enter paper title"
+    );
+
+    return;
+
+  }
+
+
+  if (!paperLink) {
+
+    alert(
+      "Please enter Google Drive PDF link"
+    );
+
+    return;
+
+  }
+
+
+  const saveBtn =
+    document.getElementById(
+      "saveBtn"
+    );
+
+
+  saveBtn.disabled = true;
+
+
+  saveBtn.innerHTML = `
+
+    <i class="fas fa-spinner fa-spin"></i>
+
+    Saving...
+
+  `;
+
+
+  try {
+
+
+    /* UPDATE PAPER */
+
+    if (editId) {
+
+
+      const {
+        error
+      } =
+      await supabaseClient
+        .from("NewspaperPapers")
+        .update({
+
+          paper_date:
+            paperDate,
+
+          paper_title:
+            paperTitle,
+
+          paper_link:
+            paperLink
+
+        })
+        .eq(
+          "id",
+          editId
+        );
+
+
+      if (error) {
+
+        throw error;
+
+      }
+
+
+      alert(
+        "Newspaper updated successfully"
+      );
+
+    }
+
+
+    /* INSERT PAPER */
+
+    else {
+
+
+      const {
+        error
+      } =
+      await supabaseClient
+        .from("NewspaperPapers")
+        .insert([
+          {
+
+            paper_date:
+              paperDate,
+
+            paper_title:
+              paperTitle,
+
+            paper_link:
+              paperLink
+
+          }
+        ]);
+
+
+      if (error) {
+
+        throw error;
+
+      }
+
+
+      alert(
+        "Newspaper uploaded successfully"
+      );
+
+    }
+
+
+    clearForm();
+
+
+    loadPapers();
+
+  }
+
+
+  catch (error) {
+
+    console.error(error);
+
+
+    alert(
+      "Error: " +
+      error.message
+    );
+
+  }
+
+
+  finally {
+
+
+    saveBtn.disabled = false;
+
+
+    saveBtn.innerHTML = `
+
+      <i class="fas fa-upload"></i>
+
+      Upload Newspaper
+
+    `;
+
+  }
+
+}
+
+
+/* =====================================================
+   LOAD PAPERS
+===================================================== */
+
+async function loadPapers() {
+
+  const filterDate =
+    document
+      .getElementById(
+        "filterDate"
+      )
+      .value;
+
+
+  const paperList =
+    document.getElementById(
+      "paperList"
+    );
+
+
+  paperList.innerHTML = `
+
+    <div class="loading">
+
+      <i class="fas fa-spinner fa-spin"></i>
+
+      Loading newspapers...
+
+    </div>
+
+  `;
+
+
+  try {
+
+
+    let query =
+      supabaseClient
+        .from("NewspaperPapers")
+        .select("*")
+        .order(
+          "paper_date",
+          {
+            ascending: false
+          }
+        );
+
+
+    /* FILTER BY DATE */
+
+    if (filterDate) {
+
+      query =
+        query.eq(
+          "paper_date",
+          filterDate
+        );
+
+    }
+
+
+    const {
+      data,
+      error
+    } =
+    await query;
+
+
+    if (error) {
+
+      throw error;
+
+    }
+
+
+    paperList.innerHTML = "";
+
+
+    /* NO PAPERS */
+
+    if (
+      !data ||
+      data.length === 0
+    ) {
+
+
+      paperList.innerHTML = `
+
+        <div class="empty">
+
+          <i class="fas fa-newspaper"></i>
+
+          <h3>
+            No Newspapers Found
+          </h3>
+
+          <p>
+            Add a newspaper or select another date.
+          </p>
+
+        </div>
+
+      `;
+
+
+      return;
+
+    }
+
+
+    /* CREATE NEWSPAPER CARDS */
+
+    data.forEach(
+      function(paper) {
+
+
+        const card =
+          document.createElement(
+            "div"
+          );
+
+
+        card.className =
+          "paper-card";
+
+
+        card.innerHTML = `
+
+          <h3>
+            ${escapeHTML(
+              paper.paper_title
+            )}
+          </h3>
+
+
+          <div class="paper-date">
+
+            <i class="fas fa-calendar"></i>
+
+            ${formatDate(
+              paper.paper_date
+            )}
+
+          </div>
+
+
+          <div class="action-buttons">
+
+
+            <a
+              href="${convertGoogleDriveLink(
+                paper.paper_link
+              )}"
+              target="_blank"
+              class="view-btn"
+            >
+
+              <i class="fas fa-eye"></i>
+
+              View
+
+            </a>
+
+
+            <button
+              class="edit-btn"
+              onclick="editPaper(${paper.id})"
+            >
+
+              <i class="fas fa-pen"></i>
+
+              Edit
+
+            </button>
+
+
+            <button
+              class="delete-btn"
+              onclick="deletePaper(${paper.id})"
+            >
+
+              <i class="fas fa-trash"></i>
+
+              Delete
+
+            </button>
+
+
+          </div>
+
+        `;
+
+
+        paperList.appendChild(
+          card
+        );
+
+
+      }
+    );
+
+
+  }
+
+
+  catch (error) {
+
+    console.error(error);
+
+
+    paperList.innerHTML = `
+
+      <div class="empty">
+
+        <i class="fas fa-triangle-exclamation"></i>
+
+        <h3>
+          Failed to Load
+        </h3>
+
+        <p>
+          ${escapeHTML(
+            error.message
+          )}
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =====================================================
+   EDIT PAPER
+===================================================== */
+
+async function editPaper(id) {
+
+  try {
+
+
+    const {
+      data,
+      error
+    } =
+    await supabaseClient
+      .from("NewspaperPapers")
+      .select("*")
+      .eq(
+        "id",
+        id
+      )
+      .single();
+
+
+    if (error) {
+
+      throw error;
+
+    }
+
+
+    document
+      .getElementById(
+        "editId"
+      )
+      .value =
+      data.id;
+
+
+    document
+      .getElementById(
+        "paperDate"
+      )
+      .value =
+      data.paper_date;
+
+
+    document
+      .getElementById(
+        "paperTitle"
+      )
+      .value =
+      data.paper_title;
+
+
+    document
+      .getElementById(
+        "paperLink"
+      )
+      .value =
+      data.paper_link;
+
+
+    document
+      .getElementById(
+        "formTitle"
+      )
+      .innerHTML = `
+
+        <i class="fas fa-pen"></i>
+
+        Edit Newspaper
+
+      `;
+
+
+    document
+      .getElementById(
+        "saveBtn"
+      )
+      .innerHTML = `
+
+        <i class="fas fa-save"></i>
+
+        Update Newspaper
+
+      `;
+
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "smooth"
+
+    });
+
+
+  }
+
+
+  catch (error) {
+
+    console.error(error);
+
+
+    alert(
+      "Unable to load newspaper: " +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   DELETE PAPER
+===================================================== */
+
+async function deletePaper(id) {
+
+  const confirmDelete =
+    confirm(
+      "Are you sure you want to delete this newspaper?"
+    );
+
+
+  if (!confirmDelete) {
+
+    return;
+
+  }
+
+
+  try {
+
+
+    const {
+      error
+    } =
+    await supabaseClient
+      .from("NewspaperPapers")
+      .delete()
+      .eq(
+        "id",
+        id
+      );
+
+
+    if (error) {
+
+      throw error;
+
+    }
+
+
+    alert(
+      "Newspaper deleted successfully"
+    );
+
+
+    loadPapers();
+
+
+  }
+
+
+  catch (error) {
+
+    console.error(error);
+
+
+    alert(
+      "Delete failed: " +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   CLEAR FORM
+===================================================== */
+
+function clearForm() {
+
+
+  document
+    .getElementById(
+      "editId"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "paperDate"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "paperTitle"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "paperLink"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "formTitle"
+    )
+    .innerHTML =
+    "Upload Newspaper";
+
+
+  document
+    .getElementById(
+      "saveBtn"
+    )
+    .innerHTML = `
+
+      <i class="fas fa-upload"></i>
+
+      Upload Newspaper
+
+    `;
+
+}
+
+
+/* =====================================================
+   CLEAR FILTER
+===================================================== */
+
+function clearFilter() {
+
+
+  document
+    .getElementById(
+      "filterDate"
+    )
+    .value = "";
+
+
+  loadPapers();
+
+}
+
+
+/* =====================================================
+   GOOGLE DRIVE LINK CONVERTER
+===================================================== */
+
+function convertGoogleDriveLink(link) {
+
+  const match =
+    link.match(
+      /\/d\/([^/]+)/
+    );
+
+
+  if (
+    match &&
+    match[1]
+  ) {
+
+
+    return
+      "https://drive.google.com/file/d/"
+      +
+      match[1]
+      +
+      "/preview";
+
+  }
+
+
+  return link;
+
+}
+
+
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+
+function formatDate(dateString) {
+
+  const date =
+    new Date(
+      dateString +
+      "T00:00:00"
+    );
+
+
+  return date.toLocaleDateString(
+    "en-IN",
+    {
+
+      day: "2-digit",
+
+      month: "long",
+
+      year: "numeric"
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(text) {
+
+  const div =
+    document.createElement(
+      "div"
+    );
+
+
+  div.textContent =
+    text;
+
+
+  return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   ENTER KEY SUPPORT
+===================================================== */
+
+document
+  .getElementById(
+    "accessKeyInput"
+  )
+  .addEventListener(
+    "keydown",
+    function(event) {
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        verifyAccessKey();
+
+      }
+
+    }
+  );
+
+
+/* =====================================================
+   PAGE START
+===================================================== */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function() {
+
+    checkAdminAccess();
+
+  }
+);
+
+</script>
+
+</body>
+
+</html>
