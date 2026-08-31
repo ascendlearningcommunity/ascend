@@ -1,298 +1,2565 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318194885972438"
-     crossorigin="anonymous"></script>
-  <meta name="google-adsense-account" content="ca-pub-1318194885972438">
-<meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Mission Cadet Upgrade | FAQ</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="google-adsense-account"
+content="ca-pub-1318194885972438">
+
+<title>ASCEND | FAQ</title>
+
+<!-- Google AdSense -->
+
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318194885972438"
+crossorigin="anonymous"></script>
+
+<!-- Font Awesome -->
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Google Font -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
-  --bg:#ffffff;
-  --soft:#f9f9f9;
-  --border:#e5e5e5;
-  --text:#0f0f0f;
-  --muted:#606060;
-  --accent:#ff0000;
-  --radius:12px;
+
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+
+    --yellow:#FFD43B;
+    --yellow-dark:#E9AD00;
+
+    --bg:#F5F7FC;
+    --white:#FFFFFF;
+
+    --text:#172033;
+    --muted:#68748A;
+
+    --border:#E4E9F2;
+
+    --blue-soft:#EDF3FF;
+    --yellow-soft:#FFF8DC;
+
+    --radius:20px;
+
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', Arial, sans-serif;
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+    font-family:
+    'Inter',
+    Arial,
+    sans-serif;
+
 }
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
 
 body{
-  background:#f2f2f2;
-  display:flex;
-  justify-content:center;
+
+    background:
+    var(--bg);
+
+    color:
+    var(--text);
+
+    line-height:1.5;
+
 }
 
-/* ===== Mobile Frame ===== */
-.app-container{
-  width:100%;
-  max-width:360px;
-  height:800px;
-  background:var(--bg);
-  display:flex;
-  flex-direction:column;
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--border);
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
 }
 
-/* ===== Header ===== */
-.top-nav{
-  background:#ffffff;
-  border-bottom:1px solid var(--border);
-  padding:12px 14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    height:76px;
+
+    background:
+    rgba(255,255,255,.96);
+
+    border-bottom:
+    1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    backdrop-filter:
+    blur(16px);
+
 }
 
-.brand{
-  font-size:16px;
-  font-weight:700;
-  color:#0f0f0f;
+
+.nav-container{
+
+    max-width:1200px;
+
+    height:100%;
+
+    margin:auto;
+
+    padding:
+    0 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
 }
 
-.brand #army{
-  color:#ff0000;
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
 }
 
-.brand #navy{
-  color:#0000ff;
+
+.logo-icon{
+
+    width:47px;
+
+    height:47px;
+
+    border-radius:14px;
+
+    background:#fff;
+
+    border:
+    1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
 }
 
-.brand #air{
-  color:#00b6ff;
-}
-.reload-btn{
-  background:none;
-  border:none;
-  font-size:18px;
-  color:var(--accent);
-  cursor:pointer;
+
+.logo-icon img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
 }
 
-/* ===== Scroll Area ===== */
-.main{
-  flex:1;
-  overflow-y:auto;
-  padding:14px;
+
+.logo-text h1{
+
+    color:
+    var(--primary);
+
+    font-size:21px;
+
+    line-height:1;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
 }
 
-/* ===== FAQ Cards ===== */
+
+.logo-text p{
+
+    color:
+    var(--muted);
+
+    font-size:8px;
+
+    font-weight:600;
+
+    margin-top:5px;
+
+}
+
+
+/* =========================================================
+   DESKTOP NAV
+========================================================= */
+
+.desktop-nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:27px;
+
+}
+
+
+.desktop-nav a{
+
+    color:
+    var(--muted);
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+
+.desktop-nav a:hover{
+
+    color:
+    var(--primary);
+
+}
+
+
+.desktop-nav .active{
+
+    color:
+    var(--primary);
+
+}
+
+
+.explore-btn{
+
+    color:#fff !important;
+
+    background:
+    var(--primary);
+
+    padding:
+    10px 17px;
+
+    border-radius:12px;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-btn{
+
+    display:none;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
+    font-size:17px;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:76px;
+
+    left:0;
+
+    width:100%;
+
+    background:#fff;
+
+    border-bottom:
+    1px solid var(--border);
+
+    padding:
+    10px 15px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+
+}
+
+
+.mobile-menu.active{
+
+    display:block;
+
+}
+
+
+.mobile-menu a{
+
+    display:block;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+.mobile-menu a:hover{
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container{
+
+    max-width:1050px;
+
+    margin:auto;
+
+    padding:
+    35px 25px
+    100px;
+
+}
+
+
+/* =========================================================
+   FAQ HERO
+========================================================= */
+
+.hero{
+
+    background:
+    linear-gradient(
+        135deg,
+        #155EEF,
+        #4C82FF
+    );
+
+    border-radius:
+    28px;
+
+    padding:
+    50px;
+
+    color:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+
+    margin-bottom:
+    30px;
+
+    box-shadow:
+    0 22px 50px
+    rgba(21,94,239,.18);
+
+}
+
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.08);
+
+    right:-100px;
+
+    top:-170px;
+
+}
+
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,212,59,.15);
+
+    right:180px;
+
+    bottom:-170px;
+
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:650px;
+
+}
+
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:
+    7px 13px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.13);
+
+    border:
+    1px solid
+    rgba(255,255,255,.2);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    margin-bottom:16px;
+
+}
+
+
+.hero h1{
+
+    font-size:40px;
+
+    line-height:1.15;
+
+    letter-spacing:-1px;
+
+    margin-bottom:12px;
+
+}
+
+
+.hero h1 span{
+
+    color:
+    var(--yellow);
+
+}
+
+
+.hero p{
+
+    font-size:12px;
+
+    color:
+    rgba(255,255,255,.88);
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-area{
+
+    margin-bottom:
+    28px;
+
+}
+
+
+.search-box{
+
+    background:#fff;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    17px;
+
+    padding:
+    5px 8px 5px 17px;
+
+    display:flex;
+
+    align-items:center;
+
+    box-shadow:
+    0 6px 25px
+    rgba(20,40,80,.04);
+
+}
+
+
+.search-box i{
+
+    color:
+    var(--muted);
+
+    font-size:14px;
+
+}
+
+
+.search-box input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    padding:
+    12px;
+
+    font-size:12px;
+
+    color:
+    var(--text);
+
+    background:transparent;
+
+}
+
+
+.search-box input::placeholder{
+
+    color:
+    #9AA4B5;
+
+}
+
+
+/* =========================================================
+   FAQ HEADER
+========================================================= */
+
+.faq-heading{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin-bottom:
+    15px;
+
+}
+
+
+.faq-heading h2{
+
+    font-size:22px;
+
+    font-weight:800;
+
+}
+
+
+.faq-heading p{
+
+    color:
+    var(--muted);
+
+    font-size:10px;
+
+    margin-top:3px;
+
+}
+
+
+.faq-count{
+
+    background:
+    var(--yellow-soft);
+
+    color:
+    #A97800;
+
+    padding:
+    7px 11px;
+
+    border-radius:10px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   FAQ LIST
+========================================================= */
+
+.faq-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+/* =========================================================
+   FAQ CARD
+========================================================= */
+
 .faq-card{
-  background:var(--soft);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:12px;
-  margin-bottom:10px;
-  cursor:pointer;
-  transition:0.2s ease;
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    18px;
+
+    overflow:hidden;
+
+    transition:
+    .25s ease;
+
 }
+
 
 .faq-card:hover{
-  background:#f1f1f1;
+
+    border-color:
+    #C9D7F7;
+
+    box-shadow:
+    0 8px 25px
+    rgba(21,94,239,.06);
+
 }
+
+
+.faq-card.open{
+
+    border-color:
+    #B9CCF8;
+
+    box-shadow:
+    0 12px 30px
+    rgba(21,94,239,.07);
+
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
 
 .faq-question{
-  display:flex;
-  justify-content:space-between;
-  font-size:12px;
-  font-weight:600;
-  color:var(--text);
+
+    width:100%;
+
+    border:none;
+
+    background:transparent;
+
+    padding:
+    18px 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    cursor:pointer;
+
+    text-align:left;
+
 }
 
-.faq-question span{
-  color:var(--accent);
-  font-size:14px;
+
+.question-number{
+
+    width:31px;
+
+    height:31px;
+
+    flex-shrink:0;
+
+    border-radius:10px;
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:9px;
+
+    font-weight:800;
+
 }
+
+
+.faq-card:nth-child(even)
+.question-number{
+
+    background:
+    var(--yellow-soft);
+
+    color:
+    #A97800;
+
+}
+
+
+.question-text{
+
+    flex:1;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:
+    var(--text);
+
+}
+
+
+.faq-icon{
+
+    width:29px;
+
+    height:29px;
+
+    border-radius:9px;
+
+    background:
+    #F4F6FA;
+
+    color:
+    var(--muted);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:
+    .25s;
+
+}
+
+
+.faq-card.open .faq-icon{
+
+    background:
+    var(--primary);
+
+    color:#fff;
+
+    transform:
+    rotate(180deg);
+
+}
+
+
+/* =========================================================
+   ANSWER
+========================================================= */
 
 .faq-answer{
-  font-size:11px;
-  color:var(--muted);
-  margin-top:8px;
-  display:none;
-  line-height:1.5;
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:
+    max-height .3s ease;
+
 }
 
-.faq-card.open .faq-answer{
-  display:block;
+
+.answer-content{
+
+    padding:
+    0 20px 20px 65px;
+
 }
 
-/* ===== CTA ===== */
-.cta{
-  background:var(--accent);
-  color:#fff;
-  padding:12px;
-  border-radius:var(--radius);
-  text-align:center;
-  font-size:12px;
-  font-weight:600;
-  margin-top:10px;
+
+.answer-content p{
+
+    font-size:11px;
+
+    color:
+    var(--muted);
+
+    line-height:1.8;
+
 }
 
-/* ===== Bottom Nav ===== */
-.bottom-nav{
-  height:55px;
-  background:#ffffff;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  position:absolute;
-  bottom:0;
-  width:100%;
+
+.answer-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-top:11px;
+
+    padding:
+    5px 9px;
+
+    border-radius:8px;
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
+    font-size:8px;
+
+    font-weight:700;
+
 }
 
-.nav-item{
-  text-align:center;
-  font-size:9px;
-  color:var(--muted);
-  text-decoration:none;
+
+/* =========================================================
+   HELP CARD
+========================================================= */
+
+.help-card{
+
+    margin-top:
+    30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #FFF9E2,
+        #FFFDF5
+    );
+
+    border:
+    1px solid #F4E4A7;
+
+    border-radius:
+    23px;
+
+    padding:
+    27px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
 }
 
-.nav-item i{
-  display:block;
-  font-size:15px;
-  margin-bottom:3px;
+
+.help-content{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
 }
 
-.nav-item.active{
-  color:var(--accent);
+
+.help-icon{
+
+    width:48px;
+
+    height:48px;
+
+    flex-shrink:0;
+
+    border-radius:15px;
+
+    background:
+    var(--yellow);
+
+    color:#5D4A00;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:19px;
+
 }
+
+
+.help-content h3{
+
+    font-size:14px;
+
+    margin-bottom:4px;
+
+}
+
+
+.help-content p{
+
+    font-size:10px;
+
+    color:
+    var(--muted);
+
+}
+
+
+.help-btn{
+
+    background:
+    var(--primary);
+
+    color:#fff;
+
+    padding:
+    10px 16px;
+
+    border-radius:11px;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:
+    35px;
+
+    color:
+    var(--muted);
+
+    font-size:10px;
+
+}
+
+
+.footer strong{
+
+    color:
+    var(--primary);
+
+}
+
+
+/* =========================================================
+   MOBILE BOTTOM NAV
+========================================================= */
+
+.mobile-bottom-nav{
+
+    display:none;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:850px){
+
+    .desktop-nav{
+
+        gap:17px;
+
+    }
+
+
+    .mission-grid{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .header{
+
+        height:70px;
+
+    }
+
+
+    .nav-container{
+
+        padding:
+        0 15px;
+
+    }
+
+
+    .desktop-nav{
+
+        display:none;
+
+    }
+
+
+    .menu-btn{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        cursor:pointer;
+
+    }
+
+
+    .mobile-menu{
+
+        top:70px;
+
+    }
+
+
+    .logo-icon{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+
+    .logo-text h1{
+
+        font-size:19px;
+
+    }
+
+
+    .container{
+
+        padding:
+        17px 14px
+        95px;
+
+    }
+
+
+    /* HERO */
+
+    .hero{
+
+        padding:
+        30px 21px;
+
+        border-radius:
+        23px;
+
+        margin-bottom:
+        20px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:29px;
+
+    }
+
+
+    .hero p{
+
+        font-size:10px;
+
+    }
+
+
+    /* SEARCH */
+
+    .search-box{
+
+        border-radius:
+        14px;
+
+    }
+
+
+    .search-box input{
+
+        font-size:10px;
+
+        padding:
+        10px;
+
+    }
+
+
+    /* HEADING */
+
+    .faq-heading h2{
+
+        font-size:18px;
+
+    }
+
+
+    .faq-heading p{
+
+        font-size:9px;
+
+    }
+
+
+    .faq-count{
+
+        font-size:8px;
+
+    }
+
+
+    /* QUESTION */
+
+    .faq-question{
+
+        padding:
+        15px;
+
+        gap:10px;
+
+    }
+
+
+    .question-number{
+
+        width:28px;
+
+        height:28px;
+
+        border-radius:9px;
+
+        font-size:8px;
+
+    }
+
+
+    .question-text{
+
+        font-size:10px;
+
+        line-height:1.45;
+
+    }
+
+
+    .faq-icon{
+
+        width:27px;
+
+        height:27px;
+
+        font-size:10px;
+
+    }
+
+
+    /* ANSWER */
+
+    .answer-content{
+
+        padding:
+        0 15px 16px 53px;
+
+    }
+
+
+    .answer-content p{
+
+        font-size:9px;
+
+        line-height:1.7;
+
+    }
+
+
+    .answer-tag{
+
+        font-size:7px;
+
+    }
+
+
+    /* HELP */
+
+    .help-card{
+
+        padding:
+        19px;
+
+        border-radius:
+        19px;
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+
+    .help-content{
+
+        gap:12px;
+
+    }
+
+
+    .help-icon{
+
+        width:40px;
+
+        height:40px;
+
+        border-radius:12px;
+
+        font-size:16px;
+
+    }
+
+
+    .help-content h3{
+
+        font-size:12px;
+
+    }
+
+
+    .help-content p{
+
+        font-size:8px;
+
+    }
+
+
+    .help-btn{
+
+        width:100%;
+
+        text-align:center;
+
+        padding:
+        10px;
+
+    }
+
+
+    /* BOTTOM NAV */
+
+    .mobile-bottom-nav{
+
+        display:flex;
+
+        position:fixed;
+
+        left:0;
+
+        bottom:0;
+
+        width:100%;
+
+        height:70px;
+
+        background:
+        rgba(255,255,255,.97);
+
+        backdrop-filter:
+        blur(15px);
+
+        border-top:
+        1px solid var(--border);
+
+        z-index:2000;
+
+        justify-content:
+        space-around;
+
+        align-items:center;
+
+    }
+
+
+    .mobile-nav-item{
+
+        min-width:50px;
+
+        text-align:center;
+
+        color:
+        #7C879B;
+
+        font-size:8px;
+
+        font-weight:600;
+
+    }
+
+
+    .mobile-nav-item i{
+
+        width:36px;
+
+        height:31px;
+
+        margin:auto;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        font-size:15px;
+
+    }
+
+
+    .mobile-nav-item.active{
+
+        color:
+        var(--primary);
+
+    }
+
+
+    .mobile-nav-item.active i{
+
+        background:
+        var(--blue-soft);
+
+        border-radius:
+        11px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+    .hero h1{
+
+        font-size:26px;
+
+    }
+
+
+    .question-text{
+
+        font-size:9px;
+
+    }
+
+
+    .answer-content p{
+
+        font-size:8.5px;
+
+    }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="app-container">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-  <!-- Header -->
- <div class="top-nav">
-  <div class="brand">
-    <span id="army">Mission </span>
-    <span id="navy">Cadet</span>
-    <span id="air"> Upgrade</span>
-  </div>
-  <button class="reload-btn" onclick="reloadPage()">
-    <i class="fas fa-rotate"></i>
-  </button>
+<header class="header">
+
+<div class="nav-container">
+
+
+<!-- LOGO -->
+
+<a href="index.html"
+   class="logo">
+
+
+    <div class="logo-icon">
+
+        <img
+        src="logo.png"
+        alt="ASCEND Logo">
+
+    </div>
+
+
+    <div class="logo-text">
+
+        <h1>
+            ASCEND
+        </h1>
+
+        <p>
+            Rise Today. Lead Tomorrow.
+        </p>
+
+    </div>
+
+
+</a>
+
+
+<!-- DESKTOP NAV -->
+
+<nav class="desktop-nav">
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <a href="Books.html">
+        Learn
+    </a>
+
+    <a href="Assignments.html">
+        Tasks
+    </a>
+
+    <a href="Faq.html"
+       class="active">
+        FAQ
+    </a>
+
+    <a href="Aboutus.html">
+        About
+    </a>
+
+    <a href="#faq"
+       class="explore-btn">
+        Explore
+    </a>
+
+</nav>
+
+
+<!-- MOBILE BUTTON -->
+
+<button
+class="menu-btn"
+onclick="toggleMenu()"
+aria-label="Open menu">
+
+    <i class="fas fa-bars"></i>
+
+</button>
+
+
 </div>
 
-  <!-- Main -->
-  <div class="main">
+<!-- MOBILE MENU -->
 
-    <div class="faq-card">
-      <div class="faq-question">1. What is Mission Cadet Upgrade? <span>+</span></div>
-      <div class="faq-answer">
-        Mission Cadet Upgrade is a disciplined NCC-led initiative focused on leadership, communication, current affairs, and officer-oriented career preparation.
-      </div>
-    </div>
+<div
+id="mobileMenu"
+class="mobile-menu">
 
-    <div class="faq-card">
-      <div class="faq-question">2. Who can join this mission? <span>+</span></div>
-      <div class="faq-answer">
-        Any NCC cadet from any wing or academic year can participate.
-      </div>
-    </div>
 
-    <div class="faq-card">
-      <div class="faq-question">3. What activities are conducted? <span>+</span></div>
-      <div class="faq-answer">
-        Leadership workshops, defence awareness sessions, mock tests, seminars, quizzes, and career guidance.
-      </div>
-    </div>
+<a href="index.html">
 
-    <div class="faq-card">
-      <div class="faq-question">4. Which exams are covered? <span>+</span></div>
-      <div class="faq-answer">
-        NDA, CDS, AFCAT, INET, UPSC, TNPSC, SSC, and other competitive exams.
-      </div>
-    </div>
+    <i class="fas fa-house"></i>
 
-    <div class="faq-card">
-      <div class="faq-question">5. Is there any fee? <span>+</span></div>
-      <div class="faq-answer">
-        No. This mission is completely free for all cadets.
-      </div>
-    </div>
+    &nbsp; Home
 
-    <div class="faq-card">
-      <div class="faq-question">6. Who conducts the sessions? <span>+</span></div>
-      <div class="faq-answer">
-        Senior NCC cadets, officers, faculty advisors, alumni, and guest experts.
-      </div>
-    </div>
+</a>
 
-    <div class="faq-card">
-      <div class="faq-question">7. What are the benefits? <span>+</span></div>
-      <div class="faq-answer">
-        Improved confidence, leadership mindset, teamwork, discipline, and exam readiness.
-      </div>
-    </div>
 
-    <div class="faq-card">
-      <div class="faq-question">8. How can I contact the team? <span>+</span></div>
-      <div class="faq-answer">
-        Through NCC unit announcements, senior cadets, or official communication channels.
-      </div>
-    </div>
+<a href="Books.html">
 
-    <div class="cta">
-      Serve With Honour • Lead With Courage
-    </div>
+    <i class="fas fa-book-open"></i>
 
-  </div>
+    &nbsp; Learn
 
-  <!-- Bottom Navigation -->
-  <div class="bottom-nav">
-    <a class="nav-item" href="index.html">
-      <i class="fas fa-home"></i>
-      Home
-    </a>
+</a>
 
-    <a class="nav-item" href="Books.html">
-      <i class="fas fa-book"></i>
-      Books
-    </a>
 
-    <a class="nav-item" href="Assignments.html">
-      <i class="fas fa-clipboard"></i>
-      Tasks
-    </a>
+<a href="Assignments.html">
 
-    <a class="nav-item active" href="Faq.html">
-      <i class="fas fa-question-circle"></i>
-      FAQ
-    </a>
+    <i class="fas fa-list-check"></i>
 
-    <a class="nav-item" href="Aboutus.html">
-      <i class="fas fa-user"></i>
-      About
-    </a>
-    
-  </div>
+    &nbsp; Tasks
+
+</a>
+
+
+<a href="Faq.html">
+
+    <i class="fas fa-circle-question"></i>
+
+    &nbsp; FAQ
+
+</a>
+
+
+<a href="Aboutus.html">
+
+    <i class="fas fa-users"></i>
+
+    &nbsp; About
+
+</a>
+
 
 </div>
+
+</header>
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+
+<div class="hero-content">
+
+
+    <div class="badge">
+
+        <i class="fas fa-circle-question"></i>
+
+        ASCEND SUPPORT
+
+    </div>
+
+
+    <h1>
+
+        Frequently Asked
+        <br>
+
+        <span>Questions.</span>
+
+    </h1>
+
+
+    <p>
+
+        Find quick answers about ASCEND,
+        our learning community, activities,
+        career preparation and opportunities.
+
+    </p>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     SEARCH
+===================================================== -->
+
+<section class="search-area">
+
+
+<div class="search-box">
+
+    <i class="fas fa-magnifying-glass"></i>
+
+    <input
+    type="text"
+    id="faqSearch"
+    placeholder="Search your question...">
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section id="faq">
+
+
+<div class="faq-heading">
+
+
+    <div>
+
+        <h2>
+            Common Questions
+        </h2>
+
+        <p>
+            Tap a question to view the answer
+        </p>
+
+    </div>
+
+
+    <div class="faq-count">
+
+        08 QUESTIONS
+
+    </div>
+
+
+</div>
+
+
+
+<div class="faq-list"
+     id="faqList">
+
+
+    <!-- 01 -->
+
+    <div class="faq-card">
+
+
+        <button
+        class="faq-question">
+
+            <div class="question-number">
+                01
+            </div>
+
+
+            <div class="question-text">
+
+                What is ASCEND?
+
+            </div>
+
+
+            <div class="faq-icon">
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+            <div class="answer-content">
+
+                <p>
+
+                    ASCEND is a learning and growth
+                    community focused on helping
+                    individuals learn, develop skills,
+                    discover career opportunities and
+                    build leadership qualities.
+
+                </p>
+
+
+                <span class="answer-tag">
+
+                    <i class="fas fa-graduation-cap"></i>
+
+                    Learning Community
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- 02 -->
+
+    <div class="faq-card">
+
+
+        <button
+        class="faq-question">
+
+            <div class="question-number">
+                02
+            </div>
+
+
+            <div class="question-text">
+
+                Who can be part of ASCEND?
+
+            </div>
+
+
+            <div class="faq-icon">
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+            <div class="answer-content">
+
+                <p>
+
+                    ASCEND is designed for students,
+                    cadets, learners, job seekers,
+                    aspiring entrepreneurs and anyone
+                    interested in personal and
+                    professional growth.
+
+                </p>
+
+
+                <span class="answer-tag">
+
+                    <i class="fas fa-users"></i>
+
+                    Open Community
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- 03 -->
+
+    <div class="faq-card">
+
+
+        <button
+        class="faq-question">
+
+            <div class="question-number">
+                03
+            </div>
+
+
+            <div class="question-text">
+
+                What areas does ASCEND cover?
+
+            </div>
+
+
+            <div class="faq-icon">
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+            <div class="answer-content">
+
+                <p>
+
+                    ASCEND covers Defence,
+                    Careers, Skills & Technology,
+                    Business, Entrepreneurship,
+                    Leadership, current affairs
+                    and competitive-exam awareness.
+
+                </p>
+
+
+                <span class="answer-tag">
+
+                    <i class="fas fa-layer-group"></i>
+
+                    Multiple Domains
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- 04 -->
+
+    <div class="faq-card">
+
+
+        <button
+        class="faq-question">
+
+            <div class="question-number">
+                04
+            </div>
+
+
+            <div class="question-text">
+
+                Which competitive exams are discussed?
+
+            </div>
+
+
+            <div class="faq-icon">
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+            <div class="answer-content">
+
+                <p>
+
+                    Learning resources may include
+                    awareness and preparation support
+                    related to NDA, CDS, AFCAT, INET,
+                    UPSC, TNPSC, SSC and other
+                    competitive examinations.
+
+                </p>
+
+
+                <span class="answer-tag">
+
+                    <i class="fas fa-file-lines"></i>
+
+                    Exam Preparation
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- 05 -->
+
+    <div class="faq-card">
+
+
+        <button
+        class="faq-question">
+
+            <div class="question-number">
+                05
+            </div>
+
+
+            <div class="question-text">
+
+                Is ASCEND free to use?
+
+            </div>
+
+
+            <div class="faq-icon">
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+            <div class="answer-content">
+
+                <p>
+
+                    ASCEND provides learning resources
+                    and community initiatives with the
+                    goal of making useful knowledge and
+                    opportunities accessible to learners.
+
+                </p>
+
+
+                <span class="answer-tag">
+
+                    <i class="fas fa-heart"></i>
+
+                    Accessible Learning
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- 06 -->
+
+    <div class="faq-card">
+
+
+        <button
+        class="faq-question">
+
+            <div class="question-number">
+                06
+            </div>
+
+
+            <div class="question-text">
+
+                What resources are available?
+
+            </div>
+
+
+            <div class="faq-icon">
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+            <div class="answer-content">
+
+                <p>
+
+                    Depending on the section,
+                    users can find books, assignments,
+                    study resources, career information,
+                    current affairs and other
+                    educational materials.
+
+                </p>
+
+
+                <span class="answer-tag">
+
+                    <i class="fas fa-book-open"></i>
+
+                    Resources
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- 07 -->
+
+    <div class="faq-card">
+
+
+        <button
+        class="faq-question">
+
+            <div class="question-number">
+                07
+            </div>
+
+
+            <div class="question-text">
+
+                How can ASCEND help with personal growth?
+
+            </div>
+
+
+            <div class="faq-icon">
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+            <div class="answer-content">
+
+                <p>
+
+                    ASCEND encourages continuous
+                    learning, communication, teamwork,
+                    leadership, career awareness and
+                    practical skill development.
+
+                </p>
+
+
+                <span class="answer-tag">
+
+                    <i class="fas fa-arrow-trend-up"></i>
+
+                    Personal Growth
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- 08 -->
+
+    <div class="faq-card">
+
+
+        <button
+        class="faq-question">
+
+            <div class="question-number">
+                08
+            </div>
+
+
+            <div class="question-text">
+
+                How can I contact ASCEND?
+
+            </div>
+
+
+            <div class="faq-icon">
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+            <div class="answer-content">
+
+                <p>
+
+                    You can follow the official ASCEND
+                    platform and use the communication
+                    channels provided on the website
+                    for updates and announcements.
+
+                </p>
+
+
+                <span class="answer-tag">
+
+                    <i class="fas fa-envelope"></i>
+
+                    Contact & Updates
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     HELP CARD
+===================================================== -->
+
+<section class="help-card">
+
+
+<div class="help-content">
+
+
+    <div class="help-icon">
+
+        <i class="fas fa-comments"></i>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Still have a question?
+        </h3>
+
+        <p>
+            Explore ASCEND or connect with the team.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<a
+href="Aboutus.html"
+class="help-btn">
+
+    Learn More
+
+    <i class="fas fa-arrow-right"></i>
+
+</a>
+
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+
+<strong>ASCEND</strong>
+— Rise Today. Lead Tomorrow.
+
+<br><br>
+
+© 2026 ASCEND Learning Community.
+All Rights Reserved.
+
+
+</footer>
+
+</main>
+
+<!-- =====================================================
+     MOBILE BOTTOM NAV
+===================================================== -->
+
+<nav class="mobile-bottom-nav">
+
+
+<a
+href="index.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-house"></i>
+
+    Home
+
+</a>
+
+
+<a
+href="Books.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-book-open"></i>
+
+    Learn
+
+</a>
+
+
+<a
+href="Assignments.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-list-check"></i>
+
+    Tasks
+
+</a>
+
+
+<a
+href="Faq.html"
+class="mobile-nav-item active">
+
+    <i class="fas fa-circle-question"></i>
+
+    FAQ
+
+</a>
+
+
+<a
+href="Aboutus.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-users"></i>
+
+    About
+
+</a>
+
+
+</nav>
 
 <script>
-document.querySelectorAll('.faq-card').forEach(card=>{
-  card.addEventListener('click',()=>{
-    card.classList.toggle('open');
-    const sign = card.querySelector('span');
-    sign.textContent = card.classList.contains('open') ? '−' : '+';
-  });
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu(){
+
+    const menu =
+    document.getElementById("mobileMenu");
+
+    const icon =
+    document.querySelector(".menu-btn i");
+
+
+    menu.classList.toggle("active");
+
+
+    if(menu.classList.contains("active")){
+
+        icon.classList.remove("fa-bars");
+
+        icon.classList.add("fa-xmark");
+
+    }
+
+    else{
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    }
+
+}
+
+
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
+
+const faqCards =
+document.querySelectorAll(".faq-card");
+
+
+faqCards.forEach(card => {
+
+
+    const question =
+    card.querySelector(".faq-question");
+
+
+    question.addEventListener("click", () => {
+
+
+        const answer =
+        card.querySelector(".faq-answer");
+
+
+        const isOpen =
+        card.classList.contains("open");
+
+
+        /* Close other cards */
+
+        faqCards.forEach(otherCard => {
+
+            if(otherCard !== card){
+
+                otherCard.classList.remove("open");
+
+                otherCard
+                .querySelector(".faq-answer")
+                .style.maxHeight = null;
+
+            }
+
+        });
+
+
+        /* Toggle current */
+
+        if(!isOpen){
+
+            card.classList.add("open");
+
+            answer.style.maxHeight =
+            answer.scrollHeight + "px";
+
+        }
+
+        else{
+
+            card.classList.remove("open");
+
+            answer.style.maxHeight = null;
+
+        }
+
+    });
+
 });
+
+
+/* =========================================================
+   FAQ SEARCH
+========================================================= */
+
+const searchInput =
+document.getElementById("faqSearch");
+
+
+searchInput.addEventListener("input", function(){
+
+    const search =
+    this.value.toLowerCase().trim();
+
+
+    faqCards.forEach(card => {
+
+        const text =
+        card.innerText.toLowerCase();
+
+
+        if(text.includes(search)){
+
+            card.style.display = "";
+
+        }
+
+        else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   CLOSE MOBILE MENU
+========================================================= */
+
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document
+        .getElementById("mobileMenu")
+        .classList.remove("active");
+
+
+        const icon =
+        document.querySelector(".menu-btn i");
+
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    });
+
+});
+
 </script>
 
 </body>
+
 </html>

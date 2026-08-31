@@ -1,220 +1,2264 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Mission Cadet Upgrade | Theory Test</title>
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="google-adsense-account"
+content="ca-pub-1318194885972438">
+
+<title>ASCEND | Learning & Tests</title>
+
+<!-- Google AdSense -->
+
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318194885972438"
+crossorigin="anonymous"></script>
 
 <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Google Font -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
-  --bg:#ffffff;
-  --soft:#f9f9f9;
-  --border:#e5e5e5;
-  --text:#0f0f0f;
-  --muted:#606060;
-  --accent:#ff0000;
-  --radius:12px;
+
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+
+    --yellow:#FFD43B;
+    --yellow-dark:#DFA800;
+
+    --bg:#F5F7FC;
+    --white:#FFFFFF;
+
+    --text:#172033;
+    --muted:#68748A;
+
+    --border:#E4E9F2;
+
+    --blue-soft:#EDF3FF;
+    --yellow-soft:#FFF8DC;
+
+    --green:#18A66A;
+    --green-soft:#EAFBF3;
+
+    --radius:20px;
+
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', Arial, sans-serif;
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+    font-family:
+    'Inter',
+    Arial,
+    sans-serif;
+
 }
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
 
 body{
-  background:#f2f2f2;
-  display:flex;
-  justify-content:center;
+
+    background:
+    var(--bg);
+
+    color:
+    var(--text);
+
 }
 
-/* ===== Mobile Frame ===== */
-.app-container{
-  width:100%;
-  max-width:360px;
-  height:800px;
-  background:var(--bg);
-  display:flex;
-  flex-direction:column;
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--border);
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
 }
 
-/* ===== Header ===== */
-.top-nav{
-  background:#ffffff;
-  border-bottom:1px solid var(--border);
-  padding:12px 14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    height:76px;
+
+    background:
+    rgba(255,255,255,.96);
+
+    border-bottom:
+    1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    backdrop-filter:
+    blur(16px);
+
 }
 
-.brand{
-  font-size:16px;
-  font-weight:700;
-  color:#0f0f0f;
+
+.nav-container{
+
+    max-width:1200px;
+
+    height:100%;
+
+    margin:auto;
+
+    padding:
+    0 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
 }
 
-.brand #army{
-  color:#ff0000;
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
 }
 
-.brand #navy{
-  color:#0000ff;
+
+.logo-icon{
+
+    width:47px;
+
+    height:47px;
+
+    border-radius:14px;
+
+    background:#fff;
+
+    border:
+    1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
 }
 
-.brand #air{
-  color:#00b6ff;
+
+.logo-icon img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
 }
 
-.reload-btn{
-  background:none;
-  border:none;
-  font-size:18px;
-  color:var(--accent);
-  cursor:pointer;
+
+.logo-text h1{
+
+    font-size:21px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    line-height:1;
+
+    color:
+    var(--primary);
+
 }
 
-/* ===== Scroll Area ===== */
-.main{
-  flex:1;
-  overflow-y:auto;
-  padding:14px;
+
+.logo-text p{
+
+    font-size:8px;
+
+    color:
+    var(--muted);
+
+    font-weight:600;
+
+    margin-top:5px;
+
 }
 
-/* ===== Test Cards ===== */
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.desktop-nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:27px;
+
+}
+
+
+.desktop-nav a{
+
+    color:
+    var(--muted);
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+
+.desktop-nav a:hover{
+
+    color:
+    var(--primary);
+
+}
+
+
+.desktop-nav .active{
+
+    color:
+    var(--primary);
+
+}
+
+
+.explore-btn{
+
+    background:
+    var(--primary);
+
+    color:#fff !important;
+
+    padding:
+    10px 17px;
+
+    border-radius:
+    11px;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-btn{
+
+    display:none;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:76px;
+
+    left:0;
+
+    width:100%;
+
+    background:#fff;
+
+    border-bottom:
+    1px solid var(--border);
+
+    padding:
+    10px 15px;
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.08);
+
+}
+
+
+.mobile-menu.active{
+
+    display:block;
+
+}
+
+
+.mobile-menu a{
+
+    display:block;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+.mobile-menu a:hover{
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container{
+
+    max-width:1050px;
+
+    margin:auto;
+
+    padding:
+    35px 25px
+    100px;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        #155EEF,
+        #4D82FF
+    );
+
+    color:#fff;
+
+    border-radius:
+    28px;
+
+    padding:
+    45px;
+
+    margin-bottom:
+    28px;
+
+    box-shadow:
+    0 20px 50px
+    rgba(21,94,239,.17);
+
+}
+
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:330px;
+
+    height:330px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.08);
+
+    right:-130px;
+
+    top:-190px;
+
+}
+
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:200px;
+
+    height:200px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,212,59,.15);
+
+    right:190px;
+
+    bottom:-160px;
+
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:650px;
+
+}
+
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    background:
+    rgba(255,255,255,.14);
+
+    border:
+    1px solid
+    rgba(255,255,255,.2);
+
+    padding:
+    7px 13px;
+
+    border-radius:30px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+
+}
+
+
+.hero h1{
+
+    font-size:38px;
+
+    line-height:1.15;
+
+    letter-spacing:-1px;
+
+    margin-bottom:12px;
+
+}
+
+
+.hero h1 span{
+
+    color:
+    var(--yellow);
+
+}
+
+
+.hero p{
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    color:
+    rgba(255,255,255,.88);
+
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-heading{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    margin-bottom:
+    15px;
+
+}
+
+
+.section-heading h2{
+
+    font-size:22px;
+
+    font-weight:800;
+
+}
+
+
+.section-heading p{
+
+    font-size:10px;
+
+    color:
+    var(--muted);
+
+    margin-top:4px;
+
+}
+
+
+.status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    background:
+    var(--green-soft);
+
+    color:
+    var(--green);
+
+    border-radius:10px;
+
+    padding:
+    7px 10px;
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+.status-dot{
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:
+    var(--green);
+
+}
+
+
+/* =========================================================
+   TEST GRID
+========================================================= */
+
+.test-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+
+/* =========================================================
+   TEST CARD
+========================================================= */
+
 .test-card{
-  background:var(--soft);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:18px;
-  text-align:center;
-  margin-bottom:14px;
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    21px;
+
+    padding:
+    22px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:
+    .25s ease;
+
 }
 
-.test-card h2{
-  font-size:14px;
-  color:var(--accent);
-  margin-bottom:14px;
+
+.test-card:hover{
+
+    transform:
+    translateY(-4px);
+
+    border-color:
+    #C5D4F5;
+
+    box-shadow:
+    0 15px 35px
+    rgba(21,94,239,.08);
+
 }
 
-/* ===== Button ===== */
-.form-link{
-  display:inline-block;
-  padding:10px 16px;
-  background:var(--accent);
-  color:#fff;
-  text-decoration:none;
-  font-size:12px;
-  font-weight:600;
-  border-radius:8px;
+
+.test-card.yellow{
+
+    background:
+    linear-gradient(
+        145deg,
+        #fff,
+        #FFFDF3
+    );
+
 }
 
-.form-link:hover{
-  opacity:.9;
+
+.card-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:20px;
+
 }
 
-/* ===== Bottom Nav ===== */
-.bottom-nav{
-  height:55px;
-  background:#ffffff;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  position:absolute;
-  bottom:0;
-  width:100%;
+
+.test-icon{
+
+    width:51px;
+
+    height:51px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
+    font-size:20px;
+
 }
 
-.nav-item{
-  text-align:center;
-  font-size:10px;
-  color:var(--muted);
-  text-decoration:none;
+
+.yellow .test-icon{
+
+    background:
+    var(--yellow-soft);
+
+    color:
+    #A77B00;
+
 }
 
-.nav-item i{
-  display:block;
-  font-size:16px;
-  margin-bottom:3px;
+
+.card-label{
+
+    font-size:8px;
+
+    font-weight:800;
+
+    padding:
+    6px 9px;
+
+    border-radius:8px;
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
 }
 
-.nav-item.active{
-  color:var(--accent);
+
+.yellow .card-label{
+
+    background:
+    var(--yellow-soft);
+
+    color:
+    #A77B00;
+
 }
 
-.nav-item.active i{
-  color:var(--accent);
+
+.test-card h3{
+
+    font-size:17px;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+
+}
+
+
+.test-card p{
+
+    color:
+    var(--muted);
+
+    font-size:10px;
+
+    line-height:1.7;
+
+    margin-bottom:18px;
+
+}
+
+
+/* =========================================================
+   CARD INFO
+========================================================= */
+
+.card-info{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-bottom:
+    18px;
+
+}
+
+
+.info-item{
+
+    flex:1;
+
+    background:
+    #F7F9FD;
+
+    border-radius:10px;
+
+    padding:
+    9px;
+
+}
+
+
+.info-item i{
+
+    color:
+    var(--primary);
+
+    font-size:10px;
+
+    margin-right:4px;
+
+}
+
+
+.info-item span{
+
+    font-size:8px;
+
+    color:
+    var(--muted);
+
+}
+
+
+/* =========================================================
+   CARD BUTTON
+========================================================= */
+
+.test-btn{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:
+    12px;
+
+    border-radius:12px;
+
+    background:
+    var(--primary);
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    transition:.2s;
+
+}
+
+
+.test-btn:hover{
+
+    background:
+    var(--primary-dark);
+
+}
+
+
+.yellow .test-btn{
+
+    background:
+    var(--yellow);
+
+    color:
+    #463900;
+
+}
+
+
+.yellow .test-btn:hover{
+
+    background:
+    #F4C51C;
+
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:12px;
+
+    margin-top:
+    28px;
+
+}
+
+
+.feature{
+
+    background:#fff;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    16px;
+
+    padding:
+    17px;
+
+}
+
+
+.feature-icon{
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:11px;
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:
+    11px;
+
+    font-size:13px;
+
+}
+
+
+.feature:nth-child(2)
+.feature-icon{
+
+    background:
+    var(--yellow-soft);
+
+    color:
+    #A77B00;
+
+}
+
+
+.feature h4{
+
+    font-size:11px;
+
+    margin-bottom:5px;
+
+}
+
+
+.feature p{
+
+    font-size:8px;
+
+    color:
+    var(--muted);
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================================
+   QUOTE / CTA
+========================================================= */
+
+.cta{
+
+    margin-top:
+    28px;
+
+    background:
+    var(--yellow);
+
+    border-radius:
+    20px;
+
+    padding:
+    23px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+
+.cta-text h3{
+
+    font-size:15px;
+
+    color:
+    #403500;
+
+    margin-bottom:4px;
+
+}
+
+
+.cta-text p{
+
+    font-size:9px;
+
+    color:
+    #665800;
+
+}
+
+
+.cta-icon{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:14px;
+
+    background:
+    rgba(255,255,255,.45);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:
+    #604D00;
+
+    font-size:18px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:
+    35px;
+
+    font-size:9px;
+
+    color:
+    var(--muted);
+
+}
+
+
+.footer strong{
+
+    color:
+    var(--primary);
+
+}
+
+
+/* =========================================================
+   MOBILE BOTTOM NAV
+========================================================= */
+
+.mobile-bottom-nav{
+
+    display:none;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:850px){
+
+    .desktop-nav{
+
+        gap:15px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .header{
+
+        height:70px;
+
+    }
+
+
+    .nav-container{
+
+        padding:
+        0 15px;
+
+    }
+
+
+    .desktop-nav{
+
+        display:none;
+
+    }
+
+
+    .menu-btn{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
+
+
+    .mobile-menu{
+
+        top:70px;
+
+    }
+
+
+    .logo-icon{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+
+    .logo-text h1{
+
+        font-size:19px;
+
+    }
+
+
+    .container{
+
+        padding:
+        16px 14px
+        92px;
+
+    }
+
+
+    /* HERO */
+
+    .hero{
+
+        padding:
+        30px 20px;
+
+        border-radius:
+        23px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:28px;
+
+    }
+
+
+    .hero p{
+
+        font-size:9px;
+
+    }
+
+
+    /* HEADING */
+
+    .section-heading h2{
+
+        font-size:18px;
+
+    }
+
+
+    .section-heading p{
+
+        font-size:8px;
+
+    }
+
+
+    .status{
+
+        font-size:7px;
+
+        padding:
+        6px 8px;
+
+    }
+
+
+    /* GRID */
+
+    .test-grid{
+
+        grid-template-columns:
+        1fr;
+
+        gap:12px;
+
+    }
+
+
+    .test-card{
+
+        padding:
+        18px;
+
+        border-radius:
+        18px;
+
+    }
+
+
+    .test-card h3{
+
+        font-size:15px;
+
+    }
+
+
+    .test-card p{
+
+        font-size:9px;
+
+    }
+
+
+    .test-icon{
+
+        width:46px;
+
+        height:46px;
+
+        font-size:18px;
+
+    }
+
+
+    .card-info{
+
+        margin-bottom:
+        14px;
+
+    }
+
+
+    .info-item{
+
+        padding:8px;
+
+    }
+
+
+    .test-btn{
+
+        padding:11px;
+
+    }
+
+
+    /* FEATURES */
+
+    .features{
+
+        grid-template-columns:
+        1fr;
+
+        gap:10px;
+
+    }
+
+
+    .feature{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:12px;
+
+        padding:
+        13px;
+
+    }
+
+
+    .feature-icon{
+
+        flex-shrink:0;
+
+        margin:0;
+
+    }
+
+
+    /* CTA */
+
+    .cta{
+
+        padding:
+        18px;
+
+        border-radius:
+        17px;
+
+    }
+
+
+    .cta-text h3{
+
+        font-size:12px;
+
+    }
+
+
+    .cta-text p{
+
+        font-size:8px;
+
+    }
+
+
+    .cta-icon{
+
+        width:39px;
+
+        height:39px;
+
+        font-size:15px;
+
+    }
+
+
+    /* BOTTOM NAV */
+
+    .mobile-bottom-nav{
+
+        display:flex;
+
+        position:fixed;
+
+        left:0;
+
+        bottom:0;
+
+        width:100%;
+
+        height:70px;
+
+        background:
+        rgba(255,255,255,.97);
+
+        backdrop-filter:
+        blur(15px);
+
+        border-top:
+        1px solid var(--border);
+
+        z-index:2000;
+
+        justify-content:
+        space-around;
+
+        align-items:center;
+
+    }
+
+
+    .mobile-nav-item{
+
+        min-width:50px;
+
+        text-align:center;
+
+        color:
+        #7C879B;
+
+        font-size:8px;
+
+        font-weight:600;
+
+    }
+
+
+    .mobile-nav-item i{
+
+        width:36px;
+
+        height:31px;
+
+        margin:auto;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        font-size:15px;
+
+    }
+
+
+    .mobile-nav-item.active{
+
+        color:
+        var(--primary);
+
+    }
+
+
+    .mobile-nav-item.active i{
+
+        background:
+        var(--blue-soft);
+
+        border-radius:
+        11px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+    .hero h1{
+
+        font-size:25px;
+
+    }
+
+
+    .test-card h3{
+
+        font-size:14px;
+
+    }
+
+}
+.admin-btn{
+    background:#172033;
+    color:#fff !important;
+    padding:10px 17px;
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.admin-btn:hover{
+    background:#000;
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="app-container">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-  <!-- Header -->
- <div class="top-nav">
-    <div class="brand">
-      <span id="army">Mission </span>
-      <span id="navy">Cadet</span>
-      <span id="air"> Upgrade</span>
-    </div>
-    <button class="reload-btn" onclick="reloadPage()">
-      <i class="fas fa-rotate"></i>
-    </button>
-  </div>
-  <!-- Main Content -->
-  <div class="main">
+<header class="header">
 
-    <div class="test-card">
-      <h2>NCC Theory Test</h2>
-      <a class="form-link" href="test/test.html">
-        Start Theory Test
-      </a>
-    </div>
+<div class="nav-container">
 
-    <div class="test-card">
-      <h2>NCC Test Result</h2>
-      <a class="form-link" href="test/Result.html">
-        View Test Result
-      </a>
+
+<!-- LOGO -->
+
+<a href="index.html"
+   class="logo">
+
+
+    <div class="logo-icon">
+
+        <img
+        src="logo.png"
+        alt="ASCEND Logo">
+
     </div>
 
-  </div>
 
-  <!-- Bottom Navigation -->
-  <div class="bottom-nav">
-    <a class="nav-item" href="index.html">
-      <i class="fas fa-home"></i>
-      Home
+    <div class="logo-text">
+
+        <h1>
+            ASCEND
+        </h1>
+
+        <p>
+            Rise Today. Lead Tomorrow.
+        </p>
+
+    </div>
+
+
+</a>
+
+
+
+<!-- DESKTOP NAV -->
+
+<nav class="desktop-nav">
+
+    <a href="index.html">
+        Home
     </a>
-    <a class="nav-item" href="Books.html">
-      <i class="fas fa-book"></i>
-      Books
+
+    <a href="Books.html">
+        Learn
     </a>
-    <a class="nav-item active" href="Assignments.html">
-      <i class="fas fa-clipboard"></i>
-      Tasks
+
+    <a href="Assignments.html"
+       class="active">
+        Tasks
     </a>
-    <a class="nav-item" href="Faq.html">
-      <i class="fas fa-question-circle"></i>
-      FAQ
+
+    <a href="Faq.html">
+        FAQ
     </a>
-    <a class="nav-item" href="Aboutus.html">
-      <i class="fas fa-user"></i>
-      About
+
+    <a href="Aboutus.html">
+        About
     </a>
-  </div>
+
+    <a href="test/index.html" class="admin-btn">
+        <i class="fas fa-user-shield"></i>
+        Test Administrator
+    </a>
+
+    <a href="#tests"
+       class="explore-btn">
+
+        Explore
+
+    </a>
+
+</nav>
+
+
+
+<!-- MOBILE MENU BUTTON -->
+
+<button
+class="menu-btn"
+onclick="toggleMenu()">
+
+    <i class="fas fa-bars"></i>
+
+</button>
+
 
 </div>
 
+<!-- MOBILE MENU -->
+
+<div
+id="mobileMenu"
+class="mobile-menu">
+
+
+<a href="index.html">
+
+    <i class="fas fa-house"></i>
+
+    &nbsp; Home
+
+</a>
+
+
+<a href="Books.html">
+
+    <i class="fas fa-book-open"></i>
+
+    &nbsp; Learn
+
+</a>
+
+
+<a href="Assignments.html">
+
+    <i class="fas fa-list-check"></i>
+
+    &nbsp; Tasks
+
+</a>
+
+
+<a href="Faq.html">
+
+    <i class="fas fa-circle-question"></i>
+
+    &nbsp; FAQ
+
+</a>
+
+
+<a href="Aboutus.html">
+
+    <i class="fas fa-users"></i>
+
+    &nbsp; About
+
+</a>
+
+
+</div>
+
+</header>
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+
+<div class="hero-content">
+
+
+    <div class="badge">
+
+        <i class="fas fa-graduation-cap"></i>
+
+        ASCEND LEARNING
+
+    </div>
+
+
+    <h1>
+
+        Learn.
+        <span>Practice.</span>
+        <br>
+        Ascend.
+
+    </h1>
+
+
+    <p>
+
+        Strengthen your knowledge, test your
+        understanding and track your learning
+        journey through ASCEND assessments.
+
+    </p>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     TEST SECTION
+===================================================== -->
+
+<section id="tests">
+
+
+<div class="section-heading">
+
+
+    <div>
+
+        <h2>
+            Assessments
+        </h2>
+
+        <p>
+            Choose an activity to continue your journey.
+        </p>
+
+    </div>
+
+
+    <div class="status">
+
+        <span class="status-dot"></span>
+
+        Available
+
+    </div>
+
+
+</div>
+
+
+
+<div class="test-grid">
+
+
+
+    <!-- THEORY TEST -->
+
+    <article class="test-card">
+
+
+        <div class="card-top">
+
+
+            <div class="test-icon">
+
+                <i class="fas fa-file-pen"></i>
+
+            </div>
+
+
+            <div class="card-label">
+
+                TEST
+
+            </div>
+
+
+        </div>
+
+
+        <h3>
+             Theory Test
+        </h3>
+
+
+        <p>
+
+            Test your knowledge ,
+            leadership, current affairs,
+            defence awareness and related
+            learning areas.
+
+        </p>
+
+
+        <div class="card-info">
+
+
+            <div class="info-item">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+                    Timed
+                </span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <i class="fas fa-list-check"></i>
+
+                <span>
+                    MCQ
+                </span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <i class="fas fa-chart-simple"></i>
+
+                <span>
+                    Score
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <a
+        href="test/test.html"
+        class="test-btn">
+
+            Start Theory Test
+
+            <i class="fas fa-arrow-right"></i>
+
+        </a>
+
+
+    </article>
+
+
+
+    <!-- RESULT -->
+
+    <article class="test-card yellow">
+
+
+        <div class="card-top">
+
+
+            <div class="test-icon">
+
+                <i class="fas fa-chart-column"></i>
+
+            </div>
+
+
+            <div class="card-label">
+
+                RESULTS
+
+            </div>
+
+
+        </div>
+
+
+        <h3>
+             Test Result
+        </h3>
+
+
+        <p>
+
+            Review your assessment results,
+            marks and performance after
+            completing the theory test.
+
+        </p>
+
+
+        <div class="card-info">
+
+
+            <div class="info-item">
+
+                <i class="fas fa-award"></i>
+
+                <span>
+                    Marks
+                </span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <i class="fas fa-chart-line"></i>
+
+                <span>
+                    Performance
+                </span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <i class="fas fa-clock-rotate-left"></i>
+
+                <span>
+                    History
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <a
+        href="test/Result.html"
+        class="test-btn">
+
+            View Test Result
+
+            <i class="fas fa-arrow-right"></i>
+
+        </a>
+
+
+    </article>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section class="features">
+
+
+<div class="feature">
+
+
+    <div class="feature-icon">
+
+        <i class="fas fa-brain"></i>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            Build Knowledge
+        </h4>
+
+        <p>
+            Strengthen concepts through
+            structured assessments.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+<div class="feature">
+
+
+    <div class="feature-icon">
+
+        <i class="fas fa-bolt"></i>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            Challenge Yourself
+        </h4>
+
+        <p>
+            Practice consistently and
+            improve your confidence.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+<div class="feature">
+
+
+    <div class="feature-icon">
+
+        <i class="fas fa-chart-line"></i>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            Track Performance
+        </h4>
+
+        <p>
+            Review your results and
+            understand your progress.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+
+<div class="cta-text">
+
+
+    <h3>
+        Every test is a step forward.
+    </h3>
+
+
+    <p>
+        Learn today. Improve tomorrow. ASCEND.
+    </p>
+
+
+</div>
+
+
+<div class="cta-icon">
+
+    <i class="fas fa-arrow-up-right-dots"></i>
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+
+<strong>ASCEND</strong>
+— Rise Today. Lead Tomorrow.
+
+<br><br>
+
+© 2026 ASCEND Learning Community.
+All Rights Reserved.
+
+
+</footer>
+
+</main>
+
+<!-- =====================================================
+     MOBILE BOTTOM NAV
+===================================================== -->
+
+<nav class="mobile-bottom-nav">
+
+
+<a
+href="index.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-house"></i>
+
+    Home
+
+</a>
+
+
+<a
+href="Books.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-book-open"></i>
+
+    Learn
+
+</a>
+
+
+<a
+href="Assignments.html"
+class="mobile-nav-item active">
+
+    <i class="fas fa-list-check"></i>
+
+    Tasks
+
+</a>
+
+
+<a
+href="Faq.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-circle-question"></i>
+
+    FAQ
+
+</a>
+
+
+<a
+href="Aboutus.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-users"></i>
+
+    About
+
+</a>
+
+
+</nav>
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu(){
+
+    const menu =
+    document.getElementById("mobileMenu");
+
+    const icon =
+    document.querySelector(".menu-btn i");
+
+
+    menu.classList.toggle("active");
+
+
+    if(menu.classList.contains("active")){
+
+        icon.classList.remove("fa-bars");
+
+        icon.classList.add("fa-xmark");
+
+    }
+
+    else{
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE MOBILE MENU
+========================================================= */
+
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document
+        .getElementById("mobileMenu")
+        .classList.remove("active");
+
+
+        const icon =
+        document.querySelector(".menu-btn i");
+
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    });
+
+});
+
+</script>
+
 </body>
+
 </html>

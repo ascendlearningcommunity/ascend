@@ -1,356 +1,1833 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Faculty Dashboard – Questions</title>
+
+<title>ASCEND | Faculty Questions</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <!-- Excel Library -->
+
 <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 <style>
 :root{
-  --bg:#f5f5f5;
-  --text:#0f0f0f;
-  --border:#ddd;
-  --accent:#ff0000;
+  --primary:#5b5bd6;
+  --primary-dark:#4646bd;
+  --primary-soft:#eeeeff;
+  --secondary:#7c3aed;
+  --bg:#f7f8fc;
+  --surface:#ffffff;
+  --border:#e8e9f0;
+  --text:#1c1c28;
+  --muted:#747488;
+  --danger:#ef4444;
+  --danger-soft:#fff1f1;
+  --success:#16a34a;
+  --radius:18px;
+  --nav-height:70px;
+  --bottom-height:68px;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Arial, sans-serif;}
-body{background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
-.top-nav{height:60px;background:#fff;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:0 30px;position:fixed;top:0;width:100%;z-index:1000;box-shadow:0 2px 5px rgba(0,0,0,0.05);}
-.brand{font-size:20px;font-weight:700;}
-.brand #army{ color:#ff0000; }
-.brand #navy{ color:#0000ff; }
-.brand #air{ color:#00b6ff; }
-.reload-btn{background:none;border:none;font-size:20px;color:var(--accent);cursor:pointer;}
-.page-content{margin-top:60px;flex:1;display:flex;justify-content:center;padding:20px;overflow:auto;}
-.content-wrapper{width:100%;max-width:1100px;}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
-.header h1{font-size:24px;font-weight:700;}
-.action-btn{background:var(--accent);border:none;color:#fff;padding:10px 20px;border-radius:20px;font-size:14px;cursor:pointer;}
-.table-row{background:#fff;border:1px solid var(--border);border-radius:12px;padding:15px;margin-bottom:15px;display:flex;justify-content:space-between;flex-wrap:wrap;align-items:center;}
-.cell{flex:1 1 200px;margin-bottom:10px;}
-.cell-title{font-size:12px;color:#606060;}
-.cell-value{font-size:14px;margin-top:3px;}
-.row-actions{display:flex;gap:10px;}
-.action-btn.delete-btn{background:#ff3333;}
-.checkbox-cell{margin-right:10px;}
-.drawer{position:fixed;top:0;right:-450px;width:450px;max-width:90%;height:100vh;background:#fff;border-left:1px solid var(--border);padding:20px;transition:.3s;z-index:2000;overflow-y:auto;}
-.drawer.open{ right:0; }
-.drawer h2{font-size:20px;margin-bottom:15px;color:var(--accent);}
-.drawer label{font-size:12px;color:#606060;}
-.drawer input,.drawer select{width:100%;padding:10px;margin:5px 0 15px;border-radius:8px;border:1px solid var(--border);font-size:14px;}
-.drawer-actions{display:flex;gap:10px;margin-top:10px;}
-.save{flex:1;background:var(--accent);border:none;padding:12px;border-radius:20px;color:#fff;cursor:pointer;}
-.cancel{flex:1;background:#eeeeee;border:none;padding:12px;border-radius:20px;cursor:pointer;}
-</style>
-<style>
 
-/* ===== BOTTOM NAV (ADDED ONLY) ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding-bottom:90px;
+}
+
+/* ===============================
+   TOP NAVIGATION
+================================ */
+
+.top-nav{
+  height:var(--nav-height);
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 32px;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  backdrop-filter:blur(12px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:-.5px;
+}
+
+.brand-logo{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  box-shadow:0 8px 20px rgba(91,91,214,.25);
+}
+
+.brand span{
+  color:var(--text);
+}
+
+.brand strong{
+  color:var(--primary);
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.icon-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:13px;
+  background:#f4f5f9;
+  color:var(--muted);
+  cursor:pointer;
+  font-size:16px;
+  transition:.25s;
+}
+
+.icon-btn:hover{
+  background:var(--primary-soft);
+  color:var(--primary);
+  transform:rotate(30deg);
+}
+
+/* ===============================
+   MAIN
+================================ */
+
+.page-content{
+  max-width:1200px;
+  margin:0 auto;
+  padding:100px 22px 30px;
+}
+
+/* HERO */
+
+.dashboard-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:20px;
+  margin-bottom:26px;
+  flex-wrap:wrap;
+}
+
+.title-area h1{
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:-1px;
+  margin-bottom:7px;
+}
+
+.title-area p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.question-count{
+  padding:10px 15px;
+  border-radius:14px;
+  background:var(--primary-soft);
+  color:var(--primary);
+  font-size:13px;
+  font-weight:700;
+}
+
+/* ===============================
+   TOOLBAR
+================================ */
+
+.toolbar{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:16px;
+  margin-bottom:20px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+  box-shadow:0 4px 20px rgba(30,30,60,.03);
+}
+
+.select-wrap{
+  position:relative;
+}
+
+.select-wrap i{
+  position:absolute;
+  left:13px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--muted);
+  pointer-events:none;
+}
+
+.select-input{
+  height:44px;
+  min-width:175px;
+  padding:0 15px 0 38px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fafbfe;
+  color:var(--text);
+  outline:none;
+  cursor:pointer;
+}
+
+.select-input:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px var(--primary-soft);
+}
+
+.toolbar-spacer{
+  flex:1;
+}
+
+.btn{
+  height:44px;
+  border:none;
+  border-radius:12px;
+  padding:0 17px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  cursor:pointer;
+  font-size:13px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
+  box-shadow:0 8px 18px rgba(91,91,214,.22);
+}
+
+.btn-primary:hover{
+  background:var(--primary-dark);
+}
+
+.btn-light{
+  background:#f4f5f9;
+  color:#555569;
+}
+
+.btn-light:hover{
+  background:var(--primary-soft);
+  color:var(--primary);
+}
+
+.btn-danger{
+  background:var(--danger-soft);
+  color:var(--danger);
+}
+
+.btn-danger:hover{
+  background:var(--danger);
+  color:#fff;
+}
+
+/* ===============================
+   QUESTION LIST
+================================ */
+
+.question-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.question-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  display:flex;
+  gap:18px;
+  align-items:center;
+  transition:.25s;
+  box-shadow:0 3px 15px rgba(30,30,60,.025);
+}
+
+.question-card:hover{
+  border-color:#d6d6f4;
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(50,50,100,.07);
+}
+
+.question-check{
+  width:20px;
+  height:20px;
+  accent-color:var(--primary);
+  cursor:pointer;
+  flex-shrink:0;
+}
+
+.question-number{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  background:var(--primary-soft);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:14px;
+  flex-shrink:0;
+}
+
+.question-main{
+  flex:1;
+  min-width:0;
+}
+
+.question-top{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin-bottom:7px;
+  flex-wrap:wrap;
+}
+
+.year-badge{
+  background:#f4f5f9;
+  color:#626277;
+  border-radius:20px;
+  padding:5px 10px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.answer-badge{
+  background:#ecfdf3;
+  color:var(--success);
+  border-radius:20px;
+  padding:5px 10px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.question-text{
+  font-size:15px;
+  font-weight:650;
+  line-height:1.5;
+}
+
+.question-actions{
+  display:flex;
+  gap:8px;
+  flex-shrink:0;
+}
+
+.action-icon{
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--muted);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.action-icon:hover{
+  color:var(--primary);
+  background:var(--primary-soft);
+  border-color:var(--primary-soft);
+}
+
+.action-icon.delete:hover{
+  color:var(--danger);
+  background:var(--danger-soft);
+  border-color:var(--danger-soft);
+}
+
+/* ===============================
+   EMPTY / LOADING
+================================ */
+
+.empty-state{
+  background:#fff;
+  border:1px dashed #d8d9e2;
+  border-radius:var(--radius);
+  text-align:center;
+  padding:60px 20px;
+  color:var(--muted);
+}
+
+.empty-state i{
+  font-size:38px;
+  color:#c7c8d8;
+  margin-bottom:14px;
+}
+
+.empty-state h3{
+  color:var(--text);
+  margin-bottom:7px;
+}
+
+.loading{
+  text-align:center;
+  padding:45px;
+  color:var(--muted);
+}
+
+.loading i{
+  color:var(--primary);
+  font-size:28px;
+}
+
+/* ===============================
+   DRAWER OVERLAY
+================================ */
+
+.drawer-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,15,35,.32);
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+  z-index:1999;
+  backdrop-filter:blur(2px);
+}
+
+.drawer-overlay.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.drawer{
+  position:fixed;
+  top:0;
+  right:-500px;
+  width:500px;
+  max-width:100%;
+  height:100vh;
+  background:#fff;
+  z-index:2000;
+  transition:.35s cubic-bezier(.2,.8,.2,1);
+  box-shadow:-15px 0 40px rgba(0,0,0,.12);
+  display:flex;
+  flex-direction:column;
+}
+
+.drawer.open{
+  right:0;
+}
+
+.drawer-header{
+  height:76px;
+  padding:0 22px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.drawer-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.drawer-title-icon{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:var(--primary-soft);
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.drawer-title h2{
+  font-size:19px;
+}
+
+.drawer-title p{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:2px;
+}
+
+.close-btn{
+  width:38px;
+  height:38px;
+  border:none;
+  background:#f5f5f8;
+  border-radius:12px;
+  cursor:pointer;
+  color:var(--muted);
+}
+
+.drawer-content{
+  flex:1;
+  overflow-y:auto;
+  padding:22px;
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+.form-label{
+  display:block;
+  font-size:12px;
+  color:#5f6074;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.form-control{
+  width:100%;
+  min-height:45px;
+  padding:11px 13px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  color:var(--text);
+  outline:none;
+  font-size:14px;
+  transition:.2s;
+}
+
+.form-control:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px var(--primary-soft);
+}
+
+textarea.form-control{
+  min-height:105px;
+  resize:vertical;
+}
+
+.options-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.drawer-footer{
+  padding:16px 22px;
+  border-top:1px solid var(--border);
+  display:flex;
+  gap:10px;
+  background:#fff;
+}
+
+.drawer-footer .btn{
+  flex:1;
+}
+
+/* ===============================
+   BOTTOM NAV
+================================ */
+
 .bottom-nav{
   position:fixed;
-  bottom:0;
-  width:100%;
-  height:60px;
-  background:#fff;
-  border-top:1px solid var(--border);
+  left:50%;
+  transform:translateX(-50%);
+  bottom:16px;
+  width:min(600px,calc(100% - 24px));
+  height:64px;
+  background:rgba(255,255,255,.96);
+  border:1px solid var(--border);
+  border-radius:20px;
   display:flex;
   justify-content:space-around;
   align-items:center;
-  box-shadow:0 -2px 5px rgba(0,0,0,0.05);
   z-index:3000;
+  box-shadow:0 10px 30px rgba(25,25,60,.12);
+  backdrop-filter:blur(15px);
 }
 
 .bottom-nav a{
   text-decoration:none;
-  color:#606060;
-  font-size:12px;
+  color:var(--muted);
+  min-width:70px;
+  height:50px;
+  padding:7px 10px;
+  border-radius:14px;
   display:flex;
   flex-direction:column;
   align-items:center;
+  justify-content:center;
+  gap:3px;
+  font-size:11px;
+  font-weight:600;
+  transition:.2s;
 }
 
 .bottom-nav a i{
-  font-size:18px;
-  margin-bottom:3px;
+  font-size:17px;
 }
 
+.bottom-nav a:hover,
 .bottom-nav a.active{
-  color:var(--accent);
+  color:var(--primary);
+  background:var(--primary-soft);
 }
 
-/* Prevent content hiding behind bottom nav */
-.page-content{
-  padding-bottom:80px;
+.bottom-nav .logout{
+  color:var(--danger);
 }
 
+.bottom-nav .logout:hover{
+  background:var(--danger-soft);
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media(max-width:700px){
+
+  .top-nav{
+    padding:0 18px;
+    height:64px;
+  }
+
+  .brand{
+    font-size:19px;
+  }
+
+  .brand-logo{
+    width:36px;
+    height:36px;
+  }
+
+  .page-content{
+    padding:85px 14px 30px;
+  }
+
+  .title-area h1{
+    font-size:24px;
+  }
+
+  .dashboard-header{
+    align-items:flex-start;
+  }
+
+  .toolbar{
+    padding:12px;
+  }
+
+  .toolbar .btn{
+    flex:1;
+    min-width:135px;
+  }
+
+  .toolbar-spacer{
+    display:none;
+  }
+
+  .select-wrap{
+    width:100%;
+  }
+
+  .select-input{
+    width:100%;
+  }
+
+  .question-card{
+    padding:16px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+
+  .question-number{
+    width:38px;
+    height:38px;
+  }
+
+  .question-main{
+    flex:1 1 calc(100% - 80px);
+  }
+
+  .question-actions{
+    width:100%;
+    justify-content:flex-end;
+    margin-top:4px;
+  }
+
+  .options-grid{
+    grid-template-columns:1fr;
+  }
+
+  .bottom-nav{
+    bottom:8px;
+    width:calc(100% - 16px);
+  }
+
+  .bottom-nav a{
+    min-width:auto;
+    flex:1;
+  }
+
+  .bottom-nav a span{
+    font-size:10px;
+  }
+}
 </style>
+
 </head>
+
 <body>
 
-<div class="top-nav">
+<!-- ================= TOP NAV ================= -->
+
+<header class="top-nav">
+
   <div class="brand">
-    <span id="army">Mission </span>
-    <span id="navy">Cadet </span>
-    <span id="air">Upgrade</span>
+    <div class="brand-logo">
+      <i class="fas fa-arrow-trend-up"></i>
+    </div>
+
+
+<div>
+  <strong>ASCEND</strong>
+</div>
+
+
   </div>
-  <button class="reload-btn" onclick="location.reload()">
-    <i class="fas fa-rotate"></i>
-  </button>
+
+  <div class="nav-right">
+    <button class="icon-btn" onclick="location.reload()" title="Refresh">
+      <i class="fas fa-rotate"></i>
+    </button>
+  </div>
+
+</header>
+
+<!-- ================= MAIN ================= -->
+
+<main class="page-content">
+
+  <section class="dashboard-header">
+
+
+<div class="title-area">
+  <h1>Question Management</h1>
+  <p>Create, manage and organize your examination questions.</p>
 </div>
 
-<div class="page-content">
-<div class="content-wrapper">
+<div class="question-count" id="questionCount">
+  <i class="fas fa-layer-group"></i>
+  0 Questions
+</div>
 
-<div class="header">
-<h1>Faculty Questions Management</h1>
 
-<div style="display:flex;gap:10px;flex-wrap:wrap;">
+  </section>
 
-<select id="yearFilter" onchange="filterByYear()" style="padding:10px;border-radius:20px;border:1px solid #ddd;">
-<option value="">All Years</option>
-<option value="1">1st Year</option>
-<option value="2">2nd Year</option>
-<option value="3">3rd Year</option>
-<option value="3air">Year 3 (2 TN AIR SQN NCC)</option>
-</select>
+  <!-- TOOLBAR -->
 
-<button class="action-btn" onclick="bulkDelete()">Bulk Delete</button>
-<button class="action-btn" onclick="downloadSample()">Download Sample</button>
-<button class="action-btn" onclick="document.getElementById('excelFile').click()">Upload Excel</button>
-<button class="action-btn" onclick="openDrawerNew()">+ Add Question</button>
+  <section class="toolbar">
+
+
+<div class="select-wrap">
+  <i class="fas fa-filter"></i>
+
+  <select id="yearFilter"
+          class="select-input"
+          onchange="filterByYear()">
+
+    <option value="">All Years</option>
+    <option value="1">1st Year</option>
+    <option value="2">2nd Year</option>
+    <option value="3">3rd Year</option>
+    <option value="3air">Year 3 – 2 TN AIR SQN NCC</option>
+
+  </select>
+</div>
+
+<div class="toolbar-spacer"></div>
+
+<button class="btn btn-danger" onclick="bulkDelete()">
+  <i class="fas fa-trash"></i>
+  Delete Selected
+</button>
+
+<button class="btn btn-light" onclick="downloadSample()">
+  <i class="fas fa-download"></i>
+  Sample
+</button>
+
+<button class="btn btn-light"
+        onclick="document.getElementById('excelFile').click()">
+
+  <i class="fas fa-file-excel"></i>
+  Import Excel
+
+</button>
+
+<button class="btn btn-primary" onclick="openDrawerNew()">
+  <i class="fas fa-plus"></i>
+  Add Question
+</button>
+
+<input
+  type="file"
+  id="excelFile"
+  accept=".xlsx,.xls"
+  style="display:none;"
+  onchange="uploadExcel(event)"
+>
+
+
+  </section>
+
+  <!-- QUESTION LIST -->
+
+  <section class="question-list" id="list">
+
+
+<div class="loading">
+  <i class="fas fa-circle-notch fa-spin"></i>
+  <p>Loading questions...</p>
+</div>
+
+
+  </section>
+
+</main>
+
+<!-- ================= DRAWER ================= -->
+
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
+<aside class="drawer" id="drawer">
+
+  <div class="drawer-header">
+
+
+<div class="drawer-title">
+
+  <div class="drawer-title-icon">
+    <i class="fas fa-circle-question"></i>
+  </div>
+
+  <div>
+    <h2 id="drawerHeading">Add Question</h2>
+    <p>Create a new examination question</p>
+  </div>
 
 </div>
 
-<input type="file" id="excelFile" accept=".xlsx,.xls" style="display:none;" onchange="uploadExcel(event)">
-</div>
+<button class="close-btn" onclick="closeDrawer()">
+  <i class="fas fa-xmark"></i>
+</button>
 
-<div id="list"></div>
-</div>
-</div>
 
-<!-- DRAWER -->
-<div class="drawer" id="drawer">
-<h2>Question</h2>
+  </div>
+
+  <div class="drawer-content">
+
+
 <input type="hidden" id="d_id">
 
-<label>Year</label>
-<select id="d_year">
-<option value="">Select Year</option>
-<option value="1">1st Year</option>
-<option value="2">2nd Year</option>
-<option value="3">3rd Year</option>
-<option value="3air">3rd Year (2 TN AIR SQN NCC)</option>
-</select>
 
-<label>Question</label>
-<input id="d_question">
-<label>Option 1</label><input id="d_option1">
-<label>Option 2</label><input id="d_option2">
-<label>Option 3</label><input id="d_option3">
-<label>Option 4</label><input id="d_option4">
+<div class="form-group">
 
-<label>Correct Answer</label>
-<select id="d_answer">
-<option value="">Select Correct Option</option>
-<option value="Option1">Option 1</option>
-<option value="Option2">Option 2</option>
-<option value="Option3">Option 3</option>
-<option value="Option4">Option 4</option>
-</select>
+  <label class="form-label">YEAR</label>
 
-<div class="drawer-actions">
-<button class="save" onclick="save();alert('Saved.')">Save</button>
-<button class="cancel" onclick="closeDrawer()">Cancel</button>
+  <select id="d_year" class="form-control">
+
+    <option value="">Select Year</option>
+    <option value="1">1st Year</option>
+    <option value="2">2nd Year</option>
+    <option value="3">3rd Year</option>
+    <option value="3air">3rd Year – 2 TN AIR SQN NCC</option>
+
+  </select>
+
 </div>
+
+
+<div class="form-group">
+
+  <label class="form-label">QUESTION</label>
+
+  <textarea
+    id="d_question"
+    class="form-control"
+    placeholder="Enter your question here..."
+  ></textarea>
+
 </div>
+
+
+<div class="options-grid">
+
+  <div class="form-group">
+
+    <label class="form-label">OPTION 1</label>
+
+    <input
+      id="d_option1"
+      class="form-control"
+      placeholder="Option 1"
+    >
+
+  </div>
+
+
+  <div class="form-group">
+
+    <label class="form-label">OPTION 2</label>
+
+    <input
+      id="d_option2"
+      class="form-control"
+      placeholder="Option 2"
+    >
+
+  </div>
+
+
+  <div class="form-group">
+
+    <label class="form-label">OPTION 3</label>
+
+    <input
+      id="d_option3"
+      class="form-control"
+      placeholder="Option 3"
+    >
+
+  </div>
+
+
+  <div class="form-group">
+
+    <label class="form-label">OPTION 4</label>
+
+    <input
+      id="d_option4"
+      class="form-control"
+      placeholder="Option 4"
+    >
+
+  </div>
+
+</div>
+
+
+<div class="form-group">
+
+  <label class="form-label">CORRECT ANSWER</label>
+
+  <select id="d_answer" class="form-control">
+
+    <option value="">Select Correct Option</option>
+    <option value="Option1">Option 1</option>
+    <option value="Option2">Option 2</option>
+    <option value="Option3">Option 3</option>
+    <option value="Option4">Option 4</option>
+
+  </select>
+
+</div>
+
+
+  </div>
+
+  <div class="drawer-footer">
+
+
+<button class="btn btn-light" onclick="closeDrawer()">
+  Cancel
+</button>
+
+<button class="btn btn-primary" onclick="save()">
+  <i class="fas fa-floppy-disk"></i>
+  Save Question
+</button>
+
+
+  </div>
+
+</aside>
+
+<!-- ================= BOTTOM NAV ================= -->
+
+<nav class="bottom-nav">
+
+  <a href="../index.html">
+    <i class="fas fa-house"></i>
+    <span>Home</span>
+  </a>
+
+  <a class="active" href="faculty.html">
+    <i class="fas fa-circle-question"></i>
+    <span>Questions</span>
+  </a>
+
+  <a href="FacResults.html">
+    <i class="fas fa-chart-column"></i>
+    <span>Results</span>
+  </a>
+
+<a href="../index.html"
+  id="lg"
+  class="logout">
+
+
+<i class="fas fa-right-from-bracket"></i>
+<span>Logout</span>
+
+
+  </a>
+
+</nav>
+
+<!-- ================= SCRIPTS ================= -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
 <script>
 
-const supabaseUrl='https://ncc.missioncadetupgrade.workers.dev';
-const supabaseKey='sb_publishable_VA-TOQxa5NucY7L1hPStkg_3eAj42PM';
-const supabase1=supabase.createClient(supabaseUrl,supabaseKey);
+const supabaseUrl =
+'https://ncc.missioncadetupgrade.workers.dev';
 
-const facultyEmail=sessionStorage.getItem("email");
-const role=sessionStorage.getItem("role");
-if(!facultyEmail||role!=="Faculty"){window.location.href="index.html";}
+const supabaseKey =
+'sb_publishable_VA-TOQxa5NucY7L1hPStkg_3eAj42PM';
 
-let questions=[];
-let selectedIds=[];
-let currentYear="";
+const supabase1 =
+supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
+
+
+/* ===============================
+   AUTHENTICATION
+================================ */
+
+const facultyEmail =
+sessionStorage.getItem("email");
+
+const role =
+sessionStorage.getItem("role");
+
+if(!facultyEmail || role !== "Faculty"){
+  window.location.href = "index.html";
+}
+
+
+/* ===============================
+   GLOBAL VARIABLES
+================================ */
+
+let questions = [];
+let selectedIds = [];
+let currentYear = "";
+
+
+/* ===============================
+   FETCH QUESTIONS
+================================ */
 
 async function fetchData(){
-let query=supabase1.from('Questions').select().eq('FacultyEmail',facultyEmail);
-if(currentYear) query=query.eq('Year',currentYear);
-const {data}=await query;
-questions=data||[];
-render();
+
+  document.getElementById("list").innerHTML = `
+    <div class="loading">
+      <i class="fas fa-circle-notch fa-spin"></i>
+      <p>Loading questions...</p>
+    </div>
+  `;
+
+  let query =
+  supabase1
+    .from('Questions')
+    .select('*')
+    .eq('FacultyEmail', facultyEmail);
+
+  if(currentYear){
+    query = query.eq('Year', currentYear);
+  }
+
+  const {data,error} =
+  await query.order('created_at',{
+    ascending:false
+  });
+
+  if(error){
+
+    console.error(error);
+
+    document.getElementById("list").innerHTML = `
+      <div class="empty-state">
+        <i class="fas fa-triangle-exclamation"></i>
+        <h3>Unable to load questions</h3>
+        <p>Please refresh the page and try again.</p>
+      </div>
+    `;
+
+    return;
+  }
+
+  questions = data || [];
+  selectedIds = [];
+
+  render();
+
 }
+
+
+/* ===============================
+   RENDER
+================================ */
 
 function render(){
-const list=document.getElementById("list");
-list.innerHTML="";
-questions.forEach(q=>{
-list.innerHTML+=`
-<div class="table-row">
-<div class="checkbox-cell">
-<input type="checkbox" onchange="toggleSelect('${q.id}',this)">
-</div>
-<div class="cell"><div class="cell-title">Year</div><div class="cell-value">${q.Year||''}</div></div>
-<div class="cell"><div class="cell-title">Question</div><div class="cell-value">${q.Question}</div></div>
-<div class="cell"><div class="cell-title">Answer</div><div class="cell-value">${q.Answer||''}</div></div>
-<div class="row-actions">
-<button class="action-btn" onclick="edit('${q.id}')">Edit</button>
-<button class="action-btn delete-btn" onclick="del('${q.id}')">Delete</button>
-</div>
-</div>`;
-});
+
+  const list =
+  document.getElementById("list");
+
+  const count =
+  document.getElementById("questionCount");
+
+  count.innerHTML = `
+    <i class="fas fa-layer-group"></i>
+    ${questions.length} Question${questions.length !== 1 ? 's' : ''}
+  `;
+
+
+  if(questions.length === 0){
+
+    list.innerHTML = `
+      <div class="empty-state">
+
+        <i class="fas fa-circle-question"></i>
+
+        <h3>No Questions Found</h3>
+
+        <p>
+          Start building your examination question bank.
+        </p>
+
+        <br>
+
+        <button
+          class="btn btn-primary"
+          onclick="openDrawerNew()"
+        >
+          <i class="fas fa-plus"></i>
+          Add Your First Question
+        </button>
+
+      </div>
+    `;
+
+    return;
+  }
+
+
+  list.innerHTML = "";
+
+
+  questions.forEach((q,index)=>{
+
+    const yearText = getYearText(q.Year);
+
+    list.innerHTML += `
+
+      <article class="question-card">
+
+        <input
+          type="checkbox"
+          class="question-check"
+          onchange="toggleSelect('${q.id}',this)"
+          title="Select question"
+        >
+
+
+        <div class="question-number">
+          ${index + 1}
+        </div>
+
+
+        <div class="question-main">
+
+          <div class="question-top">
+
+            <span class="year-badge">
+              ${yearText}
+            </span>
+
+            <span class="answer-badge">
+              <i class="fas fa-check"></i>
+              ${q.Answer || 'No Answer'}
+            </span>
+
+          </div>
+
+
+          <div class="question-text">
+            ${escapeHTML(q.Question || '')}
+          </div>
+
+        </div>
+
+
+        <div class="question-actions">
+
+          <button
+            class="action-icon"
+            onclick="edit('${q.id}')"
+            title="Edit Question"
+          >
+            <i class="fas fa-pen"></i>
+          </button>
+
+
+          <button
+            class="action-icon delete"
+            onclick="del('${q.id}')"
+            title="Delete Question"
+          >
+            <i class="fas fa-trash"></i>
+          </button>
+
+        </div>
+
+      </article>
+
+    `;
+
+  });
+
 }
+
+
+/* ===============================
+   YEAR TEXT
+================================ */
+
+function getYearText(year){
+
+  const years = {
+
+    "1":"1st Year",
+    "2":"2nd Year",
+    "3":"3rd Year",
+    "3air":"Year 3 – AIR NCC"
+
+  };
+
+  return years[year] || year || "No Year";
+
+}
+
+
+/* ===============================
+   SECURITY – ESCAPE HTML
+================================ */
+
+function escapeHTML(value){
+
+  const div =
+  document.createElement("div");
+
+  div.textContent = value;
+
+  return div.innerHTML;
+
+}
+
+
+/* ===============================
+   OPEN NEW DRAWER
+================================ */
 
 function openDrawerNew(){
-document.getElementById("d_id").value="";
-drawer.classList.add("open");
+
+  document.getElementById("drawerHeading")
+  .innerText = "Add Question";
+
+  document.getElementById("d_id").value = "";
+  document.getElementById("d_year").value = "";
+  document.getElementById("d_question").value = "";
+  document.getElementById("d_option1").value = "";
+  document.getElementById("d_option2").value = "";
+  document.getElementById("d_option3").value = "";
+  document.getElementById("d_option4").value = "";
+  document.getElementById("d_answer").value = "";
+
+  document.getElementById("drawer")
+  .classList.add("open");
+
+  document.getElementById("drawerOverlay")
+  .classList.add("open");
+
 }
+
+
+/* ===============================
+   EDIT QUESTION
+================================ */
 
 function edit(id){
-const q=questions.find(x=>x.id==id);
-d_id.value=q.id;
-d_year.value=q.Year;
-d_question.value=q.Question;
-d_option1.value=q.Option1;
-d_option2.value=q.Option2;
-d_option3.value=q.Option3;
-d_option4.value=q.Option4;
-d_answer.value=q.Answer;
-drawer.classList.add("open");
+
+  const q =
+  questions.find(
+    x => x.id == id
+  );
+
+  if(!q) return;
+
+
+  document.getElementById("drawerHeading")
+  .innerText = "Edit Question";
+
+  document.getElementById("d_id").value =
+  q.id;
+
+  document.getElementById("d_year").value =
+  q.Year || "";
+
+  document.getElementById("d_question").value =
+  q.Question || "";
+
+  document.getElementById("d_option1").value =
+  q.Option1 || "";
+
+  document.getElementById("d_option2").value =
+  q.Option2 || "";
+
+  document.getElementById("d_option3").value =
+  q.Option3 || "";
+
+  document.getElementById("d_option4").value =
+  q.Option4 || "";
+
+  document.getElementById("d_answer").value =
+  q.Answer || "";
+
+
+  document.getElementById("drawer")
+  .classList.add("open");
+
+  document.getElementById("drawerOverlay")
+  .classList.add("open");
+
 }
+
+
+/* ===============================
+   CLOSE DRAWER
+================================ */
+
+function closeDrawer(){
+
+  document.getElementById("drawer")
+  .classList.remove("open");
+
+  document.getElementById("drawerOverlay")
+  .classList.remove("open");
+
+}
+
+
+/* ===============================
+   SAVE
+================================ */
 
 async function save(){
-const id=d_id.value;
-const payload={
-FacultyEmail:facultyEmail,
-Year:d_year.value,
-Question:d_question.value,
-Option1:d_option1.value,
-Option2:d_option2.value,
-Option3:d_option3.value,
-Option4:d_option4.value,
-Answer:d_answer.value
-};
-if(id){
-await supabase1.from('Questions').update(payload).eq('id',id);
-}else{
-await supabase1.from('Questions').insert([payload]);
+
+  const id =
+  document.getElementById("d_id").value;
+
+
+  const payload = {
+
+    FacultyEmail: facultyEmail,
+
+    Year:
+    document.getElementById("d_year").value,
+
+    Question:
+    document.getElementById("d_question").value.trim(),
+
+    Option1:
+    document.getElementById("d_option1").value.trim(),
+
+    Option2:
+    document.getElementById("d_option2").value.trim(),
+
+    Option3:
+    document.getElementById("d_option3").value.trim(),
+
+    Option4:
+    document.getElementById("d_option4").value.trim(),
+
+    Answer:
+    document.getElementById("d_answer").value
+
+  };
+
+
+  if(
+    !payload.Year ||
+    !payload.Question ||
+    !payload.Option1 ||
+    !payload.Option2 ||
+    !payload.Option3 ||
+    !payload.Option4 ||
+    !payload.Answer
+  ){
+
+    alert(
+      "Please complete all question details."
+    );
+
+    return;
+
+  }
+
+
+  let error;
+
+
+  if(id){
+
+    const response =
+    await supabase1
+      .from('Questions')
+      .update(payload)
+      .eq('id',id);
+
+    error = response.error;
+
+  }
+  else{
+
+    const response =
+    await supabase1
+      .from('Questions')
+      .insert([payload]);
+
+    error = response.error;
+
+  }
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "Unable to save question: " +
+      error.message
+    );
+
+    return;
+
+  }
+
+
+  alert(
+    id
+    ? "Question updated successfully."
+    : "Question added successfully."
+  );
+
+  closeDrawer();
+
+  fetchData();
+
 }
-closeDrawer();
-fetchData();
-}
+
+
+/* ===============================
+   DELETE SINGLE
+================================ */
 
 async function del(id){
-if(!confirm("Delete this question?")) return;
-await supabase1.from('Questions').delete().eq('id',id);
-fetchData();
+
+  if(
+    !confirm(
+      "Are you sure you want to delete this question?"
+    )
+  ){
+    return;
+  }
+
+
+  const {error} =
+  await supabase1
+    .from('Questions')
+    .delete()
+    .eq('id',id);
+
+
+  if(error){
+
+    alert(
+      "Unable to delete question."
+    );
+
+    return;
+
+  }
+
+
+  fetchData();
+
 }
+
+
+/* ===============================
+   SELECT QUESTION
+================================ */
 
 function toggleSelect(id,el){
-if(el.checked){selectedIds.push(id);}
-else{selectedIds=selectedIds.filter(x=>x!==id);}
+
+  if(el.checked){
+
+    if(!selectedIds.includes(id)){
+
+      selectedIds.push(id);
+
+    }
+
+  }
+  else{
+
+    selectedIds =
+    selectedIds.filter(
+      x => x !== id
+    );
+
+  }
+
 }
+
+
+/* ===============================
+   BULK DELETE
+================================ */
 
 async function bulkDelete(){
-if(selectedIds.length===0){alert("No questions selected");return;}
-if(!confirm("Delete selected questions?")) return;
-await supabase1.from('Questions').delete().in('id',selectedIds);
-selectedIds=[];
-fetchData();
+
+  if(selectedIds.length === 0){
+
+    alert(
+      "Please select at least one question."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !confirm(
+      `Delete ${selectedIds.length} selected question(s)?`
+    )
+  ){
+    return;
+  }
+
+
+  const {error} =
+  await supabase1
+    .from('Questions')
+    .delete()
+    .in('id',selectedIds);
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "Unable to delete selected questions."
+    );
+
+    return;
+
+  }
+
+
+  selectedIds = [];
+
+  fetchData();
+
 }
+
+
+/* ===============================
+   FILTER YEAR
+================================ */
 
 function filterByYear(){
-currentYear=document.getElementById("yearFilter").value;
-fetchData();
+
+  currentYear =
+  document.getElementById(
+    "yearFilter"
+  ).value;
+
+  fetchData();
+
 }
 
-function closeDrawer(){drawer.classList.remove("open");}
 
-/* Excel Sample */
+/* ===============================
+   EXCEL SAMPLE
+================================ */
+
 function downloadSample(){
-const data=[
-["Year","Question","Option1","Option2","Option3","Option4","FacultyEmail","Answer"],
-["1","Sample Question?","A","B","C","D","ncc4tn@kongunaducollege.ac.in","Option1"]
-];
-const ws=XLSX.utils.aoa_to_sheet(data);
-const wb=XLSX.utils.book_new();
-XLSX.utils.book_append_sheet(wb,ws,"Sample");
-XLSX.writeFile(wb,"sample_format.xlsx");
+
+  const data = [
+
+    [
+      "Year",
+      "Question",
+      "Option1",
+      "Option2",
+      "Option3",
+      "Option4",
+      "FacultyEmail",
+      "Answer"
+    ],
+
+    [
+      "1",
+      "Sample Question?",
+      "Option A",
+      "Option B",
+      "Option C",
+      "Option D",
+      facultyEmail,
+      "Option1"
+    ]
+
+  ];
+
+
+  const ws =
+  XLSX.utils.aoa_to_sheet(data);
+
+  const wb =
+  XLSX.utils.book_new();
+
+  XLSX.utils.book_append_sheet(
+    wb,
+    ws,
+    "Questions"
+  );
+
+  XLSX.writeFile(
+    wb,
+    "ASCEND_Question_Sample.xlsx"
+  );
+
 }
 
-/* Upload Excel */
+
+/* ===============================
+   UPLOAD EXCEL
+================================ */
+
 async function uploadExcel(event){
-const file=event.target.files[0];
-if(!file) return;
-const data=await file.arrayBuffer();
-const workbook=XLSX.read(data);
-const sheet=workbook.Sheets[workbook.SheetNames[0]];
-const rows=XLSX.utils.sheet_to_json(sheet,{header:1});
-rows.shift();
-let payload=[];
-rows.forEach(r=>{
-if(r.length>=7){
-payload.push({
-FacultyEmail:facultyEmail,
-Year:r[0],
-Question:r[1],
-Option1:r[2],
-Option2:r[3],
-Option3:r[4],
-Option4:r[5],
-FacultyEmail:r[6],
-Answer:r[7]
-});
-}
-});
-if(payload.length>0){
-await supabase1.from('Questions').insert(payload);
-alert("Excel Uploaded");
-fetchData();
-}
+
+  const file =
+  event.target.files[0];
+
+  if(!file) return;
+
+
+  try{
+
+    const arrayBuffer =
+    await file.arrayBuffer();
+
+    const workbook =
+    XLSX.read(arrayBuffer);
+
+
+    const sheet =
+    workbook.Sheets[
+      workbook.SheetNames[0]
+    ];
+
+
+    const rows =
+    XLSX.utils.sheet_to_json(
+      sheet,
+      {header:1}
+    );
+
+
+    rows.shift();
+
+
+    let payload = [];
+
+
+    rows.forEach(r => {
+
+      if(
+        r[0] &&
+        r[1] &&
+        r[2] &&
+        r[3] &&
+        r[4] &&
+        r[5] &&
+        r[7]
+      ){
+
+        payload.push({
+
+          FacultyEmail:
+          facultyEmail,
+
+          Year:
+          String(r[0]),
+
+          Question:
+          String(r[1]),
+
+          Option1:
+          String(r[2]),
+
+          Option2:
+          String(r[3]),
+
+          Option3:
+          String(r[4]),
+
+          Option4:
+          String(r[5]),
+
+          Answer:
+          String(r[7])
+
+        });
+
+      }
+
+    });
+
+
+    if(payload.length === 0){
+
+      alert(
+        "No valid questions found in the Excel file."
+      );
+
+      return;
+
+    }
+
+
+    const {error} =
+    await supabase1
+      .from('Questions')
+      .insert(payload);
+
+
+    if(error){
+
+      throw error;
+
+    }
+
+
+    alert(
+      `${payload.length} question(s) uploaded successfully.`
+    );
+
+
+    fetchData();
+
+
+  }
+  catch(error){
+
+    console.error(error);
+
+    alert(
+      "Excel upload failed: " +
+      error.message
+    );
+
+  }
+  finally{
+
+    event.target.value = "";
+
+  }
+
 }
 
-/* GLOBAL FIX */
-window.edit=edit;
-window.del=del;
-window.save=save;
-window.bulkDelete=bulkDelete;
-window.filterByYear=filterByYear;
-window.openDrawerNew=openDrawerNew;
-window.closeDrawer=closeDrawer;
+
+/* ===============================
+   LOGOUT
+================================ */
+
+document
+.getElementById("lg")
+.addEventListener(
+  "click",
+  function(e){
+
+    e.preventDefault();
+
+    sessionStorage.clear();
+
+    window.location.href =
+    "../index.html";
+
+  }
+);
+
+
+/* ===============================
+   INITIAL LOAD
+================================ */
 
 fetchData();
-// Logout
-document.getElementById("lg").addEventListener("click",function(e){
-e.preventDefault();
-sessionStorage.clear();
-window.location.href="../index.html";
-});
+
 </script>
 
-
-<div class="bottom-nav">
-   <a class="nav-item" href="../index.html">
-      <i class="fas fa-home"></i>
-      Home
-    </a>
-    <a class="nav-item" href="FacResults.html">
-      <i class="fas fa-clipboard fa-2x"></i>
-      Results
-    </a>
-  <a href="../index.html" id="lg">
-    <i class="fas fa-right-from-bracket"></i>
-    Logout
-  </a>
-</div>
 </body>
 </html>

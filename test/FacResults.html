@@ -1,420 +1,1544 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Faculty Dashboard – Questions</title>
+<title>ASCEND | Faculty Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-<!-- jsPDF & html2canvas -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
-<style>
-:root{
-  --bg:#f5f5f5;
-  --text:#0f0f0f;
-  --border:#ddd;
-  --accent:#ff0000;
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Arial, sans-serif;}
-body{background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
-.top-nav{height:60px;background:#fff;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:0 30px;position:fixed;top:0;width:100%;z-index:1000;box-shadow:0 2px 5px rgba(0,0,0,0.05);}
-.brand{font-size:20px;font-weight:700;}
-.brand #army{ color:#ff0000; }
-.brand #navy{ color:#0000ff; }
-.brand #air{ color:#00b6ff; }
-.reload-btn{background:none;border:none;font-size:20px;color:var(--accent);cursor:pointer;}
-.page-content{margin-top:60px;flex:1;display:flex;justify-content:center;padding:20px;overflow:auto;}
-.content-wrapper{width:100%;max-width:1100px;}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
-.header h1{font-size:24px;font-weight:700;}
-.action-btn{background:var(--accent);border:none;color:#fff;padding:10px 20px;border-radius:20px;font-size:14px;cursor:pointer;}
-.table-row{background:#fff;border:1px solid var(--border);border-radius:12px;padding:15px;margin-bottom:15px;display:flex;justify-content:space-between;flex-wrap:wrap;align-items:center;}
-.cell{flex:1 1 200px;margin-bottom:10px;}
-.cell-title{font-size:12px;color:#606060;}
-.cell-value{font-size:14px;margin-top:3px;}
-.row-actions{display:flex;gap:10px;}
-.action-btn.delete-btn{background:#ff3333;}
-.checkbox-cell{margin-right:10px;}
-</style>
 
 <style>
+:root{
+  --primary:#6c3cff;
+  --primary-dark:#5428d6;
+  --secondary:#00b8ff;
+  --bg:#f5f7fb;
+  --surface:#ffffff;
+  --text:#18212f;
+  --muted:#6b7280;
+  --border:#e7eaf0;
+  --danger:#ef4444;
+  --success:#10b981;
+  --radius:18px;
+  --shadow:0 8px 30px rgba(31,41,55,.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+/* ================= TOP NAV ================= */
+
+.top-nav{
+  height:72px;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 32px;
+
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(15px);
+
+  border-bottom:1px solid var(--border);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-icon{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+
+  background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+
+  color:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:18px;
+
+  box-shadow:0 5px 15px rgba(108,60,255,.25);
+}
+
+.brand-name{
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+
+.brand-name span{
+  color:var(--primary);
+}
+
+.brand-subtitle{
+  font-size:10px;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.nav-actions{
+  display:flex;
+  gap:10px;
+}
+
+.icon-btn{
+  width:42px;
+  height:42px;
+
+  border:1px solid var(--border);
+  border-radius:12px;
+
+  background:white;
+  color:var(--muted);
+
+  cursor:pointer;
+  transition:.2s;
+}
+
+.icon-btn:hover{
+  color:var(--primary);
+  border-color:var(--primary);
+  transform:translateY(-1px);
+}
+
+/* ================= MAIN ================= */
+
+.page-content{
+  padding:100px 24px 100px;
+}
+
+.content-wrapper{
+  width:100%;
+  max-width:1250px;
+  margin:auto;
+}
+
+/* ================= PAGE HEADER ================= */
+
+.page-heading{
+  margin-bottom:28px;
+}
+
+.page-heading h1{
+  font-size:28px;
+  font-weight:800;
+}
+
+.page-heading p{
+  color:var(--muted);
+  margin-top:6px;
+  font-size:14px;
+}
+
+/* ================= STATS ================= */
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:24px;
+}
+
+.stat-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.stat-icon{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#f0edff;
+  color:var(--primary);
+  font-size:18px;
+}
+
+.stat-value{
+  font-size:22px;
+  font-weight:800;
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:3px;
+}
+
+/* ================= TOOLBAR ================= */
+
+.toolbar{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+
+  padding:18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:15px;
+  margin-bottom:20px;
+
+  box-shadow:var(--shadow);
+}
+
+.toolbar-left,
+.toolbar-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.search-box{
+  position:relative;
+}
+
+.search-box i{
+  position:absolute;
+  left:13px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--muted);
+}
+
+.search-box input,
+.toolbar select{
+  height:42px;
+  border:1px solid var(--border);
+  border-radius:11px;
+  background:#fafbfc;
+
+  padding:0 12px;
+
+  font-size:13px;
+  outline:none;
+}
+
+.search-box input{
+  padding-left:38px;
+  width:220px;
+}
+
+.search-box input:focus,
+.toolbar select:focus{
+  border-color:var(--primary);
+}
+
+.primary-btn,
+.danger-btn{
+  border:none;
+  border-radius:11px;
+
+  height:42px;
+  padding:0 16px;
+
+  color:white;
+  font-weight:600;
+  font-size:13px;
+
+  cursor:pointer;
+  transition:.2s;
+}
+
+.primary-btn{
+  background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+}
+
+.danger-btn{
+  background:var(--danger);
+}
+
+.primary-btn:hover,
+.danger-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+/* ================= RESULT LIST ================= */
+
+.results-container{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.result-card{
+  background:white;
+
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+
+  padding:18px;
+
+  display:grid;
+  grid-template-columns:30px 1.8fr 1.2fr .8fr .8fr 120px;
+
+  align-items:center;
+  gap:16px;
+
+  box-shadow:var(--shadow);
+
+  transition:.2s;
+}
+
+.result-card:hover{
+  transform:translateY(-2px);
+  border-color:#d8d0ff;
+}
+
+.result-card.header-row{
+  background:#f9f9fc;
+  font-size:11px;
+  font-weight:700;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  box-shadow:none;
+}
+
+.cadet-info{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.avatar{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+
+  background:linear-gradient(
+    135deg,
+    #eee9ff,
+    #dff5ff
+  );
+
+  color:var(--primary);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:800;
+}
+
+.cadet-name{
+  font-size:14px;
+  font-weight:700;
+}
+
+.cadet-email{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
+}
+
+.data-title{
+  display:none;
+  font-size:10px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:4px;
+}
+
+.data-value{
+  font-size:13px;
+  font-weight:600;
+}
+
+.year-badge{
+  display:inline-flex;
+
+  padding:6px 10px;
+
+  border-radius:20px;
+
+  background:#eef2ff;
+  color:#4f46e5;
+
+  font-size:11px;
+  font-weight:700;
+}
+
+.mark-badge{
+  display:inline-flex;
+  justify-content:center;
+
+  padding:8px 12px;
+
+  border-radius:10px;
+
+  background:#ecfdf5;
+  color:#059669;
+
+  font-weight:800;
+  font-size:13px;
+}
+
+.select-all{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  font-size:12px;
+  color:var(--muted);
+}
+
+.empty-state{
+  text-align:center;
+
+  background:white;
+
+  padding:60px 20px;
+
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+}
+
+.empty-state i{
+  font-size:40px;
+  color:#c7cbd5;
+  margin-bottom:12px;
+}
+
+.empty-state h3{
+  margin-bottom:6px;
+}
+
+.empty-state p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ================= BOTTOM NAV ================= */
+
 .bottom-nav{
   position:fixed;
   bottom:0;
+  left:0;
+
   width:100%;
-  height:60px;
-  background:#fff;
+  height:72px;
+
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(15px);
+
   border-top:1px solid var(--border);
+
   display:flex;
-  justify-content:space-around;
+  justify-content:center;
   align-items:center;
-  box-shadow:0 -2px 5px rgba(0,0,0,0.05);
-  z-index:3000;
+
+  gap:10px;
+
+  z-index:2000;
 }
+
 .bottom-nav a{
-  text-decoration:none;
-  color:#606060;
-  font-size:12px;
+  height:46px;
+
+  padding:0 18px;
+
   display:flex;
-  flex-direction:column;
   align-items:center;
+  gap:9px;
+
+  text-decoration:none;
+
+  color:var(--muted);
+
+  border-radius:12px;
+
+  font-size:13px;
+  font-weight:600;
+
+  transition:.2s;
 }
+
 .bottom-nav a i{
-  font-size:18px;
-  margin-bottom:3px;
+  font-size:16px;
 }
+
+.bottom-nav a:hover{
+  background:#f3f4f8;
+}
+
 .bottom-nav a.active{
-  color:var(--accent);
+  color:white;
+
+  background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+
+  box-shadow:0 5px 15px rgba(108,60,255,.2);
 }
-.page-content{
-  padding-bottom:80px;
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  .stats-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .result-card{
+    grid-template-columns:30px 1fr;
+  }
+
+  .result-card.header-row{
+    display:none;
+  }
+
+  .result-card > div:not(.checkbox-cell):not(.cadet-info){
+    border-top:1px solid #f0f1f4;
+    padding-top:10px;
+  }
+
+  .data-title{
+    display:block;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .top-nav{
+    padding:0 16px;
+  }
+
+  .brand-subtitle{
+    display:none;
+  }
+
+  .page-content{
+    padding:92px 14px 100px;
+  }
+
+  .page-heading h1{
+    font-size:23px;
+  }
+
+  .toolbar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .toolbar-left,
+  .toolbar-right{
+    flex-wrap:wrap;
+  }
+
+  .search-box{
+    width:100%;
+  }
+
+  .search-box input{
+    width:100%;
+  }
+
+  .toolbar select{
+    flex:1;
+  }
+
+  .primary-btn,
+  .danger-btn{
+    flex:1;
+  }
+
+  .bottom-nav{
+    justify-content:space-around;
+    gap:0;
+  }
+
+  .bottom-nav a{
+    padding:0;
+    width:33%;
+    flex-direction:column;
+    justify-content:center;
+    gap:3px;
+    font-size:10px;
+  }
+
+}
+
+@media(max-width:420px){
+
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .stat-card{
+    padding:13px;
+  }
+
+  .stat-icon{
+    width:38px;
+    height:38px;
+    font-size:15px;
+  }
+
+  .stat-value{
+    font-size:18px;
+  }
+
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="top-nav">
+<!-- ================= TOP NAV ================= -->
+
+<nav class="top-nav">
+
   <div class="brand">
-    <span id="army">Mission </span>
-    <span id="navy">Cadet </span>
-    <span id="air">Upgrade</span>
+
+
+<div class="brand-icon">
+  <i class="fas fa-arrow-trend-up"></i>
+</div>
+
+<div>
+  <div class="brand-name">
+    ASCEND
   </div>
-  <div>
-    <button class="reload-btn" onclick="location.reload()">
-      <i class="fas fa-rotate"></i>
+
+  <div class="brand-subtitle">
+    Learn • Grow • Achieve
+  </div>
+</div>
+
+
+  </div>
+
+  <div class="nav-actions">
+
+
+<button class="icon-btn" onclick="location.reload()" title="Refresh">
+  <i class="fas fa-rotate"></i>
+</button>
+
+
+  </div>
+
+</nav>
+
+<!-- ================= PAGE ================= -->
+
+<main class="page-content">
+
+  <div class="content-wrapper">
+
+
+<div class="page-heading">
+  <h1>Cadet Results</h1>
+  <p>Manage, review and export student examination results.</p>
+</div>
+
+
+<!-- ================= STATS ================= -->
+
+<div class="stats-grid">
+
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-users"></i>
+    </div>
+
+    <div>
+      <div class="stat-value" id="totalStudents">0</div>
+      <div class="stat-label">Total Students</div>
+    </div>
+  </div>
+
+
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-circle-check"></i>
+    </div>
+
+    <div>
+      <div class="stat-value" id="totalAttempts">0</div>
+      <div class="stat-label">Total Attempts</div>
+    </div>
+  </div>
+
+
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-chart-line"></i>
+    </div>
+
+    <div>
+      <div class="stat-value" id="averageMark">0</div>
+      <div class="stat-label">Average Mark</div>
+    </div>
+  </div>
+
+
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-star"></i>
+    </div>
+
+    <div>
+      <div class="stat-value" id="topMark">0</div>
+      <div class="stat-label">Highest Mark</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ================= TOOLBAR ================= -->
+
+<div class="toolbar">
+
+  <div class="toolbar-left">
+
+    <div class="search-box">
+      <i class="fas fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        id="searchRoll"
+        placeholder="Search name or roll number..."
+        onkeyup="filterResults()"
+      >
+    </div>
+
+
+    <select id="yearFilter" onchange="filterResults()">
+
+      <option value="">All Years</option>
+
+      <option value="1">
+        Year 1
+      </option>
+
+      <option value="2">
+        Year 2
+      </option>
+
+      <option value="3">
+        Year 3
+      </option>
+
+      <option value="3air">
+        Year 3 AIR NCC
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <div class="toolbar-right">
+
+    <button class="primary-btn" onclick="exportResults()">
+      <i class="fas fa-file-excel"></i>
+      Export
     </button>
+
+    <button class="danger-btn" onclick="deleteSelected()">
+      <i class="fas fa-trash"></i>
+      Delete
+    </button>
+
   </div>
-</div>
-
-<div class="page-content">
-<div class="content-wrapper">
-
-<div id="resultSection">
-
-<div class="header">
-<h1>Cadet Results</h1>
-<button class="action-btn delete-btn" onclick="deleteSelected()">Delete Selected</button>
-
-<div style="display:flex;gap:10px;flex-wrap:wrap">
-<input type="text" id="searchRoll" placeholder="Search Roll No" onkeyup="filterResults()">
-
-<select id="yearFilter" onchange="filterResults()">
-<option value="">All Years</option>
-<option value="1">Year 1</option>
-<option value="2">Year 2</option>
-<option value="3">Year 3</option>
-<option value="3air">Year 3 (2 TN AIR SQN NCC)</option>
-</select>
-
-<button class="action-btn" onclick="exportResults()">Export Excel</button>
-<!--<button class="action-btn" onclick="printMarksheet()">Print PDF</button>-->
-</div>
-</div>
-
-<div id="resultList"></div>
 
 </div>
-</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script>
-const supabaseUrl='https://ncc.missioncadetupgrade.workers.dev';
-const supabaseKey='sb_publishable_VA-TOQxa5NucY7L1hPStkg_3eAj42PM';
-const supabase1=supabase.createClient(supabaseUrl,supabaseKey);
-
-  async function processAdminData() {
-    // Fetch the whole table
-    const { data, error } = await supabase1
-      .from('Admin')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      console.error('Error fetching Admin data:', error);
-      return;
-    }
-window.AdminData = data;
-  
-  }
-
-  // Call the function
-  processAdminData();
-
-const facultyEmail=sessionStorage.getItem("email");
-const role=sessionStorage.getItem("role");
-
-if(!facultyEmail||role!=="Faculty"){
-  window.location.href="index.html";
-}
-
-let allResults=[];
-
-async function showResults(){
-  const {data}=await supabase1
-    .from('Results')
-    .select('*')
-    .order('created_at',{ascending:false});
-  allResults=data||[];
-  renderResults(allResults);
-}
-
-showResults();
-
-async function deleteSelected(){
-  const checkboxes = document.querySelectorAll(".rowCheckbox");
-  const selectedIndexes = [];
-  checkboxes.forEach(cb => {
-    if(cb.checked){
-      selectedIndexes.push(parseInt(cb.dataset.index));
-    }
-  });
-
-  if(selectedIndexes.length === 0){
-    alert("Select at least one result to delete.");
-    return;
-  }
-
-  if(!confirm("Are you sure you want to delete the selected results?")) return;
-
-  for(let i = selectedIndexes.length - 1; i >= 0; i--){
-    const r = allResults[selectedIndexes[i]];
-    await supabase1
-      .from('Results')
-      .delete()
-      .eq('id', r.id);
-    allResults.splice(selectedIndexes[i], 1);
-  }
-
-  renderResults(allResults);
-}
 
 
-function renderResults(results){
-  const resultList = document.getElementById("resultList");
-  resultList.innerHTML = `
-    <div class="table-row">
-      <div class="cell checkbox-cell">
-        <input type="checkbox" id="selectAll" onclick="toggleSelectAll(this)"> Select All
-      </div>
-    </div>
-  `;
+<!-- ================= RESULTS ================= -->
 
-  results.forEach((r, index) => {
-    resultList.innerHTML += `
-    <div class="table-row">
-      <div class="cell checkbox-cell">
-        <input type="checkbox" class="rowCheckbox" data-index="${index}">
-      </div>
-      <div class="cell">
-        <div class="cell-title">Student</div>
-        <div class="cell-value">${r.student_name||''}</div>
-      </div>
-      <div class="cell">
-        <div class="cell-title">Roll No</div>
-        <div class="cell-value">${r.roll_no||''}</div>
-      </div>
-      <div class="cell">
-        <div class="cell-title">Year</div>
-        <div class="cell-value">${r.year||''}</div>
-      </div>
-      <div class="cell">
-        <div class="cell-title">Marks</div>
-        <div class="cell-value">${r.marks||''}</div>
-      </div>
-      <!-- add other cells here as needed -->
-    </div>
-    `;
-  });
-}
-
-function toggleSelectAll(source){
-  const checkboxes = document.querySelectorAll(".rowCheckbox");
-  checkboxes.forEach(cb => cb.checked = source.checked);
-}
+<div id="resultList" class="results-container"></div>
 
 
-function filterResults(){
-  const roll=document.getElementById("searchRoll").value.toLowerCase();
-  const year=document.getElementById("yearFilter").value;
-  let filtered=allResults.filter(r=>{
-    let matchRoll=!roll || (r.roll_no||'').toLowerCase().includes(roll);
-    let matchYear=!year || r.year==year;
-    return matchRoll && matchYear;
-  });
-  renderResults(filtered);
-}
+  </div>
 
-function exportResults(){
-  if(allResults.length===0){ alert("No results to export"); return; }
-  let rows=[["Student Name","Roll No","Year","Total Questions","Correct","Wrong","Marks","Submitted At"]];
-  allResults.forEach(r=>{
-    rows.push([r.student_name,r.roll_no,r.year,r.total_questions,r.correct,r.wrong,r.marks,r.submitted_at]);
-  });
-  const ws=XLSX.utils.aoa_to_sheet(rows);
-  const wb=XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb,ws,"Results");
-  XLSX.writeFile(wb,"Cadet_Results.xlsx");
-}
+</main>
 
-document.getElementById("lg").addEventListener("click",function(e){
-  e.preventDefault();
-  sessionStorage.clear();
-  window.location.href="../index.html";
-});
+<!-- ================= BOTTOM NAV ================= -->
 
-/* PRINT MARKSHEET */
-async function printMarksheet() {
+<nav class="bottom-nav">
 
+  <a href="../index.html">
+    <i class="fas fa-house"></i>
+    Home
+  </a>
 
+  <a href="faculty.html">
+    <i class="fas fa-clipboard-question"></i>
+    Questions
+  </a>
 
-  const roll = document.getElementById("searchRoll").value;
+  <a href="FacResults.html" class="active">
+    <i class="fas fa-chart-column"></i>
+    Results
+  </a>
 
-  const cadet = allResults.find(r => r.roll_no === roll);
-
-
-
-
-
-// Loop through each row
-   AdminData.forEach(row => {
-      if (row.Purpose == 'questionpaper' /*&& row.year == cadet.year */) {
-        // Access columns relevant for exam
-        console.log('Exam Row:');
-        console.log('Year:', row.year);
-        console.log('Subject Code:', row.subjectcode);
-        console.log('Subject Name:', row.subjectname);
-        window.subjectcode1 = row.subjectcode;
-        window.subjectname1 = row.subjectname;
-      }
-if (row.Purpose == 'resultpage' ) {
-        // Access columns relevant for result page
-        console.log('Result Page Row:');
-        console.log('College Logo:', row.collegelogo);
-        console.log('College Year:', row.collegeyear);
-        console.log('Exam Month:', row.exammonth);
-        console.log('Exam Year:', row.examyear);
-        console.log('Exam Date:', row.examdate);
-        console.log('Total Marks:', row.TotalMark);
-     
-        window.collegelogo1 = "colege_logo.jpg";
-        window.collegeyear1 = "53years.png"
-        window.exammonth1 = row.exammonth;
-        window.examyear1 = row.examyear;
-        window.examdate1 = row.examdate;
-        window.TotalMark1 = row.TotalMark;}
-
- });
-
-
-  if(!cadet){
-    alert("Cadet not found");
-    return;
-  }  if(!roll){
-    alert("Enter Roll No to print Marksheet");
-    return;
-  }
-
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-
-  // Add college logo
-  const logoImg = collegelogo1 ; // replace with your logo base64
-  doc.addImage(logoImg, 'PNG', 7, 15, 23, 23); // x, y, width, height
-
- // Add college logo
-  const logoImg2 = collegeyear1; // replace with your logo base64
-  doc.addImage(logoImg2, 'PNG', 180, 15, 24, 24); // x, y, width, height
-
-  let y = 24; // start Y for header text
-  const leftMargin = 20;
-
-  // Header (centered)
-  doc.setFontSize(14);
-  doc.setFont("arial","bold");
-  doc.text("KONGUNADU ARTS AND SCIENCE COLLEGE (AUTONOMOUS)", 108, y, { align: 'center' });
-  y += 6;
-  doc.setFontSize(11);
-  doc.setFont("arial","normal");
-  doc.text("Coimbatore – 641 029, Tamil Nadu, India", 105, y, { align: 'center' });
-  y += 6;
-  doc.text("Re-accredited by NAAC with A+ Grade 4th Cycle", 105, y, { align: 'center' });
-  y += 6;
-  doc.text("College of Excellence – UGC", 105, y, { align: 'center' });
-  y += 14;
-  doc.setFontSize(13);
-  doc.setFont("arial","bold");
-  doc.text("NCC – GENERAL ELECTIVE CREDIT COURSE EXAMINATION – "+exammonth1+" " +examyear1+" ", 105, y, { align: 'center' });
-  y += 12;
-
-  // Cadet Details Table
-doc.autoTable({
-  startY: y,
-  theme: 'grid',
-  head: [['Field', 'Details']],
-  body: [
-    ['NAME OF THE CADET', cadet.student_name.toUpperCase()||''],
-    ['DEPARTMENT ROLL NO', cadet.roll_no.toUpperCase()||''],
-    ['SUBJECT CODE', subjectcode1],
-    ['SUBJECT NAME', subjectname1],
-    ['DATE OF EXAMINATION', examdate1]
-  ],
-  styles: { font: 'arial', fontSize: 11, textColor: [0, 0, 0] },
-  headStyles: { fillColor: [220,220,220], textColor: [0,0,0] }, 
-  columnStyles: { 0: { cellWidth: 60 }, 1: { cellWidth: 100 } }
-});
-
-  const finalY = doc.lastAutoTable.finalY + 10;
-
-  // Marks Table
-doc.autoTable({
-  startY: finalY,
-  theme: 'grid',
-  head: [['TOTAL MARKS', 'Correct', 'Wrong', 'Attempted', 'Unattempted']],
-  body: [[
-    `${cadet.marks||'0'} / `+TotalMark1,
-    cadet.correct||'',
-    cadet.wrong||'',
-    cadet.attempted||'',
-    cadet.unattempted||''
-  ]],
-  styles: { font: 'arial', fontSize: 11, textColor: [0, 0, 0] }, 
-  headStyles: { fillColor: [220,220,220], textColor: [0,0,0] },
-  columnStyles: {
-    0: { cellWidth: 35 },
-    1: { cellWidth: 25 },
-    2: { cellWidth: 25 },
-    3: { cellWidth: 25 },
-    4: { cellWidth: 35 }
-  }
-});
-
-  doc.save(`${cadet.roll_no}_Marksheet.pdf`);
-}
-
-
-</script>
-
-<div class="bottom-nav">
-   <a class="nav-item" href="../index.html">
-      <i class="fas fa-home"></i>
-      Home
-    </a>
-    <a class="nav-item" href="faculty.html">
-      <i class="fas fa-clipboard"></i>
-      Questions
-    </a>
   <a href="../index.html" id="lg">
     <i class="fas fa-right-from-bracket"></i>
     Logout
   </a>
-</div>
+
+</nav>
+
+<script>
+
+/* ================= SUPABASE ================= */
+
+const supabaseUrl =
+'https://ncc.missioncadetupgrade.workers.dev';
+
+const supabaseKey =
+'sb_publishable_VA-TOQxa5NucY7L1hPStkg_3eAj42PM';
+
+const supabase1 =
+supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
+
+
+/* ================= AUTH CHECK ================= */
+
+const facultyEmail =
+sessionStorage.getItem("email");
+
+const role =
+sessionStorage.getItem("role");
+
+if(
+  !facultyEmail ||
+  role !== "Faculty"
+){
+  window.location.href =
+  "index.html";
+}
+
+
+/* ================= DATA ================= */
+
+let allResults = [];
+let displayedResults = [];
+
+
+/* ================= LOAD RESULTS ================= */
+
+async function showResults(){
+
+  const { data, error } =
+  await supabase1
+  .from("Results")
+  .select("*")
+  .order(
+    "created_at",
+    { ascending:false }
+  );
+
+  if(error){
+
+    console.error(error);
+
+    document.getElementById(
+      "resultList"
+    ).innerHTML = `
+      <div class="empty-state">
+        <i class="fas fa-triangle-exclamation"></i>
+        <h3>Unable to Load Results</h3>
+        <p>Please refresh the page and try again.</p>
+      </div>
+    `;
+
+    return;
+  }
+
+  allResults =
+  data || [];
+
+  displayedResults =
+  [...allResults];
+
+  updateStatistics(
+    allResults
+  );
+
+  renderResults(
+    allResults
+  );
+
+}
+
+
+/* ================= STATISTICS ================= */
+
+function updateStatistics(results){
+
+  const total =
+  results.length;
+
+  const attempts =
+  results.reduce(
+    (sum,r) =>
+    sum + Number(
+      r.attempted || 0
+    ),
+    0
+  );
+
+  const marks =
+  results.map(
+    r => Number(
+      r.marks || 0
+    )
+  );
+
+  const average =
+  marks.length
+  ?
+  (
+    marks.reduce(
+      (a,b)=>a+b,
+      0
+    ) / marks.length
+  ).toFixed(1)
+  :
+  0;
+
+  const highest =
+  marks.length
+  ?
+  Math.max(...marks)
+  :
+  0;
+
+  document.getElementById(
+    "totalStudents"
+  ).innerText = total;
+
+  document.getElementById(
+    "totalAttempts"
+  ).innerText = attempts;
+
+  document.getElementById(
+    "averageMark"
+  ).innerText = average;
+
+  document.getElementById(
+    "topMark"
+  ).innerText = highest;
+
+}
+
+
+/* ================= RENDER ================= */
+
+function renderResults(results){
+
+  displayedResults =
+  results;
+
+  const resultList =
+  document.getElementById(
+    "resultList"
+  );
+
+
+  if(results.length === 0){
+
+    resultList.innerHTML = `
+      <div class="empty-state">
+
+        <i class="fas fa-folder-open"></i>
+
+        <h3>No Results Found</h3>
+
+        <p>
+          No student results match your search.
+        </p>
+
+      </div>
+    `;
+
+    return;
+  }
+
+
+  let html = `
+
+  <div class="result-card header-row">
+
+    <div class="checkbox-cell">
+      <input
+        type="checkbox"
+        id="selectAll"
+        onchange="toggleSelectAll(this)"
+      >
+    </div>
+
+    <div>Cadet</div>
+
+    <div>Roll Number</div>
+
+    <div>Year</div>
+
+    <div>Marks</div>
+
+    <div>Submission</div>
+
+  </div>
+
+  `;
+
+
+  results.forEach(r => {
+
+    const name =
+    r.student_name || "";
+
+    const initial =
+    name
+    .charAt(0)
+    .toUpperCase() || "C";
+
+
+    html += `
+
+    <div class="result-card">
+
+      <div class="checkbox-cell">
+
+        <input
+          type="checkbox"
+          class="rowCheckbox"
+          data-id="${r.id}"
+        >
+
+      </div>
+
+
+      <div class="cadet-info">
+
+        <div class="avatar">
+          ${initial}
+        </div>
+
+        <div>
+
+          <div class="cadet-name">
+            ${escapeHTML(name)}
+          </div>
+
+          <div class="cadet-email">
+            ${escapeHTML(
+              r.faculty_email || ""
+            )}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="data-title">
+          Roll Number
+        </div>
+
+        <div class="data-value">
+          ${escapeHTML(
+            r.roll_no || "-"
+          )}
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="data-title">
+          Year
+        </div>
+
+        <span class="year-badge">
+          ${formatYear(r.year)}
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <div class="data-title">
+          Marks
+        </div>
+
+        <span class="mark-badge">
+          ${r.marks ?? 0}
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <div class="data-title">
+          Submission
+        </div>
+
+        <div class="data-value">
+          ${formatDate(
+            r.submitted_at ||
+            r.created_at
+          )}
+        </div>
+
+      </div>
+
+    </div>
+
+    `;
+
+  });
+
+
+  resultList.innerHTML =
+  html;
+
+}
+
+
+/* ================= FILTER ================= */
+
+function filterResults(){
+
+  const search =
+  document
+  .getElementById(
+    "searchRoll"
+  )
+  .value
+  .toLowerCase()
+  .trim();
+
+
+  const year =
+  document
+  .getElementById(
+    "yearFilter"
+  )
+  .value;
+
+
+  const filtered =
+  allResults.filter(r => {
+
+    const roll =
+    String(
+      r.roll_no || ""
+    )
+    .toLowerCase();
+
+
+    const name =
+    String(
+      r.student_name || ""
+    )
+    .toLowerCase();
+
+
+    const matchSearch =
+    !search ||
+    roll.includes(search) ||
+    name.includes(search);
+
+
+    const matchYear =
+    !year ||
+    String(r.year) ===
+    year;
+
+
+    return
+    matchSearch &&
+    matchYear;
+
+  });
+
+
+  renderResults(
+    filtered
+  );
+
+}
+
+
+/* ================= SELECT ALL ================= */
+
+function toggleSelectAll(source){
+
+  document
+  .querySelectorAll(
+    ".rowCheckbox"
+  )
+  .forEach(cb => {
+
+    cb.checked =
+    source.checked;
+
+  });
+
+}
+
+
+/* ================= DELETE ================= */
+
+async function deleteSelected(){
+
+  const selected =
+  [...document.querySelectorAll(
+    ".rowCheckbox:checked"
+  )]
+  .map(
+    cb => cb.dataset.id
+  );
+
+
+  if(selected.length === 0){
+
+    alert(
+      "Select at least one result to delete."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !confirm(
+      `Delete ${selected.length} selected result(s)?`
+    )
+  ){
+    return;
+  }
+
+
+  const { error } =
+  await supabase1
+  .from("Results")
+  .delete()
+  .in(
+    "id",
+    selected
+  );
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "Unable to delete results."
+    );
+
+    return;
+
+  }
+
+
+  allResults =
+  allResults.filter(
+    r =>
+    !selected.includes(
+      String(r.id)
+    )
+  );
+
+
+  filterResults();
+
+
+  updateStatistics(
+    allResults
+  );
+
+
+  alert(
+    "Selected results deleted successfully."
+  );
+
+}
+
+
+/* ================= EXPORT EXCEL ================= */
+
+function exportResults(){
+
+  if(
+    displayedResults.length === 0
+  ){
+
+    alert(
+      "No results available to export."
+    );
+
+    return;
+
+  }
+
+
+  const rows = [
+
+    [
+      "Student Name",
+      "Roll Number",
+      "Year",
+      "Total Questions",
+      "Attempted",
+      "Correct",
+      "Wrong",
+      "Unattempted",
+      "Marks",
+      "Submitted At"
+    ]
+
+  ];
+
+
+  displayedResults.forEach(r => {
+
+    rows.push([
+
+      r.student_name || "",
+      r.roll_no || "",
+      r.year || "",
+      r.total_questions || 0,
+      r.attempted || 0,
+      r.correct || 0,
+      r.wrong || 0,
+      r.unattempted || 0,
+      r.marks || 0,
+      r.submitted_at ||
+      r.created_at ||
+      ""
+
+    ]);
+
+  });
+
+
+  const worksheet =
+  XLSX.utils.aoa_to_sheet(
+    rows
+  );
+
+
+  worksheet["!cols"] = [
+
+    {wch:25},
+    {wch:20},
+    {wch:14},
+    {wch:16},
+    {wch:12},
+    {wch:12},
+    {wch:12},
+    {wch:15},
+    {wch:12},
+    {wch:24}
+
+  ];
+
+
+  const workbook =
+  XLSX.utils.book_new();
+
+
+  XLSX.utils.book_append_sheet(
+    workbook,
+    worksheet,
+    "ASCEND Results"
+  );
+
+
+  XLSX.writeFile(
+    workbook,
+    "ASCEND_Cadet_Results.xlsx"
+  );
+
+}
+
+
+/* ================= HELPERS ================= */
+
+function formatYear(year){
+
+  if(
+    year === "3air"
+  ){
+
+    return "Year 3 AIR";
+
+  }
+
+  if(
+    !year &&
+    year !== 0
+  ){
+
+    return "-";
+
+  }
+
+  return `Year ${year}`;
+
+}
+
+
+function formatDate(value){
+
+  if(!value){
+
+    return "-";
+
+  }
+
+
+  const date =
+  new Date(value);
+
+
+  if(
+    isNaN(
+      date.getTime()
+    )
+  ){
+
+    return String(value);
+
+  }
+
+
+  return date.toLocaleDateString(
+    "en-IN",
+    {
+      day:"2-digit",
+      month:"short",
+      year:"numeric"
+    }
+  );
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+/* ================= LOGOUT ================= */
+
+document
+.getElementById("lg")
+.addEventListener(
+  "click",
+  function(e){
+
+    e.preventDefault();
+
+    sessionStorage.clear();
+
+    window.location.href =
+    "../index.html";
+
+  }
+);
+
+
+/* ================= INITIAL LOAD ================= */
+
+showResults();
+
+</script>
 
 </body>
 </html>
