@@ -1,257 +1,1491 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-  <meta name="google-adsense-account" content="ca-pub-1318194885972438">
-<meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Mission Cadet Upgrade | Books</title>
+<meta name="google-adsense-account" content="ca-pub-1318194885972438">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ASCEND | Learn</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
+
+/* =========================================
+   ROOT
+========================================= */
+
 :root{
-  --bg:#ffffff;
-  --soft:#f9f9f9;
-  --border:#e5e5e5;
-  --text:#0f0f0f;
-  --muted:#606060;
-  --accent:#ff0000;
-  --radius:12px;
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+
+    --yellow:#FFD43B;
+    --yellow-dark:#DFA800;
+
+    --bg:#F5F7FC;
+    --white:#FFFFFF;
+
+    --text:#172033;
+    --muted:#68748A;
+    --border:#E4E9F2;
+
+    --blue-soft:#EDF3FF;
+    --yellow-soft:#FFF8DC;
+    --green-soft:#EAFBF3;
+
+    --radius:20px;
 }
 
+/* =========================================
+   RESET
+========================================= */
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', Arial, sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',Arial,sans-serif;
 }
 
 body{
-  background:#f2f2f2;
-  display:flex;
-  justify-content:center;
+    background:var(--bg);
+    color:var(--text);
 }
 
-.app-container{
-  width:100%;
-  max-width:360px;
-  height:800px;
-  background:var(--bg);
-  display:flex;
-  flex-direction:column;
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--border);
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
-/* ===== Header ===== */
-.top-nav{
-  background:#ffffff;
-  border-bottom:1px solid var(--border);
-  padding:12px 14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+/* =========================================
+   HEADER
+========================================= */
+
+.header{
+    height:76px;
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(16px);
 }
 
-.brand{
-  font-size:16px;
-  font-weight:700;
+.nav-container{
+    max-width:1200px;
+    height:100%;
+    margin:auto;
+    padding:0 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.brand #army{ color:#ff0000; }
-.brand #navy{ color:#0000ff; }
-.brand #air{ color:#00b6ff; }
+/* =========================================
+   LOGO
+========================================= */
 
-.reload-btn{
-  background:none;
-  border:none;
-  font-size:18px;
-  color:var(--accent);
-  cursor:pointer;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-/* ===== Scroll Area ===== */
-.main{
-  flex:1;
-  overflow-y:auto;
-  padding:14px;
+.logo-icon{
+    width:47px;
+    height:47px;
+    border-radius:14px;
+    background:#fff;
+    border:1px solid var(--border);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
 }
 
-/* ===== Search ===== */
-.search-container{
-  margin-bottom:14px;
+.logo-icon img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
-.search-container input{
-  width:100%;
-  padding:10px 12px;
-  border-radius:8px;
-  border:1px solid var(--border);
-  background:var(--soft);
-  font-size:12px;
+.logo-text h1{
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:1px;
+    line-height:1;
+    color:var(--primary);
 }
 
-.search-container input:focus{
-  outline:none;
-  border-color:var(--accent);
+.logo-text p{
+    font-size:8px;
+    color:var(--muted);
+    font-weight:600;
+    margin-top:5px;
 }
 
-/* ===== Category Cards ===== */
+/* =========================================
+   DESKTOP NAV
+========================================= */
+
+.desktop-nav{
+    display:flex;
+    align-items:center;
+    gap:27px;
+}
+
+.desktop-nav a{
+    color:var(--muted);
+    font-size:13px;
+    font-weight:600;
+    transition:.2s;
+}
+
+.desktop-nav a:hover,
+.desktop-nav .active{
+    color:var(--primary);
+}
+
+.explore-btn{
+    background:var(--primary);
+    color:#fff !important;
+    padding:10px 17px;
+    border-radius:11px;
+}
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.menu-btn{
+    display:none;
+
+    width:42px;
+    height:42px;
+
+    border:none;
+    border-radius:12px;
+
+    background:var(--blue-soft);
+    color:var(--primary);
+
+    cursor:pointer;
+}
+
+.mobile-menu{
+    display:none;
+
+    position:absolute;
+    top:76px;
+    left:0;
+
+    width:100%;
+
+    background:#fff;
+    border-bottom:1px solid var(--border);
+
+    padding:10px 15px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.mobile-menu.active{
+    display:block;
+}
+
+.mobile-menu a{
+    display:block;
+
+    padding:13px;
+    margin-bottom:4px;
+
+    border-radius:12px;
+
+    color:var(--text);
+
+    font-size:13px;
+    font-weight:600;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.active{
+    background:var(--blue-soft);
+    color:var(--primary);
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+.container{
+    max-width:1050px;
+    margin:auto;
+
+    padding:35px 25px 100px;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #155EEF,
+        #4D82FF
+    );
+
+    color:#fff;
+
+    border-radius:28px;
+
+    padding:42px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+    0 20px 50px
+    rgba(21,94,239,.17);
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:330px;
+    height:330px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    right:-130px;
+    top:-190px;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,212,59,.18);
+
+    right:200px;
+    bottom:-130px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    max-width:650px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    background:rgba(255,255,255,.14);
+
+    border:
+    1px solid
+    rgba(255,255,255,.2);
+
+    padding:7px 13px;
+
+    border-radius:30px;
+
+    font-size:9px;
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:38px;
+    line-height:1.15;
+
+    letter-spacing:-1px;
+
+    margin-bottom:12px;
+}
+
+.hero h1 span{
+    color:var(--yellow);
+}
+
+.hero p{
+    font-size:11px;
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,.88);
+
+    max-width:600px;
+}
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-box{
+    position:relative;
+
+    margin-bottom:24px;
+}
+
+.search-box i{
+    position:absolute;
+
+    left:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:var(--muted);
+
+    font-size:15px;
+}
+
+.search-box input{
+    width:100%;
+
+    padding:15px 18px 15px 47px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    font-size:12px;
+
+    color:var(--text);
+
+    outline:none;
+
+    transition:.2s;
+}
+
+.search-box input:focus{
+    border-color:var(--primary);
+
+    box-shadow:
+    0 0 0 4px
+    rgba(21,94,239,.08);
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-end;
+
+    margin-bottom:17px;
+}
+
+.section-heading h2{
+    font-size:22px;
+    font-weight:800;
+}
+
+.section-heading p{
+    font-size:10px;
+    color:var(--muted);
+
+    margin-top:5px;
+}
+
+.category-count{
+    background:var(--blue-soft);
+
+    color:var(--primary);
+
+    padding:7px 11px;
+
+    border-radius:10px;
+
+    font-size:9px;
+    font-weight:800;
+}
+
+/* =========================================
+   CATEGORY GRID
+========================================= */
+
+.category-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:16px;
+}
+
+/* =========================================
+   CATEGORY CARD
+========================================= */
+
 .category-card{
-  display:block;
-  background:var(--soft);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:14px;
-  margin-bottom:12px;
-  text-decoration:none;
-  color:var(--text);
-  transition:.2s;
+    background:#fff;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:21px;
+
+    padding:22px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.25s ease;
 }
 
 .category-card:hover{
-  border-color:var(--accent);
+    transform:translateY(-4px);
+
+    border-color:#C5D4F5;
+
+    box-shadow:
+    0 15px 35px
+    rgba(21,94,239,.08);
+}
+
+.category-card.yellow{
+    background:
+    linear-gradient(
+        145deg,
+        #fff,
+        #FFFDF3
+    );
+}
+
+.category-card.green{
+    background:
+    linear-gradient(
+        145deg,
+        #fff,
+        #F2FFF9
+    );
+}
+
+.category-top{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
 }
 
 .category-icon{
-  font-size:20px;
-  margin-bottom:6px;
-  display:block;
+    width:53px;
+    height:53px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:var(--blue-soft);
+
+    color:var(--primary);
+
+    font-size:21px;
 }
 
-.category-card h2{
-  font-size:13px;
-  color:var(--accent);
+.yellow .category-icon{
+    background:var(--yellow-soft);
+    color:#A77B00;
 }
 
-/* ===== CTA ===== */
+.green .category-icon{
+    background:var(--green-soft);
+    color:#18A66A;
+}
+
+.category-label{
+    background:var(--blue-soft);
+
+    color:var(--primary);
+
+    padding:6px 9px;
+
+    border-radius:8px;
+
+    font-size:8px;
+    font-weight:800;
+}
+
+.yellow .category-label{
+    background:var(--yellow-soft);
+    color:#A77B00;
+}
+
+.green .category-label{
+    background:var(--green-soft);
+    color:#18A66A;
+}
+
+.category-card h3{
+    font-size:17px;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+}
+
+.category-card p{
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:1.7;
+
+    margin-bottom:18px;
+}
+
+/* =========================================
+   OPEN BUTTON
+========================================= */
+
+.open-btn{
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    font-size:10px;
+    font-weight:700;
+}
+
+.yellow .open-btn{
+    background:var(--yellow);
+    color:#463900;
+}
+
+.green .open-btn{
+    background:#18A66A;
+    color:#fff;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state{
+    display:none;
+
+    text-align:center;
+
+    padding:40px;
+
+    background:#fff;
+
+    border:
+    1px dashed var(--border);
+
+    border-radius:20px;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+/* =========================================
+   CTA
+========================================= */
+
 .cta{
-  background:var(--accent);
-  color:#fff;
-  padding:12px;
-  border-radius:var(--radius);
-  text-align:center;
-  font-size:12px;
-  font-weight:600;
-  margin-top:10px;
+    margin-top:28px;
+
+    background:var(--yellow);
+
+    border-radius:20px;
+
+    padding:23px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
 }
 
-/* ===== Bottom Nav ===== */
-.bottom-nav{
-  height:55px;
-  background:#ffffff;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  position:absolute;
-  bottom:0;
-  width:100%;
+.cta-text h3{
+    font-size:15px;
+
+    color:#403500;
+
+    margin-bottom:5px;
 }
 
-.nav-item{
-  text-align:center;
-  font-size:9px;
-  color:var(--muted);
-  text-decoration:none;
+.cta-text p{
+    font-size:9px;
+
+    color:#665800;
 }
 
-.nav-item i{
-  display:block;
-  font-size:15px;
-  margin-bottom:3px;
+.cta-icon{
+    width:48px;
+    height:48px;
+
+    flex-shrink:0;
+
+    border-radius:15px;
+
+    background:
+    rgba(255,255,255,.45);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#604D00;
+
+    font-size:19px;
 }
 
-.nav-item.active{
-  color:var(--accent);
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+    text-align:center;
+
+    margin-top:35px;
+
+    font-size:9px;
+
+    color:var(--muted);
 }
+
+.footer strong{
+    color:var(--primary);
+}
+
+/* =========================================
+   MOBILE BOTTOM NAV
+========================================= */
+
+.mobile-bottom-nav{
+    display:none;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:850px){
+
+    .desktop-nav{
+        gap:14px;
+    }
+
+    .admin-btn{
+        padding:9px 12px;
+        font-size:11px !important;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .header{
+        height:70px;
+    }
+
+    .nav-container{
+        padding:0 15px;
+    }
+
+    .desktop-nav{
+        display:none;
+    }
+
+    .menu-btn{
+        display:flex;
+
+        align-items:center;
+        justify-content:center;
+    }
+
+    .mobile-menu{
+        top:70px;
+    }
+
+    .logo-icon{
+        width:42px;
+        height:42px;
+    }
+
+    .logo-text h1{
+        font-size:19px;
+    }
+
+    .container{
+        padding:
+        16px 14px
+        92px;
+    }
+
+    /* HERO */
+
+    .hero{
+        padding:30px 20px;
+
+        border-radius:23px;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:9px;
+    }
+
+    /* SEARCH */
+
+    .search-box input{
+        padding:14px 16px 14px 45px;
+    }
+
+    /* HEADING */
+
+    .section-heading h2{
+        font-size:18px;
+    }
+
+    .section-heading p{
+        font-size:8px;
+    }
+
+    .category-count{
+        font-size:8px;
+    }
+
+    /* GRID */
+
+    .category-grid{
+        grid-template-columns:1fr;
+
+        gap:12px;
+    }
+
+    .category-card{
+        padding:18px;
+
+        border-radius:18px;
+    }
+
+    .category-card h3{
+        font-size:15px;
+    }
+
+    .category-card p{
+        font-size:9px;
+    }
+
+    .category-icon{
+        width:47px;
+        height:47px;
+
+        font-size:18px;
+    }
+
+    /* CTA */
+
+    .cta{
+        padding:18px;
+
+        border-radius:17px;
+    }
+
+    .cta-text h3{
+        font-size:12px;
+    }
+
+    .cta-text p{
+        font-size:8px;
+    }
+
+    .cta-icon{
+        width:42px;
+        height:42px;
+
+        font-size:16px;
+    }
+
+    /* BOTTOM NAV */
+
+    .mobile-bottom-nav{
+        display:flex;
+
+        position:fixed;
+
+        left:0;
+        bottom:0;
+
+        width:100%;
+        height:70px;
+
+        background:
+        rgba(255,255,255,.97);
+
+        backdrop-filter:
+        blur(15px);
+
+        border-top:
+        1px solid var(--border);
+
+        z-index:2000;
+
+        justify-content:
+        space-around;
+
+        align-items:center;
+    }
+
+    .mobile-nav-item{
+        min-width:50px;
+
+        text-align:center;
+
+        color:#7C879B;
+
+        font-size:8px;
+        font-weight:600;
+    }
+
+    .mobile-nav-item i{
+        width:36px;
+        height:31px;
+
+        margin:auto;
+
+        display:flex;
+
+        align-items:center;
+        justify-content:center;
+
+        font-size:15px;
+    }
+
+    .mobile-nav-item.active{
+        color:var(--primary);
+    }
+
+    .mobile-nav-item.active i{
+        background:var(--blue-soft);
+
+        border-radius:11px;
+    }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="app-container">
+<!-- =========================================
+     HEADER
+========================================= -->
 
-  <!-- Header -->
-  <div class="top-nav">
-    <div class="brand">
-      <span id="army">Mission </span>
-      <span id="navy">Cadet</span>
-      <span id="air"> Upgrade</span>
-    </div>
-    <button class="reload-btn" onclick="reloadPage()">
-      <i class="fas fa-rotate"></i>
-    </button>
-  </div>
+<header class="header">
 
-  <!-- Main -->
-  <div class="main">
+<div class="nav-container">
 
-    <div class="search-container">
-      <input type="text" placeholder="Search categories...">
+
+<!-- LOGO -->
+
+<a href="index.html" class="logo">
+
+    <div class="logo-icon">
+        <img src="logo.png" alt="ASCEND Logo">
     </div>
 
-    <a href="Books/NCC.html" class="category-card">
-      <span class="category-icon">👮‍♂️</span>
-      <h2>National Cadet Corps</h2>
-    </a>
-
-    <a href="Books/CDS.html" class="category-card">
-      <span class="category-icon">⚔️</span>
-      <h2>CDS</h2>
-    </a>
-
-    <a href="Books/AFCAT.html" class="category-card">
-      <span class="category-icon">✈️</span>
-      <h2>AFCAT</h2>
-    </a>
-
-    <a href="Books/n.html" class="category-card">
-      <span class="category-icon">📑</span>
-      <h2>Current Affairs</h2>
-    </a>
-
-    <div class="cta">
-      Discipline • Knowledge • Leadership
+    <div class="logo-text">
+        <h1>ASCEND</h1>
+        <p>Rise Today. Lead Tomorrow.</p>
     </div>
 
-  </div>
+</a>
 
-  <!-- Bottom Navigation -->
-  <div class="bottom-nav">
-    <a class="nav-item" href="index.html">
-      <i class="fas fa-home"></i>
-      Home
+
+<!-- DESKTOP NAV -->
+
+<nav class="desktop-nav">
+
+    <a href="index.html">
+        Home
     </a>
 
-    <a class="nav-item active" href="Books.html">
-      <i class="fas fa-book"></i>
-      Books
+    <a href="Books.html" class="active">
+        Learn
     </a>
 
-    <a class="nav-item" href="Assignments.html">
-      <i class="fas fa-clipboard"></i>
-      Tasks
+    <a href="Assignments.html">
+        Tasks
     </a>
 
-    <a class="nav-item" href="Faq.html">
-      <i class="fas fa-question-circle"></i>
-      FAQ
+    <a href="Faq.html">
+        FAQ
     </a>
 
-    <a class="nav-item" href="Aboutus.html">
-      <i class="fas fa-user"></i>
-      About
+    <a href="Aboutus.html">
+        About
     </a>
-  </div>
+
+    <a href="#categories" class="explore-btn">
+        Explore
+    </a>
+
+</nav>
+
+
+<!-- MOBILE MENU BUTTON -->
+
+<button class="menu-btn" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+</button>
+
 
 </div>
 
+<!-- MOBILE MENU -->
+
+<div id="mobileMenu" class="mobile-menu">
+
+
+<a href="index.html">
+    <i class="fas fa-house"></i>
+    &nbsp; Home
+</a>
+
+<a href="Books.html" class="active">
+    <i class="fas fa-book-open"></i>
+    &nbsp; Learn
+</a>
+
+<a href="Assignments.html">
+    <i class="fas fa-list-check"></i>
+    &nbsp; Tasks
+</a>
+
+<a href="Faq.html">
+    <i class="fas fa-circle-question"></i>
+    &nbsp; FAQ
+</a>
+
+<a href="Aboutus.html">
+    <i class="fas fa-users"></i>
+    &nbsp; About
+</a>
+
+<a href="test/index.html">
+    <i class="fas fa-user-shield"></i>
+    &nbsp; Test Administrator
+</a>
+
+
+</div>
+
+</header>
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            <i class="fas fa-book-open"></i>
+            ASCEND LEARNING LIBRARY
+        </div>
+
+        <h1>
+            Learn.
+            <span>Explore.</span>
+            <br>
+            ASCEND.
+        </h1>
+
+        <p>
+            Discover learning resources for NCC, defence
+            examinations, current affairs and career-focused
+            preparation.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+    <i class="fas fa-magnifying-glass"></i>
+
+    <input
+    type="text"
+    id="searchInput"
+    placeholder="Search learning categories..."
+    onkeyup="searchCategories()">
+
+</div>
+
+
+<!-- CATEGORIES -->
+
+<section id="categories">
+
+    <div class="section-heading">
+
+        <div>
+            <h2>Learning Categories</h2>
+
+            <p>
+                Select a category and start learning.
+            </p>
+        </div>
+
+        <div class="category-count">
+            4 Categories
+        </div>
+
+    </div>
+
+
+    <div class="category-grid" id="categoryGrid">
+
+
+        <!-- NCC -->
+
+        <a
+        href="Books/NCC.html"
+        class="category-card search-card"
+        data-name="national cadet corps ncc defence cadet">
+
+            <div class="category-top">
+
+                <div class="category-icon">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+
+                <div class="category-label">
+                    NCC
+                </div>
+
+            </div>
+
+            <h3>
+                National Cadet Corps
+            </h3>
+
+            <p>
+                Learn about NCC training, ranks,
+                camps, leadership and military
+                awareness.
+            </p>
+
+            <div class="open-btn">
+                Explore NCC
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+        </a>
+
+
+        <!-- CDS -->
+
+        <a
+        href="Books/CDS.html"
+        class="category-card yellow search-card"
+        data-name="cds combined defence services defence exam">
+
+            <div class="category-top">
+
+                <div class="category-icon">
+                    <i class="fas fa-crosshairs"></i>
+                </div>
+
+                <div class="category-label">
+                    EXAM
+                </div>
+
+            </div>
+
+            <h3>
+                CDS
+            </h3>
+
+            <p>
+                Prepare for Combined Defence
+                Services examinations with
+                structured study materials.
+            </p>
+
+            <div class="open-btn">
+                Explore CDS
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+        </a>
+
+
+        <!-- AFCAT -->
+
+        <a
+        href="Books/AFCAT.html"
+        class="category-card search-card"
+        data-name="afcat air force exam aviation">
+
+            <div class="category-top">
+
+                <div class="category-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+
+                <div class="category-label">
+                    AIR FORCE
+                </div>
+
+            </div>
+
+            <h3>
+                AFCAT
+            </h3>
+
+            <p>
+                Study for Air Force Common
+                Admission Test and strengthen
+                your defence knowledge.
+            </p>
+
+            <div class="open-btn">
+                Explore AFCAT
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+        </a>
+
+
+        <!-- CURRENT AFFAIRS -->
+
+        <a
+        href="Books/n.html"
+        class="category-card green search-card"
+        data-name="current affairs news india international daily">
+
+            <div class="category-top">
+
+                <div class="category-icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+
+                <div class="category-label">
+                    DAILY
+                </div>
+
+            </div>
+
+            <h3>
+                Current Affairs
+            </h3>
+
+            <p>
+                Stay informed with important
+                national, international and
+                defence-related updates.
+            </p>
+
+            <div class="open-btn">
+                Explore Updates
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- EMPTY SEARCH -->
+
+    <div class="empty-state" id="emptyState">
+
+        <i class="fas fa-magnifying-glass"
+           style="font-size:25px;margin-bottom:12px;display:block;">
+        </i>
+
+        No learning category found.
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <div class="cta-text">
+
+        <h3>
+            Discipline. Knowledge. Leadership.
+        </h3>
+
+        <p>
+            Build skills today and rise higher tomorrow.
+        </p>
+
+    </div>
+
+    <div class="cta-icon">
+        <i class="fas fa-arrow-up-right-dots"></i>
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <strong>ASCEND</strong>
+    — Rise Today. Lead Tomorrow.
+
+    <br><br>
+
+    © 2026 ASCEND Learning Community.
+    All Rights Reserved.
+
+</footer>
+
+
+</main>
+
+<!-- =========================================
+     MOBILE BOTTOM NAV
+========================================= -->
+
+<nav class="mobile-bottom-nav">
+
+
+<a
+href="index.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-house"></i>
+
+    Home
+
+</a>
+
+
+<a
+href="Books.html"
+class="mobile-nav-item active">
+
+    <i class="fas fa-book-open"></i>
+
+    Learn
+
+</a>
+
+
+<a
+href="Assignments.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-list-check"></i>
+
+    Tasks
+
+</a>
+
+
+<a
+href="Faq.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-circle-question"></i>
+
+    FAQ
+
+</a>
+
+
+<a
+href="Aboutus.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-users"></i>
+
+    About
+
+</a>
+
+
+</nav>
+
 <script>
-function reloadPage(){
-  location.reload();
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+function toggleMenu(){
+
+    const menu =
+    document.getElementById("mobileMenu");
+
+    const icon =
+    document.querySelector(".menu-btn i");
+
+    menu.classList.toggle("active");
+
+    if(menu.classList.contains("active")){
+
+        icon.classList.remove("fa-bars");
+
+        icon.classList.add("fa-xmark");
+
+    }else{
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    }
+
 }
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+function searchCategories(){
+
+    const search =
+    document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+    const cards =
+    document
+    .querySelectorAll(".search-card");
+
+    let found = 0;
+
+    cards.forEach(card => {
+
+        const name =
+        card.dataset.name.toLowerCase();
+
+        if(name.includes(search)){
+
+            card.style.display="block";
+
+            found++;
+
+        }else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+    document
+    .getElementById("emptyState")
+    .style.display =
+    found === 0
+    ? "block"
+    : "none";
+
+}
+
+
+/* =========================================
+   CLOSE MOBILE MENU
+========================================= */
+
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(link => {
+
+    link.addEventListener("click",()=>{
+
+        document
+        .getElementById("mobileMenu")
+        .classList.remove("active");
+
+        const icon =
+        document.querySelector(".menu-btn i");
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    });
+
+});
+
 </script>
 
 </body>

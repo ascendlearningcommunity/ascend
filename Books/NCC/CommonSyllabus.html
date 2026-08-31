@@ -1,207 +1,1059 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <title>Read-only PDF Viewer (Drive)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css" integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/fontawesome.min.css" integrity="sha512-M5Kq4YVQrjg5c2wsZSn27Dkfm/2ALfxmun0vUE3mPiJyK53hQBHYCVAtvMYEC7ZXmYLg8DVG4tF8gD27WmDbsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/regular.min.css" integrity="sha512-x3gns+l9p4mIK7vYLOCUoFS2P1gavFvnO9Its8sr0AkUk46bgf9R51D8xeRUwCSk+W93YbXWi19BYzXDNBH5SA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
-  <style>
-    :root {
-      --bg: #ffffff;
-      --panel: #f9f9f9;
-      --border: #ddd;
-      --text: #000000;
-      --accent: #ff0000;
-      --inactive: #888;
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>ASCEND | Study Viewer</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   ASCEND DESIGN SYSTEM
+===================================================== */
+
+:root{
+
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+
+    --yellow:#FFD43B;
+
+    --bg:#F5F7FC;
+    --white:#FFFFFF;
+
+    --text:#172033;
+    --muted:#68748A;
+
+    --border:#E4E9F2;
+
+    --blue-soft:#EDF3FF;
+    --yellow-soft:#FFF8DC;
+
+    --radius:20px;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:
+    'Inter',
+    Arial,
+    sans-serif;
+
+}
+
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+}
+
+
+body{
+
+    background:
+    var(--bg);
+
+    color:
+    var(--text);
+
+    overflow:hidden;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    height:70px;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:
+    rgba(255,255,255,.96);
+
+    backdrop-filter:
+    blur(16px);
+
+    border-bottom:
+    1px solid var(--border);
+
+}
+
+
+.nav-container{
+
+    max-width:1200px;
+
+    height:100%;
+
+    margin:auto;
+
+    padding:
+    0 22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+}
+
+
+.logo-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:13px;
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+
+.logo-icon img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+
+.logo-icon i{
+
+    color:
+    var(--primary);
+
+    font-size:18px;
+
+}
+
+
+.logo-text h1{
+
+    font-size:19px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    color:
+    var(--primary);
+
+    line-height:1;
+
+}
+
+
+.logo-text p{
+
+    font-size:7px;
+
+    font-weight:600;
+
+    color:
+    var(--muted);
+
+    margin-top:5px;
+
+}
+
+
+/* =====================================================
+   HEADER ACTIONS
+===================================================== */
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+}
+
+
+.icon-btn{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
+    font-size:15px;
+
+    transition:.2s;
+
+}
+
+
+.icon-btn:hover{
+
+    background:
+    var(--primary);
+
+    color:
+    #fff;
+
+}
+
+
+.icon-btn.back{
+
+    background:
+    var(--yellow-soft);
+
+    color:
+    #A77B00;
+
+}
+
+
+.icon-btn.back:hover{
+
+    background:
+    var(--yellow);
+
+    color:
+    #403500;
+
+}
+
+
+/* =====================================================
+   VIEWER PAGE
+===================================================== */
+
+.viewer-page{
+
+    position:fixed;
+
+    top:70px;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+/* =====================================================
+   STUDY BAR
+===================================================== */
+
+.study-bar{
+
+    background:
+    rgba(255,255,255,.96);
+
+    border-bottom:
+    1px solid var(--border);
+
+    padding:
+    11px 22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+}
+
+
+.study-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+.study-icon{
+
+    width:35px;
+
+    height:35px;
+
+    border-radius:11px;
+
+    background:
+    var(--blue-soft);
+
+    color:
+    var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:14px;
+
+}
+
+
+.study-title h2{
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+
+.study-title p{
+
+    font-size:8px;
+
+    color:
+    var(--muted);
+
+    margin-top:3px;
+
+}
+
+
+.study-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:
+    7px 10px;
+
+    border-radius:10px;
+
+    background:
+    #EAFBF3;
+
+    color:
+    #18A66A;
+
+    font-size:8px;
+
+    font-weight:700;
+
+}
+
+
+.status-dot{
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:
+    #18A66A;
+
+}
+
+
+/* =====================================================
+   PDF VIEWER
+===================================================== */
+
+.viewer-wrap{
+
+    flex:1;
+
+    padding:
+    18px;
+
+    background:
+    #EEF2F9;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:stretch;
+
+    overflow:hidden;
+
+}
+
+
+.pdf-container{
+
+    width:100%;
+
+    max-width:1100px;
+
+    height:100%;
+
+    background:
+    #fff;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 12px 35px
+    rgba(21,94,239,.08);
+
+}
+
+
+.pdf-frame{
+
+    width:100%;
+
+    height:100%;
+
+    border:none;
+
+}
+
+
+/* =====================================================
+   MOBILE BOTTOM NAV
+===================================================== */
+
+.mobile-bottom-nav{
+
+    display:none;
+
+}
+
+
+/* =====================================================
+   DESKTOP FOOTER BAR
+===================================================== */
+
+.viewer-footer{
+
+    height:40px;
+
+    background:#fff;
+
+    border-top:
+    1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    font-size:8px;
+
+    color:
+    var(--muted);
+
+}
+
+
+.viewer-footer strong{
+
+    color:
+    var(--primary);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .header{
+
+        height:64px;
+
     }
 
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial;
-      background: var(--bg);
-      max-width: 320px;
-      max-height: 650px;
-      overflow: hidden;
+
+    .nav-container{
+
+        padding:
+        0 14px;
+
     }
 
-    /* Top nav */
-    .top-nav {
-      height: 50px;
-      background: #ffffff;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 12px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    .brand {
-      display: inline-flex;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .brand #army { color: #ff0000; }
-    .brand #navy { color: #0000ff; }
-    .brand #air { color: #00b6ff; }
 
-    .top-buttons {
-      display: flex;
-      gap: 12px;
-    }
-    .top-buttons button {
-      background: none;
-      border: none;
-      font-size: 18px;
-      color: var(--inactive);
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .top-buttons button.active {
-      color: var(--accent);
+    .viewer-page{
+
+        top:64px;
+
+        bottom:70px;
+
     }
 
-    /* Scrollable PDF container */
-    .viewer-wrap {
-      position: absolute;
-      top: 50px;
-      bottom: 60px;
-      left: 0;
-      right: 0;
-      background: var(--panel);
-      overflow-y: auto;
-      padding: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
+
+    .logo-icon{
+
+        width:39px;
+
+        height:39px;
+
     }
 
-    .pdf-frame {
-      width: 100%;
-      min-height: 100%;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+
+    .logo-text h1{
+
+        font-size:17px;
+
     }
 
-    /* Bottom nav */
-    .bottom-nav {
-      height: 60px;
-      background: #ffffff;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    .bottom-nav i {
-      font-size: 22px;
-      color: var(--inactive);
-      cursor: pointer;
-      transition: color 0.2s;
-      position: relative;
-      padding-bottom: 4px;
-    }
-    .bottom-nav i.active {
-      color: var(--accent);
-    }
-    /* Red accent bar under active icon */
-    .bottom-nav i.active::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 25%;
-      width: 50%;
-      height: 3px;
-      background-color: var(--accent);
-      border-radius: 2px;
+
+    .logo-text p{
+
+        font-size:6px;
+
     }
 
-    @media (max-width: 320px) {
-      .pdf-frame { width: 100%; }
+
+    .icon-btn{
+
+        width:38px;
+
+        height:38px;
+
     }
-  </style>
+
+
+    .study-bar{
+
+        padding:
+        10px 14px;
+
+    }
+
+
+    .study-status{
+
+        display:none;
+
+    }
+
+
+    .study-title h2{
+
+        font-size:11px;
+
+    }
+
+
+    .study-title p{
+
+        font-size:7px;
+
+    }
+
+
+    .viewer-wrap{
+
+        padding:
+        8px;
+
+    }
+
+
+    .pdf-container{
+
+        border-radius:
+        14px;
+
+    }
+
+
+    .viewer-footer{
+
+        display:none;
+
+    }
+
+
+    /* MOBILE BOTTOM NAV */
+
+    .mobile-bottom-nav{
+
+        display:flex;
+
+        position:fixed;
+
+        left:0;
+
+        bottom:0;
+
+        width:100%;
+
+        height:70px;
+
+        background:
+        rgba(255,255,255,.97);
+
+        backdrop-filter:
+        blur(15px);
+
+        border-top:
+        1px solid var(--border);
+
+        z-index:2000;
+
+        justify-content:
+        space-around;
+
+        align-items:center;
+
+    }
+
+
+    .mobile-nav-item{
+
+        min-width:50px;
+
+        text-align:center;
+
+        color:
+        #7C879B;
+
+        font-size:8px;
+
+        font-weight:600;
+
+        text-decoration:none;
+
+    }
+
+
+    .mobile-nav-item i{
+
+        width:36px;
+
+        height:31px;
+
+        margin:auto;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        font-size:15px;
+
+    }
+
+
+    .mobile-nav-item.active{
+
+        color:
+        var(--primary);
+
+    }
+
+
+    .mobile-nav-item.active i{
+
+        background:
+        var(--blue-soft);
+
+        border-radius:
+        11px;
+
+    }
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <!-- Top Nav -->
-  <div class="top-nav">
-    <div class="brand">
-      <span id="army">Mission </span>
-      <span id="navy">&nbsp;&nbsp;Cadet&nbsp;&nbsp;</span>
-      <span id="air">Upgrade </span>
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="nav-container">
+
+<a href="../index.html"
+class="logo">
+
+
+<div class="logo-icon">
+
+    <!-- Replace with your ASCEND logo if needed -->
+
+    <img
+    src="../logo.png"
+    alt="ASCEND Logo"
+    onerror="this.style.display='none';
+    this.parentElement.innerHTML='<i class=\'fas fa-arrow-trend-up\'></i>'">
+
+</div>
+
+
+<div class="logo-text">
+
+    <h1>ASCEND</h1>
+
+    <p>
+        Rise Today. Lead Tomorrow.
+    </p>
+
+</div>
+
+
+</a>
+
+<div class="header-actions">
+
+
+<button
+class="icon-btn back"
+onclick="goBack()"
+title="Go Back">
+
+    <i class="fas fa-arrow-left"></i>
+
+</button>
+
+
+<button
+class="icon-btn"
+onclick="reloadPage()"
+title="Reload">
+
+    <i class="fas fa-rotate"></i>
+
+</button>
+
+
+</div>
+
+</div>
+
+</header>
+
+<!-- =====================================================
+     PDF VIEWER
+===================================================== -->
+
+<main class="viewer-page">
+
+<!-- STUDY INFORMATION BAR -->
+
+<div class="study-bar">
+
+
+<div class="study-info">
+
+
+    <div class="study-icon">
+
+        <i class="fas fa-book-open"></i>
+
     </div>
-    <div class="top-buttons">
-      <button id="backBtn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
-      <button id="reloadBtn" onclick="reloadPage()"><i class="fas fa-rotate"></i></button>
+
+
+    <div class="study-title">
+
+        <h2>
+            Study Material
+        </h2>
+
+        <p>
+            ASCEND Learning Resource
+        </p>
+
     </div>
-  </div>
-
-  <!-- Scrollable PDF Viewer -->
-  <div class="viewer-wrap">
-    <iframe id="pdfFrame" class="pdf-frame"
-      src="https://drive.google.com/file/d/1OYX2rrWQU99mhcFntcAUXStwdSMhTggb/preview?usp=sharing"
-      sandbox="allow-same-origin allow-scripts"
-      allow="fullscreen"
-      frameborder="0"
-      scrolling="auto"></iframe>
-  </div>
 
 
+</div>
 
-  <script>
-    // Back button
-    function goBack() {
-      const backBtn = document.getElementById('backBtn');
-      backBtn.classList.add('active');
-      setTimeout(() => backBtn.classList.remove('active'), 200);
-      history.back();
+
+<div class="study-status">
+
+    <span class="status-dot"></span>
+
+    Ready to Learn
+
+</div>
+
+
+</div>
+
+<!-- PDF -->
+
+<div class="viewer-wrap">
+
+
+<div class="pdf-container">
+
+
+    <iframe
+
+    id="pdfFrame"
+
+    class="pdf-frame"
+
+    src="https://drive.google.com/file/d/1OYX2rrWQU99mhcFntcAUXStwdSMhTggb/preview?usp=sharing"
+
+    sandbox="allow-same-origin allow-scripts"
+
+    allow="fullscreen"
+
+    frameborder="0">
+
+    </iframe>
+
+
+</div>
+
+
+</div>
+
+<!-- DESKTOP FOOTER -->
+
+<div class="viewer-footer">
+
+
+<strong>ASCEND</strong>
+
+•
+
+Rise Today. Lead Tomorrow.
+
+
+</div>
+
+</main>
+
+<!-- =====================================================
+     MOBILE BOTTOM NAV
+===================================================== -->
+
+<nav class="mobile-bottom-nav">
+
+
+<a
+href="../index.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-house"></i>
+
+    Home
+
+</a>
+
+
+
+<a
+href="../Books.html"
+class="mobile-nav-item active">
+
+    <i class="fas fa-book-open"></i>
+
+    Learn
+
+</a>
+
+
+
+<a
+href="../Assignments.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-list-check"></i>
+
+    Tasks
+
+</a>
+
+
+
+<a
+href="../Faq.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-circle-question"></i>
+
+    FAQ
+
+</a>
+
+
+
+<a
+href="../Aboutus.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-users"></i>
+
+    About
+
+</a>
+
+
+</nav>
+
+<script>
+
+
+/* =====================================================
+   GO BACK
+===================================================== */
+
+function goBack(){
+
+    if(
+        document.referrer &&
+        history.length > 1
+    ){
+
+        history.back();
+
     }
 
-    // Reload button
-    function reloadPage() {
-      const reloadBtn = document.getElementById('reloadBtn');
-      reloadBtn.classList.add('active');
-      setTimeout(() => reloadBtn.classList.remove('active'), 200);
-      location.reload();
+    else{
+
+        window.location.href =
+        "../Books.html";
+
     }
 
-    // Bottom nav interactivity
-    const navIcons = document.querySelectorAll('.bottom-nav i');
-    navIcons.forEach(icon => {
-      icon.addEventListener('click', () => {
-        navIcons.forEach(i => i.classList.remove('active'));
-        icon.classList.add('active');
-      });
-    });
+}
 
-    // Block right-click
-    document.addEventListener('contextmenu', e => e.preventDefault(), {passive:false});
 
-    // Block common download/print/save shortcuts
-    document.addEventListener('keydown', function(e){
-      const ctrlOrCmd = e.ctrlKey || e.metaKey;
-      if ((ctrlOrCmd && ['s','p','u'].includes(e.key.toLowerCase())) 
-          || e.key==='F12' 
-          || (e.ctrlKey && e.shiftKey && e.key.toLowerCase()==='s')) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    }, true);
 
-    window.addEventListener('dragstart', e => e.preventDefault());
-  </script>
+/* =====================================================
+   RELOAD PAGE
+===================================================== */
+
+function reloadPage(){
+
+    location.reload();
+
+}
+
+</script>
+
 </body>
+
 </html>

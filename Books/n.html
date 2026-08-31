@@ -3,269 +3,890 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mission Cadet Upgrade | Current Affairs</title>
+
+<title>ASCEND | Current Affairs</title>
 
 <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 :root {
-  --bg: #ffffff;
-  --panel: #f9f9f9;
-  --panel-soft: #f1f1f1;
-  --border: #e0e0e0;
-  --text: #000000;
-  --muted: #555555;
-  --accent: #ff0000;
-  --accent-dark: #c20000;
-  --radius: 12px;
+  --bg: #f6f8fc;
+  --surface: #ffffff;
+  --surface-soft: #f0f3f8;
+
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+
+  --text: #111827;
+  --muted: #6b7280;
+
+  --border: #e5e7eb;
+
+  --shadow: 0 8px 30px rgba(15,23,42,.08);
+  --radius: 18px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html {
+  background: var(--bg);
 }
 
 body {
+  width: 100%;
+  min-height: 100vh;
   background: var(--bg);
   color: var(--text);
-  max-width: 320px;
-  max-height: 650px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding-bottom: 60px; /* space for bottom nav */
+  padding-bottom: 100px;
 }
 
-/* Top Navigation */
+/* =========================
+   TOP NAVIGATION
+========================= */
+
 .top-nav {
-  height: 50px;
-  background: #ffffff;
+  height: 68px;
+  background: rgba(255,255,255,.96);
   border-bottom: 1px solid var(--border);
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 12px;
+  justify-content: space-between;
+
+  padding: 0 18px;
+
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+
   z-index: 1000;
 }
 
 .brand {
-  display: inline-flex;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.brand #army { color: #ff0000; }
-.brand #navy { color: #0000ff; }
-.brand #air { color: #00b6ff; }
+
+.logo {
+  width: 38px;
+  height: 38px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  color: white;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+
+  box-shadow: 0 6px 18px rgba(37,99,235,.25);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.brand-subtitle {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-top: 5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
 .reload-btn {
-  background: none;
+  width: 40px;
+  height: 40px;
+
   border: none;
-  font-size: 18px;
-  color: var(--accent);
+  border-radius: 12px;
+
+  background: var(--surface-soft);
+  color: var(--primary);
+
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+
+  transition: .25s;
 }
 
-/* Search Container */
+.reload-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: rotate(90deg);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+  padding: 88px 14px 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Page Heading */
+
+.page-header {
+  margin-bottom: 18px;
+}
+
+.page-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  margin-bottom: 7px;
+}
+
+.page-header h1 {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.page-header p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
 .search-container {
-  margin: 70px 12px 12px 12px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.search-container i {
+  position: absolute;
+
+  left: 15px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .search-container input {
   width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--panel-soft);
-  color: var(--text);
-  font-size: 14px;
-}
 
-.search-container input::placeholder {
-  color: var(--muted);
+  border: 1px solid var(--border);
+
+  background: var(--surface);
+
+  border-radius: 14px;
+
+  padding: 14px 14px 14px 42px;
+
+  font-size: 14px;
+
+  color: var(--text);
+
+  outline: none;
+
+  box-shadow: 0 4px 15px rgba(15,23,42,.04);
+
+  transition: .25s;
 }
 
 .search-container input:focus {
-  outline: none;
-  border-color: var(--accent);
+  border-color: var(--primary);
+
+  box-shadow:
+  0 0 0 4px rgba(37,99,235,.08);
 }
 
-/* Books Grid */
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.section-title h2 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.section-title span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* =========================
+   ACCESS CARDS
+========================= */
+
 .container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
-  margin: 12px;
 }
 
-/* Book Card */
 .book-card {
-  background: var(--panel);
-  border-left: 6px solid var(--accent);
+  position: relative;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
   border-radius: var(--radius);
-  padding: 14px;
-  text-align: center;
+
+  padding: 18px;
+
   text-decoration: none;
+
   color: var(--text);
-  transition: 0.3s;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  box-shadow: 0 5px 18px rgba(15,23,42,.04);
+
+  transition:
+  transform .25s,
+  box-shadow .25s,
+  border .25s;
 }
 
 .book-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 14px rgba(255, 0, 0, 0.3);
+  transform: translateY(-3px);
+
+  border-color: rgba(37,99,235,.35);
+
+  box-shadow: var(--shadow);
 }
 
-.book-icon img {
-  width: 60%;
-  height:100%;
-  max-height: 180px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
+.book-card:active {
+  transform: scale(.98);
 }
 
-.book-card h2 {
-  font-size: 16px;
-  margin-top: 8px;
-  text-transform: uppercase;
+/* Icon */
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    #eaf0ff,
+    #f4edff
+  );
+
+  color: var(--primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+
+  flex-shrink: 0;
 }
 
-/* CTA */
+/* Admin special icon */
+
+.book-card.admin .card-icon {
+  background:
+  linear-gradient(
+    135deg,
+    #fff1e7,
+    #fff7ed
+  );
+
+  color: #ea580c;
+}
+
+/* Card text */
+
+.card-content {
+  flex: 1;
+}
+
+.card-content h2 {
+  font-size: 15px;
+  font-weight: 800;
+
+  margin-bottom: 5px;
+}
+
+.card-content p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Arrow */
+
+.card-arrow {
+  width: 32px;
+  height: 32px;
+
+  background: var(--surface-soft);
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--primary);
+
+  font-size: 13px;
+}
+
+/* =========================
+   CTA
+========================= */
+
 .cta {
-  margin: 20px 12px 80px 12px;
-  padding: 14px;
+  margin-top: 22px;
+
+  padding: 20px;
+
+  border-radius: var(--radius);
+
+  background:
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  color: white;
+
+  box-shadow:
+  0 12px 30px
+  rgba(37,99,235,.25);
+}
+
+.cta i {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.cta h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.cta p {
+  font-size: 12px;
+  opacity: .85;
+  line-height: 1.5;
+}
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav {
+  position: fixed;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 72px;
+
+  background:
+  rgba(255,255,255,.97);
+
+  border-top:
+  1px solid var(--border);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  z-index: 1000;
+
+  padding: 6px 4px;
+}
+
+.nav-item {
+  flex: 1;
+
   text-align: center;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
+
+  text-decoration: none;
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  transition: .25s;
 }
 
+.nav-item i {
+  display: block;
 
-/* ===== Bottom Navigation ===== */
-.bottom-nav{
-  height:55px;
-  background:#ffffff;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  position:absolute;
-  bottom:0;
-  width:100%;
+  width: 34px;
+  height: 30px;
+
+  margin: 0 auto 3px;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
 }
 
-.nav-item{
-  text-align:center;
-  font-size:10px;
-  color:var(--muted);
-  text-decoration:none;
+.nav-item.active {
+  color: var(--primary);
+  font-weight: 800;
 }
 
-.nav-item i{
-  display:block;
-  font-size:16px;
-  margin-bottom:3px;
+.nav-item.active i {
+  background: #eaf0ff;
+  color: var(--primary);
 }
 
-.nav-item.active{
-  color:var(--accent);
-}
+/* =========================
+   SCROLLBAR
+========================= */
 
-.nav-item.active i{
-  color:var(--accent);
-}
-
-/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
+  background: #cbd5e1;
+  border-radius: 20px;
+}
+
+/* Mobile optimisation */
+
+@media (min-width: 600px) {
+
+  .bottom-nav {
+    max-width: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
 }
 </style>
-
-<script>
-function reloadPage() {
-  location.reload();
-}
-</script>
-
 </head>
+
 <body>
 
-<!-- Top Navigation -->
-<div class="top-nav">
+<!-- =========================
+     TOP NAVIGATION
+========================= -->
+
+<header class="top-nav">
+
   <div class="brand">
-    <span id="army">Mission </span>
-    <span id="navy">&nbsp;&nbsp;Cadet&nbsp;&nbsp;</span>
-    <span id="air">Upgrade </span>
+
+    <div class="logo">
+      <i class="fas fa-arrow-trend-up"></i>
+    </div>
+
+    <div class="brand-text">
+
+      <div class="brand-title">
+        ASCEND
+      </div>
+
+      <div class="brand-subtitle">
+        Learn • Grow • Achieve
+      </div>
+
+    </div>
+
   </div>
-  <button class="reload-btn" onclick="reloadPage()">
+
+  <button
+  class="reload-btn"
+  onclick="reloadPage()"
+  title="Refresh">
+
     <i class="fas fa-rotate"></i>
+
   </button>
-</div>
 
-<!-- Search -->
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search books...">
-</div>
+</header>
 
-<!-- Books Grid -->
-<div class="container">
 
-  <a href="n/nr.html" class="book-card">
-    <span class="book-icon"></span>
-    <h2>User</h2>
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="main-content">
+
+  <!-- Header -->
+
+  <section class="page-header">
+
+    <div class="page-label">
+
+      <i class="fas fa-newspaper"></i>
+
+      ASCEND LEARNING
+
+    </div>
+
+    <h1>Current Affairs</h1>
+
+    <p>
+      Stay informed with important news and updates.
+    </p>
+
+  </section>
+
+
+  <!-- Search -->
+
+  <div class="search-container">
+
+    <i class="fas fa-search"></i>
+
+    <input
+    type="text"
+    id="searchInput"
+    placeholder="Search access options...">
+
+  </div>
+
+
+  <!-- Section -->
+
+  <div class="section-title">
+
+    <h2>Access Portal</h2>
+
+    <span id="resultCount">
+      2 Options
+    </span>
+
+  </div>
+
+
+  <!-- =========================
+       ACCESS CARDS
+  ========================= -->
+
+  <div
+  class="container"
+  id="cardsContainer">
+
+
+    <!-- USER -->
+
+    <a
+    href="n/nr.html"
+    class="book-card"
+    data-search="user current affairs student">
+
+      <div class="card-icon">
+
+        <i class="fas fa-user"></i>
+
+      </div>
+
+      <div class="card-content">
+
+        <h2>User</h2>
+
+        <p>
+          Access current affairs content and updates.
+        </p>
+
+      </div>
+
+      <div class="card-arrow">
+
+        <i class="fas fa-chevron-right"></i>
+
+      </div>
+
+    </a>
+
+
+    <!-- ADMIN -->
+
+    <a
+    href="n/na.html"
+    class="book-card admin"
+    data-search="admin access management">
+
+      <div class="card-icon">
+
+        <i class="fas fa-shield-halved"></i>
+
+      </div>
+
+      <div class="card-content">
+
+        <h2>Admin Access</h2>
+
+        <p>
+          Manage and update the current affairs portal.
+        </p>
+
+      </div>
+
+      <div class="card-arrow">
+
+        <i class="fas fa-chevron-right"></i>
+
+      </div>
+
+    </a>
+
+  </div>
+
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <i class="fas fa-arrow-trend-up"></i>
+
+    <h3>ASCEND Every Day</h3>
+
+    <p>
+      Knowledge is a daily habit. Learn something new and move one step closer to your goals.
+    </p>
+
+  </section>
+
+</main>
+
+
+<!-- =========================
+     BOTTOM NAVIGATION
+========================= -->
+
+<nav class="bottom-nav">
+
+  <a
+  class="nav-item"
+  href="../index.html">
+
+    <i class="fas fa-house"></i>
+
+    Home
+
   </a>
 
-</div>
-<!-- Books Grid -->
-<div class="container">
 
-  <a href="n/na.html" class="book-card">
-    <span class="book-icon"></span>
-    <h2>Admin Access</h2>
+  <a
+  class="nav-item active"
+  href="../Books.html">
+
+    <i class="fas fa-book-open"></i>
+
+    Learn
+
   </a>
 
-</div>
 
-<!-- CTA -->
-<div class="cta">
-  Discipline • Knowledge • Leadership
-</div>
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <a
+  class="nav-item"
+  href="../Assignments.html">
 
-<!-- Bottom Navigation -->
-<div class="bottom-nav">
- <a class="nav-item" href="../index.html">
-      <i class="fas fa-home"></i>
-      Home
-    </a>
-    <a class="nav-item active" href="../Books.html">
-      <i class="fas fa-book"></i>
-      Books
-    </a>
-    <a class="nav-item" href="../Assignments.html">
-      <i class="fas fa-clipboard"></i>
-      Tasks
-    </a>
-    <a class="nav-item" href="../Faq.html">
-      <i class="fas fa-question-circle"></i>
-      FAQ
-    </a>
-    <a class="nav-item" href="../Aboutus.html">
-      <i class="fas fa-user"></i>
-      About
-    </a>
-</div>
+    <i class="fas fa-list-check"></i>
+
+    Tasks
+
+  </a>
+
+
+  <a
+  class="nav-item"
+  href="../Faq.html">
+
+    <i class="fas fa-circle-question"></i>
+
+    Help
+
+  </a>
+
+
+  <a
+  class="nav-item"
+  href="../Aboutus.html">
+
+    <i class="fas fa-user"></i>
+
+    Profile
+
+  </a>
+
+</nav>
+
+
+<script>
+
+/* =========================
+   RELOAD
+========================= */
+
+function reloadPage() {
+
+  const button =
+  document.querySelector(".reload-btn");
+
+  button.style.transform =
+  "rotate(360deg)";
+
+  setTimeout(() => {
+
+    location.reload();
+
+  }, 250);
+
+}
+
+
+/* =========================
+   SEARCH FUNCTION
+========================= */
+
+const searchInput =
+document.getElementById("searchInput");
+
+const cards =
+document.querySelectorAll(".book-card");
+
+const resultCount =
+document.getElementById("resultCount");
+
+
+searchInput.addEventListener(
+"input",
+function() {
+
+  const search =
+  this.value.toLowerCase();
+
+  let visible = 0;
+
+  cards.forEach(card => {
+
+    const text =
+    (
+      card.innerText +
+      " " +
+      card.dataset.search
+    ).toLowerCase();
+
+    if (
+      text.includes(search)
+    ) {
+
+      card.style.display =
+      "flex";
+
+      visible++;
+
+    }
+
+    else {
+
+      card.style.display =
+      "none";
+
+    }
+
+  });
+
+
+  resultCount.textContent =
+  visible +
+  (visible === 1
+    ? " Option"
+    : " Options");
+
+});
+
+
+/* =========================
+   BUTTON RIPPLE EFFECT
+========================= */
+
+document.querySelectorAll(
+".nav-item, .book-card"
+).forEach(item => {
+
+  item.addEventListener(
+  "click",
+  function() {
+
+    this.style.transform =
+    "scale(.97)";
+
+    setTimeout(() => {
+
+      this.style.transform =
+      "";
+
+    }, 150);
+
+  });
+
+});
+
+</script>
 
 </body>
 </html>

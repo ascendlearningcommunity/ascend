@@ -1,264 +1,882 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mission Cadet Upgrade | Books</title>
+  <meta charset="UTF-8">
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<style>
-:root {
-  --bg: #ffffff;
-  --panel: #f9f9f9;
-  --panel-soft: #f1f1f1;
-  --border: #e0e0e0;
-  --text: #000000;
-  --muted: #555555;
-  --accent: #ff0000;
-  --accent-dark: #c20000;
-  --radius: 12px;
-}
+  <title>ASCEND | AFCAT Resources</title>
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
-}
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  max-width: 320px;
-  max-height: 650px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding-bottom: 60px; /* space for bottom nav */
-}
+  <style>
+    :root{
+      --primary:#2563eb;
+      --primary-dark:#1d4ed8;
+      --purple:#7c3aed;
+      --bg:#f8fafc;
+      --surface:#ffffff;
+      --surface-soft:#f1f5f9;
+      --text:#0f172a;
+      --muted:#64748b;
+      --border:#e2e8f0;
+      --radius:20px;
+    }
 
-/* Top Navigation */
-.top-nav {
-  height: 50px;
-  background: #ffffff;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Segoe UI",Arial,sans-serif;
+      -webkit-tap-highlight-color:transparent;
+    }
 
-.brand {
-  display: inline-flex;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text);
-}
-.brand #army { color: #ff0000; }
-.brand #navy { color: #0000ff; }
-.brand #air { color: #00b6ff; }
+    body{
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      padding-bottom:90px;
+      overflow-x:hidden;
+    }
 
-.reload-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: var(--accent);
-  cursor: pointer;
-}
+    /* ===== TOP NAV ===== */
+    .top-nav{
+      height:68px;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border);
 
-/* Search Container */
-.search-container {
-  margin: 70px 12px 12px 12px;
-}
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-.search-container input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--panel-soft);
-  color: var(--text);
-  font-size: 14px;
-}
+      padding:0 18px;
 
-.search-container input::placeholder {
-  color: var(--muted);
-}
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
 
-.search-container input:focus {
-  outline: none;
-  border-color: var(--accent);
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
 
-/* Books Grid */
-.container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin: 12px;
-}
+    .brand-logo{
+      width:38px;
+      height:38px;
+      border-radius:12px;
 
-/* Book Card */
-.book-card {
-  background: var(--panel);
-  border-left: 6px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 14px;
-  text-align: center;
-  text-decoration: none;
-  color: var(--text);
-  transition: 0.3s;
-}
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-.book-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 14px rgba(255, 0, 0, 0.3);
-}
+      background:linear-gradient(135deg,var(--primary),var(--purple));
+      color:#ffffff;
+      font-size:17px;
 
-.book-icon img {
-  width: 60%;
-  height:100%;
-  max-height: 180px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
+      box-shadow:0 8px 20px rgba(37,99,235,.22);
+    }
 
-.book-card h2 {
-  font-size: 16px;
-  margin-top: 8px;
-  text-transform: uppercase;
-}
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
 
-/* CTA */
-.cta {
-  margin: 20px 12px 80px 12px;
-  padding: 14px;
-  text-align: center;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
+    .brand-text strong{
+      font-size:18px;
+      letter-spacing:1px;
+    }
+
+    .brand-text span{
+      margin-top:5px;
+      font-size:9px;
+      font-weight:600;
+      letter-spacing:.5px;
+      color:var(--muted);
+    }
+
+    .reload-btn{
+      width:40px;
+      height:40px;
+
+      border:none;
+      border-radius:12px;
+
+      background:var(--surface-soft);
+      color:var(--primary);
+
+      font-size:16px;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .reload-btn:active{
+      transform:scale(.92);
+    }
 
 
-/* ===== Bottom Navigation ===== */
-.bottom-nav{
-  height:55px;
-  background:#ffffff;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  position:absolute;
-  bottom:0;
-  width:100%;
-}
+    /* ===== MAIN ===== */
+    .main{
+      width:100%;
+      max-width:700px;
+      margin:auto;
+      padding:20px 16px 30px;
+    }
 
-.nav-item{
-  text-align:center;
-  font-size:10px;
-  color:var(--muted);
-  text-decoration:none;
-}
 
-.nav-item i{
-  display:block;
-  font-size:16px;
-  margin-bottom:3px;
-}
+    /* ===== HERO ===== */
+    .hero{
+      background:linear-gradient(135deg,#2563eb,#7c3aed);
+      border-radius:24px;
 
-.nav-item.active{
-  color:var(--accent);
-}
+      padding:24px;
+      color:#ffffff;
 
-.nav-item.active i{
-  color:var(--accent);
-}
+      position:relative;
+      overflow:hidden;
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
-}
-</style>
+      margin-bottom:20px;
 
-<script>
-function reloadPage() {
-  location.reload();
-}
-</script>
+      box-shadow:0 14px 35px rgba(37,99,235,.2);
+    }
 
+    .hero::after{
+      content:"";
+      position:absolute;
+
+      width:180px;
+      height:180px;
+
+      border-radius:50%;
+
+      background:rgba(255,255,255,.09);
+
+      top:-90px;
+      right:-70px;
+    }
+
+    .hero-icon{
+      width:46px;
+      height:46px;
+
+      border-radius:14px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      background:rgba(255,255,255,.16);
+
+      font-size:20px;
+      margin-bottom:14px;
+    }
+
+    .hero h1{
+      font-size:24px;
+      margin-bottom:7px;
+    }
+
+    .hero p{
+      font-size:13px;
+      line-height:1.6;
+      opacity:.9;
+    }
+
+
+    /* ===== SEARCH ===== */
+    .search-box{
+      height:52px;
+
+      display:flex;
+      align-items:center;
+      gap:12px;
+
+      padding:0 16px;
+
+      background:var(--surface);
+
+      border:1px solid var(--border);
+      border-radius:16px;
+
+      margin-bottom:22px;
+    }
+
+    .search-box i{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .search-box input{
+      width:100%;
+      border:none;
+      outline:none;
+
+      background:transparent;
+
+      color:var(--text);
+      font-size:14px;
+    }
+
+
+    /* ===== SECTION TITLE ===== */
+    .section-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      margin-bottom:13px;
+    }
+
+    .section-head h2{
+      font-size:16px;
+    }
+
+    .section-head span{
+      font-size:11px;
+      color:var(--muted);
+    }
+
+
+    /* ===== BOOK CARD ===== */
+    .books-container{
+      display:grid;
+      gap:14px;
+    }
+
+    .book-card{
+      display:flex;
+      align-items:center;
+      gap:14px;
+
+      background:var(--surface);
+
+      border:1px solid var(--border);
+      border-radius:22px;
+
+      padding:12px;
+
+      color:var(--text);
+      text-decoration:none;
+
+      transition:.25s ease;
+    }
+
+    .book-card:hover{
+      transform:translateY(-3px);
+
+      border-color:var(--primary);
+
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+    }
+
+    .book-card:active{
+      transform:scale(.98);
+    }
+
+
+    /* ===== BOOK IMAGE ===== */
+    .book-image{
+      width:82px;
+      height:108px;
+
+      flex-shrink:0;
+
+      overflow:hidden;
+      border-radius:14px;
+
+      background:var(--surface-soft);
+
+      border:1px solid var(--border);
+    }
+
+    .book-image img{
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+      display:block;
+    }
+
+
+    /* ===== BOOK DETAILS ===== */
+    .book-details{
+      flex:1;
+      min-width:0;
+    }
+
+    .book-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+
+      padding:5px 9px;
+
+      background:#eff6ff;
+      color:var(--primary);
+
+      border-radius:20px;
+
+      font-size:9px;
+      font-weight:700;
+
+      margin-bottom:8px;
+    }
+
+    .book-details h2{
+      font-size:15px;
+
+      line-height:1.45;
+
+      margin-bottom:6px;
+
+      text-transform:none;
+    }
+
+    .book-details p{
+      color:var(--muted);
+      font-size:11px;
+      line-height:1.5;
+    }
+
+
+    /* ===== ARROW ===== */
+    .arrow{
+      width:34px;
+      height:34px;
+
+      border-radius:50%;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      flex-shrink:0;
+
+      background:var(--surface-soft);
+      color:var(--primary);
+
+      font-size:13px;
+    }
+
+
+    /* ===== EMPTY SEARCH ===== */
+    .empty-message{
+      display:none;
+
+      text-align:center;
+
+      padding:35px 10px;
+
+      color:var(--muted);
+
+      font-size:13px;
+    }
+
+    .empty-message i{
+      display:block;
+
+      color:var(--primary);
+
+      font-size:30px;
+
+      margin-bottom:10px;
+    }
+
+
+    /* ===== CTA ===== */
+    .cta{
+      margin-top:22px;
+
+      padding:18px;
+
+      background:var(--surface);
+
+      border:1px solid var(--border);
+      border-radius:20px;
+
+      text-align:center;
+    }
+
+    .cta i{
+      color:var(--primary);
+      margin-right:5px;
+    }
+
+    .cta p{
+      color:var(--muted);
+
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    .cta strong{
+      color:var(--text);
+    }
+
+
+    /* ===== BOTTOM NAV ===== */
+    .bottom-nav{
+      position:fixed;
+
+      bottom:0;
+      left:0;
+
+      width:100%;
+      height:72px;
+
+      background:rgba(255,255,255,.97);
+
+      backdrop-filter:blur(16px);
+
+      border-top:1px solid var(--border);
+
+      display:flex;
+      align-items:center;
+      justify-content:space-around;
+
+      z-index:1000;
+
+      padding-bottom:4px;
+    }
+
+    .nav-item{
+      min-width:52px;
+
+      text-decoration:none;
+
+      color:var(--muted);
+
+      display:flex;
+      flex-direction:column;
+
+      align-items:center;
+      justify-content:center;
+
+      gap:5px;
+
+      font-size:10px;
+      font-weight:600;
+    }
+
+    .nav-icon{
+      width:34px;
+      height:30px;
+
+      border-radius:11px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      font-size:16px;
+
+      transition:.2s;
+    }
+
+    .nav-item.active{
+      color:var(--primary);
+    }
+
+    .nav-item.active .nav-icon{
+      background:#eff6ff;
+      color:var(--primary);
+    }
+
+
+    /* ===== DESKTOP ===== */
+    @media(min-width:700px){
+
+      .bottom-nav{
+        left:50%;
+        transform:translateX(-50%);
+
+        max-width:700px;
+
+        border-left:1px solid var(--border);
+        border-right:1px solid var(--border);
+
+        border-radius:20px 20px 0 0;
+      }
+
+    }
+
+  </style>
 </head>
+
+
 <body>
 
-<!-- Top Navigation -->
-<div class="top-nav">
-  <div class="brand">
-    <span id="army">Mission </span>
-    <span id="navy">&nbsp;&nbsp;Cadet&nbsp;&nbsp;</span>
-    <span id="air">Upgrade </span>
-  </div>
-  <button class="reload-btn" onclick="reloadPage()">
-    <i class="fas fa-rotate"></i>
-  </button>
-</div>
 
-<!-- Search -->
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search books...">
-</div>
+  <!-- ===== TOP NAV ===== -->
+  <header class="top-nav">
 
-<!-- Books Grid -->
-<div class="container">
+    <div class="brand">
 
-  <a href="AFCAT/AFCAT.html" class="book-card">
-    <span class="book-icon">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiT1YV0FYUumhgUj2qoeah2A9sgAlCXr5a01_oYbQB0iHqeSClIWxuPRTwrVDf9MJKuUTdCbsV_g_HC_qM6aKpkSDi4UsD7eZieeJfcImsA8KJXEF_DDyNBsozudjNfXQu8bID0jUyCR-6uTiJzjzQ8dyOuIFHTRQNlBiPQAxf7u40kNO-qiZMF8tAlFBI/s1720/1000066500.jpg">
-    </span>
-    <h2>AFCAT Book - Arihant Publication</h2>
-  </a>
+      <div class="brand-logo">
+        <i class="fa-solid fa-arrow-trend-up"></i>
+      </div>
 
-</div>
+      <div class="brand-text">
+        <strong>ASCEND</strong>
+        <span>LEARN • GROW • ACHIEVE</span>
+      </div>
 
-<!-- CTA -->
-<div class="cta">
-  Discipline • Knowledge • Leadership
-</div>
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </div>
 
-<!-- Bottom Navigation -->
-<div class="bottom-nav">
- <a class="nav-item" href="../index.html">
-      <i class="fas fa-home"></i>
-      Home
+
+    <button
+      class="reload-btn"
+      onclick="reloadPage()"
+      aria-label="Reload Page">
+
+      <i class="fa-solid fa-rotate"></i>
+
+    </button>
+
+  </header>
+
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-icon">
+        <i class="fa-solid fa-plane"></i>
+      </div>
+
+      <h1>AFCAT Resources</h1>
+
+      <p>
+        Explore study materials and preparation resources
+        for the Air Force Common Admission Test.
+      </p>
+
+    </section>
+
+
+    <!-- SEARCH -->
+    <div class="search-box">
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search AFCAT resources..."
+        autocomplete="off">
+
+    </div>
+
+
+    <!-- SECTION HEADER -->
+    <div class="section-head">
+
+      <h2>Available Resources</h2>
+
+      <span id="resourceCount">
+        1 resource
+      </span>
+
+    </div>
+
+
+    <!-- ===== BOOKS ===== -->
+    <div
+      class="books-container"
+      id="booksContainer">
+
+
+      <!-- AFCAT BOOK -->
+      <a
+        href="AFCAT/AFCAT.html"
+        class="book-card"
+
+        data-search="
+          afcat
+          afcat book
+          arihant
+          air force
+          air force common admission test
+          defence exam
+          study material
+        ">
+
+
+        <!-- IMAGE -->
+        <div class="book-image">
+
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiT1YV0FYUumhgUj2qoeah2A9sgAlCXr5a01_oYbQB0iHqeSClIWxuPRTwrVDf9MJKuUTdCbsV_g_HC_qM6aKpkSDi4UsD7eZieeJfcImsA8KJXEF_DDyNBsozudjNfXQu8bID0jUyCR-6uTiJzjzQ8dyOuIFHTRQNlBiPQAxf7u40kNO-qiZMF8tAlFBI/s1720/1000066500.jpg"
+
+            alt="AFCAT Arihant Book">
+
+        </div>
+
+
+        <!-- DETAILS -->
+        <div class="book-details">
+
+
+          <div class="book-tag">
+
+            <i class="fa-solid fa-plane"></i>
+
+            AIR FORCE EXAM
+
+          </div>
+
+
+          <h2>
+            AFCAT Book
+          </h2>
+
+
+          <p>
+            Arihant Publication • AFCAT preparation resource
+          </p>
+
+
+        </div>
+
+
+        <!-- ARROW -->
+        <div class="arrow">
+
+          <i class="fa-solid fa-chevron-right"></i>
+
+        </div>
+
+
+      </a>
+
+
+    </div>
+
+
+    <!-- EMPTY MESSAGE -->
+    <div
+      class="empty-message"
+      id="emptyMessage">
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      No resources found.
+
+    </div>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+      <p>
+
+        <strong>
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          ASCEND
+        </strong>
+
+        <br>
+
+        Learn • Grow • Build Skills • Achieve Your Goals
+
+      </p>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ===== BOTTOM NAVIGATION ===== -->
+  <nav class="bottom-nav">
+
+
+    <a
+      class="nav-item"
+      href="../index.html">
+
+      <div class="nav-icon">
+
+        <i class="fa-solid fa-house"></i>
+
+      </div>
+
+      <span>Home</span>
+
     </a>
-    <a class="nav-item active" href="../Books.html">
-      <i class="fas fa-book"></i>
-      Books
+
+
+    <a
+      class="nav-item active"
+      href="../Books.html">
+
+      <div class="nav-icon">
+
+        <i class="fa-solid fa-book-open"></i>
+
+      </div>
+
+      <span>Learn</span>
+
     </a>
-    <a class="nav-item" href="../Assignments.html">
-      <i class="fas fa-clipboard"></i>
-      Tasks
+
+
+    <a
+      class="nav-item"
+      href="../Assignments.html">
+
+      <div class="nav-icon">
+
+        <i class="fa-solid fa-list-check"></i>
+
+      </div>
+
+      <span>Tasks</span>
+
     </a>
-    <a class="nav-item" href="../Faq.html">
-      <i class="fas fa-question-circle"></i>
-      FAQ
+
+
+    <a
+      class="nav-item"
+      href="../Faq.html">
+
+      <div class="nav-icon">
+
+        <i class="fa-solid fa-circle-question"></i>
+
+      </div>
+
+      <span>FAQ</span>
+
     </a>
-    <a class="nav-item" href="../Aboutus.html">
-      <i class="fas fa-user"></i>
-      About
+
+
+    <a
+      class="nav-item"
+      href="../Aboutus.html">
+
+      <div class="nav-icon">
+
+        <i class="fa-solid fa-user"></i>
+
+      </div>
+
+      <span>Profile</span>
+
     </a>
-</div>
+
+
+  </nav>
+
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+
+    /* Reload Page */
+    function reloadPage(){
+      location.reload();
+    }
+
+
+    /* Search Resources */
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const emptyMessage =
+      document.getElementById("emptyMessage");
+
+    const resourceCount =
+      document.getElementById("resourceCount");
+
+
+    searchInput.addEventListener(
+      "input",
+      function(){
+
+        const query =
+          this.value
+          .toLowerCase()
+          .trim();
+
+
+        const cards =
+          document.querySelectorAll(".book-card");
+
+
+        let visibleCount = 0;
+
+
+        cards.forEach(function(card){
+
+          const text =
+            (
+              card.innerText +
+              " " +
+              card.dataset.search
+            )
+            .toLowerCase();
+
+
+          if(text.includes(query)){
+
+            card.style.display =
+              "flex";
+
+            visibleCount++;
+
+          }
+
+          else{
+
+            card.style.display =
+              "none";
+
+          }
+
+        });
+
+
+        /* Empty State */
+
+        if(visibleCount === 0){
+
+          emptyMessage.style.display =
+            "block";
+
+        }
+
+        else{
+
+          emptyMessage.style.display =
+            "none";
+
+        }
+
+
+        /* Update Resource Count */
+
+        resourceCount.textContent =
+          visibleCount +
+          (
+            visibleCount === 1
+            ? " resource"
+            : " resources"
+          );
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>

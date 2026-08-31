@@ -1,194 +1,674 @@
 <!doctype html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Read-only PDF Viewer (Drive)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Font Awesome CDN -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css" integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/fontawesome.min.css" integrity="sha512-M5Kq4YVQrjg5c2wsZSn27Dkfm/2ALfxmun0vUE3mPiJyK53hQBHYCVAtvMYEC7ZXmYLg8DVG4tF8gD27WmDbsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/regular.min.css" integrity="sha512-x3gns+l9p4mIK7vYLOCUoFS2P1gavFvnO9Its8sr0AkUk46bgf9R51D8xeRUwCSk+W93YbXWi19BYzXDNBH5SA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
- <style>
+  <title>ASCEND | Study Material</title>
+
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+
     :root {
-      --bg: #ffffff;
-      --panel: #f9f9f9;
-      --border: #ddd;
-      --text: #000000;
-      --accent: #ff0000;
-      --inactive: #888;
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --purple: #7c3aed;
+      --success: #22c55e;
+      --shadow: 0 12px 35px rgba(15, 23, 42, 0.10);
+      --radius: 18px;
     }
 
-    html, body {
-      height: 100%;
+    * {
       margin: 0;
-      font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial;
-      background: var(--bg);
-      max-width: 320px;
-      max-height: 650px;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
       overflow: hidden;
     }
 
-    /* Top nav */
-    .top-nav {
-      height: 50px;
-      background: #ffffff;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 12px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    .brand {
-      display: inline-flex;
-      font-size: 16px;
-      font-weight: 700;
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
       color: var(--text);
     }
-    .brand #army { color: #ff0000; }
-    .brand #navy { color: #0000ff; }
-    .brand #air { color: #00b6ff; }
+
+    /* ================= APP ================= */
+
+    .app {
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(124, 58, 237, 0.10),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at top left,
+          rgba(37, 99, 235, 0.08),
+          transparent 30%
+        ),
+        var(--bg);
+    }
+
+    /* ================= HEADER ================= */
+
+    .top-nav {
+      height: 68px;
+      min-height: 68px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 16px;
+
+      background: rgba(255, 255, 255, 0.94);
+
+      border-bottom: 1px solid var(--border);
+
+      position: relative;
+      z-index: 100;
+
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--purple)
+        );
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+      font-size: 17px;
+
+      box-shadow:
+        0 8px 18px
+        rgba(37, 99, 235, 0.25);
+    }
+
+    .brand-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      margin-top: 2px;
+
+      font-size: 9px;
+      font-weight: 700;
+
+      color: var(--muted);
+
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    /* ================= BUTTONS ================= */
 
     .top-buttons {
       display: flex;
-      gap: 12px;
-    }
-    .top-buttons button {
-      background: none;
-      border: none;
-      font-size: 18px;
-      color: var(--inactive);
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .top-buttons button.active {
-      color: var(--accent);
+      gap: 8px;
     }
 
-    /* Scrollable PDF container */
-    .viewer-wrap {
-      position: absolute;
-      top: 50px;
-      bottom: 60px;
-      left: 0;
-      right: 0;
-      background: var(--panel);
-      overflow-y: auto;
-      padding: 5px;
+    .action-btn {
+      width: 42px;
+      height: 42px;
+
+      border-radius: 13px;
+
+      border: 1px solid var(--border);
+      background: var(--surface);
+
+      color: var(--muted);
+      font-size: 16px;
+
+      cursor: pointer;
+
       display: flex;
+      align-items: center;
       justify-content: center;
-      align-items: flex-start;
+
+      transition: 0.2s ease;
+    }
+
+    .action-btn:hover {
+      color: var(--primary);
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+
+    .action-btn:active {
+      transform: scale(0.92);
+    }
+
+    /* ================= VIEWER ================= */
+
+    .viewer-wrap {
+      flex: 1;
+      min-height: 0;
+
+      display: flex;
+      flex-direction: column;
+
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    /* Document Info */
+
+    .document-header {
+      display: flex;
+      align-items: center;
+
+      padding: 0 2px 12px;
+
+      gap: 11px;
+    }
+
+    .document-icon {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 13px;
+
+      background: #fff1f2;
+      color: #e11d48;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 17px;
+    }
+
+    .document-details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .document-title {
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .document-status {
+      margin-top: 3px;
+
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: var(--success);
+    }
+
+    /* ================= PDF CARD ================= */
+
+    .pdf-container {
+      flex: 1;
+      min-height: 0;
+
+      padding: 5px;
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
     }
 
     .pdf-frame {
       width: 100%;
-      min-height: 100%;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      height: 100%;
+
+      border: none;
+
+      border-radius: calc(var(--radius) - 6px);
+
+      background: white;
     }
 
-    /* Bottom nav */
-    .bottom-nav {
-      height: 60px;
-      background: #ffffff;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
+    /* ================= LOADING ================= */
+
+    .loader {
       position: fixed;
-      bottom: 0;
-      width: 100%;
+      inset: 0;
+
+      background: var(--bg);
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 15px;
+
       z-index: 1000;
-    }
-    .bottom-nav i {
-      font-size: 22px;
-      color: var(--inactive);
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .bottom-nav i.active {
-      color: var(--accent);
+
+      transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
     }
 
-    @media (max-width: 320px) {
-      .pdf-frame { width: 100%; }
+    .loader.hide {
+      opacity: 0;
+      visibility: hidden;
     }
+
+    .loader-logo {
+      width: 58px;
+      height: 58px;
+
+      border-radius: 19px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--purple)
+        );
+
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 25px;
+
+      box-shadow:
+        0 12px 30px
+        rgba(37, 99, 235, 0.25);
+    }
+
+    .spinner {
+      width: 28px;
+      height: 28px;
+
+      border: 3px solid #dbeafe;
+      border-top-color: var(--primary);
+
+      border-radius: 50%;
+
+      animation: spin 0.8s linear infinite;
+    }
+
+    .loader-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    @keyframes spin {
+
+      to {
+        transform: rotate(360deg);
+      }
+
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 480px) {
+
+      .top-nav {
+        height: 64px;
+        min-height: 64px;
+
+        padding: 0 12px;
+      }
+
+      .brand-logo {
+        width: 37px;
+        height: 37px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .viewer-wrap {
+        padding: 10px;
+      }
+
+      .pdf-container {
+        border-radius: 15px;
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body>
 
-  <!-- Top Nav -->
-  <div class="top-nav">
-    <div class="brand">
-      <span id="army">Mission </span>
-      <span id="navy">&nbsp;&nbsp;Cadet&nbsp;&nbsp;</span>
-      <span id="air">Upgrade </span>
+  <div class="app">
+
+
+<!-- ================= TOP NAV ================= -->
+
+<header class="top-nav">
+
+  <div class="brand">
+
+    <div class="brand-logo">
+      <i class="fa-solid fa-arrow-trend-up"></i>
     </div>
-    <div class="top-buttons">
-      <button id="backBtn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
-      <button id="reloadBtn" onclick="reloadPage()"><i class="fas fa-rotate"></i></button>
+
+    <div class="brand-content">
+
+      <div class="brand-name">
+        ASCEND
+      </div>
+
+      <div class="brand-subtitle">
+        Learn • Grow • Achieve
+      </div>
+
     </div>
+
   </div>
 
-  <!-- Scrollable PDF Viewer -->
-  <div class="viewer-wrap">
-    <iframe id="pdfFrame" class="pdf-frame"
+
+  <div class="top-buttons">
+
+    <button
+      id="backBtn"
+      class="action-btn"
+      onclick="goBack()"
+      aria-label="Go Back">
+
+      <i class="fa-solid fa-arrow-left"></i>
+
+    </button>
+
+
+    <button
+      id="reloadBtn"
+      class="action-btn"
+      onclick="reloadPage()"
+      aria-label="Reload Page">
+
+      <i class="fa-solid fa-rotate-right"></i>
+
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- ================= VIEWER ================= -->
+
+<main class="viewer-wrap">
+
+  <div class="document-header">
+
+    <div class="document-icon">
+      <i class="fa-solid fa-file-pdf"></i>
+    </div>
+
+    <div class="document-details">
+
+      <div class="document-title">
+        Study Material
+      </div>
+
+      <div class="document-status">
+
+        <span class="status-dot"></span>
+
+        <span>Document viewer ready</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- PDF Viewer -->
+
+  <div class="pdf-container">
+
+    <iframe
+      id="pdfFrame"
+      class="pdf-frame"
+
       src="https://drive.google.com/file/d/1tuC4k-qASNOaALJlKuNDmC87Rh7Wv95j/preview?usp=sharing"
+
       sandbox="allow-same-origin allow-scripts"
+
       allow="fullscreen"
+
       frameborder="0"
-      scrolling="auto"></iframe>
+
+      scrolling="auto">
+
+    </iframe>
+
   </div>
 
+</main>
+
+
+  </div>
+
+  <!-- ================= LOADING SCREEN ================= -->
+
+  <div class="loader" id="loader">
+
+
+<div class="loader-logo">
+  <i class="fa-solid fa-arrow-trend-up"></i>
+</div>
+
+<div class="spinner"></div>
+
+<div class="loader-text">
+  Loading study material...
+</div>
+
+
+  </div>
 
   <script>
-    // Back button
+
+    /* ================= BACK ================= */
+
     function goBack() {
-      const backBtn = document.getElementById('backBtn');
-      backBtn.classList.add('active');
-      setTimeout(() => backBtn.classList.remove('active'), 200);
-      history.back();
-    }
 
-    // Reload button
-    function reloadPage() {
-      const reloadBtn = document.getElementById('reloadBtn');
-      reloadBtn.classList.add('active');
-      setTimeout(() => reloadBtn.classList.remove('active'), 200);
-      location.reload();
-    }
+      const button =
+        document.getElementById("backBtn");
 
-    // Bottom nav interactivity
-    const navIcons = document.querySelectorAll('.bottom-nav i');
-    navIcons.forEach(icon => {
-      icon.addEventListener('click', () => {
-        navIcons.forEach(i => i.classList.remove('active'));
-        icon.classList.add('active');
-      });
-    });
+      button.style.transform =
+        "scale(0.90)";
 
-    // Block right-click
-    document.addEventListener('contextmenu', e => e.preventDefault(), {passive:false});
+      setTimeout(function () {
 
-    // Block common download/print/save shortcuts
-    document.addEventListener('keydown', function(e){
-      const ctrlOrCmd = e.ctrlKey || e.metaKey;
-      if ((ctrlOrCmd && ['s','p','u'].includes(e.key.toLowerCase())) 
-          || e.key==='F12' 
-          || (e.ctrlKey && e.shiftKey && e.key.toLowerCase()==='s')) {
-        e.preventDefault();
-        e.stopPropagation();
+        button.style.transform =
+          "scale(1)";
+
+      }, 150);
+
+
+      if (window.history.length > 1) {
+
+        history.back();
+
+      } else {
+
+        window.location.href =
+          "../Books.html";
+
       }
-    }, true);
 
-    window.addEventListener('dragstart', e => e.preventDefault());
+    }
+
+
+    /* ================= RELOAD ================= */
+
+    function reloadPage() {
+
+      const button =
+        document.getElementById("reloadBtn");
+
+      button.style.transform =
+        "rotate(180deg)";
+
+      location.reload();
+
+    }
+
+
+    /* ================= PDF LOADER ================= */
+
+    const pdfFrame =
+      document.getElementById("pdfFrame");
+
+    const loader =
+      document.getElementById("loader");
+
+
+    pdfFrame.addEventListener(
+      "load",
+      function () {
+
+        setTimeout(function () {
+
+          loader.classList.add("hide");
+
+        }, 500);
+
+      }
+    );
+
+
+    /* ================= BASIC PROTECTION ================= */
+
+    document.addEventListener(
+      "contextmenu",
+      function (event) {
+
+        event.preventDefault();
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        const ctrlOrCmd =
+          event.ctrlKey ||
+          event.metaKey;
+
+        const key =
+          event.key.toLowerCase();
+
+
+        if (
+
+          (ctrlOrCmd &&
+            ["s", "p", "u"].includes(key))
+
+          ||
+
+          event.key === "F12"
+
+          ||
+
+          (
+            event.ctrlKey &&
+            event.shiftKey &&
+            ["i", "j", "c"].includes(key)
+          )
+
+        ) {
+
+          event.preventDefault();
+          event.stopPropagation();
+
+        }
+
+      },
+
+      true
+    );
+
+
+    window.addEventListener(
+      "dragstart",
+      function (event) {
+
+        event.preventDefault();
+
+      }
+    );
+
   </script>
+
 </body>
 </html>

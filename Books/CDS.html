@@ -1,267 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mission Cadet Upgrade | Books</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <meta charset="UTF-8">
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<style>
-:root {
-  --bg: #ffffff;
-  --panel: #f9f9f9;
-  --panel-soft: #f1f1f1;
-  --border: #e0e0e0;
-  --text: #000000;
-  --muted: #555555;
-  --accent: #ff0000;
-  --accent-dark: #c20000;
-  --radius: 12px;
-}
+  <title>ASCEND | CDS Resources</title>
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
-}
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  max-width: 320px;
-  max-height: 650px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding-bottom: 60px; /* space for bottom nav */
-}
+  <style>
+    :root{
+      --primary:#2563eb;
+      --primary-dark:#1d4ed8;
+      --purple:#7c3aed;
+      --bg:#f8fafc;
+      --surface:#ffffff;
+      --surface-soft:#f1f5f9;
+      --text:#0f172a;
+      --muted:#64748b;
+      --border:#e2e8f0;
+      --radius:20px;
+    }
 
-/* Top Navigation */
-.top-nav {
-  height: 50px;
-  background: #ffffff;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Segoe UI",Arial,sans-serif;
+      -webkit-tap-highlight-color:transparent;
+    }
 
-.brand {
-  display: inline-flex;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text);
-}
-.brand #army { color: #ff0000; }
-.brand #navy { color: #0000ff; }
-.brand #air { color: #00b6ff; }
+    body{
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      padding-bottom:90px;
+    }
 
-.reload-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: var(--accent);
-  cursor: pointer;
-}
+    /* ===== TOP HEADER ===== */
+    .top-nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      height:68px;
+      padding:0 18px;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border);
 
-/* Search Container */
-.search-container {
-  margin: 70px 12px 12px 12px;
-}
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
 
-.search-container input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--panel-soft);
-  color: var(--text);
-  font-size: 14px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
 
-.search-container input::placeholder {
-  color: var(--muted);
-}
+    .brand-logo{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--primary),var(--purple));
+      color:#fff;
 
-.search-container input:focus {
-  outline: none;
-  border-color: var(--accent);
-}
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-/* Books Grid */
-.container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin: 12px;
-}
+      font-size:17px;
+      box-shadow:0 8px 20px rgba(37,99,235,.22);
+    }
 
-/* Book Card */
-.book-card {
-  background: var(--panel);
-  border-left: 6px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 14px;
-  text-align: center;
-  text-decoration: none;
-  color: var(--text);
-  transition: 0.3s;
-}
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
 
-.book-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 14px rgba(255, 0, 0, 0.3);
-}
+    .brand-text strong{
+      font-size:18px;
+      letter-spacing:1px;
+      color:var(--text);
+    }
 
-.book-icon img {
-  width: 100%;
-  max-height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
+    .brand-text span{
+      font-size:9px;
+      color:var(--muted);
+      margin-top:5px;
+      font-weight:600;
+      letter-spacing:.5px;
+    }
 
-.book-card h2 {
-  font-size: 16px;
-  margin-top: 8px;
-  text-transform: uppercase;
-}
+    .reload-btn{
+      width:40px;
+      height:40px;
+      border:none;
+      border-radius:12px;
+      background:var(--surface-soft);
+      color:var(--primary);
+      font-size:16px;
+      cursor:pointer;
+    }
 
-/* CTA */
-.cta {
-  margin: 20px 12px 80px 12px;
-  padding: 14px;
-  text-align: center;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
+    .reload-btn:active{
+      transform:scale(.94);
+    }
 
+    /* ===== PAGE CONTENT ===== */
+    .main{
+      width:100%;
+      max-width:700px;
+      margin:auto;
+      padding:20px 16px 30px;
+    }
 
-/* ===== Bottom Navigation ===== */
-.bottom-nav{
-  height:55px;
-  background:#ffffff;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  position:absolute;
-  bottom:0;
-  width:100%;
-}
+    /* ===== HERO ===== */
+    .hero{
+      background:linear-gradient(135deg,#2563eb 0%,#7c3aed 100%);
+      border-radius:24px;
+      padding:22px;
+      color:#fff;
+      margin-bottom:20px;
+      box-shadow:0 14px 35px rgba(37,99,235,.2);
+      position:relative;
+      overflow:hidden;
+    }
 
-.nav-item{
-  text-align:center;
-  font-size:10px;
-  color:var(--muted);
-  text-decoration:none;
-}
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:rgba(255,255,255,.08);
+      top:-100px;
+      right:-60px;
+    }
 
-.nav-item i{
-  display:block;
-  font-size:16px;
-  margin-bottom:3px;
-}
+    .hero-icon{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:rgba(255,255,255,.16);
 
-.nav-item.active{
-  color:var(--accent);
-}
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-.nav-item.active i{
-  color:var(--accent);
-}
+      font-size:19px;
+      margin-bottom:14px;
+    }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
-}
-</style>
+    .hero h1{
+      font-size:24px;
+      margin-bottom:7px;
+    }
 
-<script>
-function reloadPage() {
-  location.reload();
-}
-</script>
+    .hero p{
+      font-size:13px;
+      line-height:1.6;
+      opacity:.9;
+    }
+
+    /* ===== SEARCH ===== */
+    .search-box{
+      height:52px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:16px;
+
+      display:flex;
+      align-items:center;
+      padding:0 16px;
+      gap:12px;
+
+      margin-bottom:20px;
+    }
+
+    .search-box i{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .search-box input{
+      width:100%;
+      border:none;
+      outline:none;
+      font-size:14px;
+      background:transparent;
+      color:var(--text);
+    }
+
+    /* ===== SECTION TITLE ===== */
+    .section-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:13px;
+    }
+
+    .section-head h2{
+      font-size:16px;
+    }
+
+    .section-head span{
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    /* ===== RESOURCE CARD ===== */
+    .books-container{
+      display:grid;
+      gap:14px;
+    }
+
+    .book-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:12px;
+
+      display:flex;
+      align-items:center;
+      gap:14px;
+
+      text-decoration:none;
+      color:var(--text);
+
+      transition:.25s ease;
+    }
+
+    .book-card:hover{
+      transform:translateY(-2px);
+      border-color:var(--primary);
+      box-shadow:0 12px 30px rgba(15,23,42,.08);
+    }
+
+    .book-card:active{
+      transform:scale(.98);
+    }
+
+    .book-image{
+      width:76px;
+      height:88px;
+      flex-shrink:0;
+      border-radius:14px;
+      overflow:hidden;
+      background:var(--surface-soft);
+    }
+
+    .book-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .book-details{
+      flex:1;
+      min-width:0;
+    }
+
+    .book-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+      padding:5px 9px;
+      border-radius:20px;
+      background:#eff6ff;
+      color:var(--primary);
+      font-size:9px;
+      font-weight:700;
+      margin-bottom:7px;
+    }
+
+    .book-details h3{
+      font-size:15px;
+      line-height:1.4;
+      margin-bottom:5px;
+    }
+
+    .book-details p{
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    .arrow{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:var(--surface-soft);
+      color:var(--primary);
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+    }
+
+    /* ===== EMPTY SEARCH ===== */
+    .empty-message{
+      display:none;
+      text-align:center;
+      padding:35px 15px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .empty-message i{
+      display:block;
+      font-size:30px;
+      margin-bottom:10px;
+      color:var(--primary);
+    }
+
+    /* ===== ASCEND CTA ===== */
+    .cta{
+      margin-top:22px;
+      padding:18px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:20px;
+      text-align:center;
+    }
+
+    .cta i{
+      color:var(--primary);
+      margin-right:6px;
+    }
+
+    .cta p{
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .cta strong{
+      color:var(--text);
+    }
+
+    /* ===== BOTTOM NAVIGATION ===== */
+    .bottom-nav{
+      position:fixed;
+      bottom:0;
+      left:0;
+      width:100%;
+      height:72px;
+
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(15px);
+
+      border-top:1px solid var(--border);
+
+      display:flex;
+      align-items:center;
+      justify-content:space-around;
+
+      z-index:1000;
+      padding-bottom:4px;
+    }
+
+    .nav-item{
+      text-decoration:none;
+      color:var(--muted);
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+
+      gap:5px;
+      min-width:52px;
+      font-size:10px;
+      font-weight:600;
+    }
+
+    .nav-icon{
+      width:34px;
+      height:30px;
+      border-radius:11px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      font-size:16px;
+      transition:.2s;
+    }
+
+    .nav-item.active{
+      color:var(--primary);
+    }
+
+    .nav-item.active .nav-icon{
+      background:#eff6ff;
+      color:var(--primary);
+    }
+
+    @media(min-width:700px){
+      .bottom-nav{
+        left:50%;
+        transform:translateX(-50%);
+        max-width:700px;
+        border-radius:20px 20px 0 0;
+        border-left:1px solid var(--border);
+        border-right:1px solid var(--border);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- Top Navigation -->
-<div class="top-nav">
-  <div class="brand">
-    <span id="army">Mission </span>
-    <span id="navy">&nbsp;&nbsp;Cadet&nbsp;&nbsp;</span>
-    <span id="air">Upgrade </span>
-  </div>
-  <button class="reload-btn" onclick="reloadPage()">
-    <i class="fas fa-rotate"></i>
-  </button>
-</div>
+  <!-- TOP NAV -->
+  <header class="top-nav">
 
-<!-- Search -->
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search books...">
-</div>
+    <div class="brand">
+      <div class="brand-logo">
+        <i class="fa-solid fa-arrow-trend-up"></i>
+      </div>
 
-<!-- Books Grid -->
-<div class="container">
+      <div class="brand-text">
+        <strong>ASCEND</strong>
+        <span>LEARN • GROW • ACHIEVE</span>
+      </div>
+    </div>
 
-  <a href="CDS/CDS.html" class="book-card">
-    <span class="book-icon">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEge7ih12KeoRiHtZAXF7nKyZLC-X_C3nRIcSZtgXUHYZGHtntx2OMuEftpc_-rcxk8fqDFHcORLmjFvW6HraeFEVtCENQmhf6VqnWfsCxakrgE3dT4S9VHaxTHBYVCi95IS8yhhvzNH60q4nC6r5qmOasyRMHUvgmBe4F_bT8qZ_kmr1s8duEezVJYg8Pw/s320/Screenshot%202026-03-01%20133248.png">
-    </span>
-    <h2>Combined Defence Service (CDS)</h2>
-  </a>
+    <button class="reload-btn"
+            onclick="reloadPage()"
+            aria-label="Reload page">
+      <i class="fa-solid fa-rotate"></i>
+    </button>
 
-</div>
+  </header>
 
-<!-- CTA -->
-<div class="cta">
-  Discipline • Knowledge • Leadership
-</div>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css" integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/fontawesome.min.css" integrity="sha512-M5Kq4YVQrjg5c2wsZSn27Dkfm/2ALfxmun0vUE3mPiJyK53hQBHYCVAtvMYEC7ZXmYLg8DVG4tF8gD27WmDbsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/regular.min.css" integrity="sha512-x3gns+l9p4mIK7vYLOCUoFS2P1gavFvnO9Its8sr0AkUk46bgf9R51D8xeRUwCSk+W93YbXWi19BYzXDNBH5SA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
-<!-- Bottom Navigation -->
-<div class="bottom-nav">
-  <a class="nav-item" href="../index.html">
-      <i class="fas fa-home"></i>
-      Home
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+
+      <h1>CDS Resources</h1>
+
+      <p>
+        Access learning materials and resources designed to support your
+        Combined Defence Services examination preparation.
+      </p>
+    </section>
+
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search CDS resources..."
+        autocomplete="off"
+      >
+    </div>
+
+
+    <!-- SECTION -->
+    <div class="section-head">
+      <h2>Available Resources</h2>
+      <span id="resourceCount">1 resource</span>
+    </div>
+
+
+    <!-- BOOKS -->
+    <div class="books-container" id="booksContainer">
+
+      <a href="CDS/CDS.html"
+         class="book-card"
+         data-search="combined defence service cds exam preparation">
+
+        <div class="book-image">
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEge7ih12KeoRiHtZAXF7nKyZLC-X_C3nRIcSZtgXUHYZGHtntx2OMuEftpc_-rcxk8fqDFHcORLmjFvW6HraeFEVtCENQmhf6VqnWfsCxakrgE3dT4S9VHaxTHBYVCi95IS8yhhvzNH60q4nC6r5qmOasyRMHUvgmBe4F_bT8qZ_kmr1s8duEezVJYg8Pw/s320/Screenshot%202026-03-01%20133248.png"
+            alt="CDS Study Material"
+          >
+        </div>
+
+        <div class="book-details">
+
+          <div class="book-tag">
+            <i class="fa-solid fa-book"></i>
+            DEFENCE EXAM
+          </div>
+
+          <h3>Combined Defence Services</h3>
+
+          <p>Study material and preparation resources</p>
+
+        </div>
+
+        <div class="arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- NO RESULTS -->
+    <div class="empty-message" id="emptyMessage">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      No resources found.
+    </div>
+
+
+    <!-- CTA -->
+    <section class="cta">
+      <p>
+        <strong><i class="fa-solid fa-arrow-trend-up"></i> ASCEND</strong>
+        <br>
+        Learn • Grow • Build Skills • Achieve Your Goals
+      </p>
+    </section>
+
+  </main>
+
+
+  <!-- BOTTOM NAVIGATION -->
+  <nav class="bottom-nav">
+
+    <a class="nav-item" href="../index.html">
+      <div class="nav-icon">
+        <i class="fa-solid fa-house"></i>
+      </div>
+      <span>Home</span>
     </a>
+
     <a class="nav-item active" href="../Books.html">
-      <i class="fas fa-book"></i>
-      Books
+      <div class="nav-icon">
+        <i class="fa-solid fa-book-open"></i>
+      </div>
+      <span>Learn</span>
     </a>
+
     <a class="nav-item" href="../Assignments.html">
-      <i class="fas fa-clipboard"></i>
-      Tasks
+      <div class="nav-icon">
+        <i class="fa-solid fa-list-check"></i>
+      </div>
+      <span>Tasks</span>
     </a>
+
     <a class="nav-item" href="../Faq.html">
-      <i class="fas fa-question-circle"></i>
-      FAQ
+      <div class="nav-icon">
+        <i class="fa-solid fa-circle-question"></i>
+      </div>
+      <span>FAQ</span>
     </a>
+
     <a class="nav-item" href="../Aboutus.html">
-      <i class="fas fa-user"></i>
-      About
+      <div class="nav-icon">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <span>Profile</span>
     </a>
-</div>
+
+  </nav>
+
+
+  <script>
+
+    /* Reload */
+    function reloadPage(){
+      location.reload();
+    }
+
+
+    /* Search */
+    const searchInput = document.getElementById("searchInput");
+    const booksContainer = document.getElementById("booksContainer");
+    const emptyMessage = document.getElementById("emptyMessage");
+    const resourceCount = document.getElementById("resourceCount");
+
+    searchInput.addEventListener("input", function(){
+
+      const query = this.value.toLowerCase().trim();
+
+      const cards =
+        document.querySelectorAll(".book-card");
+
+      let visibleCount = 0;
+
+      cards.forEach(function(card){
+
+        const searchableText =
+          (
+            card.innerText +
+            " " +
+            card.dataset.search
+          ).toLowerCase();
+
+        if(searchableText.includes(query)){
+
+          card.style.display = "flex";
+          visibleCount++;
+
+        }else{
+
+          card.style.display = "none";
+
+        }
+
+      });
+
+      emptyMessage.style.display =
+        visibleCount === 0 ? "block" : "none";
+
+      resourceCount.textContent =
+        visibleCount +
+        (visibleCount === 1 ? " resource" : " resources");
+
+    });
+
+  </script>
 
 </body>
 </html>
