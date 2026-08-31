@@ -1,255 +1,2485 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-  <meta name="google-adsense-account" content="ca-pub-1318194885972438">
-<meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Mission Cadet Upgrade | About</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318194885972438"
-     crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="google-adsense-account"
+content="ca-pub-1318194885972438">
+
+<title>ASCEND | About Us</title>
+
+<!-- Google AdSense -->
+
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318194885972438"
+crossorigin="anonymous"></script>
+
+<!-- Google Font -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<!-- Font Awesome -->
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
-  --bg:#ffffff;
-  --soft:#f9f9f9;
-  --border:#e5e5e5;
-  --text:#0f0f0f;
-  --muted:#606060;
-  --accent:#ff0000;
-  --radius:12px;
+
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+
+    --yellow:#FFD43B;
+    --yellow-dark:#F5B800;
+
+    --background:#F5F7FC;
+
+    --white:#FFFFFF;
+
+    --text:#172033;
+
+    --muted:#68748A;
+
+    --border:#E5EAF2;
+
+    --soft-blue:#EDF3FF;
+
+    --soft-yellow:#FFF8DC;
+
+    --dark:#172033;
+
+    --radius:22px;
+
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', Arial, sans-serif;
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
 }
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
 
 body{
-  background:#f2f2f2;
-  display:flex;
-  justify-content:center;
+
+    font-family:
+    'Inter',
+    Arial,
+    sans-serif;
+
+    background:
+    var(--background);
+
+    color:
+    var(--text);
+
+    line-height:1.6;
+
 }
 
-.app-container{
-  width:100%;
-  max-width:360px;
-  height:800px;
-  background:var(--bg);
-  display:flex;
-  flex-direction:column;
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--border);
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
 }
 
-/* ===== Header ===== */
-.top-nav{
-  background:#ffffff;
-  border-bottom:1px solid var(--border);
-  padding:12px 14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+
+button{
+
+    font-family:inherit;
+
 }
 
-.brand{
-  font-size:16px;
-  font-weight:700;
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    width:100%;
+
+    height:76px;
+
+    background:
+    rgba(255,255,255,.96);
+
+    border-bottom:
+    1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    backdrop-filter:
+    blur(15px);
+
 }
 
-.brand #army{ color:#ff0000; }
-.brand #navy{ color:#0000ff; }
-.brand #air{ color:#00b6ff; }
 
-.reload-btn{
-  background:none;
-  border:none;
-  font-size:18px;
-  color:var(--accent);
-  cursor:pointer;
+.nav-container{
+
+    max-width:1200px;
+
+    height:100%;
+
+    margin:auto;
+
+    padding:
+    0 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
 }
 
-/* ===== Content ===== */
-.main{
-  flex:1;
-  overflow-y:auto;
-  padding:14px;
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
 }
 
-.section-card{
-  background:var(--soft);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:14px;
-  margin-bottom:14px;
+
+.logo-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    background:#FFFFFF;
+
+    border:
+    1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
 }
 
-.section-card h2{
-  font-size:14px;
-  color:var(--accent);
-  margin-bottom:8px;
+
+.logo-icon img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
 }
 
-.section-card h3{
-  font-size:13px;
-  margin-top:12px;
-  margin-bottom:6px;
+
+.logo-text h1{
+
+    font-size:22px;
+
+    line-height:1;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    color:
+    var(--primary);
+
 }
 
-.section-card p,
-.section-card li{
-  font-size:12px;
-  line-height:1.5;
-  color:var(--text);
+
+.logo-text p{
+
+    font-size:9px;
+
+    color:
+    var(--muted);
+
+    font-weight:600;
+
+    margin-top:5px;
+
 }
 
-.section-card ul{
-  padding-left:16px;
+
+/* =========================================================
+   DESKTOP NAV
+========================================================= */
+
+.desktop-nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:27px;
+
 }
 
-/* ===== CTA ===== */
-.cta{
-  background:var(--accent);
-  color:#fff;
-  padding:12px;
-  border-radius:var(--radius);
-  text-align:center;
-  font-size:12px;
-  font-weight:600;
-  margin-top:10px;
+
+.desktop-nav a{
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:
+    var(--muted);
+
+    transition:.25s;
+
 }
 
-/* ===== Bottom Nav ===== */
-.bottom-nav{
-  height:55px;
-  background:#ffffff;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  position:absolute;
-  bottom:0;
-  width:100%;
+
+.desktop-nav a:hover{
+
+    color:
+    var(--primary);
+
 }
 
-.nav-item{
-  text-align:center;
-  font-size:9px;
-  color:var(--muted);
-  text-decoration:none;
+
+.nav-button{
+
+    background:
+    var(--primary);
+
+    color:#FFFFFF !important;
+
+    padding:
+    11px 18px;
+
+    border-radius:12px;
+
 }
 
-.nav-item i{
-  display:block;
-  font-size:15px;
-  margin-bottom:3px;
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-btn{
+
+    display:none;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    var(--soft-blue);
+
+    color:
+    var(--primary);
+
+    font-size:18px;
+
+    cursor:pointer;
+
 }
 
-.nav-item.active{
-  color:var(--accent);
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:76px;
+
+    left:0;
+
+    width:100%;
+
+    background:#FFFFFF;
+
+    border-bottom:
+    1px solid var(--border);
+
+    padding:
+    12px 16px;
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.08);
+
 }
+
+
+.mobile-menu.active{
+
+    display:block;
+
+}
+
+
+.mobile-menu a{
+
+    display:block;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:
+    var(--text);
+
+}
+
+
+.mobile-menu a:hover{
+
+    background:
+    var(--soft-blue);
+
+    color:
+    var(--primary);
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+    30px 25px 90px;
+
+}
+
+
+/* =========================================================
+   PAGE HERO
+========================================================= */
+
+.page-hero{
+
+    background:
+    linear-gradient(
+        135deg,
+        #155EEF,
+        #4C82FF
+    );
+
+    color:#FFFFFF;
+
+    border-radius:
+    30px;
+
+    padding:
+    55px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    margin-bottom:
+    40px;
+
+    box-shadow:
+    0 25px 55px
+    rgba(21,94,239,.18);
+
+}
+
+
+.page-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:380px;
+
+    height:380px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.08);
+
+    right:-120px;
+
+    top:-190px;
+
+}
+
+
+.page-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,212,59,.15);
+
+    right:100px;
+
+    bottom:-190px;
+
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:700px;
+
+}
+
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:
+    rgba(255,255,255,.14);
+
+    border:
+    1px solid
+    rgba(255,255,255,.22);
+
+    border-radius:25px;
+
+    padding:
+    8px 14px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+}
+
+
+.page-hero h1{
+
+    font-size:45px;
+
+    line-height:1.15;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:13px;
+
+}
+
+
+.page-hero h1 span{
+
+    color:
+    var(--yellow);
+
+}
+
+
+.page-hero p{
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    color:
+    rgba(255,255,255,.88);
+
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+
+    margin-bottom:
+    45px;
+
+}
+
+
+.section-header{
+
+    margin-bottom:
+    20px;
+
+}
+
+
+.section-header h2{
+
+    font-size:25px;
+
+    font-weight:800;
+
+    letter-spacing:-.5px;
+
+}
+
+
+.section-header p{
+
+    font-size:12px;
+
+    color:
+    var(--muted);
+
+    margin-top:4px;
+
+}
+
+
+/* =========================================================
+   WHO WE ARE
+========================================================= */
+
+.about-card{
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    25px;
+
+    padding:
+    30px;
+
+    display:grid;
+
+    grid-template-columns:
+    80px 1fr;
+
+    gap:22px;
+
+    box-shadow:
+    0 8px 30px
+    rgba(20,40,80,.04);
+
+}
+
+
+.about-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:22px;
+
+    background:
+    var(--soft-blue);
+
+    color:
+    var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:28px;
+
+}
+
+
+.about-content h3{
+
+    font-size:18px;
+
+    margin-bottom:9px;
+
+}
+
+
+.about-content p{
+
+    font-size:12px;
+
+    color:
+    var(--muted);
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   VISION + MISSION
+========================================================= */
+
+.vm-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:20px;
+
+}
+
+
+.vm-card{
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    25px;
+
+    padding:
+    28px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.vm-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    right:-50px;
+
+    bottom:-60px;
+
+    background:
+    var(--soft-blue);
+
+}
+
+
+.vm-card.yellow::after{
+
+    background:
+    var(--soft-yellow);
+
+}
+
+
+.vm-icon{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:16px;
+
+    background:
+    var(--soft-blue);
+
+    color:
+    var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:20px;
+
+    margin-bottom:17px;
+
+}
+
+
+.vm-card.yellow .vm-icon{
+
+    background:
+    var(--soft-yellow);
+
+    color:
+    #D69B00;
+
+}
+
+
+.vm-card h3{
+
+    font-size:17px;
+
+    margin-bottom:8px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.vm-card p{
+
+    font-size:11px;
+
+    color:
+    var(--muted);
+
+    line-height:1.8;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* =========================================================
+   MISSION POINTS
+========================================================= */
+
+.mission-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    gap:13px;
+
+}
+
+
+.mission-item{
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    20px;
+
+    padding:
+    20px 14px;
+
+    text-align:center;
+
+    transition:.25s;
+
+}
+
+
+.mission-item:hover{
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 15px 35px
+    rgba(21,94,239,.08);
+
+}
+
+
+.mission-number{
+
+    width:35px;
+
+    height:35px;
+
+    border-radius:12px;
+
+    margin:
+    0 auto 12px;
+
+    background:
+    var(--primary);
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:12px;
+
+    font-weight:800;
+
+}
+
+
+.mission-item:nth-child(even)
+.mission-number{
+
+    background:
+    var(--yellow);
+
+    color:#5C4800;
+
+}
+
+
+.mission-item h3{
+
+    font-size:11px;
+
+    line-height:1.5;
+
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story-card{
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    25px;
+
+    padding:
+    30px;
+
+}
+
+
+.story{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+
+.story-line{
+
+    width:4px;
+
+    flex-shrink:0;
+
+    background:
+    var(--primary);
+
+    border-radius:10px;
+
+}
+
+
+.story-content h3{
+
+    font-size:18px;
+
+    margin-bottom:9px;
+
+}
+
+
+.story-content p{
+
+    font-size:12px;
+
+    color:
+    var(--muted);
+
+    line-height:1.9;
+
+}
+
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.values-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:16px;
+
+}
+
+
+.value-card{
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    border-radius:
+    21px;
+
+    padding:
+    23px;
+
+}
+
+
+.value-card i{
+
+    color:
+    var(--primary);
+
+    font-size:21px;
+
+    margin-bottom:15px;
+
+}
+
+
+.value-card:nth-child(even) i{
+
+    color:
+    #D69B00;
+
+}
+
+
+.value-card h3{
+
+    font-size:13px;
+
+    margin-bottom:5px;
+
+}
+
+
+.value-card p{
+
+    font-size:10px;
+
+    color:
+    var(--muted);
+
+}
+
+
+/* =========================================================
+   MOTTO
+========================================================= */
+
+.motto{
+
+    background:
+    var(--dark);
+
+    color:#FFFFFF;
+
+    border-radius:
+    30px;
+
+    padding:
+    45px;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.motto::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    border-radius:50%;
+
+    background:
+    rgba(21,94,239,.15);
+
+    left:-100px;
+
+    top:-130px;
+
+}
+
+
+.motto::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:200px;
+
+    height:200px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,212,59,.10);
+
+    right:-80px;
+
+    bottom:-120px;
+
+}
+
+
+.motto-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.motto-label{
+
+    color:
+    var(--yellow);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+}
+
+
+.motto h2{
+
+    font-size:28px;
+
+    margin:
+    10px 0;
+
+}
+
+
+.motto p{
+
+    color:#B8C2D5;
+
+    font-size:12px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    text-align:center;
+
+    padding:
+    35px 0 10px;
+
+    color:
+    var(--muted);
+
+    font-size:11px;
+
+}
+
+
+.footer strong{
+
+    color:
+    var(--primary);
+
+}
+
+
+/* =========================================================
+   MOBILE BOTTOM NAV
+========================================================= */
+
+.mobile-bottom-nav{
+
+    display:none;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .mission-grid{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+    }
+
+
+    .values-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+
+    .page-hero{
+
+        padding:45px;
+
+    }
+
+
+    .page-hero h1{
+
+        font-size:40px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .header{
+
+        height:70px;
+
+    }
+
+
+    .nav-container{
+
+        padding:
+        0 16px;
+
+    }
+
+
+    .desktop-nav{
+
+        display:none;
+
+    }
+
+
+    .menu-btn{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
+
+
+    .logo-icon{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+
+    .logo-text h1{
+
+        font-size:19px;
+
+    }
+
+
+    .logo-text p{
+
+        font-size:8px;
+
+    }
+
+
+    .container{
+
+        padding:
+        18px
+        16px
+        100px;
+
+    }
+
+
+    /* HERO */
+
+    .page-hero{
+
+        padding:
+        30px 22px;
+
+        border-radius:
+        25px;
+
+        margin-bottom:
+        30px;
+
+    }
+
+
+    .page-hero h1{
+
+        font-size:30px;
+
+        letter-spacing:-1px;
+
+    }
+
+
+    .page-hero p{
+
+        font-size:11px;
+
+    }
+
+
+    /* SECTIONS */
+
+    .section{
+
+        margin-bottom:
+        35px;
+
+    }
+
+
+    .section-header h2{
+
+        font-size:20px;
+
+    }
+
+
+    .section-header p{
+
+        font-size:10px;
+
+    }
+
+
+    /* ABOUT */
+
+    .about-card{
+
+        grid-template-columns:
+        1fr;
+
+        gap:15px;
+
+        padding:
+        20px;
+
+        border-radius:
+        20px;
+
+    }
+
+
+    .about-icon{
+
+        width:48px;
+
+        height:48px;
+
+        border-radius:15px;
+
+        font-size:19px;
+
+    }
+
+
+    .about-content h3{
+
+        font-size:15px;
+
+    }
+
+
+    .about-content p{
+
+        font-size:10px;
+
+    }
+
+
+    /* VISION MISSION */
+
+    .vm-grid{
+
+        grid-template-columns:
+        1fr;
+
+        gap:12px;
+
+    }
+
+
+    .vm-card{
+
+        padding:
+        20px;
+
+        border-radius:
+        20px;
+
+    }
+
+
+    .vm-card h3{
+
+        font-size:15px;
+
+    }
+
+
+    .vm-card p{
+
+        font-size:10px;
+
+    }
+
+
+    /* MISSION */
+
+    .mission-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:10px;
+
+    }
+
+
+    .mission-item{
+
+        padding:
+        17px 10px;
+
+        border-radius:
+        17px;
+
+    }
+
+
+    .mission-item h3{
+
+        font-size:10px;
+
+    }
+
+
+    /* STORY */
+
+    .story-card{
+
+        padding:
+        20px;
+
+        border-radius:
+        20px;
+
+    }
+
+
+    .story{
+
+        gap:13px;
+
+    }
+
+
+    .story-content h3{
+
+        font-size:15px;
+
+    }
+
+
+    .story-content p{
+
+        font-size:10px;
+
+    }
+
+
+    /* VALUES */
+
+    .values-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:10px;
+
+    }
+
+
+    .value-card{
+
+        padding:
+        17px;
+
+        border-radius:
+        17px;
+
+    }
+
+
+    .value-card h3{
+
+        font-size:11px;
+
+    }
+
+
+    .value-card p{
+
+        font-size:9px;
+
+    }
+
+
+    /* MOTTO */
+
+    .motto{
+
+        padding:
+        30px 20px;
+
+        border-radius:
+        24px;
+
+    }
+
+
+    .motto h2{
+
+        font-size:22px;
+
+    }
+
+
+    .motto p{
+
+        font-size:10px;
+
+    }
+
+
+    /* BOTTOM NAV */
+
+    .mobile-bottom-nav{
+
+        display:flex;
+
+        position:fixed;
+
+        bottom:0;
+
+        left:0;
+
+        width:100%;
+
+        height:72px;
+
+        background:
+        rgba(255,255,255,.97);
+
+        backdrop-filter:
+        blur(15px);
+
+        border-top:
+        1px solid var(--border);
+
+        align-items:center;
+
+        justify-content:
+        space-around;
+
+        z-index:2000;
+
+        padding-bottom:5px;
+
+    }
+
+
+    .mobile-nav-item{
+
+        min-width:55px;
+
+        text-align:center;
+
+        font-size:9px;
+
+        font-weight:600;
+
+        color:#7C879B;
+
+    }
+
+
+    .mobile-nav-item i{
+
+        width:38px;
+
+        height:32px;
+
+        margin:auto;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        font-size:16px;
+
+    }
+
+
+    .mobile-nav-item.active{
+
+        color:
+        var(--primary);
+
+    }
+
+
+    .mobile-nav-item.active i{
+
+        background:
+        #EAF0FF;
+
+        border-radius:
+        12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+    .page-hero h1{
+
+        font-size:27px;
+
+    }
+
+
+    .mission-grid{
+
+        gap:8px;
+
+    }
+
+
+    .mission-item{
+
+        padding:
+        14px 7px;
+
+    }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="app-container">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-  <!-- Header -->
-  <div class="top-nav">
-    <div class="brand">
-      <span id="army">Mission </span>
-      <span id="navy">Cadet</span>
-      <span id="air"> Upgrade</span>
-    </div>
-    <button class="reload-btn" onclick="reloadPage()">
-      <i class="fas fa-rotate"></i>
-    </button>
-  </div>
+<header class="header">
 
-  <!-- Main -->
-  <div class="main">
+<div class="nav-container">
 
-    <div class="section-card">
-      <h2>Who We Are</h2>
-      <p>
-        Mission Cadet Upgrade is a student-driven association formed by final-year NCC cadets.
-        Our mission is to nurture cadets in leadership, communication, and confidence.
-      </p>
 
-      <h3>Our Vision</h3>
-      <p>
-        To create disciplined and career-ready cadets who embody leadership and excellence.
-      </p>
+<!-- LOGO -->
 
-      <h3>Our Mission</h3>
-      <ul>
-        <li>Enhance personality development</li>
-        <li>Create career awareness</li>
-        <li>Promote current affairs knowledge</li>
-        <li>Guide for competitive exams</li>
-        <li>Encourage teamwork and mentorship</li>
-      </ul>
+<a href="index.html"
+   class="logo">
 
-      <h3>Our Story</h3>
-      <p>
-        Started by final-year NCC seniors, the mission evolved into a structured leadership platform.
-      </p>
 
-      <h3>Our Motto</h3>
-      <p><strong>Empowering Cadets for a Better Tomorrow.</strong></p>
+    <div class="logo-icon">
+
+        <img
+        src="logo.png"
+        alt="ASCEND Logo">
+
     </div>
 
-    <div class="cta">
-      Serve With Honour • Lead With Courage
+
+    <div class="logo-text">
+
+        <h1>
+            ASCEND
+        </h1>
+
+        <p>
+            Rise Today. Lead Tomorrow.
+        </p>
+
     </div>
 
-  </div>
 
-  <!-- Bottom Navigation -->
-  <div class="bottom-nav">
-    <a href="index.html" class="nav-item">
-      <i class="fas fa-home"></i>
-      Home
+</a>
+
+
+<!-- DESKTOP NAV -->
+
+<nav class="desktop-nav">
+
+    <a href="index.html">
+        Home
     </a>
 
-    <a href="Books.html" class="nav-item">
-      <i class="fas fa-book"></i>
-      Books
+    <a href="Books.html">
+        Learn
     </a>
 
-    <a href="Assignments.html" class="nav-item">
-      <i class="fas fa-clipboard"></i>
-      Tasks
+    <a href="Assignments.html">
+        Tasks
     </a>
 
-    <a href="Faq.html" class="nav-item">
-      <i class="fas fa-question-circle"></i>
-      FAQ
+    <a href="Faq.html">
+        FAQ
     </a>
 
-    <a href="Aboutus.html" class="nav-item active">
-      <i class="fas fa-user"></i>
-      About
+    <a href="Aboutus.html"
+       style="color:#155EEF;">
+        About
     </a>
 
-    <a href="test/index.html" class="nav-item">
-      <i class="fas fa-user-shield"></i>
-      Admin
+    <a href="#motto"
+       class="nav-button">
+        Explore
     </a>
-  </div>
+
+</nav>
+
+
+<!-- MOBILE MENU -->
+
+<button
+class="menu-btn"
+onclick="toggleMenu()">
+
+    <i class="fas fa-bars"></i>
+
+</button>
+
 
 </div>
 
+<!-- MOBILE MENU -->
+
+<div
+id="mobileMenu"
+class="mobile-menu">
+
+
+<a href="index.html">
+    <i class="fas fa-house"></i>
+    &nbsp; Home
+</a>
+
+<a href="Books.html">
+    <i class="fas fa-book-open"></i>
+    &nbsp; Learn
+</a>
+
+<a href="Assignments.html">
+    <i class="fas fa-list-check"></i>
+    &nbsp; Tasks
+</a>
+
+<a href="Faq.html">
+    <i class="fas fa-circle-question"></i>
+    &nbsp; FAQ
+</a>
+
+<a href="Aboutus.html">
+    <i class="fas fa-users"></i>
+    &nbsp; About
+</a>
+
+
+</div>
+
+</header>
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+<!-- =====================================================
+     PAGE HERO
+===================================================== -->
+
+<section class="page-hero">
+
+
+<div class="hero-content">
+
+
+    <div class="hero-badge">
+
+        <i class="fas fa-sparkles"></i>
+
+        ABOUT ASCEND
+
+    </div>
+
+
+    <h1>
+
+        More Than Learning.
+        <br>
+
+        <span>A Community That Ascends.</span>
+
+    </h1>
+
+
+    <p>
+
+        ASCEND is a learning and growth community
+        built to help individuals learn, develop skills,
+        discover opportunities and become confident
+        leaders.
+
+    </p>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     WHO WE ARE
+===================================================== -->
+
+<section class="section">
+
+
+<div class="section-header">
+
+    <h2>
+        Who We Are
+    </h2>
+
+    <p>
+        From Mission Cadet Upgrade to ASCEND
+    </p>
+
+</div>
+
+
+<div class="about-card">
+
+
+    <div class="about-icon">
+
+        <i class="fas fa-users"></i>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <h3>
+            A Bigger Vision. A Broader Community.
+        </h3>
+
+
+        <p>
+
+            ASCEND evolved from
+            <strong>Mission Cadet Upgrade (MCU)</strong>,
+            a student-driven initiative created by
+            passed out NCC cadets from KASC,Cbe.
+
+            <br><br>
+
+            What started with a focus on cadet development
+            has grown into a broader platform for
+            <strong>learning, careers, skills, technology,
+            business, entrepreneurship and leadership.</strong>
+
+        </p>
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     VISION & MISSION
+===================================================== -->
+
+<section class="section">
+
+
+<div class="section-header">
+
+    <h2>
+        Vision & Mission
+    </h2>
+
+    <p>
+        What drives ASCEND
+    </p>
+
+</div>
+
+
+<div class="vm-grid">
+
+
+    <!-- VISION -->
+
+    <div class="vm-card">
+
+
+        <div class="vm-icon">
+
+            <i class="fas fa-eye"></i>
+
+        </div>
+
+
+        <h3>
+            Our Vision
+        </h3>
+
+
+        <p>
+
+            To create a strong learning community
+            where individuals can discover their
+            potential, develop valuable skills and
+            prepare themselves for greater
+            opportunities.
+
+        </p>
+
+
+    </div>
+
+
+    <!-- MISSION -->
+
+    <div class="vm-card yellow">
+
+
+        <div class="vm-icon">
+
+            <i class="fas fa-bullseye"></i>
+
+        </div>
+
+
+        <h3>
+            Our Mission
+        </h3>
+
+
+        <p>
+
+            To provide accessible knowledge,
+            practical learning, career awareness
+            and leadership opportunities that
+            encourage continuous growth.
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     OUR MISSION
+===================================================== -->
+
+<section class="section">
+
+
+<div class="section-header">
+
+    <h2>
+        What We Aim To Do
+    </h2>
+
+    <p>
+        Our core focus areas
+    </p>
+
+</div>
+
+
+<div class="mission-grid">
+
+
+    <div class="mission-item">
+
+        <div class="mission-number">
+            01
+        </div>
+
+        <h3>
+            Develop Skills
+        </h3>
+
+    </div>
+
+
+    <div class="mission-item">
+
+        <div class="mission-number">
+            02
+        </div>
+
+        <h3>
+            Create Career Awareness
+        </h3>
+
+    </div>
+
+
+    <div class="mission-item">
+
+        <div class="mission-number">
+            03
+        </div>
+
+        <h3>
+            Promote Knowledge
+        </h3>
+
+    </div>
+
+
+    <div class="mission-item">
+
+        <div class="mission-number">
+            04
+        </div>
+
+        <h3>
+            Encourage Leadership
+        </h3>
+
+    </div>
+
+
+    <div class="mission-item">
+
+        <div class="mission-number">
+            05
+        </div>
+
+        <h3>
+            Build Community
+        </h3>
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     OUR STORY
+===================================================== -->
+
+<section class="section">
+
+
+<div class="section-header">
+
+    <h2>
+        Our Story
+    </h2>
+
+    <p>
+        Where the journey began
+    </p>
+
+</div>
+
+
+<div class="story-card">
+
+
+    <div class="story">
+
+
+        <div class="story-line"></div>
+
+
+        <div class="story-content">
+
+
+            <h3>
+                From Cadets to a Community
+            </h3>
+
+
+            <p>
+
+                Mission Cadet Upgrade began as a
+                student-driven initiative by final-year
+                NCC cadets with the goal of supporting
+                cadets through knowledge, leadership,
+                communication and career awareness.
+
+                <br><br>
+
+                As the vision expanded, the initiative
+                evolved into <strong>ASCEND</strong> —
+                a broader community designed for
+                everyone who wants to learn, grow,
+                build skills and lead.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     OUR VALUES
+===================================================== -->
+
+<section class="section">
+
+
+<div class="section-header">
+
+    <h2>
+        What We Believe
+    </h2>
+
+    <p>
+        The principles behind ASCEND
+    </p>
+
+</div>
+
+
+<div class="values-grid">
+
+
+    <div class="value-card">
+
+        <i class="fas fa-book-open"></i>
+
+        <h3>
+            Continuous Learning
+        </h3>
+
+        <p>
+            Keep learning, questioning
+            and improving.
+        </p>
+
+    </div>
+
+
+    <div class="value-card">
+
+        <i class="fas fa-lightbulb"></i>
+
+        <h3>
+            Innovation
+        </h3>
+
+        <p>
+            Turn ideas into meaningful
+            possibilities.
+        </p>
+
+    </div>
+
+
+    <div class="value-card">
+
+        <i class="fas fa-users"></i>
+
+        <h3>
+            Community
+        </h3>
+
+        <p>
+            Learn and grow together
+            through collaboration.
+        </p>
+
+    </div>
+
+
+    <div class="value-card">
+
+        <i class="fas fa-medal"></i>
+
+        <h3>
+            Leadership
+        </h3>
+
+        <p>
+            Build confidence, responsibility
+            and leadership.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     MOTTO
+===================================================== -->
+
+<section
+id="motto"
+class="motto">
+
+
+<div class="motto-content">
+
+
+    <div class="motto-label">
+
+        ONE VISION.
+        ENDLESS POSSIBILITIES.
+
+    </div>
+
+
+    <h2>
+
+        Rise Today.
+        Lead Tomorrow.
+
+    </h2>
+
+
+    <p>
+
+        Learn • Grow • Build • Lead
+
+    </p>
+
+
+</div>
+
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+
+<strong>
+    ASCEND
+</strong>
+
+— Rise Today. Lead Tomorrow.
+
+<br><br>
+
+© 2026 ASCEND Learning Community.
+All Rights Reserved.
+
+
+</footer>
+
+</main>
+
+<!-- =====================================================
+     MOBILE BOTTOM NAV
+===================================================== -->
+
+<nav class="mobile-bottom-nav">
+
+
+<a
+href="index.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-house"></i>
+
+    Home
+
+</a>
+
+
+<a
+href="Books.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-book-open"></i>
+
+    Learn
+
+</a>
+
+
+<a
+href="Assignments.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-list-check"></i>
+
+    Tasks
+
+</a>
+
+
+<a
+href="Faq.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-circle-question"></i>
+
+    FAQ
+
+</a>
+
+
+<a
+href="Aboutus.html"
+class="mobile-nav-item active">
+
+    <i class="fas fa-users"></i>
+
+    About
+
+</a>
+
+
+</nav>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
-function reloadPage(){
-  location.reload();
+
+function toggleMenu(){
+
+    const menu =
+    document.getElementById("mobileMenu");
+
+    const icon =
+    document.querySelector(".menu-btn i");
+
+
+    menu.classList.toggle("active");
+
+
+    if(menu.classList.contains("active")){
+
+        icon.classList.remove("fa-bars");
+
+        icon.classList.add("fa-xmark");
+
+    }
+
+    else{
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    }
+
 }
+
+
+/* Close menu after clicking */
+
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        document
+        .getElementById("mobileMenu")
+        .classList.remove("active");
+
+
+        const icon =
+        document.querySelector(".menu-btn i");
+
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    });
+
+});
+
 </script>
 
 </body>
+
 </html>
