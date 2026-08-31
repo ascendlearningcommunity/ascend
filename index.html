@@ -1,271 +1,2564 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318194885972438"
-     crossorigin="anonymous"></script>
-<meta name="google-adsense-account" content="ca-pub-1318194885972438">
-<meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Mission Cadet Upgrade</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#155EEF">
+
+<title>ASCEND — Rise Today. Lead Tomorrow.</title>
+
+<!-- Google Font -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
 
 <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Google AdSense -->
+
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318194885972438"
+crossorigin="anonymous"></script>
+
+<meta name="google-adsense-account"
+   content="ca-pub-1318194885972438">
 
 <style>
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
 :root{
-  --bg:#ffffff;
-  --soft:#f9f9f9;
-  --border:#e5e5e5;
-  --text:#0f0f0f;
-  --muted:#606060;
-  --accent:#ff0000;
-  --radius:12px;
+
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+
+    --yellow:#FFD43B;
+    --yellow-dark:#F5B800;
+
+    --background:#F5F7FC;
+
+    --white:#FFFFFF;
+
+    --text:#172033;
+
+    --muted:#68748A;
+
+    --border:#E5EAF2;
+
+    --success:#16A34A;
+
+    --shadow:
+    0 15px 40px rgba(21,94,239,.08);
+
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', Arial, sans-serif;
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
 }
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
 
 body{
-  background:#f2f2f2;
-  display:flex;
-  justify-content:center;
+
+    font-family:
+    'Inter',
+    Arial,
+    sans-serif;
+
+    background:
+    var(--background);
+
+    color:
+    var(--text);
+
+    line-height:1.6;
+
 }
 
-/* ===== Mobile Frame ===== */
-.app-container{
-  width:100%;
-  max-width:360px;
-  height:800px;
-  background:var(--bg);
-  display:flex;
-  flex-direction:column;
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--border);
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
 }
 
-/* ===== Top Header (YouTube Style) ===== */
-.top-nav{
-  background:#ffffff;
-  border-bottom:1px solid var(--border);
-  padding:12px 14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+
+button{
+
+    font-family:inherit;
+
 }
 
-.brand{
-  font-size:16px;
-  font-weight:700;
-  color:var(--text);
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    width:100%;
+
+    height:76px;
+
+    background:
+    rgba(255,255,255,.96);
+
+    border-bottom:
+    1px solid var(--border);
+
+    position:
+    sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    backdrop-filter:
+    blur(15px);
+
 }
 
-.brand #army{
-  color:#ff0000;
-}
-.brand #navy{
-  color:#0000ff;
-}
-.brand #air{
-  color: #00b6ff;
+
+.nav-container{
+
+    width:100%;
+
+    max-width:1200px;
+
+    height:100%;
+
+    margin:auto;
+
+    padding:
+    0 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
 }
 
-.reload-btn{
-  background:none;
-  border:none;
-  font-size:18px;
-  color:var(--accent);
-  cursor:pointer;
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
 }
 
-/* ===== Main Scroll Area ===== */
-.main{
-  flex:1;
-  overflow-y:auto;
-  padding:14px;
+
+.logo-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    background:#FFFFFF;
+
+    border:
+    1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
 }
 
-.header h1{
-  font-size:18px;
-  color:var(--text);
+
+.logo-icon img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    display:block;
+
 }
 
-.header p{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:4px;
-  margin-bottom:16px;
+
+.logo-text h1{
+
+    font-size:22px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    line-height:1;
+
+    color:var(--yellow-dark);
+
 }
 
-/* ===== Cards ===== */
-.card{
-  background:var(--soft);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:14px;
-  margin-bottom:14px;
+
+.logo-text p{
+
+    font-size:9px;
+
+    color:var(--muted);
+
+    font-weight:600;
+
+    margin-top:5px;
+
 }
 
-.card h2{
-  font-size:14px;
-  color:var(--accent);
-  margin-bottom:8px;
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.desktop-nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
 }
 
-.card p,
-.card ul li{
-  font-size:12px;
-  color:var(--text);
+
+.desktop-nav a{
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:var(--muted);
+
+    transition:
+    .25s;
+
 }
 
-.card ul{
-  padding-left:16px;
+
+.desktop-nav a:hover{
+
+    color:
+    var(--primary);
+
 }
 
-/* ===== CTA ===== */
-.cta{
-  background:var(--accent);
-  color:#fff;
-  padding:12px;
-  border-radius:var(--radius);
-  text-align:center;
-  font-size:13px;
-  font-weight:600;
-  margin-top:10px;
+
+.nav-button{
+
+    background:
+    var(--primary);
+
+    color:
+    #FFFFFF !important;
+
+    padding:
+    11px 18px;
+
+    border-radius:
+    12px;
+
 }
 
-/* ===== Bottom Navigation ===== */
-.bottom-nav{
-  height:55px;
-  background:#ffffff;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  position:absolute;
-  bottom:0;
-  width:100%;
+
+.nav-button:hover{
+
+    background:
+    var(--primary-dark);
+
 }
 
-.nav-item{
-  text-align:center;
-  font-size:10px;
-  color:var(--muted);
-  text-decoration:none;
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-btn{
+
+    display:none;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#EDF3FF;
+
+    color:var(--primary);
+
+    font-size:18px;
+
+    cursor:pointer;
+
 }
 
-.nav-item i{
-  display:block;
-  font-size:16px;
-  margin-bottom:3px;
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:76px;
+
+    left:0;
+
+    width:100%;
+
+    background:#FFFFFF;
+
+    border-bottom:
+    1px solid var(--border);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.08);
+
+    padding:12px 16px;
+
 }
 
-.nav-item.active{
-  color:var(--accent);
+
+.mobile-menu.active{
+
+    display:block;
+
 }
 
-.nav-item.active i{
-  color:var(--accent);
+
+.mobile-menu a{
+
+    display:block;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:var(--text);
+
 }
-marquee{
-color:#0000ff;font-weight:bold;
-border:1px solid #ff0000;border-radius:5px;
-background-color:#ffffff;
-padding:10px;
+
+
+.mobile-menu a:hover{
+
+    background:#EDF3FF;
+
+    color:var(--primary);
+
 }
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+    30px 25px 80px;
+
+}
+
+
+/* =========================================================
+   ANNOUNCEMENT
+========================================================= */
+
+.announcement{
+
+    background:
+    #FFF9DF;
+
+    border:
+    1px solid #FFE58D;
+
+    border-radius:
+    16px;
+
+    padding:
+    13px 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:
+    30px;
+
+    color:#6D5600;
+
+    font-size:12px;
+
+}
+
+
+.announcement-icon{
+
+    width:36px;
+
+    height:36px;
+
+    flex-shrink:0;
+
+    border-radius:11px;
+
+    background:
+    var(--yellow);
+
+    color:#5E4A00;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:450px;
+
+    border-radius:32px;
+
+    padding:
+    60px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #155EEF,
+        #4C82FF
+    );
+
+    color:#FFFFFF;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    margin-bottom:60px;
+
+    box-shadow:
+    0 25px 55px
+    rgba(21,94,239,.20);
+
+}
+
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.08);
+
+    right:-160px;
+
+    top:-200px;
+
+}
+
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,212,59,.15);
+
+    right:100px;
+
+    bottom:-220px;
+
+}
+
+
+.hero-content{
+
+    max-width:690px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+    8px 14px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,.14);
+
+    border:
+    1px solid
+    rgba(255,255,255,.22);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+
+.hero h2{
+
+    font-size:52px;
+
+    line-height:1.12;
+
+    letter-spacing:-2px;
+
+    margin-bottom:18px;
+
+}
+
+
+.hero h2 span{
+
+    color:
+    var(--yellow);
+
+}
+
+
+.hero p{
+
+    max-width:620px;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    color:
+    rgba(255,255,255,.88);
+
+    margin-bottom:28px;
+
+}
+
+
+.hero-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.primary-btn{
+
+    background:
+    var(--yellow);
+
+    color:#4D3B00;
+
+    padding:
+    14px 21px;
+
+    border-radius:14px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    transition:.25s;
+
+}
+
+
+.primary-btn:hover{
+
+    background:
+    #FFE16A;
+
+    transform:
+    translateY(-2px);
+
+}
+
+
+.secondary-btn{
+
+    padding:
+    14px 21px;
+
+    border-radius:14px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#FFFFFF;
+
+    border:
+    1px solid
+    rgba(255,255,255,.30);
+
+    transition:.25s;
+
+}
+
+
+.secondary-btn:hover{
+
+    background:
+    rgba(255,255,255,.10);
+
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+
+    margin-bottom:
+    60px;
+
+}
+
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.section-header h2{
+
+    font-size:25px;
+
+    font-weight:800;
+
+    letter-spacing:-.5px;
+
+}
+
+
+.section-header span{
+
+    font-size:10px;
+
+    color:var(--primary);
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+}
+
+
+/* =========================================================
+   QUICK ACCESS
+========================================================= */
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(6,1fr);
+
+    gap:15px;
+
+}
+
+
+.quick-card{
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:
+    22px 10px;
+
+    text-align:center;
+
+    transition:
+    .25s;
+
+}
+
+
+.quick-card:hover{
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    var(--shadow);
+
+}
+
+
+.quick-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:17px;
+
+    margin:
+    auto auto 12px;
+
+    background:#EDF3FF;
+
+    color:
+    var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:20px;
+
+}
+
+
+.quick-card:nth-child(even)
+.quick-icon{
+
+    background:#FFF8DC;
+
+    color:#D89C00;
+
+}
+
+
+.quick-card h3{
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+.feature-card{
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    border-radius:25px;
+
+    padding:28px;
+
+    transition:.25s;
+
+}
+
+
+.feature-card:hover{
+
+    transform:
+    translateY(-6px);
+
+    box-shadow:
+    var(--shadow);
+
+}
+
+
+.feature-icon{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:18px;
+
+    background:#EDF3FF;
+
+    color:var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:21px;
+
+    margin-bottom:18px;
+
+}
+
+
+.feature-card:nth-child(2)
+.feature-icon{
+
+    background:#FFF7D8;
+
+    color:#D69B00;
+
+}
+
+
+.feature-card h3{
+
+    font-size:17px;
+
+    margin-bottom:8px;
+
+}
+
+
+.feature-card p{
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    color:var(--muted);
+
+}
+
+
+/* =========================================================
+   DOMAINS
+========================================================= */
+
+.domain-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+.domain-card{
+
+    min-height:170px;
+
+    background:
+    var(--white);
+
+    border:
+    1px solid var(--border);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    transition:.25s;
+
+}
+
+
+.domain-card:hover{
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    var(--shadow);
+
+}
+
+
+.domain-card i{
+
+    font-size:25px;
+
+    color:
+    var(--primary);
+
+    margin-bottom:18px;
+
+}
+
+
+.domain-card:nth-child(even) i{
+
+    color:#D89C00;
+
+}
+
+
+.domain-card h3{
+
+    font-size:16px;
+
+    margin-bottom:7px;
+
+}
+
+
+.domain-card p{
+
+    font-size:11px;
+
+    color:var(--muted);
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================================
+   VISION
+========================================================= */
+
+.vision{
+
+    background:
+    #172033;
+
+    border-radius:
+    32px;
+
+    padding:
+    55px;
+
+    color:#FFFFFF;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.vision::after{
+
+    content:
+    "ASCEND";
+
+    position:absolute;
+
+    right:-30px;
+
+    bottom:-45px;
+
+    font-size:130px;
+
+    font-weight:800;
+
+    color:
+    rgba(255,255,255,.035);
+
+}
+
+
+.vision-content{
+
+    max-width:700px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.vision-tag{
+
+    color:
+    var(--yellow);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+}
+
+
+.vision h2{
+
+    font-size:35px;
+
+    line-height:1.2;
+
+    margin:
+    10px 0 12px;
+
+}
+
+
+.vision p{
+
+    color:#B8C2D5;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    text-align:center;
+
+    padding:
+    35px 0 10px;
+
+    color:
+    var(--muted);
+
+    font-size:11px;
+
+}
+
+
+.footer strong{
+
+    color:
+    var(--primary);
+
+}
+
+
+/* =========================================================
+   MOBILE BOTTOM NAV
+========================================================= */
+
+.mobile-bottom-nav{
+
+    display:none;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .quick-grid{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+    }
+
+
+    .feature-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+
+    .domain-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+
+    .hero{
+
+        padding:50px;
+
+    }
+
+
+    .hero h2{
+
+        font-size:44px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    body{
+
+        background:
+        var(--background);
+
+    }
+
+
+    .header{
+
+        height:70px;
+
+    }
+
+
+    .nav-container{
+
+        padding:
+        0 16px;
+
+    }
+
+
+    .desktop-nav{
+
+        display:none;
+
+    }
+
+
+    .menu-btn{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
+
+
+    .logo-icon{
+
+        width:42px;
+
+        height:42px;
+
+        border-radius:13px;
+
+    }
+
+
+    .logo-text h1{
+
+        font-size:19px;
+
+    }
+
+
+    .logo-text p{
+
+        font-size:8px;
+
+    }
+
+
+    .container{
+
+        padding:
+        18px
+        16px
+        100px;
+
+    }
+
+
+    .announcement{
+
+        font-size:10px;
+
+        padding:
+        11px;
+
+        margin-bottom:20px;
+
+    }
+
+
+    .announcement-icon{
+
+        width:32px;
+
+        height:32px;
+
+    }
+
+
+    /* HERO */
+
+    .hero{
+
+        min-height:auto;
+
+        padding:
+        30px 22px;
+
+        border-radius:25px;
+
+        margin-bottom:40px;
+
+    }
+
+
+    .hero h2{
+
+        font-size:31px;
+
+        letter-spacing:-1px;
+
+    }
+
+
+    .hero p{
+
+        font-size:11px;
+
+        line-height:1.7;
+
+    }
+
+
+    .hero-actions{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+
+    .primary-btn,
+    .secondary-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+        text-align:center;
+
+    }
+
+
+    /* SECTION */
+
+    .section{
+
+        margin-bottom:40px;
+
+    }
+
+
+    .section-header{
+
+        margin-bottom:15px;
+
+    }
+
+
+    .section-header h2{
+
+        font-size:20px;
+
+    }
+
+
+    .section-header span{
+
+        font-size:8px;
+
+    }
+
+
+    /* QUICK GRID */
+
+    .quick-grid{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+        gap:9px;
+
+    }
+
+
+    .quick-card{
+
+        padding:
+        15px 5px;
+
+        border-radius:17px;
+
+    }
+
+
+    .quick-icon{
+
+        width:42px;
+
+        height:42px;
+
+        border-radius:13px;
+
+        font-size:16px;
+
+    }
+
+
+    .quick-card h3{
+
+        font-size:9px;
+
+    }
+
+
+    /* FEATURES */
+
+    .feature-grid{
+
+        grid-template-columns:
+        1fr;
+
+        gap:12px;
+
+    }
+
+
+    .feature-card{
+
+        padding:20px;
+
+        border-radius:21px;
+
+    }
+
+
+    .feature-card h3{
+
+        font-size:14px;
+
+    }
+
+
+    .feature-card p{
+
+        font-size:10px;
+
+    }
+
+
+    /* DOMAINS */
+
+    .domain-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:10px;
+
+    }
+
+
+    .domain-card{
+
+        min-height:135px;
+
+        padding:17px;
+
+        border-radius:19px;
+
+    }
+
+
+    .domain-card i{
+
+        font-size:20px;
+
+        margin-bottom:10px;
+
+    }
+
+
+    .domain-card h3{
+
+        font-size:12px;
+
+    }
+
+
+    .domain-card p{
+
+        font-size:9px;
+
+    }
+
+
+    /* VISION */
+
+    .vision{
+
+        padding:
+        28px 22px;
+
+        border-radius:25px;
+
+    }
+
+
+    .vision h2{
+
+        font-size:24px;
+
+    }
+
+
+    .vision p{
+
+        font-size:10px;
+
+    }
+
+
+    .vision::after{
+
+        font-size:70px;
+
+    }
+
+
+    /* FOOTER */
+
+    .footer{
+
+        padding-bottom:20px;
+
+    }
+
+
+    /* =====================================================
+       MOBILE BOTTOM NAV
+    ===================================================== */
+
+    .mobile-bottom-nav{
+
+        display:flex;
+
+        position:fixed;
+
+        bottom:0;
+
+        left:0;
+
+        width:100%;
+
+        height:72px;
+
+        background:
+        rgba(255,255,255,.97);
+
+        backdrop-filter:
+        blur(15px);
+
+        border-top:
+        1px solid var(--border);
+
+        align-items:center;
+
+        justify-content:
+        space-around;
+
+        z-index:2000;
+
+        padding-bottom:5px;
+
+    }
+
+
+    .mobile-nav-item{
+
+        min-width:55px;
+
+        text-align:center;
+
+        font-size:9px;
+
+        font-weight:600;
+
+        color:#7C879B;
+
+    }
+
+
+    .mobile-nav-item i{
+
+        width:38px;
+
+        height:32px;
+
+        margin:auto;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        font-size:16px;
+
+    }
+
+
+    .mobile-nav-item.active{
+
+        color:
+        var(--primary);
+
+    }
+
+
+    .mobile-nav-item.active i{
+
+        background:
+        #EAF0FF;
+
+        border-radius:12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+    .hero h2{
+
+        font-size:28px;
+
+    }
+
+
+    .quick-grid{
+
+        gap:7px;
+
+    }
+
+
+    .quick-card{
+
+        padding:
+        13px 3px;
+
+    }
+
+
+    .domain-card{
+
+        padding:14px;
+
+    }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="app-container">
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
-  <!-- Top Header -->
-  <div class="top-nav">
-    <div class="brand"><span id="army">ASCEND </span></div>
-    <button class="reload-btn" onclick="reloadPage()">
-      <i class="fas fa-rotate"></i>
+<header class="header">
+
+<div class="nav-container">
+
+
+    <!-- LOGO -->
+
+    <a href="index.html" class="logo">
+
+
+        <div class="logo-icon">
+
+            <img
+            src="logo.png"
+            alt="ASCEND Logo">
+
+        </div>
+
+
+        <div class="logo-text">
+
+            <h1>ASCEND</h1>
+
+            <p>
+                Rise Today. Lead Tomorrow.
+            </p>
+
+        </div>
+
+
+    </a>
+
+
+    <!-- DESKTOP NAV -->
+
+    <nav class="desktop-nav">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="Books.html">
+            Learn
+        </a>
+
+        <a href="Assignments.html">
+            Tasks
+        </a>
+
+        <a href="Faq.html">
+            FAQ
+        </a>
+
+        <a href="Aboutus.html">
+            About
+        </a>
+
+        <a href="#explore"
+           class="nav-button">
+
+            Explore
+
+        </a>
+
+    </nav>
+
+
+    <!-- MOBILE MENU BUTTON -->
+
+    <button
+    class="menu-btn"
+    onclick="toggleMenu()">
+
+        <i class="fas fa-bars"></i>
+
     </button>
-  </div>
 
-  <!-- Main -->
-  <div class="main">
- <!--  <marquee>🇮🇳Jai Hind Cadets: General Awarness Test has been scheduled. <a href="test/test.html">Click here</a> to attend the test and complete it on time.
-   </marquee> -->
-    <div class="header">
-      <h1>Unity • Discipline</h1>
-      <p>Forging Leadership | Building Character | Serving the Nation</p>
-    </div>
-
-    <div class="card">
-      <h2>About the Mission</h2>
-      <p>
-        Mission Cadet Upgrade is a disciplined, NCC-led initiative focused on
-        leadership excellence, military readiness, and national service.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Training Domains</h2>
-      <ul>
-        <li>🎖 Leadership & Command Skills</li>
-        <li>🗣 Military Communication</li>
-        <li>📰 Private Job , Government Jobs & Current Affairs</li>
-        <li>🎯 Officer Entry Preparation</li>
-        <li>📚 NDA • CDS • AFCAT • INET • UPSC• TNPSC</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Why This Platform?</h2>
-      <ul>
-        <li>🇮🇳 NCC senior mentorship</li>
-        <li>⚔ Army-oriented discipline</li>
-        <li>🧠 Tactical thinking</li>
-        <li>🏆 Officer mindset</li>
-      </ul>
-    </div>
-
-    <div class="cta">
-      Serve With Honour • Lead With Courage
-    </div>
-
-  </div>
-
-  <!-- Bottom Navigation -->
-  <div class="bottom-nav">
-    <a class="nav-item active" href="index.html">
-      <i class="fas fa-home"></i>
-      Home
-    </a>
-    <a class="nav-item" href="Books.html">
-      <i class="fas fa-book"></i>
-      Books
-    </a>
-    <a class="nav-item" href="Assignments.html">
-      <i class="fas fa-clipboard"></i>
-      Tasks
-    </a>
-    <a class="nav-item" href="Faq.html">
-      <i class="fas fa-question-circle"></i>
-      FAQ
-    </a>
-    <a class="nav-item" href="Aboutus.html">
-      <i class="fas fa-user"></i>
-      About
-    </a>
-  </div>
 
 </div>
 
+
+<!-- MOBILE MENU -->
+
+<div
+id="mobileMenu"
+class="mobile-menu">
+
+    <a href="index.html">
+        <i class="fas fa-house"></i>
+        &nbsp; Home
+    </a>
+
+    <a href="Books.html">
+        <i class="fas fa-book-open"></i>
+        &nbsp; Learn
+    </a>
+
+    <a href="Assignments.html">
+        <i class="fas fa-list-check"></i>
+        &nbsp; Tasks
+    </a>
+
+    <a href="Faq.html">
+        <i class="fas fa-circle-question"></i>
+        &nbsp; FAQ
+    </a>
+
+    <a href="Aboutus.html">
+        <i class="fas fa-users"></i>
+        &nbsp; About
+    </a>
+
+</div>
+
+</header>
+
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
+<main class="container">
+
+<!-- ANNOUNCEMENT -->
+
+<div class="announcement">
+
+
+    <div class="announcement-icon">
+
+        <i class="fas fa-rocket"></i>
+
+    </div>
+
+
+    <div>
+
+        <strong>
+            Welcome to ASCEND!
+        </strong>
+
+        <br>
+
+        Learn • Grow • Build • Lead —
+        your journey towards endless
+        possibilities starts here.
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ===================================================
+     HERO
+=================================================== -->
+
+<section class="hero">
+
+
+    <div class="hero-content">
+
+
+        <div class="badge">
+
+            <i class="fas fa-sparkles"></i>
+
+            THE ASCEND COMMUNITY
+
+        </div>
+
+
+        <h2>
+
+            Rise Today.
+
+            <br>
+
+            <span>
+                Lead Tomorrow.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            ASCEND is a learning and growth
+            community for individuals who want
+            to build knowledge, develop skills,
+            explore opportunities and become
+            confident leaders.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+
+            <a
+            href="#explore"
+            class="primary-btn">
+
+                Explore ASCEND
+
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+
+            <a
+            href="Aboutus.html"
+            class="secondary-btn">
+
+                About ASCEND
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ===================================================
+     EXPLORE
+=================================================== -->
+
+<section class="section">
+
+
+    <div class="section-header">
+
+        <h2>
+            Explore Your Journey
+        </h2>
+
+        <span>
+            START HERE
+        </span>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+
+        <!-- Learn -->
+
+        <a
+        href="Books.html"
+        class="quick-card">
+
+            <div class="quick-icon">
+
+                <i class="fas fa-book-open"></i>
+
+            </div>
+
+            <h3>
+                Learn
+            </h3>
+
+        </a>
+
+
+        <!-- Tasks -->
+
+        <a
+        href="Assignments.html"
+        class="quick-card">
+
+            <div class="quick-icon">
+
+                <i class="fas fa-list-check"></i>
+
+            </div>
+
+            <h3>
+                Tasks
+            </h3>
+
+        </a>
+
+
+        <!-- Skills -->
+
+        <a
+        href="Skills.html"
+        class="quick-card">
+
+            <div class="quick-icon">
+
+                <i class="fas fa-laptop-code"></i>
+
+            </div>
+
+            <h3>
+                Skills
+            </h3>
+
+        </a>
+
+
+        <!-- Careers -->
+
+        <a
+        href="Careers.html"
+        class="quick-card">
+
+            <div class="quick-icon">
+
+                <i class="fas fa-briefcase"></i>
+
+            </div>
+
+            <h3>
+                Careers
+            </h3>
+
+        </a>
+
+
+        <!-- Business -->
+
+        <a
+        href="Business.html"
+        class="quick-card">
+
+            <div class="quick-icon">
+
+                <i class="fas fa-chart-line"></i>
+
+            </div>
+
+            <h3>
+                Business
+            </h3>
+
+        </a>
+
+
+        <!-- Leadership -->
+
+        <a
+        href="Leadership.html"
+        class="quick-card">
+
+            <div class="quick-icon">
+
+                <i class="fas fa-trophy"></i>
+
+            </div>
+
+            <h3>
+                Leadership
+            </h3>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     WHY ASCEND
+=================================================== -->
+
+<section class="section">
+
+
+    <div class="section-header">
+
+        <h2>
+            Why ASCEND?
+        </h2>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <!-- Feature 1 -->
+
+        <div class="feature-card">
+
+
+            <div class="feature-icon">
+
+                <i class="fas fa-book-open"></i>
+
+            </div>
+
+
+            <h3>
+                Learn Without Limits
+            </h3>
+
+
+            <p>
+
+                Explore educational resources,
+                knowledge, current affairs and
+                practical learning opportunities.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Feature 2 -->
+
+        <div class="feature-card">
+
+
+            <div class="feature-icon">
+
+                <i class="fas fa-bolt"></i>
+
+            </div>
+
+
+            <h3>
+                Build Real Skills
+            </h3>
+
+
+            <p>
+
+                Develop valuable skills in
+                technology, communication,
+                careers and professional growth.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Feature 3 -->
+
+        <div class="feature-card">
+
+
+            <div class="feature-icon">
+
+                <i class="fas fa-people-group"></i>
+
+            </div>
+
+
+            <h3>
+                Grow Together
+            </h3>
+
+
+            <p>
+
+                Become part of a community
+                focused on learning, growth,
+                leadership and achievement.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ===================================================
+     DOMAINS
+=================================================== -->
+
+<section
+class="section"
+id="explore">
+
+
+    <div class="section-header">
+
+        <h2>
+            Our Domains
+        </h2>
+
+        <span>
+            ENDLESS POSSIBILITIES
+        </span>
+
+    </div>
+
+
+    <div class="domain-grid">
+
+
+        <!-- Defence -->
+
+        <div class="domain-card">
+
+            <i class="fas fa-shield-halved"></i>
+
+            <h3>
+                Defence
+            </h3>
+
+            <p>
+
+                Explore defence careers,
+                examinations and preparation
+                resources.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- Careers -->
+
+        <div class="domain-card">
+
+            <i class="fas fa-briefcase"></i>
+
+            <h3>
+                Careers
+            </h3>
+
+            <p>
+
+                Discover career guidance,
+                opportunities and professional
+                development.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- Technology -->
+
+        <div class="domain-card">
+
+            <i class="fas fa-laptop-code"></i>
+
+            <h3>
+                Skills & Technology
+            </h3>
+
+            <p>
+
+                Build digital skills and
+                understand modern technology.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- Business -->
+
+        <div class="domain-card">
+
+            <i class="fas fa-chart-line"></i>
+
+            <h3>
+                Business
+            </h3>
+
+            <p>
+
+                Learn about business,
+                markets and financial awareness.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- Entrepreneurship -->
+
+        <div class="domain-card">
+
+            <i class="fas fa-rocket"></i>
+
+            <h3>
+                Entrepreneurship
+            </h3>
+
+            <p>
+
+                Develop ideas, explore innovation
+                and understand entrepreneurship.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- Leadership -->
+
+        <div class="domain-card">
+
+            <i class="fas fa-medal"></i>
+
+            <h3>
+                Leadership
+            </h3>
+
+            <p>
+
+                Build confidence, communication,
+                discipline and leadership skills.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ===================================================
+     VISION
+=================================================== -->
+
+<section class="vision">
+
+
+    <div class="vision-content">
+
+
+        <span class="vision-tag">
+
+            ONE VISION.
+            ENDLESS POSSIBILITIES.
+
+        </span>
+
+
+        <h2>
+
+            Build Your Future
+            With ASCEND.
+
+        </h2>
+
+
+        <p>
+
+            From Mission Cadet Upgrade to ASCEND —
+            our vision has grown into a broader
+            learning community covering Defence,
+            Careers, Skills & Technology, Business,
+            Entrepreneurship and Leadership.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <strong>
+        ASCEND
+    </strong>
+
+    — Rise Today. Lead Tomorrow.
+
+    <br><br>
+
+    © 2026 ASCEND Learning Community.
+    All Rights Reserved.
+
+</footer>
+
+</main>
+
+<!-- =======================================================
+     MOBILE BOTTOM NAVIGATION
+======================================================= -->
+
+<nav class="mobile-bottom-nav">
+
+<a
+href="index.html"
+class="mobile-nav-item active">
+
+    <i class="fas fa-house"></i>
+
+    Home
+
+</a>
+
+
+<a
+href="Books.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-book-open"></i>
+
+    Learn
+
+</a>
+
+
+<a
+href="Assignments.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-list-check"></i>
+
+    Tasks
+
+</a>
+
+
+<a
+href="Faq.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-circle-question"></i>
+
+    FAQ
+
+</a>
+
+
+<a
+href="Aboutus.html"
+class="mobile-nav-item">
+
+    <i class="fas fa-user"></i>
+
+    About
+
+</a>
+
+</nav>
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
 <script>
-function reloadPage(){
-  location.reload();
+
+
+/* ============================================
+   MOBILE MENU
+============================================ */
+
+function toggleMenu(){
+
+    const menu =
+    document.getElementById("mobileMenu");
+
+    const button =
+    document.querySelector(".menu-btn i");
+
+
+    menu.classList.toggle("active");
+
+
+    if(menu.classList.contains("active")){
+
+        button.classList.remove("fa-bars");
+
+        button.classList.add("fa-xmark");
+
+    }
+
+    else{
+
+        button.classList.remove("fa-xmark");
+
+        button.classList.add("fa-bars");
+
+    }
+
 }
+
+
+/* ============================================
+   CLOSE MOBILE MENU WHEN LINK IS CLICKED
+============================================ */
+
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        document
+        .getElementById("mobileMenu")
+        .classList.remove("active");
+
+
+        const button =
+        document.querySelector(".menu-btn i");
+
+
+        button.classList.remove("fa-xmark");
+
+        button.classList.add("fa-bars");
+
+    });
+
+});
+
+alert("The Website is under maintenance. Some features may not work properly. Please check back later for updates.");
 </script>
 
 </body>
+
 </html>
