@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ASCEND | Daily Current Affairs</title>
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+>
+
+<title>ASCEND | Daily Newspapers</title>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
 
 <style>
 
@@ -29,16 +38,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   --primary-dark: #4545b7;
   --primary-soft: #eeeeff;
 
-  --success: #16a34a;
-  --danger: #ef4444;
-
-  --radius-sm: 12px;
   --radius: 18px;
   --radius-lg: 24px;
 
-  --shadow: 0 8px 30px rgba(25, 32, 56, 0.08);
-  --shadow-hover: 0 15px 40px rgba(25, 32, 56, 0.14);
+  --shadow:
+    0 8px 30px
+    rgba(25, 32, 56, 0.08);
+
+  --shadow-hover:
+    0 15px 40px
+    rgba(25, 32, 56, 0.14);
 }
+
 
 /* =====================================================
    GLOBAL
@@ -47,7 +58,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 * {
   margin: 0;
   padding: 0;
+
   box-sizing: border-box;
+
   font-family:
     Inter,
     "Segoe UI",
@@ -57,186 +70,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 body {
   background: var(--bg);
+
   color: var(--text);
+
   min-height: 100vh;
+
   overflow-x: hidden;
+
   padding-bottom: 90px;
 }
 
-/* =====================================================
-   ACCESS SCREEN
-===================================================== */
-
-#accessScreen {
-  position: fixed;
-  inset: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 20px;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      #e9e9ff,
-      transparent 45%
-    ),
-    var(--bg);
-
-  z-index: 99999;
-}
-
-.access-box {
-  width: 100%;
-  max-width: 390px;
-
-  padding: 32px 24px;
-
-  background: rgba(255,255,255,0.92);
-
-  border: 1px solid rgba(255,255,255,0.9);
-
-  border-radius: var(--radius-lg);
-
-  box-shadow: var(--shadow);
-
-  text-align: center;
-
-  backdrop-filter: blur(15px);
-}
-
-.access-logo {
-  width: 72px;
-  height: 72px;
-
-  margin: 0 auto 20px;
-
-  border-radius: 22px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    #8b5cf6
-  );
-
-  color: white;
-
-  font-size: 28px;
-
-  box-shadow:
-    0 10px 25px
-    rgba(91,91,214,0.25);
-}
-
-.access-box h2 {
-  font-size: 24px;
-  margin-bottom: 8px;
-}
-
-.access-box p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 22px;
-}
-
-.input-wrap {
-  position: relative;
-  margin-bottom: 14px;
-}
-
-.input-wrap i {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-
-  color: var(--muted);
-}
-
-.access-box input {
-  width: 100%;
-  height: 52px;
-
-  padding: 0 16px 0 46px;
-
-  border: 1px solid var(--border);
-
-  border-radius: 14px;
-
-  background: var(--surface-soft);
-
-  font-size: 14px;
-
-  outline: none;
-
-  transition: 0.2s;
-}
-
-.access-box input:focus {
-  border-color: var(--primary);
-
-  background: white;
-
-  box-shadow:
-    0 0 0 4px
-    rgba(91,91,214,0.1);
-}
-
-.access-box button {
-  width: 100%;
-  height: 52px;
-
-  border: none;
-
-  border-radius: 14px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--primary),
-      #7c3aed
-    );
-
-  color: white;
-
-  font-size: 14px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-
-  box-shadow:
-    0 10px 20px
-    rgba(91,91,214,0.2);
-}
-
-.access-box button:hover {
-  transform: translateY(-1px);
-}
-
-#accessMessage {
-  min-height: 20px;
-  margin-top: 14px;
-
-  font-size: 13px;
-  font-weight: 600;
-}
-
-/* =====================================================
-   USER CONTENT
-===================================================== */
-
-#userContent {
-  display: none;
-}
 
 /* =====================================================
    TOP NAVIGATION
@@ -244,6 +87,7 @@ body {
 
 .top-nav {
   position: sticky;
+
   top: 0;
 
   width: 100%;
@@ -252,27 +96,32 @@ body {
   padding: 0 18px;
 
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 
   background:
-    rgba(247,248,252,0.92);
+    rgba(247, 248, 252, 0.92);
 
-  backdrop-filter: blur(18px);
+  backdrop-filter:
+    blur(18px);
 
   border-bottom:
     1px solid
-    rgba(229,231,239,0.8);
+    rgba(229, 231, 239, 0.8);
 
   z-index: 1000;
 }
 
 .brand {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
 
   font-size: 21px;
+
   font-weight: 800;
 
   letter-spacing: 1px;
@@ -283,6 +132,7 @@ body {
   height: 36px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -310,6 +160,7 @@ body {
 
 .nav-buttons {
   display: flex;
+
   gap: 8px;
 }
 
@@ -317,13 +168,17 @@ body {
   width: 40px;
   height: 40px;
 
-  border: 1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
   border-radius: 12px;
 
-  background: var(--surface);
+  background:
+    var(--surface);
 
-  color: var(--text);
+  color:
+    var(--text);
 
   font-size: 15px;
 
@@ -334,8 +189,11 @@ body {
 
 .nav-btn:hover {
   color: var(--primary);
-  border-color: var(--primary);
+
+  border-color:
+    var(--primary);
 }
+
 
 /* =====================================================
    MAIN CONTAINER
@@ -343,12 +201,14 @@ body {
 
 .main-container {
   width: 100%;
+
   max-width: 900px;
 
   margin: auto;
 
   padding: 20px 14px;
 }
+
 
 /* =====================================================
    HERO SECTION
@@ -359,7 +219,8 @@ body {
 
   margin-bottom: 18px;
 
-  border-radius: var(--radius-lg);
+  border-radius:
+    var(--radius-lg);
 
   color: white;
 
@@ -373,9 +234,10 @@ body {
 
   box-shadow:
     0 15px 35px
-    rgba(91,91,214,0.22);
+    rgba(91, 91, 214, 0.22);
 
   position: relative;
+
   overflow: hidden;
 }
 
@@ -393,12 +255,14 @@ body {
   border-radius: 50%;
 
   background:
-    rgba(255,255,255,0.1);
+    rgba(255, 255, 255, 0.1);
 }
 
 .hero-badge {
   display: inline-flex;
+
   align-items: center;
+
   gap: 6px;
 
   padding: 7px 11px;
@@ -406,25 +270,41 @@ body {
   border-radius: 20px;
 
   background:
-    rgba(255,255,255,0.14);
+    rgba(255, 255, 255, 0.14);
 
   font-size: 11px;
+
   font-weight: 700;
 
   margin-bottom: 12px;
+
+  position: relative;
+
+  z-index: 2;
 }
 
 .hero h1 {
   font-size: 26px;
+
   margin-bottom: 8px;
+
+  position: relative;
+
+  z-index: 2;
 }
 
 .hero p {
   font-size: 13px;
+
   line-height: 1.6;
 
   opacity: 0.9;
+
+  position: relative;
+
+  z-index: 2;
 }
+
 
 /* =====================================================
    SECTION TITLE
@@ -432,7 +312,9 @@ body {
 
 .section-title {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
   margin: 22px 4px 12px;
@@ -447,13 +329,17 @@ body {
 
   border-radius: 20px;
 
-  background: var(--primary-soft);
+  background:
+    var(--primary-soft);
 
-  color: var(--primary);
+  color:
+    var(--primary);
 
   font-size: 11px;
+
   font-weight: 700;
 }
+
 
 /* =====================================================
    FILTER CARD
@@ -462,19 +348,25 @@ body {
 .filter-card {
   padding: 14px;
 
-  background: var(--surface);
+  background:
+    var(--surface);
 
-  border: 1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  border-radius: var(--radius);
+  border-radius:
+    var(--radius);
 
-  box-shadow: var(--shadow);
+  box-shadow:
+    var(--shadow);
 }
 
 .filter-grid {
   display: grid;
 
-  grid-template-columns: 1fr;
+  grid-template-columns:
+    1fr;
 
   gap: 10px;
 }
@@ -489,9 +381,11 @@ body {
   left: 14px;
   top: 50%;
 
-  transform: translateY(-50%);
+  transform:
+    translateY(-50%);
 
-  color: var(--muted);
+  color:
+    var(--muted);
 
   font-size: 14px;
 
@@ -502,15 +396,21 @@ body {
   width: 100%;
   height: 48px;
 
-  padding: 0 14px 0 42px;
+  padding:
+    0 14px
+    0 42px;
 
-  border: 1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
   border-radius: 12px;
 
-  background: var(--surface-soft);
+  background:
+    var(--surface-soft);
 
-  color: var(--text);
+  color:
+    var(--text);
 
   font-size: 13px;
 
@@ -520,17 +420,20 @@ body {
 }
 
 .field input:focus {
-  background: white;
+  background:
+    white;
 
-  border-color: var(--primary);
+  border-color:
+    var(--primary);
 
   box-shadow:
     0 0 0 3px
-    rgba(91,91,214,0.08);
+    rgba(91, 91, 214, 0.08);
 }
 
 .filter-actions {
   display: flex;
+
   gap: 10px;
 }
 
@@ -543,11 +446,13 @@ body {
 
   border-radius: 12px;
 
-  background: var(--primary);
+  background:
+    var(--primary);
 
   color: white;
 
   font-size: 13px;
+
   font-weight: 700;
 
   cursor: pointer;
@@ -556,8 +461,10 @@ body {
 }
 
 .clear-date-btn:hover {
-  background: var(--primary-dark);
+  background:
+    var(--primary-dark);
 }
+
 
 /* =====================================================
    NEWSPAPER GRID
@@ -575,6 +482,7 @@ body {
   gap: 14px;
 }
 
+
 /* =====================================================
    PAPER CARD
 ===================================================== */
@@ -583,6 +491,7 @@ body {
   position: relative;
 
   display: flex;
+
   flex-direction: column;
 
   min-height: 210px;
@@ -591,19 +500,27 @@ body {
 
   text-decoration: none;
 
-  color: var(--text);
+  color:
+    var(--text);
 
-  background: var(--surface);
+  background:
+    var(--surface);
 
-  border: 1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  border-radius: var(--radius);
+  border-radius:
+    var(--radius);
 
-  box-shadow: var(--shadow);
+  box-shadow:
+    var(--shadow);
 
   overflow: hidden;
 
   transition: 0.25s;
+
+  cursor: pointer;
 }
 
 .paper-card::before {
@@ -624,17 +541,21 @@ body {
 }
 
 .paper-card:hover {
-  transform: translateY(-4px);
+  transform:
+    translateY(-4px);
 
-  box-shadow: var(--shadow-hover);
+  box-shadow:
+    var(--shadow-hover);
 
   border-color:
-    rgba(91,91,214,0.35);
+    rgba(91, 91, 214, 0.35);
 }
 
 .paper-top {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
   position: relative;
@@ -647,14 +568,17 @@ body {
   height: 52px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   border-radius: 16px;
 
-  background: var(--primary-soft);
+  background:
+    var(--primary-soft);
 
-  color: var(--primary);
+  color:
+    var(--primary);
 
   font-size: 21px;
 }
@@ -664,20 +588,24 @@ body {
   height: 34px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   border-radius: 10px;
 
-  background: var(--surface-soft);
+  background:
+    var(--surface-soft);
 
-  color: var(--muted);
+  color:
+    var(--muted);
 
   font-size: 12px;
 }
 
 .paper-content {
   margin-top: auto;
+
   padding-top: 20px;
 
   position: relative;
@@ -695,30 +623,37 @@ body {
 
 .paper-date {
   display: flex;
+
   align-items: center;
+
   gap: 7px;
 
-  color: var(--muted);
+  color:
+    var(--muted);
 
   font-size: 12px;
 }
 
 .paper-date i {
-  color: var(--primary);
+  color:
+    var(--primary);
 }
+
 
 /* =====================================================
    LOADING
 ===================================================== */
 
 .loading {
-  grid-column: 1 / -1;
+  grid-column:
+    1 / -1;
 
   padding: 55px 15px;
 
   text-align: center;
 
-  color: var(--muted);
+  color:
+    var(--muted);
 }
 
 .loading i {
@@ -728,27 +663,35 @@ body {
 
   font-size: 30px;
 
-  color: var(--primary);
+  color:
+    var(--primary);
 }
+
 
 /* =====================================================
    EMPTY STATE
 ===================================================== */
 
 .empty {
-  grid-column: 1 / -1;
+  grid-column:
+    1 / -1;
 
   padding: 50px 20px;
 
   text-align: center;
 
-  background: var(--surface);
+  background:
+    var(--surface);
 
-  border: 1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  border-radius: var(--radius);
+  border-radius:
+    var(--radius);
 
-  color: var(--muted);
+  color:
+    var(--muted);
 }
 
 .empty i {
@@ -765,15 +708,18 @@ body {
 
   border-radius: 20px;
 
-  background: var(--primary-soft);
+  background:
+    var(--primary-soft);
 
-  color: var(--primary);
+  color:
+    var(--primary);
 
   font-size: 26px;
 }
 
 .empty h3 {
-  color: var(--text);
+  color:
+    var(--text);
 
   margin-bottom: 7px;
 
@@ -783,6 +729,7 @@ body {
 .empty p {
   font-size: 13px;
 }
+
 
 /* =====================================================
    CTA
@@ -795,30 +742,42 @@ body {
 
   text-align: center;
 
-  background: var(--surface);
+  background:
+    var(--surface);
 
-  border: 1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  border-radius: var(--radius);
+  border-radius:
+    var(--radius);
 
-  box-shadow: var(--shadow);
+  box-shadow:
+    var(--shadow);
 }
 
 .cta i {
-  color: var(--primary);
+  color:
+    var(--primary);
+
   margin-bottom: 8px;
+
   font-size: 20px;
 }
 
 .cta h3 {
   font-size: 15px;
+
   margin-bottom: 5px;
 }
 
 .cta p {
-  color: var(--muted);
+  color:
+    var(--muted);
+
   font-size: 12px;
 }
+
 
 /* =====================================================
    BOTTOM NAVIGATION
@@ -834,20 +793,27 @@ body {
   height: 72px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-around;
 
   padding:
     8px 8px
-    calc(8px + env(safe-area-inset-bottom));
+    calc(
+      8px +
+      env(safe-area-inset-bottom)
+    );
 
   background:
-    rgba(255,255,255,0.95);
+    rgba(255, 255, 255, 0.95);
 
-  backdrop-filter: blur(18px);
+  backdrop-filter:
+    blur(18px);
 
   border-top:
-    1px solid var(--border);
+    1px solid
+    var(--border);
 
   z-index: 2000;
 }
@@ -858,6 +824,7 @@ body {
   min-width: 0;
 
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
@@ -869,7 +836,8 @@ body {
 
   text-decoration: none;
 
-  color: var(--muted);
+  color:
+    var(--muted);
 
   font-size: 9px;
 
@@ -883,7 +851,8 @@ body {
 }
 
 .nav-item.active {
-  color: var(--primary);
+  color:
+    var(--primary);
 }
 
 .nav-item.active i {
@@ -891,13 +860,213 @@ body {
   height: 30px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   border-radius: 11px;
 
-  background: var(--primary-soft);
+  background:
+    var(--primary-soft);
 }
+
+
+/* =====================================================
+   PDF VIEWER MODAL
+===================================================== */
+
+.pdf-modal {
+  position: fixed;
+
+  inset: 0;
+
+  display: none;
+
+  flex-direction: column;
+
+  background:
+    rgba(15, 18, 35, 0.65);
+
+  backdrop-filter:
+    blur(10px);
+
+  z-index: 10000;
+
+  padding: 10px;
+}
+
+.pdf-modal.active {
+  display: flex;
+}
+
+.pdf-viewer-box {
+  width: 100%;
+  height: 100%;
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background:
+    white;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 60px
+    rgba(0, 0, 0, 0.3);
+}
+
+.pdf-viewer-header {
+  min-height: 60px;
+
+  padding: 10px 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  border-bottom:
+    1px solid
+    var(--border);
+}
+
+.pdf-viewer-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  overflow: hidden;
+}
+
+.pdf-viewer-title i {
+  color:
+    #e63946;
+
+  font-size: 18px;
+}
+
+.pdf-viewer-title span {
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.pdf-actions {
+  display: flex;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+}
+
+.pdf-action-btn {
+  width: 38px;
+  height: 38px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 10px;
+
+  background:
+    var(--surface);
+
+  color:
+    var(--text);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+.pdf-action-btn:hover {
+  background:
+    var(--primary-soft);
+
+  color:
+    var(--primary);
+}
+
+.pdf-close-btn {
+  background:
+    var(--primary);
+
+  color:
+    white;
+
+  border-color:
+    var(--primary);
+}
+
+.pdf-close-btn:hover {
+  background:
+    var(--primary-dark);
+
+  color:
+    white;
+}
+
+.pdf-frame {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 0;
+
+  border: none;
+
+  background:
+    #f5f5f5;
+}
+
+
+/* =====================================================
+   MOBILE PDF VIEWER
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .pdf-modal {
+    padding: 0;
+  }
+
+  .pdf-viewer-box {
+    border-radius: 0;
+  }
+
+  .pdf-viewer-header {
+    min-height: 58px;
+  }
+
+}
+
 
 /* =====================================================
    SCROLLBAR
@@ -909,6 +1078,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #c9cddd;
+
   border-radius: 10px;
 }
 
@@ -918,281 +1088,448 @@ body {
 
 <body>
 
-<!-- =========================================
-     ACCESS CODE SCREEN
-========================================= -->
+<!-- =====================================================
+     TOP NAVIGATION
+===================================================== -->
 
-<div id="accessScreen">
+<header class="top-nav">
 
-  <div class="access-box">
+  <div class="brand">
 
 
-<div class="access-logo">
+<div class="brand-logo">
+
   <i class="fas fa-arrow-trend-up"></i>
+
 </div>
 
-<h2>Welcome to ASCEND</h2>
+<span>
+  AS<strong>CEND</strong>
+</span>
 
-<p>
-  Enter your access code to unlock
-  today's current affairs collection.
-</p>
 
-<div class="input-wrap">
-  <i class="fas fa-key"></i>
+  </div>
 
-  <input
-    type="password"
-    id="accessCodeInput"
-    placeholder="Enter Access Code"
-    autocomplete="off"
-  >
-</div>
+  <div class="nav-buttons">
 
-<button onclick="verifyAccessCode()">
-  <i class="fas fa-lock-open"></i>
-  PROCEED
+
+<button
+  class="nav-btn"
+  onclick="reloadPage()"
+  title="Refresh"
+>
+
+  <i class="fas fa-rotate"></i>
+
 </button>
 
-<div id="accessMessage"></div>
 
-
-  </div>
-
-</div>
-
-<!-- =========================================
-     USER CONTENT
-========================================= -->
-
-<div id="userContent">
-
-  <!-- TOP NAV -->
-
-  <header class="top-nav">
-
-
-<div class="brand">
-
-  <div class="brand-logo">
-    <i class="fas fa-arrow-trend-up"></i>
-  </div>
-
-  <span>AS<strong>CEND</strong></span>
-
-</div>
-
-<div class="nav-buttons">
-
-  <button
-    class="nav-btn"
-    onclick="reloadPage()"
-    title="Refresh"
-  >
-    <i class="fas fa-rotate"></i>
-  </button>
-
-  <button
-    class="nav-btn"
-    onclick="userLogout()"
-    title="Logout"
-  >
-    <i class="fas fa-right-from-bracket"></i>
-  </button>
-
-</div>
-
-
-  </header>
-
-  <main class="main-container">
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-  <div class="hero-badge">
-    <i class="fas fa-sparkles"></i>
-    STAY INFORMED
-  </div>
-
-  <h1>Daily Newspapers</h1>
-
-  <p>
-    Read trusted newspapers, stay updated
-    and ASCEND with knowledge.
-  </p>
-
-</section>
-
-<!-- FILTER -->
-
-<div class="section-title">
-
-  <h2>Explore Newspapers</h2>
-
-  <span
-    class="paper-count"
-    id="paperCount"
-  >
-    0 AVAILABLE
-  </span>
-
-</div>
-
-<section class="filter-card">
-
-  <div class="filter-grid">
-
-    <div class="field">
-
-      <i class="fas fa-calendar"></i>
-
-      <input
-        type="date"
-        id="dateFilter"
-        onchange="loadNewspapers()"
-      >
-
-    </div>
-
-    <div class="field">
-
-      <i class="fas fa-magnifying-glass"></i>
-
-      <input
-        type="text"
-        id="titleSearch"
-        placeholder="Search newspapers..."
-        oninput="filterByTitle()"
-      >
-
-    </div>
-
-    <div class="filter-actions">
-
-      <button
-        class="clear-date-btn"
-        onclick="clearDateFilter()"
-      >
-        <i class="fas fa-layer-group"></i>
-        View All Newspapers
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- NEWSPAPER LIST -->
-
-<div class="section-title">
-
-  <h2>Available Papers</h2>
-
-</div>
-
-<section
-  class="container"
-  id="newspaperContainer"
+<button
+  class="nav-btn"
+  onclick="goHome()"
+  title="Home"
 >
 
-  <div class="loading">
-
-    <i class="fas fa-spinner fa-spin"></i>
-
-    <p>
-      Loading newspapers...
-    </p>
-
-  </div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta">
-
-  <i class="fas fa-arrow-trend-up"></i>
-
-  <h3>ASCEND Every Day</h3>
-
-  <p>
-    Learn • Grow • Build • Achieve
-  </p>
-
-</section>
-
-
-  </main>
-
-  <!-- BOTTOM NAVIGATION -->
-
-  <nav class="bottom-nav">
-
-
-<a
-  class="nav-item"
-  href="https://ascendlearningcommunity.github.io/ascend/index.html"
->
   <i class="fas fa-house"></i>
-  <span>Home</span>
-</a>
 
-<a
-  class="nav-item active"
-  href="https://ascendlearningcommunity.github.io/ascend/Books.html"
->
-  <i class="fas fa-newspaper"></i>
-  <span>News</span>
-</a>
-
-<a
-  class="nav-item"
-  href="https://ascendlearningcommunity.github.io/ascend/Assignments.html"
->
-  <i class="fas fa-clipboard-check"></i>
-  <span>Tasks</span>
-</a>
-
-<a
-  class="nav-item"
-  href="https://ascendlearningcommunity.github.io/ascend/Faq.html"
->
-  <i class="fas fa-circle-question"></i>
-  <span>FAQ</span>
-</a>
-
-<a
-  class="nav-item"
-  href="https://ascendlearningcommunity.github.io/ascend/Aboutus.html"
->
-  <i class="fas fa-user"></i>
-  <span>About</span>
-</a>
+</button>
 
 
-  </nav>
+  </div>
+
+</header>
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main-container">
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+
+<div class="hero-badge">
+
+  <i class="fas fa-sparkles"></i>
+
+  STAY INFORMED
 
 </div>
 
-<!-- SUPABASE -->
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<h1>
+  Daily Newspapers
+</h1>
+
+
+<p>
+
+  Read trusted newspapers,
+  stay updated and
+  ASCEND with knowledge.
+
+</p>
+
+
+  </section>
+
+  <!-- EXPLORE TITLE -->
+
+  <div class="section-title">
+
+
+<h2>
+  Explore Newspapers
+</h2>
+
+
+<span
+  class="paper-count"
+  id="paperCount"
+>
+
+  0 AVAILABLE
+
+</span>
+
+
+  </div>
+
+  <!-- FILTER -->
+
+  <section class="filter-card">
+
+
+<div class="filter-grid">
+
+
+  <!-- DATE -->
+
+  <div class="field">
+
+    <i class="fas fa-calendar"></i>
+
+    <input
+      type="date"
+      id="dateFilter"
+      onchange="loadNewspapers()"
+    >
+
+  </div>
+
+
+  <!-- SEARCH -->
+
+  <div class="field">
+
+    <i
+      class="fas fa-magnifying-glass"
+    ></i>
+
+    <input
+      type="text"
+      id="titleSearch"
+      placeholder="Search newspapers..."
+      oninput="filterByTitle()"
+    >
+
+  </div>
+
+
+  <!-- VIEW ALL -->
+
+  <div class="filter-actions">
+
+    <button
+      class="clear-date-btn"
+      onclick="clearDateFilter()"
+    >
+
+      <i
+        class="fas fa-layer-group"
+      ></i>
+
+      View All Newspapers
+
+    </button>
+
+  </div>
+
+</div>
+
+
+  </section>
+
+  <!-- AVAILABLE PAPERS -->
+
+  <div class="section-title">
+
+
+<h2>
+  Available Papers
+</h2>
+
+
+  </div>
+
+  <!-- NEWSPAPER CONTAINER -->
+
+  <section
+    class="container"
+    id="newspaperContainer"
+  >
+
+
+<div class="loading">
+
+  <i
+    class="fas fa-spinner fa-spin"
+  ></i>
+
+  <p>
+    Loading newspapers...
+  </p>
+
+</div>
+
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+
+<i
+  class="fas fa-arrow-trend-up"
+></i>
+
+
+<h3>
+  ASCEND Every Day
+</h3>
+
+
+<p>
+  Learn • Grow • Build • Achieve
+</p>
+
+
+  </section>
+
+</main>
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+<a
+class="nav-item"
+href="https://ascendlearningcommunity.github.io/ascend/index.html"
+
+>
+
+
+<i class="fas fa-house"></i>
+
+<span>
+  Home
+</span>
+
+
+  </a>
+
+<a
+class="nav-item active"
+href="https://ascendlearningcommunity.github.io/ascend/Books.html"
+
+>
+
+
+<i
+  class="fas fa-newspaper"
+></i>
+
+<span>
+  News
+</span>
+
+
+  </a>
+
+<a
+class="nav-item"
+href="https://ascendlearningcommunity.github.io/ascend/Assignments.html"
+
+>
+
+
+<i
+  class="fas fa-clipboard-check"
+></i>
+
+<span>
+  Tasks
+</span>
+
+
+  </a>
+
+<a
+class="nav-item"
+href="https://ascendlearningcommunity.github.io/ascend/Faq.html"
+
+>
+
+
+<i
+  class="fas fa-circle-question"
+></i>
+
+<span>
+  FAQ
+</span>
+
+
+  </a>
+
+<a
+class="nav-item"
+href="https://ascendlearningcommunity.github.io/ascend/Aboutus.html"
+
+>
+
+
+<i class="fas fa-user"></i>
+
+<span>
+  About
+</span>
+
+
+  </a>
+
+</nav>
+
+<!-- =====================================================
+     PDF VIEWER MODAL
+===================================================== -->
+
+<div
+  class="pdf-modal"
+  id="pdfModal"
+>
+
+  <div class="pdf-viewer-box">
+
+
+<!-- PDF HEADER -->
+
+<div class="pdf-viewer-header">
+
+
+  <!-- TITLE -->
+
+  <div
+    class="pdf-viewer-title"
+  >
+
+    <i
+      class="fas fa-file-pdf"
+    ></i>
+
+    <span
+      id="pdfTitle"
+    >
+
+      Newspaper
+
+    </span>
+
+  </div>
+
+
+  <!-- ACTIONS -->
+
+  <div class="pdf-actions">
+
+
+    <!-- OPEN NEW TAB -->
+
+    <a
+      id="openPdfNewTab"
+      class="pdf-action-btn"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Open in new tab"
+    >
+
+      <i
+        class="fas fa-arrow-up-right-from-square"
+      ></i>
+
+    </a>
+
+
+    <!-- CLOSE -->
+
+    <button
+      class="pdf-action-btn pdf-close-btn"
+      onclick="closePDF()"
+      title="Close"
+    >
+
+      <i
+        class="fas fa-xmark"
+      ></i>
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- PDF IFRAME -->
+
+<iframe
+  id="pdfFrame"
+  class="pdf-frame"
+  title="Newspaper PDF Viewer"
+  allowfullscreen
+></iframe>
+
+
+  </div>
+
+</div>
+
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
+<script
+  src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
 
 <script>
 
-/* =========================================
+/* =====================================================
    SUPABASE CONFIGURATION
-========================================= */
+===================================================== */
 
 const SUPABASE_URL =
   "https://ndpmisgcnwtalxzlsgdh.supabase.co";
 
+
 const SUPABASE_ANON_KEY =
   "sb_publishable_VA-TOQxa5NucY7L1hPStkg_3eAj42PM";
+
 
 const supabaseClient =
   supabase.createClient(
@@ -1200,190 +1537,17 @@ const supabaseClient =
     SUPABASE_ANON_KEY
   );
 
-/* =========================================
-   USER ACCESS CODE
-========================================= */
 
-let USER_ACCESS_CODE = "";
+/* =====================================================
+   STORE NEWSPAPER DATA
+===================================================== */
 
-/* =========================================
-   LOAD ACCESS CODE
-========================================= */
+let allNewspapers = [];
 
-async function loadUserAccessCode() {
 
-  try {
-
-    const response =
-      await fetch("access-key.json");
-
-    if (!response.ok) {
-      throw new Error(
-        "Unable to load access code"
-      );
-    }
-
-    const data =
-      await response.json();
-
-    USER_ACCESS_CODE =
-      data.accessKeyRead;
-
-  }
-
-  catch (error) {
-
-    console.error(error);
-
-    const message =
-      document.getElementById(
-        "accessMessage"
-      );
-
-    message.style.color =
-      "#ef4444";
-
-    message.innerHTML =
-      "Access verification error.";
-
-  }
-
-}
-
-/* =========================================
-   VERIFY ACCESS CODE
-========================================= */
-
-async function verifyAccessCode() {
-
-  const inputCode =
-    document
-      .getElementById(
-        "accessCodeInput"
-      )
-      .value
-      .trim();
-
-  const message =
-    document.getElementById(
-      "accessMessage"
-    );
-
-  if (!inputCode) {
-
-    message.style.color =
-      "#ef4444";
-
-    message.innerHTML =
-      "Please enter your access code.";
-
-    return;
-
-  }
-
-  if (!USER_ACCESS_CODE) {
-
-    await loadUserAccessCode();
-
-  }
-
-  if (
-    inputCode === USER_ACCESS_CODE
-  ) {
-
-    sessionStorage.setItem(
-      "ASCEND_NEWSPAPER_USER",
-      "verified"
-    );
-
-    document
-      .getElementById(
-        "accessScreen"
-      )
-      .style.display =
-      "none";
-
-    document
-      .getElementById(
-        "userContent"
-      )
-      .style.display =
-      "block";
-
-    startUserPage();
-
-  }
-
-  else {
-
-    message.style.color =
-      "#ef4444";
-
-    message.innerHTML =
-      "Invalid Access Code.";
-
-  }
-
-}
-
-/* =========================================
-   CHECK USER SESSION
-========================================= */
-
-async function checkUserAccess() {
-
-  const verified =
-    sessionStorage.getItem(
-      "ASCEND_NEWSPAPER_USER"
-    );
-
-  if (
-    verified === "verified"
-  ) {
-
-    document
-      .getElementById(
-        "accessScreen"
-      )
-      .style.display =
-      "none";
-
-    document
-      .getElementById(
-        "userContent"
-      )
-      .style.display =
-      "block";
-
-    startUserPage();
-
-  }
-
-  else {
-
-    document
-      .getElementById(
-        "accessScreen"
-      )
-      .style.display =
-      "flex";
-
-    document
-      .getElementById(
-        "userContent"
-      )
-      .style.display =
-      "none";
-
-    await loadUserAccessCode();
-
-  }
-
-}
-
-/* =========================================
-   START USER PAGE
-========================================= */
+/* =====================================================
+   START PAGE
+===================================================== */
 
 function startUserPage() {
 
@@ -1392,6 +1556,7 @@ function startUserPage() {
       .toISOString()
       .split("T")[0];
 
+
   document
     .getElementById(
       "dateFilter"
@@ -1399,59 +1564,15 @@ function startUserPage() {
     .value =
     today;
 
+
   loadNewspapers();
 
 }
 
-/* =========================================
-   USER LOGOUT
-========================================= */
 
-function userLogout() {
-
-  sessionStorage.removeItem(
-    "ASCEND_NEWSPAPER_USER"
-  );
-
-  document
-    .getElementById(
-      "userContent"
-    )
-    .style.display =
-    "none";
-
-  document
-    .getElementById(
-      "accessScreen"
-    )
-    .style.display =
-    "flex";
-
-  document
-    .getElementById(
-      "accessCodeInput"
-    )
-    .value =
-    "";
-
-  document
-    .getElementById(
-      "accessMessage"
-    )
-    .innerHTML =
-    "";
-
-}
-
-/* =========================================
-   STORE NEWSPAPER DATA
-========================================= */
-
-let allNewspapers = [];
-
-/* =========================================
+/* =====================================================
    LOAD NEWSPAPERS
-========================================= */
+===================================================== */
 
 async function loadNewspapers() {
 
@@ -1462,32 +1583,51 @@ async function loadNewspapers() {
       )
       .value;
 
+
   const container =
     document.getElementById(
       "newspaperContainer"
     );
+
 
   const count =
     document.getElementById(
       "paperCount"
     );
 
+
   container.innerHTML = `
+
     <div class="loading">
-      <i class="fas fa-spinner fa-spin"></i>
-      <p>Loading newspapers...</p>
+
+      <i
+        class="fas fa-spinner fa-spin"
+      ></i>
+
+      <p>
+        Loading newspapers...
+      </p>
+
     </div>
+
   `;
+
 
   count.textContent =
     "LOADING...";
 
+
   try {
+
 
     let query =
       supabaseClient
-        .from("NewspaperPapers")
-        .select("*")
+        .from(
+          "NewspaperPapers"
+        )
+        .select(
+          "*"
+        )
         .order(
           "paper_date",
           {
@@ -1501,6 +1641,9 @@ async function loadNewspapers() {
           }
         );
 
+
+    /* FILTER BY DATE */
+
     if (selectedDate) {
 
       query =
@@ -1511,40 +1654,62 @@ async function loadNewspapers() {
 
     }
 
+
     const {
       data,
       error
     } =
     await query;
 
+
     if (error) {
+
       throw error;
+
     }
+
 
     allNewspapers =
       data || [];
+
 
     displayNewspapers(
       allNewspapers
     );
 
+
   }
 
   catch (error) {
 
-    console.error(error);
+
+    console.error(
+      error
+    );
+
 
     container.innerHTML = `
+
       <div class="empty">
-        <i class="fas fa-triangle-exclamation"></i>
-        <h3>Unable to Load</h3>
+
+        <i
+          class="fas fa-triangle-exclamation"
+        ></i>
+
+        <h3>
+          Unable to Load
+        </h3>
+
         <p>
           ${escapeHTML(
             error.message
           )}
         </p>
+
       </div>
+
     `;
+
 
     count.textContent =
       "ERROR";
@@ -1553,9 +1718,10 @@ async function loadNewspapers() {
 
 }
 
-/* =========================================
+
+/* =====================================================
    DISPLAY NEWSPAPERS
-========================================= */
+===================================================== */
 
 function displayNewspapers(data) {
 
@@ -1564,16 +1730,26 @@ function displayNewspapers(data) {
       "newspaperContainer"
     );
 
+
   const count =
     document.getElementById(
       "paperCount"
     );
 
+
   container.innerHTML =
     "";
 
+
+  const total =
+    data ? data.length : 0;
+
+
   count.textContent =
-    `${data.length} AVAILABLE`;
+    `${total} AVAILABLE`;
+
+
+  /* NO NEWSPAPERS */
 
   if (
     !data ||
@@ -1581,67 +1757,109 @@ function displayNewspapers(data) {
   ) {
 
     container.innerHTML = `
+
       <div class="empty">
-        <i class="fas fa-newspaper"></i>
-        <h3>No Newspapers Found</h3>
+
+        <i
+          class="fas fa-newspaper"
+        ></i>
+
+        <h3>
+          No Newspapers Found
+        </h3>
+
         <p>
           Try selecting another date
           or view all newspapers.
         </p>
+
       </div>
+
     `;
 
     return;
 
   }
 
+
+  /* CREATE NEWSPAPER CARDS */
+
   data.forEach(
     function(paper) {
+
 
       const card =
         document.createElement(
           "a"
         );
 
+
       card.className =
         "paper-card";
 
+
       card.href =
-        convertGoogleDriveLink(
-          paper.paper_link
-        );
+        "#";
 
-      card.target =
-        "_blank";
 
-      card.rel =
-        "noopener noreferrer";
+      card.addEventListener(
+        "click",
+        function(event) {
+
+
+          event.preventDefault();
+
+
+          openPDF(
+            paper.paper_link,
+            paper.paper_title
+          );
+
+        }
+      );
+
 
       card.innerHTML = `
 
         <div class="paper-top">
 
+
           <div class="paper-icon">
-            <i class="fas fa-newspaper"></i>
+
+            <i
+              class="fas fa-newspaper"
+            ></i>
+
           </div>
 
+
           <div class="paper-open">
-            <i class="fas fa-arrow-up-right-from-square"></i>
+
+            <i
+              class="fas fa-arrow-up-right-from-square"
+            ></i>
+
           </div>
 
         </div>
 
+
         <div class="paper-content">
 
           <h2>
+
             ${escapeHTML(
               paper.paper_title
             )}
+
           </h2>
+
 
           <div class="paper-date">
 
-            <i class="fas fa-calendar-day"></i>
+            <i
+              class="fas fa-calendar-day"
+            ></i>
 
             ${formatDate(
               paper.paper_date
@@ -1653,18 +1871,21 @@ function displayNewspapers(data) {
 
       `;
 
+
       container.appendChild(
         card
       );
+
 
     }
   );
 
 }
 
-/* =========================================
-   SEARCH BY TITLE
-========================================= */
+
+/* =====================================================
+   SEARCH NEWSPAPER
+===================================================== */
 
 function filterByTitle() {
 
@@ -1677,20 +1898,28 @@ function filterByTitle() {
       .toLowerCase()
       .trim();
 
+
   const filteredData =
     allNewspapers.filter(
       function(paper) {
 
-        return (
-          paper.paper_title
-            .toLowerCase()
-            .includes(
-              searchText
-            )
+
+        const title =
+          (
+            paper.paper_title ||
+            ""
+          )
+          .toLowerCase();
+
+
+        return title.includes(
+          searchText
         );
+
 
       }
     );
+
 
   displayNewspapers(
     filteredData
@@ -1698,9 +1927,10 @@ function filterByTitle() {
 
 }
 
-/* =========================================
-   CLEAR DATE FILTER
-========================================= */
+
+/* =====================================================
+   VIEW ALL NEWSPAPERS
+===================================================== */
 
 function clearDateFilter() {
 
@@ -1711,6 +1941,7 @@ function clearDateFilter() {
     .value =
     "";
 
+
   document
     .getElementById(
       "titleSearch"
@@ -1718,47 +1949,188 @@ function clearDateFilter() {
     .value =
     "";
 
+
   loadNewspapers();
 
 }
 
-/* =========================================
+
+/* =====================================================
+   OPEN PDF IN IFRAME
+===================================================== */
+
+function openPDF(
+  link,
+  title
+) {
+
+  if (!link) {
+
+    alert(
+      "Newspaper link is not available."
+    );
+
+    return;
+
+  }
+
+
+  const pdfLink =
+    convertGoogleDriveLink(
+      link
+    );
+
+
+  document
+    .getElementById(
+      "pdfTitle"
+    )
+    .textContent =
+    title || "Newspaper";
+
+
+  document
+    .getElementById(
+      "pdfFrame"
+    )
+    .src =
+    pdfLink;
+
+
+  document
+    .getElementById(
+      "openPdfNewTab"
+    )
+    .href =
+    pdfLink;
+
+
+  document
+    .getElementById(
+      "pdfModal"
+    )
+    .classList
+    .add(
+      "active"
+    );
+
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+/* =====================================================
+   CLOSE PDF
+===================================================== */
+
+function closePDF() {
+
+  document
+    .getElementById(
+      "pdfModal"
+    )
+    .classList
+    .remove(
+      "active"
+    );
+
+
+  document
+    .getElementById(
+      "pdfFrame"
+    )
+    .src =
+    "";
+
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+/* =====================================================
    GOOGLE DRIVE LINK CONVERTER
-========================================= */
+===================================================== */
 
 function convertGoogleDriveLink(link) {
 
   if (!link) {
+
     return "#";
+
   }
 
-  const match =
+
+  /*
+    Supports:
+
+    https://drive.google.com/file/d/FILE_ID/view
+    https://drive.google.com/file/d/FILE_ID/edit
+    https://drive.google.com/open?id=FILE_ID
+  */
+
+  const pathMatch =
     link.match(
-      /\/d\/([^/]+)/
+      /\/d\/([^/?]+)/
     );
 
+
   if (
-    match &&
-    match[1]
+    pathMatch &&
+    pathMatch[1]
   ) {
 
     return (
       "https://drive.google.com/file/d/" +
-      match[1] +
+      pathMatch[1] +
       "/preview"
     );
 
   }
 
+
+  const idMatch =
+    link.match(
+      /[?&]id=([^&]+)/
+    );
+
+
+  if (
+    idMatch &&
+    idMatch[1]
+  ) {
+
+    return (
+      "https://drive.google.com/file/d/" +
+      idMatch[1] +
+      "/preview"
+    );
+
+  }
+
+
   return link;
 
 }
 
-/* =========================================
-   FORMAT DATE
-========================================= */
 
-function formatDate(dateString) {
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+
+function formatDate(
+  dateString
+) {
+
+  if (!dateString) {
+
+    return "Date unavailable";
+
+  }
+
 
   const date =
     new Date(
@@ -1766,20 +2138,26 @@ function formatDate(dateString) {
       "T00:00:00"
     );
 
+
   return date.toLocaleDateString(
     "en-IN",
     {
+
       day: "2-digit",
+
       month: "short",
+
       year: "numeric"
+
     }
   );
 
 }
 
-/* =========================================
+
+/* =====================================================
    SAFE HTML
-========================================= */
+===================================================== */
 
 function escapeHTML(text) {
 
@@ -1788,53 +2166,82 @@ function escapeHTML(text) {
       "div"
     );
 
+
   div.textContent =
     text || "";
+
 
   return div.innerHTML;
 
 }
 
-/* =========================================
-   RELOAD
-========================================= */
+
+/* =====================================================
+   RELOAD PAGE
+===================================================== */
 
 function reloadPage() {
+
   location.reload();
+
 }
 
-/* =========================================
-   ENTER KEY
-========================================= */
 
-document
-  .getElementById(
-    "accessCodeInput"
-  )
-  .addEventListener(
-    "keydown",
-    function(event) {
+/* =====================================================
+   GO HOME
+===================================================== */
+
+function goHome() {
+
+  window.location.href =
+    "https://ascendlearningcommunity.github.io/ascend/index.html";
+
+}
+
+
+/* =====================================================
+   CLOSE PDF ON ESCAPE
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Escape"
+    ) {
+
+      const modal =
+        document.getElementById(
+          "pdfModal"
+        );
+
 
       if (
-        event.key === "Enter"
+        modal.classList.contains(
+          "active"
+        )
       ) {
 
-        verifyAccessCode();
+        closePDF();
 
       }
 
     }
-  );
 
-/* =========================================
+  }
+);
+
+
+/* =====================================================
    PAGE START
-========================================= */
+===================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
   function() {
 
-    checkUserAccess();
+    startUserPage();
 
   }
 );
@@ -1842,4 +2249,5 @@ document.addEventListener(
 </script>
 
 </body>
+
 </html>
