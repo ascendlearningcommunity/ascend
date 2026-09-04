@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -7,62 +6,89 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-   content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color" content="#155EEF">
 
+<meta name="description"
+      content="ASCEND — Learn, Build Skills, Explore Careers, Develop Leadership and Create Your Future.">
+
 <title>ASCEND — Rise Today. Lead Tomorrow.</title>
 
-<!-- Google Font -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- =========================================================
+     GOOGLE FONTS
+========================================================= -->
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
       rel="stylesheet">
 
-<!-- Font Awesome -->
+
+<!-- =========================================================
+     FONT AWESOME
+========================================================= -->
 
 <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<!-- Google AdSense -->
+
+<!-- =========================================================
+     GOOGLE ADSENSE
+========================================================= -->
 
 <script async
 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318194885972438"
-crossorigin="anonymous"></script>
+crossorigin="anonymous">
+</script>
 
 <meta name="google-adsense-account"
-   content="ca-pub-1318194885972438">
+      content="ca-pub-1318194885972438">
+
 
 <style>
 
 /* =========================================================
-   ROOT VARIABLES
+   ROOT
 ========================================================= */
 
 :root{
 
     --primary:#155EEF;
     --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
 
     --yellow:#FFD43B;
-    --yellow-dark:#F5B800;
+    --yellow-dark:#D89C00;
 
-    --background:#F5F7FC;
-
-    --white:#FFFFFF;
+    --dark:#101828;
+    --dark-2:#172033;
 
     --text:#172033;
+    --muted:#667085;
 
-    --muted:#68748A;
+    --background:#F6F8FC;
+    --white:#FFFFFF;
 
-    --border:#E5EAF2;
+    --border:#E4EAF2;
 
-    --success:#16A34A;
+    --green:#12B76A;
+    --red:#F04438;
+
+    --shadow-sm:
+    0 8px 25px rgba(16,24,40,.06);
 
     --shadow:
-    0 15px 40px rgba(21,94,239,.08);
+    0 20px 50px rgba(21,94,239,.10);
+
+    --shadow-lg:
+    0 30px 80px rgba(21,94,239,.16);
 
 }
 
@@ -74,9 +100,7 @@ crossorigin="anonymous"></script>
 *{
 
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
 
 }
@@ -92,7 +116,7 @@ html{
 body{
 
     font-family:
-    'Inter',
+    "Inter",
     Arial,
     sans-serif;
 
@@ -104,13 +128,14 @@ body{
 
     line-height:1.6;
 
+    overflow-x:hidden;
+
 }
 
 
 a{
 
     text-decoration:none;
-
     color:inherit;
 
 }
@@ -123,31 +148,39 @@ button{
 }
 
 
+img{
+
+    max-width:100%;
+
+}
+
+
 /* =========================================================
    HEADER
 ========================================================= */
 
 .header{
 
-    width:100%;
-
-    height:76px;
-
-    background:
-    rgba(255,255,255,.96);
-
-    border-bottom:
-    1px solid var(--border);
-
-    position:
-    sticky;
+    position:sticky;
 
     top:0;
 
     z-index:1000;
 
+    height:76px;
+
+    background:
+    rgba(255,255,255,.90);
+
     backdrop-filter:
-    blur(15px);
+    blur(20px);
+
+    -webkit-backdrop-filter:
+    blur(20px);
+
+    border-bottom:
+    1px solid
+    rgba(228,234,242,.8);
 
 }
 
@@ -156,14 +189,13 @@ button{
 
     width:100%;
 
-    max-width:1200px;
+    max-width:1250px;
 
     height:100%;
 
     margin:auto;
 
-    padding:
-    0 25px;
+    padding:0 25px;
 
     display:flex;
 
@@ -191,16 +223,16 @@ button{
 
 .logo-icon{
 
-    width:48px;
-
-    height:48px;
+    width:46px;
+    height:46px;
 
     border-radius:14px;
 
     background:#FFFFFF;
 
     border:
-    1px solid var(--border);
+    1px solid
+    var(--border);
 
     display:flex;
 
@@ -210,7 +242,9 @@ button{
 
     overflow:hidden;
 
-    flex-shrink:0;
+    box-shadow:
+    0 5px 15px
+    rgba(0,0,0,.04);
 
 }
 
@@ -218,17 +252,18 @@ button{
 .logo-icon img{
 
     width:100%;
-
     height:100%;
 
     object-fit:contain;
-
-    display:block;
 
 }
 
 
 .logo-text h1{
+
+    font-family:
+    "Outfit",
+    sans-serif;
 
     font-size:22px;
 
@@ -236,18 +271,20 @@ button{
 
     letter-spacing:1px;
 
-    line-height:1;
+    color:
+    var(--primary);
 
-    color:var(--yellow-dark);
+    line-height:1;
 
 }
 
 
 .logo-text p{
 
-    font-size:9px;
+    font-size:8px;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     font-weight:600;
 
@@ -257,7 +294,7 @@ button{
 
 
 /* =========================================================
-   DESKTOP NAVIGATION
+   DESKTOP NAV
 ========================================================= */
 
 .desktop-nav{
@@ -266,21 +303,21 @@ button{
 
     align-items:center;
 
-    gap:28px;
+    gap:26px;
 
 }
 
 
 .desktop-nav a{
 
-    font-size:13px;
+    font-size:12px;
 
     font-weight:600;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
-    transition:
-    .25s;
+    transition:.25s;
 
 }
 
@@ -293,54 +330,67 @@ button{
 }
 
 
-.nav-button{
+.nav-explore{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+    11px 17px;
+
+    border-radius:12px;
 
     background:
     var(--primary);
 
-    color:
-    #FFFFFF !important;
+    color:#FFFFFF !important;
 
-    padding:
-    11px 18px;
-
-    border-radius:
-    12px;
+    box-shadow:
+    0 8px 18px
+    rgba(21,94,239,.20);
 
 }
 
 
-.nav-button:hover{
+.nav-explore:hover{
 
     background:
     var(--primary-dark);
+
+    transform:
+    translateY(-1px);
 
 }
 
 
 /* =========================================================
-   MOBILE MENU BUTTON
+   MENU BUTTON
 ========================================================= */
 
 .menu-btn{
 
     display:none;
 
-    width:42px;
+    width:43px;
 
-    height:42px;
+    height:43px;
 
     border:none;
 
-    border-radius:12px;
+    border-radius:13px;
 
-    background:#EDF3FF;
+    background:
+    var(--primary-light);
 
-    color:var(--primary);
-
-    font-size:18px;
+    color:
+    var(--primary);
 
     cursor:pointer;
+
+    font-size:17px;
 
 }
 
@@ -361,15 +411,17 @@ button{
 
     width:100%;
 
+    padding:12px;
+
     background:#FFFFFF;
 
     border-bottom:
-    1px solid var(--border);
+    1px solid
+    var(--border);
 
     box-shadow:
-    0 15px 30px rgba(0,0,0,.08);
-
-    padding:12px 16px;
+    0 20px 40px
+    rgba(0,0,0,.08);
 
 }
 
@@ -383,26 +435,33 @@ button{
 
 .mobile-menu a{
 
-    display:block;
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
 
     padding:13px;
 
-    border-radius:10px;
+    border-radius:12px;
 
     font-size:13px;
 
     font-weight:600;
 
-    color:var(--text);
+    color:
+    var(--text);
 
 }
 
 
 .mobile-menu a:hover{
 
-    background:#EDF3FF;
+    background:
+    var(--primary-light);
 
-    color:var(--primary);
+    color:
+    var(--primary);
 
 }
 
@@ -413,12 +472,14 @@ button{
 
 .container{
 
-    max-width:1200px;
+    width:100%;
+
+    max-width:1250px;
 
     margin:auto;
 
     padding:
-    30px 25px 80px;
+    28px 25px 100px;
 
 }
 
@@ -429,54 +490,52 @@ button{
 
 .announcement{
 
-    background:
-    #FFF9DF;
-
-    border:
-    1px solid #FFE58D;
-
-    border-radius:
-    16px;
-
-    padding:
-    13px 16px;
-
     display:flex;
 
     align-items:center;
 
     gap:12px;
 
-    margin-bottom:
-    30px;
+    padding:
+    12px 16px;
 
-    color:#6D5600;
+    margin-bottom:25px;
 
-    font-size:12px;
+    border:
+    1px solid
+    #FFE58D;
+
+    border-radius:15px;
+
+    background:
+    #FFF9DF;
+
+    color:
+    #705B00;
+
+    font-size:11px;
 
 }
 
 
 .announcement-icon{
 
-    width:36px;
+    width:35px;
 
-    height:36px;
+    height:35px;
 
     flex-shrink:0;
+
+    display:grid;
+
+    place-items:center;
 
     border-radius:11px;
 
     background:
     var(--yellow);
 
-    color:#5E4A00;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+    color:#5C4900;
 
 }
 
@@ -487,35 +546,35 @@ button{
 
 .hero{
 
-    min-height:450px;
-
-    border-radius:32px;
-
-    padding:
-    60px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #155EEF,
-        #4C82FF
-    );
-
-    color:#FFFFFF;
-
     position:relative;
 
-    overflow:hidden;
+    min-height:500px;
+
+    padding:
+    70px;
 
     display:flex;
 
     align-items:center;
 
-    margin-bottom:60px;
+    border-radius:35px;
+
+    overflow:hidden;
+
+    color:#FFFFFF;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0F4FD8 0%,
+        #155EEF 45%,
+        #467FFF 100%
+    );
 
     box-shadow:
-    0 25px 55px
-    rgba(21,94,239,.20);
+    var(--shadow-lg);
+
+    margin-bottom:75px;
 
 }
 
@@ -526,18 +585,18 @@ button{
 
     position:absolute;
 
-    width:450px;
+    width:600px;
 
-    height:450px;
+    height:600px;
+
+    right:-230px;
+
+    top:-270px;
 
     border-radius:50%;
 
     background:
     rgba(255,255,255,.08);
-
-    right:-160px;
-
-    top:-200px;
 
 }
 
@@ -548,34 +607,34 @@ button{
 
     position:absolute;
 
-    width:300px;
+    width:350px;
 
-    height:300px;
+    height:350px;
+
+    right:120px;
+
+    bottom:-280px;
 
     border-radius:50%;
 
     background:
-    rgba(255,212,59,.15);
-
-    right:100px;
-
-    bottom:-220px;
+    rgba(255,212,59,.14);
 
 }
 
 
 .hero-content{
 
-    max-width:690px;
-
     position:relative;
 
     z-index:2;
 
+    max-width:730px;
+
 }
 
 
-.badge{
+.hero-badge{
 
     display:inline-flex;
 
@@ -584,35 +643,45 @@ button{
     gap:8px;
 
     padding:
-    8px 14px;
+    8px 13px;
 
-    border-radius:25px;
-
-    background:
-    rgba(255,255,255,.14);
+    margin-bottom:22px;
 
     border:
     1px solid
-    rgba(255,255,255,.22);
+    rgba(255,255,255,.20);
 
-    font-size:11px;
+    border-radius:30px;
 
-    font-weight:700;
+    background:
+    rgba(255,255,255,.12);
 
-    margin-bottom:20px;
+    backdrop-filter:
+    blur(10px);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.6px;
 
 }
 
 
 .hero h2{
 
-    font-size:52px;
+    font-family:
+    "Outfit",
+    sans-serif;
 
-    line-height:1.12;
+    font-size:
+    clamp(42px,6vw,68px);
 
-    letter-spacing:-2px;
+    line-height:1.04;
 
-    margin-bottom:18px;
+    letter-spacing:-2.5px;
+
+    margin-bottom:22px;
 
 }
 
@@ -625,18 +694,18 @@ button{
 }
 
 
-.hero p{
+.hero-description{
 
-    max-width:620px;
-
-    font-size:15px;
-
-    line-height:1.8;
+    max-width:650px;
 
     color:
     rgba(255,255,255,.88);
 
-    margin-bottom:28px;
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin-bottom:30px;
 
 }
 
@@ -654,58 +723,71 @@ button{
 
 .primary-btn{
 
-    background:
-    var(--yellow);
-
-    color:#4D3B00;
-
-    padding:
-    14px 21px;
-
-    border-radius:14px;
-
-    font-size:13px;
-
-    font-weight:800;
-
     display:inline-flex;
 
     align-items:center;
 
-    gap:8px;
+    justify-content:center;
+
+    gap:9px;
+
+    padding:
+    14px 20px;
+
+    border-radius:14px;
+
+    background:
+    var(--yellow);
+
+    color:
+    #4C3A00;
+
+    font-size:12px;
+
+    font-weight:800;
 
     transition:.25s;
+
+    box-shadow:
+    0 10px 20px
+    rgba(0,0,0,.12);
 
 }
 
 
 .primary-btn:hover{
 
-    background:
-    #FFE16A;
-
     transform:
-    translateY(-2px);
+    translateY(-3px);
+
+    background:
+    #FFE46A;
 
 }
 
 
 .secondary-btn{
 
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
     padding:
-    14px 21px;
+    14px 20px;
 
     border-radius:14px;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    color:#FFFFFF;
 
     border:
     1px solid
     rgba(255,255,255,.30);
+
+    color:#FFFFFF;
+
+    font-size:12px;
+
+    font-weight:700;
 
     transition:.25s;
 
@@ -715,7 +797,108 @@ button{
 .secondary-btn:hover{
 
     background:
-    rgba(255,255,255,.10);
+    rgba(255,255,255,.12);
+
+    transform:
+    translateY(-3px);
+
+}
+
+
+/* =========================================================
+   HERO FLOATING CARD
+========================================================= */
+
+.hero-card{
+
+    position:absolute;
+
+    right:70px;
+
+    bottom:60px;
+
+    width:230px;
+
+    padding:20px;
+
+    border:
+    1px solid
+    rgba(255,255,255,.20);
+
+    border-radius:22px;
+
+    background:
+    rgba(255,255,255,.11);
+
+    backdrop-filter:
+    blur(20px);
+
+    box-shadow:
+    0 20px 50px
+    rgba(0,0,0,.15);
+
+    z-index:2;
+
+}
+
+
+.hero-card-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:15px;
+
+}
+
+
+.hero-card-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+    var(--yellow);
+
+    color:#4C3A00;
+
+}
+
+
+.hero-card small{
+
+    font-size:9px;
+
+    opacity:.7;
+
+}
+
+
+.hero-card h3{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+
+}
+
+
+.hero-card p{
+
+    font-size:10px;
+
+    color:
+    rgba(255,255,255,.72);
 
 }
 
@@ -726,341 +909,238 @@ button{
 
 .section{
 
-    margin-bottom:
-    60px;
+    margin-bottom:75px;
 
 }
 
 
-.section-header{
+.section-heading{
 
     display:flex;
 
     justify-content:space-between;
 
-    align-items:center;
+    align-items:end;
 
-    margin-bottom:25px;
-
-}
-
-
-.section-header h2{
-
-    font-size:25px;
-
-    font-weight:800;
-
-    letter-spacing:-.5px;
+    margin-bottom:28px;
 
 }
 
 
-.section-header span{
+.section-heading h2{
 
-    font-size:10px;
+    font-family:
+    "Outfit",
+    sans-serif;
 
-    color:var(--primary);
+    font-size:28px;
+
+    letter-spacing:-.7px;
+
+}
+
+
+.section-heading p{
+
+    color:
+    var(--muted);
+
+    font-size:11px;
+
+    margin-top:4px;
+
+}
+
+
+.section-label{
+
+    color:
+    var(--primary);
+
+    font-size:9px;
 
     font-weight:800;
 
-    letter-spacing:.5px;
+    letter-spacing:1px;
 
 }
 
 
 /* =========================================================
-   QUICK ACCESS
+   JOURNEY GRID
 ========================================================= */
 
-.quick-grid{
+.journey-grid{
 
     display:grid;
 
     grid-template-columns:
     repeat(6,1fr);
 
-    gap:15px;
+    gap:14px;
 
 }
 
 
-.quick-card{
+.journey-card{
+
+    position:relative;
+
+    padding:
+    22px 10px;
+
+    min-height:145px;
+
+    text-align:center;
 
     background:
     var(--white);
 
     border:
-    1px solid var(--border);
+    1px solid
+    var(--border);
 
-    border-radius:20px;
+    border-radius:21px;
 
-    padding:
-    22px 10px;
+    transition:.3s;
 
-    text-align:center;
-
-    transition:
-    .25s;
+    overflow:hidden;
 
 }
 
 
-.quick-card:hover{
+.journey-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:
+    var(--primary);
 
     transform:
-    translateY(-5px);
+    scaleX(0);
+
+    transform-origin:left;
+
+    transition:.3s;
+
+}
+
+
+.journey-card:hover{
+
+    transform:
+    translateY(-7px);
 
     box-shadow:
     var(--shadow);
 
+    border-color:
+    #C8D9FF;
+
 }
 
 
-.quick-icon{
+.journey-card:hover::before{
+
+    transform:
+    scaleX(1);
+
+}
+
+
+.journey-icon{
 
     width:52px;
 
     height:52px;
 
-    border-radius:17px;
-
     margin:
-    auto auto 12px;
+    0 auto 13px;
 
-    background:#EDF3FF;
+    display:grid;
+
+    place-items:center;
+
+    border-radius:16px;
+
+    background:
+    var(--primary-light);
 
     color:
     var(--primary);
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:20px;
+    font-size:19px;
 
 }
 
 
-.quick-card:nth-child(even)
-.quick-icon{
-
-    background:#FFF8DC;
-
-    color:#D89C00;
-
-}
-
-
-.quick-card h3{
-
-    font-size:12px;
-
-    font-weight:700;
-
-}
-
-
-/* =========================================================
-   FEATURES
-========================================================= */
-
-.feature-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:20px;
-
-}
-
-
-.feature-card{
+.journey-card:nth-child(even)
+.journey-icon{
 
     background:
-    var(--white);
-
-    border:
-    1px solid var(--border);
-
-    border-radius:25px;
-
-    padding:28px;
-
-    transition:.25s;
-
-}
-
-
-.feature-card:hover{
-
-    transform:
-    translateY(-6px);
-
-    box-shadow:
-    var(--shadow);
-
-}
-
-
-.feature-icon{
-
-    width:56px;
-
-    height:56px;
-
-    border-radius:18px;
-
-    background:#EDF3FF;
-
-    color:var(--primary);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:21px;
-
-    margin-bottom:18px;
-
-}
-
-
-.feature-card:nth-child(2)
-.feature-icon{
-
-    background:#FFF7D8;
-
-    color:#D69B00;
-
-}
-
-
-.feature-card h3{
-
-    font-size:17px;
-
-    margin-bottom:8px;
-
-}
-
-
-.feature-card p{
-
-    font-size:12px;
-
-    line-height:1.7;
-
-    color:var(--muted);
-
-}
-
-
-/* =========================================================
-   DOMAINS
-========================================================= */
-
-.domain-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:20px;
-
-}
-
-
-.domain-card{
-
-    min-height:170px;
-
-    background:
-    var(--white);
-
-    border:
-    1px solid var(--border);
-
-    border-radius:25px;
-
-    padding:25px;
-
-    transition:.25s;
-
-}
-
-
-.domain-card:hover{
-
-    transform:
-    translateY(-5px);
-
-    box-shadow:
-    var(--shadow);
-
-}
-
-
-.domain-card i{
-
-    font-size:25px;
+    #FFF8DD;
 
     color:
-    var(--primary);
-
-    margin-bottom:18px;
+    var(--yellow-dark);
 
 }
 
 
-.domain-card:nth-child(even) i{
+.journey-card h3{
 
-    color:#D89C00;
+    font-size:12px;
 
-}
+    font-weight:800;
 
-
-.domain-card h3{
-
-    font-size:16px;
-
-    margin-bottom:7px;
+    margin-bottom:4px;
 
 }
 
 
-.domain-card p{
+.journey-card p{
 
-    font-size:11px;
+    font-size:9px;
 
-    color:var(--muted);
-
-    line-height:1.6;
+    color:
+    var(--muted);
 
 }
 
 
 /* =========================================================
-   VISION
+   WHY ASCEND
 ========================================================= */
 
-.vision{
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1.1fr 1.9fr;
+
+    gap:25px;
+
+}
+
+
+.why-intro{
+
+    padding:35px;
+
+    border-radius:27px;
 
     background:
-    #172033;
-
-    border-radius:
-    32px;
-
-    padding:
-    55px;
+    var(--dark);
 
     color:#FFFFFF;
 
@@ -1071,18 +1151,514 @@ button{
 }
 
 
+.why-intro::after{
+
+    content:"A";
+
+    position:absolute;
+
+    right:-10px;
+
+    bottom:-55px;
+
+    font-family:
+    "Outfit";
+
+    font-size:190px;
+
+    font-weight:800;
+
+    color:
+    rgba(255,255,255,.035);
+
+}
+
+
+.why-intro > *{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.why-intro .section-label{
+
+    color:
+    var(--yellow);
+
+}
+
+
+.why-intro h2{
+
+    font-family:
+    "Outfit";
+
+    font-size:32px;
+
+    line-height:1.15;
+
+    margin:
+    12px 0 15px;
+
+}
+
+
+.why-intro p{
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    color:#B8C2D5;
+
+}
+
+
+.why-list{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+
+.why-card{
+
+    padding:23px;
+
+    border:
+    1px solid
+    var(--border);
+
+    border-radius:21px;
+
+    background:
+    #FFFFFF;
+
+    transition:.25s;
+
+}
+
+
+.why-card:hover{
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    var(--shadow-sm);
+
+}
+
+
+.why-icon{
+
+    width:45px;
+
+    height:45px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:14px;
+
+    margin-bottom:13px;
+
+    background:
+    var(--primary-light);
+
+    color:
+    var(--primary);
+
+}
+
+
+.why-card:nth-child(2)
+.why-icon{
+
+    background:#FFF8DD;
+
+    color:
+    var(--yellow-dark);
+
+}
+
+
+.why-card:nth-child(3)
+.why-icon{
+
+    background:#ECFDF3;
+
+    color:
+    var(--green);
+
+}
+
+
+.why-card:nth-child(4)
+.why-icon{
+
+    background:#FFF1F0;
+
+    color:
+    var(--red);
+
+}
+
+
+.why-card h3{
+
+    font-size:14px;
+
+    margin-bottom:6px;
+
+}
+
+
+.why-card p{
+
+    font-size:10px;
+
+    line-height:1.7;
+
+    color:
+    var(--muted);
+
+}
+
+
+/* =========================================================
+   CAREER EXPLORER
+========================================================= */
+
+.career-box{
+
+    position:relative;
+
+    padding:40px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #EEF4FF,
+        #FFFFFF
+    );
+
+    border:
+    1px solid
+    #DCE7FF;
+
+    overflow:hidden;
+
+}
+
+
+.career-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    border-radius:50%;
+
+    background:
+    rgba(21,94,239,.07);
+
+    right:-100px;
+
+    top:-100px;
+
+}
+
+
+.career-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:700px;
+
+}
+
+
+.career-content h2{
+
+    font-family:
+    "Outfit";
+
+    font-size:31px;
+
+    margin:
+    10px 0;
+
+}
+
+
+.career-content p{
+
+    color:
+    var(--muted);
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+
+.career-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+    12px 17px;
+
+    border-radius:12px;
+
+    background:
+    var(--primary);
+
+    color:#FFFFFF;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+
+.career-btn:hover{
+
+    background:
+    var(--primary-dark);
+
+    transform:
+    translateY(-2px);
+
+}
+
+
+/* =========================================================
+   LEARNING ROADMAP
+========================================================= */
+
+.roadmap{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+
+}
+
+
+.roadmap-card{
+
+    padding:23px;
+
+    background:#FFFFFF;
+
+    border:
+    1px solid
+    var(--border);
+
+    border-radius:22px;
+
+    position:relative;
+
+}
+
+
+.roadmap-number{
+
+    width:35px;
+
+    height:35px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:11px;
+
+    background:
+    var(--primary);
+
+    color:#FFFFFF;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+
+}
+
+
+.roadmap-card h3{
+
+    font-size:14px;
+
+    margin-bottom:7px;
+
+}
+
+
+.roadmap-card p{
+
+    color:
+    var(--muted);
+
+    font-size:10px;
+
+    line-height:1.7;
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats-section{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+
+}
+
+
+.stat-card{
+
+    text-align:center;
+
+    padding:25px 15px;
+
+    border:
+    1px solid
+    var(--border);
+
+    border-radius:20px;
+
+    background:
+    #FFFFFF;
+
+}
+
+
+.stat-card strong{
+
+    display:block;
+
+    font-family:
+    "Outfit";
+
+    font-size:29px;
+
+    color:
+    var(--primary);
+
+}
+
+
+.stat-card span{
+
+    font-size:10px;
+
+    color:
+    var(--muted);
+
+}
+
+
+/* =========================================================
+   VISION
+========================================================= */
+
+.vision{
+
+    position:relative;
+
+    padding:
+    55px;
+
+    border-radius:31px;
+
+    background:
+    var(--dark);
+
+    color:#FFFFFF;
+
+    overflow:hidden;
+
+}
+
+
+.vision::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    background:
+    rgba(21,94,239,.18);
+
+    right:-100px;
+
+    top:-170px;
+
+}
+
+
 .vision::after{
 
-    content:
-    "ASCEND";
+    content:"ASCEND";
 
     position:absolute;
 
     right:-30px;
 
-    bottom:-45px;
+    bottom:-50px;
 
-    font-size:130px;
+    font-family:
+    "Outfit";
+
+    font-size:120px;
 
     font-weight:800;
 
@@ -1094,11 +1670,11 @@ button{
 
 .vision-content{
 
-    max-width:700px;
-
     position:relative;
 
     z-index:2;
+
+    max-width:720px;
 
 }
 
@@ -1108,23 +1684,26 @@ button{
     color:
     var(--yellow);
 
-    font-size:11px;
+    font-size:9px;
 
     font-weight:800;
 
-    letter-spacing:.5px;
+    letter-spacing:1px;
 
 }
 
 
 .vision h2{
 
+    font-family:
+    "Outfit";
+
     font-size:35px;
 
     line-height:1.2;
 
     margin:
-    10px 0 12px;
+    10px 0 13px;
 
 }
 
@@ -1133,7 +1712,7 @@ button{
 
     color:#B8C2D5;
 
-    font-size:14px;
+    font-size:12px;
 
     line-height:1.8;
 
@@ -1146,23 +1725,154 @@ button{
 
 .footer{
 
-    text-align:center;
+    background:
+    #FFFFFF;
+
+    border-top:
+    1px solid
+    var(--border);
 
     padding:
-    35px 0 10px;
-
-    color:
-    var(--muted);
-
-    font-size:11px;
+    45px 25px 25px;
 
 }
 
 
-.footer strong{
+.footer-container{
+
+    max-width:1250px;
+
+    margin:auto;
+
+}
+
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    2fr 1fr 1fr 1fr;
+
+    gap:30px;
+
+    padding-bottom:35px;
+
+}
+
+
+.footer-brand h2{
+
+    font-family:
+    "Outfit";
 
     color:
     var(--primary);
+
+    font-size:23px;
+
+}
+
+
+.footer-brand p{
+
+    max-width:320px;
+
+    color:
+    var(--muted);
+
+    font-size:10px;
+
+    line-height:1.8;
+
+    margin-top:8px;
+
+}
+
+
+.footer-column h3{
+
+    font-size:11px;
+
+    margin-bottom:12px;
+
+}
+
+
+.footer-column a{
+
+    display:block;
+
+    font-size:10px;
+
+    color:
+    var(--muted);
+
+    margin-bottom:8px;
+
+    transition:.2s;
+
+}
+
+
+.footer-column a:hover{
+
+    color:
+    var(--primary);
+
+}
+
+
+.footer-bottom{
+
+    border-top:
+    1px solid
+    var(--border);
+
+    padding-top:20px;
+
+    text-align:center;
+
+    color:
+    var(--muted);
+
+    font-size:9px;
+
+}
+
+
+.footer-bottom strong{
+
+    color:
+    var(--primary);
+
+}
+
+
+/* =========================================================
+   SCROLL ANIMATION
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+    translateY(25px);
+
+    transition:
+    opacity .7s ease,
+    transform .7s ease;
+
+}
+
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
 
 }
 
@@ -1184,7 +1894,21 @@ button{
 
 @media(max-width:1000px){
 
-    .quick-grid{
+    .hero{
+
+        padding:55px;
+
+    }
+
+
+    .hero-card{
+
+        display:none;
+
+    }
+
+
+    .journey-grid{
 
         grid-template-columns:
         repeat(3,1fr);
@@ -1192,7 +1916,14 @@ button{
     }
 
 
-    .feature-grid{
+    .why-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .roadmap{
 
         grid-template-columns:
         repeat(2,1fr);
@@ -1200,7 +1931,7 @@ button{
     }
 
 
-    .domain-grid{
+    .stats-section{
 
         grid-template-columns:
         repeat(2,1fr);
@@ -1208,16 +1939,10 @@ button{
     }
 
 
-    .hero{
+    .footer-grid{
 
-        padding:50px;
-
-    }
-
-
-    .hero h2{
-
-        font-size:44px;
+        grid-template-columns:
+        2fr 1fr 1fr;
 
     }
 
@@ -1229,14 +1954,6 @@ button{
 ========================================================= */
 
 @media(max-width:700px){
-
-    body{
-
-        background:
-        var(--background);
-
-    }
-
 
     .header{
 
@@ -1262,22 +1979,19 @@ button{
 
     .menu-btn{
 
-        display:flex;
+        display:grid;
 
-        align-items:center;
-
-        justify-content:center;
+        place-items:center;
 
     }
 
 
     .logo-icon{
 
-        width:42px;
+        width:41px;
+        height:41px;
 
-        height:42px;
-
-        border-radius:13px;
+        border-radius:12px;
 
     }
 
@@ -1291,7 +2005,7 @@ button{
 
     .logo-text p{
 
-        font-size:8px;
+        font-size:7px;
 
     }
 
@@ -1299,7 +2013,7 @@ button{
     .container{
 
         padding:
-        18px
+        16px
         16px
         100px;
 
@@ -1308,21 +2022,9 @@ button{
 
     .announcement{
 
-        font-size:10px;
+        font-size:9px;
 
-        padding:
-        11px;
-
-        margin-bottom:20px;
-
-    }
-
-
-    .announcement-icon{
-
-        width:32px;
-
-        height:32px;
+        margin-bottom:18px;
 
     }
 
@@ -1334,29 +2036,29 @@ button{
         min-height:auto;
 
         padding:
-        30px 22px;
+        32px 22px;
 
         border-radius:25px;
 
-        margin-bottom:40px;
+        margin-bottom:50px;
 
     }
 
 
     .hero h2{
 
-        font-size:31px;
+        font-size:34px;
 
-        letter-spacing:-1px;
+        letter-spacing:-1.5px;
 
     }
 
 
-    .hero p{
+    .hero-description{
 
-        font-size:11px;
+        font-size:10px;
 
-        line-height:1.7;
+        line-height:1.75;
 
     }
 
@@ -1364,8 +2066,6 @@ button{
     .hero-actions{
 
         flex-direction:column;
-
-        width:100%;
 
     }
 
@@ -1375,10 +2075,6 @@ button{
 
         width:100%;
 
-        justify-content:center;
-
-        text-align:center;
-
     }
 
 
@@ -1386,35 +2082,35 @@ button{
 
     .section{
 
-        margin-bottom:40px;
+        margin-bottom:50px;
 
     }
 
 
-    .section-header{
+    .section-heading h2{
 
-        margin-bottom:15px;
-
-    }
-
-
-    .section-header h2{
-
-        font-size:20px;
+        font-size:21px;
 
     }
 
 
-    .section-header span{
+    .section-heading p{
 
-        font-size:8px;
+        font-size:9px;
 
     }
 
 
-    /* QUICK GRID */
+    .section-label{
 
-    .quick-grid{
+        font-size:7px;
+
+    }
+
+
+    /* JOURNEY */
+
+    .journey-grid{
 
         grid-template-columns:
         repeat(3,1fr);
@@ -1424,7 +2120,9 @@ button{
     }
 
 
-    .quick-card{
+    .journey-card{
+
+        min-height:120px;
 
         padding:
         15px 5px;
@@ -1434,103 +2132,190 @@ button{
     }
 
 
-    .quick-icon{
+    .journey-icon{
 
-        width:42px;
+        width:40px;
 
-        height:42px;
+        height:40px;
 
-        border-radius:13px;
+        border-radius:12px;
 
-        font-size:16px;
-
-    }
-
-
-    .quick-card h3{
-
-        font-size:9px;
-
-    }
-
-
-    /* FEATURES */
-
-    .feature-grid{
-
-        grid-template-columns:
-        1fr;
-
-        gap:12px;
-
-    }
-
-
-    .feature-card{
-
-        padding:20px;
-
-        border-radius:21px;
-
-    }
-
-
-    .feature-card h3{
-
-        font-size:14px;
-
-    }
-
-
-    .feature-card p{
-
-        font-size:10px;
-
-    }
-
-
-    /* DOMAINS */
-
-    .domain-grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
-        gap:10px;
-
-    }
-
-
-    .domain-card{
-
-        min-height:135px;
-
-        padding:17px;
-
-        border-radius:19px;
-
-    }
-
-
-    .domain-card i{
-
-        font-size:20px;
+        font-size:15px;
 
         margin-bottom:10px;
 
     }
 
 
-    .domain-card h3{
+    .journey-card h3{
+
+        font-size:9px;
+
+    }
+
+
+    .journey-card p{
+
+        font-size:7px;
+
+    }
+
+
+    /* WHY */
+
+    .why-intro{
+
+        padding:25px;
+
+        border-radius:23px;
+
+    }
+
+
+    .why-intro h2{
+
+        font-size:25px;
+
+    }
+
+
+    .why-intro p{
+
+        font-size:10px;
+
+    }
+
+
+    .why-list{
+
+        grid-template-columns:
+        1fr;
+
+        gap:10px;
+
+    }
+
+
+    .why-card{
+
+        padding:19px;
+
+    }
+
+
+    .why-card h3{
 
         font-size:12px;
 
     }
 
 
-    .domain-card p{
+    .why-card p{
 
         font-size:9px;
+
+    }
+
+
+    /* CAREER */
+
+    .career-box{
+
+        padding:
+        28px 22px;
+
+        border-radius:23px;
+
+    }
+
+
+    .career-content h2{
+
+        font-size:25px;
+
+    }
+
+
+    .career-content p{
+
+        font-size:10px;
+
+    }
+
+
+    /* ROADMAP */
+
+    .roadmap{
+
+        grid-template-columns:
+        1fr 1fr;
+
+        gap:10px;
+
+    }
+
+
+    .roadmap-card{
+
+        padding:17px;
+
+        border-radius:18px;
+
+    }
+
+
+    .roadmap-number{
+
+        width:31px;
+
+        height:31px;
+
+    }
+
+
+    .roadmap-card h3{
+
+        font-size:11px;
+
+    }
+
+
+    .roadmap-card p{
+
+        font-size:8px;
+
+    }
+
+
+    /* STATS */
+
+    .stats-section{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:9px;
+
+    }
+
+
+    .stat-card{
+
+        padding:19px 10px;
+
+    }
+
+
+    .stat-card strong{
+
+        font-size:23px;
+
+    }
+
+
+    .stat-card span{
+
+        font-size:8px;
 
     }
 
@@ -1540,30 +2325,30 @@ button{
     .vision{
 
         padding:
-        28px 22px;
+        30px 22px;
 
-        border-radius:25px;
+        border-radius:24px;
 
     }
 
 
     .vision h2{
 
-        font-size:24px;
+        font-size:25px;
 
     }
 
 
     .vision p{
 
-        font-size:10px;
+        font-size:9px;
 
     }
 
 
     .vision::after{
 
-        font-size:70px;
+        font-size:65px;
 
     }
 
@@ -1572,46 +2357,64 @@ button{
 
     .footer{
 
-        padding-bottom:20px;
+        padding:
+        35px 18px 90px;
 
     }
 
 
-    /* =====================================================
-       MOBILE BOTTOM NAV
-    ===================================================== */
+    .footer-grid{
+
+        grid-template-columns:
+        1fr 1fr;
+
+        gap:25px;
+
+    }
+
+
+    .footer-brand{
+
+        grid-column:
+        1 / -1;
+
+    }
+
+
+    /* MOBILE BOTTOM */
 
     .mobile-bottom-nav{
 
-        display:flex;
-
         position:fixed;
-
-        bottom:0;
 
         left:0;
 
+        bottom:0;
+
         width:100%;
 
-        height:72px;
+        height:70px;
 
-        background:
-        rgba(255,255,255,.97);
-
-        backdrop-filter:
-        blur(15px);
-
-        border-top:
-        1px solid var(--border);
+        display:flex;
 
         align-items:center;
 
         justify-content:
         space-around;
 
+        background:
+        rgba(255,255,255,.97);
+
+        backdrop-filter:
+        blur(18px);
+
+        border-top:
+        1px solid
+        var(--border);
+
         z-index:2000;
 
-        padding-bottom:5px;
+        padding-bottom:4px;
 
     }
 
@@ -1622,20 +2425,20 @@ button{
 
         text-align:center;
 
-        font-size:9px;
+        font-size:8px;
 
         font-weight:600;
 
-        color:#7C879B;
+        color:#7B879A;
 
     }
 
 
     .mobile-nav-item i{
 
-        width:38px;
+        width:35px;
 
-        height:32px;
+        height:31px;
 
         margin:auto;
 
@@ -1645,7 +2448,7 @@ button{
 
         justify-content:center;
 
-        font-size:16px;
+        font-size:15px;
 
     }
 
@@ -1661,9 +2464,9 @@ button{
     .mobile-nav-item.active i{
 
         background:
-        #EAF0FF;
+        var(--primary-light);
 
-        border-radius:12px;
+        border-radius:11px;
 
     }
 
@@ -1678,19 +2481,19 @@ button{
 
     .hero h2{
 
-        font-size:28px;
+        font-size:30px;
 
     }
 
 
-    .quick-grid{
+    .journey-grid{
 
         gap:7px;
 
     }
 
 
-    .quick-card{
+    .journey-card{
 
         padding:
         13px 3px;
@@ -1698,9 +2501,11 @@ button{
     }
 
 
-    .domain-card{
+    .journey-icon{
 
-        padding:14px;
+        width:37px;
+
+        height:37px;
 
     }
 
@@ -1710,30 +2515,28 @@ button{
 
 </head>
 
+
 <body>
 
-<!-- =======================================================
+
+<!-- =========================================================
      HEADER
-======================================================= -->
+========================================================= -->
 
 <header class="header">
 
 <div class="nav-container">
 
 
-    <!-- LOGO -->
-
-    <a href="index.html" class="logo">
-
+    <a href="index.html"
+       class="logo">
 
         <div class="logo-icon">
 
-            <img
-            src="logo.png"
-            alt="ASCEND Logo">
+            <img src="logo.png"
+                 alt="ASCEND Logo">
 
         </div>
-
 
         <div class="logo-text">
 
@@ -1744,7 +2547,6 @@ button{
             </p>
 
         </div>
-
 
     </a>
 
@@ -1765,8 +2567,12 @@ button{
             Tasks
         </a>
 
-        <a href="Faq.html">
-            FAQ
+        <a href="Skills/Skills.html">
+            Skills
+        </a>
+
+        <a href="Careers.html">
+            Careers
         </a>
 
         <a href="Aboutus.html">
@@ -1774,9 +2580,11 @@ button{
         </a>
 
         <a href="#explore"
-           class="nav-button">
+           class="nav-explore">
 
             Explore
+
+            <i class="fa-solid fa-arrow-right"></i>
 
         </a>
 
@@ -1785,11 +2593,11 @@ button{
 
     <!-- MOBILE MENU BUTTON -->
 
-    <button
-    class="menu-btn"
-    onclick="toggleMenu()">
+    <button class="menu-btn"
+            onclick="toggleMenu()"
+            aria-label="Open menu">
 
-        <i class="fas fa-bars"></i>
+        <i class="fa-solid fa-bars"></i>
 
     </button>
 
@@ -1799,91 +2607,133 @@ button{
 
 <!-- MOBILE MENU -->
 
-<div
-id="mobileMenu"
-class="mobile-menu">
+<div id="mobileMenu"
+     class="mobile-menu">
 
     <a href="index.html">
-        <i class="fas fa-house"></i>
-        &nbsp; Home
+
+        <i class="fa-solid fa-house"></i>
+
+        Home
+
     </a>
+
 
     <a href="Books.html">
-        <i class="fas fa-book-open"></i>
-        &nbsp; Learn
+
+        <i class="fa-solid fa-book-open"></i>
+
+        Learn
+
     </a>
+
 
     <a href="Assignments.html">
-        <i class="fas fa-list-check"></i>
-        &nbsp; Tasks
+
+        <i class="fa-solid fa-list-check"></i>
+
+        Tasks
+
     </a>
 
-    <a href="Faq.html">
-        <i class="fas fa-circle-question"></i>
-        &nbsp; FAQ
+
+    <a href="Skills/Skills.html">
+
+        <i class="fa-solid fa-laptop-code"></i>
+
+        Skills
+
     </a>
+
+
+    <a href="Careers.html">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        Careers
+
+    </a>
+
+
+    <a href="Careers/Entrepreneurship.html">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        Business
+
+    </a>
+
+
+    <a href="Leadership.html">
+
+        <i class="fa-solid fa-trophy"></i>
+
+        Leadership
+
+    </a>
+
 
     <a href="Aboutus.html">
-        <i class="fas fa-users"></i>
-        &nbsp; About
+
+        <i class="fa-solid fa-users"></i>
+
+        About
+
     </a>
 
 </div>
 
 </header>
 
-<!-- =======================================================
+
+<!-- =========================================================
      MAIN
-======================================================= -->
+========================================================= -->
 
 <main class="container">
 
-<!-- ANNOUNCEMENT -->
 
-<div class="announcement">
+<!-- =========================================================
+     ANNOUNCEMENT
+========================================================= -->
 
+<div class="announcement reveal">
 
     <div class="announcement-icon">
 
-        <i class="fas fa-rocket"></i>
+        <i class="fa-solid fa-rocket"></i>
 
     </div>
-
 
     <div>
 
         <strong>
-            Welcome to ASCEND!
+            Welcome to ASCEND
         </strong>
 
-        <br>
-
-        Learn • Grow • Build • Lead —
-        your journey towards endless
-        possibilities starts here.
+        &nbsp; Learn • Grow • Build • Lead —
+        your journey starts here.
 
     </div>
-
 
 </div>
 
 
 
-<!-- ===================================================
+<!-- =========================================================
      HERO
-=================================================== -->
+========================================================= -->
 
-<section class="hero">
-
+<section class="hero reveal">
 
     <div class="hero-content">
 
 
-        <div class="badge">
+        <div class="hero-badge">
 
-            <i class="fas fa-sparkles"></i>
+            <i class="fa-solid fa-sparkles"></i>
 
-            THE ASCEND COMMUNITY
+            THE ASCEND LEARNING COMMUNITY
 
         </div>
 
@@ -1901,39 +2751,35 @@ class="mobile-menu">
         </h2>
 
 
-        <p>
+        <p class="hero-description">
 
-            ASCEND is a learning and growth
-            community for individuals who want
-            to build knowledge, develop skills,
-            explore opportunities and become
-            confident leaders.
+            ASCEND is a modern learning and growth
+            platform designed to help students and
+            young individuals learn new subjects,
+            build practical skills, discover careers,
+            explore business and develop leadership.
 
         </p>
 
 
         <div class="hero-actions">
 
-
-            <a
-            href="#explore"
-            class="primary-btn">
+            <a href="#explore"
+               class="primary-btn">
 
                 Explore ASCEND
 
-                <i class="fas fa-arrow-right"></i>
+                <i class="fa-solid fa-arrow-right"></i>
 
             </a>
 
 
-            <a
-            href="Aboutus.html"
-            class="secondary-btn">
+            <a href="Aboutus.html"
+               class="secondary-btn">
 
-                About ASCEND
+                Discover Our Mission
 
             </a>
-
 
         </div>
 
@@ -1941,42 +2787,79 @@ class="mobile-menu">
     </div>
 
 
+    <!-- FLOATING CARD -->
+
+    <div class="hero-card">
+
+        <div class="hero-card-top">
+
+            <div class="hero-card-icon">
+
+                <i class="fa-solid fa-compass"></i>
+
+            </div>
+
+            <small>
+                YOUR JOURNEY
+            </small>
+
+        </div>
+
+        <h3>
+            Learn → Build → Lead
+        </h3>
+
+        <p>
+            Turn knowledge into skills,
+            skills into opportunities.
+        </p>
+
+    </div>
+
 </section>
 
 
 
-<!-- ===================================================
-     EXPLORE
-=================================================== -->
+<!-- =========================================================
+     EXPLORE JOURNEY
+========================================================= -->
 
-<section class="section">
+<section class="section reveal"
+         id="explore">
 
+    <div class="section-heading">
 
-    <div class="section-header">
+        <div>
 
-        <h2>
-            Explore Your Journey
-        </h2>
+            <h2>
+                Explore Your Journey
+            </h2>
 
-        <span>
+            <p>
+                Everything you need to learn,
+                grow and move forward.
+            </p>
+
+        </div>
+
+        <span class="section-label">
             START HERE
         </span>
 
     </div>
 
 
-    <div class="quick-grid">
+    <div class="journey-grid">
 
 
-        <!-- Learn -->
+        <!-- LEARN -->
 
-        <a
-        href="Books.html"
-        class="quick-card">
+        <a href="Books.html"
+           class="journey-card">
 
-            <div class="quick-icon">
+            <div class="journey-icon">
 
-                <i class="fas fa-book-open"></i>
+                <i class="fa-solid fa-book-open"></i>
 
             </div>
 
@@ -1984,18 +2867,21 @@ class="mobile-menu">
                 Learn
             </h3>
 
+            <p>
+                Knowledge & Study
+            </p>
+
         </a>
 
 
-        <!-- Tasks -->
+        <!-- TASKS -->
 
-        <a
-        href="Assignments.html"
-        class="quick-card">
+        <a href="Assignments.html"
+           class="journey-card">
 
-            <div class="quick-icon">
+            <div class="journey-icon">
 
-                <i class="fas fa-list-check"></i>
+                <i class="fa-solid fa-list-check"></i>
 
             </div>
 
@@ -2003,18 +2889,21 @@ class="mobile-menu">
                 Tasks
             </h3>
 
+            <p>
+                Practice & Apply
+            </p>
+
         </a>
 
 
-        <!-- Skills -->
+        <!-- SKILLS -->
 
-        <a
-        href="Skills/Skills.html"
-        class="quick-card">
+        <a href="Skills/Skills.html"
+           class="journey-card">
 
-            <div class="quick-icon">
+            <div class="journey-icon">
 
-                <i class="fas fa-laptop-code"></i>
+                <i class="fa-solid fa-laptop-code"></i>
 
             </div>
 
@@ -2022,18 +2911,21 @@ class="mobile-menu">
                 Skills
             </h3>
 
+            <p>
+                Build Capabilities
+            </p>
+
         </a>
 
 
-        <!-- Careers -->
+        <!-- CAREERS -->
 
-        <a
-        href="Careers.html"
-        class="quick-card">
+        <a href="Careers.html"
+           class="journey-card">
 
-            <div class="quick-icon">
+            <div class="journey-icon">
 
-                <i class="fas fa-briefcase"></i>
+                <i class="fa-solid fa-briefcase"></i>
 
             </div>
 
@@ -2041,18 +2933,21 @@ class="mobile-menu">
                 Careers
             </h3>
 
+            <p>
+                Find Your Path
+            </p>
+
         </a>
 
 
-        <!-- Business -->
+        <!-- BUSINESS -->
 
-        <a
-        href="Business.html"
-        class="quick-card">
+        <a href="Business.html"
+           class="journey-card">
 
-            <div class="quick-icon">
+            <div class="journey-icon">
 
-                <i class="fas fa-chart-line"></i>
+                <i class="fa-solid fa-chart-line"></i>
 
             </div>
 
@@ -2060,18 +2955,21 @@ class="mobile-menu">
                 Business
             </h3>
 
+            <p>
+                Think & Create
+            </p>
+
         </a>
 
 
-        <!-- Leadership -->
+        <!-- LEADERSHIP -->
 
-        <a
-        href="Leadership.html"
-        class="quick-card">
+        <a href="Leadership.html"
+           class="journey-card">
 
-            <div class="quick-icon">
+            <div class="journey-icon">
 
-                <i class="fas fa-trophy"></i>
+                <i class="fa-solid fa-trophy"></i>
 
             </div>
 
@@ -2079,431 +2977,595 @@ class="mobile-menu">
                 Leadership
             </h3>
 
+            <p>
+                Lead & Inspire
+            </p>
+
         </a>
 
-
     </div>
 
 </section>
 
 
 
-<!-- ===================================================
+<!-- =========================================================
      WHY ASCEND
-=================================================== -->
+========================================================= -->
 
-<section class="section">
+<section class="section reveal">
+
+    <div class="why-grid">
 
 
-    <div class="section-header">
+        <div class="why-intro">
 
-        <h2>
-            Why ASCEND?
-        </h2>
+            <span class="section-label">
+                WHY ASCEND?
+            </span>
+
+            <h2>
+                More Than Learning.
+                <br>
+                A Journey.
+            </h2>
+
+            <p>
+
+                ASCEND connects knowledge,
+                practical skills, career discovery,
+                entrepreneurship and leadership
+                into one continuous journey.
+
+            </p>
+
+        </div>
+
+
+        <div class="why-list">
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                </div>
+
+                <h3>
+                    Learn with Purpose
+                </h3>
+
+                <p>
+                    Build strong foundations across
+                    academic and professional subjects.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                </div>
+
+                <h3>
+                    Build Real Skills
+                </h3>
+
+                <p>
+                    Move beyond theory through
+                    practical skills and activities.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <i class="fa-solid fa-compass"></i>
+
+                </div>
+
+                <h3>
+                    Discover Careers
+                </h3>
+
+                <p>
+                    Explore academic streams and
+                    future career opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <i class="fa-solid fa-flag"></i>
+
+                </div>
+
+                <h3>
+                    Develop Leadership
+                </h3>
+
+                <p>
+                    Develop confidence, responsibility,
+                    discipline and leadership mindset.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div class="feature-grid">
-
-
-        <!-- Feature 1 -->
-
-        <div class="feature-card">
-
-
-            <div class="feature-icon">
-
-                <i class="fas fa-book-open"></i>
-
-            </div>
-
-
-            <h3>
-                Learn Without Limits
-            </h3>
-
-
-            <p>
-
-                Explore educational resources,
-                knowledge, current affairs and
-                practical learning opportunities.
-
-            </p>
-
-
-        </div>
-
-
-
-        <!-- Feature 2 -->
-
-        <div class="feature-card">
-
-
-            <div class="feature-icon">
-
-                <i class="fas fa-bolt"></i>
-
-            </div>
-
-
-            <h3>
-                Build Real Skills
-            </h3>
-
-
-            <p>
-
-                Develop valuable skills in
-                technology, communication,
-                careers and professional growth.
-
-            </p>
-
-
-        </div>
-
-
-
-        <!-- Feature 3 -->
-
-        <div class="feature-card">
-
-
-            <div class="feature-icon">
-
-                <i class="fas fa-people-group"></i>
-
-            </div>
-
-
-            <h3>
-                Grow Together
-            </h3>
-
-
-            <p>
-
-                Become part of a community
-                focused on learning, growth,
-                leadership and achievement.
-
-            </p>
-
-
-        </div>
-
-
-    </div>
-
 
 </section>
 
 
 
-<!-- ===================================================
-     DOMAINS
-=================================================== -->
+<!-- =========================================================
+     CAREER EXPLORER
+========================================================= -->
 
-<section
-class="section"
-id="explore">
+<section class="section reveal">
+
+    <div class="career-box">
+
+        <div class="career-content">
+
+            <span class="section-label">
+                CAREER EXPLORER
+            </span>
+
+            <h2>
+                Don't Choose a Career.
+                <br>
+                Discover Your Direction.
+            </h2>
+
+            <p>
+
+                Explore Science, Technology,
+                Commerce, Social Sciences,
+                Languages, Arts and Professional
+                disciplines. Understand the skills,
+                opportunities and career paths
+                connected to each field.
+
+            </p>
+
+            <a href="Careers.html"
+               class="career-btn">
+
+                Explore Career Streams
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-    <div class="section-header">
 
-        <h2>
-            Our Domains
-        </h2>
+<!-- =========================================================
+     LEARNING ROADMAP
+========================================================= -->
 
-        <span>
-            ENDLESS POSSIBILITIES
+<section class="section reveal">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h2>
+                The ASCEND Method
+            </h2>
+
+            <p>
+                A simple path from curiosity to capability.
+            </p>
+
+        </div>
+
+        <span class="section-label">
+            OUR APPROACH
         </span>
 
     </div>
 
 
-    <div class="domain-grid">
+    <div class="roadmap">
 
 
-        <!-- Defence -->
+        <div class="roadmap-card">
 
-        <div class="domain-card">
-
-            <i class="fas fa-shield-halved"></i>
+            <div class="roadmap-number">
+                01
+            </div>
 
             <h3>
-                Defence
+                Discover
             </h3>
 
             <p>
-
-                Explore defence careers,
-                examinations and preparation
-                resources.
-
+                Explore subjects, careers,
+                ideas and opportunities.
             </p>
 
         </div>
 
 
+        <div class="roadmap-card">
 
-        <!-- Careers -->
-
-        <div class="domain-card">
-
-            <i class="fas fa-briefcase"></i>
+            <div class="roadmap-number">
+                02
+            </div>
 
             <h3>
-                Careers
+                Learn
             </h3>
 
             <p>
-
-                Discover career guidance,
-                opportunities and professional
-                development.
-
+                Build knowledge through
+                structured learning.
             </p>
 
         </div>
 
 
+        <div class="roadmap-card">
 
-        <!-- Technology -->
-
-        <div class="domain-card">
-
-            <i class="fas fa-laptop-code"></i>
+            <div class="roadmap-number">
+                03
+            </div>
 
             <h3>
-                Skills & Technology
+                Practice
             </h3>
 
             <p>
-
-                Build digital skills and
-                understand modern technology.
-
+                Apply knowledge through
+                tasks and practical skills.
             </p>
 
         </div>
 
 
+        <div class="roadmap-card">
 
-        <!-- Business -->
-
-        <div class="domain-card">
-
-            <i class="fas fa-chart-line"></i>
+            <div class="roadmap-number">
+                04
+            </div>
 
             <h3>
-                Business
+                Lead
             </h3>
 
             <p>
-
-                Learn about business,
-                markets and financial awareness.
-
+                Use your knowledge and skills
+                to create meaningful impact.
             </p>
 
         </div>
-
-
-
-        <!-- Entrepreneurship -->
-
-        <div class="domain-card">
-
-            <i class="fas fa-rocket"></i>
-
-            <h3>
-                Entrepreneurship
-            </h3>
-
-            <p>
-
-                Develop ideas, explore innovation
-                and understand entrepreneurship.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- Leadership -->
-
-        <div class="domain-card">
-
-            <i class="fas fa-medal"></i>
-
-            <h3>
-                Leadership
-            </h3>
-
-            <p>
-
-                Build confidence, communication,
-                discipline and leadership skills.
-
-            </p>
-
-        </div>
-
 
     </div>
-
 
 </section>
 
 
 
-<!-- ===================================================
+<!-- =========================================================
+     STATS
+========================================================= -->
+
+<section class="section reveal">
+
+    <div class="stats-section">
+
+
+        <div class="stat-card">
+
+            <strong>
+                15+
+            </strong>
+
+            <span>
+                Learning Areas
+            </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <strong>
+                60+
+            </strong>
+
+            <span>
+                Career Disciplines
+            </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <strong>
+                100+
+            </strong>
+
+            <span>
+                Learning Resources
+            </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <strong>
+                ∞
+            </strong>
+
+            <span>
+                Possibilities
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
      VISION
-=================================================== -->
+========================================================= -->
 
-<section class="vision">
-
+<section class="vision reveal">
 
     <div class="vision-content">
 
-
         <span class="vision-tag">
-
-            ONE VISION.
-            ENDLESS POSSIBILITIES.
-
+            THE ASCEND VISION
         </span>
 
-
         <h2>
-
-            Build Your Future
-            With ASCEND.
-
+            Build Yourself.
+            Build Your Future.
         </h2>
-
 
         <p>
 
-            From Mission Cadet Upgrade to ASCEND —
-            our vision has grown into a broader
-            learning community covering Defence,
-            Careers, Skills & Technology, Business,
-            Entrepreneurship and Leadership.
+            We believe education should not end
+            with marks or certificates. It should
+            develop curiosity, practical ability,
+            confidence, leadership and the courage
+            to create your own path.
+
+            <br><br>
+
+            ASCEND exists to help learners
+            rise from where they are today
+            towards where they want to be tomorrow.
 
         </p>
 
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+<div class="footer-container">
+
+    <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+            <h2>
+                ASCEND
+            </h2>
+
+            <p>
+
+                A modern learning and growth
+                community helping individuals
+                learn, build skills, discover careers,
+                explore business and develop leadership.
+
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                LEARN
+            </h3>
+
+            <a href="Books.html">
+                Books
+            </a>
+
+            <a href="Assignments.html">
+                Assignments
+            </a>
+
+            <a href="Skills/Skills.html">
+                Skills
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                EXPLORE
+            </h3>
+
+            <a href="Careers.html">
+                Careers
+            </a>
+
+            <a href="Business.html">
+                Business
+            </a>
+
+            <a href="Leadership.html">
+                Leadership
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                ASCEND
+            </h3>
+
+            <a href="Aboutus.html">
+                About Us
+            </a>
+
+            <a href="Faq.html">
+                FAQ
+            </a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+        </div>
 
     </div>
 
 
-</section>
+    <div class="footer-bottom">
 
+        <strong>
+            ASCEND
+        </strong>
 
+        — Rise Today. Lead Tomorrow.
 
-<!-- FOOTER -->
+        <br><br>
 
-<footer class="footer">
+        © 2026 ASCEND Learning Community.
+        All Rights Reserved.
 
-    <strong>
-        ASCEND
-    </strong>
+    </div>
 
-    — Rise Today. Lead Tomorrow.
-
-    <br><br>
-
-    © 2026 ASCEND Learning Community.
-    All Rights Reserved.
+</div>
 
 </footer>
 
-</main>
 
-<!-- =======================================================
-     MOBILE BOTTOM NAVIGATION
-======================================================= -->
+
+<!-- =========================================================
+     MOBILE BOTTOM NAV
+========================================================= -->
 
 <nav class="mobile-bottom-nav">
 
-<a
-href="index.html"
-class="mobile-nav-item active">
 
-    <i class="fas fa-house"></i>
+    <a href="index.html"
+       class="mobile-nav-item active">
 
-    Home
+        <i class="fa-solid fa-house"></i>
 
-</a>
+        Home
 
-
-<a
-href="Books.html"
-class="mobile-nav-item">
-
-    <i class="fas fa-book-open"></i>
-
-    Learn
-
-</a>
+    </a>
 
 
-<a
-href="Assignments.html"
-class="mobile-nav-item">
+    <a href="Books.html"
+       class="mobile-nav-item">
 
-    <i class="fas fa-list-check"></i>
+        <i class="fa-solid fa-book-open"></i>
 
-    Tasks
+        Learn
 
-</a>
-
-
-<a
-href="Faq.html"
-class="mobile-nav-item">
-
-    <i class="fas fa-circle-question"></i>
-
-    FAQ
-
-</a>
+    </a>
 
 
-<a
-href="Aboutus.html"
-class="mobile-nav-item">
+    <a href="Assignments.html"
+       class="mobile-nav-item">
 
-    <i class="fas fa-user"></i>
+        <i class="fa-solid fa-list-check"></i>
 
-    About
+        Tasks
 
-</a>
+    </a>
+
+
+    <a href="Careers.html"
+       class="mobile-nav-item">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        Careers
+
+    </a>
+
+
+    <a href="Aboutus.html"
+       class="mobile-nav-item">
+
+        <i class="fa-solid fa-user"></i>
+
+        About
+
+    </a>
 
 </nav>
 
-<!-- =======================================================
+
+
+<!-- =========================================================
      JAVASCRIPT
-======================================================= -->
+========================================================= -->
 
 <script>
 
 
-/* ============================================
+/* =========================================================
    MOBILE MENU
-============================================ */
+========================================================= */
 
 function toggleMenu(){
 
     const menu =
     document.getElementById("mobileMenu");
 
-    const button =
+    const icon =
     document.querySelector(".menu-btn i");
 
 
@@ -2512,26 +3574,27 @@ function toggleMenu(){
 
     if(menu.classList.contains("active")){
 
-        button.classList.remove("fa-bars");
+        icon.classList.remove("fa-bars");
 
-        button.classList.add("fa-xmark");
+        icon.classList.add("fa-xmark");
 
     }
 
     else{
 
-        button.classList.remove("fa-xmark");
+        icon.classList.remove("fa-xmark");
 
-        button.classList.add("fa-bars");
+        icon.classList.add("fa-bars");
 
     }
 
 }
 
 
-/* ============================================
-   CLOSE MOBILE MENU WHEN LINK IS CLICKED
-============================================ */
+
+/* =========================================================
+   CLOSE MOBILE MENU
+========================================================= */
 
 document
 .querySelectorAll(".mobile-menu a")
@@ -2539,24 +3602,109 @@ document
 
     link.addEventListener("click",function(){
 
-        document
-        .getElementById("mobileMenu")
-        .classList.remove("active");
+        const menu =
+        document.getElementById("mobileMenu");
 
-
-        const button =
+        const icon =
         document.querySelector(".menu-btn i");
 
 
-        button.classList.remove("fa-xmark");
+        menu.classList.remove("active");
 
-        button.classList.add("fa-bars");
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
 
     });
 
 });
 
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+
+    function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:0.12
+    }
+
+);
+
+
+revealElements.forEach(function(element){
+
+    observer.observe(element);
+
+});
+
+
+
+/* =========================================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+        document.getElementById("mobileMenu");
+
+        const button =
+        document.querySelector(".menu-btn");
+
+
+        if(
+            menu.classList.contains("active") &&
+            !menu.contains(event.target) &&
+            !button.contains(event.target)
+        ){
+
+            menu.classList.remove("active");
+
+
+            const icon =
+            document.querySelector(".menu-btn i");
+
+
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
+
+        }
+
+    }
+);
+
 </script>
+
 
 </body>
 
