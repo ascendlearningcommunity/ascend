@@ -2,105 +2,146 @@ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ASCEND | Mathematics Careers</title>
+  <title>ASCEND | Statistics & Analytics Careers</title>
 
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
+
     :root {
-      --primary: #1565c0;
-      --primary-dark: #0d47a1;
+
+      --primary: #00897b;
+      --primary-dark: #00695c;
       --accent: #ffb703;
 
       --dark: #111827;
       --dark-2: #1f2937;
 
-      --bg: #f4f7fb;
+      --bg: #f4f8f7;
       --card: #ffffff;
 
       --text: #1f2937;
       --muted: #6b7280;
 
-      --border: #e2e8f0;
+      --border: #dfe7e5;
 
       --green: #15803d;
-      --orange: #ea580c;
+      --blue: #2563eb;
 
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --shadow:
+        0 10px 30px rgba(0,0,0,0.08);
     }
 
+
     body.dark-mode {
+
       --bg: #0f172a;
       --card: #1e293b;
+
       --text: #f1f5f9;
       --muted: #aeb7c4;
+
       --border: #334155;
 
       --dark: #020617;
       --dark-2: #0f172a;
 
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --shadow:
+        0 10px 30px rgba(0,0,0,0.35);
     }
 
+
     * {
+
       margin: 0;
       padding: 0;
+
       box-sizing: border-box;
     }
 
+
     html {
+
       scroll-behavior: smooth;
     }
 
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       background: var(--bg);
+
       color: var(--text);
+
       line-height: 1.6;
+
       transition: 0.3s;
     }
 
+
     a {
+
       text-decoration: none;
     }
 
+
     button,
     input {
+
       font: inherit;
     }
+
 
     /* =========================
        NAVBAR
     ========================= */
 
     .navbar {
+
       position: sticky;
+
       top: 0;
+
       z-index: 1000;
 
       background: var(--dark);
+
       color: white;
 
       padding: 13px 6%;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
+      box-shadow:
+        0 3px 15px rgba(0,0,0,0.25);
     }
 
+
     .brand {
+
       display: flex;
+
       align-items: center;
+
       gap: 10px;
     }
 
+
     .brand-logo {
+
       width: 42px;
       height: 42px;
 
@@ -109,32 +150,48 @@ html
       background: var(--primary);
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
       font-size: 20px;
     }
 
+
     .brand-name {
+
       font-size: 22px;
+
       font-weight: 800;
+
       letter-spacing: 2px;
     }
 
+
     .brand-name span {
+
       color: var(--accent);
     }
 
+
     .nav-actions {
+
       display: flex;
+
       align-items: center;
+
       gap: 10px;
     }
 
-    .nav-btn {
-      border: 1px solid rgba(255,255,255,0.2);
 
-      background: rgba(255,255,255,0.08);
+    .nav-btn {
+
+      border: 1px solid
+        rgba(255,255,255,0.2);
+
+      background:
+        rgba(255,255,255,0.08);
+
       color: white;
 
       padding: 9px 14px;
@@ -146,19 +203,25 @@ html
       transition: 0.3s;
     }
 
+
     .nav-btn:hover {
+
       background: var(--primary);
     }
+
 
     /* =========================
        HERO
     ========================= */
 
     .hero {
+
       min-height: 500px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       text-align: center;
@@ -168,69 +231,90 @@ html
       color: white;
 
       background:
+
         radial-gradient(
           circle at 15% 20%,
-          rgba(21,101,192,0.75),
+          rgba(0,137,123,0.75),
           transparent 35%
         ),
+
         radial-gradient(
           circle at 90% 80%,
           rgba(255,183,3,0.16),
           transparent 30%
         ),
+
         linear-gradient(
           135deg,
           #111827,
-          #082f49,
+          #063d36,
           #0f172a
         );
     }
 
+
     .hero-content {
+
       max-width: 950px;
     }
 
+
     .hero-badge {
+
       display: inline-flex;
 
       align-items: center;
+
       gap: 8px;
 
       padding: 8px 16px;
 
-      border: 1px solid rgba(255,255,255,0.2);
+      border:
+        1px solid rgba(255,255,255,0.2);
 
-      background: rgba(255,255,255,0.08);
+      background:
+        rgba(255,255,255,0.08);
 
       border-radius: 50px;
 
       margin-bottom: 20px;
 
       font-size: 13px;
+
       letter-spacing: 1px;
     }
 
+
     .hero h1 {
-      font-size: clamp(35px, 7vw, 68px);
+
+      font-size:
+        clamp(35px, 7vw, 68px);
 
       line-height: 1.05;
 
       margin-bottom: 18px;
     }
 
+
     .hero h1 span {
+
       color: var(--accent);
     }
 
-    .math-title {
-      font-size: clamp(20px, 3vw, 30px);
+
+    .stats-title {
+
+      font-size:
+        clamp(20px, 3vw, 30px);
 
       margin-bottom: 15px;
 
-      color: #dbeafe;
+      color: #ccfbf1;
     }
 
+
     .hero-description {
+
       max-width: 760px;
 
       margin: auto;
@@ -240,65 +324,87 @@ html
       font-size: 17px;
     }
 
+
     .hero-stats {
+
       margin-top: 35px;
 
       display: grid;
 
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns:
+        repeat(3, 1fr);
 
       gap: 15px;
     }
 
+
     .hero-stat {
+
       padding: 20px;
 
-      border: 1px solid rgba(255,255,255,0.1);
+      border:
+        1px solid rgba(255,255,255,0.1);
 
-      background: rgba(255,255,255,0.08);
+      background:
+        rgba(255,255,255,0.08);
 
       border-radius: 12px;
     }
 
+
     .hero-stat h3 {
+
       color: var(--accent);
 
       font-size: 25px;
     }
 
+
     .hero-stat p {
+
       color: #d1d5db;
 
       font-size: 13px;
     }
+
 
     /* =========================
        GENERAL
     ========================= */
 
     .container {
-      width: min(1200px, 92%);
+
+      width:
+        min(1200px, 92%);
 
       margin: auto;
     }
 
+
     .section {
+
       padding: 70px 0;
     }
 
+
     .section-header {
+
       text-align: center;
 
       margin-bottom: 40px;
     }
 
+
     .section-header h2 {
+
       font-size: 32px;
 
       margin-bottom: 10px;
     }
 
+
     .section-header p {
+
       color: var(--muted);
 
       max-width: 720px;
@@ -306,20 +412,24 @@ html
       margin: auto;
     }
 
+
     /* =========================
-       ASCEND FORMULA
+       ASCEND INTRO
     ========================= */
 
     .ascend-intro {
+
       display: grid;
 
-      grid-template-columns: 65px 1fr;
+      grid-template-columns:
+        65px 1fr;
 
       gap: 20px;
 
       background: var(--card);
 
-      border-left: 5px solid var(--primary);
+      border-left:
+        5px solid var(--primary);
 
       padding: 25px;
 
@@ -330,24 +440,33 @@ html
       margin-bottom: 40px;
     }
 
+
     .ascend-intro-icon {
+
       font-size: 38px;
 
       color: var(--primary);
     }
 
+
     .ascend-intro h3 {
+
       margin-bottom: 8px;
     }
 
+
     .ascend-intro p {
+
       color: var(--muted);
     }
 
+
     .formula {
+
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
       flex-wrap: wrap;
@@ -359,27 +478,34 @@ html
       font-weight: bold;
     }
 
+
     .formula span {
+
       padding: 8px 12px;
 
       border-radius: 8px;
 
       background: var(--bg);
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
     }
 
+
     .formula .plus {
+
       background: var(--primary);
 
       color: white;
     }
+
 
     /* =========================
        FILTER
     ========================= */
 
     .filter-area {
+
       display: flex;
 
       justify-content: center;
@@ -391,7 +517,9 @@ html
       margin-bottom: 35px;
     }
 
+
     .search-box {
+
       position: relative;
 
       flex: 1;
@@ -401,24 +529,31 @@ html
       max-width: 500px;
     }
 
+
     .search-box i {
+
       position: absolute;
 
       left: 14px;
 
       top: 50%;
 
-      transform: translateY(-50%);
+      transform:
+        translateY(-50%);
 
       color: var(--muted);
     }
 
+
     .search-box input {
+
       width: 100%;
 
-      padding: 13px 15px 13px 42px;
+      padding:
+        13px 15px 13px 42px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       border-radius: 9px;
 
@@ -429,10 +564,13 @@ html
       outline: none;
     }
 
+
     .filter-btn {
+
       padding: 11px 15px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       background: var(--card);
 
@@ -445,8 +583,10 @@ html
       transition: 0.3s;
     }
 
+
     .filter-btn.active,
     .filter-btn:hover {
+
       background: var(--primary);
 
       color: white;
@@ -454,23 +594,31 @@ html
       border-color: var(--primary);
     }
 
+
     /* =========================
-       CAREER CARDS
+       CAREER GRID
     ========================= */
 
     .career-grid {
+
       display: grid;
 
       grid-template-columns:
-        repeat(auto-fit, minmax(330px, 1fr));
+        repeat(
+          auto-fit,
+          minmax(330px, 1fr)
+        );
 
       gap: 25px;
     }
 
+
     .career-card {
+
       background: var(--card);
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       border-radius: 16px;
 
@@ -485,13 +633,20 @@ html
       flex-direction: column;
     }
 
-    .career-card:hover {
-      transform: translateY(-7px);
 
-      box-shadow: 0 20px 40px rgba(0,0,0,0.14);
+    .career-card:hover {
+
+      transform:
+        translateY(-7px);
+
+      box-shadow:
+        0 20px 40px
+        rgba(0,0,0,0.14);
     }
 
+
     .career-header {
+
       padding: 20px;
 
       background:
@@ -510,10 +665,13 @@ html
       align-items: center;
     }
 
+
     .rank-badge {
+
       padding: 6px 10px;
 
-      background: rgba(255,255,255,0.15);
+      background:
+        rgba(255,255,255,0.15);
 
       border-radius: 50px;
 
@@ -522,13 +680,16 @@ html
       font-weight: bold;
     }
 
+
     .career-icon {
+
       width: 48px;
       height: 48px;
 
       border-radius: 50%;
 
-      background: rgba(255,255,255,0.16);
+      background:
+        rgba(255,255,255,0.16);
 
       display: flex;
 
@@ -539,7 +700,9 @@ html
       font-size: 20px;
     }
 
+
     .career-body {
+
       padding: 24px;
 
       display: flex;
@@ -549,7 +712,9 @@ html
       flex: 1;
     }
 
+
     .career-body h3 {
+
       font-size: 21px;
 
       line-height: 1.3;
@@ -557,7 +722,9 @@ html
       margin-bottom: 10px;
     }
 
+
     .main-work {
+
       color: var(--muted);
 
       font-size: 14px;
@@ -565,31 +732,39 @@ html
       margin-bottom: 22px;
     }
 
+
     /* =========================
        SALARY
     ========================= */
 
     .salary-grid {
+
       display: grid;
 
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:
+        1fr 1fr;
 
       gap: 10px;
 
       margin-bottom: 22px;
     }
 
+
     .salary-box {
+
       padding: 13px;
 
       background: var(--bg);
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       border-radius: 10px;
     }
 
+
     .salary-box small {
+
       display: block;
 
       color: var(--muted);
@@ -599,17 +774,21 @@ html
       font-size: 11px;
     }
 
+
     .salary-box strong {
+
       color: var(--green);
 
       font-size: 15px;
     }
+
 
     /* =========================
        SKILLS
     ========================= */
 
     .section-label {
+
       display: flex;
 
       align-items: center;
@@ -623,11 +802,15 @@ html
       margin-bottom: 10px;
     }
 
+
     .section-label i {
+
       color: var(--primary);
     }
 
+
     .skills {
+
       display: flex;
 
       flex-wrap: wrap;
@@ -637,35 +820,44 @@ html
       margin-bottom: 20px;
     }
 
+
     .skill {
+
       padding: 6px 9px;
 
       border-radius: 50px;
 
-      background: rgba(21,101,192,0.09);
+      background:
+        rgba(0,137,123,0.09);
 
       color: var(--primary);
 
       font-size: 11px;
 
-      border: 1px solid rgba(21,101,192,0.1);
+      border:
+        1px solid rgba(0,137,123,0.1);
     }
+
 
     /* =========================
        BUTTONS
     ========================= */
 
     .card-actions {
+
       display: grid;
 
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:
+        1fr 1fr;
 
       gap: 10px;
 
       margin-top: auto;
     }
 
+
     .action-btn {
+
       border: none;
 
       padding: 11px;
@@ -679,35 +871,47 @@ html
       transition: 0.3s;
     }
 
+
     .details-btn {
+
       background: var(--bg);
 
       color: var(--text);
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
     }
 
+
     .details-btn:hover {
+
       border-color: var(--primary);
 
       color: var(--primary);
     }
 
+
     .learn-btn {
+
       background: var(--primary);
 
       color: white;
     }
 
+
     .learn-btn:hover {
-      background: var(--primary-dark);
+
+      background:
+        var(--primary-dark);
     }
+
 
     /* =========================
        MODAL
     ========================= */
 
     .modal {
+
       position: fixed;
 
       inset: 0;
@@ -720,19 +924,25 @@ html
 
       justify-content: center;
 
-      background: rgba(0,0,0,0.7);
+      background:
+        rgba(0,0,0,0.7);
 
       padding: 20px;
 
       overflow-y: auto;
     }
 
+
     .modal.show {
+
       display: flex;
     }
 
+
     .modal-box {
-      width: min(850px, 100%);
+
+      width:
+        min(850px,100%);
 
       max-height: 90vh;
 
@@ -748,22 +958,35 @@ html
 
       position: relative;
 
-      animation: modalOpen 0.25s ease;
+      animation:
+        modalOpen 0.25s ease;
     }
 
+
     @keyframes modalOpen {
+
       from {
+
         opacity: 0;
-        transform: translateY(20px) scale(0.98);
+
+        transform:
+          translateY(20px)
+          scale(0.98);
       }
 
       to {
+
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+          translateY(0)
+          scale(1);
       }
     }
 
+
     .close-modal {
+
       position: absolute;
 
       right: 18px;
@@ -771,7 +994,6 @@ html
       top: 18px;
 
       width: 38px;
-
       height: 38px;
 
       border: none;
@@ -787,13 +1009,17 @@ html
       font-size: 18px;
     }
 
+
     .modal-title {
+
       padding-right: 50px;
 
       margin-bottom: 25px;
     }
 
+
     .modal-rank {
+
       color: var(--primary);
 
       font-size: 12px;
@@ -803,19 +1029,25 @@ html
       letter-spacing: 1px;
     }
 
+
     .modal-title h2 {
+
       font-size: 28px;
 
       margin-top: 5px;
     }
 
+
     .modal-title p {
+
       color: var(--muted);
 
       margin-top: 8px;
     }
 
+
     .modal-skills {
+
       display: flex;
 
       flex-wrap: wrap;
@@ -823,10 +1055,13 @@ html
       gap: 9px;
     }
 
+
     .modal-skill {
+
       padding: 9px 12px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       background: var(--bg);
 
@@ -835,17 +1070,21 @@ html
       font-size: 13px;
     }
 
+
     /* =========================
-       RESOURCE LINKS
+       RESOURCES
     ========================= */
 
     .resources {
+
       display: grid;
 
       gap: 10px;
     }
 
+
     .resource {
+
       display: flex;
 
       align-items: center;
@@ -854,7 +1093,8 @@ html
 
       padding: 14px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       border-radius: 10px;
 
@@ -863,54 +1103,73 @@ html
       transition: 0.3s;
     }
 
+
     .resource:hover {
+
       border-color: var(--primary);
 
-      transform: translateX(5px);
+      transform:
+        translateX(5px);
     }
 
+
     .resource > i:first-child {
+
       color: var(--primary);
 
       font-size: 18px;
     }
 
+
     .resource-text {
+
       flex: 1;
     }
 
+
     .resource-text strong {
+
       display: block;
 
       font-size: 14px;
     }
 
+
     .resource-text small {
+
       color: var(--muted);
 
       font-size: 12px;
     }
 
+
     .external {
+
       color: var(--muted);
     }
+
 
     /* =========================
        ROADMAP
     ========================= */
 
     .roadmap {
+
       display: grid;
 
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns:
+        repeat(4, 1fr);
 
       gap: 20px;
     }
 
+
     .roadmap-card {
+
       background: var(--card);
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       border-radius: 13px;
 
@@ -921,12 +1180,14 @@ html
       box-shadow: var(--shadow);
     }
 
-    .roadmap-number {
-      width: 45px;
 
+    .roadmap-number {
+
+      width: 45px;
       height: 45px;
 
-      margin: 0 auto 15px;
+      margin:
+        0 auto 15px;
 
       border-radius: 50%;
 
@@ -943,7 +1204,9 @@ html
       font-weight: bold;
     }
 
+
     .roadmap-card p {
+
       color: var(--muted);
 
       font-size: 13px;
@@ -951,23 +1214,31 @@ html
       margin-top: 7px;
     }
 
+
     /* =========================
        RESOURCE HUB
     ========================= */
 
     .resource-hub {
+
       display: grid;
 
       grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+        repeat(
+          auto-fit,
+          minmax(220px, 1fr)
+        );
 
       gap: 18px;
     }
 
+
     .hub-card {
+
       background: var(--card);
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       border-radius: 13px;
 
@@ -978,20 +1249,26 @@ html
       transition: 0.3s;
     }
 
-    .hub-card:hover {
-      transform: translateY(-5px);
 
-      border-color: var(--primary);
+    .hub-card:hover {
+
+      transform:
+        translateY(-5px);
+
+      border-color:
+        var(--primary);
     }
 
-    .hub-icon {
-      width: 45px;
 
+    .hub-icon {
+
+      width: 45px;
       height: 45px;
 
       border-radius: 10px;
 
-      background: rgba(21,101,192,0.1);
+      background:
+        rgba(0,137,123,0.1);
 
       color: var(--primary);
 
@@ -1004,13 +1281,17 @@ html
       margin-bottom: 15px;
     }
 
+
     .hub-card h3 {
+
       font-size: 17px;
 
       margin-bottom: 7px;
     }
 
+
     .hub-card p {
+
       color: var(--muted);
 
       font-size: 13px;
@@ -1018,7 +1299,9 @@ html
       margin-bottom: 15px;
     }
 
+
     .hub-link {
+
       color: var(--primary);
 
       font-size: 13px;
@@ -1026,11 +1309,13 @@ html
       font-weight: bold;
     }
 
+
     /* =========================
        FOOTER
     ========================= */
 
     footer {
+
       background: var(--dark);
 
       color: #d1d5db;
@@ -1040,7 +1325,9 @@ html
       text-align: center;
     }
 
+
     footer h2 {
+
       color: white;
 
       letter-spacing: 2px;
@@ -1048,15 +1335,20 @@ html
       margin-bottom: 8px;
     }
 
+
     footer h2 span {
+
       color: var(--accent);
     }
 
+
     footer p {
+
       font-size: 13px;
 
       margin-top: 5px;
     }
+
 
     /* =========================
        RESPONSIVE
@@ -1065,52 +1357,80 @@ html
     @media (max-width: 750px) {
 
       .hero-stats {
+
         grid-template-columns: 1fr;
       }
 
+
       .roadmap {
-        grid-template-columns: 1fr 1fr;
+
+        grid-template-columns:
+          1fr 1fr;
       }
+
 
       .navbar {
-        padding: 12px 4%;
+
+        padding:
+          12px 4%;
       }
 
+
       .brand-name {
+
         font-size: 18px;
       }
 
+
       .nav-btn span {
+
         display: none;
       }
     }
 
+
     @media (max-width: 480px) {
 
       .career-grid {
+
         grid-template-columns: 1fr;
       }
+
 
       .roadmap {
+
         grid-template-columns: 1fr;
       }
+
 
       .salary-grid {
-        grid-template-columns: 1fr 1fr;
+
+        grid-template-columns:
+          1fr 1fr;
       }
+
 
       .card-actions {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
       }
+
 
       .modal-box {
-        padding: 25px 18px;
+
+        padding:
+          25px 18px;
       }
     }
+
   </style>
+
 </head>
 
+
 <body>
+
 
   <!-- =========================
        NAVBAR
@@ -1121,25 +1441,33 @@ html
     <div class="brand">
 
       <div class="brand-logo">
-        <i class="fa-solid fa-square-root-variable"></i>
+
+        <i class="fa-solid fa-chart-column"></i>
+
       </div>
 
       <div class="brand-name">
+
         AS<span>CEND</span>
+
       </div>
 
     </div>
 
+
     <div class="nav-actions">
 
-      <!-- Change ../index.html if your folder structure is different -->
-      <a href="../index.html" class="nav-btn">
+      <a
+        href="../index.html"
+        class="nav-btn"
+      >
 
         <i class="fa-solid fa-house"></i>
 
         <span>Home</span>
 
       </a>
+
 
       <button
         class="nav-btn"
@@ -1167,59 +1495,75 @@ html
 
     <div class="hero-content">
 
+
       <div class="hero-badge">
 
-        <i class="fa-solid fa-square-root-variable"></i>
+        <i class="fa-solid fa-chart-column"></i>
 
-        ASCEND •  MATHEMATICS
+        ASCEND • STATISTICS 
 
       </div>
 
+
       <h1>
 
-         Mathematics
+        Statistics, Data &
 
         <br>
 
-        <span>Career Pathway</span>
+        <span>Analytical Thinking</span>
 
       </h1>
 
 
+    
+
 
       <p class="hero-description">
 
-        Discover high-potential careers for Pure and Applied Mathematics
-        graduates across finance, actuarial science, optimization,
-        mathematical modelling, risk, economics, consulting and security.
+        Discover high-potential careers for Statistics graduates
+        across data science, actuarial science, quantitative finance,
+        risk, decision science, operations research, biostatistics,
+        economics and business analytics.
 
       </p>
 
+
       <div class="hero-stats">
+
 
         <div class="hero-stat">
 
           <h3>10</h3>
 
-          <p>High-Potential Careers</p>
+          <p>
+            High-Potential Careers
+          </p>
 
         </div>
+
 
         <div class="hero-stat">
 
           <h3>₹60+ LPA</h3>
 
-          <p>Potential 5-Year Range</p>
+          <p>
+            Potential 5-Year Range
+          </p>
 
         </div>
+
 
         <div class="hero-stat">
 
           <h3>Free</h3>
 
-          <p>Mathematics Learning Resources</p>
+          <p>
+            Learning Resources
+          </p>
 
         </div>
+
 
       </div>
 
@@ -1232,20 +1576,25 @@ html
 
 
     <!-- =========================
-         ASCEND INTRO
+         INTRO
     ========================= -->
 
     <section class="section">
 
+
       <div class="section-header">
 
-        <h2>ASCEND Your Mathematics Career</h2>
+        <h2>
+          ASCEND Your Statistics Career
+        </h2>
+
 
         <p>
 
-          Mathematics is not limited to teaching and academic research.
-          Strong mathematical thinking can lead to careers in finance,
-          risk, optimization, economics, business and advanced quantitative fields.
+          Statistics graduates can work far beyond
+          traditional statistician roles. Combine statistical
+          thinking with data tools, business knowledge and
+          domain expertise to create a modern career profile.
 
         </p>
 
@@ -1254,38 +1603,45 @@ html
 
       <div class="ascend-intro">
 
+
         <div class="ascend-intro-icon">
 
           <i class="fa-solid fa-compass"></i>
 
         </div>
 
+
         <div>
 
-          <h3>The ASCEND Mathematics Career Formula</h3>
+          <h3>
+            The ASCEND Statistics Career Formula
+          </h3>
+
 
           <p>
 
-            Combine mathematical foundations with statistics,
-            domain knowledge, digital tools and practical projects.
+            Build strong statistical foundations and combine
+            them with data, domain knowledge, communication
+            and practical projects.
 
           </p>
 
+
           <div class="formula">
-
-            <span>Mathematics</span>
-
-            <span class="plus">+</span>
 
             <span>Statistics</span>
 
             <span class="plus">+</span>
 
-            <span>Domain Skills</span>
+            <span>Data Skills</span>
 
             <span class="plus">+</span>
 
-            <span>Digital Tools</span>
+            <span>Domain Knowledge</span>
+
+            <span class="plus">+</span>
+
+            <span>Analytical Thinking</span>
 
             <span class="plus">+</span>
 
@@ -1308,9 +1664,13 @@ html
 
       <div class="filter-area">
 
+
         <div class="search-box">
 
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i
+            class="fa-solid fa-magnifying-glass"
+          ></i>
+
 
           <input
             type="text"
@@ -1328,6 +1688,15 @@ html
           All
         </button>
 
+
+        <button
+          class="filter-btn"
+          data-filter="data"
+        >
+          Data & Analytics
+        </button>
+
+
         <button
           class="filter-btn"
           data-filter="finance"
@@ -1335,12 +1704,14 @@ html
           Finance & Risk
         </button>
 
+
         <button
           class="filter-btn"
-          data-filter="analytics"
+          data-filter="research"
         >
-          Analytics
+          Research
         </button>
+
 
         <button
           class="filter-btn"
@@ -1349,12 +1720,6 @@ html
           Optimization
         </button>
 
-        <button
-          class="filter-btn"
-          data-filter="research"
-        >
-          Mathematics & Research
-        </button>
 
         <button
           class="filter-btn"
@@ -1367,13 +1732,14 @@ html
 
 
       <!-- =========================
-           CAREER GRID
+           CAREERS
       ========================= -->
 
       <div
         class="career-grid"
         id="careerGrid"
       ></div>
+
 
     </section>
 
@@ -1384,14 +1750,18 @@ html
 
     <section class="section">
 
+
       <div class="section-header">
 
-        <h2>ASCEND Mathematics Career Roadmap 🚀</h2>
+        <h2>
+          ASCEND Statistics Career Roadmap 🚀
+        </h2>
+
 
         <p>
 
-          Follow four stages to convert your mathematical knowledge
-          into a strong career profile.
+          Follow four stages to convert statistical
+          knowledge into a strong career profile.
 
         </p>
 
@@ -1400,16 +1770,22 @@ html
 
       <div class="roadmap">
 
+
         <div class="roadmap-card">
 
-          <div class="roadmap-number">1</div>
+          <div class="roadmap-number">
+            1
+          </div>
 
-          <h3>Discover</h3>
+          <h3>
+            Discover
+          </h3>
 
           <p>
 
-            Identify whether your interests fit finance,
-            research, optimization, business or mathematical modelling.
+            Identify whether your interests fit
+            data, finance, research, risk,
+            business or healthcare.
 
           </p>
 
@@ -1418,14 +1794,18 @@ html
 
         <div class="roadmap-card">
 
-          <div class="roadmap-number">2</div>
+          <div class="roadmap-number">
+            2
+          </div>
 
-          <h3>Learn</h3>
+          <h3>
+            Learn
+          </h3>
 
           <p>
 
-            Strengthen probability, statistics, optimization,
-            modelling and relevant digital tools.
+            Strengthen probability, inference,
+            regression, modelling and data tools.
 
           </p>
 
@@ -1434,14 +1814,19 @@ html
 
         <div class="roadmap-card">
 
-          <div class="roadmap-number">3</div>
+          <div class="roadmap-number">
+            3
+          </div>
 
-          <h3>Build</h3>
+          <h3>
+            Build
+          </h3>
 
           <p>
 
-            Create mathematical models, dashboards,
-            research projects, optimization projects and case studies.
+            Create statistical projects,
+            dashboards, research studies
+            and analytical case studies.
 
           </p>
 
@@ -1450,18 +1835,24 @@ html
 
         <div class="roadmap-card">
 
-          <div class="roadmap-number">4</div>
+          <div class="roadmap-number">
+            4
+          </div>
 
-          <h3>ASCEND</h3>
+          <h3>
+            ASCEND
+          </h3>
 
           <p>
 
             Build experience through internships,
-            competitions, projects and entry-level opportunities.
+            competitions, projects and
+            entry-level opportunities.
 
           </p>
 
         </div>
+
 
       </div>
 
@@ -1474,14 +1865,19 @@ html
 
     <section class="section">
 
+
       <div class="section-header">
 
-        <h2>Mathematics Learning Resource Hub 📚</h2>
+        <h2>
+          Statistics Learning Resource Hub 📚
+        </h2>
+
 
         <p>
 
-          Free and official learning platforms for mathematics,
-          statistics, optimization, mathematical modelling and related skills.
+          Free and accessible resources for probability,
+          statistics, data analysis, modelling and
+          analytical thinking.
 
         </p>
 
@@ -1497,19 +1893,27 @@ html
 
           <div class="hub-icon">
 
-            <i class="fa-solid fa-building-columns"></i>
+            <i
+              class="fa-solid fa-building-columns"
+            ></i>
 
           </div>
 
-          <h3>NPTEL / SWAYAM</h3>
+
+          <h3>
+            NPTEL
+          </h3>
+
 
           <p>
 
-            IIT and IISc-backed courses covering probability,
-            mathematical finance, optimization, number theory,
-            stochastic processes and mathematical modelling.
+            IIT and IISc-backed courses covering
+            Probability & Statistics, Statistical
+            Inference, Predictive Analytics,
+            Biostatistics and more.
 
           </p>
+
 
           <a
             href="https://www.nptel.ac.in/courses"
@@ -1518,9 +1922,11 @@ html
             class="hub-link"
           >
 
-            Explore Courses
+            Explore NPTEL
 
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square"
+            ></i>
 
           </a>
 
@@ -1533,29 +1939,39 @@ html
 
           <div class="hub-icon">
 
-            <i class="fa-solid fa-graduation-cap"></i>
+            <i
+              class="fa-solid fa-graduation-cap"
+            ></i>
 
           </div>
 
-          <h3>SWAYAM Mathematics</h3>
+
+          <h3>
+            SWAYAM
+          </h3>
+
 
           <p>
 
-            India's Ministry of Education platform with
-            university-level online courses and mathematics subjects.
+            India's Ministry of Education platform
+            offering university-level online courses
+            from Indian institutions.
 
           </p>
 
+
           <a
-            href="https://swayam.gov.in/explorer?category=Mathematics"
+            href="https://swayam.gov.in/"
             target="_blank"
             rel="noopener noreferrer"
             class="hub-link"
           >
 
-            Explore Mathematics
+            Explore SWAYAM
 
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square"
+            ></i>
 
           </a>
 
@@ -1568,29 +1984,39 @@ html
 
           <div class="hub-icon">
 
-            <i class="fa-solid fa-university"></i>
+            <i
+              class="fa-solid fa-university"
+            ></i>
 
           </div>
 
-          <h3>MIT OpenCourseWare</h3>
+
+          <h3>
+            MIT OpenCourseWare
+          </h3>
+
 
           <p>
 
-            Free MIT course materials including calculus,
-            linear algebra, probability and advanced mathematical topics.
+            Free MIT learning materials for probability,
+            statistics, mathematics and quantitative
+            analysis.
 
           </p>
 
+
           <a
-            href="https://ocw.mit.edu/"
+            href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/"
             target="_blank"
             rel="noopener noreferrer"
             class="hub-link"
           >
 
-            Explore MIT OCW
+            Learn Probability & Statistics
 
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square"
+            ></i>
 
           </a>
 
@@ -1603,29 +2029,39 @@ html
 
           <div class="hub-icon">
 
-            <i class="fa-solid fa-calculator"></i>
+            <i
+              class="fa-solid fa-chart-simple"
+            ></i>
 
           </div>
 
-          <h3>Khan Academy</h3>
+
+          <h3>
+            Khan Academy
+          </h3>
+
 
           <p>
 
-            Free mathematics learning resources for strengthening
-            foundational concepts and mathematical problem solving.
+            Free learning materials for statistics,
+            probability, data analysis and mathematical
+            foundations.
 
           </p>
 
+
           <a
-            href="https://www.khanacademy.org/math"
+            href="https://www.khanacademy.org/math/statistics-probability"
             target="_blank"
             rel="noopener noreferrer"
             class="hub-link"
           >
 
-            Learn Mathematics
+            Learn Statistics
 
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square"
+            ></i>
 
           </a>
 
@@ -1638,18 +2074,26 @@ html
 
           <div class="hub-icon">
 
-            <i class="fa-solid fa-book-open"></i>
+            <i
+              class="fa-solid fa-book-open"
+            ></i>
 
           </div>
 
-          <h3>OpenStax Mathematics</h3>
+
+          <h3>
+            OpenStax
+          </h3>
+
 
           <p>
 
-            Free openly licensed textbooks covering algebra,
-            calculus and statistics.
+            Free openly licensed textbooks and
+            learning materials for statistics,
+            mathematics and data-related foundations.
 
           </p>
+
 
           <a
             href="https://openstax.org/subjects/math"
@@ -1658,9 +2102,11 @@ html
             class="hub-link"
           >
 
-            Open Math Books
+            Open Resources
 
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square"
+            ></i>
 
           </a>
 
@@ -1671,11 +2117,12 @@ html
 
     </section>
 
+
   </main>
 
 
   <!-- =========================
-       CAREER MODAL
+       MODAL
   ========================= -->
 
   <div
@@ -1683,18 +2130,26 @@ html
     id="careerModal"
   >
 
+
     <div class="modal-box">
+
 
       <button
         class="close-modal"
         id="closeModal"
       >
 
-        <i class="fa-solid fa-xmark"></i>
+        <i
+          class="fa-solid fa-xmark"
+        ></i>
 
       </button>
 
-      <div id="modalContent"></div>
+
+      <div
+        id="modalContent"
+      ></div>
+
 
     </div>
 
@@ -1707,21 +2162,34 @@ html
 
   <footer>
 
+
     <h2>
+
       AS<span>CEND</span>
+
     </h2>
 
-    <p>
-      கணிதம் கற்று • திறன் வளர்த்து • உயர்ந்து செல்
-    </p>
 
     <p>
-      Learn. Build. Lead. ASCEND.
+
+      புள்ளியியல் கற்று • தரவை புரிந்து • உயர்ந்து செல்
+
     </p>
 
+
     <p>
+
+      Learn. Analyze. Build. Lead. ASCEND.
+
+    </p>
+
+
+    <p>
+
       © 2026 ASCEND Career Platform
+
     </p>
+
 
   </footer>
 
@@ -1732,528 +2200,830 @@ html
 
   <script>
 
+
     /* =========================================
        CAREER DATA
     ========================================= */
 
+
     const careers = [
+
 
       {
         rank: 1,
 
-        title: "Quantitative Analyst (Quant)",
+        title:
+          "Data Scientist / Statistical Data Scientist",
 
-        icon: "fa-chart-line",
+        icon:
+          "fa-chart-line",
 
-        category: "finance",
+        category:
+          "data",
 
         work:
-          "Use mathematics, probability, statistics and financial models to analyze markets, pricing, portfolios and investment decisions.",
+          "Analyze large datasets, identify patterns, build statistical models and support prediction and evidence-based decision making.",
 
         skills: [
-          "Advanced Mathematics",
-          "Probability",
+
           "Statistics",
-          "Financial Mathematics",
-          "Calculus",
-          "Linear Algebra",
-          "Python",
+
+          "Probability",
+
+          "Python / R",
+
           "SQL",
-          "Excel",
+
+          "Regression",
+
+          "Machine Learning",
+
+          "Data Visualization",
+
+          "Statistical Modelling",
+
           "Critical Thinking"
+
         ],
 
-        fresher: "₹8–18 LPA",
+        fresher:
+          "₹6–12 LPA",
 
-        experience: "₹25–60+ LPA",
+        experience:
+          "₹18–35+ LPA",
 
         resources: [
 
           {
-            name: "NPTEL Mathematical Finance",
-            type: "Mathematical finance courses",
-            url: "https://www.nptel.ac.in/courses"
+            name:
+              "NPTEL Statistics Courses",
+
+            type:
+              "Probability, statistics and statistical modelling",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "MIT OpenCourseWare",
-            type: "Free mathematics and quantitative learning",
-            url: "https://ocw.mit.edu/"
+            name:
+              "MIT Probability & Statistics",
+
+            type:
+              "Free university-level probability and statistics",
+
+            url:
+              "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/"
           },
 
           {
-            name: "SWAYAM Mathematics",
-            type: "Indian university mathematics courses",
-            url: "https://swayam.gov.in/explorer?category=Mathematics"
+            name:
+              "Khan Academy Statistics",
+
+            type:
+              "Statistics and probability foundations",
+
+            url:
+              "https://www.khanacademy.org/math/statistics-probability"
           }
 
         ]
+
       },
 
 
       {
         rank: 2,
 
-        title: "Actuary / Actuarial Analyst",
+        title:
+          "Actuarial Analyst / Actuary",
 
-        icon: "fa-shield-halved",
+        icon:
+          "fa-shield-halved",
 
-        category: "finance",
+        category:
+          "finance",
 
         work:
-          "Analyze uncertainty and financial risk for insurance, pensions, investments and long-term business decisions.",
+          "Analyze uncertainty and financial risk for insurance, pensions and other long-term financial decisions.",
 
         skills: [
+
           "Probability",
+
           "Statistics",
+
           "Financial Mathematics",
+
           "Risk Analysis",
+
           "Excel",
+
           "Data Analysis",
+
           "Actuarial Mathematics",
+
           "Communication"
+
         ],
 
-        fresher: "₹5–10 LPA",
+        fresher:
+          "₹5–10 LPA",
 
-        experience: "₹15–35+ LPA",
+        experience:
+          "₹15–35+ LPA",
 
         resources: [
 
           {
-            name: "NPTEL Probability & Statistics",
-            type: "Probability and statistical foundations",
-            url: "https://www.nptel.ac.in/courses"
+            name:
+              "NPTEL Probability & Statistics",
+
+            type:
+              "Probability and statistical foundations",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "SWAYAM",
-            type: "Free mathematics courses",
-            url: "https://swayam.gov.in/explorer?category=Mathematics"
+            name:
+              "NPTEL Financial Mathematics",
+
+            type:
+              "Financial mathematics and actuarial foundations",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "MIT OpenCourseWare",
-            type: "Probability and mathematics resources",
-            url: "https://ocw.mit.edu/"
+            name:
+              "SWAYAM",
+
+            type:
+              "Indian university-level courses",
+
+            url:
+              "https://swayam.gov.in/"
           }
 
         ]
+
       },
 
 
       {
         rank: 3,
 
-        title: "Operations Research Analyst",
+        title:
+          "Quantitative Analyst",
 
-        icon: "fa-diagram-project",
+        icon:
+          "fa-chart-column",
 
-        category: "optimization",
+        category:
+          "finance",
 
         work:
-          "Solve complex business and operational problems using optimization, mathematical modelling, scheduling and resource allocation.",
+          "Use probability, statistics and quantitative models to analyze financial markets, portfolios, pricing and investment problems.",
 
         skills: [
-          "Optimization",
-          "Linear Programming",
-          "Operations Research",
-          "Mathematical Modelling",
+
+          "Probability",
+
           "Statistics",
+
+          "Mathematics",
+
+          "Financial Markets",
+
           "Python",
-          "Excel",
-          "Problem Solving",
-          "Decision Analysis"
+
+          "SQL",
+
+          "Time Series",
+
+          "Modelling",
+
+          "Critical Thinking"
+
         ],
 
-        fresher: "₹5–9 LPA",
+        fresher:
+          "₹8–18 LPA",
 
-        experience: "₹12–25 LPA",
+        experience:
+          "₹25–60+ LPA",
 
         resources: [
 
           {
-            name: "NPTEL Mathematical Optimization",
-            type: "Optimization and mathematical programming",
-            url: "https://www.nptel.ac.in/courses"
+            name:
+              "NPTEL Mathematical Finance",
+
+            type:
+              "Mathematical finance",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "SWAYAM",
-            type: "Mathematics and optimization courses",
-            url: "https://swayam.gov.in/explorer?category=Mathematics"
+            name:
+              "MIT OpenCourseWare",
+
+            type:
+              "Probability and quantitative mathematics",
+
+            url:
+              "https://ocw.mit.edu/"
           },
 
           {
-            name: "MIT OpenCourseWare",
-            type: "Mathematics and optimization materials",
-            url: "https://ocw.mit.edu/"
+            name:
+              "SWAYAM",
+
+            type:
+              "Indian online university courses",
+
+            url:
+              "https://swayam.gov.in/"
           }
 
         ]
+
       },
 
 
       {
         rank: 4,
 
-        title: "Financial Risk Analyst / Risk Manager",
+        title:
+          "Decision Science Analyst",
 
-        icon: "fa-triangle-exclamation",
+        icon:
+          "fa-brain",
 
-        category: "finance",
+        category:
+          "data",
 
         work:
-          "Identify, measure and monitor financial risks faced by banks, companies, insurers and investment organizations.",
+          "Use statistics, experimentation and quantitative reasoning to improve business decisions, pricing, forecasting and resource allocation.",
 
         skills: [
-          "Probability",
+
           "Statistics",
-          "Risk Management",
-          "Financial Mathematics",
-          "Excel",
-          "SQL",
+
           "Data Analysis",
-          "Financial Markets",
-          "Critical Thinking"
+
+          "Experimentation",
+
+          "SQL",
+
+          "Excel",
+
+          "Forecasting",
+
+          "Business Thinking",
+
+          "Communication"
+
         ],
 
-        fresher: "₹5–10 LPA",
+        fresher:
+          "₹5–10 LPA",
 
-        experience: "₹15–30 LPA",
+        experience:
+          "₹15–30 LPA",
 
         resources: [
 
           {
-            name: "NPTEL Probability & Stochastic Processes",
-            type: "Probability and stochastic modelling",
-            url: "https://www.nptel.ac.in/courses"
+            name:
+              "NPTEL Predictive Analytics",
+
+            type:
+              "Regression and classification",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "MIT OpenCourseWare",
-            type: "Probability and quantitative mathematics",
-            url: "https://ocw.mit.edu/"
+            name:
+              "MIT Probability & Statistics",
+
+            type:
+              "Statistical inference and regression",
+
+            url:
+              "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/"
           },
 
           {
-            name: "SWAYAM Mathematics",
-            type: "University-level mathematics courses",
-            url: "https://swayam.gov.in/explorer?category=Mathematics"
+            name:
+              "SWAYAM",
+
+            type:
+              "Data and analytical learning",
+
+            url:
+              "https://swayam.gov.in/"
           }
 
         ]
+
       },
 
 
       {
         rank: 5,
 
-        title: "Mathematical / Statistical Modeler",
+        title:
+          "Risk Analyst / Risk Manager",
 
-        icon: "fa-function",
+        icon:
+          "fa-triangle-exclamation",
 
-        category: "research",
+        category:
+          "finance",
 
         work:
-          "Develop mathematical and statistical models to understand, simulate and forecast real-world systems and outcomes.",
+          "Identify, measure and monitor financial, operational and business risks using statistical and analytical techniques.",
 
         skills: [
-          "Mathematical Modelling",
+
           "Statistics",
+
           "Probability",
-          "Calculus",
-          "Differential Equations",
-          "Linear Algebra",
-          "Python",
-          "R",
-          "Numerical Methods"
+
+          "Risk Modelling",
+
+          "Data Analysis",
+
+          "Excel",
+
+          "SQL",
+
+          "Financial Knowledge",
+
+          "Analytical Thinking"
+
         ],
 
-        fresher: "₹5–10 LPA",
+        fresher:
+          "₹5–10 LPA",
 
-        experience: "₹14–28 LPA",
+        experience:
+          "₹15–30 LPA",
 
         resources: [
 
           {
-            name: "NPTEL Mathematical Modelling",
-            type: "Mathematical modelling and applications",
-            url: "https://www.nptel.ac.in/courses"
+            name:
+              "NPTEL Probability Courses",
+
+            type:
+              "Probability and stochastic processes",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "MIT OpenCourseWare",
-            type: "Advanced mathematics resources",
-            url: "https://ocw.mit.edu/"
+            name:
+              "MIT Probability & Statistics",
+
+            type:
+              "Probability and statistical inference",
+
+            url:
+              "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/"
           },
 
           {
-            name: "OpenStax Mathematics",
-            type: "Free mathematics textbooks",
-            url: "https://openstax.org/subjects/math"
+            name:
+              "SWAYAM",
+
+            type:
+              "Statistics and quantitative courses",
+
+            url:
+              "https://swayam.gov.in/"
           }
 
         ]
+
       },
 
 
       {
         rank: 6,
 
-        title: "Business Analytics & Decision Science Specialist",
+        title:
+          "Operations Research Analyst",
 
-        icon: "fa-chart-pie",
+        icon:
+          "fa-diagram-project",
 
-        category: "analytics",
+        category:
+          "optimization",
 
         work:
-          "Use quantitative analysis, statistics and mathematical reasoning to support pricing, forecasting, planning and business decisions.",
+          "Use quantitative methods to solve optimization, scheduling, logistics and resource allocation problems.",
 
         skills: [
-          "Mathematics",
+
           "Statistics",
-          "Business Analytics",
+
+          "Optimization",
+
+          "Operations Research",
+
+          "Linear Programming",
+
+          "Mathematical Modelling",
+
           "Excel",
-          "SQL",
-          "Power BI",
-          "Data Analysis",
-          "Forecasting",
-          "Communication"
+
+          "Python",
+
+          "Problem Solving"
+
         ],
 
-        fresher: "₹4.5–9 LPA",
+        fresher:
+          "₹5–9 LPA",
 
-        experience: "₹12–25 LPA",
+        experience:
+          "₹12–25 LPA",
 
         resources: [
 
           {
-            name: "NPTEL Statistics",
-            type: "Statistics and quantitative analysis",
-            url: "https://www.nptel.ac.in/courses"
+            name:
+              "NPTEL Optimization",
+
+            type:
+              "Optimization and mathematical programming",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "Khan Academy Mathematics",
-            type: "Free mathematics foundations",
-            url: "https://www.khanacademy.org/math"
+            name:
+              "NPTEL Statistics",
+
+            type:
+              "Statistical foundations",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "SWAYAM",
-            type: "University-level quantitative courses",
-            url: "https://swayam.gov.in/"
+            name:
+              "MIT OpenCourseWare",
+
+            type:
+              "Free quantitative learning materials",
+
+            url:
+              "https://ocw.mit.edu/"
           }
 
         ]
+
       },
 
 
       {
         rank: 7,
 
-        title: "Supply Chain & Optimization Specialist",
+        title:
+          "Biostatistician / Clinical Data Analyst",
 
-        icon: "fa-truck-fast",
+        icon:
+          "fa-dna",
 
-        category: "optimization",
+        category:
+          "research",
 
         work:
-          "Optimize transportation, inventory, production, scheduling and distribution using mathematical and operational models.",
+          "Apply statistical methods to biological, clinical and health-related data to support research and evidence-based conclusions.",
 
         skills: [
-          "Optimization",
-          "Operations Research",
-          "Linear Programming",
+
           "Statistics",
-          "Supply Chain",
-          "Forecasting",
-          "Excel",
+
+          "Probability",
+
+          "Experimental Design",
+
+          "Hypothesis Testing",
+
+          "R",
+
           "Python",
-          "Decision Making"
+
+          "Clinical Research",
+
+          "Data Analysis"
+
         ],
 
-        fresher: "₹5–9 LPA",
+        fresher:
+          "₹5–10 LPA",
 
-        experience: "₹12–24 LPA",
+        experience:
+          "₹14–28 LPA",
 
         resources: [
 
           {
-            name: "NPTEL Linear Programming",
-            type: "Optimization and mathematical programming",
-            url: "https://www.nptel.ac.in/courses"
+            name:
+              "NPTEL Introduction to Biostatistics",
+
+            type:
+              "Biostatistics, clinical trials and R",
+
+            url:
+              "https://www.nptel.ac.in/courses/102101056"
           },
 
           {
-            name: "NPTEL Mathematical Modelling",
-            type: "Applied mathematical modelling",
-            url: "https://www.nptel.ac.in/courses"
+            name:
+              "NPTEL Statistics",
+
+            type:
+              "Statistical inference and analysis",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "MIT OpenCourseWare",
-            type: "Free quantitative learning materials",
-            url: "https://ocw.mit.edu/"
+            name:
+              "MIT OpenCourseWare",
+
+            type:
+              "Probability and statistics",
+
+            url:
+              "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/"
           }
 
         ]
+
       },
 
 
       {
         rank: 8,
 
-        title: "Management Consultant – Analytics / Strategy",
+        title:
+          "Business Intelligence / Analytics Specialist",
 
-        icon: "fa-briefcase",
+        icon:
+          "fa-chart-pie",
 
-        category: "strategy",
+        category:
+          "data",
 
         work:
-          "Solve business and strategic problems using structured reasoning, quantitative analysis, modelling and evidence-based decision making.",
+          "Transform organizational data into dashboards, reports, trends and actionable insights for business teams.",
 
         skills: [
-          "Mathematical Reasoning",
-          "Business Analysis",
+
           "Statistics",
+
+          "SQL",
+
           "Excel",
-          "PowerPoint",
-          "Problem Solving",
-          "Communication",
-          "Case Analysis",
-          "Strategy"
+
+          "Power BI",
+
+          "Tableau",
+
+          "Data Visualization",
+
+          "Business Analysis",
+
+          "Data Interpretation"
+
         ],
 
-        fresher: "₹6–12 LPA",
+        fresher:
+          "₹4.5–9 LPA",
 
-        experience: "₹18–35+ LPA",
+        experience:
+          "₹12–25 LPA",
 
         resources: [
 
           {
-            name: "SWAYAM",
-            type: "Management and quantitative courses",
-            url: "https://swayam.gov.in/"
+            name:
+              "NPTEL Statistics",
+
+            type:
+              "Statistics and quantitative analysis",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "NPTEL",
-            type: "Mathematics and management courses",
-            url: "https://www.nptel.ac.in/"
+            name:
+              "Khan Academy Statistics",
+
+            type:
+              "Statistics and probability",
+
+            url:
+              "https://www.khanacademy.org/math/statistics-probability"
           },
 
           {
-            name: "MIT OpenCourseWare",
-            type: "Free academic and quantitative resources",
-            url: "https://ocw.mit.edu/"
+            name:
+              "SWAYAM",
+
+            type:
+              "Online courses from Indian institutions",
+
+            url:
+              "https://swayam.gov.in/"
           }
 
         ]
+
       },
 
 
       {
         rank: 9,
 
-        title: "Econometrician / Economic Forecasting Analyst",
+        title:
+          "Econometrician / Economic Forecasting Analyst",
 
-        icon: "fa-arrow-trend-up",
+        icon:
+          "fa-arrow-trend-up",
 
-        category: "analytics",
+        category:
+          "research",
 
         work:
-          "Use mathematical and statistical techniques to study economic relationships, analyze trends and develop forecasts.",
+          "Use statistics and econometric models to analyze economic relationships, trends and forecasts.",
 
         skills: [
-          "Econometrics",
+
           "Statistics",
-          "Probability",
-          "Mathematical Modelling",
+
+          "Econometrics",
+
           "Regression",
+
           "Time Series",
+
+          "Probability",
+
           "R",
+
           "Python",
-          "Economics"
+
+          "Economics",
+
+          "Forecasting"
+
         ],
 
-        fresher: "₹5–9 LPA",
+        fresher:
+          "₹5–9 LPA",
 
-        experience: "₹12–25 LPA",
+        experience:
+          "₹12–25 LPA",
 
         resources: [
 
           {
-            name: "NPTEL Mathematics for Economics",
-            type: "Mathematical applications in economics",
-            url: "https://www.nptel.ac.in/courses/109103188"
+            name:
+              "NPTEL Statistics & Econometrics",
+
+            type:
+              "Statistics and econometric foundations",
+
+            url:
+              "https://www.nptel.ac.in/courses"
           },
 
           {
-            name: "NPTEL Statistics",
-            type: "Statistical foundations",
-            url: "https://www.nptel.ac.in/courses"
+            name:
+              "MIT Probability & Statistics",
+
+            type:
+              "Probability, inference and regression",
+
+            url:
+              "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/"
           },
 
           {
-            name: "SWAYAM",
-            type: "Economics and mathematics courses",
-            url: "https://swayam.gov.in/"
+            name:
+              "SWAYAM",
+
+            type:
+              "Economics and quantitative courses",
+
+            url:
+              "https://swayam.gov.in/"
           }
 
         ]
+
       },
 
 
       {
         rank: 10,
 
-        title: "Cryptography / Mathematical Security Specialist",
+        title:
+          "Analytics & Strategy Consultant",
 
-        icon: "fa-lock",
+        icon:
+          "fa-briefcase",
 
-        category: "research",
+        category:
+          "strategy",
 
         work:
-          "Apply mathematical concepts such as number theory, algebra and discrete mathematics to secure information and communication systems.",
+          "Solve business problems using quantitative analysis, research, forecasting and structured analytical thinking.",
 
         skills: [
-          "Number Theory",
-          "Abstract Algebra",
-          "Discrete Mathematics",
-          "Cryptography",
-          "Algorithms",
-          "Mathematical Proof",
-          "Programming",
-          "Problem Solving"
+
+          "Statistics",
+
+          "Data Interpretation",
+
+          "Business Analysis",
+
+          "Excel",
+
+          "Problem Solving",
+
+          "Presentation",
+
+          "Communication",
+
+          "Case Analysis",
+
+          "Strategy"
+
         ],
 
-        fresher: "₹6–12 LPA",
+        fresher:
+          "₹6–12 LPA",
 
-        experience: "₹15–35+ LPA",
+        experience:
+          "₹18–35+ LPA",
 
         resources: [
 
           {
-            name: "NPTEL Number Theory",
-            type: "Number theory and mathematical foundations",
-            url: "https://www.nptel.ac.in/courses"
+            name:
+              "SWAYAM",
+
+            type:
+              "Management and analytical courses",
+
+            url:
+              "https://swayam.gov.in/"
           },
 
           {
-            name: "MIT OpenCourseWare",
-            type: "Free mathematics and computer science materials",
-            url: "https://ocw.mit.edu/"
+            name:
+              "NPTEL",
+
+            type:
+              "Statistics, analytics and management courses",
+
+            url:
+              "https://www.nptel.ac.in/"
           },
 
           {
-            name: "SWAYAM Mathematics",
-            type: "University-level mathematics",
-            url: "https://swayam.gov.in/explorer?category=Mathematics"
+            name:
+              "MIT OpenCourseWare",
+
+            type:
+              "Free quantitative and analytical learning",
+
+            url:
+              "https://ocw.mit.edu/"
           }
 
         ]
+
       }
 
     ];
@@ -2264,22 +3034,39 @@ html
     ========================================= */
 
     const careerGrid =
-      document.getElementById("careerGrid");
+      document.getElementById(
+        "careerGrid"
+      );
+
 
     const searchInput =
-      document.getElementById("searchInput");
+      document.getElementById(
+        "searchInput"
+      );
+
 
     const modal =
-      document.getElementById("careerModal");
+      document.getElementById(
+        "careerModal"
+      );
+
 
     const modalContent =
-      document.getElementById("modalContent");
+      document.getElementById(
+        "modalContent"
+      );
+
 
     const closeModal =
-      document.getElementById("closeModal");
+      document.getElementById(
+        "closeModal"
+      );
+
 
     const filterButtons =
-      document.querySelectorAll(".filter-btn");
+      document.querySelectorAll(
+        ".filter-btn"
+      );
 
 
     let currentFilter = "all";
@@ -2291,6 +3078,7 @@ html
 
     function renderCareers() {
 
+
       const searchTerm =
         searchInput.value
           .toLowerCase()
@@ -2298,36 +3086,46 @@ html
 
 
       const filtered =
-        careers.filter(career => {
-
-          const searchableText = `
-
-            ${career.title}
-
-            ${career.work}
-
-            ${career.skills.join(" ")}
-
-            ${career.category}
-
-          `.toLowerCase();
+        careers.filter(
+          career => {
 
 
-          const categoryMatch =
-            currentFilter === "all" ||
-            career.category === currentFilter;
+            const searchableText = `
+
+              ${career.title}
+
+              ${career.work}
+
+              ${career.skills.join(" ")}
+
+              ${career.category}
+
+            `.toLowerCase();
 
 
-          const searchMatch =
-            searchableText.includes(searchTerm);
+            const categoryMatch =
+              currentFilter === "all" ||
+              career.category ===
+                currentFilter;
 
 
-          return categoryMatch && searchMatch;
+            const searchMatch =
+              searchableText.includes(
+                searchTerm
+              );
 
-        });
+
+            return (
+              categoryMatch &&
+              searchMatch
+            );
+
+          }
+        );
 
 
       if (!filtered.length) {
+
 
         careerGrid.innerHTML = `
 
@@ -2341,43 +3139,68 @@ html
           >
 
             <i
-              class="fa-solid fa-magnifying-glass"
+              class="
+                fa-solid
+                fa-magnifying-glass
+              "
               style="
                 font-size:38px;
                 margin-bottom:15px;
               "
             ></i>
 
-            <h3>No Career Found</h3>
+
+            <h3>
+              No Career Found
+            </h3>
+
 
             <p>
-              Try another career, skill or category.
+              Try another career,
+              skill or category.
             </p>
 
           </div>
 
         `;
 
-        return;
 
+        return;
       }
 
 
       careerGrid.innerHTML =
-        filtered.map(career => `
 
-          <article class="career-card">
+        filtered.map(
+          career => `
 
-            <div class="career-header">
+          <article
+            class="career-card"
+          >
 
-              <span class="rank-badge">
+
+            <div
+              class="career-header"
+            >
+
+              <span
+                class="rank-badge"
+              >
+
                 RANK #${career.rank}
+
               </span>
 
-              <div class="career-icon">
+
+              <div
+                class="career-icon"
+              >
 
                 <i
-                  class="fa-solid ${career.icon}"
+                  class="
+                    fa-solid
+                    ${career.icon}
+                  "
                 ></i>
 
               </div>
@@ -2385,21 +3208,31 @@ html
             </div>
 
 
-            <div class="career-body">
+            <div
+              class="career-body"
+            >
+
 
               <h3>
                 ${career.title}
               </h3>
 
 
-              <p class="main-work">
+              <p
+                class="main-work"
+              >
                 ${career.work}
               </p>
 
 
-              <div class="salary-grid">
+              <div
+                class="salary-grid"
+              >
 
-                <div class="salary-box">
+
+                <div
+                  class="salary-box"
+                >
 
                   <small>
                     FRESHER SALARY
@@ -2412,7 +3245,9 @@ html
                 </div>
 
 
-                <div class="salary-box">
+                <div
+                  class="salary-box"
+                >
 
                   <small>
                     5 YEARS EXPERIENCE
@@ -2424,13 +3259,19 @@ html
 
                 </div>
 
+
               </div>
 
 
-              <div class="section-label">
+              <div
+                class="section-label"
+              >
 
                 <i
-                  class="fa-solid fa-list-check"
+                  class="
+                    fa-solid
+                    fa-list-check
+                  "
                 ></i>
 
                 Required Skills
@@ -2438,28 +3279,47 @@ html
               </div>
 
 
-              <div class="skills">
+              <div
+                class="skills"
+              >
 
-                ${career.skills.map(skill => `
+                ${career.skills.map(
+                  skill => `
 
-                  <span class="skill">
-                    ${skill}
-                  </span>
+                    <span
+                      class="skill"
+                    >
+                      ${skill}
+                    </span>
 
-                `).join("")}
+                  `
+                ).join("")}
 
               </div>
 
 
-              <div class="card-actions">
+              <div
+                class="card-actions"
+              >
+
 
                 <button
-                  class="action-btn details-btn"
-                  onclick="showCareer(${career.rank})"
+                  class="
+                    action-btn
+                    details-btn
+                  "
+                  onclick="
+                    showCareer(
+                      ${career.rank}
+                    )
+                  "
                 >
 
                   <i
-                    class="fa-solid fa-circle-info"
+                    class="
+                      fa-solid
+                      fa-circle-info
+                    "
                   ></i>
 
                   Details
@@ -2468,38 +3328,54 @@ html
 
 
                 <button
-                  class="action-btn learn-btn"
-                  onclick="showCareer(${career.rank})"
+                  class="
+                    action-btn
+                    learn-btn
+                  "
+                  onclick="
+                    showCareer(
+                      ${career.rank}
+                    )
+                  "
                 >
 
                   <i
-                    class="fa-solid fa-book-open"
+                    class="
+                      fa-solid
+                      fa-book-open
+                    "
                   ></i>
 
                   Learn Free
 
                 </button>
 
+
               </div>
+
 
             </div>
 
+
           </article>
 
-        `).join("");
+        `
+        ).join("");
 
     }
 
 
     /* =========================================
-       SHOW CAREER MODAL
+       SHOW CAREER
     ========================================= */
 
     function showCareer(rank) {
 
+
       const career =
         careers.find(
-          item => item.rank === rank
+          item =>
+            item.rank === rank
         );
 
 
@@ -2508,11 +3384,18 @@ html
 
       modalContent.innerHTML = `
 
-        <div class="modal-title">
 
-          <div class="modal-rank">
+        <div
+          class="modal-title"
+        >
 
-            ASCEND CAREER #${career.rank}
+
+          <div
+            class="modal-rank"
+          >
+
+            ASCEND CAREER
+            #${career.rank}
 
           </div>
 
@@ -2526,16 +3409,23 @@ html
             ${career.work}
           </p>
 
+
         </div>
 
 
-        <div class="salary-grid">
+        <div
+          class="salary-grid"
+        >
 
-          <div class="salary-box">
+
+          <div
+            class="salary-box"
+          >
 
             <small>
               FRESHER SALARY
             </small>
+
 
             <strong>
               ${career.fresher}
@@ -2544,11 +3434,14 @@ html
           </div>
 
 
-          <div class="salary-box">
+          <div
+            class="salary-box"
+          >
 
             <small>
               5 YEARS EXPERIENCE
             </small>
+
 
             <strong>
               ${career.experience}
@@ -2556,15 +3449,24 @@ html
 
           </div>
 
+
         </div>
 
 
-        <div style="margin-top:25px;">
+        <div
+          style="margin-top:25px;"
+        >
 
-          <div class="section-label">
+
+          <div
+            class="section-label"
+          >
 
             <i
-              class="fa-solid fa-list-check"
+              class="
+                fa-solid
+                fa-list-check
+              "
             ></i>
 
             Required Skills
@@ -2572,27 +3474,44 @@ html
           </div>
 
 
-          <div class="modal-skills">
+          <div
+            class="modal-skills"
+          >
 
-            ${career.skills.map(skill => `
+            ${career.skills.map(
+              skill => `
 
-              <span class="modal-skill">
-                ${skill}
-              </span>
+                <span
+                  class="modal-skill"
+                >
 
-            `).join("")}
+                  ${skill}
+
+                </span>
+
+              `
+            ).join("")}
 
           </div>
+
 
         </div>
 
 
-        <div style="margin-top:30px;">
+        <div
+          style="margin-top:30px;"
+        >
 
-          <div class="section-label">
+
+          <div
+            class="section-label"
+          >
 
             <i
-              class="fa-solid fa-graduation-cap"
+              class="
+                fa-solid
+                fa-graduation-cap
+              "
             ></i>
 
             Free Learning Resources
@@ -2600,63 +3519,88 @@ html
           </div>
 
 
-          <div class="resources">
-
-            ${career.resources.map(resource => `
-
-              <a
-                href="${resource.url}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="resource"
-              >
-
-                <i
-                  class="fa-solid fa-book"
-                ></i>
+          <div
+            class="resources"
+          >
 
 
-                <div class="resource-text">
+            ${career.resources.map(
+              resource => `
 
-                  <strong>
-                    ${resource.name}
-                  </strong>
-
-                  <small>
-                    ${resource.type}
-                  </small>
-
-                </div>
+                <a
+                  href="${resource.url}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="resource"
+                >
 
 
-                <i
-                  class="
-                    fa-solid
-                    fa-arrow-up-right-from-square
-                    external
-                  "
-                ></i>
+                  <i
+                    class="
+                      fa-solid
+                      fa-book
+                    "
+                  ></i>
 
-              </a>
 
-            `).join("")}
+                  <div
+                    class="resource-text"
+                  >
+
+                    <strong>
+                      ${resource.name}
+                    </strong>
+
+                    <small>
+                      ${resource.type}
+                    </small>
+
+                  </div>
+
+
+                  <i
+                    class="
+                      fa-solid
+                      fa-arrow-up-right-from-square
+                      external
+                    "
+                  ></i>
+
+
+                </a>
+
+              `
+            ).join("")}
+
 
           </div>
+
 
         </div>
 
 
-        <div style="margin-top:30px;">
+        <div
+          style="margin-top:30px;"
+        >
+
 
           <div
             class="ascend-intro"
-            style="margin-bottom:0;"
+            style="
+              margin-bottom:0;
+            "
           >
 
-            <div class="ascend-intro-icon">
+
+            <div
+              class="ascend-intro-icon"
+            >
 
               <i
-                class="fa-solid fa-arrow-trend-up"
+                class="
+                  fa-solid
+                  fa-arrow-trend-up
+                "
               ></i>
 
             </div>
@@ -2664,32 +3608,42 @@ html
 
             <div>
 
+
               <h3>
                 ASCEND Action Plan
               </h3>
 
+
               <p>
 
-                Start with the recommended mathematics resources.
-                Strengthen statistics and domain knowledge.
-                Learn the tools relevant to your chosen career.
-                Build 2–3 practical projects and document your results
-                in a portfolio.
+                Start with statistics and probability
+                fundamentals. Learn the tools required
+                for your chosen career. Build 2–3
+                practical projects, document your
+                analysis and create a portfolio.
 
               </p>
 
+
             </div>
+
 
           </div>
 
+
         </div>
+
 
       `;
 
 
-      modal.classList.add("show");
+      modal.classList.add(
+        "show"
+      );
 
-      document.body.style.overflow = "hidden";
+
+      document.body.style.overflow =
+        "hidden";
 
     }
 
@@ -2708,32 +3662,39 @@ html
        FILTER BUTTONS
     ========================================= */
 
-    filterButtons.forEach(button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          filterButtons.forEach(btn => {
-
-            btn.classList.remove("active");
-
-          });
+    filterButtons.forEach(
+      button => {
 
 
-          button.classList.add("active");
+        button.addEventListener(
+          "click",
+          () => {
 
 
-          currentFilter =
-            button.dataset.filter;
+            filterButtons.forEach(
+              btn =>
+                btn.classList.remove(
+                  "active"
+                )
+            );
 
 
-          renderCareers();
+            button.classList.add(
+              "active"
+            );
 
-        }
-      );
 
-    });
+            currentFilter =
+              button.dataset.filter;
+
+
+            renderCareers();
+
+          }
+        );
+
+      }
+    );
 
 
     /* =========================================
@@ -2742,9 +3703,14 @@ html
 
     function closeCareerModal() {
 
-      modal.classList.remove("show");
 
-      document.body.style.overflow = "";
+      modal.classList.remove(
+        "show"
+      );
+
+
+      document.body.style.overflow =
+        "";
 
     }
 
@@ -2759,7 +3725,10 @@ html
       "click",
       event => {
 
-        if (event.target === modal) {
+
+        if (
+          event.target === modal
+        ) {
 
           closeCareerModal();
 
@@ -2773,7 +3742,10 @@ html
       "keydown",
       event => {
 
-        if (event.key === "Escape") {
+
+        if (
+          event.key === "Escape"
+        ) {
 
           closeCareerModal();
 
@@ -2788,15 +3760,21 @@ html
     ========================================= */
 
     const themeButton =
-      document.getElementById("themeButton");
+      document.getElementById(
+        "themeButton"
+      );
+
 
     const themeIcon =
-      document.getElementById("themeIcon");
+      document.getElementById(
+        "themeIcon"
+      );
 
 
     themeButton.addEventListener(
       "click",
       () => {
+
 
         document.body.classList.toggle(
           "dark-mode"
@@ -2816,8 +3794,10 @@ html
 
 
         localStorage.setItem(
-          "ascendMathTheme",
-          dark ? "dark" : "light"
+          "ascendStatisticsTheme",
+          dark
+            ? "dark"
+            : "light"
         );
 
       }
@@ -2825,18 +3805,20 @@ html
 
 
     /* =========================================
-       LOAD SAVED THEME
+       LOAD THEME
     ========================================= */
 
     if (
       localStorage.getItem(
-        "ascendMathTheme"
+        "ascendStatisticsTheme"
       ) === "dark"
     ) {
+
 
       document.body.classList.add(
         "dark-mode"
       );
+
 
       themeIcon.className =
         "fa-solid fa-sun";
@@ -2850,7 +3832,9 @@ html
 
     renderCareers();
 
+
   </script>
+
 
 </body>
 </html>
