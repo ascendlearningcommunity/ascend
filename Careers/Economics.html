@@ -4,53 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ASCEND | Data Science Careers</title>
+  <title>ASCEND | Economics Careers</title>
 
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   >
 
   <style>
+    /* =========================================================
+       ASCEND ECONOMICS CAREER PAGE
+       Theme: Navy + Teal + Gold
+       ========================================================= */
 
     :root {
-      --primary: #0000ff;
-      --primary-dark: #03fdfd;
-      --accent: #ffb703;
+      --primary: #00ff00;
+      --primary-dark: #00ff00;
+      --secondary: #000;
+      --secondary-dark: #00ff00;
+      --accent: #f59e0b;
 
-      --dark: #111827;
-      --dark-2: #1f2937;
-
-      --bg: #f5f7fb;
+      --bg: #f4f7fa;
       --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --border: #dfe5ec;
 
-      --text: #1f2937;
-      --muted: #6b7280;
+      --success: #15803d;
+      --danger: #dc2626;
 
-      --border: #e5e7eb;
-
-      --green: #15803d;
+      --navy-soft: #eaf0f7;
+      --teal-soft: #e7f6f4;
+      --gold-soft: #fff7df;
 
       --shadow:
-        0 10px 30px rgba(0, 0, 0, 0.08);
+        0 10px 30px rgba(30, 58, 95, 0.09);
+
+      --shadow-hover:
+        0 20px 45px rgba(30, 58, 95, 0.16);
     }
 
     body.dark-mode {
+      --primary: #4d78aa;
+      --primary-dark: #1e3552;
+      --secondary: #2bb3a7;
+      --secondary-dark: #168d83;
+      --accent: #fbbf24;
 
-      --bg: #0f172a;
-      --card: #1e293b;
-
+      --bg: #0b1220;
+      --card: #131e2e;
       --text: #f1f5f9;
-      --muted: #aeb7c4;
+      --muted: #a7b1c2;
+      --border: #2b3a4f;
 
-      --border: #334155;
-
-      --dark: #020617;
-      --dark-2: #0f172a;
+      --navy-soft: #1b2a3e;
+      --teal-soft: #123b38;
+      --gold-soft: #3c3013;
 
       --shadow:
-        0 10px 30px rgba(0, 0, 0, 0.35);
+        0 10px 30px rgba(0, 0, 0, 0.30);
+
+      --shadow-hover:
+        0 20px 45px rgba(0, 0, 0, 0.45);
     }
+
+
+    /* =========================================================
+       RESET
+       ========================================================= */
 
     * {
       margin: 0;
@@ -73,7 +95,9 @@
 
       line-height: 1.6;
 
-      transition: 0.3s;
+      transition:
+        background 0.3s ease,
+        color 0.3s ease;
     }
 
     a {
@@ -86,59 +110,67 @@
     }
 
 
-    /* =========================
+    /* =========================================================
        NAVBAR
-    ========================= */
+       ========================================================= */
 
     .navbar {
-
       position: sticky;
       top: 0;
       z-index: 1000;
 
-      background: var(--dark);
-      color: white;
+      min-height: 68px;
 
-      padding: 13px 6%;
+      padding: 12px 6%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #000,
+          #000,
+          #000,
+          #00ff00
+        );
+
+      color: white;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
       box-shadow:
-        0 3px 15px rgba(0,0,0,.25);
+        0 4px 18px rgba(0, 0, 0, 0.22);
     }
 
     .brand {
-
       display: flex;
       align-items: center;
-
-      gap: 10px;
+      gap: 11px;
     }
 
     .brand-logo {
+      width: 43px;
+      height: 43px;
 
-      width: 42px;
-      height: 42px;
+      border-radius: 11px;
 
-      border-radius: 10px;
+      background: var(--accent);
 
-      background: var(--primary);
+      color: #12263f;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
       font-size: 20px;
+
+      box-shadow:
+        0 5px 15px rgba(245, 158, 11, 0.25);
     }
 
     .brand-name {
-
       font-size: 22px;
-
-      font-weight: 800;
-
+      font-weight: 900;
       letter-spacing: 2px;
     }
 
@@ -146,44 +178,52 @@
       color: var(--accent);
     }
 
-    .nav-actions {
+    .brand-subtitle {
+      color: #cbd5e1;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      margin-top: -3px;
+    }
 
+    .nav-actions {
       display: flex;
       align-items: center;
-
-      gap: 10px;
+      gap: 9px;
     }
 
     .nav-btn {
-
-      border: 1px solid rgba(255,255,255,.2);
-
-      background:
-        rgba(255,255,255,.08);
-
-      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
 
       padding: 9px 14px;
 
-      border-radius: 8px;
+      border-radius: 9px;
+
+      border: 1px solid rgba(255,255,255,0.18);
+
+      background: rgba(255,255,255,0.08);
+
+      color: white;
 
       cursor: pointer;
 
-      transition: .3s;
+      transition: 0.3s;
     }
 
     .nav-btn:hover {
-      background: var(--primary);
+      background: var(--secondary);
+      border-color: var(--secondary);
     }
 
 
-    /* =========================
+    /* =========================================================
        HERO
-    ========================= */
+       ========================================================= */
 
     .hero {
-
-      min-height: 480px;
+      min-height: 500px;
 
       display: flex;
       align-items: center;
@@ -191,69 +231,96 @@
 
       text-align: center;
 
-      padding: 80px 20px;
+      padding: 85px 20px;
 
       color: white;
 
       background:
-
         radial-gradient(
-          circle at 15% 20%,
-          rgba(21,101,192,.75),
-          transparent 35%
-        ),
-
-        radial-gradient(
-          circle at 90% 80%,
-          rgb(0, 0, 0),
+          circle at 10% 20%,
+          rgba(47, 116, 64, 0.42),
           transparent 30%
         ),
-
+        radial-gradient(
+          circle at 90% 75%,
+          rgb(68, 70, 68),
+          transparent 28%
+        ),
         linear-gradient(
           135deg,
-          #039af1,
-          #071b36,
-          #111827
+          #0b0c0c,
+          #080a09,
+          #060a06
         );
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+
+      width: 350px;
+      height: 350px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      border-radius: 50%;
+
+      right: -130px;
+      top: -100px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      border: 1px solid rgba(255,255,255,0.07);
+
+      border-radius: 50%;
+
+      left: -100px;
+      bottom: -100px;
     }
 
     .hero-content {
       max-width: 950px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-badge {
-
       display: inline-flex;
-
       align-items: center;
+      gap: 9px;
 
-      gap: 8px;
-
-      padding: 8px 16px;
-
-      border:
-        1px solid rgba(255,255,255,.2);
-
-      background:
-        rgba(255,255,255,.08);
+      padding: 8px 17px;
 
       border-radius: 50px;
 
-      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,0.17);
 
-      font-size: 13px;
+      background: rgba(255,255,255,0.08);
 
-      letter-spacing: 1px;
+      color: #e2e8f0;
+
+      font-size: 12px;
+
+      letter-spacing: 1.5px;
+
+      margin-bottom: 22px;
     }
 
     .hero h1 {
+      font-size: clamp(38px, 7vw, 70px);
 
-      font-size:
-        clamp(35px, 7vw, 68px);
+      line-height: 1.04;
 
-      line-height: 1.05;
-
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .hero h1 span {
@@ -261,29 +328,27 @@
     }
 
     .hero-subtitle {
-
-      font-size:
-        clamp(18px, 3vw, 28px);
-
-      margin-bottom: 15px;
+      font-size: clamp(19px, 3vw, 28px);
 
       color: #dbeafe;
+
+      margin-bottom: 16px;
+
+      font-weight: 600;
     }
 
     .hero-description {
-
       max-width: 760px;
 
       margin: auto;
 
-      color: #d1d5db;
+      color: #cbd5e1;
 
-      font-size: 17px;
+      font-size: 16px;
     }
 
     .hero-stats {
-
-      margin-top: 35px;
+      margin-top: 38px;
 
       display: grid;
 
@@ -294,93 +359,87 @@
     }
 
     .hero-stat {
-
       padding: 20px;
 
       border:
-        1px solid rgba(255,255,255,.1);
+        1px solid
+        rgba(255,255,255,0.12);
 
       background:
-        rgba(255,255,255,.08);
+        rgba(255,255,255,0.07);
 
-      border-radius: 12px;
+      border-radius: 13px;
+
+      backdrop-filter: blur(8px);
     }
 
     .hero-stat h3 {
-
       color: var(--accent);
 
       font-size: 25px;
     }
 
     .hero-stat p {
+      color: #cbd5e1;
 
-      color: #d1d5db;
-
-      font-size: 13px;
+      font-size: 12px;
     }
 
 
-    /* =========================
-       COMMON
-    ========================= */
+    /* =========================================================
+       CONTAINER / SECTIONS
+       ========================================================= */
 
     .container {
-
       width: min(1200px, 92%);
-
       margin: auto;
     }
 
     .section {
-      padding: 70px 0;
+      padding: 72px 0;
     }
 
     .section-header {
-
       text-align: center;
 
       margin-bottom: 40px;
     }
 
     .section-header h2 {
-
       font-size: 32px;
 
       margin-bottom: 10px;
     }
 
     .section-header p {
-
       color: var(--muted);
 
-      max-width: 750px;
+      max-width: 720px;
 
       margin: auto;
     }
 
 
-    /* =========================
+    /* =========================================================
        ASCEND INTRO
-    ========================= */
+       ========================================================= */
 
     .ascend-intro {
-
       display: grid;
 
-      grid-template-columns:
-        65px 1fr;
+      grid-template-columns: 65px 1fr;
 
       gap: 20px;
 
       background: var(--card);
 
       border-left:
-        5px solid var(--primary);
+        5px solid
+        var(--secondary);
 
-      padding: 25px;
+      padding: 26px;
 
-      border-radius: 14px;
+      border-radius: 15px;
 
       box-shadow: var(--shadow);
 
@@ -388,14 +447,13 @@
     }
 
     .ascend-intro-icon {
+      color: var(--secondary);
 
       font-size: 38px;
-
-      color: var(--primary);
     }
 
     .ascend-intro h3 {
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     .ascend-intro p {
@@ -403,7 +461,6 @@
     }
 
     .formula {
-
       display: flex;
 
       align-items: center;
@@ -412,7 +469,7 @@
 
       flex-wrap: wrap;
 
-      gap: 10px;
+      gap: 9px;
 
       margin-top: 18px;
 
@@ -420,7 +477,6 @@
     }
 
     .formula span {
-
       padding: 8px 12px;
 
       border-radius: 8px;
@@ -428,36 +484,38 @@
       background: var(--bg);
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
     }
 
     .formula .plus {
-
-      background: var(--primary);
+      background: var(--secondary);
 
       color: white;
+
+      border-color: var(--secondary);
     }
 
 
-    /* =========================
-       FILTER
-    ========================= */
+    /* =========================================================
+       SEARCH / FILTER
+       ========================================================= */
 
     .filter-area {
-
       display: flex;
 
       justify-content: center;
 
+      align-items: center;
+
       flex-wrap: wrap;
 
-      gap: 12px;
+      gap: 10px;
 
       margin-bottom: 35px;
     }
 
     .search-box {
-
       position: relative;
 
       flex: 1;
@@ -468,28 +526,28 @@
     }
 
     .search-box i {
-
       position: absolute;
 
       left: 14px;
-
       top: 50%;
 
-      transform:
-        translateY(-50%);
+      transform: translateY(-50%);
 
       color: var(--muted);
     }
 
     .search-box input {
-
       width: 100%;
 
       padding:
-        13px 15px 13px 42px;
+        13px
+        15px
+        13px
+        42px;
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
       border-radius: 9px;
 
@@ -498,21 +556,24 @@
       color: var(--text);
 
       outline: none;
+
+      transition: 0.3s;
     }
 
     .search-box input:focus {
+      border-color: var(--secondary);
 
-      border-color:
-        var(--primary);
+      box-shadow:
+        0 0 0 3px
+        rgba(15,118,110,0.10);
     }
 
     .filter-btn {
-
-      padding:
-        11px 15px;
+      padding: 11px 15px;
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
       background: var(--card);
 
@@ -522,49 +583,49 @@
 
       cursor: pointer;
 
-      transition: .3s;
+      transition: 0.3s;
     }
 
-    .filter-btn.active,
-    .filter-btn:hover {
-
-      background: var(--primary);
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--secondary);
 
       color: white;
 
-      border-color:
-        var(--primary);
+      border-color: var(--secondary);
     }
 
 
-    /* =========================
+    /* =========================================================
        CAREER GRID
-    ========================= */
+       ========================================================= */
 
     .career-grid {
-
       display: grid;
 
       grid-template-columns:
-        repeat(auto-fit, minmax(330px, 1fr));
+        repeat(
+          auto-fit,
+          minmax(330px, 1fr)
+        );
 
       gap: 25px;
     }
 
     .career-card {
-
       background: var(--card);
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
-      border-radius: 16px;
+      border-radius: 17px;
 
       overflow: hidden;
 
       box-shadow: var(--shadow);
 
-      transition: .3s;
+      transition: 0.3s;
 
       display: flex;
 
@@ -572,59 +633,55 @@
     }
 
     .career-card:hover {
+      transform: translateY(-7px);
 
-      transform:
-        translateY(-7px);
-
-      box-shadow:
-        0 20px 40px rgba(0,0,0,.14);
+      box-shadow: var(--shadow-hover);
     }
 
     .career-header {
-
       padding: 20px;
 
       background:
         linear-gradient(
           135deg,
           var(--primary),
-          var(--primary-dark)
+          var(--secondary)
         );
 
       color: white;
 
       display: flex;
 
-      justify-content:
-        space-between;
+      justify-content: space-between;
 
       align-items: center;
     }
 
     .rank-badge {
-
-      padding: 6px 10px;
+      padding: 6px 11px;
 
       background:
-        rgba(255,255,255,.15);
+        rgba(255,255,255,0.13);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.12);
 
       border-radius: 50px;
 
-      font-size: 12px;
+      font-size: 11px;
 
       font-weight: bold;
     }
 
     .career-icon {
-
-      width: 48px;
-
-      height: 48px;
+      width: 49px;
+      height: 49px;
 
       border-radius: 50%;
 
       background:
-        rgba(255,255,255,.16);
+        rgba(255,255,255,0.14);
 
       display: flex;
 
@@ -636,7 +693,6 @@
     }
 
     .career-body {
-
       padding: 24px;
 
       display: flex;
@@ -647,8 +703,7 @@
     }
 
     .career-body h3 {
-
-      font-size: 21px;
+      font-size: 20px;
 
       line-height: 1.3;
 
@@ -656,7 +711,6 @@
     }
 
     .main-work {
-
       color: var(--muted);
 
       font-size: 14px;
@@ -665,12 +719,11 @@
     }
 
 
-    /* =========================
+    /* =========================================================
        SALARY
-    ========================= */
+       ========================================================= */
 
     .salary-grid {
-
       display: grid;
 
       grid-template-columns:
@@ -682,42 +735,41 @@
     }
 
     .salary-box {
-
       padding: 13px;
 
       background: var(--bg);
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
       border-radius: 10px;
     }
 
     .salary-box small {
-
       display: block;
 
       color: var(--muted);
 
       margin-bottom: 4px;
 
-      font-size: 11px;
+      font-size: 10px;
+
+      font-weight: 700;
     }
 
     .salary-box strong {
+      color: var(--success);
 
-      color: var(--green);
-
-      font-size: 15px;
+      font-size: 14px;
     }
 
 
-    /* =========================
+    /* =========================================================
        SKILLS
-    ========================= */
+       ========================================================= */
 
     .section-label {
-
       display: flex;
 
       align-items: center;
@@ -732,11 +784,10 @@
     }
 
     .section-label i {
-      color: var(--primary);
+      color: var(--secondary);
     }
 
     .skills {
-
       display: flex;
 
       flex-wrap: wrap;
@@ -747,29 +798,27 @@
     }
 
     .skill {
-
       padding: 6px 9px;
 
       border-radius: 50px;
 
-      background:
-        rgba(21,101,192,.09);
+      background: var(--teal-soft);
 
-      color: var(--primary);
+      color: var(--secondary);
 
       font-size: 11px;
 
       border:
-        1px solid rgba(21,101,192,.1);
+        1px solid
+        rgba(15,118,110,0.12);
     }
 
 
-    /* =========================
-       BUTTONS
-    ========================= */
+    /* =========================================================
+       CARD BUTTONS
+       ========================================================= */
 
     .card-actions {
-
       display: grid;
 
       grid-template-columns:
@@ -781,7 +830,6 @@
     }
 
     .action-btn {
-
       border: none;
 
       padding: 11px;
@@ -792,39 +840,41 @@
 
       font-weight: bold;
 
-      transition: .3s;
+      transition: 0.3s;
     }
 
     .details-btn {
-
       background: var(--bg);
 
       color: var(--text);
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
+    }
+
+    .details-btn:hover {
+      border-color: var(--secondary);
+
+      color: var(--secondary);
     }
 
     .learn-btn {
-
-      background: var(--primary);
+      background: var(--secondary);
 
       color: white;
     }
 
     .learn-btn:hover {
-
-      background:
-        var(--primary-dark);
+      background: var(--secondary-dark);
     }
 
 
-    /* =========================
+    /* =========================================================
        MODAL
-    ========================= */
+       ========================================================= */
 
     .modal {
-
       position: fixed;
 
       inset: 0;
@@ -838,7 +888,7 @@
       justify-content: center;
 
       background:
-        rgba(0,0,0,.7);
+        rgba(0,0,0,0.72);
 
       padding: 20px;
 
@@ -850,9 +900,7 @@
     }
 
     .modal-box {
-
-      width:
-        min(850px,100%);
+      width: min(850px, 100%);
 
       max-height: 90vh;
 
@@ -869,16 +917,15 @@
       position: relative;
 
       animation:
-        modalOpen .25s ease;
+        modalOpen 0.25s ease;
     }
 
     @keyframes modalOpen {
-
       from {
         opacity: 0;
         transform:
           translateY(20px)
-          scale(.98);
+          scale(0.98);
       }
 
       to {
@@ -890,15 +937,12 @@
     }
 
     .close-modal {
-
       position: absolute;
 
       right: 18px;
-
       top: 18px;
 
       width: 38px;
-
       height: 38px;
 
       border: none;
@@ -914,16 +958,20 @@
       font-size: 18px;
     }
 
-    .modal-title {
+    .close-modal:hover {
+      background: var(--danger);
 
+      color: white;
+    }
+
+    .modal-title {
       padding-right: 50px;
 
       margin-bottom: 25px;
     }
 
     .modal-rank {
-
-      color: var(--primary);
+      color: var(--secondary);
 
       font-size: 12px;
 
@@ -933,21 +981,18 @@
     }
 
     .modal-title h2 {
-
       font-size: 28px;
 
       margin-top: 5px;
     }
 
     .modal-title p {
-
       color: var(--muted);
 
       margin-top: 8px;
     }
 
     .modal-skills {
-
       display: flex;
 
       flex-wrap: wrap;
@@ -956,11 +1001,11 @@
     }
 
     .modal-skill {
-
       padding: 9px 12px;
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
       background: var(--bg);
 
@@ -969,15 +1014,18 @@
       font-size: 13px;
     }
 
-    .resources {
 
+    /* =========================================================
+       RESOURCES
+       ========================================================= */
+
+    .resources {
       display: grid;
 
       gap: 10px;
     }
 
     .resource {
-
       display: flex;
 
       align-items: center;
@@ -987,27 +1035,25 @@
       padding: 14px;
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
       border-radius: 10px;
 
       color: var(--text);
 
-      transition: .3s;
+      transition: 0.3s;
     }
 
     .resource:hover {
-
-      border-color:
-        var(--primary);
+      border-color: var(--secondary);
 
       transform:
         translateX(5px);
     }
 
     .resource > i:first-child {
-
-      color: var(--primary);
+      color: var(--secondary);
 
       font-size: 18px;
     }
@@ -1017,67 +1063,69 @@
     }
 
     .resource-text strong {
-
       display: block;
 
       font-size: 14px;
     }
 
     .resource-text small {
-
       color: var(--muted);
 
       font-size: 12px;
     }
 
-    .resource .external {
+    .external {
       color: var(--muted);
     }
 
 
-    /* =========================
+    /* =========================================================
        ROADMAP
-    ========================= */
+       ========================================================= */
 
     .roadmap {
-
       display: grid;
 
       grid-template-columns:
-        repeat(4,1fr);
+        repeat(4, 1fr);
 
       gap: 20px;
     }
 
     .roadmap-card {
-
       background: var(--card);
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
-      border-radius: 13px;
+      border-radius: 14px;
 
       padding: 25px;
 
       text-align: center;
 
       box-shadow: var(--shadow);
+
+      transition: 0.3s;
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-5px);
+
+      border-color: var(--secondary);
     }
 
     .roadmap-number {
-
-      width: 45px;
-
-      height: 45px;
+      width: 46px;
+      height: 46px;
 
       margin:
         0 auto 15px;
 
       border-radius: 50%;
 
-      background:
-        var(--primary);
+      background: var(--secondary);
 
       color: white;
 
@@ -1090,65 +1138,62 @@
       font-weight: bold;
     }
 
-    .roadmap-card p {
+    .roadmap-card h3 {
+      margin-bottom: 5px;
+    }
 
+    .roadmap-card p {
       color: var(--muted);
 
       font-size: 13px;
-
-      margin-top: 7px;
     }
 
 
-    /* =========================
+    /* =========================================================
        RESOURCE HUB
-    ========================= */
+       ========================================================= */
 
     .resource-hub {
-
       display: grid;
 
       grid-template-columns:
-        repeat(auto-fit,minmax(220px,1fr));
+        repeat(
+          auto-fit,
+          minmax(220px, 1fr)
+        );
 
       gap: 18px;
     }
 
     .hub-card {
-
       background: var(--card);
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
-      border-radius: 13px;
+      border-radius: 14px;
 
       padding: 22px;
 
       box-shadow: var(--shadow);
 
-      transition: .3s;
+      transition: 0.3s;
     }
 
     .hub-card:hover {
+      transform: translateY(-5px);
 
-      transform:
-        translateY(-5px);
-
-      border-color:
-        var(--primary);
+      border-color: var(--secondary);
     }
 
     .hub-icon {
-
-      width: 45px;
-
-      height: 45px;
+      width: 46px;
+      height: 46px;
 
       border-radius: 10px;
 
-      background:
-        rgba(21,101,192,.1);
+      background: var(--navy-soft);
 
       color: var(--primary);
 
@@ -1159,17 +1204,17 @@
       justify-content: center;
 
       margin-bottom: 15px;
+
+      font-size: 19px;
     }
 
     .hub-card h3 {
-
       font-size: 17px;
 
       margin-bottom: 7px;
     }
 
     .hub-card p {
-
       color: var(--muted);
 
       font-size: 13px;
@@ -1178,32 +1223,75 @@
     }
 
     .hub-link {
-
-      color: var(--primary);
+      color: var(--secondary);
 
       font-size: 13px;
 
       font-weight: bold;
     }
 
+    .hub-link:hover {
+      color: var(--accent);
+    }
 
-    /* =========================
+
+    /* =========================================================
+       INFO BANNER
+       ========================================================= */
+
+    .salary-note {
+      margin-top: 35px;
+
+      padding: 18px 20px;
+
+      background: var(--gold-soft);
+
+      border:
+        1px solid
+        rgba(245,158,11,0.25);
+
+      border-radius: 12px;
+
+      color: var(--text);
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 12px;
+
+      font-size: 13px;
+    }
+
+    .salary-note i {
+      color: var(--accent);
+
+      font-size: 18px;
+
+      margin-top: 2px;
+    }
+
+
+    /* =========================================================
        FOOTER
-    ========================= */
+       ========================================================= */
 
     footer {
+      background:
+        linear-gradient(
+          135deg,
+          #0b1626,
+          #12263f
+        );
 
-      background: var(--dark);
+      color: #cbd5e1;
 
-      color: #d1d5db;
-
-      padding: 45px 20px;
+      padding: 48px 20px;
 
       text-align: center;
     }
 
     footer h2 {
-
       color: white;
 
       letter-spacing: 2px;
@@ -1216,43 +1304,47 @@
     }
 
     footer p {
-
       font-size: 13px;
 
       margin-top: 5px;
     }
 
 
-    /* =========================
+    /* =========================================================
        RESPONSIVE
-    ========================= */
+       ========================================================= */
 
-    @media (max-width: 750px) {
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 850px) {
 
       .roadmap {
         grid-template-columns:
           1fr 1fr;
       }
 
+      .hero-stats {
+        grid-template-columns:
+          1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+
       .navbar {
         padding:
-          12px 4%;
+          11px 4%;
       }
 
       .brand-name {
         font-size: 18px;
       }
 
+      .brand-subtitle {
+        display: none;
+      }
+
       .nav-btn span {
         display: none;
       }
-    }
-
-    @media (max-width: 480px) {
 
       .career-grid {
         grid-template-columns: 1fr;
@@ -1262,21 +1354,36 @@
         grid-template-columns: 1fr;
       }
 
-      .salary-grid {
-        grid-template-columns:
-          1fr 1fr;
+      .ascend-intro {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .hero {
+        padding:
+          65px 18px;
       }
 
-      .card-actions {
-        grid-template-columns: 1fr;
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .career-body {
+        padding: 20px;
       }
 
       .modal-box {
         padding:
           25px 18px;
       }
-    }
 
+      .card-actions {
+        grid-template-columns:
+          1fr;
+      }
+    }
   </style>
 </head>
 
@@ -1284,9 +1391,9 @@
 <body>
 
 
-  <!-- =========================
+  <!-- =======================================================
        NAVBAR
-  ========================= -->
+       ======================================================= -->
 
   <nav class="navbar">
 
@@ -1296,8 +1403,14 @@
         <i class="fa-solid fa-chart-line"></i>
       </div>
 
-      <div class="brand-name">
-        AS<span>CEND</span>
+      <div>
+        <div class="brand-name">
+          AS<span>CEND</span>
+        </div>
+
+        <div class="brand-subtitle">
+          CAREER GUIDANCE PLATFORM
+        </div>
       </div>
 
     </div>
@@ -1312,6 +1425,7 @@
         <i class="fa-solid fa-house"></i>
         <span>Home</span>
       </a>
+
 
       <button
         class="nav-btn"
@@ -1330,46 +1444,39 @@
 
 
 
-  <!-- =========================
+  <!-- =======================================================
        HERO
-  ========================= -->
+       ======================================================= -->
 
   <header class="hero">
 
     <div class="hero-content">
 
       <div class="hero-badge">
+        <i class="fa-solid fa-chart-pie"></i>
 
-        <i class="fa-solid fa-database"></i>
-
-        ASCEND DATA SCIENCE CAREERS
-
+        ASCEND ECONOMICS CAREER PATHWAY
       </div>
 
 
       <h1>
-
-        Data Science
-
+        Economics
         <br>
 
-        <span>Career Pathway</span>
-
+        <span>Career Opportunities</span>
       </h1>
 
 
       <div class="hero-subtitle">
-
-        Data → Analysis → Decisions → Career Growth
-
+        Economics → Data → Finance → Strategy → Growth
       </div>
 
 
       <p class="hero-description">
 
-        Explore high-demand careers for Data Science graduates
-        across analytics, finance, business, operations, risk,
-        product and supply-chain domains.
+        Explore high-salary career opportunities for Economics
+        graduates across finance, analytics, consulting, policy,
+        research, business strategy and emerging economic fields.
 
       </p>
 
@@ -1389,10 +1496,10 @@
 
         <div class="hero-stat">
 
-          <h3>₹40+ LPA</h3>
+          <h3>₹30 LPA</h3>
 
           <p>
-            Highest Listed 5-Year Potential
+            Highest Listed 5-Year Range
           </p>
 
         </div>
@@ -1400,10 +1507,10 @@
 
         <div class="hero-stat">
 
-          <h3>100%</h3>
+          <h3>Future Ready</h3>
 
           <p>
-            Data-Focused Career Paths
+            Finance + Data + Strategy
           </p>
 
         </div>
@@ -1419,24 +1526,22 @@
   <main class="container">
 
 
-    <!-- =========================
-         INTRO
-    ========================= -->
+    <!-- =====================================================
+         ASCEND INTRO
+         ===================================================== -->
 
     <section class="section">
 
       <div class="section-header">
 
         <h2>
-          ASCEND Your Data Science Career
+          ASCEND Your Economics Career
         </h2>
 
         <p>
 
-          A Data Science degree can lead to much more
-          than one job title. Build expertise in data,
-          statistics, business and domain knowledge to
-          access multiple career pathways.
+          Your Economics degree can be the foundation for
+          careers far beyond traditional economics roles.
 
         </p>
 
@@ -1447,7 +1552,7 @@
 
         <div class="ascend-intro-icon">
 
-          <i class="fa-solid fa-compass"></i>
+          <i class="fa-solid fa-arrow-trend-up"></i>
 
         </div>
 
@@ -1455,14 +1560,14 @@
         <div>
 
           <h3>
-            The ASCEND Career Formula
+            The ASCEND Economics Career Formula
           </h3>
 
           <p>
 
-            Combine your Data Science foundation with
-            business knowledge, analytical tools and
-            practical projects.
+            Combine economic thinking with finance,
+            data, technology and communication skills
+            to create a stronger career profile.
 
           </p>
 
@@ -1470,7 +1575,7 @@
           <div class="formula">
 
             <span>
-              Data Science
+              Economics
             </span>
 
             <span class="plus">
@@ -1486,7 +1591,7 @@
             </span>
 
             <span>
-              Business Knowledge
+              Data Skills
             </span>
 
             <span class="plus">
@@ -1494,7 +1599,15 @@
             </span>
 
             <span>
-              Portfolio
+              Finance
+            </span>
+
+            <span class="plus">
+              +
+            </span>
+
+            <span>
+              Communication
             </span>
 
             <span class="plus">
@@ -1513,9 +1626,9 @@
 
 
 
-      <!-- =========================
-           FILTER
-      ========================= -->
+      <!-- ===================================================
+           SEARCH / FILTER
+           =================================================== -->
 
       <div class="filter-area">
 
@@ -1526,7 +1639,7 @@
           <input
             type="text"
             id="searchInput"
-            placeholder="Search career or skill..."
+            placeholder="Search career, skill or work..."
           >
 
         </div>
@@ -1539,6 +1652,12 @@
           All
         </button>
 
+        <button
+          class="filter-btn"
+          data-filter="finance"
+        >
+          Finance
+        </button>
 
         <button
           class="filter-btn"
@@ -1547,14 +1666,12 @@
           Analytics
         </button>
 
-
         <button
           class="filter-btn"
-          data-filter="finance"
+          data-filter="policy"
         >
-          Finance
+          Policy
         </button>
-
 
         <button
           class="filter-btn"
@@ -1563,51 +1680,60 @@
           Business
         </button>
 
-
-        <button
-          class="filter-btn"
-          data-filter="operations"
-        >
-          Operations
-        </button>
-
-
-        <button
-          class="filter-btn"
-          data-filter="product"
-        >
-          Product
-        </button>
-
       </div>
 
+
+
+      <!-- ===================================================
+           CAREER CARDS
+           =================================================== -->
 
       <div
         class="career-grid"
         id="careerGrid"
       ></div>
 
+
+      <div class="salary-note">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        <div>
+
+          <strong>
+            Salary Note:
+          </strong>
+
+          Salary ranges shown on this page are
+          indicative India-market estimates for
+          career guidance. Actual salaries vary based
+          on employer, location, qualification,
+          specialization, experience and performance.
+
+        </div>
+
+      </div>
+
     </section>
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          ROADMAP
-    ========================= -->
+         ===================================================== -->
 
     <section class="section">
 
       <div class="section-header">
 
         <h2>
-          ASCEND Career Roadmap
+          ASCEND Economics Career Roadmap
         </h2>
 
         <p>
 
-          Follow four practical stages to transform
-          your Data Science degree into a strong
-          professional profile.
+          Follow a practical pathway from your
+          Economics degree to a high-value career.
 
         </p>
 
@@ -1615,7 +1741,6 @@
 
 
       <div class="roadmap">
-
 
         <div class="roadmap-card">
 
@@ -1629,8 +1754,8 @@
 
           <p>
 
-            Explore analytics, finance, business,
-            operations and product careers.
+            Choose a career based on your interests,
+            strengths and salary goals.
 
           </p>
 
@@ -1649,8 +1774,8 @@
 
           <p>
 
-            Develop SQL, Excel, statistics,
-            visualization and domain skills.
+            Build Economics, Statistics, Finance,
+            Data and communication skills.
 
           </p>
 
@@ -1669,8 +1794,8 @@
 
           <p>
 
-            Create dashboards, analysis reports,
-            case studies and portfolio projects.
+            Create projects, analysis reports,
+            dashboards and portfolio work.
 
           </p>
 
@@ -1702,23 +1827,22 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          RESOURCE HUB
-    ========================= -->
+         ===================================================== -->
 
     <section class="section">
 
       <div class="section-header">
 
         <h2>
-          Data Science Learning Resource Hub
+          Economics Learning Resource Hub
         </h2>
 
         <p>
 
-          Start building practical skills using
-          free learning resources and official
-          training platforms.
+          Start developing the skills required for
+          modern Economics careers.
 
         </p>
 
@@ -1731,35 +1855,28 @@
         <div class="hub-card">
 
           <div class="hub-icon">
-
-            <i class="fa-solid fa-chart-column"></i>
-
+            <i class="fa-solid fa-building-columns"></i>
           </div>
 
           <h3>
-            Microsoft Learn
+            Reserve Bank of India
           </h3>
 
           <p>
 
-            Data analytics, Power BI, data preparation,
-            visualization and reporting.
+            Explore monetary policy, banking,
+            financial statistics and economic research.
 
           </p>
 
           <a
-            href="https://learn.microsoft.com/en-us/training/career-paths/data-analyst"
+            href="https://www.rbi.org.in/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             class="hub-link"
           >
-
             Open Resource
-
-            <i
-              class="fa-solid fa-arrow-up-right-from-square"
-            ></i>
-
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
 
         </div>
@@ -1769,152 +1886,156 @@
         <div class="hub-card">
 
           <div class="hub-icon">
-
-            <i class="fa-solid fa-code"></i>
-
+            <i class="fa-solid fa-chart-column"></i>
           </div>
 
           <h3>
-            Kaggle Learn
+            NPTEL
           </h3>
 
           <p>
 
-            Free practical courses covering Python,
-            SQL, Pandas and data visualization.
+            Learn economics, statistics, mathematics,
+            finance and data-related subjects.
+
+          </p>
+
+          <a
+            href="https://nptel.ac.in/"
+            target="_blank"
+            rel="noopener"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+
+          <h3>
+            SWAYAM
+          </h3>
+
+          <p>
+
+            Access free online courses from
+            Indian universities and institutions.
+
+          </p>
+
+          <a
+            href="https://swayam.gov.in/"
+            target="_blank"
+            rel="noopener"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+
+          <h3>
+            NSE Academy
+          </h3>
+
+          <p>
+
+            Develop knowledge of financial markets,
+            investments and capital markets.
+
+          </p>
+
+          <a
+            href="https://www.nseacademy.com/"
+            target="_blank"
+            rel="noopener"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+
+          <h3>
+            World Bank Open Learning
+          </h3>
+
+          <p>
+
+            Explore development economics,
+            policy, poverty and global economic issues.
+
+          </p>
+
+          <a
+            href="https://olc.worldbank.org/"
+            target="_blank"
+            rel="noopener"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-database"></i>
+          </div>
+
+          <h3>
+            Kaggle
+          </h3>
+
+          <p>
+
+            Practice data analysis, Python,
+            statistics and real-world datasets.
 
           </p>
 
           <a
             href="https://www.kaggle.com/learn"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             class="hub-link"
           >
-
             Open Resource
-
-            <i
-              class="fa-solid fa-arrow-up-right-from-square"
-            ></i>
-
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
 
         </div>
 
-
-
-        <div class="hub-card">
-
-          <div class="hub-icon">
-
-            <i class="fa-solid fa-database"></i>
-
-          </div>
-
-          <h3>
-            Kaggle SQL
-          </h3>
-
-          <p>
-
-            Practice SQL and database querying
-            through practical exercises.
-
-          </p>
-
-          <a
-            href="https://www.kaggle.com/learn/intro-to-sql"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hub-link"
-          >
-
-            Learn SQL
-
-            <i
-              class="fa-solid fa-arrow-up-right-from-square"
-            ></i>
-
-          </a>
-
-        </div>
-
-
-
-        <div class="hub-card">
-
-          <div class="hub-icon">
-
-            <i class="fa-solid fa-chart-pie"></i>
-
-          </div>
-
-          <h3>
-            Power BI Training
-          </h3>
-
-          <p>
-
-            Learn how to prepare, visualize and
-            analyze data using Power BI.
-
-          </p>
-
-          <a
-            href="https://learn.microsoft.com/en-us/training/paths/prepare-visualize-data-power-bi/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hub-link"
-          >
-
-            Learn Power BI
-
-            <i
-              class="fa-solid fa-arrow-up-right-from-square"
-            ></i>
-
-          </a>
-
-        </div>
-
-
-
-        <div class="hub-card">
-
-          <div class="hub-icon">
-
-            <i class="fa-solid fa-chart-line"></i>
-
-          </div>
-
-          <h3>
-            Microsoft Data Analytics
-          </h3>
-
-          <p>
-
-            Understand analytics processes,
-            reporting and data-driven decision making.
-
-          </p>
-
-          <a
-            href="https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hub-link"
-          >
-
-            Start Learning
-
-            <i
-              class="fa-solid fa-arrow-up-right-from-square"
-            ></i>
-
-          </a>
-
-        </div>
 
       </div>
 
@@ -1924,9 +2045,9 @@
 
 
 
-  <!-- =========================
-       MODAL
-  ========================= -->
+  <!-- =======================================================
+       CAREER MODAL
+       ======================================================= -->
 
   <div
     class="modal"
@@ -1939,15 +2060,10 @@
         class="close-modal"
         id="closeModal"
       >
-
         <i class="fa-solid fa-xmark"></i>
-
       </button>
 
-
-      <div
-        id="modalContent"
-      ></div>
+      <div id="modalContent"></div>
 
     </div>
 
@@ -1955,9 +2071,9 @@
 
 
 
-  <!-- =========================
+  <!-- =======================================================
        FOOTER
-  ========================= -->
+       ======================================================= -->
 
   <footer>
 
@@ -1966,11 +2082,11 @@
     </h2>
 
     <p>
-      Learn • Build Skills • Grow
+      Learn. Build. Lead. ASCEND.
     </p>
 
     <p>
-      Learn. Build. Lead. ASCEND.
+      Economics Career Guidance Platform
     </p>
 
     <p>
@@ -1981,12 +2097,15 @@
 
 
 
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
   <script>
 
-
-    /* =========================
+    /* =======================================================
        CAREER DATA
-    ========================= */
+       ======================================================= */
 
     const careers = [
 
@@ -1994,58 +2113,67 @@
         rank: 1,
 
         title:
-          "Data Scientist",
+          "Economic Analyst / Economist",
 
         icon:
-          "fa-flask",
+          "fa-chart-line",
 
         category:
           "analytics",
 
         work:
-          "Analyze large datasets, identify patterns, perform statistical analysis and create data-driven solutions for business problems.",
+          "Analyze economic trends, inflation, markets, government policies and business conditions to support economic and strategic decisions.",
 
         skills: [
-
-          "Python",
-          "SQL",
+          "Economics",
           "Statistics",
+          "Econometrics",
           "Excel",
-          "Power BI",
-          "Data Visualization",
-          "Pandas",
-          "Problem Solving"
-
+          "Research",
+          "Data Analysis",
+          "Economic Forecasting",
+          "Report Writing"
         ],
 
         fresher:
-          "₹5–10 LPA",
+          "₹4–8 LPA",
 
         experience:
-          "₹15–30 LPA",
+          "₹12–25 LPA",
 
         resources: [
 
           {
             name:
-              "Kaggle Learn",
+              "Reserve Bank of India",
 
             type:
-              "Python, Pandas and data science",
+              "Economic data, monetary policy and research",
 
             url:
-              "https://www.kaggle.com/learn"
+              "https://www.rbi.org.in/"
           },
 
           {
             name:
-              "Microsoft Learn",
+              "NPTEL",
 
             type:
-              "Data analytics and Power BI",
+              "Economics, statistics and econometrics courses",
 
             url:
-              "https://learn.microsoft.com/en-us/training/career-paths/data-analyst"
+              "https://nptel.ac.in/"
+          },
+
+          {
+            name:
+              "SWAYAM",
+
+            type:
+              "Free university-level online courses",
+
+            url:
+              "https://swayam.gov.in/"
           }
 
         ]
@@ -2056,58 +2184,67 @@
         rank: 2,
 
         title:
-          "Data Analyst",
+          "Investment Banking Analyst",
 
         icon:
-          "fa-chart-column",
+          "fa-money-bill-trend-up",
 
         category:
-          "analytics",
+          "finance",
 
         work:
-          "Analyze business data, prepare reports, build dashboards and convert raw information into useful business insights.",
+          "Analyze companies, financial statements, valuations, mergers, acquisitions and investment opportunities.",
 
         skills: [
-
-          "SQL",
+          "Financial Modeling",
           "Excel",
-          "Power BI",
-          "Statistics",
-          "Data Visualization",
-          "Dashboard Design",
-          "Reporting",
-          "Business Analysis"
-
+          "Accounting",
+          "Company Valuation",
+          "Economics",
+          "Financial Analysis",
+          "Presentation",
+          "Research"
         ],
 
         fresher:
-          "₹3.5–7 LPA",
+          "₹6–12 LPA",
 
         experience:
-          "₹9–18 LPA",
+          "₹15–30 LPA",
 
         resources: [
 
           {
             name:
-              "Microsoft Data Analyst Training",
+              "NSE Academy",
 
             type:
-              "Data analysis and Power BI",
+              "Financial markets and capital market education",
 
             url:
-              "https://learn.microsoft.com/en-us/training/career-paths/data-analyst"
+              "https://www.nseacademy.com/"
           },
 
           {
             name:
-              "Kaggle Learn",
+              "NPTEL",
 
             type:
-              "SQL, Python and data visualization",
+              "Finance, economics and management courses",
 
             url:
-              "https://www.kaggle.com/learn"
+              "https://nptel.ac.in/"
+          },
+
+          {
+            name:
+              "Investopedia",
+
+            type:
+              "Finance and investment concepts",
+
+            url:
+              "https://www.investopedia.com/"
           }
 
         ]
@@ -2118,214 +2255,26 @@
         rank: 3,
 
         title:
-          "Business Analyst",
+          "Business / Economic Strategy Analyst",
 
         icon:
-          "fa-briefcase",
+          "fa-chess",
 
         category:
           "business",
 
         work:
-          "Study business problems, analyze requirements, interpret data and recommend practical solutions to organizations.",
+          "Analyze markets, industries, competitors and business performance to support strategic decisions.",
 
         skills: [
-
+          "Economics",
+          "Business Strategy",
           "Excel",
-          "SQL",
-          "Statistics",
-          "Power BI",
-          "Requirement Analysis",
-          "Business Communication",
+          "Market Research",
+          "Data Analysis",
+          "Problem Solving",
           "Presentation",
-          "Problem Solving"
-
-        ],
-
-        fresher:
-          "₹4–8 LPA",
-
-        experience:
-          "₹10–20 LPA",
-
-        resources: [
-
-          {
-            name:
-              "Microsoft Data Analytics",
-
-            type:
-              "Analytics and business insights",
-
-            url:
-              "https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/"
-          },
-
-          {
-            name:
-              "Microsoft Learn",
-
-            type:
-              "Data analytics fundamentals",
-
-            url:
-              "https://learn.microsoft.com/en-us/training/modules/get-started-data-analytics/"
-          }
-
-        ]
-      },
-
-
-      {
-        rank: 4,
-
-        title:
-          "Quantitative Analyst",
-
-        icon:
-          "fa-calculator",
-
-        category:
-          "finance",
-
-        work:
-          "Use mathematics, statistics and financial data to analyze markets, investments, pricing and financial risk.",
-
-        skills: [
-
-          "Statistics",
-          "Mathematics",
-          "Python",
-          "SQL",
-          "Financial Analysis",
-          "Probability",
-          "Excel",
-          "Time Series"
-
-        ],
-
-        fresher:
-          "₹7–15 LPA",
-
-        experience:
-          "₹20–40+ LPA",
-
-        resources: [
-
-          {
-            name:
-              "Khan Academy",
-
-            type:
-              "Statistics and mathematics",
-
-            url:
-              "https://www.khanacademy.org/"
-          },
-
-          {
-            name:
-              "MIT OpenCourseWare",
-
-            type:
-              "Mathematics and statistics",
-
-            url:
-              "https://ocw.mit.edu/"
-          }
-
-        ]
-      },
-
-
-      {
-        rank: 5,
-
-        title:
-          "Risk Analyst / Risk Manager",
-
-        icon:
-          "fa-scale-balanced",
-
-        category:
-          "finance",
-
-        work:
-          "Identify, measure and monitor financial, credit and operational risks using quantitative and business analysis.",
-
-        skills: [
-
-          "Statistics",
-          "Probability",
-          "Excel",
-          "SQL",
-          "Risk Analysis",
-          "Financial Knowledge",
-          "Data Visualization",
-          "Reporting"
-
-        ],
-
-        fresher:
-          "₹4–8 LPA",
-
-        experience:
-          "₹12–25 LPA",
-
-        resources: [
-
-          {
-            name:
-              "Khan Academy",
-
-            type:
-              "Probability and statistics",
-
-            url:
-              "https://www.khanacademy.org/"
-          },
-
-          {
-            name:
-              "Microsoft Learn",
-
-            type:
-              "Data analytics and reporting",
-
-            url:
-              "https://learn.microsoft.com/en-us/training/"
-          }
-
-        ]
-      },
-
-
-      {
-        rank: 6,
-
-        title:
-          "Data Analytics Consultant",
-
-        icon:
-          "fa-users-gear",
-
-        category:
-          "business",
-
-        work:
-          "Help organizations solve business problems through data analysis, dashboards, reporting and evidence-based recommendations.",
-
-        skills: [
-
-          "SQL",
-          "Excel",
-          "Power BI",
-          "Statistics",
-          "Data Visualization",
-          "Consulting",
-          "Presentation",
-          "Business Strategy"
-
+          "Communication"
         ],
 
         fresher:
@@ -2338,24 +2287,248 @@
 
           {
             name:
-              "Microsoft Data Analytics",
+              "NPTEL",
 
             type:
-              "Business analytics and Power BI",
+              "Strategy, economics and management courses",
 
             url:
-              "https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/"
+              "https://nptel.ac.in/"
           },
+
+          {
+            name:
+              "SWAYAM",
+
+            type:
+              "Business and economics courses",
+
+            url:
+              "https://swayam.gov.in/"
+          },
+
+          {
+            name:
+              "World Bank Open Learning",
+
+            type:
+              "Economic development and policy learning",
+
+            url:
+              "https://olc.worldbank.org/"
+          }
+
+        ]
+      },
+
+
+      {
+        rank: 4,
+
+        title:
+          "Financial Analyst",
+
+        icon:
+          "fa-file-invoice-dollar",
+
+        category:
+          "finance",
+
+        work:
+          "Analyze financial performance, markets, investments, budgets and forecasts to support business decisions.",
+
+        skills: [
+          "Financial Analysis",
+          "Excel",
+          "Accounting",
+          "Economics",
+          "Forecasting",
+          "Power BI",
+          "Financial Modeling",
+          "Data Interpretation"
+        ],
+
+        fresher:
+          "₹4–8 LPA",
+
+        experience:
+          "₹10–22 LPA",
+
+        resources: [
+
+          {
+            name:
+              "NSE Academy",
+
+            type:
+              "Financial markets and investment education",
+
+            url:
+              "https://www.nseacademy.com/"
+          },
+
+          {
+            name:
+              "Microsoft Learn",
+
+            type:
+              "Excel, Power BI and data skills",
+
+            url:
+              "https://learn.microsoft.com/"
+          },
+
+          {
+            name:
+              "NPTEL",
+
+            type:
+              "Finance and economics courses",
+
+            url:
+              "https://nptel.ac.in/"
+          }
+
+        ]
+      },
+
+
+      {
+        rank: 5,
+
+        title:
+          "Data / Economic Data Analyst",
+
+        icon:
+          "fa-database",
+
+        category:
+          "analytics",
+
+        work:
+          "Analyze economic and business datasets to identify trends, relationships and insights for decision-making.",
+
+        skills: [
+          "Statistics",
+          "Economics",
+          "Excel",
+          "SQL",
+          "Python",
+          "Power BI",
+          "Data Visualization",
+          "Econometrics"
+        ],
+
+        fresher:
+          "₹4–9 LPA",
+
+        experience:
+          "₹12–25 LPA",
+
+        resources: [
 
           {
             name:
               "Kaggle Learn",
 
             type:
-              "Practical data analysis",
+              "Python, data analysis and machine learning",
 
             url:
               "https://www.kaggle.com/learn"
+          },
+
+          {
+            name:
+              "NPTEL",
+
+            type:
+              "Statistics, Python and data science courses",
+
+            url:
+              "https://nptel.ac.in/"
+          },
+
+          {
+            name:
+              "Microsoft Learn",
+
+            type:
+              "Power BI, data and analytics skills",
+
+            url:
+              "https://learn.microsoft.com/"
+          }
+
+        ]
+      },
+
+
+      {
+        rank: 6,
+
+        title:
+          "Policy Analyst / Economic Policy Specialist",
+
+        icon:
+          "fa-landmark",
+
+        category:
+          "policy",
+
+        work:
+          "Research government policies and evaluate their economic, social and development impact using evidence and data.",
+
+        skills: [
+          "Economics",
+          "Policy Research",
+          "Statistics",
+          "Econometrics",
+          "Report Writing",
+          "Data Analysis",
+          "Critical Thinking",
+          "Public Economics"
+        ],
+
+        fresher:
+          "₹4–8 LPA",
+
+        experience:
+          "₹10–22 LPA",
+
+        resources: [
+
+          {
+            name:
+              "NITI Aayog",
+
+            type:
+              "Indian public policy and development research",
+
+            url:
+              "https://www.niti.gov.in/"
+          },
+
+          {
+            name:
+              "Reserve Bank of India",
+
+            type:
+              "Economic policy and financial research",
+
+            url:
+              "https://www.rbi.org.in/"
+          },
+
+          {
+            name:
+              "SWAYAM",
+
+            type:
+              "Policy and economics learning",
+
+            url:
+              "https://swayam.gov.in/"
           }
 
         ]
@@ -2366,58 +2539,67 @@
         rank: 7,
 
         title:
-          "Operations Research Analyst",
+          "Market Research Analyst",
 
         icon:
-          "fa-gears",
+          "fa-magnifying-glass-chart",
 
         category:
-          "operations",
+          "business",
 
         work:
-          "Use mathematical and statistical analysis to improve operations, resource allocation, logistics and organizational efficiency.",
+          "Study consumers, industries, competitors and market trends to help businesses understand opportunities and risks.",
 
         skills: [
-
+          "Economics",
+          "Market Research",
           "Statistics",
-          "Mathematics",
+          "Survey Design",
           "Excel",
-          "Python",
-          "Optimization",
-          "SQL",
-          "Forecasting",
-          "Problem Solving"
-
+          "Data Visualization",
+          "Consumer Analysis",
+          "Communication"
         ],
 
         fresher:
-          "₹4–8 LPA",
+          "₹3.5–7 LPA",
 
         experience:
-          "₹12–22 LPA",
+          "₹10–20 LPA",
 
         resources: [
 
           {
             name:
-              "MIT OpenCourseWare",
+              "Google Skillshop",
 
             type:
-              "Mathematics and optimization",
+              "Digital analytics and marketing learning",
 
             url:
-              "https://ocw.mit.edu/"
+              "https://skillshop.withgoogle.com/"
           },
 
           {
             name:
-              "Khan Academy",
+              "NPTEL",
 
             type:
-              "Statistics and mathematics",
+              "Marketing, economics and research courses",
 
             url:
-              "https://www.khanacademy.org/"
+              "https://nptel.ac.in/"
+          },
+
+          {
+            name:
+              "SWAYAM",
+
+            type:
+              "Business and research courses",
+
+            url:
+              "https://swayam.gov.in/"
           }
 
         ]
@@ -2428,28 +2610,26 @@
         rank: 8,
 
         title:
-          "Financial Data Analyst",
+          "Risk Analyst / Credit Risk Analyst",
 
         icon:
-          "fa-money-bill-trend-up",
+          "fa-shield-halved",
 
         category:
           "finance",
 
         work:
-          "Analyze revenue, expenses, financial performance, investments and business metrics to support financial decisions.",
+          "Assess financial, credit and business risks and help organizations make informed lending and investment decisions.",
 
         skills: [
-
-          "Excel",
-          "SQL",
-          "Power BI",
-          "Financial Analysis",
+          "Economics",
           "Statistics",
-          "Accounting Basics",
-          "Data Visualization",
-          "Reporting"
-
+          "Risk Analysis",
+          "Excel",
+          "Financial Analysis",
+          "SQL",
+          "Credit Analysis",
+          "Critical Thinking"
         ],
 
         fresher:
@@ -2462,24 +2642,35 @@
 
           {
             name:
-              "Microsoft Learn",
+              "Reserve Bank of India",
 
             type:
-              "Excel, Power BI and analytics",
+              "Banking, financial stability and economic information",
 
             url:
-              "https://learn.microsoft.com/en-us/training/"
+              "https://www.rbi.org.in/"
           },
 
           {
             name:
-              "Khan Academy",
+              "NSE Academy",
 
             type:
-              "Finance and statistics",
+              "Financial markets and risk-related learning",
 
             url:
-              "https://www.khanacademy.org/"
+              "https://www.nseacademy.com/"
+          },
+
+          {
+            name:
+              "NPTEL",
+
+            type:
+              "Statistics, finance and economics courses",
+
+            url:
+              "https://nptel.ac.in/"
           }
 
         ]
@@ -2490,58 +2681,67 @@
         rank: 9,
 
         title:
-          "Product Analyst",
+          "Economic Consultant / Consulting Analyst",
 
         icon:
-          "fa-chart-pie",
+          "fa-briefcase",
 
         category:
-          "product",
+          "business",
 
         work:
-          "Analyze product performance, customer behavior, usage patterns and business metrics to improve digital products.",
+          "Solve business and economic problems using research, data, market analysis and financial reasoning.",
 
         skills: [
-
-          "SQL",
+          "Economics",
+          "Data Analysis",
+          "Research",
+          "Problem Solving",
           "Excel",
-          "Statistics",
-          "Power BI",
-          "A/B Testing",
-          "Product Metrics",
-          "Data Visualization",
-          "Business Analysis"
-
+          "Financial Analysis",
+          "Presentation",
+          "Communication"
         ],
 
         fresher:
           "₹5–10 LPA",
 
         experience:
-          "₹15–28 LPA",
+          "₹15–30 LPA",
 
         resources: [
 
           {
             name:
-              "Kaggle Learn",
+              "NPTEL",
 
             type:
-              "SQL, Python and data analysis",
+              "Economics, management and analytical courses",
 
             url:
-              "https://www.kaggle.com/learn"
+              "https://nptel.ac.in/"
           },
 
           {
             name:
-              "Microsoft Learn",
+              "McKinsey Insights",
 
             type:
-              "Data analysis and visualization",
+              "Business, economics and strategy insights",
 
             url:
-              "https://learn.microsoft.com/en-us/training/career-paths/data-analyst"
+              "https://www.mckinsey.com/insights"
+          },
+
+          {
+            name:
+              "BCG Insights",
+
+            type:
+              "Strategy and business research",
+
+            url:
+              "https://www.bcg.com/insights"
           }
 
         ]
@@ -2552,58 +2752,67 @@
         rank: 10,
 
         title:
-          "Supply Chain / Logistics Analyst",
+          "Public Finance / Development Economics Specialist",
 
         icon:
-          "fa-truck-fast",
+          "fa-hand-holding-dollar",
 
         category:
-          "operations",
+          "policy",
 
         work:
-          "Analyze inventory, transportation, procurement, demand and logistics data to improve supply-chain performance.",
+          "Analyze government spending, taxation, development programmes, economic growth and social outcomes.",
 
         skills: [
-
-          "Excel",
-          "SQL",
+          "Public Economics",
+          "Development Economics",
+          "Econometrics",
           "Statistics",
-          "Power BI",
-          "Forecasting",
-          "Supply Chain",
-          "Operations Management",
-          "Data Visualization"
-
+          "Policy Analysis",
+          "Research",
+          "Data Analysis",
+          "Report Writing"
         ],
 
         fresher:
           "₹4–8 LPA",
 
         experience:
-          "₹12–22 LPA",
+          "₹12–25 LPA",
 
         resources: [
 
           {
             name:
-              "Microsoft Learn",
+              "World Bank Open Learning",
 
             type:
-              "Analytics and Power BI",
+              "Development economics and global policy learning",
 
             url:
-              "https://learn.microsoft.com/en-us/training/"
+              "https://olc.worldbank.org/"
           },
 
           {
             name:
-              "Kaggle Learn",
+              "International Monetary Fund",
 
             type:
-              "Python, SQL and data analysis",
+              "Global economics and financial research",
 
             url:
-              "https://www.kaggle.com/learn"
+              "https://www.imf.org/en/Publications"
+          },
+
+          {
+            name:
+              "NPTEL",
+
+            type:
+              "Economics, development and statistics",
+
+            url:
+              "https://nptel.ac.in/"
           }
 
         ]
@@ -2613,9 +2822,9 @@
 
 
 
-    /* =========================
-       ELEMENTS
-    ========================= */
+    /* =======================================================
+       DOM ELEMENTS
+       ======================================================= */
 
     const careerGrid =
       document.getElementById(
@@ -2627,7 +2836,7 @@
         "searchInput"
       );
 
-    const modal =
+    const careerModal =
       document.getElementById(
         "careerModal"
       );
@@ -2647,14 +2856,13 @@
         ".filter-btn"
       );
 
-    let currentFilter =
-      "all";
+    let currentFilter = "all";
 
 
 
-    /* =========================
+    /* =======================================================
        RENDER CAREERS
-    ========================= */
+       ======================================================= */
 
     function renderCareers() {
 
@@ -2668,23 +2876,23 @@
         careers.filter(
           career => {
 
-            const searchableText =
+            const searchableText = `
 
-              `${career.title}
+              ${career.title}
+
               ${career.work}
-              ${career.skills.join(" ")}`
-              .toLowerCase();
+
+              ${career.skills.join(" ")}
+
+            `.toLowerCase();
 
 
             const categoryMatch =
-
               currentFilter === "all" ||
-              career.category ===
-                currentFilter;
+              career.category === currentFilter;
 
 
             const searchMatch =
-
               searchableText.includes(
                 searchTerm
               );
@@ -2715,7 +2923,7 @@
             <i
               class="fa-solid fa-magnifying-glass"
               style="
-                font-size:38px;
+                font-size:40px;
                 margin-bottom:15px;
               "
             ></i>
@@ -2725,7 +2933,8 @@
             </h3>
 
             <p>
-              Try another career or skill.
+              Try another career,
+              skill or category.
             </p>
 
           </div>
@@ -2736,13 +2945,12 @@
       }
 
 
-      careerGrid.innerHTML =
 
+      careerGrid.innerHTML =
         filtered.map(
           career => `
 
           <article class="career-card">
-
 
             <div class="career-header">
 
@@ -2766,7 +2974,6 @@
 
             <div class="career-body">
 
-
               <h3>
                 ${career.title}
               </h3>
@@ -2780,7 +2987,6 @@
 
 
               <div class="salary-grid">
-
 
                 <div class="salary-box">
 
@@ -2826,9 +3032,11 @@
                 ${career.skills
                   .map(
                     skill =>
-                      `<span class="skill">
+                      `
+                      <span class="skill">
                         ${skill}
-                      </span>`
+                      </span>
+                      `
                   )
                   .join("")
                 }
@@ -2837,7 +3045,6 @@
 
 
               <div class="card-actions">
-
 
                 <button
                   class="action-btn details-btn"
@@ -2870,7 +3077,6 @@
 
                 </button>
 
-
               </div>
 
             </div>
@@ -2878,16 +3084,15 @@
           </article>
 
         `
-        )
-        .join("");
+        ).join("");
 
     }
 
 
 
-    /* =========================
-       SHOW CAREER
-    ========================= */
+    /* =======================================================
+       SHOW CAREER MODAL
+       ======================================================= */
 
     function showCareer(rank) {
 
@@ -2910,24 +3115,18 @@
 
 
           <h2>
-
             ${career.title}
-
           </h2>
 
 
           <p>
-
             ${career.work}
-
           </p>
 
         </div>
 
 
-
         <div class="salary-grid">
-
 
           <div class="salary-box">
 
@@ -2954,9 +3153,7 @@
 
           </div>
 
-
         </div>
-
 
 
         <div style="margin-top:25px;">
@@ -2977,9 +3174,11 @@
             ${career.skills
               .map(
                 skill =>
-                  `<span class="modal-skill">
+                  `
+                  <span class="modal-skill">
                     ${skill}
-                  </span>`
+                  </span>
+                  `
               )
               .join("")
             }
@@ -2987,7 +3186,6 @@
           </div>
 
         </div>
-
 
 
         <div style="margin-top:30px;">
@@ -3007,42 +3205,43 @@
 
             ${career.resources
               .map(
-                resource => `
+                resource =>
+                  `
+                  <a
+                    href="${resource.url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="resource"
+                  >
 
-                <a
-                  href="${resource.url}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="resource"
-                >
-
-                  <i
-                    class="fa-solid fa-book"
-                  ></i>
-
-
-                  <div class="resource-text">
-
-                    <strong>
-                      ${resource.name}
-                    </strong>
-
-                    <small>
-                      ${resource.type}
-                    </small>
-
-                  </div>
+                    <i
+                      class="fa-solid fa-book"
+                    ></i>
 
 
-                  <i
-                    class="fa-solid
-                    fa-arrow-up-right-from-square
-                    external"
-                  ></i>
+                    <div class="resource-text">
 
-                </a>
+                      <strong>
+                        ${resource.name}
+                      </strong>
 
-              `
+                      <small>
+                        ${resource.type}
+                      </small>
+
+                    </div>
+
+
+                    <i
+                      class="
+                        fa-solid
+                        fa-arrow-up-right-from-square
+                        external
+                      "
+                    ></i>
+
+                  </a>
+                  `
               )
               .join("")
             }
@@ -3052,7 +3251,6 @@
         </div>
 
 
-
         <div style="margin-top:30px;">
 
           <div
@@ -3060,12 +3258,10 @@
             style="margin-bottom:0;"
           >
 
-            <div
-              class="ascend-intro-icon"
-            >
+            <div class="ascend-intro-icon">
 
               <i
-                class="fa-solid fa-arrow-trend-up"
+                class="fa-solid fa-rocket"
               ></i>
 
             </div>
@@ -3079,12 +3275,12 @@
 
               <p>
 
-                Start with the learning resources,
-                strengthen SQL and statistics,
-                develop domain knowledge, create
-                2–3 portfolio projects and apply
-                for internships and entry-level
-                positions.
+                Learn the fundamentals,
+                develop career-specific skills,
+                complete practical projects,
+                create a professional portfolio,
+                gain internship experience and
+                apply for relevant entry-level roles.
 
               </p>
 
@@ -3097,10 +3293,9 @@
       `;
 
 
-      modal.classList.add(
+      careerModal.classList.add(
         "show"
       );
-
 
       document.body.style.overflow =
         "hidden";
@@ -3109,9 +3304,9 @@
 
 
 
-    /* =========================
+    /* =======================================================
        SEARCH
-    ========================= */
+       ======================================================= */
 
     searchInput.addEventListener(
       "input",
@@ -3120,9 +3315,9 @@
 
 
 
-    /* =========================
-       FILTER
-    ========================= */
+    /* =======================================================
+       FILTERS
+       ======================================================= */
 
     filterButtons.forEach(
       button => {
@@ -3158,13 +3353,13 @@
 
 
 
-    /* =========================
+    /* =======================================================
        CLOSE MODAL
-    ========================= */
+       ======================================================= */
 
     function closeCareerModal() {
 
-      modal.classList.remove(
+      careerModal.classList.remove(
         "show"
       );
 
@@ -3180,12 +3375,13 @@
     );
 
 
-    modal.addEventListener(
+    careerModal.addEventListener(
       "click",
       event => {
 
         if (
-          event.target === modal
+          event.target ===
+          careerModal
         ) {
 
           closeCareerModal();
@@ -3201,7 +3397,8 @@
       event => {
 
         if (
-          event.key === "Escape"
+          event.key ===
+          "Escape"
         ) {
 
           closeCareerModal();
@@ -3213,9 +3410,9 @@
 
 
 
-    /* =========================
+    /* =======================================================
        DARK MODE
-    ========================= */
+       ======================================================= */
 
     const themeButton =
       document.getElementById(
@@ -3250,7 +3447,7 @@
 
 
         localStorage.setItem(
-          "ascendDataScienceTheme",
+          "ascendEconomicsTheme",
           dark
             ? "dark"
             : "light"
@@ -3262,7 +3459,7 @@
 
     if (
       localStorage.getItem(
-        "ascendDataScienceTheme"
+        "ascendEconomicsTheme"
       ) === "dark"
     ) {
 
@@ -3277,9 +3474,9 @@
 
 
 
-    /* =========================
-       INITIAL LOAD
-    ========================= */
+    /* =======================================================
+       INITIAL RENDER
+       ======================================================= */
 
     renderCareers();
 

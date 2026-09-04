@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ASCEND – Entrepreneurship</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#c62828;
+    --primary-dark:#9e1f1f;
+    --gold:#f4b400;
+
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --text:#18202a;
+    --muted:#667085;
+    --border:#e4e7ec;
+
+    --success:#087f5b;
+    --blue:#1769aa;
+
+    --shadow:0 10px 30px rgba(16,24,40,.08);
+}
+
+body.dark{
+    --bg:#0f141a;
+    --card:#171d25;
+    --text:#f1f5f9;
+    --muted:#aab4c0;
+    --border:#2b3440;
+
+    --shadow:0 10px 30px rgba(0,0,0,.30);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    transition:.25s;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 3px 15px rgba(0,0,0,.04);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:22px;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.logo i{
+    font-size:24px;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.nav-btn,
+.theme-btn{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    text-decoration:none;
+    padding:9px 13px;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.nav-btn:hover,
+.theme-btn:hover{
+    border-color:var(--primary);
+    color:var(--primary);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    background:
+        linear-gradient(135deg,
+        rgba(198,40,40,.96),
+        rgba(130,20,20,.96));
+    color:white;
+    padding:70px 20px;
+}
+
+.hero-inner{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.25);
+    padding:8px 13px;
+    border-radius:50px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:48px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#ffd86b;
+}
+
+.hero p{
+    max-width:700px;
+    font-size:17px;
+    opacity:.92;
+}
+
+.hero-equation{
+    margin-top:25px;
+    display:inline-block;
+    background:rgba(0,0,0,.15);
+    padding:14px 18px;
+    border-radius:12px;
+    font-weight:700;
+}
+
+.hero-card{
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.2);
+    padding:28px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+}
+
+.hero-card i{
+    font-size:40px;
+    color:#ffd86b;
+    margin-bottom:15px;
+}
+
+.hero-card h3{
+    margin-bottom:8px;
+}
+
+/* ================= GENERAL ================= */
+
+.section{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.section-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-header h2{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.section-header p{
+    color:var(--muted);
+}
+
+/* ================= SEARCH ================= */
+
+.search-area{
+    max-width:1200px;
+    margin:-25px auto 0;
+    padding:0 20px;
+    position:relative;
+    z-index:10;
+}
+
+.search-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    border-radius:15px;
+    padding:18px;
+}
+
+.search-input{
+    width:100%;
+    padding:14px 17px 14px 45px;
+    border:1px solid var(--border);
+    background:var(--bg);
+    color:var(--text);
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+.search-wrapper{
+    position:relative;
+}
+
+.search-wrapper i{
+    position:absolute;
+    left:16px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--muted);
+}
+
+.filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:15px;
+}
+
+.filter-btn{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    padding:8px 13px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:600;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:var(--primary);
+    color:white;
+    border-color:var(--primary);
+}
+
+/* ================= STARTUP GRID ================= */
+
+.startup-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.startup-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:24px;
+    box-shadow:var(--shadow);
+    transition:.25s;
+    display:flex;
+    flex-direction:column;
+}
+
+.startup-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(198,40,40,.4);
+}
+
+.rank{
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    background:rgba(198,40,40,.1);
+    color:var(--primary);
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.card-top h3{
+    font-size:19px;
+    line-height:1.3;
+}
+
+.category{
+    font-size:11px;
+    padding:5px 8px;
+    border-radius:20px;
+    background:rgba(244,180,0,.15);
+    color:#a36f00;
+    white-space:nowrap;
+    font-weight:700;
+}
+
+.card-description{
+    color:var(--muted);
+    font-size:14px;
+    margin:12px 0 18px;
+}
+
+.income-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.income-box{
+    background:var(--bg);
+    padding:12px;
+    border-radius:10px;
+}
+
+.income-box small{
+    display:block;
+    color:var(--muted);
+    font-size:11px;
+    margin-bottom:3px;
+}
+
+.income-box strong{
+    font-size:14px;
+}
+
+.investment{
+    margin-bottom:17px;
+}
+
+.investment-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.investment-bar{
+    height:7px;
+    background:var(--bg);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.investment-fill{
+    height:100%;
+    background:var(--primary);
+    border-radius:20px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:20px;
+}
+
+.skill{
+    background:rgba(23,105,170,.09);
+    color:var(--blue);
+    padding:5px 8px;
+    border-radius:6px;
+    font-size:11px;
+    font-weight:600;
+}
+
+.card-button{
+    width:100%;
+    margin-top:auto;
+    padding:11px;
+    border:none;
+    border-radius:9px;
+    background:var(--primary);
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.card-button:hover{
+    background:var(--primary-dark);
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.roadmap-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+}
+
+.roadmap-number{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary);
+    color:white;
+    margin:0 auto 15px;
+    font-weight:800;
+}
+
+.roadmap-card h3{
+    margin-bottom:8px;
+}
+
+.roadmap-card p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= RESOURCE HUB ================= */
+
+.resource-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.resource-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:23px;
+}
+
+.resource-icon{
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    background:rgba(198,40,40,.1);
+    color:var(--primary);
+    font-size:20px;
+    margin-bottom:14px;
+}
+
+.resource-card h3{
+    margin-bottom:6px;
+}
+
+.resource-card p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.resource-link{
+    color:var(--primary);
+    font-weight:700;
+    font-size:13px;
+    text-decoration:none;
+}
+
+.resource-link:hover{
+    text-decoration:underline;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:2000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    background:var(--card);
+    width:min(850px,100%);
+    max-height:90vh;
+    overflow-y:auto;
+    border-radius:18px;
+    padding:30px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    right:18px;
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    background:var(--bg);
+    color:var(--text);
+    cursor:pointer;
+    font-size:18px;
+}
+
+.modal-header{
+    padding-right:40px;
+    margin-bottom:25px;
+}
+
+.modal-header h2{
+    font-size:27px;
+    margin-bottom:7px;
+}
+
+.modal-header p{
+    color:var(--muted);
+}
+
+.modal-section{
+    margin-top:25px;
+}
+
+.modal-section h3{
+    margin-bottom:12px;
+    font-size:17px;
+}
+
+.resource-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.learning-item{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:13px;
+    background:var(--bg);
+}
+
+.learning-item strong{
+    display:block;
+    margin-bottom:5px;
+    font-size:13px;
+}
+
+.learning-item a{
+    color:var(--primary);
+    font-size:12px;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.learning-item a:hover{
+    text-decoration:underline;
+}
+
+.idea-box{
+    padding:16px;
+    background:rgba(244,180,0,.09);
+    border-left:4px solid var(--gold);
+    border-radius:8px;
+    color:var(--text);
+    font-size:14px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#111820;
+    color:#cbd5e1;
+    padding:35px 20px;
+    margin-top:30px;
+}
+
+.footer-inner{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+.footer-logo{
+    font-size:22px;
+    color:white;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+footer p{
+    font-size:13px;
+    color:#94a3b8;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:850px){
+
+    .hero-inner{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .startup-grid{
+        grid-template-columns:1fr;
+    }
+
+    .roadmap{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .resource-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .nav-container{
+        padding:12px 14px;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .nav-btn span{
+        display:none;
+    }
+
+    .hero{
+        padding:50px 16px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .section{
+        padding:45px 15px;
+    }
+
+    .section-header h2{
+        font-size:26px;
+    }
+
+    .income-grid{
+        grid-template-columns:1fr;
+    }
+
+    .roadmap{
+        grid-template-columns:1fr;
+    }
+
+    .resource-grid{
+        grid-template-columns:1fr;
+    }
+
+    .resource-list{
+        grid-template-columns:1fr;
+    }
+
+    .modal-content{
+        padding:22px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<div class="nav-container">
+
+<div class="logo">
+<i class="fa-solid fa-arrow-up-right-dots"></i>
+ASCEND
+</div>
+
+<div class="nav-actions">
+
+<a href="../index.html" class="nav-btn">
+<i class="fa-solid fa-house"></i>
+<span>Home</span>
+</a>
+
+<button class="theme-btn" onclick="toggleTheme()">
+<i class="fa-solid fa-moon"></i>
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<div>
+
+<div class="hero-badge">
+<i class="fa-solid fa-rocket"></i>
+ASCEND Entrepreneurship Pathway
+</div>
+
+<h1>
+Turn Your <span>Idea</span><br>
+Into a Business
+</h1>
+
+<p>
+Explore future-demand entrepreneurship opportunities for
+undergraduate students. Learn the required skills, start with
+low investment, build real solutions and grow toward sustainable income.
+</p>
+
+<div class="hero-equation">
+Idea + Skills + Customer + Execution = Business Growth
+</div>
+
+</div>
+
+<div class="hero-card">
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<h3>Think Like an Entrepreneur</h3>
+
+<p>
+Find a real problem, understand the customer, create a useful
+solution, test it with the market and continuously improve it.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<div class="search-area">
+
+<div class="search-box">
+
+<div class="search-wrapper">
+
+<i class="fa-solid fa-search"></i>
+
+<input
+type="text"
+id="searchInput"
+class="search-input"
+placeholder="Search entrepreneurship ideas, skills or categories..."
+oninput="filterIdeas()">
+
+</div>
+
+<div class="filters">
+
+<button class="filter-btn active"
+onclick="setCategory('All',this)">
+All
+</button>
+
+<button class="filter-btn"
+onclick="setCategory('AI & Automation',this)">
+AI & Automation
+</button>
+
+<button class="filter-btn"
+onclick="setCategory('Digital Business',this)">
+Digital Business
+</button>
+
+<button class="filter-btn"
+onclick="setCategory('Analytics',this)">
+Analytics
+</button>
+
+<button class="filter-btn"
+onclick="setCategory('Content',this)">
+Content
+</button>
+
+<button class="filter-btn"
+onclick="setCategory('Business Services',this)">
+Business Services
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= STARTUP IDEAS ================= -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>Top 10 Future Entrepreneurship Ideas</h2>
+
+<p>
+High-demand, scalable and undergraduate-friendly business opportunities
+</p>
+
+</div>
+
+<div class="startup-grid" id="startupGrid"></div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>ASCEND Entrepreneurship Roadmap</h2>
+
+<p>Follow a simple path from student to entrepreneur.</p>
+
+</div>
+
+<div class="roadmap">
+
+<div class="roadmap-card">
+
+<div class="roadmap-number">1</div>
+
+<h3>Discover</h3>
+
+<p>
+Identify problems, customers, market gaps and future opportunities.
+</p>
+
+</div>
+
+<div class="roadmap-card">
+
+<div class="roadmap-number">2</div>
+
+<h3>Learn</h3>
+
+<p>
+Develop business, communication, marketing, finance and digital skills.
+</p>
+
+</div>
+
+<div class="roadmap-card">
+
+<div class="roadmap-number">3</div>
+
+<h3>Build</h3>
+
+<p>
+Create a minimum viable service or product and test it with real customers.
+</p>
+
+</div>
+
+<div class="roadmap-card">
+
+<div class="roadmap-number">4</div>
+
+<h3>ASCEND</h3>
+
+<p>
+Improve the business, acquire customers, increase revenue and scale.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RESOURCE HUB ================= -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>Free Entrepreneurship Learning Hub</h2>
+
+<p>
+Build your entrepreneurial foundation using free learning resources.
+</p>
+
+</div>
+
+<div class="resource-grid">
+
+<div class="resource-card">
+
+<div class="resource-icon">
+<i class="fa-solid fa-book-open"></i>
+</div>
+
+<h3>OpenStax Entrepreneurship</h3>
+
+<p>
+Free undergraduate-level entrepreneurship textbook covering
+business models, marketing, finance and startup operations.
+</p>
+
+<a
+class="resource-link"
+href="https://openstax.org/books/entrepreneurship/pages/preface"
+target="_blank">
+Learn Entrepreneurship →
+</a>
+
+</div>
+
+
+<div class="resource-card">
+
+<div class="resource-icon">
+<i class="fa-solid fa-bullhorn"></i>
+</div>
+
+<h3>HubSpot Academy</h3>
+
+<p>
+Free online training for marketing, sales, content, CRM,
+social media and business growth.
+</p>
+
+<a
+class="resource-link"
+href="https://academy.hubspot.com/courses?price=FREE"
+target="_blank">
+Start Free Courses →
+</a>
+
+</div>
+
+
+<div class="resource-card">
+
+<div class="resource-icon">
+<i class="fa-solid fa-chart-column"></i>
+</div>
+
+<h3>Microsoft Learn</h3>
+
+<p>
+Learn analytics, Power BI, data visualization and other
+digital business skills.
+</p>
+
+<a
+class="resource-link"
+href="https://learn.microsoft.com/en-us/training/powerplatform/power-bi"
+target="_blank">
+Learn Power BI →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="ideaModal">
+
+<div class="modal-content">
+
+<button class="close" onclick="closeModal()">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+<div class="footer-logo">
+ASCEND
+</div>
+
+<p>
+Entrepreneurship Career & Business Pathway
+</p>
+
+<p style="margin-top:8px;">
+Learn • Build • Solve • Grow
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   ENTREPRENEURSHIP DATA
+===================================================== */
+
+const ideas = [
+
+{
+rank:1,
+title:"AI Business Automation Service",
+category:"AI & Automation",
+
+description:
+"Help small businesses automate repetitive tasks such as customer enquiries, reporting, document processing and workflow management.",
+
+investment:"₹0 – ₹25,000",
+
+monthly:"₹40,000 – ₹2,00,000+",
+
+yearly:"₹4.8L – ₹24L+",
+
+investmentLevel:15,
+
+skills:[
+"AI Tools",
+"Automation",
+"Process Analysis",
+"Prompt Design",
+"Business Communication",
+"Client Management"
+],
+
+idea:
+"Offer automation solutions to local businesses. Start with one workflow, demonstrate measurable time savings and then expand into a monthly service.",
+
+resources:[
+["AI & Automation","https://learn.microsoft.com/en-us/training/"],
+["Business Fundamentals","https://openstax.org/books/entrepreneurship/pages/preface"],
+["Communication","https://openlearn.com/"],
+["Client Management","https://academy.hubspot.com/courses?price=FREE"],
+["Prompt Design","https://learn.microsoft.com/en-us/training/"],
+["Business Process Analysis","https://openstax.org/books/entrepreneurship/pages/index"]
+]
+},
+
+{
+rank:2,
+title:"Local Business Digital Growth Agency",
+category:"Digital Business",
+
+description:
+"Help local shops, restaurants, clinics, educational institutions and service businesses improve their digital presence and customer acquisition.",
+
+investment:"₹0 – ₹20,000",
+
+monthly:"₹30,000 – ₹1,50,000+",
+
+yearly:"₹3.6L – ₹18L+",
+
+investmentLevel:12,
+
+skills:[
+"Digital Marketing",
+"Social Media",
+"SEO",
+"Content Creation",
+"Analytics",
+"Sales"
+],
+
+idea:
+"Begin with one or two local businesses. Offer social media management, Google visibility, content and basic digital marketing as a monthly package.",
+
+resources:[
+["Digital Marketing","https://academy.hubspot.com/courses/digital-marketing"],
+["Social Media","https://academy.hubspot.com/courses/social-media"],
+["SEO","https://academy.hubspot.com/courses/seo-training"],
+["Sales","https://www.hubspot.com/sales/sales-training"],
+["Analytics","https://learn.microsoft.com/en-us/training/"],
+["Business Fundamentals","https://openstax.org/books/entrepreneurship/pages/preface"]
+]
+},
+
+{
+rank:3,
+title:"SME Business Analytics Service",
+category:"Analytics",
+
+description:
+"Convert sales, inventory, customer and operational data into simple dashboards and business insights for small and medium businesses.",
+
+investment:"₹0 – ₹20,000",
+
+monthly:"₹30,000 – ₹1,50,000+",
+
+yearly:"₹3.6L – ₹18L+",
+
+investmentLevel:12,
+
+skills:[
+"Excel",
+"Power BI",
+"Data Analysis",
+"Data Visualization",
+"Business Intelligence",
+"Presentation"
+],
+
+idea:
+"Create simple business dashboards showing revenue, expenses, sales trends, inventory and customer performance.",
+
+resources:[
+["Power BI","https://learn.microsoft.com/en-us/training/powerplatform/power-bi"],
+["Data Analysis","https://learn.microsoft.com/en-us/training/"],
+["Business Intelligence","https://learn.microsoft.com/en-us/training/powerplatform/power-bi"],
+["Entrepreneurship","https://openstax.org/books/entrepreneurship/pages/preface"],
+["Presentation","https://openlearn.com/"],
+["Business Fundamentals","https://openstax.org/books/entrepreneurship/pages/index"]
+]
+},
+
+{
+rank:4,
+title:"B2B Lead Generation Agency",
+category:"Business Services",
+
+description:
+"Help businesses identify potential customers and build structured lead-generation systems.",
+
+investment:"₹0 – ₹15,000",
+
+monthly:"₹40,000 – ₹2,00,000+",
+
+yearly:"₹4.8L – ₹24L+",
+
+investmentLevel:8,
+
+skills:[
+"Lead Generation",
+"Sales",
+"Market Research",
+"CRM",
+"Email Marketing",
+"Communication"
+],
+
+idea:
+"Choose a niche such as software companies, educational businesses, manufacturers or professional services and build a specialized lead-generation service.",
+
+resources:[
+["Lead Generation","https://academy.hubspot.com/courses/lead-generation"],
+["Sales","https://www.hubspot.com/sales/sales-training"],
+["CRM","https://academy.hubspot.com/courses?price=FREE"],
+["Email Marketing","https://academy.hubspot.com/courses/email-marketing"],
+["Market Research","https://openstax.org/books/entrepreneurship/pages/8-summary"],
+["Communication","https://openlearn.com/"]
+]
+},
+
+{
+rank:5,
+title:"Regional-Language Content Studio",
+category:"Content",
+
+description:
+"Create professional digital content for businesses, education providers and organizations in regional languages.",
+
+investment:"₹0 – ₹30,000",
+
+monthly:"₹30,000 – ₹1,50,000+",
+
+yearly:"₹3.6L – ₹18L+",
+
+investmentLevel:18,
+
+skills:[
+"Content Writing",
+"Regional Languages",
+"SEO",
+"Video Content",
+"Social Media",
+"Branding"
+],
+
+idea:
+"Build a specialized content studio serving businesses that need high-quality regional-language websites, social media, educational content and marketing material.",
+
+resources:[
+["Content Marketing","https://academy.hubspot.com/courses/content-marketing"],
+["SEO","https://academy.hubspot.com/courses/seo-training"],
+["Social Media","https://academy.hubspot.com/courses/social-media"],
+["Branding","https://academy.hubspot.com/courses?price=FREE"],
+["Digital Marketing","https://academy.hubspot.com/courses/digital-marketing"],
+["Entrepreneurship","https://openstax.org/books/entrepreneurship/pages/preface"]
+]
+},
+
+{
+rank:6,
+title:"Virtual Business Operations Service",
+category:"Business Services",
+
+description:
+"Provide remote operational support to small businesses including documentation, reporting, scheduling, customer follow-up and workflow organization.",
+
+investment:"₹0 – ₹15,000",
+
+monthly:"₹30,000 – ₹1,20,000+",
+
+yearly:"₹3.6L – ₹14.4L+",
+
+investmentLevel:8,
+
+skills:[
+"Operations",
+"Excel",
+"Documentation",
+"Project Management",
+"Communication",
+"Time Management"
+],
+
+idea:
+"Start as a remote operations assistant and gradually build a small team that handles recurring administrative workflows for multiple clients.",
+
+resources:[
+["Entrepreneurship","https://openstax.org/books/entrepreneurship/pages/preface"],
+["Operations","https://openstax.org/books/entrepreneurship/pages/index"],
+["Project Management","https://openlearn.com/"],
+["Excel","https://learn.microsoft.com/en-us/training/"],
+["Communication","https://openlearn.com/"],
+["Business Management","https://openstax.org/books/entrepreneurship/pages/index"]
+]
+},
+
+{
+rank:7,
+title:"Micro-Consulting & Business Research Studio",
+category:"Business Services",
+
+description:
+"Provide small businesses with market research, competitor analysis, customer research and business reports.",
+
+investment:"₹0 – ₹10,000",
+
+monthly:"₹25,000 – ₹1,50,000+",
+
+yearly:"₹3L – ₹18L+",
+
+investmentLevel:5,
+
+skills:[
+"Market Research",
+"Business Analysis",
+"Report Writing",
+"Problem Solving",
+"Presentation",
+"Financial Basics"
+],
+
+idea:
+"Choose a business niche and create research packages such as competitor analysis, market opportunity reports and customer surveys.",
+
+resources:[
+["Market Research","https://openstax.org/books/entrepreneurship/pages/8-summary"],
+["Business Analysis","https://openstax.org/books/entrepreneurship/pages/index"],
+["Financial Basics","https://openstax.org/books/entrepreneurship/pages/index"],
+["Problem Solving","https://openlearn.com/"],
+["Presentation","https://openlearn.com/"],
+["Entrepreneurship","https://openstax.org/books/entrepreneurship/pages/preface"]
+]
+},
+
+{
+rank:8,
+title:"Corporate Skill Training Business",
+category:"Business Services",
+
+description:
+"Create practical training programs for organizations, colleges and small businesses around communication, digital business and workplace skills.",
+
+investment:"₹0 – ₹25,000",
+
+monthly:"₹30,000 – ₹2,00,000+",
+
+yearly:"₹3.6L – ₹24L+",
+
+investmentLevel:15,
+
+skills:[
+"Training",
+"Public Speaking",
+"Content Design",
+"Communication",
+"Presentation",
+"Business Knowledge"
+],
+
+idea:
+"Begin with one high-demand workshop. Collect feedback, improve the program and create a repeatable training package.",
+
+resources:[
+["Entrepreneurship","https://openstax.org/books/entrepreneurship/pages/preface"],
+["Communication","https://openlearn.com/"],
+["Presentation","https://openlearn.com/"],
+["Marketing","https://academy.hubspot.com/courses/digital-marketing"],
+["Content Design","https://academy.hubspot.com/courses?price=FREE"],
+["Business Skills","https://academy.hubspot.com/courses?price=FREE"]
+]
+},
+
+{
+rank:9,
+title:"Niche Recruitment & Talent Service",
+category:"Business Services",
+
+description:
+"Connect organizations with candidates in specialized fields and build a focused talent sourcing service.",
+
+investment:"₹0 – ₹20,000",
+
+monthly:"₹30,000 – ₹2,00,000+",
+
+yearly:"₹3.6L – ₹24L+",
+
+investmentLevel:12,
+
+skills:[
+"Recruitment",
+"Sourcing",
+"Communication",
+"Interviewing",
+"Networking",
+"Business Development"
+],
+
+idea:
+"Focus on one talent category such as sales, digital marketing, finance or technology and develop relationships with both employers and candidates.",
+
+resources:[
+["Business Fundamentals","https://openstax.org/books/entrepreneurship/pages/preface"],
+["Communication","https://openlearn.com/"],
+["Sales","https://www.hubspot.com/sales/sales-training"],
+["Networking","https://openlearn.com/"],
+["Business Development","https://academy.hubspot.com/courses?price=FREE"],
+["Recruitment Fundamentals","https://openlearn.com/"]
+]
+},
+
+{
+rank:10,
+title:"MSME Digital Transformation Consultant",
+category:"Digital Business",
+
+description:
+"Help traditional small and medium businesses adopt digital workflows, cloud tools, dashboards, online customer systems and automation.",
+
+investment:"₹0 – ₹30,000",
+
+monthly:"₹40,000 – ₹2,50,000+",
+
+yearly:"₹4.8L – ₹30L+",
+
+investmentLevel:18,
+
+skills:[
+"Digital Transformation",
+"Business Analysis",
+"Cloud Tools",
+"Automation",
+"Power BI",
+"Project Management"
+],
+
+idea:
+"Identify inefficient manual processes in small businesses and propose practical digital improvements with measurable business outcomes.",
+
+resources:[
+["Power BI","https://learn.microsoft.com/en-us/training/powerplatform/power-bi"],
+["Automation","https://learn.microsoft.com/en-us/training/"],
+["Business Analysis","https://openstax.org/books/entrepreneurship/pages/index"],
+["Project Management","https://openlearn.com/"],
+["Digital Marketing","https://academy.hubspot.com/courses/digital-marketing"],
+["Entrepreneurship","https://openstax.org/books/entrepreneurship/pages/preface"]
+]
+}
+
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let currentCategory = "All";
+
+
+/* =====================================================
+   DISPLAY IDEAS
+===================================================== */
+
+function displayIdeas(){
+
+const grid = document.getElementById("startupGrid");
+
+const search =
+document.getElementById("searchInput").value
+.toLowerCase()
+.trim();
+
+const filtered = ideas.filter(idea => {
+
+const matchesCategory =
+currentCategory === "All" ||
+idea.category === currentCategory;
+
+const searchable = (
+idea.title + " " +
+idea.category + " " +
+idea.description + " " +
+idea.skills.join(" ")
+).toLowerCase();
+
+const matchesSearch =
+search === "" ||
+searchable.includes(search);
+
+return matchesCategory && matchesSearch;
+
+});
+
+if(filtered.length === 0){
+
+grid.innerHTML = `
+<div style="
+grid-column:1/-1;
+text-align:center;
+padding:50px;
+color:var(--muted);
+">
+<i class="fa-solid fa-magnifying-glass"
+style="font-size:35px;margin-bottom:12px;"></i>
+
+<h3>No entrepreneurship idea found</h3>
+
+<p>Try another keyword or category.</p>
+
+</div>
+`;
+
+return;
+
+}
+
+grid.innerHTML = filtered.map(idea => `
+
+<article class="startup-card">
+
+<div class="rank">
+#${idea.rank}
+</div>
+
+<div class="card-top">
+
+<h3>${idea.title}</h3>
+
+<span class="category">
+${idea.category}
+</span>
+
+</div>
+
+<p class="card-description">
+${idea.description}
+</p>
+
+<div class="income-grid">
+
+<div class="income-box">
+
+<small>
+Initial Investment
+</small>
+
+<strong>
+${idea.investment}
+</strong>
+
+</div>
+
+<div class="income-box">
+
+<small>
+Monthly Income Potential
+</small>
+
+<strong>
+${idea.monthly}
+</strong>
+
+</div>
+
+</div>
+
+<div class="income-box"
+style="margin-bottom:15px;">
+
+<small>
+Yearly Income Potential
+</small>
+
+<strong>
+${idea.yearly}
+</strong>
+
+</div>
+
+<div class="investment">
+
+<div class="investment-row">
+
+<span>
+Investment Level
+</span>
+
+<strong>
+${idea.investmentLevel <= 10 ? "Very Low" :
+idea.investmentLevel <= 15 ? "Low" : "Low–Moderate"}
+</strong>
+
+</div>
+
+<div class="investment-bar">
+
+<div
+class="investment-fill"
+style="width:${idea.investmentLevel * 4}%">
+</div>
+
+</div>
+
+</div>
+
+<div class="skills">
+
+${idea.skills.map(skill => `
+<span class="skill">
+${skill}
+</span>
+`).join("")}
+
+</div>
+
+<button
+class="card-button"
+onclick="openModal(${idea.rank})">
+
+<i class="fa-solid fa-arrow-right"></i>
+View Skills & Free Resources
+
+</button>
+
+</article>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+function setCategory(category,button){
+
+currentCategory = category;
+
+document.querySelectorAll(".filter-btn")
+.forEach(btn => btn.classList.remove("active"));
+
+button.classList.add("active");
+
+displayIdeas();
+
+}
+
+
+function filterIdeas(){
+displayIdeas();
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+function openModal(rank){
+
+const idea = ideas.find(item => item.rank === rank);
+
+const modal =
+document.getElementById("ideaModal");
+
+const body =
+document.getElementById("modalBody");
+
+body.innerHTML = `
+
+<div class="modal-header">
+
+<h2>
+#${idea.rank} ${idea.title}
+</h2>
+
+<p>
+${idea.category} • Future Entrepreneurship Opportunity
+</p>
+
+</div>
+
+
+<div class="modal-section">
+
+<h3>
+<i class="fa-solid fa-lightbulb"></i>
+Business Concept
+</h3>
+
+<div class="idea-box">
+${idea.idea}
+</div>
+
+</div>
+
+
+<div class="modal-section">
+
+<h3>
+<i class="fa-solid fa-chart-line"></i>
+Income Potential
+</h3>
+
+<div class="income-grid">
+
+<div class="income-box">
+
+<small>
+Initial Investment
+</small>
+
+<strong>
+${idea.investment}
+</strong>
+
+</div>
+
+<div class="income-box">
+
+<small>
+Monthly Potential
+</small>
+
+<strong>
+${idea.monthly}
+</strong>
+
+</div>
+
+<div class="income-box">
+
+<small>
+Yearly Potential
+</small>
+
+<strong>
+${idea.yearly}
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="modal-section">
+
+<h3>
+<i class="fa-solid fa-graduation-cap"></i>
+Required Skills & Free Learning Resources
+</h3>
+
+<div class="resource-list">
+
+${idea.resources.map(resource => `
+
+<div class="learning-item">
+
+<strong>
+${resource[0]}
+</strong>
+
+<a
+href="${resource[1]}"
+target="_blank"
+rel="noopener">
+
+<i class="fa-solid fa-up-right-from-square"></i>
+Open Free Resource
+
+</a>
+
+</div>
+
+`).join("")}
+
+</div>
+
+</div>
+
+
+<div class="modal-section">
+
+<h3>
+<i class="fa-solid fa-list-check"></i>
+Recommended Skills
+</h3>
+
+<div class="skills">
+
+${idea.skills.map(skill => `
+<span class="skill">
+${skill}
+</span>
+`).join("")}
+
+</div>
+
+</div>
+
+`;
+
+modal.classList.add("show");
+
+document.body.style.overflow="hidden";
+
+}
+
+
+function closeModal(){
+
+document
+.getElementById("ideaModal")
+.classList.remove("show");
+
+document.body.style.overflow="";
+
+}
+
+
+document
+.getElementById("ideaModal")
+.addEventListener("click",function(e){
+
+if(e.target === this){
+closeModal();
+}
+
+});
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+function toggleTheme(){
+
+document.body.classList.toggle("dark");
+
+const dark =
+document.body.classList.contains("dark");
+
+localStorage.setItem("ascendTheme",
+dark ? "dark" : "light");
+
+const icon =
+document.querySelector(".theme-btn i");
+
+icon.className =
+dark
+? "fa-solid fa-sun"
+: "fa-solid fa-moon";
+
+}
+
+
+(function(){
+
+const saved =
+localStorage.getItem("ascendTheme");
+
+if(saved === "dark"){
+
+document.body.classList.add("dark");
+
+document.querySelector(".theme-btn i")
+.className="fa-solid fa-sun";
+
+}
+
+})();
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+displayIdeas();
+
+</script>
+
+</body>
+</html>

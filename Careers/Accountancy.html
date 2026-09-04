@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
+>
 
   <title>
-    ASCEND | Commerce Careers
+    ASCEND | Accountancy Careers
   </title>
-
 
   <!-- Font Awesome -->
 
@@ -22,74 +23,82 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   >
 
-
   <style>
 
-    /* ==========================================
-       ROOT
-    ========================================== */
-:root {
-  --primary: #1c04f8;
-  --primary-dark: #0c08fc;
+    /* =========================================================
+       ASCEND ACCOUNTANCY CAREER PAGE
+       ========================================================= */
 
-  --accent: #a855f7;
+
+:root {
+
+  /* PRIMARY FINANCE COLORS */
+
+  --primary: #1e3a8a;
+  --primary-dark: #172554;
+
+  --accent: #f59e0b;
 
   --dark: #0f172a;
   --dark-2: #1e293b;
 
-  --bg: #f5f7fb;
 
+  /* LIGHT MODE */
+
+  --bg: #f8fafc;
   --card: #ffffff;
 
   --text: #1e293b;
-
   --muted: #64748b;
 
   --border: #e2e8f0;
 
-  --green: #16a34a;
+
+  /* CAREER COLORS */
+
+  --green: #059669;
+  --blue: #2563eb;
+
+
+  /* SHADOW */
 
   --shadow:
     0 10px 30px
-    rgba(37, 99, 235, 0.10);
+    rgba(30, 58, 138, 0.10);
+
 }
 
-
-    /* ==========================================
+    /* =========================================================
        DARK MODE
-    ========================================== */
+       ========================================================= */
 
-    body.dark-mode {
+body.dark-mode {
 
-      --bg: #0f172a;
+  --bg: #020617;
+  --card: #0f172a;
 
-      --card: #1e293b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
 
-      --text: #f1f5f9;
+  --border: #1e293b;
 
-      --muted: #aeb7c4;
+  --dark: #020617;
+  --dark-2: #0f172a;
 
-      --border: #334155;
+  --shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.45);
 
-      --dark: #020617;
+}
 
-      --dark-2: #0f172a;
-
-      --shadow:
-        0 10px 30px
-        rgba(0, 0, 0, 0.35);
-
-    }
-
-
-    /* ==========================================
+    /* =========================================================
        RESET
-    ========================================== */
+       ========================================================= */
+
 
     * {
 
       margin: 0;
-
       padding: 0;
 
       box-sizing: border-box;
@@ -137,9 +146,10 @@
     }
 
 
-    /* ==========================================
+    /* =========================================================
        NAVBAR
-    ========================================== */
+       ========================================================= */
+
 
     .navbar {
 
@@ -153,8 +163,7 @@
 
       color: white;
 
-      padding:
-        13px 6%;
+      padding: 13px 6%;
 
       display: flex;
 
@@ -163,8 +172,7 @@
       justify-content: space-between;
 
       box-shadow:
-        0 3px 15px
-        rgba(0, 0, 0, 0.25);
+        0 3px 15px rgba(0, 0, 0, 0.25);
 
     }
 
@@ -183,7 +191,6 @@
     .brand-logo {
 
       width: 42px;
-
       height: 42px;
 
       border-radius: 10px;
@@ -193,7 +200,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       font-size: 20px;
@@ -233,16 +239,14 @@
     .nav-btn {
 
       border:
-        1px solid
-        rgba(255, 255, 255, 0.2);
+        1px solid rgba(255, 255, 255, 0.2);
 
       background:
         rgba(255, 255, 255, 0.08);
 
       color: white;
 
-      padding:
-        9px 14px;
+      padding: 9px 14px;
 
       border-radius: 8px;
 
@@ -260,9 +264,10 @@
     }
 
 
-    /* ==========================================
+    /* =========================================================
        HERO
-    ========================================== */
+       ========================================================= */
+
 
     .hero {
 
@@ -276,29 +281,29 @@
 
       text-align: center;
 
-      padding:
-        80px 20px;
+      padding: 80px 20px;
 
       color: white;
 
 background:
+
   radial-gradient(
     circle at 15% 20%,
-    rgba(37, 99, 235, 0.75),
+    rgba(30, 64, 175, 0.75),
     transparent 35%
   ),
 
   radial-gradient(
     circle at 90% 80%,
-    rgba(29, 8, 218, 0.836),
+    rgba(234, 179, 8, 0.18),
     transparent 30%
   ),
 
   linear-gradient(
     135deg,
-    #0f172a,
-    #172554,
-    #1e1b4b
+    #020617,
+    #0f2a5f,
+    #020617
   );
     }
 
@@ -318,12 +323,10 @@ background:
 
       gap: 8px;
 
-      padding:
-        8px 16px;
+      padding: 8px 16px;
 
       border:
-        1px solid
-        rgba(255, 255, 255, 0.2);
+        1px solid rgba(255, 255, 255, 0.2);
 
       background:
         rgba(255, 255, 255, 0.08);
@@ -358,6 +361,18 @@ background:
     }
 
 
+    .career-subtitle {
+
+      font-size:
+        clamp(20px, 3vw, 28px);
+
+      margin-bottom: 15px;
+
+      color: #fef3c7;
+
+    }
+
+
     .hero-description {
 
       max-width: 720px;
@@ -371,9 +386,10 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
        HERO STATS
-    ========================================== */
+       ========================================================= */
+
 
     .hero-stats {
 
@@ -394,8 +410,7 @@ background:
       padding: 20px;
 
       border:
-        1px solid
-        rgba(255, 255, 255, 0.1);
+        1px solid rgba(255, 255, 255, 0.1);
 
       background:
         rgba(255, 255, 255, 0.08);
@@ -423,9 +438,10 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
        MAIN
-    ========================================== */
+       ========================================================= */
+
 
     .container {
 
@@ -473,9 +489,10 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
        ASCEND INTRO
-    ========================================== */
+       ========================================================= */
+
 
     .ascend-intro {
 
@@ -489,8 +506,7 @@ background:
       background: var(--card);
 
       border-left:
-        5px solid
-        var(--primary);
+        5px solid var(--primary);
 
       padding: 25px;
 
@@ -526,9 +542,10 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
        CAREER FORMULA
-    ========================================== */
+       ========================================================= */
+
 
     .formula {
 
@@ -551,16 +568,14 @@ background:
 
     .formula span {
 
-      padding:
-        8px 12px;
+      padding: 8px 12px;
 
       border-radius: 8px;
 
       background: var(--bg);
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     }
 
@@ -574,9 +589,10 @@ background:
     }
 
 
-    /* ==========================================
-       SEARCH
-    ========================================== */
+    /* =========================================================
+       SEARCH AND FILTER
+       ========================================================= */
+
 
     .filter-area {
 
@@ -630,8 +646,7 @@ background:
         13px 15px 13px 42px;
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       border-radius: 9px;
 
@@ -646,12 +661,10 @@ background:
 
     .filter-btn {
 
-      padding:
-        11px 15px;
+      padding: 11px 15px;
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       background: var(--card);
 
@@ -673,15 +686,15 @@ background:
 
       color: white;
 
-      border-color:
-        var(--primary);
+      border-color: var(--primary);
 
     }
 
 
-    /* ==========================================
+    /* =========================================================
        CAREER GRID
-    ========================================== */
+       ========================================================= */
+
 
     .career-grid {
 
@@ -698,17 +711,17 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
        CAREER CARD
-    ========================================== */
+       ========================================================= */
+
 
     .career-card {
 
       background: var(--card);
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       border-radius: 16px;
 
@@ -742,6 +755,7 @@ background:
       padding: 20px;
 
       background:
+
         linear-gradient(
           135deg,
           var(--primary),
@@ -761,8 +775,7 @@ background:
 
     .rank-badge {
 
-      padding:
-        6px 10px;
+      padding: 6px 10px;
 
       background:
         rgba(255, 255, 255, 0.15);
@@ -779,7 +792,6 @@ background:
     .career-icon {
 
       width: 48px;
-
       height: 48px;
 
       border-radius: 50%;
@@ -833,9 +845,10 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
        SALARY
-    ========================================== */
+       ========================================================= */
+
 
     .salary-grid {
 
@@ -858,8 +871,7 @@ background:
       background: var(--bg);
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       border-radius: 10px;
 
@@ -888,9 +900,10 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
        SKILLS
-    ========================================== */
+       ========================================================= */
+
 
     .section-label {
 
@@ -931,8 +944,7 @@ background:
 
     .skill {
 
-      padding:
-        6px 9px;
+      padding: 6px 9px;
 
       border-radius: 50px;
 
@@ -944,15 +956,15 @@ background:
       font-size: 11px;
 
       border:
-        1px solid
-        rgba(198, 40, 40, 0.1);
+        1px solid rgba(198, 40, 40, 0.1);
 
     }
 
 
-    /* ==========================================
-       BUTTONS
-    ========================================== */
+    /* =========================================================
+       ACTIONS
+       ========================================================= */
+
 
     .card-actions {
 
@@ -992,8 +1004,7 @@ background:
       color: var(--text);
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
     }
 
@@ -1015,9 +1026,10 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
        MODAL
-    ========================================== */
+       ========================================================= */
+
 
     .modal {
 
@@ -1055,8 +1067,7 @@ background:
       width:
         min(850px, 100%);
 
-      max-height:
-        90vh;
+      max-height: 90vh;
 
       overflow-y: auto;
 
@@ -1070,6 +1081,34 @@ background:
 
       position: relative;
 
+      animation:
+        modalOpen 0.25s ease;
+
+    }
+
+
+    @keyframes modalOpen {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(20px)
+          scale(0.98);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+
+      }
+
     }
 
 
@@ -1082,7 +1121,6 @@ background:
       top: 18px;
 
       width: 38px;
-
       height: 38px;
 
       border: none;
@@ -1109,6 +1147,19 @@ background:
     }
 
 
+    .modal-rank {
+
+      color: var(--primary);
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 1px;
+
+    }
+
+
     .modal-title h2 {
 
       font-size: 28px;
@@ -1127,22 +1178,10 @@ background:
     }
 
 
-    .modal-rank {
-
-      color: var(--primary);
-
-      font-size: 12px;
-
-      font-weight: bold;
-
-      letter-spacing: 1px;
-
-    }
-
-
-    /* ==========================================
+    /* =========================================================
        MODAL SKILLS
-    ========================================== */
+       ========================================================= */
+
 
     .modal-skills {
 
@@ -1157,12 +1196,10 @@ background:
 
     .modal-skill {
 
-      padding:
-        9px 12px;
+      padding: 9px 12px;
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       background: var(--bg);
 
@@ -1173,9 +1210,10 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
        RESOURCES
-    ========================================== */
+       ========================================================= */
+
 
     .resources {
 
@@ -1197,8 +1235,7 @@ background:
       padding: 14px;
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       border-radius: 10px;
 
@@ -1211,8 +1248,7 @@ background:
 
     .resource:hover {
 
-      border-color:
-        var(--primary);
+      border-color: var(--primary);
 
       transform:
         translateX(5px);
@@ -1254,9 +1290,17 @@ background:
     }
 
 
-    /* ==========================================
+    .external {
+
+      color: var(--muted);
+
+    }
+
+
+    /* =========================================================
        ROADMAP
-    ========================================== */
+       ========================================================= */
+
 
     .roadmap {
 
@@ -1275,8 +1319,7 @@ background:
       background: var(--card);
 
       border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       border-radius: 13px;
 
@@ -1292,7 +1335,6 @@ background:
     .roadmap-number {
 
       width: 45px;
-
       height: 45px;
 
       margin:
@@ -1326,9 +1368,113 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
+       RESOURCE HUB
+       ========================================================= */
+
+
+    .resource-hub {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(220px, 1fr)
+        );
+
+      gap: 18px;
+
+    }
+
+
+    .hub-card {
+
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 22px;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+
+    }
+
+
+    .hub-card:hover {
+
+      transform:
+        translateY(-5px);
+
+      border-color:
+        var(--primary);
+
+    }
+
+
+    .hub-icon {
+
+      width: 45px;
+      height: 45px;
+
+      border-radius: 10px;
+
+      background:
+        rgba(198, 40, 40, 0.1);
+
+      color: var(--primary);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .hub-card h3 {
+
+      font-size: 17px;
+
+      margin-bottom: 7px;
+
+    }
+
+
+    .hub-card p {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .hub-link {
+
+      color: var(--primary);
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+    }
+
+
+    /* =========================================================
        FOOTER
-    ========================================== */
+       ========================================================= */
+
 
     footer {
 
@@ -1336,8 +1482,7 @@ background:
 
       color: #d1d5db;
 
-      padding:
-        45px 20px;
+      padding: 45px 20px;
 
       text-align: center;
 
@@ -1371,9 +1516,10 @@ background:
     }
 
 
-    /* ==========================================
+    /* =========================================================
        MOBILE
-    ========================================== */
+       ========================================================= */
+
 
     @media (max-width: 750px) {
 
@@ -1395,8 +1541,7 @@ background:
 
       .navbar {
 
-        padding:
-          12px 4%;
+        padding: 12px 4%;
 
       }
 
@@ -1445,8 +1590,7 @@ background:
 
       .modal-box {
 
-        padding:
-          25px 18px;
+        padding: 25px 18px;
 
       }
 
@@ -1456,471 +1600,252 @@ background:
 
 </head>
 
-
 <body>
 
-
-  <!-- ========================================
+  <!-- =========================================================
        NAVBAR
-  ======================================== -->
+       ========================================================= -->
 
   <nav class="navbar">
 
-    <div class="brand">
 
-      <div class="brand-logo">
+<div class="brand">
 
-        <i class="fa-solid fa-arrow-trend-up"></i>
-
-      </div>
-
-
-      <div class="brand-name">
-
-        AS<span>CEND</span>
-
-      </div>
-
-    </div>
+  <div class="brand-logo">
+    <i class="fa-solid fa-arrow-trend-up"></i>
+  </div>
 
 
-    <div class="nav-actions">
+  <div class="brand-name">
+    AS<span>CEND</span>
+  </div>
 
-      <a
-        href="../index.html"
-        class="nav-btn"
-      >
-
-        <i class="fa-solid fa-house"></i>
-
-        <span>Home</span>
-
-      </a>
+</div>
 
 
-      <button
-        class="nav-btn"
-        id="themeButton"
-      >
+<div class="nav-actions">
 
-        <i
-          class="fa-solid fa-moon"
-          id="themeIcon"
-        ></i>
+  <a
+    href="../index.html"
+    class="nav-btn"
+  >
 
-      </button>
+    <i class="fa-solid fa-house"></i>
 
-    </div>
+    <span>Home</span>
+
+  </a>
+
+
+  <button
+    class="nav-btn"
+    id="themeButton"
+    title="Toggle Theme"
+  >
+
+    <i
+      class="fa-solid fa-moon"
+      id="themeIcon"
+    ></i>
+
+  </button>
+
+</div>
+
 
   </nav>
 
-
-
-  <!-- ========================================
+  <!-- =========================================================
        HERO
-  ======================================== -->
+       ========================================================= -->
 
   <header class="hero">
 
-    <div class="hero-content">
 
-      <div class="hero-badge">
-
-        <i class="fa-solid fa-briefcase"></i>
-
-        ASCEND COMMERCE CAREERS
-
-      </div>
+<div class="hero-content">
 
 
-      <h1>
+  <div class="hero-badge">
 
-        Commerce
+    <i class="fa-solid fa-calculator"></i>
 
-        <br>
+    ASCEND COMMERCE & FINANCE
 
-        <span>
-          Career Pathway
-        </span>
-
-      </h1>
+  </div>
 
 
-      <p class="hero-description">
+  <h1>
 
-        Explore high-demand and high-growth
-        careers for Commerce graduates in
-        business, technology, digital
-        transformation, operations and
-        leadership.
+    Accountancy
 
+    <br>
+
+    <span>Career Pathway</span>
+
+  </h1>
+
+
+  <div class="career-subtitle">
+
+    From Traditional Accounting to
+    Future Finance Technology Careers
+
+  </div>
+
+
+  <p class="hero-description">
+
+    Explore high-demand and high-growth
+    careers for Accountancy graduates.
+    Combine finance knowledge with data,
+    ERP, automation and AI skills to build
+    a stronger professional future.
+
+  </p>
+
+
+  <div class="hero-stats">
+
+
+    <div class="hero-stat">
+
+      <h3>10</h3>
+
+      <p>
+        High-Potential Careers
       </p>
-
-
-      <div class="hero-stats">
-
-        <div class="hero-stat">
-
-          <h3>
-            10
-          </h3>
-
-          <p>
-            High-Growth Careers
-          </p>
-
-        </div>
-
-
-        <div class="hero-stat">
-
-          <h3>
-            ₹45+ LPA
-          </h3>
-
-          <p>
-            Highest 5-Year Potential
-          </p>
-
-        </div>
-
-
-        <div class="hero-stat">
-
-          <h3>
-            2
-          </h3>
-
-          <p>
-            Tech + Non-Tech Paths
-          </p>
-
-        </div>
-
-      </div>
 
     </div>
 
+
+    <div class="hero-stat">
+
+      <h3>₹50 LPA+</h3>
+
+      <p>
+        Top Potential Salary Range
+      </p>
+
+    </div>
+
+
+    <div class="hero-stat">
+
+      <h3>Free</h3>
+
+      <p>
+        Learning Resources
+      </p>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
   </header>
 
-
-
-  <!-- ========================================
-       MAIN
-  ======================================== -->
+  <!-- =========================================================
+       MAIN CONTENT
+       ========================================================= -->
 
   <main class="container">
 
 
-    <section class="section">
+<!-- =======================================================
+     INTRODUCTION
+     ======================================================= -->
+
+<section class="section">
 
 
-      <!-- INTRO -->
+  <div class="section-header">
 
-      <div class="section-header">
+    <h2>
+      ASCEND Your Accountancy Career
+    </h2>
 
-        <h2>
-          ASCEND Your Commerce Career
-        </h2>
+    <p>
 
-        <p>
+      An Accountancy degree can lead to
+      careers in audit, taxation, investment,
+      corporate finance, financial planning,
+      data analytics, ERP and finance automation.
 
-          Your Commerce degree can open
-          careers far beyond traditional
-          accountancy. Combine business
-          knowledge with technology,
-          digital skills and leadership.
+    </p>
 
-        </p>
-
-      </div>
-
-
-      <div class="ascend-intro">
-
-        <div class="ascend-intro-icon">
-
-          <i class="fa-solid fa-compass"></i>
-
-        </div>
-
-
-        <div>
-
-          <h3>
-            The ASCEND Commerce Formula
-          </h3>
-
-
-          <p>
-
-            Build a modern career by combining
-            your Commerce foundation with
-            data, technology, communication
-            and business execution skills.
-
-          </p>
-
-
-          <div class="formula">
-
-            <span>
-              Commerce
-            </span>
-
-            <span class="plus">
-              +
-            </span>
-
-            <span>
-              Business Skills
-            </span>
-
-            <span class="plus">
-              +
-            </span>
-
-            <span>
-              Digital & AI Tools
-            </span>
-
-            <span class="plus">
-              +
-            </span>
-
-            <span>
-              Portfolio
-            </span>
-
-            <span class="plus">
-              =
-            </span>
-
-            <span>
-              Career Growth
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
+  </div>
 
 
 
-      <!-- SEARCH AND FILTER -->
-
-      <div class="filter-area">
-
-        <div class="search-box">
-
-          <i class="fa-solid fa-magnifying-glass"></i>
-
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search career or skill..."
-          >
-
-        </div>
+  <div class="ascend-intro">
 
 
-        <button
-          class="filter-btn active"
-          data-filter="all"
-        >
-          All
-        </button>
+    <div class="ascend-intro-icon">
+
+      <i class="fa-solid fa-chart-line"></i>
+
+    </div>
 
 
-        <button
-          class="filter-btn"
-          data-filter="tech"
-        >
-          Tech + Business
-        </button>
+    <div>
+
+      <h3>
+        The ASCEND Career Formula
+      </h3>
 
 
-        <button
-          class="filter-btn"
-          data-filter="nontech"
-        >
-          Non-Tech
-        </button>
+      <p>
+
+        The strongest finance professionals
+        combine core accounting knowledge
+        with modern digital, analytical and
+        business technology skills.
+
+      </p>
 
 
-        <button
-          class="filter-btn"
-          data-filter="growth"
-        >
-          Growth & Marketing
-        </button>
+      <div class="formula">
 
+        <span>
+          Accounting
+        </span>
 
-        <button
-          class="filter-btn"
-          data-filter="operations"
-        >
-          Operations
-        </button>
+        <span class="plus">
+          +
+        </span>
+
+        <span>
+          Finance
+        </span>
+
+        <span class="plus">
+          +
+        </span>
+
+        <span>
+          Data & Technology
+        </span>
+
+        <span class="plus">
+          +
+        </span>
+
+        <span>
+          Certifications
+        </span>
+
+        <span class="plus">
+          =
+        </span>
+
+        <span>
+          Career Growth
+        </span>
 
       </div>
-
-
-
-      <!-- CAREER CARDS -->
-
-      <div
-        class="career-grid"
-        id="careerGrid"
-      ></div>
-
-
-    </section>
-
-
-
-    <!-- ======================================
-         ASCEND ROADMAP
-    ======================================= -->
-
-    <section class="section">
-
-      <div class="section-header">
-
-        <h2>
-          ASCEND Career Roadmap
-        </h2>
-
-        <p>
-
-          Follow these four stages to build
-          a strong and future-ready Commerce
-          career.
-
-        </p>
-
-      </div>
-
-
-      <div class="roadmap">
-
-
-        <div class="roadmap-card">
-
-          <div class="roadmap-number">
-            1
-          </div>
-
-          <h3>
-            Discover
-          </h3>
-
-          <p>
-
-            Select a career based on your
-            interests, strengths and future
-            opportunities.
-
-          </p>
-
-        </div>
-
-
-        <div class="roadmap-card">
-
-          <div class="roadmap-number">
-            2
-          </div>
-
-          <h3>
-            Learn
-          </h3>
-
-          <p>
-
-            Build the required business,
-            technology and professional
-            skills.
-
-          </p>
-
-        </div>
-
-
-        <div class="roadmap-card">
-
-          <div class="roadmap-number">
-            3
-          </div>
-
-          <h3>
-            Build
-          </h3>
-
-          <p>
-
-            Create projects, case studies
-            and a professional portfolio.
-
-          </p>
-
-        </div>
-
-
-        <div class="roadmap-card">
-
-          <div class="roadmap-number">
-            4
-          </div>
-
-          <h3>
-            ASCEND
-          </h3>
-
-          <p>
-
-            Apply for internships, jobs and
-            higher-level career opportunities.
-
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-
-  <!-- ========================================
-       MODAL
-  ======================================== -->
-
-  <div
-    class="modal"
-    id="careerModal"
-  >
-
-    <div class="modal-box">
-
-      <button
-        class="close-modal"
-        id="closeModal"
-      >
-
-        <i class="fa-solid fa-xmark"></i>
-
-      </button>
-
-
-      <div
-        id="modalContent"
-      ></div>
 
     </div>
 
@@ -1928,123 +1853,598 @@ background:
 
 
 
-  <!-- ========================================
-       FOOTER
-  ======================================== -->
+  <!-- =====================================================
+       SEARCH AND FILTER
+       ===================================================== -->
 
-  <footer>
+  <div class="filter-area">
+
+
+    <div class="search-box">
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search career or skill..."
+      >
+
+    </div>
+
+
+    <button
+      class="filter-btn active"
+      data-filter="all"
+    >
+      All
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="finance"
+    >
+      Finance
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="audit"
+    >
+      Audit & Tax
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="tech"
+    >
+      Finance Tech
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="analytics"
+    >
+      Analytics
+    </button>
+
+
+  </div>
+
+
+
+  <!-- =====================================================
+       CAREER GRID
+       ===================================================== -->
+
+  <div
+    class="career-grid"
+    id="careerGrid"
+  ></div>
+
+
+</section>
+
+
+
+<!-- =======================================================
+     ASCEND ROADMAP
+     ======================================================= -->
+
+<section class="section">
+
+
+  <div class="section-header">
 
     <h2>
-      AS<span>CEND</span>
+      ASCEND Career Roadmap
     </h2>
 
     <p>
-      Learn. Build Skills. Grow.
+
+      Build your career from accounting
+      fundamentals to high-value finance
+      and technology specialization.
+
     </p>
 
-    <p>
-      Learn. Build. Lead. ASCEND.
-    </p>
+  </div>
+
+
+
+  <div class="roadmap">
+
+
+    <div class="roadmap-card">
+
+      <div class="roadmap-number">
+        1
+      </div>
+
+      <h3>
+        Discover
+      </h3>
+
+      <p>
+
+        Choose a career based on your
+        strengths in accounting, finance,
+        audit, data or technology.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="roadmap-card">
+
+      <div class="roadmap-number">
+        2
+      </div>
+
+      <h3>
+        Learn
+      </h3>
+
+      <p>
+
+        Master the required accounting,
+        financial, analytical and technical
+        skills.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="roadmap-card">
+
+      <div class="roadmap-number">
+        3
+      </div>
+
+      <h3>
+        Build
+      </h3>
+
+      <p>
+
+        Create dashboards, reports,
+        financial models and projects
+        for your professional portfolio.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="roadmap-card">
+
+      <div class="roadmap-number">
+        4
+      </div>
+
+      <h3>
+        ASCEND
+      </h3>
+
+      <p>
+
+        Apply for internships, certifications,
+        professional roles and higher-level
+        career opportunities.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     LEARNING RESOURCE HUB
+     ======================================================= -->
+
+<section class="section">
+
+
+  <div class="section-header">
+
+    <h2>
+      Accountancy Learning Resource Hub
+    </h2>
 
     <p>
-      © 2026 ASCEND Career Platform
+
+      Start with official and free learning
+      resources for finance, data, ERP and
+      enterprise technology skills.
+
     </p>
+
+  </div>
+
+
+
+  <div class="resource-hub">
+
+
+    <div class="hub-card">
+
+      <div class="hub-icon">
+
+        <i class="fa-solid fa-chart-column"></i>
+
+      </div>
+
+
+      <h3>
+        Microsoft Learn
+      </h3>
+
+
+      <p>
+
+        Learn Power BI, data analysis,
+        reporting and other Microsoft
+        business tools.
+
+      </p>
+
+
+      <a
+        href="https://learn.microsoft.com/training/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hub-link"
+      >
+
+        Open Resource
+
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+
+
+    <div class="hub-card">
+
+      <div class="hub-icon">
+
+        <i class="fa-solid fa-database"></i>
+
+      </div>
+
+
+      <h3>
+        SQLBolt
+      </h3>
+
+
+      <p>
+
+        Practice SQL fundamentals
+        interactively for finance and
+        data analysis careers.
+
+      </p>
+
+
+      <a
+        href="https://sqlbolt.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hub-link"
+      >
+
+        Open Resource
+
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+
+
+    <div class="hub-card">
+
+      <div class="hub-icon">
+
+        <i class="fa-solid fa-building"></i>
+
+      </div>
+
+
+      <h3>
+        SAP Learning
+      </h3>
+
+
+      <p>
+
+        Learn SAP skills, business
+        processes and enterprise
+        technology.
+
+      </p>
+
+
+      <a
+        href="https://learning.sap.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hub-link"
+      >
+
+        Open Resource
+
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+
+
+    <div class="hub-card">
+
+      <div class="hub-icon">
+
+        <i class="fa-solid fa-cloud"></i>
+
+      </div>
+
+
+      <h3>
+        Oracle University
+      </h3>
+
+
+      <p>
+
+        Learn Oracle Cloud, business
+        applications and free
+        foundation training.
+
+      </p>
+
+
+      <a
+        href="https://education.oracle.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hub-link"
+      >
+
+        Open Resource
+
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+
+
+    <div class="hub-card">
+
+      <div class="hub-icon">
+
+        <i class="fa-solid fa-landmark"></i>
+
+      </div>
+
+
+      <h3>
+        ICAI
+      </h3>
+
+
+      <p>
+
+        Official resources and
+        professional information for
+        the Chartered Accountancy pathway.
+
+      </p>
+
+
+      <a
+        href="https://www.icai.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hub-link"
+      >
+
+        Open Resource
+
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+  </main>
+
+  <!-- =========================================================
+       CAREER MODAL
+       ========================================================= -->
+
+  <div
+    class="modal"
+    id="careerModal"
+  >
+
+
+<div class="modal-box">
+
+
+  <button
+    class="close-modal"
+    id="closeModal"
+  >
+
+    <i class="fa-solid fa-xmark"></i>
+
+  </button>
+
+
+  <div
+    id="modalContent"
+  ></div>
+
+
+</div>
+
+
+  </div>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer>
+
+
+<h2>
+  AS<span>CEND</span>
+</h2>
+
+<p>
+  Discover. Learn. Build. ASCEND.
+</p>
+
+<p>
+  Build Your Skills. Build Your Future.
+</p>
+
+<p>
+  © 2026 ASCEND Career Platform
+</p>
+
 
   </footer>
 
-
-
-  <!-- ========================================
+  <!-- =========================================================
        JAVASCRIPT
-  ======================================== -->
+       ========================================================= -->
 
   <script>
 
 
-    /* ========================================
+    /* =========================================================
        CAREER DATA
-    ======================================== */
+       ========================================================= */
+
 
     const careers = [
 
 
+      /* -------------------------------------------------------
+         1. CHARTERED ACCOUNTANT
+         ------------------------------------------------------- */
+
       {
+
         rank: 1,
 
         title:
-          "Product Manager",
+          "Chartered Accountant (CA)",
 
         icon:
-          "fa-cube",
+          "fa-calculator",
 
         category:
-          "tech",
-
-        type:
-          "Tech + Business",
+          "finance",
 
         work:
-          "Define product strategy, understand customer needs and coordinate business, design and technology teams to build successful digital products.",
+          "Handle audit, taxation, financial reporting, compliance, accounting and financial advisory.",
 
         skills: [
 
-          "Product Management",
+          "Financial Accounting",
 
-          "Market Research",
+          "Taxation",
 
-          "User Research",
+          "Auditing",
 
-          "Product Strategy",
+          "GST",
 
-          "Data Analysis",
+          "Income Tax",
 
-          "Agile",
+          "Financial Reporting",
 
-          "Communication",
+          "Advanced Excel",
 
-          "Leadership"
+          "Business Law"
 
         ],
 
         fresher:
-          "₹8–15 LPA",
+          "₹6–12 LPA",
 
         experience:
-          "₹20–45+ LPA",
+          "₹15–35+ LPA",
 
         resources: [
 
           {
+
             name:
-              "Product School",
+              "ICAI",
 
             type:
-              "Product management learning",
+              "Official Chartered Accountancy resources",
 
             url:
-              "https://productschool.com/resources/"
+              "https://www.icai.org/"
+
           },
 
           {
+
             name:
-              "Atlassian University",
+              "NPTEL",
 
             type:
-              "Agile and project learning",
+              "Free academic finance and accounting courses",
 
             url:
-              "https://university.atlassian.com/"
+              "https://nptel.ac.in/"
+
           },
 
           {
+
             name:
-              "Microsoft Learn",
+              "Microsoft Excel Training",
 
             type:
-              "Business and technology skills",
+              "Official Excel learning resources",
 
             url:
-              "https://learn.microsoft.com/"
+              "https://support.microsoft.com/training"
+
           }
 
         ]
@@ -2052,83 +2452,91 @@ background:
       },
 
 
+      /* -------------------------------------------------------
+         2. INVESTMENT BANKING
+         ------------------------------------------------------- */
+
       {
+
         rank: 2,
 
         title:
-          "Business Analyst",
+          "Investment Banking / Corporate Finance Analyst",
 
         icon:
-          "fa-chart-column",
+          "fa-building-columns",
 
         category:
-          "tech",
-
-        type:
-          "Tech + Business",
+          "finance",
 
         work:
-          "Analyse business problems, gather requirements and use data and technology to improve business processes and decision-making.",
+          "Perform valuation, financial modelling, investment analysis, fundraising and M&A support.",
 
         skills: [
 
-          "Business Analysis",
+          "Financial Modelling",
 
-          "Excel",
+          "Valuation",
 
-          "SQL",
+          "Advanced Excel",
 
-          "Power BI",
+          "Financial Analysis",
 
-          "Data Analysis",
+          "Accounting",
 
-          "Requirements Gathering",
+          "PowerPoint",
 
-          "Problem Solving",
+          "M&A Basics",
 
-          "Communication"
+          "Business Research"
 
         ],
 
         fresher:
-          "₹4–8 LPA",
+          "₹7–15 LPA",
 
         experience:
-          "₹12–25 LPA",
+          "₹20–50+ LPA",
 
         resources: [
 
           {
+
             name:
-              "Microsoft Learn",
+              "Aswath Damodaran",
 
             type:
-              "Excel, SQL and Power BI",
+              "Free valuation and corporate finance learning",
 
             url:
-              "https://learn.microsoft.com/"
+              "https://pages.stern.nyu.edu/~adamodar/"
+
           },
 
           {
+
             name:
-              "Kaggle Learn",
+              "NPTEL",
 
             type:
-              "Data analysis practice",
+              "Free finance and management courses",
 
             url:
-              "https://www.kaggle.com/learn"
+              "https://nptel.ac.in/"
+
           },
 
           {
+
             name:
-              "Google Cloud Skills Boost",
+              "Microsoft Excel Training",
 
             type:
-              "Business and data learning",
+              "Official Excel learning",
 
             url:
-              "https://www.cloudskillsboost.google/"
+              "https://support.microsoft.com/training"
+
           }
 
         ]
@@ -2136,41 +2544,43 @@ background:
       },
 
 
+      /* -------------------------------------------------------
+         3. FINANCE MANAGER
+         ------------------------------------------------------- */
+
       {
+
         rank: 3,
 
         title:
-          "Growth Manager",
+          "Financial Controller / Finance Manager",
 
         icon:
-          "fa-arrow-trend-up",
+          "fa-chart-pie",
 
         category:
-          "growth",
-
-        type:
-          "Business + Digital",
+          "finance",
 
         work:
-          "Drive customer and revenue growth by testing strategies, analysing customer behaviour and improving acquisition and retention.",
+          "Manage financial reporting, accounting operations, budgeting, internal controls and company finances.",
 
         skills: [
 
-          "Growth Strategy",
+          "Financial Reporting",
 
-          "Marketing",
+          "Ind AS / IFRS",
 
-          "Analytics",
+          "Budgeting",
 
-          "Experimentation",
+          "Accounting",
 
-          "Customer Research",
+          "Internal Controls",
 
-          "Conversion Optimization",
+          "Advanced Excel",
 
-          "Digital Marketing",
+          "Leadership",
 
-          "Communication"
+          "Business Analysis"
 
         ],
 
@@ -2178,366 +2588,47 @@ background:
           "₹5–10 LPA",
 
         experience:
-          "₹18–35 LPA",
-
-        resources: [
-
-          {
-            name:
-              "HubSpot Academy",
-
-            type:
-              "Growth and marketing courses",
-
-            url:
-              "https://academy.hubspot.com/"
-          },
-
-          {
-            name:
-              "Google Skillshop",
-
-            type:
-              "Google marketing tools",
-
-            url:
-              "https://skillshop.withgoogle.com/"
-          },
-
-          {
-            name:
-              "Google Analytics Academy",
-
-            type:
-              "Analytics learning",
-
-            url:
-              "https://analytics.google.com/"
-          }
-
-        ]
-
-      },
-
-
-      {
-        rank: 4,
-
-        title:
-          "Digital Marketing Manager",
-
-        icon:
-          "fa-bullhorn",
-
-        category:
-          "growth",
-
-        type:
-          "Non-Tech + Digital",
-
-        work:
-          "Plan and manage digital campaigns, SEO, advertising, social media and customer acquisition strategies.",
-
-        skills: [
-
-          "Digital Marketing",
-
-          "SEO",
-
-          "Google Ads",
-
-          "Social Media",
-
-          "Content Marketing",
-
-          "Analytics",
-
-          "Email Marketing",
-
-          "Campaign Strategy"
-
-        ],
-
-        fresher:
-          "₹4–8 LPA",
-
-        experience:
           "₹15–30 LPA",
 
         resources: [
 
           {
+
             name:
-              "Google Skillshop",
+              "ICAI",
 
             type:
-              "Google Ads and marketing",
+              "Accounting and professional resources",
 
             url:
-              "https://skillshop.withgoogle.com/"
+              "https://www.icai.org/"
+
           },
 
           {
-            name:
-              "HubSpot Academy",
 
-            type:
-              "Digital marketing courses",
-
-            url:
-              "https://academy.hubspot.com/"
-          },
-
-          {
-            name:
-              "Meta Blueprint",
-
-            type:
-              "Meta advertising learning",
-
-            url:
-              "https://www.facebook.com/business/learn"
-          }
-
-        ]
-
-      },
-
-
-      {
-        rank: 5,
-
-        title:
-          "Business Development Manager",
-
-        icon:
-          "fa-handshake",
-
-        category:
-          "nontech",
-
-        type:
-          "Non-Tech",
-
-        work:
-          "Identify new customers and business opportunities, build partnerships and increase company revenue.",
-
-        skills: [
-
-          "Sales",
-
-          "Negotiation",
-
-          "Business Communication",
-
-          "Market Research",
-
-          "CRM",
-
-          "Networking",
-
-          "Presentation",
-
-          "Relationship Management"
-
-        ],
-
-        fresher:
-          "₹4–8 LPA",
-
-        experience:
-          "₹12–25 LPA + Incentives",
-
-        resources: [
-
-          {
-            name:
-              "HubSpot Academy",
-
-            type:
-              "Sales and business development",
-
-            url:
-              "https://academy.hubspot.com/"
-          },
-
-          {
-            name:
-              "Salesforce Trailhead",
-
-            type:
-              "CRM and customer management",
-
-            url:
-              "https://trailhead.salesforce.com/"
-          }
-
-        ]
-
-      },
-
-
-      {
-        rank: 6,
-
-        title:
-          "E-Commerce Manager",
-
-        icon:
-          "fa-cart-shopping",
-
-        category:
-          "tech",
-
-        type:
-          "Tech + Business",
-
-        work:
-          "Manage online business operations, product listings, customer experience, sales performance and digital growth.",
-
-        skills: [
-
-          "E-Commerce",
-
-          "Digital Marketing",
-
-          "Product Management",
-
-          "Analytics",
-
-          "Customer Experience",
-
-          "Marketplace Management",
-
-          "SEO",
-
-          "Business Operations"
-
-        ],
-
-        fresher:
-          "₹4–8 LPA",
-
-        experience:
-          "₹15–30 LPA",
-
-        resources: [
-
-          {
-            name:
-              "Shopify Learn",
-
-            type:
-              "E-commerce learning",
-
-            url:
-              "https://www.shopify.com/learn"
-          },
-
-          {
-            name:
-              "HubSpot Academy",
-
-            type:
-              "Digital business skills",
-
-            url:
-              "https://academy.hubspot.com/"
-          },
-
-          {
-            name:
-              "Google Skillshop",
-
-            type:
-              "Digital growth tools",
-
-            url:
-              "https://skillshop.withgoogle.com/"
-          }
-
-        ]
-
-      },
-
-
-      {
-        rank: 7,
-
-        title:
-          "Operations Manager",
-
-        icon:
-          "fa-gears",
-
-        category:
-          "operations",
-
-        type:
-          "Non-Tech + Tech",
-
-        work:
-          "Manage daily business operations, improve processes and increase efficiency across teams and business functions.",
-
-        skills: [
-
-          "Operations Management",
-
-          "Process Improvement",
-
-          "Leadership",
-
-          "Excel",
-
-          "Project Management",
-
-          "Problem Solving",
-
-          "Data Analysis",
-
-          "Communication"
-
-        ],
-
-        fresher:
-          "₹4–8 LPA",
-
-        experience:
-          "₹15–30 LPA",
-
-        resources: [
-
-          {
             name:
               "Microsoft Learn",
 
             type:
-              "Business and Excel skills",
+              "Business analytics and reporting skills",
 
             url:
-              "https://learn.microsoft.com/"
+              "https://learn.microsoft.com/training/"
+
           },
 
           {
+
             name:
-              "Atlassian University",
+              "NPTEL",
 
             type:
-              "Project and workflow learning",
+              "Finance and management courses",
 
             url:
-              "https://university.atlassian.com/"
-          },
+              "https://nptel.ac.in/"
 
-          {
-            name:
-              "OpenLearn",
-
-            type:
-              "Free business learning",
-
-            url:
-              "https://www.open.edu/openlearn/"
           }
 
         ]
@@ -2545,46 +2636,48 @@ background:
       },
 
 
+      /* -------------------------------------------------------
+         4. FP&A
+         ------------------------------------------------------- */
+
       {
-        rank: 8,
+
+        rank: 4,
 
         title:
-          "Supply Chain Manager",
+          "FP&A Analyst / Finance Business Partner",
 
         icon:
-          "fa-truck-fast",
+          "fa-chart-line",
 
         category:
-          "operations",
-
-        type:
-          "Non-Tech + Tech",
+          "analytics",
 
         work:
-          "Manage suppliers, procurement, inventory, logistics and the movement of products from source to customer.",
+          "Prepare budgets and forecasts, analyse financial performance and support management decisions.",
 
         skills: [
 
-          "Supply Chain",
+          "Budgeting",
 
-          "Procurement",
+          "Forecasting",
 
-          "Logistics",
+          "Financial Analysis",
 
-          "Inventory Management",
+          "Advanced Excel",
 
-          "Excel",
+          "Power BI",
 
-          "ERP Basics",
+          "Variance Analysis",
 
-          "Data Analysis",
+          "Business Communication",
 
-          "Vendor Management"
+          "Presentation"
 
         ],
 
         fresher:
-          "₹4–8 LPA",
+          "₹5–10 LPA",
 
         experience:
           "₹15–30 LPA",
@@ -2592,36 +2685,42 @@ background:
         resources: [
 
           {
+
             name:
-              "MIT OpenCourseWare",
+              "Microsoft Learn",
 
             type:
-              "Supply chain and business courses",
+              "Free Power BI learning paths",
 
             url:
-              "https://ocw.mit.edu/"
+              "https://learn.microsoft.com/training/"
+
           },
 
           {
+
             name:
-              "SAP Learning",
+              "Microsoft Excel Training",
 
             type:
-              "ERP and business technology",
+              "Official Excel learning",
 
             url:
-              "https://learning.sap.com/"
+              "https://support.microsoft.com/training"
+
           },
 
           {
+
             name:
-              "OpenLearn",
+              "NPTEL",
 
             type:
-              "Free business learning",
+              "Free finance courses",
 
             url:
-              "https://www.open.edu/openlearn/"
+              "https://nptel.ac.in/"
+
           }
 
         ]
@@ -2629,41 +2728,135 @@ background:
       },
 
 
+      /* -------------------------------------------------------
+         5. RISK AND COMPLIANCE
+         ------------------------------------------------------- */
+
       {
-        rank: 9,
+
+        rank: 5,
 
         title:
-          "Customer Success Manager",
+          "Risk & Compliance Manager",
 
         icon:
-          "fa-users",
+          "fa-shield-halved",
 
         category:
-          "tech",
-
-        type:
-          "Tech + Business",
+          "audit",
 
         work:
-          "Help customers achieve results, improve retention and build long-term relationships for SaaS and digital businesses.",
+          "Manage financial risk, internal controls, compliance requirements and corporate governance processes.",
 
         skills: [
 
-          "Customer Success",
+          "Risk Management",
 
-          "CRM",
+          "Internal Controls",
 
-          "Communication",
+          "Compliance",
 
-          "Customer Management",
+          "Auditing",
 
-          "Analytics",
+          "Financial Regulations",
 
-          "Negotiation",
+          "Fraud Awareness",
 
-          "Relationship Management",
+          "Accounting",
 
-          "Problem Solving"
+          "Critical Thinking"
+
+        ],
+
+        fresher:
+          "₹5–10 LPA",
+
+        experience:
+          "₹15–25 LPA",
+
+        resources: [
+
+          {
+
+            name:
+              "ICAI",
+
+            type:
+              "Accounting and professional guidance",
+
+            url:
+              "https://www.icai.org/"
+
+          },
+
+          {
+
+            name:
+              "NPTEL",
+
+            type:
+              "Free management and finance courses",
+
+            url:
+              "https://nptel.ac.in/"
+
+          },
+
+          {
+
+            name:
+              "RBI",
+
+            type:
+              "Official banking and regulatory information",
+
+            url:
+              "https://www.rbi.org.in/"
+
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         6. INTERNAL AUDITOR
+         ------------------------------------------------------- */
+
+      {
+
+        rank: 6,
+
+        title:
+          "Internal Auditor / Forensic Accounting Specialist",
+
+        icon:
+          "fa-magnifying-glass-chart",
+
+        category:
+          "audit",
+
+        work:
+          "Audit financial processes, review internal controls, investigate irregularities and improve compliance.",
+
+        skills: [
+
+          "Internal Auditing",
+
+          "Financial Accounting",
+
+          "Internal Controls",
+
+          "Excel",
+
+          "Data Analysis",
+
+          "Financial Investigation",
+
+          "Report Writing",
+
+          "Attention to Detail"
 
         ],
 
@@ -2676,25 +2869,42 @@ background:
         resources: [
 
           {
+
             name:
-              "HubSpot Academy",
+              "ICAI",
 
             type:
-              "CRM and customer skills",
+              "Official accounting resources",
 
             url:
-              "https://academy.hubspot.com/"
+              "https://www.icai.org/"
+
           },
 
           {
+
             name:
-              "Salesforce Trailhead",
+              "Microsoft Learn",
 
             type:
-              "CRM platform learning",
+              "Data analysis and Power BI",
 
             url:
-              "https://trailhead.salesforce.com/"
+              "https://learn.microsoft.com/training/"
+
+          },
+
+          {
+
+            name:
+              "NPTEL",
+
+            type:
+              "Finance and management learning",
+
+            url:
+              "https://nptel.ac.in/"
+
           }
 
         ]
@@ -2702,41 +2912,135 @@ background:
       },
 
 
+      /* -------------------------------------------------------
+         7. TAX CONSULTANT
+         ------------------------------------------------------- */
+
       {
-        rank: 10,
+
+        rank: 7,
 
         title:
-          "Project Manager",
+          "Tax Consultant / Tax Manager",
 
         icon:
-          "fa-diagram-project",
+          "fa-file-invoice-dollar",
 
         category:
-          "tech",
-
-        type:
-          "Tech + Business",
+          "audit",
 
         work:
-          "Plan, coordinate and deliver business or technology projects by managing people, timelines, budgets and risks.",
+          "Handle GST, income tax, corporate tax compliance, tax planning and financial documentation.",
 
         skills: [
 
-          "Project Management",
+          "Income Tax",
 
-          "Agile",
+          "GST",
 
-          "Scrum",
+          "Tax Planning",
 
-          "Leadership",
+          "Tax Compliance",
 
-          "Communication",
+          "Accounting",
 
-          "Risk Management",
+          "Advanced Excel",
 
-          "Stakeholder Management",
+          "Financial Documentation",
 
-          "Planning"
+          "Business Law"
+
+        ],
+
+        fresher:
+          "₹4–8 LPA",
+
+        experience:
+          "₹12–30 LPA",
+
+        resources: [
+
+          {
+
+            name:
+              "Income Tax Department",
+
+            type:
+              "Official tax information and services",
+
+            url:
+              "https://www.incometax.gov.in/"
+
+          },
+
+          {
+
+            name:
+              "GST Portal",
+
+            type:
+              "Official GST information",
+
+            url:
+              "https://www.gst.gov.in/"
+
+          },
+
+          {
+
+            name:
+              "ICAI",
+
+            type:
+              "Professional accountancy resources",
+
+            url:
+              "https://www.icai.org/"
+
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         8. FINANCE DATA ANALYST
+         ------------------------------------------------------- */
+
+      {
+
+        rank: 8,
+
+        title:
+          "Finance Data Analyst",
+
+        icon:
+          "fa-database",
+
+        category:
+          "analytics",
+
+        work:
+          "Analyse financial data, automate reports, identify trends and build dashboards for business decisions.",
+
+        skills: [
+
+          "Accounting",
+
+          "Advanced Excel",
+
+          "SQL",
+
+          "Power BI",
+
+          "Financial Analysis",
+
+          "Data Cleaning",
+
+          "Data Visualization",
+
+          "Business Intelligence"
 
         ],
 
@@ -2744,41 +3048,231 @@ background:
           "₹5–9 LPA",
 
         experience:
+          "₹15–30 LPA",
+
+        resources: [
+
+          {
+
+            name:
+              "Microsoft Learn",
+
+            type:
+              "Official Power BI learning",
+
+            url:
+              "https://learn.microsoft.com/training/"
+
+          },
+
+          {
+
+            name:
+              "SQLBolt",
+
+            type:
+              "Interactive SQL learning",
+
+            url:
+              "https://sqlbolt.com/"
+
+          },
+
+          {
+
+            name:
+              "Microsoft Excel Training",
+
+            type:
+              "Official Excel learning",
+
+            url:
+              "https://support.microsoft.com/training"
+
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         9. ERP FINANCE CONSULTANT
+         ------------------------------------------------------- */
+
+      {
+
+        rank: 9,
+
+        title:
+          "ERP Finance Consultant (SAP / Oracle)",
+
+        icon:
+          "fa-gears",
+
+        category:
+          "tech",
+
+        work:
+          "Configure and support enterprise finance systems, accounting processes and digital finance workflows.",
+
+        skills: [
+
+          "Accounting",
+
+          "Business Processes",
+
+          "SAP Finance",
+
+          "Oracle Financials",
+
+          "ERP",
+
+          "Financial Reporting",
+
+          "System Testing",
+
+          "SQL Basics"
+
+        ],
+
+        fresher:
+          "₹5–10 LPA",
+
+        experience:
           "₹15–35 LPA",
 
         resources: [
 
           {
+
             name:
-              "Atlassian University",
+              "SAP Learning",
 
             type:
-              "Agile and project management",
+              "Official SAP learning resources",
 
             url:
-              "https://university.atlassian.com/"
+              "https://learning.sap.com/"
+
           },
 
           {
+
+            name:
+              "Oracle University",
+
+            type:
+              "Official Oracle training",
+
+            url:
+              "https://education.oracle.com/"
+
+          },
+
+          {
+
+            name:
+              "SQLBolt",
+
+            type:
+              "Free SQL practice",
+
+            url:
+              "https://sqlbolt.com/"
+
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         10. FINANCE AUTOMATION
+         ------------------------------------------------------- */
+
+      {
+
+        rank: 10,
+
+        title:
+          "Financial Systems / Finance Automation Analyst",
+
+        icon:
+          "fa-robot",
+
+        category:
+          "tech",
+
+        work:
+          "Improve finance systems, automate repetitive accounting work and support digital transformation projects.",
+
+        skills: [
+
+          "Accounting",
+
+          "Advanced Excel",
+
+          "Power Query",
+
+          "Power BI",
+
+          "ERP",
+
+          "Automation",
+
+          "AI Tools",
+
+          "Business Process Analysis"
+
+        ],
+
+        fresher:
+          "₹5–10 LPA",
+
+        experience:
+          "₹15–30 LPA",
+
+        resources: [
+
+          {
+
             name:
               "Microsoft Learn",
 
             type:
-              "Business and technology skills",
+              "Power Platform and analytics learning",
 
             url:
-              "https://learn.microsoft.com/"
+              "https://learn.microsoft.com/training/"
+
           },
 
           {
+
             name:
-              "Scrum Guides",
+              "SAP Learning",
 
             type:
-              "Official Scrum Guide",
+              "Enterprise systems learning",
 
             url:
-              "https://scrumguides.org/"
+              "https://learning.sap.com/"
+
+          },
+
+          {
+
+            name:
+              "Oracle University",
+
+            type:
+              "Cloud and enterprise applications",
+
+            url:
+              "https://education.oracle.com/"
+
           }
 
         ]
@@ -2789,9 +3283,10 @@ background:
 
 
 
-    /* ========================================
-       DOM
-    ======================================== */
+    /* =========================================================
+       DOM ELEMENTS
+       ========================================================= */
+
 
     const careerGrid =
       document.getElementById(
@@ -2834,11 +3329,13 @@ background:
 
 
 
-    /* ========================================
+    /* =========================================================
        RENDER CAREERS
-    ======================================== */
+       ========================================================= */
+
 
     function renderCareers() {
+
 
       const searchTerm =
         searchInput.value
@@ -2849,6 +3346,7 @@ background:
       const filtered =
         careers.filter(
           career => {
+
 
             const searchableText = `
 
@@ -2870,6 +3368,7 @@ background:
 
 
             const searchMatch =
+
               searchableText.includes(
                 searchTerm
               );
@@ -2888,14 +3387,15 @@ background:
         filtered.length === 0
       ) {
 
+
         careerGrid.innerHTML = `
 
           <div
             style="
-              grid-column:1/-1;
-              text-align:center;
-              padding:60px 20px;
-              color:var(--muted);
+              grid-column: 1 / -1;
+              text-align: center;
+              padding: 60px 20px;
+              color: var(--muted);
             "
           >
 
@@ -2905,14 +3405,16 @@ background:
                 fa-magnifying-glass
               "
               style="
-                font-size:38px;
-                margin-bottom:15px;
+                font-size: 38px;
+                margin-bottom: 15px;
               "
             ></i>
+
 
             <h3>
               No Career Found
             </h3>
+
 
             <p>
               Try another career or skill.
@@ -2921,6 +3423,7 @@ background:
           </div>
 
         `;
+
 
         return;
 
@@ -2932,13 +3435,16 @@ background:
         filtered.map(
           career => `
 
+
             <article
               class="career-card"
             >
 
+
               <div
                 class="career-header"
               >
+
 
                 <span
                   class="rank-badge"
@@ -2962,15 +3468,20 @@ background:
 
                 </div>
 
+
               </div>
+
 
 
               <div
                 class="career-body"
               >
 
+
                 <h3>
+
                   ${career.title}
+
                 </h3>
 
 
@@ -2983,9 +3494,11 @@ background:
                 </p>
 
 
+
                 <div
                   class="salary-grid"
                 >
+
 
                   <div
                     class="salary-box"
@@ -3016,7 +3529,9 @@ background:
 
                   </div>
 
+
                 </div>
+
 
 
                 <div
@@ -3035,6 +3550,7 @@ background:
                 </div>
 
 
+
                 <div
                   class="skills"
                 >
@@ -3048,7 +3564,9 @@ background:
                           <span
                             class="skill"
                           >
+
                             ${skill}
+
                           </span>
 
                         `
@@ -3060,9 +3578,11 @@ background:
                 </div>
 
 
+
                 <div
                   class="card-actions"
                 >
+
 
                   <button
                     class="
@@ -3088,6 +3608,7 @@ background:
                   </button>
 
 
+
                   <button
                     class="
                       action-btn
@@ -3111,11 +3632,15 @@ background:
 
                   </button>
 
+
                 </div>
+
 
               </div>
 
+
             </article>
+
 
           `
         )
@@ -3125,11 +3650,13 @@ background:
 
 
 
-    /* ========================================
-       SHOW CAREER MODAL
-    ======================================== */
+    /* =========================================================
+       SHOW CAREER DETAILS
+       ========================================================= */
+
 
     function showCareer(rank) {
+
 
       const career =
         careers.find(
@@ -3140,9 +3667,11 @@ background:
 
       modalContent.innerHTML = `
 
+
         <div
           class="modal-title"
         >
+
 
           <div
             class="modal-rank"
@@ -3154,20 +3683,27 @@ background:
 
 
           <h2>
+
             ${career.title}
+
           </h2>
 
 
           <p>
+
             ${career.work}
+
           </p>
 
+
         </div>
+
 
 
         <div
           class="salary-grid"
         >
+
 
           <div
             class="salary-box"
@@ -3198,14 +3734,17 @@ background:
 
           </div>
 
+
         </div>
+
 
 
         <div
           style="
-            margin-top:25px;
+            margin-top: 25px;
           "
         >
+
 
           <div
             class="section-label"
@@ -3221,6 +3760,7 @@ background:
             Required Skills
 
           </div>
+
 
 
           <div
@@ -3249,14 +3789,17 @@ background:
 
           </div>
 
+
         </div>
+
 
 
         <div
           style="
-            margin-top:30px;
+            margin-top: 30px;
           "
         >
+
 
           <div
             class="section-label"
@@ -3272,6 +3815,7 @@ background:
             Free Learning Resources
 
           </div>
+
 
 
           <div
@@ -3291,6 +3835,7 @@ background:
                       class="resource"
                     >
 
+
                       <i
                         class="
                           fa-solid
@@ -3299,27 +3844,36 @@ background:
                       ></i>
 
 
+
                       <div
                         class="resource-text"
                       >
 
                         <strong>
+
                           ${resource.name}
+
                         </strong>
 
+
                         <small>
+
                           ${resource.type}
+
                         </small>
 
                       </div>
+
 
 
                       <i
                         class="
                           fa-solid
                           fa-arrow-up-right-from-square
+                          external
                         "
                       ></i>
+
 
                     </a>
 
@@ -3331,21 +3885,25 @@ background:
 
           </div>
 
+
         </div>
+
 
 
         <div
           style="
-            margin-top:30px;
+            margin-top: 30px;
           "
         >
+
 
           <div
             class="ascend-intro"
             style="
-              margin-bottom:0;
+              margin-bottom: 0;
             "
           >
+
 
             <div
               class="ascend-intro-icon"
@@ -3370,20 +3928,22 @@ background:
 
               <p>
 
-                Learn the required skills,
-                complete free courses, create
-                2–3 practical portfolio
-                projects and then apply for
-                internships or entry-level
-                positions.
+                Build strong accounting fundamentals,
+                learn the required tools, complete
+                practical projects, create a portfolio
+                and apply for internships or entry-level
+                finance positions.
 
               </p>
 
             </div>
 
+
           </div>
 
+
         </div>
+
 
       `;
 
@@ -3400,9 +3960,10 @@ background:
 
 
 
-    /* ========================================
+    /* =========================================================
        SEARCH
-    ======================================== */
+       ========================================================= */
+
 
     searchInput.addEventListener(
       "input",
@@ -3411,16 +3972,19 @@ background:
 
 
 
-    /* ========================================
+    /* =========================================================
        FILTER
-    ======================================== */
+       ========================================================= */
+
 
     filterButtons.forEach(
       button => {
 
+
         button.addEventListener(
           "click",
           () => {
+
 
             filterButtons.forEach(
               btn =>
@@ -3441,19 +4005,23 @@ background:
 
             renderCareers();
 
+
           }
         );
+
 
       }
     );
 
 
 
-    /* ========================================
+    /* =========================================================
        CLOSE MODAL
-    ======================================== */
+       ========================================================= */
+
 
     function closeCareerModal() {
+
 
       modal.classList.remove(
         "show"
@@ -3466,15 +4034,18 @@ background:
     }
 
 
+
     closeModal.addEventListener(
       "click",
       closeCareerModal
     );
 
 
+
     modal.addEventListener(
       "click",
       event => {
+
 
         if (
           event.target === modal
@@ -3484,13 +4055,16 @@ background:
 
         }
 
+
       }
     );
+
 
 
     document.addEventListener(
       "keydown",
       event => {
+
 
         if (
           event.key === "Escape"
@@ -3500,14 +4074,16 @@ background:
 
         }
 
+
       }
     );
 
 
 
-    /* ========================================
-       THEME
-    ======================================== */
+    /* =========================================================
+       DARK / LIGHT THEME
+       ========================================================= */
+
 
     const themeButton =
       document.getElementById(
@@ -3524,6 +4100,7 @@ background:
     themeButton.addEventListener(
       "click",
       () => {
+
 
         document.body.classList.toggle(
           "dark-mode"
@@ -3544,26 +4121,31 @@ background:
 
 
         localStorage.setItem(
-          "ascendCommerceTheme",
+          "ascendAccountancyTheme",
           dark
             ? "dark"
             : "light"
         );
+
 
       }
     );
 
 
 
-    /* ========================================
+    /* =========================================================
        LOAD SAVED THEME
-    ======================================== */
+       ========================================================= */
+
 
     if (
+
       localStorage.getItem(
-        "ascendCommerceTheme"
+        "ascendAccountancyTheme"
       ) === "dark"
+
     ) {
+
 
       document.body.classList.add(
         "dark-mode"
@@ -3573,13 +4155,15 @@ background:
       themeIcon.className =
         "fa-solid fa-sun";
 
+
     }
 
 
 
-    /* ========================================
+    /* =========================================================
        INITIAL LOAD
-    ======================================== */
+       ========================================================= */
+
 
     renderCareers();
 

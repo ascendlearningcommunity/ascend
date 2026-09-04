@@ -1,0 +1,3176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    ASCEND | Business Administration Careers
+  </title>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+
+    /* =====================================================
+       ROOT VARIABLES
+       ===================================================== */
+
+    :root {
+      --primary: #c62828;
+      --primary-dark: #8e1b1b;
+      --accent: #ffb703;
+
+      --dark: #111827;
+      --dark-2: #1f2937;
+
+      --bg: #f5f7fb;
+      --card: #ffffff;
+
+      --text: #1f2937;
+      --muted: #6b7280;
+
+      --border: #e5e7eb;
+
+      --green: #15803d;
+      --blue: #2563eb;
+
+      --shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.08);
+    }
+
+
+    /* =====================================================
+       DARK MODE
+       ===================================================== */
+
+    body.dark-mode {
+      --bg: #0f172a;
+      --card: #1e293b;
+
+      --text: #f1f5f9;
+      --muted: #aeb7c4;
+
+      --border: #334155;
+
+      --dark: #020617;
+      --dark-2: #0f172a;
+
+      --shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.35);
+    }
+
+
+    /* =====================================================
+       RESET
+       ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      line-height: 1.6;
+
+      transition: 0.3s;
+    }
+
+
+    a {
+      text-decoration: none;
+    }
+
+
+    button,
+    input {
+      font: inherit;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    .navbar {
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+      background: var(--dark);
+
+      color: white;
+
+      padding: 13px 6%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      box-shadow:
+        0 3px 15px
+        rgba(0, 0, 0, 0.25);
+    }
+
+
+    .brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+
+      border-radius: 10px;
+
+      background: var(--primary);
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+
+    .brand-name {
+      font-size: 22px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+    }
+
+
+    .brand-name span {
+      color: var(--accent);
+    }
+
+
+    .nav-actions {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+
+    .nav-btn {
+      border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+      background:
+        rgba(255,255,255,0.08);
+
+      color: white;
+
+      padding: 9px 14px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    .nav-btn:hover {
+      background: var(--primary);
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+      min-height: 470px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 80px 20px;
+
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(198,40,40,0.7),
+          transparent 35%
+        ),
+
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(255,183,3,0.15),
+          transparent 30%
+        ),
+
+        linear-gradient(
+          135deg,
+          #111827,
+          #3b0a0a,
+          #111827
+        );
+    }
+
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+
+    .hero-badge {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 8px 16px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+      background:
+        rgba(255,255,255,0.08);
+
+      border-radius: 50px;
+
+      margin-bottom: 20px;
+
+      font-size: 13px;
+
+      letter-spacing: 1px;
+    }
+
+
+    .hero h1 {
+      font-size:
+        clamp(35px, 7vw, 68px);
+
+      line-height: 1.05;
+
+      margin-bottom: 20px;
+    }
+
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+
+    .hero-description {
+      max-width: 720px;
+
+      margin: auto;
+
+      color: #d1d5db;
+
+      font-size: 17px;
+    }
+
+
+    /* =====================================================
+       HERO STATS
+       ===================================================== */
+
+    .hero-stats {
+      margin-top: 35px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 15px;
+    }
+
+
+    .hero-stat {
+      padding: 20px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+      background:
+        rgba(255,255,255,0.08);
+
+      border-radius: 12px;
+    }
+
+
+    .hero-stat h3 {
+      color: var(--accent);
+
+      font-size: 25px;
+    }
+
+
+    .hero-stat p {
+      color: #d1d5db;
+
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       MAIN
+       ===================================================== */
+
+    .container {
+      width:
+        min(1200px, 92%);
+
+      margin: auto;
+    }
+
+
+    .section {
+      padding: 70px 0;
+    }
+
+
+    .section-header {
+      text-align: center;
+
+      margin-bottom: 40px;
+    }
+
+
+    .section-header h2 {
+      font-size: 32px;
+
+      margin-bottom: 10px;
+    }
+
+
+    .section-header p {
+      color: var(--muted);
+
+      max-width: 700px;
+
+      margin: auto;
+    }
+
+
+    /* =====================================================
+       ASCEND INTRO
+       ===================================================== */
+
+    .ascend-intro {
+      display: grid;
+
+      grid-template-columns:
+        65px 1fr;
+
+      gap: 20px;
+
+      background: var(--card);
+
+      border-left:
+        5px solid
+        var(--primary);
+
+      padding: 25px;
+
+      border-radius: 14px;
+
+      box-shadow: var(--shadow);
+
+      margin-bottom: 40px;
+    }
+
+
+    .ascend-intro-icon {
+      font-size: 38px;
+
+      color: var(--primary);
+    }
+
+
+    .ascend-intro h3 {
+      margin-bottom: 8px;
+    }
+
+
+    .ascend-intro p {
+      color: var(--muted);
+    }
+
+
+    /* =====================================================
+       CAREER FORMULA
+       ===================================================== */
+
+    .formula {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 18px;
+
+      font-weight: bold;
+    }
+
+
+    .formula span {
+      padding: 8px 12px;
+
+      border-radius: 8px;
+
+      background: var(--bg);
+
+      border:
+        1px solid var(--border);
+    }
+
+
+    .formula .plus {
+      background: var(--primary);
+
+      color: white;
+    }
+
+
+    /* =====================================================
+       SEARCH & FILTER
+       ===================================================== */
+
+    .filter-area {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-bottom: 35px;
+    }
+
+
+    .search-box {
+      position: relative;
+
+      flex: 1;
+
+      min-width: 250px;
+
+      max-width: 500px;
+    }
+
+
+    .search-box i {
+      position: absolute;
+
+      left: 14px;
+
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      color: var(--muted);
+    }
+
+
+    .search-box input {
+      width: 100%;
+
+      padding:
+        13px 15px 13px 42px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 9px;
+
+      background: var(--card);
+
+      color: var(--text);
+
+      outline: none;
+    }
+
+
+    .filter-btn {
+      padding: 11px 15px;
+
+      border:
+        1px solid var(--border);
+
+      background: var(--card);
+
+      color: var(--text);
+
+      border-radius: 9px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary);
+
+      color: white;
+
+      border-color: var(--primary);
+    }
+
+
+    /* =====================================================
+       CAREER GRID
+       ===================================================== */
+
+    .career-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(330px, 1fr)
+        );
+
+      gap: 25px;
+    }
+
+
+    /* =====================================================
+       CAREER CARD
+       ===================================================== */
+
+    .career-card {
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 16px;
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+
+      display: flex;
+
+      flex-direction: column;
+    }
+
+
+    .career-card:hover {
+      transform:
+        translateY(-7px);
+
+      box-shadow:
+        0 20px 40px
+        rgba(0,0,0,0.14);
+    }
+
+
+    .career-header {
+      padding: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+
+      color: white;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+    }
+
+
+    .rank-badge {
+      padding: 6px 10px;
+
+      background:
+        rgba(255,255,255,0.15);
+
+      border-radius: 50px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+    }
+
+
+    .career-icon {
+      width: 48px;
+      height: 48px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.16);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+
+    .career-body {
+      padding: 24px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      flex: 1;
+    }
+
+
+    .career-body h3 {
+      font-size: 21px;
+
+      line-height: 1.3;
+
+      margin-bottom: 10px;
+    }
+
+
+    .main-work {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      margin-bottom: 22px;
+    }
+
+
+    /* =====================================================
+       SALARY
+       ===================================================== */
+
+    .salary-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 10px;
+
+      margin-bottom: 22px;
+    }
+
+
+    .salary-box {
+      padding: 13px;
+
+      background: var(--bg);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 10px;
+    }
+
+
+    .salary-box small {
+      display: block;
+
+      color: var(--muted);
+
+      margin-bottom: 4px;
+
+      font-size: 11px;
+    }
+
+
+    .salary-box strong {
+      color: var(--green);
+
+      font-size: 15px;
+    }
+
+
+    /* =====================================================
+       SKILLS
+       ===================================================== */
+
+    .section-label {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+
+    .section-label i {
+      color: var(--primary);
+    }
+
+
+    .skills {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 20px;
+    }
+
+
+    .skill {
+      padding: 6px 9px;
+
+      border-radius: 50px;
+
+      background:
+        rgba(198,40,40,0.09);
+
+      color: var(--primary);
+
+      font-size: 11px;
+
+      border:
+        1px solid
+        rgba(198,40,40,0.1);
+    }
+
+
+    /* =====================================================
+       CARD ACTIONS
+       ===================================================== */
+
+    .card-actions {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 10px;
+
+      margin-top: auto;
+    }
+
+
+    .action-btn {
+      border: none;
+
+      padding: 11px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+
+    .details-btn {
+      background: var(--bg);
+
+      color: var(--text);
+
+      border:
+        1px solid var(--border);
+    }
+
+
+    .learn-btn {
+      background: var(--primary);
+
+      color: white;
+    }
+
+
+    .learn-btn:hover {
+      background:
+        var(--primary-dark);
+    }
+
+
+    /* =====================================================
+       MODAL
+       ===================================================== */
+
+    .modal {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background:
+        rgba(0,0,0,0.7);
+
+      padding: 20px;
+
+      overflow-y: auto;
+    }
+
+
+    .modal.show {
+      display: flex;
+    }
+
+
+    .modal-box {
+      width:
+        min(950px, 100%);
+
+      max-height:
+        90vh;
+
+      overflow-y: auto;
+
+      background: var(--card);
+
+      color: var(--text);
+
+      border-radius: 18px;
+
+      padding: 32px;
+
+      position: relative;
+    }
+
+
+    .close-modal {
+      position: absolute;
+
+      right: 18px;
+
+      top: 18px;
+
+      width: 38px;
+      height: 38px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      cursor: pointer;
+
+      font-size: 18px;
+    }
+
+
+    .modal-title {
+      padding-right: 50px;
+
+      margin-bottom: 25px;
+    }
+
+
+    .modal-rank {
+      color: var(--primary);
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 1px;
+    }
+
+
+    .modal-title h2 {
+      font-size: 28px;
+
+      margin-top: 5px;
+    }
+
+
+    .modal-title p {
+      color: var(--muted);
+
+      margin-top: 8px;
+    }
+
+
+    /* =====================================================
+       MODAL SKILLS
+       ===================================================== */
+
+    .learning-section {
+      margin-top: 25px;
+    }
+
+
+    .skill-learning-card {
+      border:
+        1px solid var(--border);
+
+      border-radius: 12px;
+
+      margin-bottom: 12px;
+
+      overflow: hidden;
+    }
+
+
+    .skill-learning-header {
+      padding: 13px 15px;
+
+      background: var(--bg);
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      font-weight: bold;
+    }
+
+
+    .skill-learning-header i {
+      color: var(--primary);
+    }
+
+
+    .resource-list {
+      padding: 12px;
+
+      display: grid;
+
+      gap: 8px;
+    }
+
+
+    .resource {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 12px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 9px;
+
+      color: var(--text);
+
+      transition: 0.3s;
+    }
+
+
+    .resource:hover {
+      border-color: var(--primary);
+
+      transform:
+        translateX(4px);
+    }
+
+
+    .resource > i:first-child {
+      color: var(--primary);
+
+      font-size: 17px;
+    }
+
+
+    .resource-text {
+      flex: 1;
+    }
+
+
+    .resource-text strong {
+      display: block;
+
+      font-size: 13px;
+    }
+
+
+    .resource-text small {
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+
+    .external {
+      color: var(--muted);
+    }
+
+
+    /* =====================================================
+       ROADMAP
+       ===================================================== */
+
+    .roadmap {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 20px;
+    }
+
+
+    .roadmap-card {
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 25px;
+
+      text-align: center;
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .roadmap-number {
+      width: 45px;
+      height: 45px;
+
+      margin:
+        0 auto 15px;
+
+      border-radius: 50%;
+
+      background: var(--primary);
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-weight: bold;
+    }
+
+
+    .roadmap-card p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 7px;
+    }
+
+
+    /* =====================================================
+       RESOURCE HUB
+       ===================================================== */
+
+    .resource-hub {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(220px, 1fr)
+        );
+
+      gap: 18px;
+    }
+
+
+    .hub-card {
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 22px;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+    }
+
+
+    .hub-card:hover {
+      transform:
+        translateY(-5px);
+
+      border-color:
+        var(--primary);
+    }
+
+
+    .hub-icon {
+      width: 45px;
+      height: 45px;
+
+      border-radius: 10px;
+
+      background:
+        rgba(198,40,40,0.1);
+
+      color: var(--primary);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin-bottom: 15px;
+    }
+
+
+    .hub-card h3 {
+      font-size: 17px;
+
+      margin-bottom: 7px;
+    }
+
+
+    .hub-card p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .hub-link {
+      color: var(--primary);
+
+      font-size: 13px;
+
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+      background: var(--dark);
+
+      color: #d1d5db;
+
+      padding:
+        45px 20px;
+
+      text-align: center;
+    }
+
+
+    footer h2 {
+      color: white;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 8px;
+    }
+
+
+    footer h2 span {
+      color: var(--accent);
+    }
+
+
+    footer p {
+      font-size: 13px;
+
+      margin-top: 5px;
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 750px) {
+
+      .hero-stats {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .roadmap {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+
+      .navbar {
+        padding:
+          12px 4%;
+      }
+
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+
+      .nav-btn span {
+        display: none;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .career-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .roadmap {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .card-actions {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .modal-box {
+        padding:
+          25px 18px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       NAVBAR
+       ===================================================== -->
+
+  <nav class="navbar">
+
+    <div class="brand">
+
+      <div class="brand-logo">
+        <i class="fa-solid fa-arrow-trend-up"></i>
+      </div>
+
+      <div class="brand-name">
+        AS<span>CEND</span>
+      </div>
+
+    </div>
+
+
+    <!-- EXACT HOME BUTTON -->
+    <div class="nav-actions">
+
+      <a
+        href="../index.html"
+        class="nav-btn"
+      >
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+
+
+      <button
+        class="nav-btn"
+        id="themeButton"
+        title="Toggle Theme"
+      >
+        <i
+          class="fa-solid fa-moon"
+          id="themeIcon"
+        ></i>
+      </button>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <i class="fa-solid fa-briefcase"></i>
+        ASCEND BUSINESS CAREERS
+      </div>
+
+
+      <h1>
+        Business Administration
+        <br>
+        <span>Career Pathway</span>
+      </h1>
+
+
+      <p class="hero-description">
+        Explore high-salary and future-demanded
+        careers for Business Administration graduates.
+        Build skills in strategy, analytics, management,
+        operations, leadership and AI-powered business.
+      </p>
+
+
+      <div class="hero-stats">
+
+        <div class="hero-stat">
+          <h3>10</h3>
+          <p>High-Potential Careers</p>
+        </div>
+
+
+        <div class="hero-stat">
+          <h3>₹45 LPA</h3>
+          <p>Highest Listed 5-Year Range</p>
+        </div>
+
+
+        <div class="hero-stat">
+          <h3>Free</h3>
+          <p>Skill Learning Resources</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="container">
+
+
+    <!-- ===================================================
+         ASCEND INTRO
+         =================================================== -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          ASCEND Your Business Career
+        </h2>
+
+        <p>
+          A Business Administration degree can
+          lead to careers in strategy, analytics,
+          consulting, product management,
+          operations, marketing and people management.
+        </p>
+
+      </div>
+
+
+      <div class="ascend-intro">
+
+        <div class="ascend-intro-icon">
+          <i class="fa-solid fa-compass"></i>
+        </div>
+
+
+        <div>
+
+          <h3>
+            The ASCEND Career Formula
+          </h3>
+
+
+          <p>
+            Combine your business foundation with
+            modern data, AI and professional skills
+            to create a stronger career profile.
+          </p>
+
+
+          <div class="formula">
+
+            <span>
+              Business Administration
+            </span>
+
+            <span class="plus">+</span>
+
+            <span>
+              Data & Analytics
+            </span>
+
+            <span class="plus">+</span>
+
+            <span>
+              AI Literacy
+            </span>
+
+            <span class="plus">+</span>
+
+            <span>
+              Business Strategy
+            </span>
+
+            <span class="plus">+</span>
+
+            <span>
+              Communication
+            </span>
+
+            <span class="plus">=</span>
+
+            <span>
+              Career Growth
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           SEARCH AND FILTER
+           ================================================= -->
+
+      <div class="filter-area">
+
+        <div class="search-box">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search career or skill..."
+          >
+
+        </div>
+
+
+        <button
+          class="filter-btn active"
+          data-filter="all"
+        >
+          All
+        </button>
+
+
+        <button
+          class="filter-btn"
+          data-filter="analytics"
+        >
+          Analytics
+        </button>
+
+
+        <button
+          class="filter-btn"
+          data-filter="strategy"
+        >
+          Strategy
+        </button>
+
+
+        <button
+          class="filter-btn"
+          data-filter="management"
+        >
+          Management
+        </button>
+
+
+        <button
+          class="filter-btn"
+          data-filter="growth"
+        >
+          Growth
+        </button>
+
+
+        <button
+          class="filter-btn"
+          data-filter="people"
+        >
+          People
+        </button>
+
+      </div>
+
+
+      <!-- CAREER CARDS -->
+      <div
+        class="career-grid"
+        id="careerGrid"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         ASCEND ROADMAP
+         =================================================== -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          ASCEND Career Roadmap 🚀
+        </h2>
+
+        <p>
+          Follow these four stages to transform
+          your Business Administration degree
+          into a modern professional career.
+        </p>
+
+      </div>
+
+
+      <div class="roadmap">
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            1
+          </div>
+
+          <h3>
+            Discover
+          </h3>
+
+          <p>
+            Choose a career path based on
+            your interests and strengths.
+          </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            2
+          </div>
+
+          <h3>
+            Learn
+          </h3>
+
+          <p>
+            Develop the required business,
+            analytics and management skills.
+          </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            3
+          </div>
+
+          <h3>
+            Build
+          </h3>
+
+          <p>
+            Create projects, case studies,
+            dashboards and a portfolio.
+          </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            4
+          </div>
+
+          <h3>
+            ASCEND
+          </h3>
+
+          <p>
+            Apply for internships, jobs and
+            higher-level career opportunities.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         FREE LEARNING HUB
+         =================================================== -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          Free Business Learning Hub 📚
+        </h2>
+
+        <p>
+          Use these resources to learn business,
+          analytics, marketing, project management
+          and other professional skills.
+        </p>
+
+      </div>
+
+
+      <div class="resource-hub">
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+
+          <h3>
+            HubSpot Academy
+          </h3>
+
+          <p>
+            Free courses in marketing,
+            sales, analytics, CRM and
+            business skills.
+          </p>
+
+          <a
+            href="https://academy.hubspot.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+
+          <h3>
+            Microsoft Learn
+          </h3>
+
+          <p>
+            Learn Power BI, business
+            analytics and Microsoft tools.
+          </p>
+
+          <a
+            href="https://learn.microsoft.com/training/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+
+          <h3>
+            Google Skillshop
+          </h3>
+
+          <p>
+            Learn Google Ads, analytics
+            and digital marketing skills.
+          </p>
+
+          <a
+            href="https://skillshop.withgoogle.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+
+          <h3>
+            Coursera
+          </h3>
+
+          <p>
+            Business, analytics,
+            management and professional
+            learning courses.
+          </p>
+
+          <a
+            href="https://www.coursera.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+            Explore Courses
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       CAREER MODAL
+       ===================================================== -->
+
+  <div
+    class="modal"
+    id="careerModal"
+  >
+
+    <div class="modal-box">
+
+      <button
+        class="close-modal"
+        id="closeModal"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+
+      <div
+        id="modalContent"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <h2>
+      AS<span>CEND</span>
+    </h2>
+
+    <p>
+      Learn. Build. Lead. ASCEND.
+    </p>
+
+    <p>
+      © 2026 ASCEND Career Platform
+    </p>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+
+    /* ===================================================
+       SKILL RESOURCES
+       =================================================== */
+
+    const skillResources = {
+
+      "Business Analysis": [
+        {
+          name: "Coursera Business Analysis",
+          type: "Business analysis courses",
+          url: "https://www.coursera.org/courses?query=business%20analysis"
+        }
+      ],
+
+      "Excel": [
+        {
+          name: "Microsoft Excel Training",
+          type: "Official Microsoft Excel learning",
+          url: "https://support.microsoft.com/excel"
+        }
+      ],
+
+      "Power BI": [
+        {
+          name: "Microsoft Learn Power BI",
+          type: "Official free Power BI training",
+          url: "https://learn.microsoft.com/training/powerplatform/power-bi/"
+        }
+      ],
+
+      "SQL": [
+        {
+          name: "SQLBolt",
+          type: "Interactive SQL lessons",
+          url: "https://sqlbolt.com/"
+        }
+      ],
+
+      "Requirements Gathering": [
+        {
+          name: "Microsoft Business Analysis",
+          type: "Requirements and process learning",
+          url: "https://www.coursera.org/professional-certificates/microsoft-business-analyst"
+        }
+      ],
+
+      "Presentation": [
+        {
+          name: "Microsoft PowerPoint Training",
+          type: "Official presentation training",
+          url: "https://support.microsoft.com/powerpoint"
+        }
+      ],
+
+      "Product Strategy": [
+        {
+          name: "Coursera Product Management",
+          type: "Product management learning",
+          url: "https://www.coursera.org/courses?query=product%20management"
+        }
+      ],
+
+      "Market Research": [
+        {
+          name: "HubSpot Academy",
+          type: "Free marketing and research learning",
+          url: "https://academy.hubspot.com/"
+        }
+      ],
+
+      "Communication": [
+        {
+          name: "Coursera Communication Courses",
+          type: "Professional communication learning",
+          url: "https://www.coursera.org/courses?query=business%20communication"
+        }
+      ],
+
+      "Analytics": [
+        {
+          name: "HubSpot Business Analytics",
+          type: "Free business analytics course",
+          url: "https://academy.hubspot.com/courses/business-analytics"
+        }
+      ],
+
+      "UX Basics": [
+        {
+          name: "Figma Learn",
+          type: "UX and design fundamentals",
+          url: "https://www.figma.com/resource-library/"
+        }
+      ],
+
+      "Agile": [
+        {
+          name: "Scrum Guide",
+          type: "Official Scrum and Agile guide",
+          url: "https://scrumguides.org/"
+        }
+      ],
+
+      "Business Strategy": [
+        {
+          name: "Coursera Business Strategy",
+          type: "Strategy learning resources",
+          url: "https://www.coursera.org/courses?query=business%20strategy"
+        }
+      ],
+
+      "Problem Solving": [
+        {
+          name: "OpenLearn",
+          type: "Free business and management courses",
+          url: "https://www.open.edu/openlearn/"
+        }
+      ],
+
+      "Financial Analysis": [
+        {
+          name: "Khan Academy",
+          type: "Free finance fundamentals",
+          url: "https://www.khanacademy.org/economics-finance-domain/core-finance"
+        }
+      ],
+
+      "PowerPoint": [
+        {
+          name: "Microsoft PowerPoint Training",
+          type: "Official free learning",
+          url: "https://support.microsoft.com/powerpoint"
+        }
+      ],
+
+      "Business Development": [
+        {
+          name: "HubSpot Academy",
+          type: "Free sales and business growth learning",
+          url: "https://academy.hubspot.com/"
+        }
+      ],
+
+      "Negotiation": [
+        {
+          name: "Coursera Negotiation Courses",
+          type: "Negotiation and business communication",
+          url: "https://www.coursera.org/courses?query=negotiation"
+        }
+      ],
+
+      "Networking": [
+        {
+          name: "OpenLearn Business",
+          type: "Free professional development",
+          url: "https://www.open.edu/openlearn/"
+        }
+      ],
+
+      "Sales Strategy": [
+        {
+          name: "HubSpot Academy",
+          type: "Free sales training",
+          url: "https://academy.hubspot.com/"
+        }
+      ],
+
+      "Operations Management": [
+        {
+          name: "Coursera Operations Management",
+          type: "Operations and process courses",
+          url: "https://www.coursera.org/courses?query=operations%20management"
+        }
+      ],
+
+      "Process Improvement": [
+        {
+          name: "ASQ Learning Resources",
+          type: "Quality and process improvement",
+          url: "https://asq.org/"
+        }
+      ],
+
+      "Project Management": [
+        {
+          name: "Coursera Project Management",
+          type: "Project management learning",
+          url: "https://www.coursera.org/courses?query=project%20management"
+        }
+      ],
+
+      "Leadership": [
+        {
+          name: "OpenLearn Leadership",
+          type: "Free leadership learning",
+          url: "https://www.open.edu/openlearn/"
+        }
+      ],
+
+      "Planning": [
+        {
+          name: "HubSpot Project Management",
+          type: "Free project management resources",
+          url: "https://www.hubspot.com/resources/courses/project-management"
+        }
+      ],
+
+      "Risk Management": [
+        {
+          name: "Coursera Risk Management",
+          type: "Risk management courses",
+          url: "https://www.coursera.org/courses?query=risk%20management"
+        }
+      ],
+
+      "Supply Chain": [
+        {
+          name: "Coursera Supply Chain",
+          type: "Supply chain learning",
+          url: "https://www.coursera.org/courses?query=supply%20chain"
+        }
+      ],
+
+      "Procurement": [
+        {
+          name: "OpenLearn",
+          type: "Free business learning",
+          url: "https://www.open.edu/openlearn/"
+        }
+      ],
+
+      "ERP Basics": [
+        {
+          name: "SAP Learning",
+          type: "SAP and enterprise systems learning",
+          url: "https://learning.sap.com/"
+        }
+      ],
+
+      "Digital Marketing": [
+        {
+          name: "HubSpot Digital Marketing",
+          type: "Free digital marketing certification",
+          url: "https://academy.hubspot.com/courses/digital-marketing"
+        }
+      ],
+
+      "SEO": [
+        {
+          name: "Google Search Central",
+          type: "Official SEO learning",
+          url: "https://developers.google.com/search"
+        }
+      ],
+
+      "Growth Strategy": [
+        {
+          name: "HubSpot Academy",
+          type: "Marketing and growth learning",
+          url: "https://academy.hubspot.com/"
+        }
+      ],
+
+      "Social Media": [
+        {
+          name: "HubSpot Social Media Course",
+          type: "Free social media marketing learning",
+          url: "https://academy.hubspot.com/courses/social-media"
+        }
+      ],
+
+      "CRM": [
+        {
+          name: "HubSpot Academy",
+          type: "Free CRM learning",
+          url: "https://academy.hubspot.com/"
+        }
+      ],
+
+      "HR Fundamentals": [
+        {
+          name: "OpenLearn",
+          type: "Free management and people learning",
+          url: "https://www.open.edu/openlearn/"
+        }
+      ],
+
+      "Recruitment": [
+        {
+          name: "Coursera Human Resources",
+          type: "HR and recruitment courses",
+          url: "https://www.coursera.org/courses?query=human%20resources"
+        }
+      ],
+
+      "HR Analytics": [
+        {
+          name: "Coursera People Analytics",
+          type: "People and HR analytics learning",
+          url: "https://www.coursera.org/courses?query=people%20analytics"
+        }
+      ],
+
+      "Data Visualization": [
+        {
+          name: "Microsoft Learn Power BI",
+          type: "Dashboards and visualization",
+          url: "https://learn.microsoft.com/training/powerplatform/power-bi/"
+        }
+      ],
+
+      "Tableau": [
+        {
+          name: "Tableau Training",
+          type: "Official Tableau learning",
+          url: "https://www.tableau.com/learn/training"
+        }
+      ],
+
+      "Business Intelligence": [
+        {
+          name: "Microsoft Learn",
+          type: "Business intelligence learning",
+          url: "https://learn.microsoft.com/training/"
+        }
+      ]
+
+    };
+
+
+
+    /* ===================================================
+       CAREER DATA
+       =================================================== */
+
+    const careers = [
+
+      {
+        rank: 1,
+
+        title: "Business Analyst",
+
+        icon: "fa-chart-column",
+
+        category: "analytics",
+
+        work:
+          "Analyze business problems, processes and data to recommend improvements and support business decisions.",
+
+        skills: [
+          "Business Analysis",
+          "Excel",
+          "Power BI",
+          "SQL",
+          "Requirements Gathering",
+          "Presentation"
+        ],
+
+        fresher: "₹4–8 LPA",
+
+        experience: "₹12–25 LPA"
+      },
+
+
+      {
+        rank: 2,
+
+        title: "Product Manager",
+
+        icon: "fa-cubes",
+
+        category: "strategy",
+
+        work:
+          "Define product strategy, understand customer needs and coordinate teams to build valuable products.",
+
+        skills: [
+          "Product Strategy",
+          "Market Research",
+          "Communication",
+          "Analytics",
+          "UX Basics",
+          "Agile"
+        ],
+
+        fresher: "₹6–12 LPA",
+
+        experience: "₹20–45 LPA"
+      },
+
+
+      {
+        rank: 3,
+
+        title: "Management Consultant",
+
+        icon: "fa-chess",
+
+        category: "strategy",
+
+        work:
+          "Help organizations solve strategic, operational and business problems through structured analysis and recommendations.",
+
+        skills: [
+          "Business Strategy",
+          "Problem Solving",
+          "Excel",
+          "PowerPoint",
+          "Financial Analysis",
+          "Communication"
+        ],
+
+        fresher: "₹6–12 LPA",
+
+        experience: "₹18–40 LPA"
+      },
+
+
+      {
+        rank: 4,
+
+        title: "Strategy & Business Development Manager",
+
+        icon: "fa-arrow-trend-up",
+
+        category: "strategy",
+
+        work:
+          "Identify growth opportunities, new markets, partnerships and expansion strategies.",
+
+        skills: [
+          "Business Development",
+          "Market Research",
+          "Negotiation",
+          "Financial Analysis",
+          "Networking",
+          "Sales Strategy"
+        ],
+
+        fresher: "₹5–10 LPA",
+
+        experience: "₹15–35 LPA"
+      },
+
+
+      {
+        rank: 5,
+
+        title: "Operations Manager",
+
+        icon: "fa-gears",
+
+        category: "management",
+
+        work:
+          "Improve business operations, productivity, workflows and resource utilization.",
+
+        skills: [
+          "Operations Management",
+          "Process Improvement",
+          "Excel",
+          "Project Management",
+          "Leadership",
+          "Planning"
+        ],
+
+        fresher: "₹4.5–9 LPA",
+
+        experience: "₹15–30 LPA"
+      },
+
+
+      {
+        rank: 6,
+
+        title: "Project Manager",
+
+        icon: "fa-diagram-project",
+
+        category: "management",
+
+        work:
+          "Plan, coordinate and deliver business projects within scope, time and budget.",
+
+        skills: [
+          "Project Management",
+          "Planning",
+          "Communication",
+          "Risk Management",
+          "Agile",
+          "Leadership"
+        ],
+
+        fresher: "₹5–9 LPA",
+
+        experience: "₹15–30 LPA"
+      },
+
+
+      {
+        rank: 7,
+
+        title: "Supply Chain & Logistics Manager",
+
+        icon: "fa-truck-fast",
+
+        category: "management",
+
+        work:
+          "Manage sourcing, inventory, transportation, suppliers and supply chain operations.",
+
+        skills: [
+          "Supply Chain",
+          "Procurement",
+          "Excel",
+          "ERP Basics",
+          "Analytics",
+          "Negotiation"
+        ],
+
+        fresher: "₹4–8 LPA",
+
+        experience: "₹14–28 LPA"
+      },
+
+
+      {
+        rank: 8,
+
+        title: "Digital Marketing / Growth Manager",
+
+        icon: "fa-bullhorn",
+
+        category: "growth",
+
+        work:
+          "Drive customer acquisition, revenue growth and digital campaigns using data and marketing strategy.",
+
+        skills: [
+          "Digital Marketing",
+          "SEO",
+          "Analytics",
+          "Growth Strategy",
+          "Social Media",
+          "CRM"
+        ],
+
+        fresher: "₹3.5–7 LPA",
+
+        experience: "₹12–30 LPA"
+      },
+
+
+      {
+        rank: 9,
+
+        title: "HR / People Analytics Manager",
+
+        icon: "fa-users",
+
+        category: "people",
+
+        work:
+          "Support workforce planning, talent management and data-driven HR decision making.",
+
+        skills: [
+          "HR Fundamentals",
+          "Recruitment",
+          "Excel",
+          "HR Analytics",
+          "Communication",
+          "Leadership"
+        ],
+
+        fresher: "₹4–7 LPA",
+
+        experience: "₹12–25 LPA"
+      },
+
+
+      {
+        rank: 10,
+
+        title: "Business Intelligence Analyst",
+
+        icon: "fa-chart-pie",
+
+        category: "analytics",
+
+        work:
+          "Convert business data into dashboards, reports and actionable insights for decision makers.",
+
+        skills: [
+          "Excel",
+          "Power BI",
+          "SQL",
+          "Data Visualization",
+          "Business Intelligence",
+          "Tableau"
+        ],
+
+        fresher: "₹4–8 LPA",
+
+        experience: "₹12–25 LPA"
+      }
+
+    ];
+
+
+
+    /* ===================================================
+       DOM ELEMENTS
+       =================================================== */
+
+    const careerGrid =
+      document.getElementById("careerGrid");
+
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+
+    const modal =
+      document.getElementById("careerModal");
+
+
+    const modalContent =
+      document.getElementById("modalContent");
+
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+
+    const filterButtons =
+      document.querySelectorAll(".filter-btn");
+
+
+    let currentFilter = "all";
+
+
+
+    /* ===================================================
+       RENDER CAREERS
+       =================================================== */
+
+    function renderCareers() {
+
+      const searchTerm =
+        searchInput.value
+          .toLowerCase()
+          .trim();
+
+
+      const filtered =
+        careers.filter(career => {
+
+          const searchableText = `
+            ${career.title}
+            ${career.work}
+            ${career.skills.join(" ")}
+          `.toLowerCase();
+
+
+          const categoryMatch =
+            currentFilter === "all" ||
+            career.category === currentFilter;
+
+
+          const searchMatch =
+            searchableText.includes(searchTerm);
+
+
+          return categoryMatch && searchMatch;
+
+        });
+
+
+      if (filtered.length === 0) {
+
+        careerGrid.innerHTML = `
+          <div
+            style="
+              grid-column:1/-1;
+              text-align:center;
+              padding:60px 20px;
+              color:var(--muted);
+            "
+          >
+            <i
+              class="
+                fa-solid
+                fa-magnifying-glass
+              "
+              style="
+                font-size:38px;
+                margin-bottom:15px;
+              "
+            ></i>
+
+            <h3>
+              No Career Found
+            </h3>
+
+            <p>
+              Try another career or skill.
+            </p>
+          </div>
+        `;
+
+        return;
+      }
+
+
+      careerGrid.innerHTML =
+        filtered.map(career => `
+
+          <article class="career-card">
+
+            <div class="career-header">
+
+              <span class="rank-badge">
+                RANK #${career.rank}
+              </span>
+
+
+              <div class="career-icon">
+
+                <i
+                  class="
+                    fa-solid
+                    ${career.icon}
+                  "
+                ></i>
+
+              </div>
+
+            </div>
+
+
+            <div class="career-body">
+
+              <h3>
+                ${career.title}
+              </h3>
+
+
+              <p class="main-work">
+                ${career.work}
+              </p>
+
+
+              <div class="salary-grid">
+
+                <div class="salary-box">
+
+                  <small>
+                    FRESHER SALARY
+                  </small>
+
+                  <strong>
+                    ${career.fresher}
+                  </strong>
+
+                </div>
+
+
+                <div class="salary-box">
+
+                  <small>
+                    5 YEARS EXPERIENCE
+                  </small>
+
+                  <strong>
+                    ${career.experience}
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+              <div class="section-label">
+
+                <i
+                  class="
+                    fa-solid
+                    fa-list-check
+                  "
+                ></i>
+
+                Required Skills
+
+              </div>
+
+
+              <div class="skills">
+
+                ${career.skills
+                  .map(skill => `
+                    <span class="skill">
+                      ${skill}
+                    </span>
+                  `)
+                  .join("")
+                }
+
+              </div>
+
+
+              <div class="card-actions">
+
+                <button
+                  class="
+                    action-btn
+                    details-btn
+                  "
+                  onclick="
+                    showCareer(${career.rank})
+                  "
+                >
+
+                  <i
+                    class="
+                      fa-solid
+                      fa-circle-info
+                    "
+                  ></i>
+
+                  Details
+
+                </button>
+
+
+                <button
+                  class="
+                    action-btn
+                    learn-btn
+                  "
+                  onclick="
+                    showCareer(${career.rank})
+                  "
+                >
+
+                  <i
+                    class="
+                      fa-solid
+                      fa-book-open
+                    "
+                  ></i>
+
+                  Learn Free
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        `)
+        .join("");
+
+    }
+
+
+
+    /* ===================================================
+       SHOW CAREER
+       =================================================== */
+
+    function showCareer(rank) {
+
+      const career =
+        careers.find(
+          item => item.rank === rank
+        );
+
+
+      modalContent.innerHTML = `
+
+        <div class="modal-title">
+
+          <div class="modal-rank">
+            ASCEND CAREER #${career.rank}
+          </div>
+
+
+          <h2>
+            ${career.title}
+          </h2>
+
+
+          <p>
+            ${career.work}
+          </p>
+
+        </div>
+
+
+        <div class="salary-grid">
+
+          <div class="salary-box">
+
+            <small>
+              FRESHER SALARY
+            </small>
+
+            <strong>
+              ${career.fresher}
+            </strong>
+
+          </div>
+
+
+          <div class="salary-box">
+
+            <small>
+              5 YEARS EXPERIENCE
+            </small>
+
+            <strong>
+              ${career.experience}
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="learning-section">
+
+          <div class="section-label">
+
+            <i
+              class="
+                fa-solid
+                fa-graduation-cap
+              "
+            ></i>
+
+            Free Learning Resources
+            for Every Required Skill
+
+          </div>
+
+
+          ${career.skills
+            .map(skill => {
+
+              const resources =
+                skillResources[skill] || [
+                  {
+                    name:
+                      "Free Business Learning Resources",
+
+                    type:
+                      `Learn ${skill}`,
+
+                    url:
+                      "https://www.coursera.org/"
+                  }
+                ];
+
+
+              return `
+
+                <div class="skill-learning-card">
+
+                  <div class="skill-learning-header">
+
+                    <i
+                      class="
+                        fa-solid
+                        fa-check
+                      "
+                    ></i>
+
+                    ${skill}
+
+                  </div>
+
+
+                  <div class="resource-list">
+
+                    ${resources
+                      .map(resource => `
+
+                        <a
+                          href="${resource.url}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="resource"
+                        >
+
+                          <i
+                            class="
+                              fa-solid
+                              fa-book
+                            "
+                          ></i>
+
+
+                          <div class="resource-text">
+
+                            <strong>
+                              ${resource.name}
+                            </strong>
+
+                            <small>
+                              ${resource.type}
+                            </small>
+
+                          </div>
+
+
+                          <i
+                            class="
+                              fa-solid
+                              fa-arrow-up-right-from-square
+                              external
+                            "
+                          ></i>
+
+                        </a>
+
+                      `)
+                      .join("")
+                    }
+
+                  </div>
+
+                </div>
+
+              `;
+
+            })
+            .join("")
+          }
+
+        </div>
+
+
+        <div
+          class="ascend-intro"
+          style="
+            margin-top:30px;
+            margin-bottom:0;
+          "
+        >
+
+          <div class="ascend-intro-icon">
+
+            <i
+              class="
+                fa-solid
+                fa-arrow-trend-up
+              "
+            ></i>
+
+          </div>
+
+
+          <div>
+
+            <h3>
+              ASCEND Action Plan
+            </h3>
+
+
+            <p>
+              Learn the required skills,
+              complete practical projects,
+              create dashboards or case studies,
+              build a portfolio, gain internship
+              experience and apply for entry-level roles.
+            </p>
+
+          </div>
+
+        </div>
+
+      `;
+
+
+      modal.classList.add("show");
+
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+
+    /* ===================================================
+       SEARCH
+       =================================================== */
+
+    searchInput.addEventListener(
+      "input",
+      renderCareers
+    );
+
+
+
+    /* ===================================================
+       FILTER
+       =================================================== */
+
+    filterButtons.forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          filterButtons.forEach(
+            btn =>
+              btn.classList.remove("active")
+          );
+
+
+          button.classList.add("active");
+
+
+          currentFilter =
+            button.dataset.filter;
+
+
+          renderCareers();
+
+        }
+      );
+
+    });
+
+
+
+    /* ===================================================
+       MODAL
+       =================================================== */
+
+    function closeCareerModal() {
+
+      modal.classList.remove("show");
+
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    closeModal.addEventListener(
+      "click",
+      closeCareerModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (event.target === modal) {
+          closeCareerModal();
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Escape") {
+          closeCareerModal();
+        }
+
+      }
+    );
+
+
+
+    /* ===================================================
+       DARK / LIGHT MODE
+       =================================================== */
+
+    const themeButton =
+      document.getElementById(
+        "themeButton"
+      );
+
+
+    const themeIcon =
+      document.getElementById(
+        "themeIcon"
+      );
+
+
+    themeButton.addEventListener(
+      "click",
+      () => {
+
+        document.body.classList.toggle(
+          "dark-mode"
+        );
+
+
+        const dark =
+          document.body.classList.contains(
+            "dark-mode"
+          );
+
+
+        themeIcon.className =
+          dark
+            ? "fa-solid fa-sun"
+            : "fa-solid fa-moon";
+
+
+        localStorage.setItem(
+          "ascendBusinessTheme",
+          dark ? "dark" : "light"
+        );
+
+      }
+    );
+
+
+    /* LOAD SAVED THEME */
+
+    if (
+      localStorage.getItem(
+        "ascendBusinessTheme"
+      ) === "dark"
+    ) {
+
+      document.body.classList.add(
+        "dark-mode"
+      );
+
+
+      themeIcon.className =
+        "fa-solid fa-sun";
+
+    }
+
+
+
+    /* ===================================================
+       INITIAL LOAD
+       =================================================== */
+
+    renderCareers();
+
+  </script>
+
+</body>
+</html>
