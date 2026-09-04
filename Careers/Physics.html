@@ -1,0 +1,3048 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Physics Careers | ASCEND</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+        :root {
+            --primary: #1565c0;
+            --primary-dark: #0d47a1;
+            --primary-light: #e3f2fd;
+
+            --bg: #f5f7fb;
+            --card: #ffffff;
+            --text: #172033;
+            --muted: #687386;
+            --border: #e3e8ef;
+
+            --success: #2e7d32;
+            --warning: #ef6c00;
+            --danger: #c62828;
+
+            --shadow: 0 12px 35px rgba(20, 40, 80, 0.08);
+            --radius: 18px;
+        }
+
+        body.dark {
+            --bg: #0c1220;
+            --card: #131c2e;
+            --text: #f2f5fa;
+            --muted: #aab5c7;
+            --border: #26334a;
+
+            --primary-light: #102b4d;
+
+            --shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: 0.25s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            height: 72px;
+            padding: 0 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        body.dark .navbar {
+            background: rgba(12, 18, 32, 0.92);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--primary-dark)
+            );
+
+            box-shadow: 0 8px 20px rgba(21, 101, 192, 0.25);
+        }
+
+        .brand-logo i {
+            font-size: 20px;
+        }
+
+        .brand-name {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .brand-name span {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            min-height: 42px;
+            padding: 0 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: var(--card);
+            color: var(--text);
+
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            padding: 85px 6% 75px;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(21, 101, 192, 0.16),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 15% 80%,
+                    rgba(30, 136, 229, 0.1),
+                    transparent 30%
+                );
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 14px;
+            margin-bottom: 20px;
+
+            border-radius: 999px;
+
+            background: var(--primary-light);
+            color: var(--primary);
+
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .hero h1 {
+            max-width: 750px;
+
+            font-size: clamp(38px, 5vw, 64px);
+            line-height: 1.08;
+
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            max-width: 720px;
+
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            margin-top: 28px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 13px 20px;
+            border-radius: 12px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            font-weight: 800;
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .primary-btn {
+            background: var(--primary);
+            color: white;
+            border: 1px solid var(--primary);
+        }
+
+        .primary-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .secondary-btn {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .secondary-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Hero visual */
+
+        .physics-visual {
+            position: relative;
+            min-height: 310px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit {
+            position: absolute;
+
+            width: 280px;
+            height: 180px;
+
+            border: 2px solid rgba(21, 101, 192, 0.3);
+            border-radius: 50%;
+
+            transform: rotate(-25deg);
+        }
+
+        .orbit.two {
+            transform: rotate(35deg);
+        }
+
+        .nucleus {
+            width: 95px;
+            height: 95px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                #42a5f5
+            );
+
+            color: white;
+
+            font-size: 34px;
+
+            box-shadow:
+                0 0 0 15px rgba(21, 101, 192, 0.08),
+                0 20px 45px rgba(21, 101, 192, 0.3);
+        }
+
+        .electron {
+            position: absolute;
+
+            width: 18px;
+            height: 18px;
+
+            border-radius: 50%;
+
+            background: #42a5f5;
+
+            box-shadow: 0 0 18px rgba(66, 165, 245, 0.8);
+        }
+
+        .electron.e1 {
+            top: 47px;
+            right: 90px;
+        }
+
+        .electron.e2 {
+            bottom: 50px;
+            left: 90px;
+        }
+
+        .electron.e3 {
+            top: 120px;
+            left: 55px;
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            max-width: 1150px;
+
+            margin: -30px auto 0;
+            padding: 0 20px;
+
+            position: relative;
+            z-index: 5;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .stat-card {
+            padding: 24px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+        }
+
+        .stat-card i {
+            color: var(--primary);
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card strong {
+            display: block;
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .stat-card span {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           COMMON SECTION
+        ========================= */
+
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 40px;
+        }
+
+        .section-heading .eyebrow {
+            color: var(--primary);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 13px;
+        }
+
+        .section-heading h2 {
+            margin-top: 8px;
+
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.15;
+        }
+
+        .section-heading p {
+            margin-top: 12px;
+            color: var(--muted);
+        }
+
+        /* =========================
+           FORMULA
+        ========================= */
+
+        .formula-card {
+            padding: 30px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--primary-dark)
+                );
+
+            color: white;
+
+            box-shadow: 0 20px 45px rgba(21, 101, 192, 0.2);
+        }
+
+        .formula-card h3 {
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .formula {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .formula-item {
+            padding: 12px 15px;
+
+            border-radius: 10px;
+
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            font-weight: 800;
+        }
+
+        .formula-plus {
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .career-toolbar {
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 17px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            color: var(--muted);
+        }
+
+        .search-box input {
+            width: 100%;
+
+            padding: 15px 18px 15px 48px;
+
+            border-radius: 14px;
+
+            border: 1px solid var(--border);
+            outline: none;
+
+            background: var(--card);
+            color: var(--text);
+
+            transition: 0.2s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(21, 101, 192, 0.08);
+        }
+
+        .filters {
+            margin-top: 18px;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .filter-btn {
+            padding: 9px 14px;
+
+            border-radius: 999px;
+
+            border: 1px solid var(--border);
+
+            background: var(--card);
+            color: var(--muted);
+
+            cursor: pointer;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            transition: 0.2s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* =========================
+           CAREER GRID
+        ========================= */
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .career-card {
+            position: relative;
+
+            padding: 25px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+
+            transition: 0.25s ease;
+        }
+
+        .career-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(21, 101, 192, 0.4);
+        }
+
+        .career-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .rank {
+            width: 42px;
+            height: 42px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: var(--primary-light);
+            color: var(--primary);
+
+            font-weight: 900;
+        }
+
+        .career-title {
+            flex: 1;
+        }
+
+        .career-title h3 {
+            font-size: 19px;
+            line-height: 1.25;
+        }
+
+        .career-category {
+            display: inline-block;
+
+            margin-top: 7px;
+            padding: 4px 9px;
+
+            border-radius: 999px;
+
+            background: var(--primary-light);
+            color: var(--primary);
+
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .career-work {
+            margin-top: 18px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .salary-box {
+            margin-top: 20px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .salary {
+            padding: 13px;
+
+            border-radius: 12px;
+
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        .salary small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+            margin-bottom: 3px;
+        }
+
+        .salary strong {
+            font-size: 15px;
+        }
+
+        .career-actions {
+            margin-top: 20px;
+
+            display: flex;
+            gap: 9px;
+        }
+
+        .career-actions button,
+        .career-actions a {
+            flex: 1;
+
+            padding: 10px 12px;
+
+            border-radius: 10px;
+
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+
+            cursor: pointer;
+
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .details-btn {
+            background: var(--primary);
+            color: white;
+            border: 1px solid var(--primary);
+        }
+
+        .resource-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .no-results {
+            display: none;
+
+            padding: 50px 20px;
+
+            text-align: center;
+            color: var(--muted);
+        }
+
+        /* =========================
+           TRADITIONAL VS FUTURE
+        ========================= */
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .comparison-card {
+            padding: 28px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+        }
+
+        .comparison-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 20px;
+        }
+
+        .comparison-card h3 i {
+            color: var(--primary);
+        }
+
+        .comparison-card ul {
+            list-style: none;
+        }
+
+        .comparison-card li {
+            padding: 10px 0;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            border-bottom: 1px solid var(--border);
+
+            color: var(--muted);
+        }
+
+        .comparison-card li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-card li i {
+            color: var(--primary);
+            font-size: 12px;
+        }
+
+        /* =========================
+           ROADMAP
+        ========================= */
+
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .roadmap-card {
+            position: relative;
+
+            padding: 25px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+        }
+
+        .roadmap-number {
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--primary);
+            color: white;
+
+            font-weight: 900;
+
+            margin-bottom: 18px;
+        }
+
+        .roadmap-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .roadmap-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           RESOURCE HUB
+        ========================= */
+
+        .resources {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .resource-card {
+            padding: 23px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            transition: 0.2s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .resource-icon {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 13px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--primary-light);
+            color: var(--primary);
+
+            font-size: 20px;
+
+            margin-bottom: 15px;
+        }
+
+        .resource-card h3 {
+            font-size: 17px;
+            margin-bottom: 7px;
+        }
+
+        .resource-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .resource-card a {
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 13px;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+
+            z-index: 2000;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: rgba(0, 0, 0, 0.6);
+
+            backdrop-filter: blur(6px);
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            width: min(800px, 100%);
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: var(--card);
+
+            border-radius: 22px;
+
+            border: 1px solid var(--border);
+
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+
+            padding: 30px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .modal-header h2 {
+            font-size: 27px;
+            line-height: 1.2;
+        }
+
+        .modal-close {
+            width: 40px;
+            height: 40px;
+
+            border-radius: 10px;
+
+            border: 1px solid var(--border);
+
+            background: var(--card);
+            color: var(--text);
+
+            cursor: pointer;
+        }
+
+        .modal-section {
+            margin-top: 25px;
+        }
+
+        .modal-section h4 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .modal-section p {
+            color: var(--muted);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill {
+            padding: 7px 10px;
+
+            background: var(--bg);
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .modal-resource {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-resource:last-child {
+            border-bottom: none;
+        }
+
+        .modal-resource a {
+            color: var(--primary);
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 70px 20px;
+        }
+
+        .cta-box {
+            max-width: 1100px;
+            margin: auto;
+
+            padding: 45px 35px;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--primary-dark)
+                );
+
+            color: white;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 10px;
+        }
+
+        .cta-box p {
+            max-width: 650px;
+            margin: auto;
+
+            opacity: 0.88;
+        }
+
+        .cta-box .primary-btn {
+            margin-top: 25px;
+
+            background: white;
+            color: var(--primary);
+
+            border-color: white;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            background: var(--card);
+
+            border-top: 1px solid var(--border);
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: var(--primary);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .physics-visual {
+                min-height: 250px;
+            }
+
+            .career-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .resources {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .brand-name {
+                font-size: 19px;
+            }
+
+            .nav-btn span {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px 60px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                margin-top: 20px;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap {
+                grid-template-columns: 1fr;
+            }
+
+            .resources {
+                grid-template-columns: 1fr;
+            }
+
+            .salary-box {
+                grid-template-columns: 1fr;
+            }
+
+            .career-actions {
+                flex-direction: column;
+            }
+
+            .formula {
+                justify-content: flex-start;
+            }
+
+            .section {
+                padding: 60px 15px;
+            }
+
+            .modal-content {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <a href="#" class="brand">
+        <div class="brand-logo">
+            <i class="fa-solid fa-atom"></i>
+        </div>
+
+        <div class="brand-name">
+            AS<span>CEND</span>
+        </div>
+    </a>
+
+    <div class="nav-actions">
+
+        <a href="../index.html" class="nav-btn">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+
+        <button
+            class="nav-btn"
+            id="themeButton"
+            title="Toggle Theme"
+            type="button"
+        >
+            <i
+                class="fa-solid fa-moon"
+                id="themeIcon"
+            ></i>
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-container">
+
+        <div>
+
+            <div class="hero-badge">
+                <i class="fa-solid fa-atom"></i>
+                ASCEND Physics Career Pathway
+            </div>
+
+            <h1>
+                Physics Careers for the
+                <span>Future</span>
+            </h1>
+
+            <p>
+                Explore high-value careers where Physics connects with
+                finance, healthcare, energy, aerospace, materials,
+                technology, research, analytics and strategic decision-making.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#careers"
+                    class="primary-btn"
+                >
+                    <i class="fa-solid fa-compass"></i>
+                    Explore Careers
+                </a>
+
+                <a
+                    href="#roadmap"
+                    class="secondary-btn"
+                >
+                    <i class="fa-solid fa-road"></i>
+                    View Roadmap
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="physics-visual">
+
+            <div class="orbit"></div>
+            <div class="orbit two"></div>
+
+            <div class="nucleus">
+                <i class="fa-solid fa-atom"></i>
+            </div>
+
+            <div class="electron e1"></div>
+            <div class="electron e2"></div>
+            <div class="electron e3"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats">
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-ranking-star"></i>
+
+        <strong>10</strong>
+
+        <span>
+            High-value Physics career pathways
+        </span>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+        <strong>₹60+ LPA</strong>
+
+        <span>
+            Highest indicative 5-year range in this list
+        </span>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        <strong>Free</strong>
+
+        <span>
+            Learning resources available online
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     CAREER FORMULA
+========================= -->
+
+<section class="section">
+
+    <div class="formula-card">
+
+        <h3>
+            <i class="fa-solid fa-flask"></i>
+            ASCEND Physics Career Formula
+        </h3>
+
+        <div class="formula">
+
+            <div class="formula-item">
+                Physics Fundamentals
+            </div>
+
+            <div class="formula-plus">+</div>
+
+            <div class="formula-item">
+                Mathematics
+            </div>
+
+            <div class="formula-plus">+</div>
+
+            <div class="formula-item">
+                Data & Modelling
+            </div>
+
+            <div class="formula-plus">+</div>
+
+            <div class="formula-item">
+                Domain Knowledge
+            </div>
+
+            <div class="formula-plus">+</div>
+
+            <div class="formula-item">
+                Portfolio
+            </div>
+
+            <div class="formula-plus">=</div>
+
+            <div class="formula-item">
+                Career Growth
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CAREERS
+========================= -->
+
+<section
+    class="section"
+    id="careers"
+>
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            Career Explorer
+        </div>
+
+        <h2>
+            Top 10 High-Salary Careers for Physics Graduates
+        </h2>
+
+        <p>
+            Choose a career based on your strengths, interests and
+            preferred industry.
+        </p>
+
+    </div>
+
+
+    <div class="career-toolbar">
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Physics careers..."
+            >
+
+        </div>
+
+
+        <div class="filters">
+
+            <button
+                class="filter-btn active"
+                data-filter="all"
+                type="button"
+            >
+                All
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="finance"
+                type="button"
+            >
+                Finance
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="healthcare"
+                type="button"
+            >
+                Healthcare
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="science"
+                type="button"
+            >
+                Science & Research
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="energy"
+                type="button"
+            >
+                Energy
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="engineering"
+                type="button"
+            >
+                Engineering
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="analytics"
+                type="button"
+            >
+                Analytics
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="career-grid"
+        id="careerGrid"
+    ></div>
+
+
+    <div
+        class="no-results"
+        id="noResults"
+    >
+        <i
+            class="fa-solid fa-magnifying-glass"
+            style="font-size:30px;margin-bottom:12px;"
+        ></i>
+
+        <h3>No careers found</h3>
+
+        <p>
+            Try another search term or category.
+        </p>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TRADITIONAL VS FUTURE
+========================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            Career Direction
+        </div>
+
+        <h2>
+            Traditional vs Future-Demanded Careers
+        </h2>
+
+        <p>
+            Physics graduates can build careers both inside and outside
+            conventional scientific roles.
+        </p>
+
+    </div>
+
+
+    <div class="comparison">
+
+        <div class="comparison-card">
+
+            <h3>
+                <i class="fa-solid fa-book"></i>
+                Traditional Physics Careers
+            </h3>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Physicist
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Physics Lecturer / Professor
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Research Scientist
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Laboratory Scientist
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Nuclear Physicist
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Geophysicist
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Astronomy / Astrophysics
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Physics Teacher
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Scientific Officer
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="comparison-card">
+
+            <h3>
+                <i class="fa-solid fa-rocket"></i>
+                Future-Demanded Careers
+            </h3>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    Quantitative Analyst
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    Medical Physicist
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    Materials Scientist
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    Renewable Energy Specialist
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    Photonics Specialist
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    Operations Research Analyst
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    Aerospace & Defence Scientist
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    Energy Analyst
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    Scientific / Technical Consultant
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ROADMAP
+========================= -->
+
+<section
+    class="section"
+    id="roadmap"
+>
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            ASCEND Roadmap
+        </div>
+
+        <h2>
+            From Physics Graduate to Career-Ready Professional
+        </h2>
+
+        <p>
+            Follow a simple progression from fundamentals to employability.
+        </p>
+
+    </div>
+
+
+    <div class="roadmap">
+
+        <div class="roadmap-card">
+
+            <div class="roadmap-number">
+                01
+            </div>
+
+            <h3>
+                Discover
+            </h3>
+
+            <p>
+                Identify your strongest Physics areas and choose
+                a target industry such as finance, healthcare,
+                energy, research or engineering.
+            </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+            <div class="roadmap-number">
+                02
+            </div>
+
+            <h3>
+                Learn
+            </h3>
+
+            <p>
+                Strengthen Mathematics, Statistics, modelling,
+                programming, domain knowledge and communication.
+            </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+            <div class="roadmap-number">
+                03
+            </div>
+
+            <h3>
+                Build
+            </h3>
+
+            <p>
+                Create projects, simulations, research work,
+                data analysis projects and practical portfolios.
+            </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+            <div class="roadmap-number">
+                04
+            </div>
+
+            <h3>
+                ASCEND
+            </h3>
+
+            <p>
+                Apply for internships and entry-level roles,
+                prepare for interviews and continuously upgrade
+                your professional skills.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RESOURCE HUB
+========================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            Free Learning
+        </div>
+
+        <h2>
+            Physics Learning Resource Hub
+        </h2>
+
+        <p>
+            Build your Physics foundation and career skills using
+            established educational platforms.
+        </p>
+
+    </div>
+
+
+    <div class="resources">
+
+
+        <!-- NPTEL -->
+
+        <div class="resource-card">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-university"></i>
+            </div>
+
+            <h3>
+                NPTEL
+            </h3>
+
+            <p>
+                IIT and IISc courses covering quantum mechanics,
+                optics, nuclear science, semiconductors, materials,
+                computational physics and more.
+            </p>
+
+            <a
+                href="https://www.nptel.ac.in/courses"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Explore NPTEL
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+
+
+        <!-- SWAYAM -->
+
+        <div class="resource-card">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <h3>
+                SWAYAM
+            </h3>
+
+            <p>
+                Government of India online learning platform with
+                courses from universities and institutions.
+            </p>
+
+            <a
+                href="https://swayam.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Explore SWAYAM
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+
+
+        <!-- MIT OCW -->
+
+        <div class="resource-card">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-atom"></i>
+            </div>
+
+            <h3>
+                MIT OpenCourseWare
+            </h3>
+
+            <p>
+                Free educational materials from MIT covering
+                Physics, Mathematics, engineering and scientific subjects.
+            </p>
+
+            <a
+                href="https://ocw.mit.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Explore MIT OCW
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+
+
+        <!-- Khan Academy -->
+
+        <div class="resource-card">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-play"></i>
+            </div>
+
+            <h3>
+                Khan Academy Physics
+            </h3>
+
+            <p>
+                Physics lessons covering mechanics, forces, energy,
+                electromagnetism, waves and related fundamentals.
+            </p>
+
+            <a
+                href="https://www.khanacademy.org/science/physics"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Explore Physics
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+
+
+        <!-- SWAYAM Physics -->
+
+        <div class="resource-card">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-microscope"></i>
+            </div>
+
+            <h3>
+                SWAYAM Physics Courses
+            </h3>
+
+            <p>
+                Search Physics courses from IITs, universities and
+                other institutions directly through SWAYAM.
+            </p>
+
+            <a
+                href="https://swayam.gov.in/search_courses"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Search Courses
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+
+
+        <!-- NPTEL Course Search -->
+
+        <div class="resource-card">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <h3>
+                NPTEL Course Catalogue
+            </h3>
+
+            <p>
+                Search for specialised Physics courses in optics,
+                quantum physics, nuclear science, materials and computation.
+            </p>
+
+            <a
+                href="https://www.nptel.ac.in/courses"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Search Courses
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="cta-box">
+
+        <h2>
+            Your Physics Degree Is a Foundation.
+        </h2>
+
+        <p>
+            Add the right domain skills, practical projects and
+            professional capabilities — then ASCEND into a career
+            that matches your strengths.
+        </p>
+
+        <a
+            href="#careers"
+            class="primary-btn"
+        >
+            <i class="fa-solid fa-rocket"></i>
+            Start Exploring
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="careerModal"
+>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div>
+
+                <div
+                    class="career-category"
+                    id="modalCategory"
+                >
+                    Category
+                </div>
+
+                <h2
+                    id="modalTitle"
+                    style="margin-top:10px;"
+                >
+                    Career
+                </h2>
+
+            </div>
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                type="button"
+                aria-label="Close"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h4>
+                <i class="fa-solid fa-briefcase"></i>
+                Main Work
+            </h4>
+
+            <p id="modalWork"></p>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h4>
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+                Salary
+            </h4>
+
+            <div class="salary-box">
+
+                <div class="salary">
+
+                    <small>
+                        Fresher
+                    </small>
+
+                    <strong id="modalFresher"></strong>
+
+                </div>
+
+                <div class="salary">
+
+                    <small>
+                        Around 5 Years
+                    </small>
+
+                    <strong id="modalExperienced"></strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h4>
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                Required Skills
+            </h4>
+
+            <div
+                class="skills"
+                id="modalSkills"
+            ></div>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h4>
+                <i class="fa-solid fa-graduation-cap"></i>
+                Learning Resources
+            </h4>
+
+            <div
+                id="modalResources"
+            ></div>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h4>
+                <i class="fa-solid fa-lightbulb"></i>
+                ASCEND Action Plan
+            </h4>
+
+            <p id="modalPlan"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <strong>ASCEND</strong>
+
+    <br>
+
+    Physics Career Pathway
+
+    <br><br>
+
+    © 2026 ASCEND. Learn • Build • Grow • ASCEND
+
+</footer>
+
+
+<script>
+
+    /* =====================================================
+       CAREER DATA
+    ===================================================== */
+
+    const careers = [
+
+        {
+            rank: 1,
+            title: "Quantitative Analyst (Quant)",
+            category: "finance",
+            categoryName: "Finance & Modelling",
+
+            work:
+                "Apply mathematical and physical modelling, probability and data analysis to financial markets, pricing, risk and investment decisions.",
+
+            fresher: "₹8–18 LPA",
+            experienced: "₹25–60+ LPA",
+
+            skills: [
+                "Physics",
+                "Mathematics",
+                "Probability",
+                "Statistics",
+                "Python",
+                "SQL",
+                "Financial Modelling",
+                "Data Analysis"
+            ],
+
+            resources: [
+                {
+                    name: "NPTEL Courses",
+                    url: "https://www.nptel.ac.in/courses"
+                },
+                {
+                    name: "MIT OpenCourseWare",
+                    url: "https://ocw.mit.edu/"
+                }
+            ],
+
+            plan:
+                "Build strong Mathematics and Statistics fundamentals, learn Python and SQL, study financial markets, then create quantitative modelling projects."
+        },
+
+
+        {
+            rank: 2,
+            title: "Medical Physicist",
+            category: "healthcare",
+            categoryName: "Healthcare",
+
+            work:
+                "Apply Physics principles to radiation therapy, medical imaging, dosimetry, equipment performance and radiation safety.",
+
+            fresher: "₹5–10 LPA",
+            experienced: "₹15–30+ LPA",
+
+            skills: [
+                "Physics",
+                "Medical Physics",
+                "Radiation Physics",
+                "Dosimetry",
+                "Radiation Safety",
+                "Medical Imaging",
+                "Mathematics",
+                "Research"
+            ],
+
+            resources: [
+                {
+                    name: "NPTEL Physics Courses",
+                    url: "https://www.nptel.ac.in/courses"
+                },
+                {
+                    name: "SWAYAM",
+                    url: "https://swayam.gov.in/"
+                }
+            ],
+
+            plan:
+                "Understand the eligibility requirements for medical physics, strengthen radiation and imaging fundamentals, pursue the required specialised postgraduate training and practical experience."
+        },
+
+
+        {
+            rank: 3,
+            title: "Nuclear / Radiation Physicist",
+            category: "science",
+            categoryName: "Nuclear & Radiation Science",
+
+            work:
+                "Work with nuclear science, radiation measurement, instrumentation, radiation safety, nuclear systems and scientific research.",
+
+            fresher: "₹6–12 LPA",
+            experienced: "₹15–30+ LPA",
+
+            skills: [
+                "Nuclear Physics",
+                "Radiation Physics",
+                "Instrumentation",
+                "Mathematics",
+                "Experimental Physics",
+                "Data Analysis",
+                "Safety Standards",
+                "Research"
+            ],
+
+            resources: [
+                {
+                    name: "NPTEL Nuclear Physics",
+                    url: "https://www.nptel.ac.in/courses"
+                },
+                {
+                    name: "SWAYAM Physics",
+                    url: "https://swayam.gov.in/search_courses"
+                }
+            ],
+
+            plan:
+                "Strengthen nuclear and radiation physics, learn instrumentation and data analysis, complete relevant postgraduate study and seek laboratory or research experience."
+        },
+
+
+        {
+            rank: 4,
+            title: "Materials Scientist / Materials Specialist",
+            category: "science",
+            categoryName: "Materials Science",
+
+            work:
+                "Study, test and develop materials for electronics, energy, manufacturing, semiconductors and advanced technology applications.",
+
+            fresher: "₹5–10 LPA",
+            experienced: "₹14–28 LPA",
+
+            skills: [
+                "Solid-State Physics",
+                "Materials Science",
+                "Experimental Physics",
+                "Material Characterisation",
+                "Semiconductors",
+                "Data Analysis",
+                "Research",
+                "Scientific Writing"
+            ],
+
+            resources: [
+                {
+                    name: "NPTEL Materials Courses",
+                    url: "https://www.nptel.ac.in/courses"
+                },
+                {
+                    name: "MIT OpenCourseWare",
+                    url: "https://ocw.mit.edu/"
+                }
+            ],
+
+            plan:
+                "Learn solid-state and materials physics, study material characterisation methods, build laboratory or simulation projects and develop research experience."
+        },
+
+
+        {
+            rank: 5,
+            title: "Energy Analyst / Renewable Energy Specialist",
+            category: "energy",
+            categoryName: "Energy & Sustainability",
+
+            work:
+                "Analyse energy systems, renewable-energy projects, solar and wind performance, energy efficiency and technology investments.",
+
+            fresher: "₹4.5–9 LPA",
+            experienced: "₹12–25 LPA",
+
+            skills: [
+                "Physics",
+                "Energy Systems",
+                "Renewable Energy",
+                "Data Analysis",
+                "Excel",
+                "Python",
+                "Energy Modelling",
+                "Project Analysis"
+            ],
+
+            resources: [
+                {
+                    name: "SWAYAM",
+                    url: "https://swayam.gov.in/"
+                },
+                {
+                    name: "NPTEL Courses",
+                    url: "https://www.nptel.ac.in/courses"
+                }
+            ],
+
+            plan:
+                "Learn solar, wind and energy-system fundamentals, develop data-analysis skills and build renewable-energy projects using real or public datasets."
+        },
+
+
+        {
+            rank: 6,
+            title: "Aerospace / Defence Research Scientist",
+            category: "engineering",
+            categoryName: "Aerospace & Defence Research",
+
+            work:
+                "Apply Physics to aerospace systems, propulsion, sensors, experimental research, modelling and advanced engineering problems.",
+
+            fresher: "₹6–12 LPA",
+            experienced: "₹15–30+ LPA",
+
+            skills: [
+                "Mechanics",
+                "Electromagnetism",
+                "Thermodynamics",
+                "Modelling",
+                "Simulation",
+                "Experimental Physics",
+                "Numerical Methods",
+                "Research"
+            ],
+
+            resources: [
+                {
+                    name: "NPTEL Physics",
+                    url: "https://www.nptel.ac.in/courses"
+                },
+                {
+                    name: "MIT OpenCourseWare",
+                    url: "https://ocw.mit.edu/"
+                }
+            ],
+
+            plan:
+                "Build advanced mechanics and mathematical modelling skills, learn simulation tools, complete aerospace-related projects and pursue relevant postgraduate or research pathways."
+        },
+
+
+        {
+            rank: 7,
+            title: "Optics & Photonics Specialist",
+            category: "engineering",
+            categoryName: "Optics & Photonics",
+
+            work:
+                "Design, test or analyse optical, laser, imaging, fibre-optic and photonic systems.",
+
+            fresher: "₹5–10 LPA",
+            experienced: "₹14–30 LPA",
+
+            skills: [
+                "Optics",
+                "Electromagnetism",
+                "Lasers",
+                "Photonics",
+                "Instrumentation",
+                "Mathematics",
+                "Experimental Physics",
+                "Data Analysis"
+            ],
+
+            resources: [
+                {
+                    name: "NPTEL Applied Optics",
+                    url: "https://www.nptel.ac.in/courses"
+                },
+                {
+                    name: "Khan Academy Physics",
+                    url: "https://www.khanacademy.org/science/physics"
+                }
+            ],
+
+            plan:
+                "Master optics and electromagnetism, learn laser and photonics concepts, gain laboratory experience and build optical-system projects."
+        },
+
+
+        {
+            rank: 8,
+            title: "Operations Research / Mathematical Modelling Analyst",
+            category: "analytics",
+            categoryName: "Analytics & Optimisation",
+
+            work:
+                "Use quantitative models to solve optimisation, scheduling, logistics, resource-allocation and complex decision problems.",
+
+            fresher: "₹5–9 LPA",
+            experienced: "₹12–25 LPA",
+
+            skills: [
+                "Mathematics",
+                "Statistics",
+                "Optimisation",
+                "Operations Research",
+                "Modelling",
+                "Python",
+                "Excel",
+                "Problem Solving"
+            ],
+
+            resources: [
+                {
+                    name: "NPTEL Courses",
+                    url: "https://www.nptel.ac.in/courses"
+                },
+                {
+                    name: "MIT OpenCourseWare",
+                    url: "https://ocw.mit.edu/"
+                }
+            ],
+
+            plan:
+                "Learn optimisation and operations research, improve Python and Excel skills, then create scheduling, logistics or resource-allocation projects."
+        },
+
+
+        {
+            rank: 9,
+            title: "Geophysicist / Earth & Energy Scientist",
+            category: "science",
+            categoryName: "Earth & Energy Science",
+
+            work:
+                "Study physical properties of Earth using measurements, mathematical models and data for exploration, environmental and energy applications.",
+
+            fresher: "₹5–10 LPA",
+            experienced: "₹12–25 LPA",
+
+            skills: [
+                "Physics",
+                "Geophysics",
+                "Mathematics",
+                "Data Analysis",
+                "Field Measurement",
+                "Modelling",
+                "GIS",
+                "Scientific Research"
+            ],
+
+            resources: [
+                {
+                    name: "SWAYAM",
+                    url: "https://swayam.gov.in/"
+                },
+                {
+                    name: "NPTEL",
+                    url: "https://www.nptel.ac.in/courses"
+                }
+            ],
+
+            plan:
+                "Develop Earth-science knowledge alongside Physics, learn geophysical data analysis and modelling, and gain field or research experience."
+        },
+
+
+        {
+            rank: 10,
+            title: "Technical / Scientific Consultant",
+            category: "analytics",
+            categoryName: "Consulting & Strategy",
+
+            work:
+                "Use scientific knowledge, research, data interpretation and structured problem-solving to provide technical recommendations for organisations.",
+
+            fresher: "₹5–10 LPA",
+            experienced: "₹15–30+ LPA",
+
+            skills: [
+                "Physics",
+                "Research",
+                "Data Analysis",
+                "Technical Writing",
+                "Presentation",
+                "Communication",
+                "Business Thinking",
+                "Problem Solving"
+            ],
+
+            resources: [
+                {
+                    name: "SWAYAM",
+                    url: "https://swayam.gov.in/"
+                },
+                {
+                    name: "NPTEL",
+                    url: "https://www.nptel.ac.in/courses"
+                }
+            ],
+
+            plan:
+                "Combine Physics with business analysis and communication, practise case-based problem solving and build projects that demonstrate your ability to turn technical information into decisions."
+        }
+
+    ];
+
+
+    /* =====================================================
+       DOM ELEMENTS
+    ===================================================== */
+
+    const careerGrid =
+        document.getElementById("careerGrid");
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const noResults =
+        document.getElementById("noResults");
+
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
+
+
+    /* =====================================================
+       CURRENT FILTER
+    ===================================================== */
+
+    let currentFilter = "all";
+
+
+    /* =====================================================
+       RENDER CAREERS
+    ===================================================== */
+
+    function renderCareers() {
+
+        const searchTerm =
+            searchInput.value
+                .trim()
+                .toLowerCase();
+
+
+        const filtered =
+            careers.filter(career => {
+
+                const matchesFilter =
+                    currentFilter === "all" ||
+                    career.category === currentFilter;
+
+
+                const searchableText = [
+                    career.title,
+                    career.categoryName,
+                    career.work,
+                    ...career.skills
+                ]
+                    .join(" ")
+                    .toLowerCase();
+
+
+                const matchesSearch =
+                    searchableText.includes(searchTerm);
+
+
+                return matchesFilter && matchesSearch;
+
+            });
+
+
+        careerGrid.innerHTML = "";
+
+
+        filtered.forEach(career => {
+
+            const card =
+                document.createElement("article");
+
+            card.className = "career-card";
+
+
+            card.innerHTML = `
+
+                <div class="career-top">
+
+                    <div class="rank">
+                        ${String(career.rank).padStart(2, "0")}
+                    </div>
+
+                    <div class="career-title">
+
+                        <h3>
+                            ${career.title}
+                        </h3>
+
+                        <span class="career-category">
+                            ${career.categoryName}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p class="career-work">
+                    ${career.work}
+                </p>
+
+
+                <div class="salary-box">
+
+                    <div class="salary">
+
+                        <small>
+                            Fresher
+                        </small>
+
+                        <strong>
+                            ${career.fresher}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="salary">
+
+                        <small>
+                            5 Years' Experience
+                        </small>
+
+                        <strong>
+                            ${career.experienced}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="career-actions">
+
+                    <button
+                        class="details-btn"
+                        type="button"
+                        data-id="${career.rank}"
+                    >
+                        <i class="fa-solid fa-circle-info"></i>
+                        Details
+                    </button>
+
+                    <a
+                        class="resource-btn"
+                        href="${career.resources[0].url}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        Learn
+                    </a>
+
+                </div>
+
+            `;
+
+
+            careerGrid.appendChild(card);
+
+        });
+
+
+        noResults.style.display =
+            filtered.length === 0
+                ? "block"
+                : "none";
+
+
+        document
+            .querySelectorAll(".details-btn")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const id =
+                            Number(button.dataset.id);
+
+                        openCareerModal(id);
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    /* =====================================================
+       FILTER BUTTONS
+    ===================================================== */
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                filterButtons.forEach(btn =>
+                    btn.classList.remove("active")
+                );
+
+                button.classList.add("active");
+
+                currentFilter =
+                    button.dataset.filter;
+
+                renderCareers();
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       SEARCH
+    ===================================================== */
+
+    searchInput.addEventListener(
+        "input",
+        renderCareers
+    );
+
+
+    /* =====================================================
+       MODAL
+    ===================================================== */
+
+    const modal =
+        document.getElementById("careerModal");
+
+    const modalClose =
+        document.getElementById("modalClose");
+
+    const modalCategory =
+        document.getElementById("modalCategory");
+
+    const modalTitle =
+        document.getElementById("modalTitle");
+
+    const modalWork =
+        document.getElementById("modalWork");
+
+    const modalFresher =
+        document.getElementById("modalFresher");
+
+    const modalExperienced =
+        document.getElementById("modalExperienced");
+
+    const modalSkills =
+        document.getElementById("modalSkills");
+
+    const modalResources =
+        document.getElementById("modalResources");
+
+    const modalPlan =
+        document.getElementById("modalPlan");
+
+
+    function openCareerModal(rank) {
+
+        const career =
+            careers.find(
+                item => item.rank === rank
+            );
+
+
+        if (!career) return;
+
+
+        modalCategory.textContent =
+            career.categoryName;
+
+        modalTitle.textContent =
+            career.title;
+
+        modalWork.textContent =
+            career.work;
+
+        modalFresher.textContent =
+            career.fresher;
+
+        modalExperienced.textContent =
+            career.experienced;
+
+        modalPlan.textContent =
+            career.plan;
+
+
+        modalSkills.innerHTML = "";
+
+        career.skills.forEach(skill => {
+
+            const span =
+                document.createElement("span");
+
+            span.className = "skill";
+
+            span.textContent = skill;
+
+            modalSkills.appendChild(span);
+
+        });
+
+
+        modalResources.innerHTML = "";
+
+        career.resources.forEach(resource => {
+
+            const row =
+                document.createElement("div");
+
+            row.className =
+                "modal-resource";
+
+
+            row.innerHTML = `
+
+                <span>
+                    ${resource.name}
+                </span>
+
+                <a
+                    href="${resource.url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Open
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            `;
+
+
+            modalResources.appendChild(row);
+
+        });
+
+
+        modal.classList.add("show");
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+
+    function closeCareerModal() {
+
+        modal.classList.remove("show");
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+    modalClose.addEventListener(
+        "click",
+        closeCareerModal
+    );
+
+
+    modal.addEventListener(
+        "click",
+        event => {
+
+            if (event.target === modal) {
+                closeCareerModal();
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains("show")
+            ) {
+                closeCareerModal();
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       DARK / LIGHT MODE
+    ===================================================== */
+
+    const themeButton =
+        document.getElementById("themeButton");
+
+    const themeIcon =
+        document.getElementById("themeIcon");
+
+
+    function updateThemeIcon() {
+
+        if (
+            document.body.classList.contains("dark")
+        ) {
+
+            themeIcon.className =
+                "fa-solid fa-sun";
+
+        } else {
+
+            themeIcon.className =
+                "fa-solid fa-moon";
+
+        }
+
+    }
+
+
+    const savedTheme =
+        localStorage.getItem(
+            "ascendPhysicsTheme"
+        );
+
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+    }
+
+
+    updateThemeIcon();
+
+
+    themeButton.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.toggle("dark");
+
+
+            const isDark =
+                document.body.classList.contains("dark");
+
+
+            localStorage.setItem(
+                "ascendPhysicsTheme",
+                isDark
+                    ? "dark"
+                    : "light"
+            );
+
+
+            updateThemeIcon();
+
+        }
+    );
+
+
+    /* =====================================================
+       INITIAL RENDER
+    ===================================================== */
+
+    renderCareers();
+
+</script>
+
+</body>
+</html>
+
