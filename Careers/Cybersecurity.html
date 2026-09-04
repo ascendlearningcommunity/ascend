@@ -1,0 +1,3048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ASCEND | Cyber Security Careers</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+    :root {
+      --primary: #c62828;
+      --primary-dark: #8e1b1b;
+      --accent: #ffb703;
+
+      --dark: #111827;
+      --dark-2: #1f2937;
+
+      --bg: #f5f7fb;
+      --card: #ffffff;
+
+      --text: #1f2937;
+      --muted: #6b7280;
+
+      --border: #e5e7eb;
+
+      --green: #15803d;
+      --blue: #2563eb;
+      --purple: #7c3aed;
+      --orange: #ea580c;
+
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    body.dark-mode {
+      --bg: #0f172a;
+      --card: #1e293b;
+
+      --text: #f1f5f9;
+      --muted: #aeb7c4;
+
+      --border: #334155;
+
+      --dark: #020617;
+      --dark-2: #0f172a;
+
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: 0.3s;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: var(--dark);
+      color: white;
+
+      padding: 13px 6%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+
+      border-radius: 10px;
+
+      background: var(--primary);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand-name span {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      background: rgba(255, 255, 255, 0.08);
+
+      color: white;
+
+      padding: 9px 14px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--primary);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 500px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 80px 20px;
+
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(198, 40, 40, 0.75),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(255, 183, 3, 0.15),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #111827,
+          #3b0a0a,
+          #111827
+        );
+    }
+
+    .hero-content {
+      max-width: 950px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 16px;
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      background: rgba(255, 255, 255, 0.08);
+
+      border-radius: 50px;
+
+      margin-bottom: 20px;
+
+      font-size: 13px;
+
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: clamp(35px, 7vw, 68px);
+
+      line-height: 1.05;
+
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 3vw, 28px);
+
+      color: #fef3c7;
+
+      margin-bottom: 15px;
+    }
+
+    .hero-description {
+      max-width: 760px;
+
+      margin: auto;
+
+      color: #d1d5db;
+
+      font-size: 17px;
+    }
+
+    .hero-stats {
+      margin-top: 35px;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 15px;
+    }
+
+    .hero-stat {
+      padding: 20px;
+
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      background: rgba(255, 255, 255, 0.08);
+
+      border-radius: 12px;
+    }
+
+    .hero-stat h3 {
+      color: var(--accent);
+
+      font-size: 25px;
+    }
+
+    .hero-stat p {
+      color: #d1d5db;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    .container {
+      width: min(1200px, 92%);
+
+      margin: auto;
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-header {
+      text-align: center;
+
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 32px;
+
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+
+      max-width: 750px;
+
+      margin: auto;
+    }
+
+    /* =========================
+       ASCEND INTRO
+    ========================= */
+
+    .ascend-intro {
+      display: grid;
+
+      grid-template-columns: 65px 1fr;
+
+      gap: 20px;
+
+      background: var(--card);
+
+      border-left: 5px solid var(--primary);
+
+      padding: 25px;
+
+      border-radius: 14px;
+
+      box-shadow: var(--shadow);
+
+      margin-bottom: 40px;
+    }
+
+    .ascend-intro-icon {
+      font-size: 38px;
+
+      color: var(--primary);
+    }
+
+    .ascend-intro h3 {
+      margin-bottom: 8px;
+    }
+
+    .ascend-intro p {
+      color: var(--muted);
+    }
+
+    .formula {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 18px;
+
+      font-weight: bold;
+    }
+
+    .formula span {
+      padding: 8px 12px;
+
+      border-radius: 8px;
+
+      background: var(--bg);
+
+      border: 1px solid var(--border);
+    }
+
+    .formula .plus {
+      background: var(--primary);
+
+      color: white;
+    }
+
+    /* =========================
+       SEARCH & FILTER
+    ========================= */
+
+    .filter-area {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-bottom: 35px;
+    }
+
+    .search-box {
+      position: relative;
+
+      flex: 1;
+
+      min-width: 250px;
+
+      max-width: 500px;
+    }
+
+    .search-box i {
+      position: absolute;
+
+      left: 14px;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      color: var(--muted);
+    }
+
+    .search-box input {
+      width: 100%;
+
+      padding: 13px 15px 13px 42px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 9px;
+
+      background: var(--card);
+
+      color: var(--text);
+
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+    }
+
+    .filter-btn {
+      padding: 11px 15px;
+
+      border: 1px solid var(--border);
+
+      background: var(--card);
+
+      color: var(--text);
+
+      border-radius: 9px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary);
+
+      color: white;
+
+      border-color: var(--primary);
+    }
+
+    /* =========================
+       CAREER GRID
+    ========================= */
+
+    .career-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(330px, 1fr));
+
+      gap: 25px;
+    }
+
+    .career-card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 16px;
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+
+      display: flex;
+
+      flex-direction: column;
+    }
+
+    .career-card:hover {
+      transform: translateY(-7px);
+
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.14);
+    }
+
+    .career-header {
+      padding: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+
+      color: white;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+    }
+
+    .rank-badge {
+      padding: 6px 10px;
+
+      background: rgba(255, 255, 255, 0.15);
+
+      border-radius: 50px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+    }
+
+    .career-icon {
+      width: 48px;
+      height: 48px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.16);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+    .career-body {
+      padding: 24px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      flex: 1;
+    }
+
+    .career-body h3 {
+      font-size: 21px;
+
+      line-height: 1.3;
+
+      margin-bottom: 10px;
+    }
+
+    .main-work {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      margin-bottom: 22px;
+    }
+
+    /* =========================
+       SALARY
+    ========================= */
+
+    .salary-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 10px;
+
+      margin-bottom: 22px;
+    }
+
+    .salary-box {
+      padding: 13px;
+
+      background: var(--bg);
+
+      border: 1px solid var(--border);
+
+      border-radius: 10px;
+    }
+
+    .salary-box small {
+      display: block;
+
+      color: var(--muted);
+
+      margin-bottom: 4px;
+
+      font-size: 11px;
+    }
+
+    .salary-box strong {
+      color: var(--green);
+
+      font-size: 15px;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .section-label {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+    .section-label i {
+      color: var(--primary);
+    }
+
+    .skills {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 20px;
+    }
+
+    .skill {
+      padding: 6px 9px;
+
+      border-radius: 50px;
+
+      background: rgba(198, 40, 40, 0.09);
+
+      color: var(--primary);
+
+      font-size: 11px;
+
+      border: 1px solid rgba(198, 40, 40, 0.1);
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .card-actions {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 10px;
+
+      margin-top: auto;
+    }
+
+    .action-btn {
+      border: none;
+
+      padding: 11px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .details-btn {
+      background: var(--bg);
+
+      color: var(--text);
+
+      border: 1px solid var(--border);
+    }
+
+    .details-btn:hover {
+      border-color: var(--primary);
+
+      color: var(--primary);
+    }
+
+    .learn-btn {
+      background: var(--primary);
+
+      color: white;
+    }
+
+    .learn-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: rgba(0, 0, 0, 0.7);
+
+      padding: 20px;
+
+      overflow-y: auto;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(850px, 100%);
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      background: var(--card);
+
+      color: var(--text);
+
+      border-radius: 18px;
+
+      padding: 32px;
+
+      position: relative;
+
+      animation: modalOpen 0.25s ease;
+    }
+
+    @keyframes modalOpen {
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(20px)
+          scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+    }
+
+    .close-modal {
+      position: absolute;
+
+      right: 18px;
+
+      top: 18px;
+
+      width: 38px;
+
+      height: 38px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      cursor: pointer;
+
+      font-size: 18px;
+    }
+
+    .close-modal:hover {
+      background: var(--primary);
+
+      color: white;
+    }
+
+    .modal-title {
+      padding-right: 50px;
+
+      margin-bottom: 25px;
+    }
+
+    .modal-rank {
+      color: var(--primary);
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 1px;
+    }
+
+    .modal-title h2 {
+      font-size: 28px;
+
+      margin-top: 5px;
+    }
+
+    .modal-title p {
+      color: var(--muted);
+
+      margin-top: 8px;
+    }
+
+    .modal-skills {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 9px;
+    }
+
+    .modal-skill {
+      padding: 9px 12px;
+
+      border: 1px solid var(--border);
+
+      background: var(--bg);
+
+      border-radius: 8px;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       RESOURCES
+    ========================= */
+
+    .resources {
+      display: grid;
+
+      gap: 10px;
+    }
+
+    .resource {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 14px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 10px;
+
+      color: var(--text);
+
+      transition: 0.3s;
+    }
+
+    .resource:hover {
+      border-color: var(--primary);
+
+      transform: translateX(5px);
+    }
+
+    .resource > i:first-child {
+      color: var(--primary);
+
+      font-size: 18px;
+    }
+
+    .resource-text {
+      flex: 1;
+    }
+
+    .resource-text strong {
+      display: block;
+
+      font-size: 14px;
+    }
+
+    .resource-text small {
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    .resource .external {
+      color: var(--muted);
+    }
+
+    /* =========================
+       ROADMAP
+    ========================= */
+
+    .roadmap {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 20px;
+    }
+
+    .roadmap-card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 25px;
+
+      text-align: center;
+
+      box-shadow: var(--shadow);
+    }
+
+    .roadmap-number {
+      width: 45px;
+
+      height: 45px;
+
+      margin: 0 auto 15px;
+
+      border-radius: 50%;
+
+      background: var(--primary);
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-weight: bold;
+    }
+
+    .roadmap-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .roadmap-card p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 7px;
+    }
+
+    /* =========================
+       TRADITIONAL / FUTURE
+    ========================= */
+
+    .pathway-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 25px;
+    }
+
+    .pathway-card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 16px;
+
+      padding: 28px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .pathway-card h3 {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-bottom: 18px;
+    }
+
+    .pathway-card h3 i {
+      color: var(--primary);
+    }
+
+    .pathway-list {
+      list-style: none;
+
+      display: grid;
+
+      gap: 11px;
+    }
+
+    .pathway-list li {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 10px 12px;
+
+      background: var(--bg);
+
+      border-radius: 8px;
+
+      font-size: 13px;
+    }
+
+    .pathway-list li i {
+      color: var(--green);
+    }
+
+    /* =========================
+       RESOURCE HUB
+    ========================= */
+
+    .resource-hub {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 18px;
+    }
+
+    .hub-card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 22px;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+    }
+
+    .hub-card:hover {
+      transform: translateY(-5px);
+
+      border-color: var(--primary);
+    }
+
+    .hub-icon {
+      width: 45px;
+
+      height: 45px;
+
+      border-radius: 10px;
+
+      background: rgba(198, 40, 40, 0.1);
+
+      color: var(--primary);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin-bottom: 15px;
+    }
+
+    .hub-card h3 {
+      font-size: 17px;
+
+      margin-bottom: 7px;
+    }
+
+    .hub-card p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-bottom: 15px;
+    }
+
+    .hub-link {
+      color: var(--primary);
+
+      font-size: 13px;
+
+      font-weight: bold;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: var(--dark);
+
+      color: #d1d5db;
+
+      padding: 45px 20px;
+
+      text-align: center;
+    }
+
+    footer h2 {
+      color: white;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 8px;
+    }
+
+    footer h2 span {
+      color: var(--accent);
+    }
+
+    footer p {
+      font-size: 13px;
+
+      margin-top: 5px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pathway-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        padding: 12px 4%;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .nav-btn span {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .career-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap {
+        grid-template-columns: 1fr;
+      }
+
+      .salary-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-box {
+        padding: 25px 18px;
+      }
+
+      .ascend-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .ascend-intro-icon {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <nav class="navbar">
+
+    <div class="brand">
+
+      <div class="brand-logo">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+
+      <div class="brand-name">
+        AS<span>CEND</span>
+      </div>
+
+    </div>
+
+    <div class="nav-actions">
+
+      <a
+        href="../index.html"
+        class="nav-btn"
+      >
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+
+      <button
+        class="nav-btn"
+        id="themeButton"
+        title="Toggle Theme"
+      >
+        <i
+          class="fa-solid fa-moon"
+          id="themeIcon"
+        ></i>
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        ASCEND CYBER SECURITY CAREER PATHWAY
+      </div>
+
+      <h1>
+        Cyber Security
+        <br>
+        <span>Career Pathway</span>
+      </h1>
+
+      <div class="hero-subtitle">
+        Cyber Security → High-Demand Careers
+      </div>
+
+      <p class="hero-description">
+        Explore high-potential cybersecurity careers, understand
+        the skills employers look for, compare salary ranges,
+        and build a practical career roadmap from graduate to
+        cybersecurity professional.
+      </p>
+
+      <div class="hero-stats">
+
+        <div class="hero-stat">
+          <h3>10</h3>
+          <p>High-Salary Cyber Security Careers</p>
+        </div>
+
+        <div class="hero-stat">
+          <h3>₹35 LPA</h3>
+          <p>Highest Listed 5-Year Range</p>
+        </div>
+
+        <div class="hero-stat">
+          <h3>100%</h3>
+          <p>Cyber Security Focus</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="container">
+
+
+    <!-- =========================
+         ASCEND INTRO
+    ========================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          ASCEND Your Cyber Security Career
+        </h2>
+
+        <p>
+          A Cyber Security degree can lead to careers across
+          security engineering, cloud security, application
+          security, penetration testing, incident response,
+          identity management, security architecture and GRC.
+        </p>
+
+      </div>
+
+
+      <div class="ascend-intro">
+
+        <div class="ascend-intro-icon">
+          <i class="fa-solid fa-compass"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            The ASCEND Cyber Security Formula
+          </h3>
+
+          <p>
+            Combine your cybersecurity foundation with
+            hands-on technical skills, security tools,
+            projects and professional certifications.
+          </p>
+
+          <div class="formula">
+
+            <span>Cyber Security Degree</span>
+
+            <span class="plus">+</span>
+
+            <span>Technical Skills</span>
+
+            <span class="plus">+</span>
+
+            <span>Hands-on Projects</span>
+
+            <span class="plus">+</span>
+
+            <span>Certifications</span>
+
+            <span class="plus">=</span>
+
+            <span>Career Growth</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           SEARCH & FILTER
+      ========================= -->
+
+      <div class="filter-area">
+
+        <div class="search-box">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search career or skill..."
+          >
+
+        </div>
+
+
+        <button
+          class="filter-btn active"
+          data-filter="all"
+        >
+          All
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="engineering"
+        >
+          Security Engineering
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="offensive"
+        >
+          Offensive Security
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="defensive"
+        >
+          Defensive Security
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="governance"
+        >
+          GRC & Leadership
+        </button>
+
+      </div>
+
+
+      <!-- =========================
+           CAREER CARDS
+      ========================= -->
+
+      <div
+        class="career-grid"
+        id="careerGrid"
+      ></div>
+
+    </section>
+
+
+    <!-- =========================
+         TRADITIONAL VS FUTURE
+    ========================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          Traditional vs Future-Demand Cyber Security
+        </h2>
+
+        <p>
+          Cybersecurity continues to expand from conventional
+          security operations into cloud, identity, application
+          security, architecture and modern security engineering.
+        </p>
+
+      </div>
+
+
+      <div class="pathway-grid">
+
+
+        <div class="pathway-card">
+
+          <h3>
+            <i class="fa-solid fa-server"></i>
+            Traditional Cyber Security
+          </h3>
+
+          <ul class="pathway-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              SOC Analyst
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Network Security Engineer
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Security Administrator
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Penetration Tester
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Digital Forensics Specialist
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Security Auditor
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="pathway-card">
+
+          <h3>
+            <i class="fa-solid fa-rocket"></i>
+            Future-Demand Security
+          </h3>
+
+          <ul class="pathway-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Cloud Security Engineer
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Application Security Engineer
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Security Architect
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              IAM Engineer
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              DevSecOps Security Engineer
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Cyber Security Consultant
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ROADMAP
+    ========================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          ASCEND Cyber Security Roadmap
+        </h2>
+
+        <p>
+          Follow four stages to transform your degree into
+          a practical cybersecurity career profile.
+        </p>
+
+      </div>
+
+
+      <div class="roadmap">
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            1
+          </div>
+
+          <h3>
+            Discover
+          </h3>
+
+          <p>
+            Explore security engineering, offensive security,
+            defensive security, cloud security and GRC.
+          </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            2
+          </div>
+
+          <h3>
+            Learn
+          </h3>
+
+          <p>
+            Build strong foundations in networking, Linux,
+            operating systems, security and scripting.
+          </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            3
+          </div>
+
+          <h3>
+            Build
+          </h3>
+
+          <p>
+            Create labs, security projects, reports,
+            portfolio work and practical demonstrations.
+          </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            4
+          </div>
+
+          <h3>
+            ASCEND
+          </h3>
+
+          <p>
+            Apply for internships, graduate roles and
+            progressively higher cybersecurity positions.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LEARNING RESOURCE HUB
+    ========================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          Cyber Security Learning Resource Hub
+        </h2>
+
+        <p>
+          Start with trusted cybersecurity frameworks,
+          learning platforms and security documentation.
+        </p>
+
+      </div>
+
+
+      <div class="resource-hub">
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+
+          <h3>
+            NIST NICE Framework
+          </h3>
+
+          <p>
+            Explore cybersecurity work roles, tasks,
+            knowledge and skills.
+          </p>
+
+          <a
+            href="https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-building-shield"></i>
+          </div>
+
+          <h3>
+            CISA
+          </h3>
+
+          <p>
+            Explore cybersecurity guidance, workforce
+            information and security resources.
+          </p>
+
+          <a
+            href="https://www.cisa.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+
+          <h3>
+            OWASP
+          </h3>
+
+          <p>
+            Learn application security concepts,
+            risks and secure development practices.
+          </p>
+
+          <a
+            href="https://owasp.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+
+          <h3>
+            Cisco Networking Academy
+          </h3>
+
+          <p>
+            Build foundations in networking,
+            cybersecurity and IT.
+          </p>
+
+          <a
+            href="https://www.netacad.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+
+          <h3>
+            Microsoft Learn
+          </h3>
+
+          <p>
+            Develop security and cloud fundamentals
+            through Microsoft learning paths.
+          </p>
+
+          <a
+            href="https://learn.microsoft.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+
+          <h3>
+            AWS Training
+          </h3>
+
+          <p>
+            Build cloud and security fundamentals
+            for AWS environments.
+          </p>
+
+          <a
+            href="https://aws.amazon.com/training/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+            Open Resource
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       CAREER MODAL
+  ========================= -->
+
+  <div
+    class="modal"
+    id="careerModal"
+  >
+
+    <div class="modal-box">
+
+      <button
+        class="close-modal"
+        id="closeModal"
+        title="Close"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div id="modalContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <h2>
+      AS<span>CEND</span>
+    </h2>
+
+    <p>
+      Learn • Build Skills • Grow
+    </p>
+
+    <p>
+      Learn. Build. Secure. ASCEND.
+    </p>
+
+    <p>
+      © 2026 ASCEND Career Platform
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    const careers = [
+
+      {
+        rank: 1,
+
+        title: "Cyber Security Engineer",
+
+        icon: "fa-shield-halved",
+
+        category: "engineering",
+
+        work:
+          "Design, implement and maintain security controls that protect networks, systems, applications and organizational data.",
+
+        skills: [
+          "Network Security",
+          "Linux",
+          "Firewalls",
+          "SIEM",
+          "Security Monitoring",
+          "Python",
+          "Access Control",
+          "Incident Response"
+        ],
+
+        fresher: "₹4–8 LPA",
+
+        experience: "₹12–25 LPA",
+
+        resources: [
+          {
+            name: "NIST NICE Framework",
+            type: "Cybersecurity roles and skills",
+            url:
+              "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center"
+          },
+
+          {
+            name: "CISA",
+            type: "Cybersecurity guidance",
+            url:
+              "https://www.cisa.gov/"
+          },
+
+          {
+            name: "Cisco Networking Academy",
+            type: "Networking and cybersecurity learning",
+            url:
+              "https://www.netacad.com/"
+          }
+        ]
+      },
+
+
+      {
+        rank: 2,
+
+        title: "Application Security Engineer",
+
+        icon: "fa-code",
+
+        category: "engineering",
+
+        work:
+          "Identify application vulnerabilities and help development teams build secure web, mobile and software applications.",
+
+        skills: [
+          "OWASP",
+          "Web Security",
+          "Secure Coding",
+          "Burp Suite",
+          "SAST",
+          "DAST",
+          "Git",
+          "Application Testing"
+        ],
+
+        fresher: "₹4–8 LPA",
+
+        experience: "₹12–25 LPA",
+
+        resources: [
+          {
+            name: "OWASP",
+            type: "Application security resources",
+            url:
+              "https://owasp.org/"
+          },
+
+          {
+            name: "NIST",
+            type: "Security standards and guidance",
+            url:
+              "https://www.nist.gov/cybersecurity"
+          },
+
+          {
+            name: "Microsoft Learn",
+            type: "Security and development learning",
+            url:
+              "https://learn.microsoft.com/"
+          }
+        ]
+      },
+
+
+      {
+        rank: 3,
+
+        title: "Cloud Security Engineer",
+
+        icon: "fa-cloud",
+
+        category: "engineering",
+
+        work:
+          "Secure cloud infrastructure, identities, applications, networks and data across enterprise cloud environments.",
+
+        skills: [
+          "AWS",
+          "Azure",
+          "Cloud Security",
+          "IAM",
+          "Networking",
+          "Linux",
+          "Containers",
+          "Security Architecture"
+        ],
+
+        fresher: "₹5–10 LPA",
+
+        experience: "₹15–30 LPA",
+
+        resources: [
+          {
+            name: "AWS Training",
+            type: "Cloud and security learning",
+            url:
+              "https://aws.amazon.com/training/"
+          },
+
+          {
+            name: "Microsoft Learn",
+            type: "Azure security learning",
+            url:
+              "https://learn.microsoft.com/"
+          },
+
+          {
+            name: "NIST",
+            type: "Cloud and cybersecurity guidance",
+            url:
+              "https://www.nist.gov/cybersecurity"
+          }
+        ]
+      },
+
+
+      {
+        rank: 4,
+
+        title: "Penetration Tester / Ethical Hacker",
+
+        icon: "fa-user-secret",
+
+        category: "offensive",
+
+        work:
+          "Perform authorized security assessments to identify weaknesses in applications, networks and systems.",
+
+        skills: [
+          "Networking",
+          "Linux",
+          "Web Security",
+          "Vulnerability Assessment",
+          "Security Testing",
+          "Burp Suite",
+          "Nmap",
+          "Report Writing"
+        ],
+
+        fresher: "₹4–8 LPA",
+
+        experience: "₹12–25 LPA",
+
+        resources: [
+          {
+            name: "OWASP",
+            type: "Web application security",
+            url:
+              "https://owasp.org/"
+          },
+
+          {
+            name: "NIST NICE Framework",
+            type: "Cybersecurity work roles",
+            url:
+              "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center"
+          },
+
+          {
+            name: "Cisco Networking Academy",
+            type: "Networking fundamentals",
+            url:
+              "https://www.netacad.com/"
+          }
+        ]
+      },
+
+
+      {
+        rank: 5,
+
+        title: "SOC Analyst",
+
+        icon: "fa-tower-broadcast",
+
+        category: "defensive",
+
+        work:
+          "Monitor security events, investigate alerts, analyze logs and support incident response activities.",
+
+        skills: [
+          "SIEM",
+          "Log Analysis",
+          "Networking",
+          "Linux",
+          "Windows",
+          "Incident Response",
+          "Threat Detection",
+          "Security Monitoring"
+        ],
+
+        fresher: "₹3.5–7 LPA",
+
+        experience: "₹9–18 LPA",
+
+        resources: [
+          {
+            name: "CISA",
+            type: "Cybersecurity resources",
+            url:
+              "https://www.cisa.gov/"
+          },
+
+          {
+            name: "NIST NICE Framework",
+            type: "Security operations roles",
+            url:
+              "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center"
+          },
+
+          {
+            name: "Microsoft Learn",
+            type: "Security operations learning",
+            url:
+              "https://learn.microsoft.com/"
+          }
+        ]
+      },
+
+
+      {
+        rank: 6,
+
+        title: "Digital Forensics & Incident Response Specialist",
+
+        icon: "fa-magnifying-glass-chart",
+
+        category: "defensive",
+
+        work:
+          "Investigate cybersecurity incidents, analyze digital evidence and help organizations understand and respond to security events.",
+
+        skills: [
+          "Digital Forensics",
+          "Incident Response",
+          "Windows",
+          "Linux",
+          "Network Analysis",
+          "Evidence Handling",
+          "Log Analysis",
+          "Investigation"
+        ],
+
+        fresher: "₹4–8 LPA",
+
+        experience: "₹12–22 LPA",
+
+        resources: [
+          {
+            name: "NIST",
+            type: "Incident response guidance",
+            url:
+              "https://www.nist.gov/cybersecurity"
+          },
+
+          {
+            name: "CISA",
+            type: "Incident response resources",
+            url:
+              "https://www.cisa.gov/"
+          },
+
+          {
+            name: "NIST NICE Framework",
+            type: "Cybersecurity work roles",
+            url:
+              "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center"
+          }
+        ]
+      },
+
+
+      {
+        rank: 7,
+
+        title: "Identity & Access Management Engineer",
+
+        icon: "fa-key",
+
+        category: "engineering",
+
+        work:
+          "Design and manage secure authentication, authorization, identity and access systems across enterprise environments.",
+
+        skills: [
+          "IAM",
+          "Active Directory",
+          "SSO",
+          "MFA",
+          "OAuth",
+          "SAML",
+          "RBAC",
+          "Cloud IAM"
+        ],
+
+        fresher: "₹4–8 LPA",
+
+        experience: "₹12–24 LPA",
+
+        resources: [
+          {
+            name: "Microsoft Learn",
+            type: "Identity and access learning",
+            url:
+              "https://learn.microsoft.com/"
+          },
+
+          {
+            name: "NIST",
+            type: "Identity and security guidance",
+            url:
+              "https://www.nist.gov/cybersecurity"
+          },
+
+          {
+            name: "CISA",
+            type: "Identity security guidance",
+            url:
+              "https://www.cisa.gov/"
+          }
+        ]
+      },
+
+
+      {
+        rank: 8,
+
+        title: "Cyber Security Consultant",
+
+        icon: "fa-user-tie",
+
+        category: "governance",
+
+        work:
+          "Assess organizational security, identify risks and recommend security controls, processes and improvements.",
+
+        skills: [
+          "Risk Assessment",
+          "Security Frameworks",
+          "Auditing",
+          "Networking",
+          "Security Controls",
+          "Communication",
+          "Documentation",
+          "Problem Solving"
+        ],
+
+        fresher: "₹5–9 LPA",
+
+        experience: "₹15–30 LPA",
+
+        resources: [
+          {
+            name: "NIST Cybersecurity",
+            type: "Cybersecurity frameworks",
+            url:
+              "https://www.nist.gov/cybersecurity"
+          },
+
+          {
+            name: "NIST NICE Framework",
+            type: "Cybersecurity career roles",
+            url:
+              "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center"
+          },
+
+          {
+            name: "CISA",
+            type: "Security guidance",
+            url:
+              "https://www.cisa.gov/"
+          }
+        ]
+      },
+
+
+      {
+        rank: 9,
+
+        title: "Security Architect",
+
+        icon: "fa-diagram-project",
+
+        category: "governance",
+
+        work:
+          "Design enterprise security architecture covering networks, applications, identities, cloud environments and security controls.",
+
+        skills: [
+          "Security Architecture",
+          "Networking",
+          "Cloud Security",
+          "Zero Trust",
+          "IAM",
+          "Risk Management",
+          "Security Design",
+          "Leadership"
+        ],
+
+        fresher: "₹6–10 LPA",
+
+        experience: "₹18–35 LPA",
+
+        resources: [
+          {
+            name: "NIST Cybersecurity",
+            type: "Security frameworks and standards",
+            url:
+              "https://www.nist.gov/cybersecurity"
+          },
+
+          {
+            name: "CISA",
+            type: "Cybersecurity architecture guidance",
+            url:
+              "https://www.cisa.gov/"
+          },
+
+          {
+            name: "Microsoft Learn",
+            type: "Cloud and security architecture",
+            url:
+              "https://learn.microsoft.com/"
+          }
+        ]
+      },
+
+
+      {
+        rank: 10,
+
+        title: "Governance, Risk & Compliance Specialist",
+
+        icon: "fa-scale-balanced",
+
+        category: "governance",
+
+        work:
+          "Manage cybersecurity policies, risk assessments, audits, controls and regulatory or industry compliance requirements.",
+
+        skills: [
+          "GRC",
+          "ISO 27001",
+          "NIST",
+          "Risk Management",
+          "Auditing",
+          "Compliance",
+          "Security Policies",
+          "Documentation"
+        ],
+
+        fresher: "₹4–8 LPA",
+
+        experience: "₹12–25 LPA",
+
+        resources: [
+          {
+            name: "NIST Cybersecurity",
+            type: "Cybersecurity frameworks",
+            url:
+              "https://www.nist.gov/cybersecurity"
+          },
+
+          {
+            name: "NIST NICE Framework",
+            type: "Cybersecurity workforce framework",
+            url:
+              "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center"
+          },
+
+          {
+            name: "CISA",
+            type: "Cybersecurity guidance",
+            url:
+              "https://www.cisa.gov/"
+          }
+        ]
+      }
+
+    ];
+
+
+    /* =========================
+       DOM ELEMENTS
+    ========================= */
+
+    const careerGrid =
+      document.getElementById("careerGrid");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const modal =
+      document.getElementById("careerModal");
+
+    const modalContent =
+      document.getElementById("modalContent");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+    const filterButtons =
+      document.querySelectorAll(".filter-btn");
+
+
+    let currentFilter = "all";
+
+
+    /* =========================
+       RENDER CAREERS
+    ========================= */
+
+    function renderCareers() {
+
+      const searchTerm =
+        searchInput.value
+          .toLowerCase()
+          .trim();
+
+
+      const filtered =
+        careers.filter(career => {
+
+          const searchableText =
+            `
+              ${career.title}
+              ${career.work}
+              ${career.skills.join(" ")}
+            `
+              .toLowerCase();
+
+
+          const categoryMatch =
+            currentFilter === "all" ||
+            career.category === currentFilter;
+
+
+          const searchMatch =
+            searchableText.includes(searchTerm);
+
+
+          return (
+            categoryMatch &&
+            searchMatch
+          );
+
+        });
+
+
+      if (!filtered.length) {
+
+        careerGrid.innerHTML = `
+
+          <div
+            style="
+              grid-column:1/-1;
+              text-align:center;
+              padding:60px 20px;
+              color:var(--muted);
+            "
+          >
+
+            <i
+              class="fa-solid fa-magnifying-glass"
+              style="
+                font-size:38px;
+                margin-bottom:15px;
+              "
+            ></i>
+
+            <h3>
+              No Career Found
+            </h3>
+
+            <p>
+              Try another career or skill.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+      }
+
+
+      careerGrid.innerHTML =
+        filtered
+          .map(career => `
+
+            <article class="career-card">
+
+              <div class="career-header">
+
+                <span class="rank-badge">
+                  RANK #${career.rank}
+                </span>
+
+                <div class="career-icon">
+
+                  <i
+                    class="fa-solid ${career.icon}"
+                  ></i>
+
+                </div>
+
+              </div>
+
+
+              <div class="career-body">
+
+                <h3>
+                  ${career.title}
+                </h3>
+
+                <p class="main-work">
+                  ${career.work}
+                </p>
+
+
+                <div class="salary-grid">
+
+                  <div class="salary-box">
+
+                    <small>
+                      FRESHER SALARY
+                    </small>
+
+                    <strong>
+                      ${career.fresher}
+                    </strong>
+
+                  </div>
+
+
+                  <div class="salary-box">
+
+                    <small>
+                      5 YEARS EXPERIENCE
+                    </small>
+
+                    <strong>
+                      ${career.experience}
+                    </strong>
+
+                  </div>
+
+                </div>
+
+
+                <div class="section-label">
+
+                  <i
+                    class="fa-solid fa-list-check"
+                  ></i>
+
+                  Required Skills
+
+                </div>
+
+
+                <div class="skills">
+
+                  ${career.skills
+                    .map(skill => `
+                      <span class="skill">
+                        ${skill}
+                      </span>
+                    `)
+                    .join("")}
+
+                </div>
+
+
+                <div class="card-actions">
+
+                  <button
+                    class="action-btn details-btn"
+                    onclick="showCareer(${career.rank})"
+                  >
+
+                    <i
+                      class="fa-solid fa-circle-info"
+                    ></i>
+
+                    Details
+
+                  </button>
+
+
+                  <button
+                    class="action-btn learn-btn"
+                    onclick="showCareer(${career.rank})"
+                  >
+
+                    <i
+                      class="fa-solid fa-book-open"
+                    ></i>
+
+                    Learn
+
+                  </button>
+
+                </div>
+
+              </div>
+
+            </article>
+
+          `)
+          .join("");
+
+    }
+
+
+    /* =========================
+       SHOW CAREER
+    ========================= */
+
+    function showCareer(rank) {
+
+      const career =
+        careers.find(
+          item => item.rank === rank
+        );
+
+
+      modalContent.innerHTML = `
+
+        <div class="modal-title">
+
+          <div class="modal-rank">
+            ASCEND CAREER #${career.rank}
+          </div>
+
+          <h2>
+            ${career.title}
+          </h2>
+
+          <p>
+            ${career.work}
+          </p>
+
+        </div>
+
+
+        <div class="salary-grid">
+
+          <div class="salary-box">
+
+            <small>
+              FRESHER SALARY
+            </small>
+
+            <strong>
+              ${career.fresher}
+            </strong>
+
+          </div>
+
+
+          <div class="salary-box">
+
+            <small>
+              5 YEARS EXPERIENCE
+            </small>
+
+            <strong>
+              ${career.experience}
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div style="margin-top:25px;">
+
+          <div class="section-label">
+
+            <i
+              class="fa-solid fa-list-check"
+            ></i>
+
+            Required Skills
+
+          </div>
+
+
+          <div class="modal-skills">
+
+            ${career.skills
+              .map(skill => `
+                <span class="modal-skill">
+                  ${skill}
+                </span>
+              `)
+              .join("")}
+
+          </div>
+
+        </div>
+
+
+        <div style="margin-top:30px;">
+
+          <div class="section-label">
+
+            <i
+              class="fa-solid fa-graduation-cap"
+            ></i>
+
+            Recommended Learning Resources
+
+          </div>
+
+
+          <div class="resources">
+
+            ${career.resources
+              .map(resource => `
+
+                <a
+                  href="${resource.url}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="resource"
+                >
+
+                  <i
+                    class="fa-solid fa-book"
+                  ></i>
+
+
+                  <div class="resource-text">
+
+                    <strong>
+                      ${resource.name}
+                    </strong>
+
+                    <small>
+                      ${resource.type}
+                    </small>
+
+                  </div>
+
+
+                  <i
+                    class="
+                      fa-solid
+                      fa-arrow-up-right-from-square
+                      external
+                    "
+                  ></i>
+
+                </a>
+
+              `)
+              .join("")}
+
+          </div>
+
+        </div>
+
+
+        <div style="margin-top:30px;">
+
+          <div
+            class="ascend-intro"
+            style="margin-bottom:0;"
+          >
+
+            <div class="ascend-intro-icon">
+
+              <i
+                class="fa-solid fa-arrow-trend-up"
+              ></i>
+
+            </div>
+
+
+            <div>
+
+              <h3>
+                ASCEND Action Plan
+              </h3>
+
+              <p>
+                Build the fundamentals first, develop
+                hands-on cybersecurity skills, create
+                practical projects, document your work,
+                strengthen your professional profile and
+                then apply for internships and entry-level
+                cybersecurity positions.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+
+      modal.classList.add("show");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    searchInput.addEventListener(
+      "input",
+      renderCareers
+    );
+
+
+    /* =========================
+       FILTER
+    ========================= */
+
+    filterButtons.forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          filterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+          });
+
+
+          button.classList.add("active");
+
+
+          currentFilter =
+            button.dataset.filter;
+
+
+          renderCareers();
+
+        }
+      );
+
+    });
+
+
+    /* =========================
+       CLOSE MODAL
+    ========================= */
+
+    function closeCareerModal() {
+
+      modal.classList.remove("show");
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    closeModal.addEventListener(
+      "click",
+      closeCareerModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === modal
+        ) {
+
+          closeCareerModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeCareerModal();
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       DARK MODE
+    ========================= */
+
+    const themeButton =
+      document.getElementById(
+        "themeButton"
+      );
+
+    const themeIcon =
+      document.getElementById(
+        "themeIcon"
+      );
+
+
+    themeButton.addEventListener(
+      "click",
+      () => {
+
+        document.body.classList.toggle(
+          "dark-mode"
+        );
+
+
+        const dark =
+          document.body.classList.contains(
+            "dark-mode"
+          );
+
+
+        themeIcon.className =
+          dark
+            ? "fa-solid fa-sun"
+            : "fa-solid fa-moon";
+
+
+        localStorage.setItem(
+          "ascendCyberTheme",
+          dark
+            ? "dark"
+            : "light"
+        );
+
+      }
+    );
+
+
+    if (
+      localStorage.getItem(
+        "ascendCyberTheme"
+      ) === "dark"
+    ) {
+
+      document.body.classList.add(
+        "dark-mode"
+      );
+
+      themeIcon.className =
+        "fa-solid fa-sun";
+
+    }
+
+
+    /* =========================
+       INITIAL LOAD
+    ========================= */
+
+    renderCareers();
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,3006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ASCEND | AI Graduate Careers</title>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+
+    /* =========================================================
+       ASCEND AI CAREER PAGE
+       ========================================================= */
+
+    :root {
+      --primary: #c62828;
+      --primary-dark: #8e1b1b;
+      --accent: #ffb703;
+
+      --dark: #111827;
+      --dark-2: #1f2937;
+
+      --bg: #f5f7fb;
+      --card: #ffffff;
+
+      --text: #1f2937;
+      --muted: #6b7280;
+
+      --border: #e5e7eb;
+
+      --green: #15803d;
+      --blue: #2563eb;
+      --purple: #7c3aed;
+
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    body.dark-mode {
+      --bg: #0f172a;
+      --card: #1e293b;
+
+      --text: #f1f5f9;
+      --muted: #aeb7c4;
+
+      --border: #334155;
+
+      --dark: #020617;
+      --dark-2: #0f172a;
+
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: 0.3s;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    /* =========================================================
+       NAVBAR
+       ========================================================= */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: var(--dark);
+      color: white;
+
+      padding: 13px 6%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      box-shadow: 0 3px 15px rgba(0,0,0,0.25);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+
+      border-radius: 10px;
+
+      background: var(--primary);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand-name span {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      border: 1px solid rgba(255,255,255,0.2);
+
+      background: rgba(255,255,255,0.08);
+
+      color: white;
+
+      padding: 9px 14px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--primary);
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: 500px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 80px 20px;
+
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(198,40,40,0.75),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(255,183,3,0.15),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #111827,
+          #3b0a0a,
+          #111827
+        );
+    }
+
+    .hero-content {
+      max-width: 950px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 16px;
+
+      border: 1px solid rgba(255,255,255,0.2);
+
+      background: rgba(255,255,255,0.08);
+
+      border-radius: 50px;
+
+      margin-bottom: 20px;
+
+      font-size: 13px;
+
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px,7vw,70px);
+
+      line-height: 1.05;
+
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(19px,3vw,30px);
+
+      color: #fef3c7;
+
+      margin-bottom: 15px;
+    }
+
+    .hero-description {
+      max-width: 760px;
+
+      margin: auto;
+
+      color: #d1d5db;
+
+      font-size: 17px;
+    }
+
+    .hero-stats {
+      margin-top: 35px;
+
+      display: grid;
+
+      grid-template-columns: repeat(3,1fr);
+
+      gap: 15px;
+    }
+
+    .hero-stat {
+      padding: 20px;
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      background: rgba(255,255,255,0.08);
+
+      border-radius: 12px;
+    }
+
+    .hero-stat h3 {
+      color: var(--accent);
+
+      font-size: 25px;
+    }
+
+    .hero-stat p {
+      color: #d1d5db;
+
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       CONTAINER / SECTIONS
+       ========================================================= */
+
+    .container {
+      width: min(1200px,92%);
+
+      margin: auto;
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-header {
+      text-align: center;
+
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 32px;
+
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+
+      max-width: 720px;
+
+      margin: auto;
+    }
+
+    /* =========================================================
+       ASCEND INTRO
+       ========================================================= */
+
+    .ascend-intro {
+      display: grid;
+
+      grid-template-columns: 65px 1fr;
+
+      gap: 20px;
+
+      background: var(--card);
+
+      border-left: 5px solid var(--primary);
+
+      padding: 25px;
+
+      border-radius: 14px;
+
+      box-shadow: var(--shadow);
+
+      margin-bottom: 40px;
+    }
+
+    .ascend-intro-icon {
+      font-size: 38px;
+
+      color: var(--primary);
+    }
+
+    .ascend-intro h3 {
+      margin-bottom: 8px;
+    }
+
+    .ascend-intro p {
+      color: var(--muted);
+    }
+
+    .formula {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 18px;
+
+      font-weight: bold;
+    }
+
+    .formula span {
+      padding: 8px 12px;
+
+      border-radius: 8px;
+
+      background: var(--bg);
+
+      border: 1px solid var(--border);
+    }
+
+    .formula .plus {
+      background: var(--primary);
+
+      color: white;
+    }
+
+    /* =========================================================
+       FILTER
+       ========================================================= */
+
+    .filter-area {
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-bottom: 35px;
+    }
+
+    .search-box {
+      position: relative;
+
+      flex: 1;
+
+      min-width: 250px;
+
+      max-width: 500px;
+    }
+
+    .search-box i {
+      position: absolute;
+
+      left: 14px;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      color: var(--muted);
+    }
+
+    .search-box input {
+      width: 100%;
+
+      padding: 13px 15px 13px 42px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 9px;
+
+      background: var(--card);
+
+      color: var(--text);
+
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+    }
+
+    .filter-btn {
+      padding: 11px 15px;
+
+      border: 1px solid var(--border);
+
+      background: var(--card);
+
+      color: var(--text);
+
+      border-radius: 9px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary);
+
+      color: white;
+
+      border-color: var(--primary);
+    }
+
+    /* =========================================================
+       CAREER GRID
+       ========================================================= */
+
+    .career-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit,minmax(330px,1fr));
+
+      gap: 25px;
+    }
+
+    .career-card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 16px;
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+
+      display: flex;
+
+      flex-direction: column;
+    }
+
+    .career-card:hover {
+      transform: translateY(-7px);
+
+      box-shadow:
+        0 20px 40px rgba(0,0,0,0.14);
+    }
+
+    .career-header {
+      padding: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+
+      color: white;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+    }
+
+    .rank-badge {
+      padding: 6px 10px;
+
+      background: rgba(255,255,255,0.15);
+
+      border-radius: 50px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+    }
+
+    .career-icon {
+      width: 48px;
+
+      height: 48px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,0.16);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+    .career-body {
+      padding: 24px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      flex: 1;
+    }
+
+    .career-body h3 {
+      font-size: 21px;
+
+      line-height: 1.3;
+
+      margin-bottom: 10px;
+    }
+
+    .main-work {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      margin-bottom: 22px;
+    }
+
+    /* =========================================================
+       SALARY
+       ========================================================= */
+
+    .salary-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 10px;
+
+      margin-bottom: 22px;
+    }
+
+    .salary-box {
+      padding: 13px;
+
+      background: var(--bg);
+
+      border: 1px solid var(--border);
+
+      border-radius: 10px;
+    }
+
+    .salary-box small {
+      display: block;
+
+      color: var(--muted);
+
+      margin-bottom: 4px;
+
+      font-size: 11px;
+    }
+
+    .salary-box strong {
+      color: var(--green);
+
+      font-size: 15px;
+    }
+
+    /* =========================================================
+       SKILLS
+       ========================================================= */
+
+    .section-label {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+    .section-label i {
+      color: var(--primary);
+    }
+
+    .skills {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 20px;
+    }
+
+    .skill {
+      padding: 6px 9px;
+
+      border-radius: 50px;
+
+      background: rgba(198,40,40,0.09);
+
+      color: var(--primary);
+
+      font-size: 11px;
+
+      border: 1px solid rgba(198,40,40,0.1);
+    }
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    .card-actions {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 10px;
+
+      margin-top: auto;
+    }
+
+    .action-btn {
+      border: none;
+
+      padding: 11px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .details-btn {
+      background: var(--bg);
+
+      color: var(--text);
+
+      border: 1px solid var(--border);
+    }
+
+    .details-btn:hover {
+      border-color: var(--primary);
+    }
+
+    .learn-btn {
+      background: var(--primary);
+
+      color: white;
+    }
+
+    .learn-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* =========================================================
+       MODAL
+       ========================================================= */
+
+    .modal {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: rgba(0,0,0,0.7);
+
+      padding: 20px;
+
+      overflow-y: auto;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(850px,100%);
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      background: var(--card);
+
+      color: var(--text);
+
+      border-radius: 18px;
+
+      padding: 32px;
+
+      position: relative;
+
+      animation: modalOpen 0.25s ease;
+    }
+
+    @keyframes modalOpen {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(20px)
+          scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+
+    }
+
+    .close-modal {
+      position: absolute;
+
+      right: 18px;
+
+      top: 18px;
+
+      width: 38px;
+
+      height: 38px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      cursor: pointer;
+
+      font-size: 18px;
+    }
+
+    .modal-title {
+      padding-right: 50px;
+
+      margin-bottom: 25px;
+    }
+
+    .modal-rank {
+      color: var(--primary);
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 1px;
+    }
+
+    .modal-title h2 {
+      font-size: 28px;
+
+      margin-top: 5px;
+    }
+
+    .modal-title p {
+      color: var(--muted);
+
+      margin-top: 8px;
+    }
+
+    .modal-skills {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 9px;
+    }
+
+    .modal-skill {
+      padding: 9px 12px;
+
+      border: 1px solid var(--border);
+
+      background: var(--bg);
+
+      border-radius: 8px;
+
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       RESOURCES
+       ========================================================= */
+
+    .resources {
+      display: grid;
+
+      gap: 10px;
+    }
+
+    .resource {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 14px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 10px;
+
+      color: var(--text);
+
+      transition: 0.3s;
+    }
+
+    .resource:hover {
+      border-color: var(--primary);
+
+      transform: translateX(5px);
+    }
+
+    .resource > i:first-child {
+      color: var(--primary);
+
+      font-size: 18px;
+    }
+
+    .resource-text {
+      flex: 1;
+    }
+
+    .resource-text strong {
+      display: block;
+
+      font-size: 14px;
+    }
+
+    .resource-text small {
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    .resource .external {
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       ROADMAP
+       ========================================================= */
+
+    .roadmap {
+      display: grid;
+
+      grid-template-columns:
+        repeat(5,1fr);
+
+      gap: 18px;
+    }
+
+    .roadmap-card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 25px;
+
+      text-align: center;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-5px);
+
+      border-color: var(--primary);
+    }
+
+    .roadmap-number {
+      width: 45px;
+
+      height: 45px;
+
+      margin: 0 auto 15px;
+
+      border-radius: 50%;
+
+      background: var(--primary);
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-weight: bold;
+    }
+
+    .roadmap-card p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 7px;
+    }
+
+    /* =========================================================
+       RESOURCE HUB
+       ========================================================= */
+
+    .resource-hub {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+
+      gap: 18px;
+    }
+
+    .hub-card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 22px;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+    }
+
+    .hub-card:hover {
+      transform: translateY(-5px);
+
+      border-color: var(--primary);
+    }
+
+    .hub-icon {
+      width: 45px;
+
+      height: 45px;
+
+      border-radius: 10px;
+
+      background: rgba(198,40,40,0.1);
+
+      color: var(--primary);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin-bottom: 15px;
+    }
+
+    .hub-card h3 {
+      font-size: 17px;
+
+      margin-bottom: 7px;
+    }
+
+    .hub-card p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-bottom: 15px;
+    }
+
+    .hub-link {
+      color: var(--primary);
+
+      font-size: 13px;
+
+      font-weight: bold;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      background: var(--dark);
+
+      color: #d1d5db;
+
+      padding: 45px 20px;
+
+      text-align: center;
+    }
+
+    footer h2 {
+      color: white;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 8px;
+    }
+
+    footer h2 span {
+      color: var(--accent);
+    }
+
+    footer p {
+      font-size: 13px;
+
+      margin-top: 5px;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .roadmap {
+        grid-template-columns:
+          repeat(3,1fr);
+      }
+
+    }
+
+    @media (max-width: 750px) {
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .navbar {
+        padding: 12px 4%;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .nav-btn span {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+
+      .career-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap {
+        grid-template-columns: 1fr;
+      }
+
+      .salary-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-box {
+        padding: 25px 18px;
+      }
+
+      .ascend-intro {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVBAR
+       ========================================================= -->
+
+  <nav class="navbar">
+
+    <div class="brand">
+
+      <div class="brand-logo">
+        <i class="fa-solid fa-arrow-trend-up"></i>
+      </div>
+
+      <div class="brand-name">
+        AS<span>CEND</span>
+      </div>
+
+    </div>
+
+    <div class="nav-actions">
+
+      <a
+        href="../index.html"
+        class="nav-btn"
+      >
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+
+      <button
+        class="nav-btn"
+        id="themeButton"
+        title="Toggle Theme"
+      >
+        <i
+          class="fa-solid fa-moon"
+          id="themeIcon"
+        ></i>
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+
+        <i class="fa-solid fa-brain"></i>
+
+        ASCEND AI CAREER PATHWAY
+
+      </div>
+
+      <h1>
+
+        Artificial Intelligence
+
+        <br>
+
+        <span>Career Pathway</span>
+
+      </h1>
+
+      <div class="hero-subtitle">
+
+        AI Graduate → Future Career Opportunities
+
+      </div>
+
+      <p class="hero-description">
+
+        Explore high-potential careers for Artificial Intelligence
+        graduates across AI engineering, Generative AI, AI infrastructure,
+        robotics, automation, product development and AI governance.
+
+      </p>
+
+
+      <div class="hero-stats">
+
+        <div class="hero-stat">
+
+          <h3>10</h3>
+
+          <p>
+            High-Potential AI Careers
+          </p>
+
+        </div>
+
+
+        <div class="hero-stat">
+
+          <h3>₹35+ LPA</h3>
+
+          <p>
+            Highest Listed 5-Year Range
+          </p>
+
+        </div>
+
+
+        <div class="hero-stat">
+
+          <h3>Future Ready</h3>
+
+          <p>
+            AI & Emerging Technology Roles
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="container">
+
+
+    <!-- =======================================================
+         ASCEND INTRO
+         ======================================================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          ASCEND Your AI Career
+        </h2>
+
+        <p>
+
+          An AI degree becomes much more valuable when combined
+          with programming, AI engineering, cloud, deployment,
+          product thinking and real-world projects.
+
+        </p>
+
+      </div>
+
+
+      <div class="ascend-intro">
+
+        <div class="ascend-intro-icon">
+
+          <i class="fa-solid fa-rocket"></i>
+
+        </div>
+
+        <div>
+
+          <h3>
+            The ASCEND AI Career Formula
+          </h3>
+
+          <p>
+
+            Build a strong technical foundation, specialize in one
+            AI domain, create real projects and demonstrate your
+            skills through a professional portfolio.
+
+          </p>
+
+
+          <div class="formula">
+
+            <span>AI Fundamentals</span>
+
+            <span class="plus">+</span>
+
+            <span>Programming</span>
+
+            <span class="plus">+</span>
+
+            <span>Specialization</span>
+
+            <span class="plus">+</span>
+
+            <span>Projects</span>
+
+            <span class="plus">=</span>
+
+            <span>Career Growth</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           SEARCH / FILTER
+           ===================================================== -->
+
+      <div class="filter-area">
+
+        <div class="search-box">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search AI career or skill..."
+          >
+
+        </div>
+
+
+        <button
+          class="filter-btn active"
+          data-filter="all"
+        >
+          All
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="engineering"
+        >
+          AI Engineering
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="genai"
+        >
+          Generative AI
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="infrastructure"
+        >
+          AI Infrastructure
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="robotics"
+        >
+          Robotics
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="business"
+        >
+          Product & Business
+        </button>
+
+      </div>
+
+
+      <!-- =====================================================
+           CAREER GRID
+           ===================================================== -->
+
+      <div
+        class="career-grid"
+        id="careerGrid"
+      ></div>
+
+    </section>
+
+
+    <!-- =======================================================
+         ROADMAP
+         ======================================================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          ASCEND AI Career Roadmap 🚀
+        </h2>
+
+        <p>
+
+          Follow a structured pathway from AI fundamentals
+          to professional-level AI development.
+
+        </p>
+
+      </div>
+
+
+      <div class="roadmap">
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            1
+          </div>
+
+          <h3>
+            Foundations
+          </h3>
+
+          <p>
+
+            Learn Python, mathematics,
+            algorithms and AI fundamentals.
+
+          </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            2
+          </div>
+
+          <h3>
+            Specialize
+          </h3>
+
+          <p>
+
+            Choose GenAI, ML, Computer Vision,
+            Robotics or AI Engineering.
+
+          </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            3
+          </div>
+
+          <h3>
+            Build
+          </h3>
+
+          <p>
+
+            Create practical AI applications,
+            agents and intelligent systems.
+
+          </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            4
+          </div>
+
+          <h3>
+            Deploy
+          </h3>
+
+          <p>
+
+            Learn APIs, cloud, containers,
+            deployment and monitoring.
+
+          </p>
+
+        </div>
+
+
+        <div class="roadmap-card">
+
+          <div class="roadmap-number">
+            5
+          </div>
+
+          <h3>
+            ASCEND
+          </h3>
+
+          <p>
+
+            Build your portfolio and apply
+            for internships and jobs.
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         RESOURCE HUB
+         ======================================================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          Free AI Learning Resource Hub 📚
+        </h2>
+
+        <p>
+
+          Start learning with free resources from major
+          technology and AI learning platforms.
+
+        </p>
+
+      </div>
+
+
+      <div class="resource-hub">
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+
+            <i class="fa-brands fa-google"></i>
+
+          </div>
+
+          <h3>
+            Google Machine Learning Crash Course
+          </h3>
+
+          <p>
+
+            Free machine-learning fundamentals with
+            interactive lessons and programming exercises.
+
+          </p>
+
+          <a
+            href="https://developers.google.com/machine-learning/crash-course/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+
+            Start Learning
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+
+            <i class="fa-brands fa-microsoft"></i>
+
+          </div>
+
+          <h3>
+            Microsoft Learn AI
+          </h3>
+
+          <p>
+
+            AI learning paths covering AI fundamentals,
+            Generative AI, agents and AI engineering.
+
+          </p>
+
+          <a
+            href="https://learn.microsoft.com/en-us/ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+
+            Start Learning
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+
+            <i class="fa-solid fa-face-smile"></i>
+
+          </div>
+
+          <h3>
+            Hugging Face Course
+          </h3>
+
+          <p>
+
+            Free learning resources for LLMs,
+            NLP and the Transformers ecosystem.
+
+          </p>
+
+          <a
+            href="https://huggingface.co/learn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+
+            Start Learning
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+
+            <i class="fa-solid fa-robot"></i>
+
+          </div>
+
+          <h3>
+            Google AI Skills
+          </h3>
+
+          <p>
+
+            Explore AI fundamentals, Generative AI,
+            LLMs and developer-focused AI resources.
+
+          </p>
+
+          <a
+            href="https://ai.google/learn-ai-skills/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+
+            Start Learning
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </a>
+
+        </div>
+
+
+        <div class="hub-card">
+
+          <div class="hub-icon">
+
+            <i class="fa-solid fa-code"></i>
+
+          </div>
+
+          <h3>
+            Microsoft AI Engineer Training
+          </h3>
+
+          <p>
+
+            Explore AI Engineer learning paths,
+            Generative AI and AI application development.
+
+          </p>
+
+          <a
+            href="https://learn.microsoft.com/learn/browse/?roles=ai-engineer"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hub-link"
+          >
+
+            Start Learning
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       CAREER MODAL
+       ========================================================= -->
+
+  <div
+    class="modal"
+    id="careerModal"
+  >
+
+    <div class="modal-box">
+
+      <button
+        class="close-modal"
+        id="closeModal"
+      >
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+      <div id="modalContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer>
+
+    <h2>
+      AS<span>CEND</span>
+    </h2>
+
+    <p>
+      Learn • Build Skills • Grow
+    </p>
+
+    <p>
+      Learn. Build. Lead. ASCEND.
+    </p>
+
+    <p>
+      © 2026 ASCEND Career Platform
+    </p>
+
+  </footer>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
+  <script>
+
+    /* =========================================================
+       CAREER DATA
+       ========================================================= */
+
+    const careers = [
+
+      {
+        rank: 1,
+
+        title: "AI / Machine Learning Engineer",
+
+        icon: "fa-brain",
+
+        category: "engineering",
+
+        work:
+          "Build, train, test and deploy machine-learning and AI models for real-world applications.",
+
+        skills: [
+          "Python",
+          "Machine Learning",
+          "Deep Learning",
+          "PyTorch",
+          "TensorFlow",
+          "Algorithms",
+          "Git",
+          "APIs"
+        ],
+
+        fresher: "₹5–10 LPA",
+
+        experience: "₹15–30+ LPA",
+
+        resources: [
+
+          {
+            name: "Google Machine Learning Crash Course",
+            type: "Free ML fundamentals",
+            url:
+              "https://developers.google.com/machine-learning/crash-course/"
+          },
+
+          {
+            name: "Microsoft Learn AI",
+            type: "AI and ML learning",
+            url:
+              "https://learn.microsoft.com/en-us/ai/"
+          },
+
+          {
+            name: "Hugging Face Learn",
+            type: "AI and LLM learning",
+            url:
+              "https://huggingface.co/learn"
+          }
+
+        ]
+
+      },
+
+
+      {
+        rank: 2,
+
+        title: "Generative AI Engineer",
+
+        icon: "fa-wand-magic-sparkles",
+
+        category: "genai",
+
+        work:
+          "Build applications using large language models, retrieval systems, AI agents and generative AI technologies.",
+
+        skills: [
+          "Python",
+          "LLMs",
+          "Prompt Engineering",
+          "RAG",
+          "Vector Databases",
+          "AI Agents",
+          "APIs",
+          "Model Evaluation"
+        ],
+
+        fresher: "₹6–12 LPA",
+
+        experience: "₹18–35+ LPA",
+
+        resources: [
+
+          {
+            name: "Hugging Face Course",
+            type: "LLMs and Transformers",
+            url:
+              "https://huggingface.co/learn"
+          },
+
+          {
+            name: "Google AI Skills",
+            type: "Generative AI and LLMs",
+            url:
+              "https://ai.google/learn-ai-skills/"
+          },
+
+          {
+            name: "Microsoft Learn AI",
+            type: "Generative AI and agents",
+            url:
+              "https://learn.microsoft.com/en-us/ai/"
+          }
+
+        ]
+
+      },
+
+
+      {
+        rank: 3,
+
+        title: "AI Solutions Architect",
+
+        icon: "fa-sitemap",
+
+        category: "infrastructure",
+
+        work:
+          "Design complete AI solutions and determine how AI systems integrate with applications, cloud infrastructure and business systems.",
+
+        skills: [
+          "AI Architecture",
+          "Cloud Computing",
+          "System Design",
+          "APIs",
+          "Python",
+          "AI Services",
+          "Databases",
+          "Communication"
+        ],
+
+        fresher: "₹7–14 LPA",
+
+        experience: "₹20–40+ LPA",
+
+        resources: [
+
+          {
+            name: "Microsoft AI Learning Hub",
+            type: "AI architecture and cloud",
+            url:
+              "https://learn.microsoft.com/en-us/ai/"
+          },
+
+          {
+            name: "Microsoft AI Engineer Training",
+            type: "AI engineering",
+            url:
+              "https://learn.microsoft.com/learn/browse/?roles=ai-engineer"
+          },
+
+          {
+            name: "Google AI Skills",
+            type: "AI technology learning",
+            url:
+              "https://ai.google/learn-ai-skills/"
+          }
+
+        ]
+
+      },
+
+
+      {
+        rank: 4,
+
+        title: "MLOps / AI Platform Engineer",
+
+        icon: "fa-gears",
+
+        category: "infrastructure",
+
+        work:
+          "Build systems for deploying, scaling, monitoring and maintaining AI models and AI applications.",
+
+        skills: [
+          "Python",
+          "Docker",
+          "Kubernetes",
+          "CI/CD",
+          "Cloud",
+          "Model Deployment",
+          "APIs",
+          "Monitoring"
+        ],
+
+        fresher: "₹5–10 LPA",
+
+        experience: "₹15–30+ LPA",
+
+        resources: [
+
+          {
+            name: "Microsoft Learn AI",
+            type: "AI and cloud infrastructure",
+            url:
+              "https://learn.microsoft.com/en-us/ai/"
+          },
+
+          {
+            name: "Microsoft AI Engineer Training",
+            type: "AI engineering skills",
+            url:
+              "https://learn.microsoft.com/learn/browse/?roles=ai-engineer"
+          },
+
+          {
+            name: "Google Machine Learning Crash Course",
+            type: "ML fundamentals",
+            url:
+              "https://developers.google.com/machine-learning/crash-course/"
+          }
+
+        ]
+
+      },
+
+
+      {
+        rank: 5,
+
+        title: "Computer Vision Engineer",
+
+        icon: "fa-eye",
+
+        category: "engineering",
+
+        work:
+          "Develop AI systems that understand images, video and visual information.",
+
+        skills: [
+          "Python",
+          "Computer Vision",
+          "OpenCV",
+          "Deep Learning",
+          "PyTorch",
+          "CNNs",
+          "Image Processing",
+          "Model Deployment"
+        ],
+
+        fresher: "₹5–10 LPA",
+
+        experience: "₹15–30+ LPA",
+
+        resources: [
+
+          {
+            name: "Google Machine Learning Crash Course",
+            type: "ML and neural-network foundations",
+            url:
+              "https://developers.google.com/machine-learning/crash-course/"
+          },
+
+          {
+            name: "Microsoft Learn AI",
+            type: "AI learning",
+            url:
+              "https://learn.microsoft.com/en-us/ai/"
+          },
+
+          {
+            name: "Google AI Skills",
+            type: "AI developer learning",
+            url:
+              "https://ai.google/learn-ai-skills/"
+          }
+
+        ]
+
+      },
+
+
+      {
+        rank: 6,
+
+        title: "Robotics & Autonomous AI Engineer",
+
+        icon: "fa-robot",
+
+        category: "robotics",
+
+        work:
+          "Develop intelligent robots and autonomous systems that combine AI, perception, sensors and control technologies.",
+
+        skills: [
+          "Python",
+          "C++",
+          "Robotics",
+          "Computer Vision",
+          "Machine Learning",
+          "Sensors",
+          "ROS",
+          "Simulation"
+        ],
+
+        fresher: "₹5–10 LPA",
+
+        experience: "₹15–30+ LPA",
+
+        resources: [
+
+          {
+            name: "Google Machine Learning Crash Course",
+            type: "Machine-learning foundation",
+            url:
+              "https://developers.google.com/machine-learning/crash-course/"
+          },
+
+          {
+            name: "Microsoft Learn AI",
+            type: "AI engineering",
+            url:
+              "https://learn.microsoft.com/en-us/ai/"
+          },
+
+          {
+            name: "Google AI Skills",
+            type: "AI development resources",
+            url:
+              "https://ai.google/learn-ai-skills/"
+          }
+
+        ]
+
+      },
+
+
+      {
+        rank: 7,
+
+        title: "AI Product Manager",
+
+        icon: "fa-lightbulb",
+
+        category: "business",
+
+        work:
+          "Define AI products, understand customer problems, coordinate technical teams and turn AI capabilities into useful products.",
+
+        skills: [
+          "AI Fundamentals",
+          "Product Management",
+          "Business Analysis",
+          "UX",
+          "Communication",
+          "Leadership",
+          "Market Research",
+          "AI Evaluation"
+        ],
+
+        fresher: "₹6–12 LPA",
+
+        experience: "₹18–35+ LPA",
+
+        resources: [
+
+          {
+            name: "Google AI Skills",
+            type: "AI fundamentals",
+            url:
+              "https://ai.google/learn-ai-skills/"
+          },
+
+          {
+            name: "Microsoft AI Learning Hub",
+            type: "AI for technical and business roles",
+            url:
+              "https://learn.microsoft.com/en-us/ai/"
+          },
+
+          {
+            name: "Microsoft Learn",
+            type: "Technology and career learning",
+            url:
+              "https://learn.microsoft.com/training/"
+          }
+
+        ]
+
+      },
+
+
+      {
+        rank: 8,
+
+        title: "AI Governance & Responsible AI Specialist",
+
+        icon: "fa-scale-balanced",
+
+        category: "business",
+
+        work:
+          "Develop AI governance processes, evaluation standards, documentation and responsible-use practices for AI systems.",
+
+        skills: [
+          "AI Fundamentals",
+          "Responsible AI",
+          "AI Governance",
+          "Risk Management",
+          "Policy",
+          "Documentation",
+          "Critical Thinking",
+          "AI Evaluation"
+        ],
+
+        fresher: "₹5–10 LPA",
+
+        experience: "₹15–30+ LPA",
+
+        resources: [
+
+          {
+            name: "Microsoft Responsible AI",
+            type: "Responsible AI learning",
+            url:
+              "https://learn.microsoft.com/en-us/ai/"
+          },
+
+          {
+            name: "Google AI Skills",
+            type: "AI fundamentals",
+            url:
+              "https://ai.google/learn-ai-skills/"
+          },
+
+          {
+            name: "Google Machine Learning Crash Course",
+            type: "ML fundamentals",
+            url:
+              "https://developers.google.com/machine-learning/crash-course/"
+          }
+
+        ]
+
+      },
+
+
+      {
+        rank: 9,
+
+        title: "AI Research Engineer",
+
+        icon: "fa-flask",
+
+        category: "engineering",
+
+        work:
+          "Experiment with advanced AI models, algorithms and research ideas and convert research concepts into working prototypes.",
+
+        skills: [
+          "Python",
+          "Mathematics",
+          "Deep Learning",
+          "PyTorch",
+          "Algorithms",
+          "Research",
+          "Technical Writing",
+          "Experimentation"
+        ],
+
+        fresher: "₹6–12 LPA",
+
+        experience: "₹18–35+ LPA",
+
+        resources: [
+
+          {
+            name: "Google Machine Learning Crash Course",
+            type: "ML foundations",
+            url:
+              "https://developers.google.com/machine-learning/crash-course/"
+          },
+
+          {
+            name: "Hugging Face Course",
+            type: "LLM and NLP research skills",
+            url:
+              "https://huggingface.co/learn"
+          },
+
+          {
+            name: "Google AI Skills",
+            type: "Advanced AI learning",
+            url:
+              "https://ai.google/learn-ai-skills/"
+          }
+
+        ]
+
+      },
+
+
+      {
+        rank: 10,
+
+        title: "AI Automation Engineer",
+
+        icon: "fa-bolt",
+
+        category: "genai",
+
+        work:
+          "Build AI-powered workflows, agents and automation systems that improve business and software processes.",
+
+        skills: [
+          "Python",
+          "LLMs",
+          "AI Agents",
+          "APIs",
+          "Automation",
+          "Cloud",
+          "Workflow Design",
+          "Prompt Engineering"
+        ],
+
+        fresher: "₹5–10 LPA",
+
+        experience: "₹15–28+ LPA",
+
+        resources: [
+
+          {
+            name: "Microsoft Learn AI",
+            type: "AI agents and automation",
+            url:
+              "https://learn.microsoft.com/en-us/ai/"
+          },
+
+          {
+            name: "Google AI Skills",
+            type: "Generative AI learning",
+            url:
+              "https://ai.google/learn-ai-skills/"
+          },
+
+          {
+            name: "Hugging Face Learn",
+            type: "LLMs and AI development",
+            url:
+              "https://huggingface.co/learn"
+          }
+
+        ]
+
+      }
+
+    ];
+
+
+    /* =========================================================
+       DOM ELEMENTS
+       ========================================================= */
+
+    const careerGrid =
+      document.getElementById("careerGrid");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const modal =
+      document.getElementById("careerModal");
+
+    const modalContent =
+      document.getElementById("modalContent");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+    const filterButtons =
+      document.querySelectorAll(".filter-btn");
+
+
+    let currentFilter = "all";
+
+
+    /* =========================================================
+       RENDER CAREERS
+       ========================================================= */
+
+    function renderCareers() {
+
+      const searchTerm =
+        searchInput.value
+          .toLowerCase()
+          .trim();
+
+
+      const filtered =
+        careers.filter(career => {
+
+          const searchableText =
+            `
+              ${career.title}
+              ${career.work}
+              ${career.skills.join(" ")}
+            `.toLowerCase();
+
+
+          const categoryMatch =
+            currentFilter === "all" ||
+            career.category === currentFilter;
+
+
+          const searchMatch =
+            searchableText.includes(searchTerm);
+
+
+          return categoryMatch && searchMatch;
+
+        });
+
+
+      if (!filtered.length) {
+
+        careerGrid.innerHTML = `
+
+          <div
+            style="
+              grid-column:1/-1;
+              text-align:center;
+              padding:60px 20px;
+              color:var(--muted);
+            "
+          >
+
+            <i
+              class="fa-solid fa-magnifying-glass"
+              style="
+                font-size:38px;
+                margin-bottom:15px;
+              "
+            ></i>
+
+            <h3>
+              No Career Found
+            </h3>
+
+            <p>
+              Try another career or skill.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      careerGrid.innerHTML =
+
+        filtered.map(career => `
+
+          <article class="career-card">
+
+            <div class="career-header">
+
+              <span class="rank-badge">
+
+                RANK #${career.rank}
+
+              </span>
+
+              <div class="career-icon">
+
+                <i
+                  class="fa-solid ${career.icon}"
+                ></i>
+
+              </div>
+
+            </div>
+
+
+            <div class="career-body">
+
+              <h3>
+                ${career.title}
+              </h3>
+
+
+              <p class="main-work">
+
+                ${career.work}
+
+              </p>
+
+
+              <div class="salary-grid">
+
+                <div class="salary-box">
+
+                  <small>
+                    FRESHER SALARY
+                  </small>
+
+                  <strong>
+                    ${career.fresher}
+                  </strong>
+
+                </div>
+
+
+                <div class="salary-box">
+
+                  <small>
+                    5 YEARS EXPERIENCE
+                  </small>
+
+                  <strong>
+                    ${career.experience}
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+              <div class="section-label">
+
+                <i
+                  class="fa-solid fa-list-check"
+                ></i>
+
+                Required Skills
+
+              </div>
+
+
+              <div class="skills">
+
+                ${career.skills
+                  .map(skill => `
+
+                    <span class="skill">
+
+                      ${skill}
+
+                    </span>
+
+                  `)
+                  .join("")}
+
+              </div>
+
+
+              <div class="card-actions">
+
+                <button
+                  class="action-btn details-btn"
+                  onclick="showCareer(${career.rank})"
+                >
+
+                  <i
+                    class="fa-solid fa-circle-info"
+                  ></i>
+
+                  Details
+
+                </button>
+
+
+                <button
+                  class="action-btn learn-btn"
+                  onclick="showCareer(${career.rank})"
+                >
+
+                  <i
+                    class="fa-solid fa-book-open"
+                  ></i>
+
+                  Learn Free
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        `).join("");
+
+    }
+
+
+    /* =========================================================
+       SHOW CAREER MODAL
+       ========================================================= */
+
+    function showCareer(rank) {
+
+      const career =
+        careers.find(
+          item => item.rank === rank
+        );
+
+
+      modalContent.innerHTML = `
+
+        <div class="modal-title">
+
+          <div class="modal-rank">
+
+            ASCEND CAREER #${career.rank}
+
+          </div>
+
+          <h2>
+            ${career.title}
+          </h2>
+
+          <p>
+            ${career.work}
+          </p>
+
+        </div>
+
+
+        <div class="salary-grid">
+
+          <div class="salary-box">
+
+            <small>
+              FRESHER SALARY
+            </small>
+
+            <strong>
+              ${career.fresher}
+            </strong>
+
+          </div>
+
+
+          <div class="salary-box">
+
+            <small>
+              5 YEARS EXPERIENCE
+            </small>
+
+            <strong>
+              ${career.experience}
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div style="margin-top:25px;">
+
+          <div class="section-label">
+
+            <i
+              class="fa-solid fa-list-check"
+            ></i>
+
+            Required Skills
+
+          </div>
+
+
+          <div class="modal-skills">
+
+            ${career.skills
+              .map(skill => `
+
+                <span class="modal-skill">
+
+                  ${skill}
+
+                </span>
+
+              `)
+              .join("")}
+
+          </div>
+
+        </div>
+
+
+        <div style="margin-top:30px;">
+
+          <div class="section-label">
+
+            <i
+              class="fa-solid fa-graduation-cap"
+            ></i>
+
+            Free Learning Resources
+
+          </div>
+
+
+          <div class="resources">
+
+            ${career.resources
+              .map(resource => `
+
+                <a
+                  href="${resource.url}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="resource"
+                >
+
+                  <i
+                    class="fa-solid fa-book"
+                  ></i>
+
+
+                  <div class="resource-text">
+
+                    <strong>
+                      ${resource.name}
+                    </strong>
+
+                    <small>
+                      ${resource.type}
+                    </small>
+
+                  </div>
+
+
+                  <i
+                    class="
+                      fa-solid
+                      fa-arrow-up-right-from-square
+                      external
+                    "
+                  ></i>
+
+                </a>
+
+              `)
+              .join("")}
+
+          </div>
+
+        </div>
+
+
+        <div style="margin-top:30px;">
+
+          <div
+            class="ascend-intro"
+            style="margin-bottom:0;"
+          >
+
+            <div class="ascend-intro-icon">
+
+              <i
+                class="fa-solid fa-arrow-trend-up"
+              ></i>
+
+            </div>
+
+
+            <div>
+
+              <h3>
+                ASCEND Action Plan
+              </h3>
+
+              <p>
+
+                Learn the fundamentals, choose your
+                specialization, build 2–3 practical AI
+                projects, deploy them, document your work
+                and create a strong portfolio before
+                applying for internships and entry-level
+                opportunities.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+
+      modal.classList.add("show");
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    /* =========================================================
+       SEARCH
+       ========================================================= */
+
+    searchInput.addEventListener(
+      "input",
+      renderCareers
+    );
+
+
+    /* =========================================================
+       FILTERS
+       ========================================================= */
+
+    filterButtons.forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          filterButtons.forEach(btn =>
+            btn.classList.remove("active")
+          );
+
+
+          button.classList.add("active");
+
+
+          currentFilter =
+            button.dataset.filter;
+
+
+          renderCareers();
+
+        }
+      );
+
+    });
+
+
+    /* =========================================================
+       CLOSE MODAL
+       ========================================================= */
+
+    function closeCareerModal() {
+
+      modal.classList.remove("show");
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    closeModal.addEventListener(
+      "click",
+      closeCareerModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === modal
+        ) {
+
+          closeCareerModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeCareerModal();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       DARK MODE
+       ========================================================= */
+
+    const themeButton =
+      document.getElementById(
+        "themeButton"
+      );
+
+    const themeIcon =
+      document.getElementById(
+        "themeIcon"
+      );
+
+
+    themeButton.addEventListener(
+      "click",
+      () => {
+
+        document.body.classList.toggle(
+          "dark-mode"
+        );
+
+
+        const dark =
+          document.body.classList.contains(
+            "dark-mode"
+          );
+
+
+        themeIcon.className =
+          dark
+            ? "fa-solid fa-sun"
+            : "fa-solid fa-moon";
+
+
+        localStorage.setItem(
+          "ascendAITtheme",
+          dark
+            ? "dark"
+            : "light"
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       RESTORE THEME
+       ========================================================= */
+
+    if (
+      localStorage.getItem(
+        "ascendAITtheme"
+      ) === "dark"
+    ) {
+
+      document.body.classList.add(
+        "dark-mode"
+      );
+
+      themeIcon.className =
+        "fa-solid fa-sun";
+
+    }
+
+
+    /* =========================================================
+       INITIAL RENDER
+       ========================================================= */
+
+    renderCareers();
+
+  </script>
+
+</body>
+</html>
