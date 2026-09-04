@@ -1,0 +1,3817 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ASCEND | Tamil Literature Careers</title>
+
+  <!-- Font Awesome -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+
+    /* =========================================================
+       ASCEND - TAMIL LITERATURE CAREER PAGE
+       ========================================================= */
+
+    :root {
+      --primary: #c62828;
+      --primary-dark: #8e1b1b;
+      --accent: #ffb703;
+
+      --dark: #111827;
+      --dark-2: #1f2937;
+
+      --bg: #f5f7fb;
+      --card: #ffffff;
+
+      --text: #1f2937;
+      --muted: #6b7280;
+
+      --border: #e5e7eb;
+
+      --green: #15803d;
+      --blue: #2563eb;
+
+      --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+
+    /* =========================================================
+       DARK MODE
+       ========================================================= */
+
+    body.dark-mode {
+
+      --bg: #0f172a;
+      --card: #1e293b;
+
+      --text: #f1f5f9;
+      --muted: #aeb7c4;
+
+      --border: #334155;
+
+      --dark: #020617;
+      --dark-2: #0f172a;
+
+      --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      line-height: 1.6;
+
+      transition: 0.3s;
+    }
+
+
+    a {
+      text-decoration: none;
+    }
+
+
+    button,
+    input {
+      font: inherit;
+    }
+
+
+    /* =========================================================
+       NAVBAR
+       ========================================================= */
+
+    .navbar {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+      background: var(--dark);
+
+      color: white;
+
+      padding:
+        13px 6%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      box-shadow:
+        0 3px 15px rgba(0,0,0,0.25);
+    }
+
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+
+    .brand-logo {
+
+      width: 42px;
+      height: 42px;
+
+      border-radius: 10px;
+
+      background: var(--primary);
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+
+    .brand-name {
+
+      font-size: 22px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+    }
+
+
+    .brand-name span {
+      color: var(--accent);
+    }
+
+
+    .nav-actions {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+
+    .nav-btn {
+
+      border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+      background:
+        rgba(255,255,255,0.08);
+
+      color: white;
+
+      padding:
+        9px 14px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    .nav-btn:hover {
+      background: var(--primary);
+    }
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+
+      min-height: 470px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      padding:
+        80px 20px;
+
+      color: white;
+
+      background:
+
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(198,40,40,0.7),
+          transparent 35%
+        ),
+
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(255,183,3,0.15),
+          transparent 30%
+        ),
+
+        linear-gradient(
+          135deg,
+          #111827,
+          #3b0a0a,
+          #111827
+        );
+    }
+
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+
+    .hero-badge {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding:
+        8px 16px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+      background:
+        rgba(255,255,255,0.08);
+
+      border-radius: 50px;
+
+      margin-bottom: 20px;
+
+      font-size: 13px;
+
+      letter-spacing: 1px;
+    }
+
+
+    .hero h1 {
+
+      font-size:
+        clamp(35px, 7vw, 68px);
+
+      line-height: 1.05;
+
+      margin-bottom: 20px;
+    }
+
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+
+    .tamil-title {
+
+      font-size:
+        clamp(20px, 3vw, 30px);
+
+      margin-bottom: 15px;
+
+      color: #fef3c7;
+    }
+
+
+    .hero-description {
+
+      max-width: 720px;
+
+      margin: auto;
+
+      color: #d1d5db;
+
+      font-size: 17px;
+    }
+
+
+    /* =========================================================
+       HERO STATS
+       ========================================================= */
+
+    .hero-stats {
+
+      margin-top: 35px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 15px;
+    }
+
+
+    .hero-stat {
+
+      padding: 20px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+      background:
+        rgba(255,255,255,0.08);
+
+      border-radius: 12px;
+    }
+
+
+    .hero-stat h3 {
+
+      color: var(--accent);
+
+      font-size: 25px;
+    }
+
+
+    .hero-stat p {
+
+      color: #d1d5db;
+
+      font-size: 13px;
+    }
+
+
+    /* =========================================================
+       MAIN
+       ========================================================= */
+
+    .container {
+
+      width:
+        min(1200px, 92%);
+
+      margin: auto;
+    }
+
+
+    .section {
+      padding: 70px 0;
+    }
+
+
+    .section-header {
+
+      text-align: center;
+
+      margin-bottom: 40px;
+    }
+
+
+    .section-header h2 {
+
+      font-size: 32px;
+
+      margin-bottom: 10px;
+    }
+
+
+    .section-header p {
+
+      color: var(--muted);
+
+      max-width: 700px;
+
+      margin: auto;
+    }
+
+
+    /* =========================================================
+       ASCEND INTRO
+       ========================================================= */
+
+    .ascend-intro {
+
+      display: grid;
+
+      grid-template-columns:
+        65px 1fr;
+
+      gap: 20px;
+
+      background: var(--card);
+
+      border-left:
+        5px solid
+        var(--primary);
+
+      padding: 25px;
+
+      border-radius: 14px;
+
+      box-shadow: var(--shadow);
+
+      margin-bottom: 40px;
+    }
+
+
+    .ascend-intro-icon {
+
+      font-size: 38px;
+
+      color: var(--primary);
+    }
+
+
+    .ascend-intro h3 {
+      margin-bottom: 8px;
+    }
+
+
+    .ascend-intro p {
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       CAREER FORMULA
+       ========================================================= */
+
+    .formula {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 18px;
+
+      font-weight: bold;
+    }
+
+
+    .formula span {
+
+      padding:
+        8px 12px;
+
+      border-radius: 8px;
+
+      background: var(--bg);
+
+      border:
+        1px solid var(--border);
+    }
+
+
+    .formula .plus {
+      background: var(--primary);
+      color: white;
+    }
+
+
+    /* =========================================================
+       SEARCH
+       ========================================================= */
+
+    .filter-area {
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-bottom: 35px;
+    }
+
+
+    .search-box {
+
+      position: relative;
+
+      flex: 1;
+
+      min-width: 250px;
+
+      max-width: 500px;
+    }
+
+
+    .search-box i {
+
+      position: absolute;
+
+      left: 14px;
+
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      color: var(--muted);
+    }
+
+
+    .search-box input {
+
+      width: 100%;
+
+      padding:
+        13px 15px 13px 42px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 9px;
+
+      background: var(--card);
+
+      color: var(--text);
+
+      outline: none;
+    }
+
+
+    .filter-btn {
+
+      padding:
+        11px 15px;
+
+      border:
+        1px solid var(--border);
+
+      background: var(--card);
+
+      color: var(--text);
+
+      border-radius: 9px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    .filter-btn.active,
+    .filter-btn:hover {
+
+      background: var(--primary);
+
+      color: white;
+
+      border-color: var(--primary);
+    }
+
+
+    /* =========================================================
+       CAREER GRID
+       ========================================================= */
+
+    .career-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(330px, 1fr)
+        );
+
+      gap: 25px;
+    }
+
+
+    /* =========================================================
+       CAREER CARD
+       ========================================================= */
+
+    .career-card {
+
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 16px;
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+
+      transition:
+        0.3s;
+
+      display: flex;
+
+      flex-direction: column;
+    }
+
+
+    .career-card:hover {
+
+      transform:
+        translateY(-7px);
+
+      box-shadow:
+        0 20px 40px
+        rgba(0,0,0,0.14);
+    }
+
+
+    .career-header {
+
+      padding: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+
+      color: white;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+    }
+
+
+    .rank-badge {
+
+      padding:
+        6px 10px;
+
+      background:
+        rgba(255,255,255,0.15);
+
+      border-radius: 50px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+    }
+
+
+    .career-icon {
+
+      width: 48px;
+      height: 48px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.16);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+
+    .career-body {
+
+      padding: 24px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      flex: 1;
+    }
+
+
+    .career-body h3 {
+
+      font-size: 21px;
+
+      line-height: 1.3;
+
+      margin-bottom: 10px;
+    }
+
+
+    .career-body .main-work {
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      margin-bottom: 22px;
+    }
+
+
+    /* =========================================================
+       SALARY
+       ========================================================= */
+
+    .salary-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 10px;
+
+      margin-bottom: 22px;
+    }
+
+
+    .salary-box {
+
+      padding: 13px;
+
+      background: var(--bg);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 10px;
+    }
+
+
+    .salary-box small {
+
+      display: block;
+
+      color: var(--muted);
+
+      margin-bottom: 4px;
+
+      font-size: 11px;
+    }
+
+
+    .salary-box strong {
+
+      color: var(--green);
+
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       SKILLS
+       ========================================================= */
+
+    .section-label {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+
+    .section-label i {
+
+      color: var(--primary);
+    }
+
+
+    .skills {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 20px;
+    }
+
+
+    .skill {
+
+      padding:
+        6px 9px;
+
+      border-radius: 50px;
+
+      background:
+        rgba(198,40,40,0.09);
+
+      color: var(--primary);
+
+      font-size: 11px;
+
+      border:
+        1px solid
+        rgba(198,40,40,0.1);
+    }
+
+
+    /* =========================================================
+       ACTIONS
+       ========================================================= */
+
+    .card-actions {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 10px;
+
+      margin-top: auto;
+    }
+
+
+    .action-btn {
+
+      border: none;
+
+      padding: 11px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+
+    .details-btn {
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      border:
+        1px solid var(--border);
+    }
+
+
+    .learn-btn {
+
+      background: var(--primary);
+
+      color: white;
+    }
+
+
+    .learn-btn:hover {
+
+      background:
+        var(--primary-dark);
+    }
+
+
+    /* =========================================================
+       MODAL
+       ========================================================= */
+
+    .modal {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background:
+        rgba(0,0,0,0.7);
+
+      padding: 20px;
+
+      overflow-y: auto;
+    }
+
+
+    .modal.show {
+      display: flex;
+    }
+
+
+    .modal-box {
+
+      width:
+        min(850px, 100%);
+
+      max-height:
+        90vh;
+
+      overflow-y: auto;
+
+      background: var(--card);
+
+      color: var(--text);
+
+      border-radius: 18px;
+
+      padding: 32px;
+
+      position: relative;
+
+      animation:
+        modalOpen 0.25s ease;
+    }
+
+
+    @keyframes modalOpen {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(20px)
+          scale(0.98);
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+    }
+
+
+    .close-modal {
+
+      position: absolute;
+
+      right: 18px;
+
+      top: 18px;
+
+      width: 38px;
+
+      height: 38px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      cursor: pointer;
+
+      font-size: 18px;
+    }
+
+
+    .modal-title {
+
+      padding-right: 50px;
+
+      margin-bottom: 25px;
+    }
+
+
+    .modal-title .modal-rank {
+
+      color: var(--primary);
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 1px;
+    }
+
+
+    .modal-title h2 {
+
+      font-size: 28px;
+
+      margin-top: 5px;
+    }
+
+
+    .modal-title p {
+
+      color: var(--muted);
+
+      margin-top: 8px;
+    }
+
+
+    /* =========================================================
+       MODAL SKILLS
+       ========================================================= */
+
+    .modal-skills {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 9px;
+    }
+
+
+    .modal-skill {
+
+      padding:
+        9px 12px;
+
+      border:
+        1px solid var(--border);
+
+      background: var(--bg);
+
+      border-radius: 8px;
+
+      font-size: 13px;
+    }
+
+
+    /* =========================================================
+       RESOURCES
+       ========================================================= */
+
+    .resources {
+
+      display: grid;
+
+      gap: 10px;
+    }
+
+
+    .resource {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 14px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 10px;
+
+      color: var(--text);
+
+      transition: 0.3s;
+    }
+
+
+    .resource:hover {
+
+      border-color: var(--primary);
+
+      transform:
+        translateX(5px);
+    }
+
+
+    .resource > i:first-child {
+
+      color: var(--primary);
+
+      font-size: 18px;
+    }
+
+
+    .resource-text {
+
+      flex: 1;
+    }
+
+
+    .resource-text strong {
+
+      display: block;
+
+      font-size: 14px;
+    }
+
+
+    .resource-text small {
+
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+
+    .resource .external {
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       ROADMAP
+       ========================================================= */
+
+    .roadmap {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 20px;
+    }
+
+
+    .roadmap-card {
+
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 25px;
+
+      text-align: center;
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .roadmap-number {
+
+      width: 45px;
+      height: 45px;
+
+      margin:
+        0 auto 15px;
+
+      border-radius: 50%;
+
+      background: var(--primary);
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-weight: bold;
+    }
+
+
+    .roadmap-card p {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 7px;
+    }
+
+
+    /* =========================================================
+       RESOURCE HUB
+       ========================================================= */
+
+    .resource-hub {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(220px, 1fr)
+        );
+
+      gap: 18px;
+    }
+
+
+    .hub-card {
+
+      background: var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 22px;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s;
+    }
+
+
+    .hub-card:hover {
+
+      transform:
+        translateY(-5px);
+
+      border-color:
+        var(--primary);
+    }
+
+
+    .hub-icon {
+
+      width: 45px;
+      height: 45px;
+
+      border-radius: 10px;
+
+      background:
+        rgba(198,40,40,0.1);
+
+      color: var(--primary);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin-bottom: 15px;
+    }
+
+
+    .hub-card h3 {
+
+      font-size: 17px;
+
+      margin-bottom: 7px;
+    }
+
+
+    .hub-card p {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .hub-link {
+
+      color: var(--primary);
+
+      font-size: 13px;
+
+      font-weight: bold;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+
+      background: var(--dark);
+
+      color: #d1d5db;
+
+      padding:
+        45px 20px;
+
+      text-align: center;
+    }
+
+
+    footer h2 {
+
+      color: white;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 8px;
+    }
+
+
+    footer h2 span {
+
+      color: var(--accent);
+    }
+
+
+    footer p {
+
+      font-size: 13px;
+
+      margin-top: 5px;
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 750px) {
+
+      .hero-stats {
+
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .roadmap {
+
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+
+      .navbar {
+
+        padding:
+          12px 4%;
+      }
+
+
+      .brand-name {
+
+        font-size: 18px;
+      }
+
+
+      .nav-btn span {
+
+        display: none;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .career-grid {
+
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .roadmap {
+
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .salary-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+
+      .card-actions {
+
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .modal-box {
+
+        padding:
+          25px 18px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVBAR
+       ========================================================= -->
+
+  <nav class="navbar">
+
+
+<div class="brand">
+
+  <div class="brand-logo">
+    <i class="fa-solid fa-arrow-trend-up"></i>
+  </div>
+
+  <div class="brand-name">
+    AS<span>CEND</span>
+  </div>
+
+</div>
+
+
+<div class="nav-actions">
+
+  <a
+    href="../index.html"
+    class="nav-btn"
+  >
+    <i class="fa-solid fa-house"></i>
+    <span>Home</span>
+  </a>
+
+
+  <button
+    class="nav-btn"
+    id="themeButton"
+    title="Toggle Theme"
+  >
+
+    <i
+      class="fa-solid fa-moon"
+      id="themeIcon"
+    ></i>
+
+  </button>
+
+</div>
+
+
+  </nav>
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+
+  <header class="hero">
+
+
+<div class="hero-content">
+
+  <div class="hero-badge">
+
+    <i class="fa-solid fa-language"></i>
+
+    ASCEND LANGUAGE & LITERATURE
+
+  </div>
+
+
+  <h1>
+
+    Tamil Literature
+
+    <br>
+
+    <span>Career Pathway</span>
+
+  </h1>
+
+
+  <div class="tamil-title">
+
+    தமிழ் இலக்கியம் → எதிர்கால வேலைவாய்ப்பு
+
+  </div>
+
+
+  <p class="hero-description">
+
+    Explore traditional and emerging
+    career opportunities for Tamil
+    Literature graduates. Build modern
+    skills in AI, localization, digital
+    content, communication and education.
+
+  </p>
+
+
+  <div class="hero-stats">
+
+    <div class="hero-stat">
+
+      <h3>10</h3>
+
+      <p>
+        High-Potential Careers
+      </p>
+
+    </div>
+
+
+    <div class="hero-stat">
+
+      <h3>₹30 LPA</h3>
+
+      <p>
+        Highest Listed 5-Year Range
+      </p>
+
+    </div>
+
+
+    <div class="hero-stat">
+
+      <h3>Free</h3>
+
+      <p>
+        Tamil Learning Resources
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  </header>
+
+  <!-- =========================================================
+       MAIN CONTENT
+       ========================================================= -->
+
+  <main class="container">
+
+
+<!-- =======================================================
+     INTRODUCTION
+     ======================================================= -->
+
+<section class="section">
+
+  <div class="section-header">
+
+    <h2>
+      ASCEND Your Tamil Career
+    </h2>
+
+    <p>
+
+      A Tamil Literature degree can become
+      the foundation for careers in language,
+      AI, digital products, media, education,
+      marketing and communication.
+
+    </p>
+
+  </div>
+
+
+  <div class="ascend-intro">
+
+    <div class="ascend-intro-icon">
+
+      <i class="fa-solid fa-compass"></i>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        The ASCEND Career Formula
+      </h3>
+
+
+      <p>
+
+        Combine Tamil language expertise
+        with modern professional skills
+        to move beyond traditional career
+        paths.
+
+      </p>
+
+
+      <div class="formula">
+
+        <span>
+          Tamil Literature
+        </span>
+
+        <span class="plus">
+          +
+        </span>
+
+        <span>
+          English
+        </span>
+
+        <span class="plus">
+          +
+        </span>
+
+        <span>
+          AI & Digital Skills
+        </span>
+
+        <span class="plus">
+          +
+        </span>
+
+        <span>
+          Portfolio
+        </span>
+
+        <span class="plus">
+          =
+        </span>
+
+        <span>
+          Career Growth
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       SEARCH & FILTER
+       ===================================================== -->
+
+  <div class="filter-area">
+
+    <div class="search-box">
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search career or skill..."
+      >
+
+    </div>
+
+
+    <button
+      class="filter-btn active"
+      data-filter="all"
+    >
+      All
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="ai"
+    >
+      AI & Language
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="writing"
+    >
+      Writing
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="business"
+    >
+      Business
+    </button>
+
+
+    <button
+      class="filter-btn"
+      data-filter="education"
+    >
+      Education
+    </button>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       CAREER CARDS
+       ===================================================== -->
+
+  <div
+    class="career-grid"
+    id="careerGrid"
+  ></div>
+
+</section>
+
+
+
+<!-- =======================================================
+     ASCEND ROADMAP
+     ======================================================= -->
+
+<section class="section">
+
+  <div class="section-header">
+
+    <h2>
+      ASCEND Career Roadmap 🚀
+    </h2>
+
+    <p>
+      Follow these four stages to transform
+      your Tamil Literature degree into a
+      modern career profile.
+    </p>
+
+  </div>
+
+
+  <div class="roadmap">
+
+
+    <div class="roadmap-card">
+
+      <div class="roadmap-number">
+        1
+      </div>
+
+      <h3>
+        Discover
+      </h3>
+
+      <p>
+        Select a career that matches
+        your interests and strengths.
+      </p>
+
+    </div>
+
+
+    <div class="roadmap-card">
+
+      <div class="roadmap-number">
+        2
+      </div>
+
+      <h3>
+        Learn
+      </h3>
+
+      <p>
+        Develop the required language,
+        digital and professional skills.
+      </p>
+
+    </div>
+
+
+    <div class="roadmap-card">
+
+      <div class="roadmap-number">
+        3
+      </div>
+
+      <h3>
+        Build
+      </h3>
+
+      <p>
+        Create projects, writing samples
+        and a professional portfolio.
+      </p>
+
+    </div>
+
+
+    <div class="roadmap-card">
+
+      <div class="roadmap-number">
+        4
+      </div>
+
+      <h3>
+        ASCEND
+      </h3>
+
+      <p>
+        Apply for internships, jobs and
+        higher-level opportunities.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     TAMIL RESOURCE HUB
+     ======================================================= -->
+
+<section class="section">
+
+  <div class="section-header">
+
+    <h2>
+      Tamil Learning Resource Hub 📚
+    </h2>
+
+    <p>
+      Useful Tamil-focused resources for
+      literature, language learning,
+      digital Tamil and AI-language skills.
+    </p>
+
+  </div>
+
+
+  <div class="resource-hub">
+
+
+    <div class="hub-card">
+
+      <div class="hub-icon">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+      </div>
+
+
+      <h3>
+        Tamil Virtual Academy
+      </h3>
+
+
+      <p>
+
+        Tamil language education,
+        academic programmes and
+        Tamil learning resources.
+
+      </p>
+
+
+      <a
+        href="https://www.tamilvu.org/"
+        target="_blank"
+        rel="noopener"
+        class="hub-link"
+      >
+
+        Open Resource
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+
+
+    <div class="hub-card">
+
+      <div class="hub-icon">
+
+        <i class="fa-solid fa-book"></i>
+
+      </div>
+
+
+      <h3>
+        Project Madurai
+      </h3>
+
+
+      <p>
+
+        Free electronic editions of
+        Tamil literary works for reading,
+        research and digital text work.
+
+      </p>
+
+
+      <a
+        href="https://www.projectmadurai.org/"
+        target="_blank"
+        rel="noopener"
+        class="hub-link"
+      >
+
+        Open Resource
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+
+
+    <div class="hub-card">
+
+      <div class="hub-icon">
+
+        <i class="fa-solid fa-building-columns"></i>
+
+      </div>
+
+
+      <h3>
+        Tamil Digital Library
+      </h3>
+
+
+      <p>
+
+        Digital Tamil books and
+        literature resources from the
+        Tamil Virtual Academy ecosystem.
+
+      </p>
+
+
+      <a
+        href="https://tamildigitallibrary.in/"
+        target="_blank"
+        rel="noopener"
+        class="hub-link"
+      >
+
+        Open Resource
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+
+
+    <div class="hub-card">
+
+      <div class="hub-icon">
+
+        <i class="fa-solid fa-language"></i>
+
+      </div>
+
+
+      <h3>
+        Tamil Wikisource
+      </h3>
+
+
+      <p>
+
+        Tamil texts, proofreading,
+        digitization and Wikimedia
+        learning resources.
+
+      </p>
+
+
+      <a
+        href="https://ta.wikisource.org/"
+        target="_blank"
+        rel="noopener"
+        class="hub-link"
+      >
+
+        Open Resource
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+
+
+    <div class="hub-card">
+
+      <div class="hub-icon">
+
+        <i class="fa-solid fa-robot"></i>
+
+      </div>
+
+
+      <h3>
+        BHASHINI
+      </h3>
+
+
+      <p>
+
+        Explore India's language-AI
+        ecosystem, including translation,
+        speech and other Indian-language
+        technologies.
+
+      </p>
+
+
+      <a
+        href="https://bhashini.gov.in/"
+        target="_blank"
+        rel="noopener"
+        class="hub-link"
+      >
+
+        Open Resource
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+  </main>
+
+  <!-- =========================================================
+       CAREER MODAL
+       ========================================================= -->
+
+  <div
+    class="modal"
+    id="careerModal"
+  >
+
+
+<div class="modal-box">
+
+  <button
+    class="close-modal"
+    id="closeModal"
+  >
+
+    <i class="fa-solid fa-xmark"></i>
+
+  </button>
+
+
+  <div
+    id="modalContent"
+  ></div>
+
+</div>
+
+
+  </div>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer>
+
+
+<h2>
+  AS<span>CEND</span>
+</h2>
+
+<p>
+  தமிழ் கற்று • திறன் வளர்த்து • உயர்ந்து செல்
+</p>
+
+<p>
+  Learn. Build. Lead. ASCEND.
+</p>
+
+<p>
+  © 2026 ASCEND Career Platform
+</p>
+
+
+  </footer>
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
+  <script>
+
+
+    /* =========================================================
+       CAREER DATA
+       ========================================================= */
+
+    const careers = [
+
+      /* -------------------------------------------------------
+         1. AI LANGUAGE SPECIALIST
+         ------------------------------------------------------- */
+
+      {
+        rank: 1,
+
+        title:
+          "Tamil AI Language Specialist",
+
+        icon:
+          "fa-robot",
+
+        category:
+          "ai",
+
+        work:
+          "Evaluate Tamil AI responses, improve language quality, create language examples and help AI systems understand natural Tamil.",
+
+        skills: [
+
+          "Advanced Tamil",
+
+          "Tamil Grammar",
+
+          "English",
+
+          "AI Literacy",
+
+          "Prompt Design",
+
+          "Critical Thinking",
+
+          "Fact Checking",
+
+          "Language Evaluation"
+
+        ],
+
+        fresher:
+          "₹4–8 LPA",
+
+        experience:
+          "₹12–25 LPA",
+
+        resources: [
+
+          {
+            name:
+              "Tamil Virtual Academy",
+
+            type:
+              "Tamil language & academic learning",
+
+            url:
+              "https://www.tamilvu.org/"
+          },
+
+          {
+            name:
+              "BHASHINI",
+
+            type:
+              "Indian-language AI ecosystem",
+
+            url:
+              "https://bhashini.gov.in/"
+          },
+
+          {
+            name:
+              "Project Madurai",
+
+            type:
+              "Tamil digital text and literature",
+
+            url:
+              "https://www.projectmadurai.org/"
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         2. LOCALIZATION
+         ------------------------------------------------------- */
+
+      {
+        rank: 2,
+
+        title:
+          "Tamil Localization Specialist / Manager",
+
+        icon:
+          "fa-globe",
+
+        category:
+          "ai",
+
+        work:
+          "Adapt websites, applications, software, educational content and digital products so they feel natural and culturally appropriate for Tamil users.",
+
+        skills: [
+
+          "Tamil Writing",
+
+          "English",
+
+          "Translation",
+
+          "Localization",
+
+          "Cultural Adaptation",
+
+          "Terminology",
+
+          "Editing",
+
+          "Quality Assurance"
+
+        ],
+
+        fresher:
+          "₹3.5–7 LPA",
+
+        experience:
+          "₹12–25 LPA",
+
+        resources: [
+
+          {
+            name:
+              "Tamil Virtual Academy",
+
+            type:
+              "Tamil language foundation",
+
+            url:
+              "https://www.tamilvu.org/"
+          },
+
+          {
+            name:
+              "BHASHINI",
+
+            type:
+              "Indian-language translation ecosystem",
+
+            url:
+              "https://bhashini.gov.in/"
+          },
+
+          {
+            name:
+              "Tamil Wikisource",
+
+            type:
+              "Tamil texts and proofreading",
+
+            url:
+              "https://ta.wikisource.org/"
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         3. UX WRITER
+         ------------------------------------------------------- */
+
+      {
+        rank: 3,
+
+        title:
+          "Tamil UX Writer / Content Designer",
+
+        icon:
+          "fa-pen-nib",
+
+        category:
+          "writing",
+
+        work:
+          "Write simple, useful Tamil content for apps, websites, forms, buttons, notifications and digital products.",
+
+        skills: [
+
+          "Tamil Writing",
+
+          "UX Writing",
+
+          "Content Design",
+
+          "User Research",
+
+          "User Psychology",
+
+          "Information Architecture",
+
+          "Editing",
+
+          "Figma Basics"
+
+        ],
+
+        fresher:
+          "₹4–8 LPA",
+
+        experience:
+          "₹12–25 LPA",
+
+        resources: [
+
+          {
+            name:
+              "Tamil Virtual Academy",
+
+            type:
+              "Tamil language and grammar",
+
+            url:
+              "https://www.tamilvu.org/"
+          },
+
+          {
+            name:
+              "Tamil Wikisource",
+
+            type:
+              "Tamil text and proofreading practice",
+
+            url:
+              "https://ta.wikisource.org/"
+          },
+
+          {
+            name:
+              "Tamil Digital Library",
+
+            type:
+              "Tamil literature and vocabulary research",
+
+            url:
+              "https://tamildigitallibrary.in/"
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         4. TECHNICAL WRITER
+         ------------------------------------------------------- */
+
+      {
+        rank: 4,
+
+        title:
+          "Tamil Technical Writer",
+
+        icon:
+          "fa-file-lines",
+
+        category:
+          "writing",
+
+        work:
+          "Create Tamil manuals, guides, SOPs, educational documentation and clear instructions for products and services.",
+
+        skills: [
+
+          "Technical Writing",
+
+          "Tamil Grammar",
+
+          "Research",
+
+          "Documentation",
+
+          "Editing",
+
+          "Proofreading",
+
+          "Information Architecture",
+
+          "English"
+
+        ],
+
+        fresher:
+          "₹4–7 LPA",
+
+        experience:
+          "₹10–20 LPA",
+
+        resources: [
+
+          {
+            name:
+              "Tamil Virtual Academy",
+
+            type:
+              "Tamil language learning",
+
+            url:
+              "https://www.tamilvu.org/"
+          },
+
+          {
+            name:
+              "Tamil Digital Library",
+
+            type:
+              "Tamil terminology and literature",
+
+            url:
+              "https://tamildigitallibrary.in/"
+          },
+
+          {
+            name:
+              "Tamil Wikisource",
+
+            type:
+              "Proofreading and digital text practice",
+
+            url:
+              "https://ta.wikisource.org/"
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         5. CONTENT STRATEGIST
+         ------------------------------------------------------- */
+
+      {
+        rank: 5,
+
+        title:
+          "Tamil Content Strategist",
+
+        icon:
+          "fa-chess-knight",
+
+        category:
+          "writing",
+
+        work:
+          "Plan Tamil content for websites, social media, brands, educational platforms and regional digital audiences.",
+
+        skills: [
+
+          "Tamil Content Writing",
+
+          "Content Strategy",
+
+          "SEO",
+
+          "Audience Research",
+
+          "Social Media",
+
+          "Analytics",
+
+          "Storytelling",
+
+          "English"
+
+        ],
+
+        fresher:
+          "₹3.5–7 LPA",
+
+        experience:
+          "₹10–20 LPA",
+
+        resources: [
+
+          {
+            name:
+              "Tamil Digital Library",
+
+            type:
+              "Tamil literature and research",
+
+            url:
+              "https://tamildigitallibrary.in/"
+          },
+
+          {
+            name:
+              "Project Madurai",
+
+            type:
+              "Tamil literary content",
+
+            url:
+              "https://www.projectmadurai.org/"
+          },
+
+          {
+            name:
+              "Tamil Virtual Academy",
+
+            type:
+              "Tamil language learning",
+
+            url:
+              "https://www.tamilvu.org/"
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         6. DIGITAL MARKETING
+         ------------------------------------------------------- */
+
+      {
+        rank: 6,
+
+        title:
+          "Tamil Digital / Regional Marketing Manager",
+
+        icon:
+          "fa-bullhorn",
+
+        category:
+          "business",
+
+        work:
+          "Plan digital marketing campaigns for Tamil-speaking audiences and regional markets.",
+
+        skills: [
+
+          "Tamil Copywriting",
+
+          "Digital Marketing",
+
+          "SEO",
+
+          "Social Media",
+
+          "Content Marketing",
+
+          "Analytics",
+
+          "Brand Communication",
+
+          "Audience Research"
+
+        ],
+
+        fresher:
+          "₹3.5–7 LPA",
+
+        experience:
+          "₹10–25 LPA",
+
+        resources: [
+
+          {
+            name:
+              "Tamil Virtual Academy",
+
+            type:
+              "Tamil language foundation",
+
+            url:
+              "https://www.tamilvu.org/"
+          },
+
+          {
+            name:
+              "Tamil Digital Library",
+
+            type:
+              "Tamil reading and research",
+
+            url:
+              "https://tamildigitallibrary.in/"
+          },
+
+          {
+            name:
+              "Project Madurai",
+
+            type:
+              "Tamil literary language resource",
+
+            url:
+              "https://www.projectmadurai.org/"
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         7. BRAND STRATEGIST
+         ------------------------------------------------------- */
+
+      {
+        rank: 7,
+
+        title:
+          "Tamil Brand Strategist / Regional Brand Manager",
+
+        icon:
+          "fa-lightbulb",
+
+        category:
+          "business",
+
+        work:
+          "Develop Tamil brand messaging, storytelling, positioning and regional campaign strategies.",
+
+        skills: [
+
+          "Tamil Storytelling",
+
+          "Brand Strategy",
+
+          "Market Research",
+
+          "Consumer Psychology",
+
+          "Copywriting",
+
+          "Presentation",
+
+          "Campaign Planning",
+
+          "Cultural Understanding"
+
+        ],
+
+        fresher:
+          "₹5–9 LPA",
+
+        experience:
+          "₹15–30 LPA",
+
+        resources: [
+
+          {
+            name:
+              "Tamil Digital Library",
+
+            type:
+              "Tamil culture and literature research",
+
+            url:
+              "https://tamildigitallibrary.in/"
+          },
+
+          {
+            name:
+              "Project Madurai",
+
+            type:
+              "Tamil literature and storytelling resource",
+
+            url:
+              "https://www.projectmadurai.org/"
+          },
+
+          {
+            name:
+              "Tamil Virtual Academy",
+
+            type:
+              "Tamil language and culture learning",
+
+            url:
+              "https://www.tamilvu.org/"
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         8. CORPORATE COMMUNICATION
+         ------------------------------------------------------- */
+
+      {
+        rank: 8,
+
+        title:
+          "Tamil Corporate Communications Specialist",
+
+        icon:
+          "fa-building",
+
+        category:
+          "business",
+
+        work:
+          "Create Tamil communication for companies, institutions, public services, employees and regional audiences.",
+
+        skills: [
+
+          "Professional Tamil",
+
+          "Business Communication",
+
+          "English",
+
+          "Public Relations",
+
+          "Presentation",
+
+          "Email Writing",
+
+          "Speech Writing",
+
+          "Editing"
+
+        ],
+
+        fresher:
+          "₹4–7 LPA",
+
+        experience:
+          "₹10–22 LPA",
+
+        resources: [
+
+          {
+            name:
+              "Tamil Virtual Academy",
+
+            type:
+              "Tamil grammar and language",
+
+            url:
+              "https://www.tamilvu.org/"
+          },
+
+          {
+            name:
+              "Tamil Digital Library",
+
+            type:
+              "Tamil research and reading",
+
+            url:
+              "https://tamildigitallibrary.in/"
+          },
+
+          {
+            name:
+              "Tamil Wikisource",
+
+            type:
+              "Tamil text and proofreading",
+
+            url:
+              "https://ta.wikisource.org/"
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         9. INSTRUCTIONAL DESIGNER
+         ------------------------------------------------------- */
+
+      {
+        rank: 9,
+
+        title:
+          "Tamil Instructional Designer / EdTech Specialist",
+
+        icon:
+          "fa-chalkboard-user",
+
+        category:
+          "education",
+
+        work:
+          "Design Tamil digital courses, educational modules, assessments and online learning experiences.",
+
+        skills: [
+
+          "Tamil Writing",
+
+          "Instructional Design",
+
+          "Curriculum Design",
+
+          "Learning Psychology",
+
+          "Assessment Design",
+
+          "Presentation",
+
+          "Digital Learning",
+
+          "Content Development"
+
+        ],
+
+        fresher:
+          "₹4–8 LPA",
+
+        experience:
+          "₹12–22 LPA",
+
+        resources: [
+
+          {
+            name:
+              "Tamil Virtual Academy",
+
+            type:
+              "Tamil academic programmes",
+
+            url:
+              "https://www.tamilvu.org/"
+          },
+
+          {
+            name:
+              "Tamil Digital Library",
+
+            type:
+              "Tamil educational content",
+
+            url:
+              "https://tamildigitallibrary.in/"
+          },
+
+          {
+            name:
+              "Project Madurai",
+
+            type:
+              "Tamil literature resource",
+
+            url:
+              "https://www.projectmadurai.org/"
+          }
+
+        ]
+
+      },
+
+
+      /* -------------------------------------------------------
+         10. TRANSLATOR
+         ------------------------------------------------------- */
+
+      {
+        rank: 10,
+
+        title:
+          "Tamil Translator / Senior Language Specialist",
+
+        icon:
+          "fa-language",
+
+        category:
+          "ai",
+
+        work:
+          "Translate professional, educational, media and digital content between Tamil and English while preserving meaning and cultural context.",
+
+        skills: [
+
+          "Tamil",
+
+          "English",
+
+          "Translation",
+
+          "Localization",
+
+          "Editing",
+
+          "Proofreading",
+
+          "Terminology",
+
+          "Cultural Knowledge"
+
+        ],
+
+        fresher:
+          "₹3–6 LPA",
+
+        experience:
+          "₹8–18 LPA",
+
+        resources: [
+
+          {
+            name:
+              "Tamil Virtual Academy",
+
+            type:
+              "Tamil language learning",
+
+            url:
+              "https://www.tamilvu.org/"
+          },
+
+          {
+            name:
+              "Tamil Wikisource",
+
+            type:
+              "Tamil text and proofreading practice",
+
+            url:
+              "https://ta.wikisource.org/"
+          },
+
+          {
+            name:
+              "Project Madurai",
+
+            type:
+              "Tamil literary texts",
+
+            url:
+              "https://www.projectmadurai.org/"
+          }
+
+        ]
+
+      }
+
+    ];
+
+
+
+    /* =========================================================
+       DOM ELEMENTS
+       ========================================================= */
+
+    const careerGrid =
+      document.getElementById(
+        "careerGrid"
+      );
+
+
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
+
+
+    const modal =
+      document.getElementById(
+        "careerModal"
+      );
+
+
+    const modalContent =
+      document.getElementById(
+        "modalContent"
+      );
+
+
+    const closeModal =
+      document.getElementById(
+        "closeModal"
+      );
+
+
+    const filterButtons =
+      document.querySelectorAll(
+        ".filter-btn"
+      );
+
+
+    let currentFilter =
+      "all";
+
+
+
+    /* =========================================================
+       RENDER CAREERS
+       ========================================================= */
+
+    function renderCareers() {
+
+      const searchTerm =
+        searchInput.value
+          .toLowerCase()
+          .trim();
+
+
+      const filtered =
+        careers.filter(
+          career => {
+
+            const searchableText = `
+
+              ${career.title}
+
+              ${career.work}
+
+              ${career.skills.join(" ")}
+
+            `.toLowerCase();
+
+
+            const categoryMatch =
+
+              currentFilter === "all" ||
+
+              career.category ===
+              currentFilter;
+
+
+            const searchMatch =
+
+              searchableText.includes(
+                searchTerm
+              );
+
+
+            return (
+              categoryMatch &&
+              searchMatch
+            );
+
+          }
+        );
+
+
+      if (filtered.length === 0) {
+
+        careerGrid.innerHTML = `
+
+          <div
+            style="
+              grid-column:1/-1;
+              text-align:center;
+              padding:60px 20px;
+              color:var(--muted);
+            "
+          >
+
+            <i
+              class="
+                fa-solid
+                fa-magnifying-glass
+              "
+              style="
+                font-size:38px;
+                margin-bottom:15px;
+              "
+            ></i>
+
+            <h3>
+              No Career Found
+            </h3>
+
+            <p>
+              Try another career or skill.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+      }
+
+
+      careerGrid.innerHTML =
+
+        filtered.map(
+          career => `
+
+            <article
+              class="career-card"
+            >
+
+              <div
+                class="career-header"
+              >
+
+                <span
+                  class="rank-badge"
+                >
+                  RANK #${career.rank}
+                </span>
+
+
+                <div
+                  class="career-icon"
+                >
+
+                  <i
+                    class="
+                      fa-solid
+                      ${career.icon}
+                    "
+                  ></i>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="career-body"
+              >
+
+                <h3>
+                  ${career.title}
+                </h3>
+
+
+                <p
+                  class="main-work"
+                >
+                  ${career.work}
+                </p>
+
+
+                <div
+                  class="salary-grid"
+                >
+
+                  <div
+                    class="salary-box"
+                  >
+
+                    <small>
+                      FRESHER SALARY
+                    </small>
+
+                    <strong>
+                      ${career.fresher}
+                    </strong>
+
+                  </div>
+
+
+                  <div
+                    class="salary-box"
+                  >
+
+                    <small>
+                      5 YEARS EXPERIENCE
+                    </small>
+
+                    <strong>
+                      ${career.experience}
+                    </strong>
+
+                  </div>
+
+                </div>
+
+
+                <div
+                  class="section-label"
+                >
+
+                  <i
+                    class="
+                      fa-solid
+                      fa-list-check
+                    "
+                  ></i>
+
+                  Required Skills
+
+                </div>
+
+
+                <div
+                  class="skills"
+                >
+
+                  ${
+
+                    career.skills
+                      .map(
+                        skill => `
+
+                          <span
+                            class="skill"
+                          >
+                            ${skill}
+                          </span>
+
+                        `
+                      )
+                      .join("")
+
+                  }
+
+                </div>
+
+
+                <div
+                  class="card-actions"
+                >
+
+                  <button
+                    class="
+                      action-btn
+                      details-btn
+                    "
+                    onclick="
+                      showCareer(
+                        ${career.rank}
+                      )
+                    "
+                  >
+
+                    <i
+                      class="
+                        fa-solid
+                        fa-circle-info
+                      "
+                    ></i>
+
+                    Details
+
+                  </button>
+
+
+                  <button
+                    class="
+                      action-btn
+                      learn-btn
+                    "
+                    onclick="
+                      showCareer(
+                        ${career.rank}
+                      )
+                    "
+                  >
+
+                    <i
+                      class="
+                        fa-solid
+                        fa-book-open
+                      "
+                    ></i>
+
+                    Learn Free
+
+                  </button>
+
+                </div>
+
+              </div>
+
+            </article>
+
+          `
+        )
+        .join("");
+
+    }
+
+
+
+    /* =========================================================
+       SHOW CAREER DETAILS
+       ========================================================= */
+
+    function showCareer(rank) {
+
+      const career =
+        careers.find(
+          item =>
+            item.rank === rank
+        );
+
+
+      modalContent.innerHTML = `
+
+        <div
+          class="modal-title"
+        >
+
+          <div
+            class="modal-rank"
+          >
+            ASCEND CAREER #${career.rank}
+          </div>
+
+
+          <h2>
+            ${career.title}
+          </h2>
+
+
+          <p>
+            ${career.work}
+          </p>
+
+        </div>
+
+
+        <div
+          class="salary-grid"
+        >
+
+          <div
+            class="salary-box"
+          >
+
+            <small>
+              FRESHER SALARY
+            </small>
+
+            <strong>
+              ${career.fresher}
+            </strong>
+
+          </div>
+
+
+          <div
+            class="salary-box"
+          >
+
+            <small>
+              5 YEARS EXPERIENCE
+            </small>
+
+            <strong>
+              ${career.experience}
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div
+          style="
+            margin-top:25px;
+          "
+        >
+
+          <div
+            class="section-label"
+          >
+
+            <i
+              class="
+                fa-solid
+                fa-list-check
+              "
+            ></i>
+
+            Required Skills
+
+          </div>
+
+
+          <div
+            class="modal-skills"
+          >
+
+            ${
+
+              career.skills
+                .map(
+                  skill => `
+
+                    <span
+                      class="modal-skill"
+                    >
+                      ${skill}
+                    </span>
+
+                  `
+                )
+                .join("")
+
+            }
+
+          </div>
+
+        </div>
+
+
+        <div
+          style="
+            margin-top:30px;
+          "
+        >
+
+          <div
+            class="section-label"
+          >
+
+            <i
+              class="
+                fa-solid
+                fa-graduation-cap
+              "
+            ></i>
+
+            Tamil-Focused Learning Resources
+
+          </div>
+
+
+          <div
+            class="resources"
+          >
+
+            ${
+
+              career.resources
+                .map(
+                  resource => `
+
+                    <a
+                      href="${resource.url}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="resource"
+                    >
+
+                      <i
+                        class="
+                          fa-solid
+                          fa-book
+                        "
+                      ></i>
+
+
+                      <div
+                        class="resource-text"
+                      >
+
+                        <strong>
+                          ${resource.name}
+                        </strong>
+
+                        <small>
+                          ${resource.type}
+                        </small>
+
+                      </div>
+
+
+                      <i
+                        class="
+                          fa-solid
+                          fa-arrow-up-right-from-square
+                          external
+                        "
+                      ></i>
+
+                    </a>
+
+                  `
+                )
+                .join("")
+
+            }
+
+          </div>
+
+        </div>
+
+
+        <div
+          style="
+            margin-top:30px;
+          "
+        >
+
+          <div
+            class="ascend-intro"
+            style="
+              margin-bottom:0;
+            "
+          >
+
+            <div
+              class="ascend-intro-icon"
+            >
+
+              <i
+                class="
+                  fa-solid
+                  fa-arrow-trend-up
+                "
+              ></i>
+
+            </div>
+
+
+            <div>
+
+              <h3>
+                ASCEND Action Plan
+              </h3>
+
+
+              <p>
+
+                Start with the Tamil resources,
+                strengthen your English and
+                professional communication,
+                learn the career-specific skills,
+                create 2–3 portfolio projects,
+                and then apply for internships
+                and entry-level positions.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+
+      modal.classList.add(
+        "show"
+      );
+
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+
+    /* =========================================================
+       SEARCH
+       ========================================================= */
+
+    searchInput.addEventListener(
+      "input",
+      renderCareers
+    );
+
+
+
+    /* =========================================================
+       FILTER
+       ========================================================= */
+
+    filterButtons.forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            filterButtons.forEach(
+              btn =>
+                btn.classList.remove(
+                  "active"
+                )
+            );
+
+
+            button.classList.add(
+              "active"
+            );
+
+
+            currentFilter =
+              button.dataset.filter;
+
+
+            renderCareers();
+
+          }
+        );
+
+      }
+    );
+
+
+
+    /* =========================================================
+       CLOSE MODAL
+       ========================================================= */
+
+    function closeCareerModal() {
+
+      modal.classList.remove(
+        "show"
+      );
+
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    closeModal.addEventListener(
+      "click",
+      closeCareerModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === modal
+        ) {
+
+          closeCareerModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeCareerModal();
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================================================
+       DARK / LIGHT THEME
+       ========================================================= */
+
+    const themeButton =
+      document.getElementById(
+        "themeButton"
+      );
+
+
+    const themeIcon =
+      document.getElementById(
+        "themeIcon"
+      );
+
+
+    themeButton.addEventListener(
+      "click",
+      () => {
+
+        document.body.classList.toggle(
+          "dark-mode"
+        );
+
+
+        const dark =
+          document.body.classList.contains(
+            "dark-mode"
+          );
+
+
+        themeIcon.className =
+
+          dark
+            ? "fa-solid fa-sun"
+            : "fa-solid fa-moon";
+
+
+        localStorage.setItem(
+          "ascendTamilTheme",
+          dark
+            ? "dark"
+            : "light"
+        );
+
+      }
+    );
+
+
+
+    /* =========================================================
+       LOAD THEME
+       ========================================================= */
+
+    if (
+      localStorage.getItem(
+        "ascendTamilTheme"
+      ) === "dark"
+    ) {
+
+      document.body.classList.add(
+        "dark-mode"
+      );
+
+
+      themeIcon.className =
+        "fa-solid fa-sun";
+
+    }
+
+
+
+    /* =========================================================
+       INITIAL LOAD
+       ========================================================= */
+
+    renderCareers();
+
+  </script>
+
+</body>
+</html>
