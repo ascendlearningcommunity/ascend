@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ASCEND | High-Demand Technical Careers for Commerce Graduates</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* =====================================================
+   ASCEND MODERN DESIGN SYSTEM
+===================================================== */
+
+:root {
+  --bg: #f7f8fc;
+  --surface: #ffffff;
+  --surface-soft: #f1f3f8;
+  --border: #e5e7ef;
+
+  --text: #172033;
+  --muted: #6b7280;
+
+  --primary: #5b5bd6;
+  --primary-dark: #4545b7;
+  --primary-soft: #eeeeff;
+
+  --success: #1e9b6d;
+  --success-soft: #e8f8f1;
+
+  --radius: 18px;
+  --radius-lg: 24px;
+
+  --shadow: 0 8px 30px rgba(25, 32, 56, 0.08);
+  --shadow-hover: 0 15px 40px rgba(25, 32, 56, 0.14);
+}
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-bottom: 90px;
+}
+
+/* =====================================================
+   TOP NAVIGATION
+===================================================== */
+
+.top-nav {
+  position: sticky;
+  top: 0;
+
+  width: 100%;
+  height: 64px;
+
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background:
+    rgba(247, 248, 252, 0.92);
+
+  backdrop-filter: blur(18px);
+
+  border-bottom:
+    1px solid
+    rgba(229, 231, 239, 0.8);
+
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 21px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      #8b5cf6
+    );
+
+  color: white;
+  font-size: 15px;
+}
+
+.brand span {
+  color: var(--text);
+}
+
+.brand strong {
+  color: var(--primary);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-btn {
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  background: var(--surface);
+  color: var(--text);
+
+  font-size: 15px;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.nav-btn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.main-container {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: auto;
+  padding: 20px 14px 40px;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  padding: 42px 24px;
+
+  margin-bottom: 28px;
+
+  border-radius: var(--radius-lg);
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1f2254,
+      var(--primary),
+      #7c3aed
+    );
+
+  box-shadow:
+    0 15px 35px
+    rgba(91, 91, 214, 0.22);
+
+  position: relative;
+  overflow: hidden;
+
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  right: -100px;
+  top: -120px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  left: -80px;
+  bottom: -100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 8px 13px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  max-width: 850px;
+
+  margin:
+    0 auto 14px;
+
+  font-size:
+    clamp(32px, 5vw, 58px);
+
+  line-height: 1.1;
+}
+
+.hero h1 span {
+  color: #d8ccff;
+}
+
+.hero p {
+  max-width: 760px;
+
+  margin: auto;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  opacity: 0.92;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  min-height: 45px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 0 17px;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+.hero-btn.primary {
+  background: white;
+  color: var(--primary);
+}
+
+.hero-btn.primary:hover {
+  transform: translateY(-2px);
+}
+
+.hero-btn.secondary {
+  color: white;
+
+  border:
+    1px solid
+    rgba(255,255,255,.25);
+
+  background:
+    rgba(255,255,255,.10);
+}
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin:
+    30px 4px 15px;
+}
+
+.section-title h2 {
+  font-size: 21px;
+}
+
+.section-title p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.notice {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+
+  padding: 18px;
+
+  background: var(--surface);
+
+  border:
+    1px solid var(--border);
+
+  border-left:
+    4px solid var(--primary);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+}
+
+.notice-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.notice h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.notice p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-area {
+  margin-bottom: 20px;
+}
+
+.search-field {
+  position: relative;
+}
+
+.search-field i {
+  position: absolute;
+
+  left: 16px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: var(--muted);
+}
+
+.search-field input {
+  width: 100%;
+  height: 52px;
+
+  padding:
+    0 16px
+    0 46px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 14px;
+
+  background: var(--surface);
+
+  color: var(--text);
+
+  font-size: 14px;
+
+  outline: none;
+
+  box-shadow: var(--shadow);
+
+  transition: 0.2s;
+}
+
+.search-field input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(91, 91, 214, 0.08);
+}
+
+/* =====================================================
+   CAREER GRID
+===================================================== */
+
+.career-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    );
+
+  gap: 16px;
+}
+
+/* =====================================================
+   CAREER CARD
+===================================================== */
+
+.career-card {
+  position: relative;
+
+  padding: 22px;
+
+  background: var(--surface);
+
+  border:
+    1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+
+  transition: 0.25s;
+}
+
+.career-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  right: -45px;
+  top: -50px;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-soft);
+}
+
+.career-card:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(91, 91, 214, 0.35);
+
+  box-shadow:
+    var(--shadow-hover);
+}
+
+.rank {
+  position: absolute;
+
+  right: 20px;
+  top: 18px;
+
+  z-index: 2;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  color: var(--primary);
+}
+
+.career-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: var(--primary-soft);
+
+  color: var(--primary);
+
+  font-size: 24px;
+}
+
+.career-card h3 {
+  margin-top: 18px;
+
+  font-size: 20px;
+}
+
+.description {
+  margin:
+    9px 0 20px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* =====================================================
+   SALARY
+===================================================== */
+
+.salary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+.salary-box {
+  padding: 12px;
+
+  background: var(--surface-soft);
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 12px;
+}
+
+.salary-box small {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+  margin-bottom: 4px;
+}
+
+.salary-box strong {
+  color: var(--success);
+
+  font-size: 15px;
+}
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.skill {
+  padding: 6px 10px;
+
+  border-radius: 8px;
+
+  background: var(--primary-soft);
+
+  color: var(--primary);
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   ROADMAP
+===================================================== */
+
+.roadmap {
+  margin-top: 65px;
+}
+
+.steps {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(145px, 1fr)
+    );
+
+  gap: 12px;
+}
+
+.step {
+  padding: 20px 12px;
+
+  text-align: center;
+
+  background: var(--surface);
+
+  border:
+    1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  transition: 0.2s;
+}
+
+.step:hover {
+  transform: translateY(-3px);
+}
+
+.step-number {
+  width: 38px;
+  height: 38px;
+
+  margin:
+    0 auto 12px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    var(--primary-soft);
+
+  color: var(--primary);
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.step h4 {
+  font-size: 14px;
+}
+
+.step p {
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+}
+
+/* =====================================================
+   RESOURCES
+===================================================== */
+
+.resources {
+  margin-top: 65px;
+}
+
+.resource-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    );
+
+  gap: 15px;
+}
+
+.resource {
+  padding: 20px;
+
+  background: var(--surface);
+
+  border:
+    1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  transition: 0.2s;
+}
+
+.resource:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(91, 91, 214, 0.3);
+}
+
+.resource-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 14px;
+
+  background: var(--primary-soft);
+
+  color: var(--primary);
+
+  font-size: 19px;
+}
+
+.resource h3 {
+  font-size: 16px;
+  margin-bottom: 7px;
+}
+
+.resource p {
+  min-height: 64px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  line-height: 1.6;
+
+  margin-bottom: 15px;
+}
+
+.resource a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--primary);
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   FINAL CTA
+===================================================== */
+
+.final-cta {
+  margin-top: 65px;
+
+  padding: 40px 20px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1f2254,
+      var(--primary),
+      #7c3aed
+    );
+
+  color: white;
+
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    0 15px 35px
+    rgba(91, 91, 214, 0.20);
+}
+
+.final-cta h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.final-cta p {
+  max-width: 600px;
+
+  margin:
+    0 auto 22px;
+
+  font-size: 13px;
+
+  opacity: 0.88;
+}
+
+/* =====================================================
+   BOTTOM NAVIGATION
+===================================================== */
+
+.bottom-nav {
+  position: fixed;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding:
+    8px 8px
+    calc(8px + env(safe-area-inset-bottom));
+
+  background:
+    rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(18px);
+
+  border-top:
+    1px solid var(--border);
+
+  z-index: 2000;
+}
+
+.nav-item {
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  padding: 7px 2px;
+
+  text-decoration: none;
+
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.nav-item i {
+  font-size: 17px;
+}
+
+.nav-item.active {
+  color: var(--primary);
+}
+
+.nav-item.active i {
+  width: 38px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: var(--primary-soft);
+}
+
+/* =====================================================
+   EMPTY SEARCH
+===================================================== */
+
+.no-results {
+  display: none;
+
+  grid-column: 1 / -1;
+
+  padding: 45px 20px;
+
+  text-align: center;
+
+  background: var(--surface);
+
+  border:
+    1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  color: var(--muted);
+}
+
+.no-results i {
+  display: block;
+
+  font-size: 30px;
+
+  color: var(--primary);
+
+  margin-bottom: 10px;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 600px) {
+
+  .hero {
+    padding:
+      35px 18px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .salary {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    display: block;
+  }
+
+  .section-title p {
+    margin-top: 5px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     TOP NAVIGATION
+===================================================== -->
+
+<header class="top-nav">
+
+  <div class="brand">
+
+    <div class="brand-logo">
+      <i class="fas fa-arrow-trend-up"></i>
+    </div>
+
+    <span>AS<strong>CEND</strong></span>
+
+  </div>
+
+  <div class="nav-buttons">
+
+    <button
+      class="nav-btn"
+      onclick="location.reload()"
+      title="Refresh"
+    >
+      <i class="fas fa-rotate"></i>
+    </button>
+
+    <button
+      class="nav-btn"
+      onclick="goHome()"
+      title="Home"
+    >
+      <i class="fas fa-house"></i>
+    </button>
+
+  </div>
+
+</header>
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main-container">
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-badge">
+      <i class="fas fa-rocket"></i>
+      CAREER GUIDE FOR COMMERCE GRADUATES
+    </div>
+
+    <h1>
+      High-Demand
+      <span>Technical Careers</span>
+      for Commerce Students
+    </h1>
+
+    <p>
+      Combine your Commerce knowledge with technology,
+      analytics and business skills to build a
+      future-ready career.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a
+        href="#careers"
+        class="hero-btn primary"
+      >
+        Explore Careers
+        <i class="fas fa-arrow-down"></i>
+      </a>
+
+      <a
+        href="#resources"
+        class="hero-btn secondary"
+      >
+        <i class="fas fa-book-open"></i>
+        Free Resources
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- NOTICE -->
+
+<section class="notice">
+
+  <div class="notice-icon">
+    <i class="fas fa-brain"></i>
+  </div>
+
+  <div>
+
+    <h3>Important Career Advice</h3>
+
+    <p>
+      No career is completely AI-proof. Build skills where
+      AI becomes a productivity tool while your business
+      understanding, communication, judgment and
+      decision-making create real value.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     CAREERS
+===================================================== -->
+
+<section id="careers">
+
+  <div class="section-title">
+
+    <div>
+      <h2>Top 5 Career Paths</h2>
+      <p>
+        Technical careers that can suit Commerce graduates
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SEARCH -->
+
+  <div class="search-area">
+
+    <div class="search-field">
+
+      <i class="fas fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        id="search"
+        placeholder="Search careers or skills..."
+      >
+
+    </div>
+
+  </div>
+
+  <!-- CAREER GRID -->
+
+  <div
+    class="career-grid"
+    id="careerGrid"
+  >
+
+    <!-- 01 -->
+
+    <article
+      class="career-card"
+      data-search="business analyst excel sql power bi ai business communication requirements analysis"
+    >
+
+      <div class="rank">01</div>
+
+      <div class="career-top">
+
+        <div class="icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+
+      </div>
+
+      <h3>Business Analyst</h3>
+
+      <p class="description">
+        Analyse business problems, understand requirements
+        and help organisations make better decisions.
+      </p>
+
+      <div class="salary">
+
+        <div class="salary-box">
+
+          <small>Fresher</small>
+
+          <strong>₹4–8 LPA</strong>
+
+        </div>
+
+        <div class="salary-box">
+
+          <small>5 Years</small>
+
+          <strong>₹10–18+ LPA</strong>
+
+        </div>
+
+      </div>
+
+      <div class="skills">
+
+        <span class="skill">Excel</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Power BI</span>
+        <span class="skill">Business Analysis</span>
+        <span class="skill">AI Tools</span>
+        <span class="skill">Communication</span>
+
+      </div>
+
+    </article>
+
+    <!-- 02 -->
+
+    <article
+      class="career-card"
+      data-search="data bi analyst excel sql power bi statistics dashboard visualisation analytics"
+    >
+
+      <div class="rank">02</div>
+
+      <div class="career-top">
+
+        <div class="icon">
+          <i class="fas fa-chart-column"></i>
+        </div>
+
+      </div>
+
+      <h3>Data / BI Analyst</h3>
+
+      <p class="description">
+        Turn business data into dashboards, reports and
+        useful insights for better decision-making.
+      </p>
+
+      <div class="salary">
+
+        <div class="salary-box">
+
+          <small>Fresher</small>
+
+          <strong>₹3.5–7 LPA</strong>
+
+        </div>
+
+        <div class="salary-box">
+
+          <small>5 Years</small>
+
+          <strong>₹9–16+ LPA</strong>
+
+        </div>
+
+      </div>
+
+      <div class="skills">
+
+        <span class="skill">Advanced Excel</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Power BI</span>
+        <span class="skill">Statistics</span>
+        <span class="skill">Data Visualisation</span>
+
+      </div>
+
+    </article>
+
+    <!-- 03 -->
+
+    <article
+      class="career-card"
+      data-search="sap erp finance consultant accounting enterprise software business processes"
+    >
+
+      <div class="rank">03</div>
+
+      <div class="career-top">
+
+        <div class="icon">
+          <i class="fas fa-file-invoice-dollar"></i>
+        </div>
+
+      </div>
+
+      <h3>ERP / SAP Finance Consultant</h3>
+
+      <p class="description">
+        Combine accounting knowledge with enterprise
+        software and business process technology.
+      </p>
+
+      <div class="salary">
+
+        <div class="salary-box">
+
+          <small>Fresher</small>
+
+          <strong>₹4–8 LPA</strong>
+
+        </div>
+
+        <div class="salary-box">
+
+          <small>5 Years</small>
+
+          <strong>₹10–20+ LPA</strong>
+
+        </div>
+
+      </div>
+
+      <div class="skills">
+
+        <span class="skill">Accounting</span>
+        <span class="skill">SAP</span>
+        <span class="skill">ERP</span>
+        <span class="skill">Business Processes</span>
+        <span class="skill">Excel</span>
+
+      </div>
+
+    </article>
+
+    <!-- 04 -->
+
+    <article
+      class="career-card"
+      data-search="financial analyst fp&a finance excel modelling power bi forecasting accounting budgeting"
+    >
+
+      <div class="rank">04</div>
+
+      <div class="career-top">
+
+        <div class="icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+
+      </div>
+
+      <h3>Financial Analyst / FP&A</h3>
+
+      <p class="description">
+        Analyse revenue, expenses, budgets and forecasts
+        to support management decisions.
+      </p>
+
+      <div class="salary">
+
+        <div class="salary-box">
+
+          <small>Fresher</small>
+
+          <strong>₹4–7 LPA</strong>
+
+        </div>
+
+        <div class="salary-box">
+
+          <small>5 Years</small>
+
+          <strong>₹9–16+ LPA</strong>
+
+        </div>
+
+      </div>
+
+      <div class="skills">
+
+        <span class="skill">Accounting</span>
+        <span class="skill">Excel</span>
+        <span class="skill">Financial Modelling</span>
+        <span class="skill">Power BI</span>
+        <span class="skill">Forecasting</span>
+
+      </div>
+
+    </article>
+
+    <!-- 05 -->
+
+    <article
+      class="career-card"
+      data-search="risk fraud analytics finance sql excel statistics fraud detection critical thinking"
+    >
+
+      <div class="rank">05</div>
+
+      <div class="career-top">
+
+        <div class="icon">
+          <i class="fas fa-shield-halved"></i>
+        </div>
+
+      </div>
+
+      <h3>Risk & Fraud Analytics</h3>
+
+      <p class="description">
+        Identify suspicious transactions, financial risks
+        and unusual patterns using data and analytics.
+      </p>
+
+      <div class="salary">
+
+        <div class="salary-box">
+
+          <small>Fresher</small>
+
+          <strong>₹4–8 LPA</strong>
+
+        </div>
+
+        <div class="salary-box">
+
+          <small>5 Years</small>
+
+          <strong>₹10–18+ LPA</strong>
+
+        </div>
+
+      </div>
+
+      <div class="skills">
+
+        <span class="skill">Finance</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Excel</span>
+        <span class="skill">Statistics</span>
+        <span class="skill">Fraud Detection</span>
+        <span class="skill">Critical Thinking</span>
+
+      </div>
+
+    </article>
+
+    <!-- NO RESULTS -->
+
+    <div
+      class="no-results"
+      id="noResults"
+    >
+
+      <i class="fas fa-magnifying-glass"></i>
+
+      <h3>No Career Found</h3>
+
+      <p>
+        Try another career name or skill.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     ROADMAP
+===================================================== -->
+
+<section
+  class="roadmap"
+  id="roadmap"
+>
+
+  <div class="section-title">
+
+    <div>
+
+      <h2>Commerce → Tech Roadmap</h2>
+
+      <p>
+        A simple pathway for beginners
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+
+      <div class="step-number">1</div>
+
+      <h4>Commerce</h4>
+
+      <p>Accounting & Business</p>
+
+    </div>
+
+    <div class="step">
+
+      <div class="step-number">2</div>
+
+      <h4>Excel</h4>
+
+      <p>Spreadsheets & Analysis</p>
+
+    </div>
+
+    <div class="step">
+
+      <div class="step-number">3</div>
+
+      <h4>SQL</h4>
+
+      <p>Work with Data</p>
+
+    </div>
+
+    <div class="step">
+
+      <div class="step-number">4</div>
+
+      <h4>Power BI</h4>
+
+      <p>Dashboards & Reports</p>
+
+    </div>
+
+    <div class="step">
+
+      <div class="step-number">5</div>
+
+      <h4>AI Tools</h4>
+
+      <p>Automate & Improve</p>
+
+    </div>
+
+    <div class="step">
+
+      <div class="step-number">6</div>
+
+      <h4>Projects</h4>
+
+      <p>Build Your Portfolio</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     RESOURCES
+===================================================== -->
+
+<section
+  class="resources"
+  id="resources"
+>
+
+  <div class="section-title">
+
+    <div>
+
+      <h2>Learn the Required Skills</h2>
+
+      <p>
+        Beginner-friendly learning resources
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="resource-grid">
+
+    <div class="resource">
+
+      <div class="resource-icon">
+        <i class="fas fa-database"></i>
+      </div>
+
+      <h3>SQL</h3>
+
+      <p>
+        Learn databases, SELECT statements, filtering,
+        joins, grouping and more.
+      </p>
+
+      <a
+        href="https://www.w3schools.com/sql/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Start Learning
+        <i class="fas fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+    <div class="resource">
+
+      <div class="resource-icon">
+        <i class="fas fa-table"></i>
+      </div>
+
+      <h3>Excel</h3>
+
+      <p>
+        Learn spreadsheets, formulas, functions,
+        tables and data analysis.
+      </p>
+
+      <a
+        href="https://www.w3schools.com/excel/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Start Learning
+        <i class="fas fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+    <div class="resource">
+
+      <div class="resource-icon">
+        <i class="fas fa-chart-pie"></i>
+      </div>
+
+      <h3>Power BI</h3>
+
+      <p>
+        Learn to connect data, transform it,
+        build dashboards and create reports.
+      </p>
+
+      <a
+        href="https://learn.microsoft.com/en-us/training/powerplatform/power-bi/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Start Learning
+        <i class="fas fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+    <div class="resource">
+
+      <div class="resource-icon">
+        <i class="fab fa-python"></i>
+      </div>
+
+      <h3>Python</h3>
+
+      <p>
+        Useful for advanced analytics,
+        automation and data-related work.
+      </p>
+
+      <a
+        href="https://www.w3schools.com/python/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Start Learning
+        <i class="fas fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+    <div class="resource">
+
+      <div class="resource-icon">
+        <i class="fas fa-chart-simple"></i>
+      </div>
+
+      <h3>Data Science</h3>
+
+      <p>
+        Explore analytics, visualisation,
+        statistics and machine learning concepts.
+      </p>
+
+      <a
+        href="https://www.w3schools.com/datascience/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Start Learning
+        <i class="fas fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+    <div class="resource">
+
+      <div class="resource-icon">
+        <i class="fas fa-robot"></i>
+      </div>
+
+      <h3>AI</h3>
+
+      <p>
+        Understand artificial intelligence and
+        use AI as a powerful productivity tool.
+      </p>
+
+      <a
+        href="https://www.w3schools.com/ai/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Start Learning
+        <i class="fas fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="final-cta">
+
+  <h2>Your Commerce Degree Is Not a Limitation</h2>
+
+  <p>
+    Add technology skills to your Commerce knowledge
+    and become a future-ready professional.
+  </p>
+
+  <a
+    href="#roadmap"
+    class="hero-btn primary"
+  >
+    Start Your Roadmap
+    <i class="fas fa-arrow-right"></i>
+  </a>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+  <a
+    class="nav-item"
+    href="https://ascendlearningcommunity.github.io/ascend/index.html"
+  >
+
+    <i class="fas fa-house"></i>
+
+    <span>Home</span>
+
+  </a>
+
+  <a
+    class="nav-item"
+    href="https://ascendlearningcommunity.github.io/ascend/Books.html"
+  >
+
+    <i class="fas fa-newspaper"></i>
+
+    <span>News</span>
+
+  </a>
+
+  <a
+    class="nav-item active"
+    href="#careers"
+  >
+
+    <i class="fas fa-compass"></i>
+
+    <span>Career</span>
+
+  </a>
+
+  <a
+    class="nav-item"
+    href="https://ascendlearningcommunity.github.io/ascend/Faq.html"
+  >
+
+    <i class="fas fa-circle-question"></i>
+
+    <span>FAQ</span>
+
+  </a>
+
+  <a
+    class="nav-item"
+    href="https://ascendlearningcommunity.github.io/ascend/Aboutus.html"
+  >
+
+    <i class="fas fa-user"></i>
+
+    <span>About</span>
+
+  </a>
+
+</nav>
+
+<script>
+
+/* =====================================================
+   CAREER SEARCH
+===================================================== */
+
+const searchInput =
+  document.getElementById("search");
+
+const cards =
+  document.querySelectorAll(".career-card");
+
+const noResults =
+  document.getElementById("noResults");
+
+
+searchInput.addEventListener(
+  "input",
+  function() {
+
+    const query =
+      this.value
+        .toLowerCase()
+        .trim();
+
+    let visibleCount = 0;
+
+
+    cards.forEach(
+      function(card) {
+
+        const searchData =
+          card.dataset.search
+            .toLowerCase();
+
+        const matches =
+          searchData.includes(query);
+
+        if (matches) {
+
+          card.style.display =
+            "";
+
+          visibleCount++;
+
+        }
+
+        else {
+
+          card.style.display =
+            "none";
+
+        }
+
+      }
+    );
+
+
+    if (visibleCount === 0) {
+
+      noResults.style.display =
+        "block";
+
+    }
+
+    else {
+
+      noResults.style.display =
+        "none";
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   SMOOTH NAVIGATION
+===================================================== */
+
+document
+  .querySelectorAll(
+    'a[href^="#"]'
+  )
+  .forEach(
+    function(link) {
+
+      link.addEventListener(
+        "click",
+        function(e) {
+
+          const href =
+            this.getAttribute("href");
+
+
+          if (
+            href === "#"
+          ) {
+
+            return;
+
+          }
+
+
+          const target =
+            document.querySelector(
+              href
+            );
+
+
+          if (target) {
+
+            e.preventDefault();
+
+
+            target.scrollIntoView(
+              {
+                behavior:
+                  "smooth",
+
+                block:
+                  "start"
+              }
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   GO HOME
+===================================================== */
+
+function goHome() {
+
+  window.location.href =
+    "https://ascendlearningcommunity.github.io/ascend/index.html";
+
+}
+
+</script>
+
+</body>
+</html>
