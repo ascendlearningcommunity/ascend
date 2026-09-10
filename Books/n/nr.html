@@ -12,7 +12,7 @@ content="width=device-width, initial-scale=1.0"
 
 >
 
-<title>ASCEND | Daily Newspapers</title>
+<title>ASCEND | Daily Updates</title>
 
 <link
   rel="stylesheet"
@@ -467,7 +467,7 @@ body {
 
 
 /* =====================================================
-   NEWSPAPER GRID
+   DailyUpdates GRID
 ===================================================== */
 
 .container {
@@ -1160,13 +1160,13 @@ body {
 
 
 <h1>
-  Daily Newspapers
+  Daily Updates
 </h1>
 
 
 <p>
 
-  Read trusted newspapers,
+  Read trusted DailyUpdates,
   stay updated and
   ASCEND with knowledge.
 
@@ -1181,7 +1181,7 @@ body {
 
 
 <h2>
-  Explore Newspapers
+  Explore DailyUpdates
 </h2>
 
 
@@ -1214,7 +1214,7 @@ body {
     <input
       type="date"
       id="dateFilter"
-      onchange="loadNewspapers()"
+      onchange="loadDailyUpdates()"
     >
 
   </div>
@@ -1231,7 +1231,7 @@ body {
     <input
       type="text"
       id="titleSearch"
-      placeholder="Search newspapers..."
+      placeholder="Search DailyUpdates..."
       oninput="filterByTitle()"
     >
 
@@ -1251,7 +1251,7 @@ body {
         class="fas fa-layer-group"
       ></i>
 
-      View All Newspapers
+      View All DailyUpdates
 
     </button>
 
@@ -1274,11 +1274,11 @@ body {
 
   </div>
 
-  <!-- NEWSPAPER CONTAINER -->
+  <!-- DailyUpdates CONTAINER -->
 
   <section
     class="container"
-    id="newspaperContainer"
+    id="DailyUpdatesContainer"
   >
 
 
@@ -1289,7 +1289,7 @@ body {
   ></i>
 
   <p>
-    Loading newspapers...
+    Loading DailyUpdates...
   </p>
 
 </div>
@@ -1351,7 +1351,7 @@ href="https://ascendlearningcommunity.github.io/ascend/Books.html"
 
 
 <i
-  class="fas fa-newspaper"
+  class="fas fa-DailyUpdates"
 ></i>
 
 <span>
@@ -1446,7 +1446,7 @@ href="https://ascendlearningcommunity.github.io/ascend/Aboutus.html"
       id="pdfTitle"
     >
 
-      Newspaper
+      DailyUpdates
 
     </span>
 
@@ -1500,7 +1500,7 @@ href="https://ascendlearningcommunity.github.io/ascend/Aboutus.html"
 <iframe
   id="pdfFrame"
   class="pdf-frame"
-  title="Newspaper PDF Viewer"
+  title="DailyUpdates PDF Viewer"
   allowfullscreen
 ></iframe>
 
@@ -1539,10 +1539,10 @@ const supabaseClient =
 
 
 /* =====================================================
-   STORE NEWSPAPER DATA
+   STORE DailyUpdates DATA
 ===================================================== */
 
-let allNewspapers = [];
+let allDailyUpdates = [];
 
 
 /* =====================================================
@@ -1565,16 +1565,16 @@ function startUserPage() {
     today;
 
 
-  loadNewspapers();
+  loadDailyUpdates();
 
 }
 
 
 /* =====================================================
-   LOAD NEWSPAPERS
+   LOAD DailyUpdates
 ===================================================== */
 
-async function loadNewspapers() {
+async function loadDailyUpdates() {
 
   const selectedDate =
     document
@@ -1586,7 +1586,7 @@ async function loadNewspapers() {
 
   const container =
     document.getElementById(
-      "newspaperContainer"
+      "DailyUpdatesContainer"
     );
 
 
@@ -1605,7 +1605,7 @@ async function loadNewspapers() {
       ></i>
 
       <p>
-        Loading newspapers...
+        Loading DailyUpdates...
       </p>
 
     </div>
@@ -1623,7 +1623,7 @@ async function loadNewspapers() {
     let query =
       supabaseClient
         .from(
-          "NewspaperPapers"
+          "DailyUpdates"
         )
         .select(
           "*"
@@ -1669,12 +1669,12 @@ async function loadNewspapers() {
     }
 
 
-    allNewspapers =
+    allDailyUpdates =
       data || [];
 
 
-    displayNewspapers(
-      allNewspapers
+    displayDailyUpdates(
+      allDailyUpdates
     );
 
 
@@ -1720,14 +1720,14 @@ async function loadNewspapers() {
 
 
 /* =====================================================
-   DISPLAY NEWSPAPERS
+   DISPLAY DailyUpdates
 ===================================================== */
 
-function displayNewspapers(data) {
+function displayDailyUpdates(data) {
 
   const container =
     document.getElementById(
-      "newspaperContainer"
+      "DailyUpdatesContainer"
     );
 
 
@@ -1749,7 +1749,7 @@ function displayNewspapers(data) {
     `${total} AVAILABLE`;
 
 
-  /* NO NEWSPAPERS */
+  /* NO DailyUpdates */
 
   if (
     !data ||
@@ -1761,16 +1761,16 @@ function displayNewspapers(data) {
       <div class="empty">
 
         <i
-          class="fas fa-newspaper"
+          class="fas fa-DailyUpdates"
         ></i>
 
         <h3>
-          No Newspapers Found
+          No DailyUpdates Found
         </h3>
 
         <p>
           Try selecting another date
-          or view all newspapers.
+          or view all DailyUpdates.
         </p>
 
       </div>
@@ -1782,7 +1782,7 @@ function displayNewspapers(data) {
   }
 
 
-  /* CREATE NEWSPAPER CARDS */
+  /* CREATE DailyUpdates CARDS */
 
   data.forEach(
     function(paper) {
@@ -1827,7 +1827,7 @@ function displayNewspapers(data) {
           <div class="paper-icon">
 
             <i
-              class="fas fa-newspaper"
+              class="fas fa-DailyUpdates"
             ></i>
 
           </div>
@@ -1884,7 +1884,7 @@ function displayNewspapers(data) {
 
 
 /* =====================================================
-   SEARCH NEWSPAPER
+   SEARCH DailyUpdates
 ===================================================== */
 
 function filterByTitle() {
@@ -1900,7 +1900,7 @@ function filterByTitle() {
 
 
   const filteredData =
-    allNewspapers.filter(
+    allDailyUpdates.filter(
       function(paper) {
 
 
@@ -1921,7 +1921,7 @@ function filterByTitle() {
     );
 
 
-  displayNewspapers(
+  displayDailyUpdates(
     filteredData
   );
 
@@ -1929,7 +1929,7 @@ function filterByTitle() {
 
 
 /* =====================================================
-   VIEW ALL NEWSPAPERS
+   VIEW ALL DailyUpdates
 ===================================================== */
 
 function clearDateFilter() {
@@ -1950,7 +1950,7 @@ function clearDateFilter() {
     "";
 
 
-  loadNewspapers();
+  loadDailyUpdates();
 
 }
 
@@ -1967,7 +1967,7 @@ function openPDF(
   if (!link) {
 
     alert(
-      "Newspaper link is not available."
+      "DailyUpdates link is not available."
     );
 
     return;
@@ -1986,7 +1986,7 @@ function openPDF(
       "pdfTitle"
     )
     .textContent =
-    title || "Newspaper";
+    title || "DailyUpdates";
 
 
   document

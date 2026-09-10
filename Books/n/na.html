@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ASCEND | Newspaper Admin</title>
+<title>ASCEND | Daily Updates Admin</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -903,7 +903,7 @@ body{
 <h2>Admin Verification</h2>
 
 <p>
-  Enter your secure access key to manage newspaper publications.
+  Enter your secure access key to manage Daily Updates publications.
 </p>
 
 <div class="access-input">
@@ -959,7 +959,7 @@ body{
   <button
     class="nav-btn"
     onclick="loadPapers()"
-    title="Refresh Newspapers"
+    title="Refresh Daily Updatess"
   >
     <i class="fas fa-rotate"></i>
   </button>
@@ -988,12 +988,12 @@ body{
   <div class="page-title">
 
     <h1>
-      Newspaper
+      Daily Updates
       <span>Management</span>
     </h1>
 
     <p>
-      Upload, organize and manage daily newspaper PDF resources.
+      Upload, organize and manage daily Daily Updates PDF resources.
     </p>
 
   </div>
@@ -1022,11 +1022,11 @@ body{
     <div>
 
       <h3 id="formTitle">
-        Upload Newspaper
+        Upload Daily Updates
       </h3>
 
       <p>
-        Add a newspaper publication and its Google Drive PDF link.
+        Add a Daily Updates publication and its Google Drive PDF link.
       </p>
 
     </div>
@@ -1046,7 +1046,7 @@ body{
     <div class="input-group">
 
       <label>
-        Newspaper Date
+        Daily Updates Date
       </label>
 
       <div class="input-wrap">
@@ -1071,7 +1071,7 @@ body{
 
       <div class="input-wrap">
 
-        <i class="fas fa-newspaper"></i>
+        <i class="fas fa-Daily Updates"></i>
 
         <input
           type="text"
@@ -1115,7 +1115,7 @@ body{
 
     <i class="fas fa-upload"></i>
 
-    Upload Newspaper
+    Upload Daily Updates
 
   </button>
 
@@ -1137,7 +1137,7 @@ body{
     <div>
 
       <h3>
-        Filter Newspapers
+        Filter Daily Updatess
       </h3>
 
       <p>
@@ -1185,8 +1185,8 @@ body{
 <div class="list-header">
 
   <h3>
-    <i class="fas fa-newspaper"></i>
-    Published Newspapers
+    <i class="fas fa-Daily Updates"></i>
+    Published Daily Updatess
   </h3>
 
   <span id="paperCount">
@@ -1197,7 +1197,7 @@ body{
 
 
 <!-- =====================================
-     NEWSPAPER LIST
+     Daily Updates LIST
 ====================================== -->
 
 <div id="paperList">
@@ -1206,7 +1206,7 @@ body{
 
     <i class="fas fa-spinner fa-spin"></i>
 
-    Loading newspapers...
+    Loading Daily Updatess...
 
   </div>
 
@@ -1339,7 +1339,7 @@ async function verifyAccessKey(){
   ){
 
     sessionStorage.setItem(
-      "ASCEND_NEWSPAPER_ADMIN",
+      "ASCEND_Daily Updates_ADMIN",
       "verified"
     );
 
@@ -1391,7 +1391,7 @@ async function checkAdminAccess(){
 
   const verified =
     sessionStorage.getItem(
-      "ASCEND_NEWSPAPER_ADMIN"
+      "ASCEND_Daily Updates_ADMIN"
     );
 
 
@@ -1451,7 +1451,7 @@ async function checkAdminAccess(){
 function adminLogout(){
 
   sessionStorage.removeItem(
-    "ASCEND_NEWSPAPER_ADMIN"
+    "ASCEND_Daily Updates_ADMIN"
   );
 
 
@@ -1488,7 +1488,7 @@ function adminLogout(){
 
 
 /* =====================================================
-   SAVE NEWSPAPER
+   SAVE Daily Updates
 ===================================================== */
 
 async function savePaper(){
@@ -1530,7 +1530,7 @@ async function savePaper(){
   if(!paperDate){
 
     showToast(
-      "Please select newspaper date.",
+      "Please select Daily Updates date.",
       "error"
     );
 
@@ -1587,7 +1587,7 @@ async function savePaper(){
         error
       } =
       await supabaseClient
-        .from("NewspaperPapers")
+        .from("DailyUpdates")
         .update({
 
           paper_date:
@@ -1614,7 +1614,7 @@ async function savePaper(){
 
 
       showToast(
-        "Newspaper updated successfully.",
+        "Daily Updates updated successfully.",
         "success"
       );
 
@@ -1627,7 +1627,7 @@ async function savePaper(){
         error
       } =
       await supabaseClient
-        .from("NewspaperPapers")
+        .from("DailyUpdates")
         .insert([
           {
 
@@ -1652,7 +1652,7 @@ async function savePaper(){
 
 
       showToast(
-        "Newspaper uploaded successfully.",
+        "Daily Updates uploaded successfully.",
         "success"
       );
 
@@ -1715,7 +1715,7 @@ async function loadPapers(){
 
       <i class="fas fa-spinner fa-spin"></i>
 
-      Loading newspapers...
+      Loading Daily Updatess...
 
     </div>
     `;
@@ -1725,7 +1725,7 @@ async function loadPapers(){
 
     let query =
       supabaseClient
-        .from("NewspaperPapers")
+        .from("DailyUpdates")
         .select("*")
         .order(
           "paper_date",
@@ -1780,14 +1780,14 @@ async function loadPapers(){
         `
         <div class="empty">
 
-          <i class="fas fa-newspaper"></i>
+          <i class="fas fa-Daily Updates"></i>
 
           <h3>
-            No Newspapers Found
+            No Daily Updatess Found
           </h3>
 
           <p>
-            Add a newspaper or choose another date.
+            Add a Daily Updates or choose another date.
           </p>
 
         </div>
@@ -1851,7 +1851,7 @@ async function loadPapers(){
               )}"
               target="_blank"
               class="action-btn view-btn"
-              title="View Newspaper"
+              title="View Daily Updates"
             >
 
               <i class="fas fa-eye"></i>
@@ -1862,7 +1862,7 @@ async function loadPapers(){
             <button
               class="action-btn edit-btn"
               onclick="editPaper(${paper.id})"
-              title="Edit Newspaper"
+              title="Edit Daily Updates"
             >
 
               <i class="fas fa-pen"></i>
@@ -1873,7 +1873,7 @@ async function loadPapers(){
             <button
               class="action-btn delete-btn"
               onclick="deletePaper(${paper.id})"
-              title="Delete Newspaper"
+              title="Delete Daily Updates"
             >
 
               <i class="fas fa-trash"></i>
@@ -1947,7 +1947,7 @@ async function editPaper(id){
       error
     } =
     await supabaseClient
-      .from("NewspaperPapers")
+      .from("DailyUpdates")
       .select("*")
       .eq(
         "id",
@@ -2001,7 +2001,7 @@ async function editPaper(id){
       )
       .innerHTML =
       `
-      Edit Newspaper
+      Edit Daily Updates
       `;
 
 
@@ -2015,7 +2015,7 @@ async function editPaper(id){
 
 
     showToast(
-      "Editing newspaper details.",
+      "Editing Daily Updates details.",
       "success"
     );
 
@@ -2027,7 +2027,7 @@ async function editPaper(id){
     console.error(error);
 
     showToast(
-      "Unable to load newspaper: " +
+      "Unable to load Daily Updates: " +
       error.message,
       "error"
     );
@@ -2045,7 +2045,7 @@ async function deletePaper(id){
 
   const confirmDelete =
     confirm(
-      "Are you sure you want to delete this newspaper?"
+      "Are you sure you want to delete this Daily Updates?"
     );
 
 
@@ -2062,7 +2062,7 @@ async function deletePaper(id){
       error
     } =
     await supabaseClient
-      .from("NewspaperPapers")
+      .from("DailyUpdates")
       .delete()
       .eq(
         "id",
@@ -2078,7 +2078,7 @@ async function deletePaper(id){
 
 
     showToast(
-      "Newspaper deleted successfully.",
+      "Daily Updates deleted successfully.",
       "success"
     );
 
@@ -2142,7 +2142,7 @@ function clearForm(){
       "formTitle"
     )
     .innerHTML =
-    "Upload Newspaper";
+    "Upload Daily Updates";
 
 
   updateSaveButton();
@@ -2171,7 +2171,7 @@ function updateSaveButton(){
     saveBtn.innerHTML =
       `
       <i class="fas fa-floppy-disk"></i>
-      Update Newspaper
+      Update Daily Updates
       `;
 
   }
@@ -2181,7 +2181,7 @@ function updateSaveButton(){
     saveBtn.innerHTML =
       `
       <i class="fas fa-upload"></i>
-      Upload Newspaper
+      Upload Daily Updates
       `;
 
   }
