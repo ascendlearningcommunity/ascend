@@ -303,7 +303,7 @@ img{
 
     align-items:center;
 
-    gap:26px;
+    gap:20px;
 
 }
 
@@ -329,6 +329,10 @@ img{
 
 }
 
+
+/* =========================================================
+   EXPLORE BUTTON
+========================================================= */
 
 .nav-explore{
 
@@ -362,6 +366,59 @@ img{
 
     transform:
     translateY(-1px);
+
+}
+
+
+/* =========================================================
+   ADMIN BUTTON
+========================================================= */
+
+.nav-admin{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+    10px 14px;
+
+    border-radius:12px;
+
+    background:
+    #101828;
+
+    color:#FFFFFF !important;
+
+    box-shadow:
+    0 8px 18px
+    rgba(16,24,40,.16);
+
+    transition:.25s;
+
+}
+
+
+.nav-admin:hover{
+
+    background:
+    #273248;
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 12px 22px
+    rgba(16,24,40,.22);
+
+}
+
+
+.nav-admin i{
+
+    font-size:11px;
 
 }
 
@@ -462,6 +519,32 @@ img{
 
     color:
     var(--primary);
+
+}
+
+
+/* =========================================================
+   MOBILE ADMIN LINK
+========================================================= */
+
+.mobile-admin{
+
+    margin-top:6px;
+
+    background:
+    #101828 !important;
+
+    color:#FFFFFF !important;
+
+}
+
+
+.mobile-admin:hover{
+
+    background:
+    #273248 !important;
+
+    color:#FFFFFF !important;
 
 }
 
@@ -1986,6 +2069,13 @@ img{
     }
 
 
+    .mobile-menu{
+
+        top:70px;
+
+    }
+
+
     .logo-icon{
 
         width:41px;
@@ -2528,6 +2618,8 @@ img{
 <div class="nav-container">
 
 
+    <!-- LOGO -->
+
     <a href="index.html"
        class="logo">
 
@@ -2579,6 +2671,22 @@ img{
             About
         </a>
 
+
+        <!-- ADMIN -->
+
+        <a href="AdminMenu.html"
+           class="nav-admin"
+           title="Open Admin Menu">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Administrator
+
+        </a>
+
+
+        <!-- EXPLORE -->
+
         <a href="#explore"
            class="nav-explore">
 
@@ -2605,10 +2713,13 @@ img{
 </div>
 
 
-<!-- MOBILE MENU -->
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
 
 <div id="mobileMenu"
      class="mobile-menu">
+
 
     <a href="index.html">
 
@@ -2680,6 +2791,19 @@ img{
         About
 
     </a>
+
+
+    <!-- MOBILE ADMIN -->
+
+    <a href="Admin/AdminMenu.html"
+       class="mobile-admin">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        Admin Menu
+
+    </a>
+
 
 </div>
 
@@ -3459,8 +3583,8 @@ img{
                 FAQ
             </a>
 
-            <a href="index.html">
-                Home
+            <a href="Admin/AdminMenu.html">
+                Admin Menu
             </a>
 
         </div>
@@ -3536,12 +3660,12 @@ img{
     </a>
 
 
-    <a href="Aboutus.html"
+    <a href="Admin/AdminMenu.html"
        class="mobile-nav-item">
 
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-shield-halved"></i>
 
-        About
+        Admin
 
     </a>
 

@@ -1,0 +1,2872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Books — ASCEND Learning Community</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+/* =========================================================
+   ASCEND DESIGN SYSTEM
+========================================================= */
+
+:root{
+
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-dark:#D89C00;
+
+    --green:#12B76A;
+    --green-light:#E9F9F1;
+
+    --red:#F04438;
+
+    --dark:#101828;
+    --text:#172033;
+    --muted:#667085;
+
+    --background:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --shadow:
+        0 10px 30px rgba(16,24,40,.07);
+
+    --shadow-hover:
+        0 18px 40px rgba(16,24,40,.12);
+
+    --radius:18px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    min-height:100vh;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    height:76px;
+
+    background:
+        rgba(255,255,255,.94);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-bottom:
+        1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 28px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+}
+
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    color:var(--text);
+}
+
+
+.brand-logo{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:12px;
+
+    object-fit:contain;
+}
+
+
+.brand-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    line-height:1;
+}
+
+
+.brand-name{
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:21px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+}
+
+
+.brand-sub{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    margin-top:5px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+}
+
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+
+.header-btn{
+
+    height:42px;
+
+    padding:0 14px;
+
+    border-radius:11px;
+
+    border:1px solid var(--border);
+
+    background:white;
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font:600 13px "Inter";
+
+    transition:.2s;
+}
+
+
+.header-btn:hover{
+
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+    transform:translateY(-1px);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:30px 24px 70px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(255,212,59,.30),
+            transparent 24%
+        ),
+
+        linear-gradient(
+            135deg,
+            #155EEF,
+            #0B46C5
+        );
+
+    color:white;
+
+    border-radius:28px;
+
+    padding:38px;
+
+    margin-bottom:24px;
+
+    box-shadow:
+        0 18px 45px rgba(21,94,239,.18);
+}
+
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    right:-100px;
+
+    bottom:-150px;
+
+    border:
+        50px solid
+        rgba(255,255,255,.07);
+
+    border-radius:50%;
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:720px;
+}
+
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:
+        rgba(255,255,255,.13);
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    padding:8px 13px;
+
+    border-radius:30px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.8px;
+
+    margin-bottom:15px;
+}
+
+
+.hero h1{
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:
+        clamp(30px,4vw,48px);
+
+    line-height:1.05;
+
+    margin-bottom:13px;
+}
+
+
+.hero p{
+
+    color:
+        rgba(255,255,255,.82);
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.toolbar{
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+    box-shadow:var(--shadow);
+}
+
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.breadcrumb{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    min-width:0;
+}
+
+
+.breadcrumb button{
+
+    border:0;
+
+    background:transparent;
+
+    color:var(--primary);
+
+    cursor:pointer;
+
+    font:700 13px "Inter";
+}
+
+
+.breadcrumb button:hover{
+
+    text-decoration:underline;
+}
+
+
+.breadcrumb i{
+
+    color:#98A2B3;
+
+    font-size:10px;
+}
+
+
+.breadcrumb .current{
+
+    color:var(--text);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    max-width:230px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box{
+
+    width:260px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    padding:0 12px;
+
+    background:#FBFCFE;
+}
+
+
+.search-box i{
+
+    color:#98A2B3;
+
+    font-size:14px;
+}
+
+
+.search-box input{
+
+    border:0;
+
+    outline:0;
+
+    background:transparent;
+
+    width:100%;
+
+    padding-left:9px;
+
+    color:var(--text);
+
+    font:500 13px "Inter";
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-button{
+
+    height:42px;
+
+    padding:0 14px;
+
+    border-radius:11px;
+
+    border:1px solid var(--border);
+
+    background:white;
+
+    cursor:pointer;
+
+    color:var(--text);
+
+    font:700 12px "Inter";
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    transition:.2s;
+}
+
+
+.back-button:hover{
+
+    color:var(--primary);
+
+    border-color:var(--primary);
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin:5px 0 15px;
+}
+
+
+.section-title h2{
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:21px;
+}
+
+
+.section-title span{
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.library-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(245px,1fr)
+        );
+
+    gap:18px;
+}
+
+
+/* =========================================================
+   FOLDER CARD
+========================================================= */
+
+.folder-card{
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:.25s;
+
+    cursor:pointer;
+}
+
+
+.folder-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-hover);
+
+    border-color:#D4DDF0;
+}
+
+
+.folder-preview{
+
+    height:180px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #FFF8D9,
+            #FFFDF2
+        );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+}
+
+
+.folder-icon{
+
+    font-size:72px;
+
+    color:var(--yellow-dark);
+
+    transition:.25s;
+}
+
+
+.folder-card:hover .folder-icon{
+
+    transform:
+        scale(1.08)
+        rotate(-2deg);
+}
+
+
+.folder-label{
+
+    position:absolute;
+
+    top:12px;
+
+    left:12px;
+
+    background:white;
+
+    border:
+        1px solid #F3E6A8;
+
+    color:#8A6500;
+
+    padding:6px 9px;
+
+    border-radius:8px;
+
+    font-size:10px;
+
+    font-weight:800;
+}
+
+
+.folder-body{
+
+    padding:15px;
+}
+
+
+.item-title{
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    margin-bottom:7px;
+}
+
+
+.item-meta{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+}
+
+
+.enter-folder{
+
+    width:100%;
+
+    height:36px;
+
+    margin-top:14px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    cursor:pointer;
+
+    font:700 11px "Inter";
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    transition:.2s;
+}
+
+
+.enter-folder:hover{
+
+    background:var(--primary);
+
+    color:white;
+}
+
+
+/* =========================================================
+   BOOK CARD
+========================================================= */
+
+.book-card{
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:.25s;
+}
+
+
+.book-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-hover);
+
+    border-color:#D4DDF0;
+}
+
+
+.book-preview{
+
+    height:225px;
+
+    background:#F1F4F9;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+.book-preview img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+.book-label{
+
+    position:absolute;
+
+    top:12px;
+
+    left:12px;
+
+    z-index:3;
+
+    background:
+        rgba(255,255,255,.94);
+
+    padding:6px 9px;
+
+    border-radius:8px;
+
+    color:var(--primary);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 4px 10px
+        rgba(0,0,0,.05);
+}
+
+
+.thumbnail-loader{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#98A2B3;
+
+    background:#F1F4F9;
+
+    z-index:1;
+}
+
+
+.book-preview img{
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.book-body{
+
+    padding:15px;
+}
+
+
+.book-actions{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:8px;
+
+    margin-top:14px;
+}
+
+
+.read-button{
+
+    height:38px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:var(--primary);
+
+    color:white;
+
+    cursor:pointer;
+
+    font:700 12px "Inter";
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    transition:.2s;
+}
+
+
+.read-button:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-1px);
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty{
+
+    grid-column:1/-1;
+
+    background:white;
+
+    border:
+        1px dashed #CBD5E1;
+
+    border-radius:20px;
+
+    padding:65px 25px;
+
+    text-align:center;
+}
+
+
+.empty-icon{
+
+    width:68px;
+
+    height:68px;
+
+    margin:0 auto 15px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:27px;
+}
+
+
+.empty h3{
+
+    font-family:"Outfit",sans-serif;
+
+    margin-bottom:7px;
+}
+
+
+.empty p{
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+
+    grid-column:1/-1;
+
+    padding:70px;
+
+    text-align:center;
+
+    color:var(--muted);
+}
+
+
+.spinner{
+
+    width:36px;
+
+    height:36px;
+
+    border:
+        3px solid #E4E7EC;
+
+    border-top-color:
+        var(--primary);
+
+    border-radius:50%;
+
+    animation:
+        spin .8s linear infinite;
+
+    margin:
+        0 auto 13px;
+}
+
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   READER
+========================================================= */
+
+.reader-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(15,23,42,.75);
+
+    backdrop-filter:
+        blur(7px);
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px;
+}
+
+
+.reader-overlay.show{
+
+    display:flex;
+}
+
+
+.reader{
+
+    width:100%;
+
+    height:95vh;
+
+    max-width:1300px;
+
+    background:#101828;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.3);
+}
+
+
+.reader-header{
+
+    height:60px;
+
+    flex-shrink:0;
+
+    background:#172033;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 15px;
+}
+
+
+.reader-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    min-width:0;
+}
+
+
+.reader-title i{
+
+    color:var(--yellow);
+}
+
+
+.reader-title span{
+
+    font-size:13px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+
+.reader-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+}
+
+
+.reader-btn{
+
+    width:36px;
+
+    height:36px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    color:white;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.2s;
+}
+
+
+.reader-btn:hover{
+
+    background:
+        rgba(255,255,255,.18);
+}
+
+
+.reader-frame{
+
+    flex:1;
+
+    width:100%;
+
+    border:0;
+
+    background:white;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast-container{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    z-index:6000;
+}
+
+
+.toast{
+
+    background:#101828;
+
+    color:white;
+
+    padding:13px 16px;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.2);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    font-size:12px;
+
+    font-weight:600;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    .header{
+
+        padding:
+            0 16px;
+    }
+
+
+    .header-btn span{
+
+        display:none;
+    }
+
+
+    .toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+
+    .search-box{
+
+        width:100%;
+    }
+
+
+    .toolbar-right{
+
+        display:flex;
+
+        gap:8px;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .main{
+
+        padding:
+            18px 14px 50px;
+    }
+
+
+    .header{
+
+        height:68px;
+    }
+
+
+    .brand-logo{
+
+        width:38px;
+
+        height:38px;
+    }
+
+
+    .brand-name{
+
+        font-size:18px;
+    }
+
+
+    .hero{
+
+        padding:
+            27px 22px;
+
+        border-radius:22px;
+    }
+
+
+    .hero h1{
+
+        font-size:32px;
+    }
+
+
+    .library-grid{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap:11px;
+    }
+
+
+    .folder-preview{
+
+        height:140px;
+    }
+
+
+    .book-preview{
+
+        height:180px;
+    }
+
+
+    .folder-icon{
+
+        font-size:55px;
+    }
+
+
+    .folder-body,
+    .book-body{
+
+        padding:11px;
+    }
+
+
+    .item-title{
+
+        font-size:14px;
+    }
+
+
+    .reader-overlay{
+
+        padding:0;
+    }
+
+
+    .reader{
+
+        height:100vh;
+
+        border-radius:0;
+    }
+
+}
+
+
+@media(max-width:380px){
+
+    .library-grid{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .book-preview{
+
+        height:240px;
+    }
+
+
+    .folder-preview{
+
+        height:190px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     HEADER
+======================================================= -->
+
+<header class="header">
+
+    <a href="index.html" class="brand">
+
+        <img
+            src="logo.png"
+            alt="ASCEND"
+            class="brand-logo"
+            onerror="this.style.display='none'"
+        >
+
+        <div class="brand-text">
+
+            <div class="brand-name">
+                ASCEND
+            </div>
+
+            <div class="brand-sub">
+                LEARNING COMMUNITY
+            </div>
+
+        </div>
+
+    </a>
+
+
+    <div class="header-right">
+
+        <button
+            class="header-btn"
+            onclick="refreshLibrary()"
+        >
+
+            <i class="fa-solid fa-rotate"></i>
+
+            <span>
+                Refresh
+            </span>
+
+        </button>
+
+
+        <button
+            class="header-btn"
+            onclick="window.location.href='index.html'"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                Home
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- ======================================================
+     MAIN
+======================================================= -->
+
+<main class="main">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                ASCEND DIGITAL LIBRARY
+
+            </div>
+
+
+            <h1>
+                Learn. Read. Grow.
+            </h1>
+
+
+            <p>
+                Explore the ASCEND learning library.
+                Discover books, study materials and
+                digital resources organised into simple
+                folders for easy learning.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- TOOLBAR -->
+
+    <section class="toolbar">
+
+
+        <div
+            class="breadcrumb"
+            id="breadcrumb"
+        >
+        </div>
+
+
+        <div class="toolbar-right">
+
+            <button
+                class="back-button"
+                id="backButton"
+                onclick="goBack()"
+                style="display:none"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back
+
+            </button>
+
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search books..."
+                    oninput="renderLibrary()"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- SECTION -->
+
+    <section>
+
+        <div class="section-title">
+
+            <h2 id="sectionTitle">
+                Books & Folders
+            </h2>
+
+            <span id="itemCount">
+                0 items
+            </span>
+
+        </div>
+
+
+        <div
+            class="library-grid"
+            id="libraryGrid"
+        >
+
+            <div class="loading">
+
+                <div class="spinner"></div>
+
+                Loading ASCEND Library...
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ======================================================
+     READER
+======================================================= -->
+
+<div
+    class="reader-overlay"
+    id="readerOverlay"
+>
+
+
+    <div class="reader">
+
+
+        <div class="reader-header">
+
+
+            <div class="reader-title">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                <span id="readerTitle">
+                    Document
+                </span>
+
+            </div>
+
+
+            <div class="reader-actions">
+
+
+                <button
+                    class="reader-btn"
+                    onclick="openExternal()"
+                    title="Open in Google Drive"
+                >
+
+                    <i class="fa-solid fa-up-right-from-square"></i>
+
+                </button>
+
+
+                <button
+                    class="reader-btn"
+                    onclick="closeReader()"
+                    title="Close"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <iframe
+            id="readerFrame"
+            class="reader-frame"
+            allow="autoplay"
+        ></iframe>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- TOAST -->
+
+<div
+    class="toast-container"
+    id="toastContainer"
+></div>
+
+
+
+<script>
+
+/* =========================================================
+   SUPABASE
+========================================================= */
+
+const SUPABASE_URL =
+  "https://ndpmisgcnwtalxzlsgdh.supabase.co";
+
+const SUPABASE_ANON_KEY =
+  "sb_publishable_VA-TOQxa5NucY7L1hPStkg_3eAj42PM";
+
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let allItems = [];
+
+let currentFolderId = null;
+
+let folderHistory = [];
+
+let activeBook = null;
+
+
+/* =========================================================
+   LOAD
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadLibrary
+);
+
+
+async function loadLibrary(){
+
+    const grid =
+        document.getElementById(
+            "libraryGrid"
+        );
+
+
+    grid.innerHTML = `
+
+        <div class="loading">
+
+            <div class="spinner"></div>
+
+            Loading ASCEND Library...
+
+        </div>
+
+    `;
+
+
+    try{
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+
+                .from("books")
+
+                .select("*")
+
+                .order(
+                    "item_type",
+                    {
+                        ascending:true
+                    }
+                )
+
+                .order(
+                    "title",
+                    {
+                        ascending:true
+                    }
+                );
+
+
+        if(error){
+
+            throw error;
+
+        }
+
+
+        allItems =
+            data || [];
+
+
+        renderBreadcrumb();
+
+        renderLibrary();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                </div>
+
+                <h3>
+                    Unable to Load Library
+                </h3>
+
+                <p>
+                    ${escapeHTML(error.message)}
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDER
+========================================================= */
+
+function renderLibrary(){
+
+    const grid =
+        document.getElementById(
+            "libraryGrid"
+        );
+
+
+    const search =
+        document
+            .getElementById(
+                "searchInput"
+            )
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    let items =
+        allItems.filter(
+            item =>
+                item.parent_id ===
+                currentFolderId
+        );
+
+
+    if(search){
+
+        items =
+            items.filter(
+                item =>
+                    item.title
+                        .toLowerCase()
+                        .includes(search)
+            );
+
+    }
+
+
+    document.getElementById(
+        "itemCount"
+    ).textContent =
+        `${items.length} ${
+            items.length === 1
+            ? "item"
+            : "items"
+        }`;
+
+
+    if(!items.length){
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+
+                    <i class="fa-solid ${
+                        search
+                        ? "fa-magnifying-glass"
+                        : "fa-folder-open"
+                    }"></i>
+
+                </div>
+
+                <h3>
+                    ${
+                        search
+                        ? "No Results Found"
+                        : "Nothing Here Yet"
+                    }
+                </h3>
+
+                <p>
+                    ${
+                        search
+                        ? "Try another search term."
+                        : "Learning materials will appear here."
+                    }
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    items.sort(
+        (a,b)=>{
+
+            if(
+                a.item_type !==
+                b.item_type
+            ){
+
+                return a.item_type ===
+                    "folder"
+                    ? -1
+                    : 1;
+
+            }
+
+
+            return a.title.localeCompare(
+                b.title
+            );
+
+        }
+    );
+
+
+    grid.innerHTML =
+        items
+            .map(
+                item =>
+
+                    item.item_type ===
+                    "folder"
+
+                    ? createFolderCard(item)
+
+                    : createBookCard(item)
+
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   FOLDER CARD
+========================================================= */
+
+function createFolderCard(folder){
+
+    const count =
+        allItems.filter(
+            item =>
+                item.parent_id ===
+                folder.id
+        ).length;
+
+
+    return `
+
+        <article
+            class="folder-card"
+            onclick="openFolder('${folder.id}')"
+        >
+
+            <div class="folder-preview">
+
+                <span class="folder-label">
+                    FOLDER
+                </span>
+
+                <i
+                    class="fa-solid fa-folder folder-icon"
+                ></i>
+
+            </div>
+
+
+            <div class="folder-body">
+
+                <div
+                    class="item-title"
+                    title="${escapeHTML(folder.title)}"
+                >
+                    ${escapeHTML(folder.title)}
+                </div>
+
+
+                <div class="item-meta">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    ${count}
+                    ${count === 1 ? "item" : "items"}
+
+                </div>
+
+
+                <button
+                    class="enter-folder"
+                    onclick="event.stopPropagation();openFolder('${folder.id}')"
+                >
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    Open Folder
+
+                </button>
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   BOOK CARD
+========================================================= */
+
+function createBookCard(book){
+
+    const thumbnail =
+        getDriveThumbnail(
+            book.drive_link
+        );
+
+
+    return `
+
+        <article class="book-card">
+
+
+            <div class="book-preview">
+
+                <span class="book-label">
+                    BOOK
+                </span>
+
+
+                <div
+                    class="thumbnail-loader"
+                    id="loader-${book.id}"
+                >
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                </div>
+
+
+                ${
+                    thumbnail
+
+                    ?
+
+                    `
+
+                    <img
+                        src="${thumbnail}"
+                        alt="${escapeHTML(book.title)}"
+                        loading="lazy"
+                        onload="hideLoader('${book.id}')"
+                        onerror="thumbnailError(this,'${book.id}')"
+                    >
+
+                    `
+
+                    :
+
+                    `
+
+                    <div
+                        class="thumbnail-loader"
+                        style="z-index:2"
+                    >
+
+                        <i class="fa-solid fa-file-pdf fa-3x"></i>
+
+                    </div>
+
+                    `
+                }
+
+            </div>
+
+
+            <div class="book-body">
+
+
+                <div
+                    class="item-title"
+                    title="${escapeHTML(book.title)}"
+                >
+
+                    ${escapeHTML(book.title)}
+
+                </div>
+
+
+                <div class="item-meta">
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                    Digital Book
+
+                </div>
+
+
+                <div class="book-actions">
+
+                    <button
+                        class="read-button"
+                        onclick="readBook('${book.id}')"
+                    >
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                        Read Book
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   OPEN FOLDER
+========================================================= */
+
+function openFolder(folderId){
+
+    const folder =
+        allItems.find(
+            item =>
+                item.id === folderId &&
+                item.item_type === "folder"
+        );
+
+
+    if(!folder){
+
+        return;
+
+    }
+
+
+    folderHistory.push(
+        currentFolderId
+    );
+
+
+    currentFolderId =
+        folderId;
+
+
+    document.getElementById(
+        "searchInput"
+    ).value = "";
+
+
+    renderBreadcrumb();
+
+    renderLibrary();
+
+    updateBackButton();
+
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+function goBack(){
+
+    if(folderHistory.length){
+
+        currentFolderId =
+            folderHistory.pop();
+
+    }
+    else{
+
+        currentFolderId =
+            null;
+
+    }
+
+
+    document.getElementById(
+        "searchInput"
+    ).value = "";
+
+
+    renderBreadcrumb();
+
+    renderLibrary();
+
+    updateBackButton();
+
+}
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+function goRoot(){
+
+    currentFolderId = null;
+
+    folderHistory = [];
+
+
+    document.getElementById(
+        "searchInput"
+    ).value = "";
+
+
+    renderBreadcrumb();
+
+    renderLibrary();
+
+    updateBackButton();
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+function updateBackButton(){
+
+    const button =
+        document.getElementById(
+            "backButton"
+        );
+
+
+    button.style.display =
+        currentFolderId
+        ? "flex"
+        : "none";
+
+}
+
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+function renderBreadcrumb(){
+
+    const breadcrumb =
+        document.getElementById(
+            "breadcrumb"
+        );
+
+
+    let html = `
+
+        <button
+            onclick="goRoot()"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            Books
+
+        </button>
+
+    `;
+
+
+    const path =
+        [];
+
+
+    let id =
+        currentFolderId;
+
+
+    while(id){
+
+        const folder =
+            allItems.find(
+                item =>
+                    item.id === id
+            );
+
+
+        if(!folder){
+
+            break;
+
+        }
+
+
+        path.unshift(folder);
+
+
+        id =
+            folder.parent_id;
+
+    }
+
+
+    path.forEach(
+        (folder,index)=>{
+
+            html += `
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            `;
+
+
+            if(
+                index ===
+                path.length - 1
+            ){
+
+                html += `
+
+                    <span class="current">
+
+                        ${escapeHTML(folder.title)}
+
+                    </span>
+
+                `;
+
+            }
+            else{
+
+                html += `
+
+                    <button
+                        onclick="navigateToFolder('${folder.id}')"
+                    >
+
+                        ${escapeHTML(folder.title)}
+
+                    </button>
+
+                `;
+
+            }
+
+        }
+    );
+
+
+    breadcrumb.innerHTML =
+        html;
+
+
+    document.getElementById(
+        "sectionTitle"
+    ).textContent =
+        currentFolderId
+        ? getFolderName(currentFolderId)
+        : "Books & Folders";
+
+}
+
+
+/* =========================================================
+   NAVIGATE TO FOLDER
+========================================================= */
+
+function navigateToFolder(folderId){
+
+    currentFolderId =
+        folderId;
+
+
+    folderHistory = [];
+
+
+    document.getElementById(
+        "searchInput"
+    ).value = "";
+
+
+    renderBreadcrumb();
+
+    renderLibrary();
+
+    updateBackButton();
+
+}
+
+
+/* =========================================================
+   GET FOLDER NAME
+========================================================= */
+
+function getFolderName(id){
+
+    const folder =
+        allItems.find(
+            item =>
+                item.id === id
+        );
+
+
+    return folder
+        ? folder.title
+        : "Books";
+
+}
+
+
+/* =========================================================
+   READ BOOK
+========================================================= */
+
+function readBook(id){
+
+    const book =
+        allItems.find(
+            item =>
+                item.id === id &&
+                item.item_type === "book"
+        );
+
+
+    if(
+        !book ||
+        !book.drive_link
+    ){
+
+        showToast(
+            "Document link is unavailable."
+        );
+
+        return;
+
+    }
+
+
+    activeBook =
+        book;
+
+
+    const previewURL =
+        getDrivePreview(
+            book.drive_link
+        );
+
+
+    document.getElementById(
+        "readerTitle"
+    ).textContent =
+        book.title;
+
+
+    document.getElementById(
+        "readerFrame"
+    ).src =
+        previewURL;
+
+
+    document.getElementById(
+        "readerOverlay"
+    ).classList.add(
+        "show"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =========================================================
+   CLOSE READER
+========================================================= */
+
+function closeReader(){
+
+    document.getElementById(
+        "readerFrame"
+    ).src =
+        "about:blank";
+
+
+    document.getElementById(
+        "readerOverlay"
+    ).classList.remove(
+        "show"
+    );
+
+
+    document.body.style.overflow =
+        "";
+
+
+    activeBook =
+        null;
+
+}
+
+
+/* =========================================================
+   OPEN EXTERNAL DRIVE
+========================================================= */
+
+function openExternal(){
+
+    if(
+        activeBook &&
+        activeBook.drive_link
+    ){
+
+        window.open(
+            activeBook.drive_link,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   DRIVE FILE ID
+========================================================= */
+
+function getDriveFileId(url){
+
+    if(!url){
+
+        return null;
+
+    }
+
+
+    let match =
+        url.match(
+            /\/file\/d\/([a-zA-Z0-9_-]+)/
+        );
+
+
+    if(match){
+
+        return match[1];
+
+    }
+
+
+    match =
+        url.match(
+            /[?&]id=([a-zA-Z0-9_-]+)/
+        );
+
+
+    if(match){
+
+        return match[1];
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   DRIVE THUMBNAIL
+========================================================= */
+
+function getDriveThumbnail(url){
+
+    const id =
+        getDriveFileId(url);
+
+
+    if(!id){
+
+        return null;
+
+    }
+
+
+    return `https://drive.google.com/thumbnail?id=${encodeURIComponent(id)}&sz=w1000`;
+
+}
+
+
+/* =========================================================
+   DRIVE PREVIEW
+========================================================= */
+
+function getDrivePreview(url){
+
+    const id =
+        getDriveFileId(url);
+
+
+    if(id){
+
+        return `https://drive.google.com/file/d/${id}/preview`;
+
+    }
+
+
+    return url;
+
+}
+
+
+/* =========================================================
+   THUMBNAIL LOADED
+========================================================= */
+
+function hideLoader(id){
+
+    const loader =
+        document.getElementById(
+            `loader-${id}`
+        );
+
+
+    if(loader){
+
+        loader.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =========================================================
+   THUMBNAIL ERROR
+========================================================= */
+
+function thumbnailError(
+    img,
+    id
+){
+
+    img.style.display =
+        "none";
+
+
+    const loader =
+        document.getElementById(
+            `loader-${id}`
+        );
+
+
+    if(loader){
+
+        loader.innerHTML = `
+
+            <i class="fa-solid fa-file-pdf fa-3x"></i>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   REFRESH
+========================================================= */
+
+async function refreshLibrary(){
+
+    await loadLibrary();
+
+    showToast(
+        "Library refreshed."
+    );
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+    const container =
+        document.getElementById(
+            "toastContainer"
+        );
+
+
+    const toast =
+        document.createElement(
+            "div"
+        );
+
+
+    toast.className =
+        "toast";
+
+
+    toast.innerHTML = `
+
+        <i
+            class="fa-solid fa-circle-check"
+            style="color:#32D583"
+        ></i>
+
+        ${escapeHTML(message)}
+
+    `;
+
+
+    container.appendChild(
+        toast
+    );
+
+
+    setTimeout(
+        ()=>{
+            toast.remove();
+        },
+        2500
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+    if(
+        value === null ||
+        value === undefined
+    ){
+
+        return "";
+
+    }
+
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeReader();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   READER BACKDROP CLICK
+========================================================= */
+
+document.getElementById(
+    "readerOverlay"
+).addEventListener(
+    "click",
+    event => {
+
+        if(
+            event.target.id ===
+            "readerOverlay"
+        ){
+
+            closeReader();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

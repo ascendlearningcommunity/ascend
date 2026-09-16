@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard — ASCEND</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF8D9;
+
+    --green:#12B76A;
+    --green-light:#E9F9F1;
+
+    --orange:#F79009;
+    --orange-light:#FFF6E5;
+
+    --purple:#7F56D9;
+    --purple-light:#F3EEFF;
+
+    --red:#F04438;
+    --red-light:#FFF0EE;
+
+    --dark:#101828;
+    --text:#172033;
+    --muted:#667085;
+
+    --background:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --shadow:0 10px 30px rgba(16,24,40,.07);
+    --shadow-hover:0 22px 45px rgba(16,24,40,.13);
+
+    --radius:20px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--background);
+    color:var(--text);
+    min-height:100vh;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    height:76px;
+
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid var(--border);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 30px;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    text-decoration:none;
+    color:var(--text);
+}
+
+.brand-logo{
+    width:44px;
+    height:44px;
+
+    border-radius:12px;
+
+    object-fit:contain;
+}
+
+.brand-text{
+    display:flex;
+    flex-direction:column;
+
+    line-height:1;
+}
+
+.brand-name{
+    font-family:"Outfit",sans-serif;
+
+    font-size:21px;
+    font-weight:800;
+
+    letter-spacing:.5px;
+}
+
+.brand-sub{
+    color:var(--muted);
+
+    font-size:10px;
+
+    margin-top:5px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.admin-badge{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    background:var(--primary-light);
+    color:var(--primary);
+
+    padding:9px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+.header-btn{
+    min-height:42px;
+
+    padding:0 15px;
+
+    border-radius:11px;
+
+    border:1px solid var(--border);
+
+    background:white;
+
+    color:var(--text);
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    cursor:pointer;
+
+    font:600 13px "Inter";
+
+    transition:.2s;
+}
+
+.header-btn:hover{
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+    transform:translateY(-1px);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main{
+    max-width:1380px;
+
+    margin:auto;
+
+    padding:30px 24px 70px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(255,212,59,.28),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #155EEF,
+            #0B46C5
+        );
+
+    color:white;
+
+    border-radius:28px;
+
+    padding:46px 42px;
+
+    margin-bottom:26px;
+
+    box-shadow:
+        0 20px 50px rgba(21,94,239,.20);
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+    height:320px;
+
+    right:-120px;
+    top:-160px;
+
+    border:55px solid rgba(255,255,255,.07);
+
+    border-radius:50%;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    right:130px;
+    bottom:-160px;
+
+    border:35px solid rgba(255,255,255,.05);
+
+    border-radius:50%;
+}
+
+.hero-content{
+    position:relative;
+
+    z-index:2;
+
+    max-width:750px;
+}
+
+.hero-badge{
+    display:inline-flex;
+
+    align-items:center;
+    gap:8px;
+
+    background:rgba(255,255,255,.13);
+
+    border:1px solid rgba(255,255,255,.20);
+
+    padding:8px 13px;
+
+    border-radius:30px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.8px;
+
+    margin-bottom:17px;
+}
+
+.hero h1{
+    font-family:"Outfit",sans-serif;
+
+    font-size:clamp(32px,4vw,52px);
+
+    line-height:1.05;
+
+    margin-bottom:14px;
+}
+
+.hero p{
+    color:rgba(255,255,255,.84);
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    max-width:680px;
+}
+
+
+/* =========================================================
+   WELCOME BAR
+========================================================= */
+
+.welcome{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:17px 20px;
+
+    margin-bottom:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    box-shadow:var(--shadow);
+}
+
+.welcome-left{
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+}
+
+.welcome-icon{
+    width:42px;
+    height:42px;
+
+    border-radius:12px;
+
+    background:var(--green-light);
+
+    color:var(--green);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.welcome-text strong{
+    display:block;
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:15px;
+
+    margin-bottom:3px;
+}
+
+.welcome-text span{
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+.status{
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:var(--green);
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+.status-dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:0 0 0 4px var(--green-light);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin:30px 0 15px;
+}
+
+.section-header h2{
+    font-family:"Outfit",sans-serif;
+
+    font-size:23px;
+}
+
+.section-header p{
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-top:4px;
+}
+
+
+/* =========================================================
+   ADMIN CARDS
+========================================================= */
+
+.admin-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.admin-card{
+    position:relative;
+
+    overflow:hidden;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:24px;
+
+    box-shadow:var(--shadow);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+
+    cursor:pointer;
+}
+
+.admin-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-hover);
+
+    border-color:#CDD8EC;
+}
+
+.admin-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    right:-45px;
+    top:-45px;
+
+    border-radius:50%;
+
+    background:var(--card-soft);
+}
+
+.card-top{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:22px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.card-icon{
+    width:58px;
+    height:58px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:24px;
+}
+
+.card-arrow{
+    width:36px;
+    height:36px;
+
+    border-radius:10px;
+
+    background:#F8FAFC;
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--muted);
+
+    transition:.2s;
+}
+
+.admin-card:hover .card-arrow{
+    color:var(--primary);
+
+    border-color:var(--primary);
+
+    transform:translateX(3px);
+}
+
+.card-title{
+    position:relative;
+
+    z-index:2;
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:21px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+}
+
+.card-description{
+    position:relative;
+
+    z-index:2;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    min-height:62px;
+
+    margin-bottom:20px;
+}
+
+.card-footer{
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding-top:15px;
+
+    border-top:1px solid var(--border);
+}
+
+.card-label{
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.6px;
+
+    color:var(--muted);
+}
+
+.launch{
+    color:var(--primary);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+}
+
+
+/* BOOKS */
+
+.books-card{
+    --card-soft:var(--yellow-light);
+}
+
+.books-icon{
+    background:var(--yellow-light);
+
+    color:#B78100;
+}
+
+
+/* DAILY */
+
+.daily-card{
+    --card-soft:var(--green-light);
+}
+
+.daily-icon{
+    background:var(--green-light);
+
+    color:var(--green);
+}
+
+
+/* TEST */
+
+.test-card{
+    --card-soft:var(--purple-light);
+}
+
+.test-icon{
+    background:var(--purple-light);
+
+    color:var(--purple);
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
+
+.quick-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:13px;
+
+    margin-top:18px;
+}
+
+.quick-card{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:17px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    box-shadow:var(--shadow);
+
+    transition:.2s;
+}
+
+.quick-card:hover{
+    transform:translateY(-3px);
+
+    border-color:#CBD8EE;
+}
+
+.quick-icon{
+    width:40px;
+    height:40px;
+
+    flex-shrink:0;
+
+    border-radius:11px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+}
+
+.quick-card strong{
+    display:block;
+
+    font-size:12px;
+
+    margin-bottom:3px;
+}
+
+.quick-card span{
+    color:var(--muted);
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   ADMIN INFO
+========================================================= */
+
+.info-section{
+    margin-top:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #F8FAFF
+        );
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+    display:grid;
+
+    grid-template-columns:
+        1.2fr 1fr;
+
+    gap:30px;
+
+    align-items:center;
+}
+
+.info-title{
+    font-family:"Outfit",sans-serif;
+
+    font-size:25px;
+
+    margin-bottom:8px;
+}
+
+.info-text{
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.info-points{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+.info-point{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:13px;
+
+    padding:13px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    font-size:11px;
+
+    font-weight:600;
+}
+
+.info-point i{
+    color:var(--primary);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    margin-top:40px;
+
+    padding:24px 0 0;
+
+    border-top:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+.footer-brand{
+    font-family:"Outfit",sans-serif;
+
+    font-weight:800;
+
+    color:var(--text);
+}
+
+.footer-links{
+    display:flex;
+
+    gap:18px;
+}
+
+.footer-links a{
+    color:var(--muted);
+
+    text-decoration:none;
+
+    transition:.2s;
+}
+
+.footer-links a:hover{
+    color:var(--primary);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:950px){
+
+    .admin-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quick-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .info-section{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .header{
+        height:68px;
+
+        padding:0 15px;
+    }
+
+    .brand-logo{
+        width:38px;
+        height:38px;
+    }
+
+    .brand-name{
+        font-size:18px;
+    }
+
+    .brand-sub{
+        font-size:8px;
+    }
+
+    .admin-badge{
+        display:none;
+    }
+
+    .header-btn{
+        width:40px;
+
+        padding:0;
+
+        justify-content:center;
+    }
+
+    .header-btn span{
+        display:none;
+    }
+
+    .main{
+        padding:18px 14px 50px;
+    }
+
+    .hero{
+        padding:30px 22px;
+
+        border-radius:22px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .welcome{
+        align-items:flex-start;
+
+        flex-direction:column;
+    }
+
+    .section-header{
+        align-items:flex-start;
+
+        flex-direction:column;
+    }
+
+    .admin-card{
+        padding:20px;
+    }
+
+    .card-title{
+        font-size:19px;
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr;
+    }
+
+    .info-section{
+        padding:20px;
+    }
+
+    .info-points{
+        grid-template-columns:1fr;
+    }
+
+    .footer{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .footer-links{
+        flex-wrap:wrap;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <a href="../index.html" class="brand">
+
+        <img
+            src="../logo.png"
+            class="brand-logo"
+            alt="ASCEND"
+            onerror="this.style.display='none'"
+        >
+
+        <div class="brand-text">
+
+            <div class="brand-name">
+                ASCEND
+            </div>
+
+            <div class="brand-sub">
+                ADMINISTRATION
+            </div>
+
+        </div>
+
+    </a>
+
+
+    <div class="header-right">
+
+        <div class="admin-badge">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Administrator
+
+        </div>
+
+
+        <button
+            class="header-btn"
+            onclick="window.location.href='../index.html'"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                Home
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="main">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+
+                <i class="fa-solid fa-gauge-high"></i>
+
+                ASCEND ADMIN CONTROL CENTER
+
+            </div>
+
+
+            <h1>
+                Admin Dashboard
+            </h1>
+
+
+            <p>
+                Manage ASCEND learning content, daily updates,
+                tests and educational resources from one
+                centralized administration workspace.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome">
+
+        <div class="welcome-left">
+
+            <div class="welcome-icon">
+
+                <i class="fa-solid fa-user-shield"></i>
+
+            </div>
+
+
+            <div class="welcome-text">
+
+                <strong>
+                    Welcome to ASCEND Administration
+                </strong>
+
+                <span>
+                    Select an administration module to continue.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            Admin System Ready
+
+        </div>
+
+    </section>
+
+
+
+    <!-- MODULES -->
+
+    <section>
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Administration Modules
+                </h2>
+
+                <p>
+                    Manage the major learning systems of ASCEND.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-grid">
+
+
+            <!-- BOOKS -->
+
+            <article
+                class="admin-card books-card"
+                onclick="openAdmin('Admin/BooksAdmin.html')"
+            >
+
+                <div class="card-top">
+
+                    <div class="card-icon books-icon">
+
+                        <i class="fa-solid fa-books"></i>
+
+                    </div>
+
+
+                    <div class="card-arrow">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-title">
+                    Books Admin
+                </div>
+
+
+                <div class="card-description">
+
+                    Organize ASCEND learning materials,
+                    digital books, folders and Google Drive
+                    documents with nested library management.
+
+                </div>
+
+
+                <div class="card-footer">
+
+                    <span class="card-label">
+                        CONTENT LIBRARY
+                    </span>
+
+                    <span class="launch">
+
+                        Open Admin
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- DAILY UPDATE -->
+
+            <article
+                class="admin-card daily-card"
+                onclick="openAdmin('Admin/DailyUpadateAdmin.html')"
+            >
+
+                <div class="card-top">
+
+                    <div class="card-icon daily-icon">
+
+                        <i class="fa-solid fa-newspaper"></i>
+
+                    </div>
+
+
+                    <div class="card-arrow">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-title">
+                    Daily Update Admin
+                </div>
+
+
+                <div class="card-description">
+
+                    Manage daily current affairs,
+                    newspaper updates, important news,
+                    links and learning information published
+                    for ASCEND users.
+
+                </div>
+
+
+                <div class="card-footer">
+
+                    <span class="card-label">
+                        DAILY CONTENT
+                    </span>
+
+                    <span class="launch">
+
+                        Open Admin
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- TEST -->
+
+            <article
+                class="admin-card test-card"
+                onclick="openAdmin('Admin/TestAdmin.html')"
+            >
+
+                <div class="card-top">
+
+                    <div class="card-icon test-icon">
+
+                        <i class="fa-solid fa-file-circle-check"></i>
+
+                    </div>
+
+
+                    <div class="card-arrow">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-title">
+                    Test Admin
+                </div>
+
+
+                <div class="card-description">
+
+                    Create and manage ASCEND tests,
+                    questions, options, answers and
+                    examination content for students.
+
+                </div>
+
+
+                <div class="card-footer">
+
+                    <span class="card-label">
+                        TEST MANAGEMENT
+                    </span>
+
+                    <span class="launch">
+
+                        Open Admin
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- QUICK ACCESS -->
+
+    <section>
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Quick Access
+                </h2>
+
+                <p>
+                    Navigate quickly to the main ASCEND platform.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+
+            <a
+                href="../Books.html"
+                class="quick-card"
+            >
+
+                <div class="quick-icon">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Learning Library
+                    </strong>
+
+                    <span>
+                        View books
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <a
+                href="../Assignments.html"
+                class="quick-card"
+            >
+
+                <div class="quick-icon">
+
+                    <i class="fa-solid fa-list-check"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Assignments
+                    </strong>
+
+                    <span>
+                        Manage learning tasks
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <a
+                href="../Careers.html"
+                class="quick-card"
+            >
+
+                <div class="quick-icon">
+
+                    <i class="fa-solid fa-compass"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Career Explorer
+                    </strong>
+
+                    <span>
+                        Explore career paths
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <a
+                href="../Aboutus.html"
+                class="quick-card"
+            >
+
+                <div class="quick-icon">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        About ASCEND
+                    </strong>
+
+                    <span>
+                        Platform information
+                    </span>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- INFO -->
+
+    <section class="info-section">
+
+        <div>
+
+            <div class="info-title">
+                Manage. Improve. ASCEND.
+            </div>
+
+
+            <div class="info-text">
+
+                The ASCEND Admin Center brings the platform's
+                important management tools together in one place.
+                Keep learning content organized, publish useful
+                updates and maintain quality assessments for
+                learners.
+
+            </div>
+
+        </div>
+
+
+        <div class="info-points">
+
+            <div class="info-point">
+
+                <i class="fa-solid fa-folder-tree"></i>
+
+                Organized Content
+
+            </div>
+
+
+            <div class="info-point">
+
+                <i class="fa-solid fa-pen-to-square"></i>
+
+                Easy Management
+
+            </div>
+
+
+            <div class="info-point">
+
+                <i class="fa-solid fa-newspaper"></i>
+
+                Daily Updates
+
+            </div>
+
+
+            <div class="info-point">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Better Learning
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div>
+
+            <span class="footer-brand">
+                ASCEND
+            </span>
+
+            &nbsp; Administration Center
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../Books.html">
+                Books
+            </a>
+
+            <a href="../Assignments.html">
+                Tasks
+            </a>
+
+            <a href="../Careers.html">
+                Careers
+            </a>
+
+        </div>
+
+    </footer>
+
+
+</main>
+
+
+
+<script>
+
+/* =========================================================
+   OPEN ADMIN MODULE
+========================================================= */
+
+function openAdmin(page){
+
+    window.location.href = page;
+
+}
+
+
+/* =========================================================
+   KEYBOARD ACCESS
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "1"){
+
+            openAdmin(
+                "Admin/BooksAdmin.html"
+            );
+
+        }
+
+        if(event.key === "2"){
+
+            openAdmin(
+                "Admin/DailyUpadateAdmin.html"
+            );
+
+        }
+
+        if(event.key === "3"){
+
+            openAdmin(
+                "Admin/TestAdmin.html"
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
