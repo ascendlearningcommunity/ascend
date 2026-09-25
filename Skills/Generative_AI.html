@@ -1,0 +1,3344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Generative AI — ASCEND Skills</title>
+
+<link rel="icon" href="../logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --shadow:0 10px 30px rgba(16,24,40,.07);
+    --shadow-hover:0 18px 45px rgba(16,24,40,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+h1,h2,h3,h4{
+    font-family:'Outfit',sans-serif;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Outfit',sans-serif;
+    font-size:24px;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.logo img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:9px;
+    color:var(--muted);
+    font-size:13px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--primary-light);
+    color:var(--primary);
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:75px 0 65px;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(21,94,239,.10),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(127,86,217,.13),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(6,174,212,.08),transparent 25%),
+        var(--white);
+    border-bottom:1px solid var(--border);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:999px;
+    background:var(--purple-light);
+    color:var(--purple);
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,68px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    color:var(--muted);
+    max-width:650px;
+    font-size:16px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 19px;
+    border-radius:11px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-light{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.btn-light:hover{
+    transform:translateY(-2px);
+}
+
+/* ================= GENERATIVE AI VISUAL ================= */
+
+.hero-visual{
+    position:relative;
+    min-height:410px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.ai-orbit{
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.ai-orbit::before{
+    content:"";
+    position:absolute;
+    inset:15px;
+    border:2px dashed #B8CCFF;
+    border-radius:50%;
+    animation:spin 20s linear infinite;
+}
+
+.ai-orbit::after{
+    content:"";
+    position:absolute;
+    inset:52px;
+    border:2px solid #D5E1FF;
+    border-radius:50%;
+}
+
+.ai-center{
+    width:115px;
+    height:115px;
+    border-radius:30px;
+    background:linear-gradient(145deg,#155EEF,#7F56D9);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:46px;
+    box-shadow:0 25px 60px rgba(21,94,239,.30);
+    z-index:5;
+}
+
+.ai-node{
+    position:absolute;
+    width:54px;
+    height:54px;
+    border-radius:16px;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--primary);
+    font-size:19px;
+    z-index:6;
+}
+
+.ai-node-1{
+    top:8px;
+    left:50px;
+}
+
+.ai-node-2{
+    top:20px;
+    right:35px;
+}
+
+.ai-node-3{
+    bottom:22px;
+    left:38px;
+}
+
+.ai-node-4{
+    bottom:8px;
+    right:55px;
+}
+
+.float-card{
+    position:absolute;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    padding:13px 16px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:12px;
+    font-weight:700;
+    z-index:10;
+}
+
+.float-card i{
+    color:var(--primary);
+}
+
+.float-1{
+    top:18px;
+    left:0;
+}
+
+.float-2{
+    bottom:12px;
+    right:0;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* ================= COMMON ================= */
+
+section{
+    padding:70px 0;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 40px;
+}
+
+.section-heading .mini{
+    color:var(--primary);
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.section-heading h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.grid{
+    display:grid;
+    gap:20px;
+}
+
+.grid-3{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.grid-4{
+    grid-template-columns:repeat(4,1fr);
+}
+
+.card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:24px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-hover);
+}
+
+.icon-box{
+    width:48px;
+    height:48px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:18px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.card h3{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= OVERVIEW ================= */
+
+.overview{
+    background:var(--bg);
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-family:'Outfit';
+    font-size:30px;
+    color:var(--primary);
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:18px;
+}
+
+.topic{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:11px 12px;
+    background:var(--bg);
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.topic i{
+    color:var(--primary);
+}
+
+/* ================= AI STACK ================= */
+
+.stack-card{
+    text-align:center;
+}
+
+.stack-icon{
+    width:70px;
+    height:70px;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin:0 auto 18px;
+}
+
+.stack-card h3{
+    font-size:19px;
+}
+
+/* ================= FLOW ================= */
+
+.flow{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    position:relative;
+}
+
+.flow-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:22px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    position:relative;
+}
+
+.flow-number{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary);
+    color:white;
+    font-size:12px;
+    font-weight:800;
+    margin:0 auto 14px;
+}
+
+.flow-card h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.flow-card p{
+    font-size:11px;
+    color:var(--muted);
+}
+
+/* ================= PROMPT ================= */
+
+.prompt-box{
+    background:var(--dark);
+    color:#D1E0FF;
+    border-radius:17px;
+    padding:25px;
+    font-family:monospace;
+    font-size:12px;
+    overflow:auto;
+    box-shadow:var(--shadow);
+}
+
+.prompt-label{
+    display:inline-block;
+    color:var(--yellow);
+    margin-bottom:12px;
+    font-family:'Inter';
+    font-weight:800;
+}
+
+.prompt-user{
+    color:#7FB3FF;
+}
+
+.prompt-ai{
+    color:#7EE2B8;
+}
+
+.prompt-text{
+    color:#FFD43B;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.roadmap::before{
+    content:"";
+    position:absolute;
+    left:28px;
+    top:10px;
+    bottom:10px;
+    width:2px;
+    background:var(--border);
+}
+
+.step{
+    position:relative;
+    display:flex;
+    gap:22px;
+    margin-bottom:24px;
+}
+
+.step:last-child{
+    margin-bottom:0;
+}
+
+.step-number{
+    flex:0 0 58px;
+    height:58px;
+    border-radius:16px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Outfit';
+    font-weight:800;
+    z-index:2;
+    box-shadow:0 0 0 7px var(--bg);
+}
+
+.step-content{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:18px 20px;
+    flex:1;
+    box-shadow:var(--shadow);
+}
+
+.step-content h3{
+    font-size:18px;
+    margin-bottom:4px;
+}
+
+.step-content p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= PROJECTS ================= */
+
+.project-card{
+    position:relative;
+}
+
+.project-card .level{
+    position:absolute;
+    right:18px;
+    top:18px;
+    padding:5px 9px;
+    border-radius:999px;
+    font-size:10px;
+    font-weight:800;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.project-card ul{
+    list-style:none;
+    margin-top:16px;
+}
+
+.project-card li{
+    display:flex;
+    gap:8px;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:8px;
+}
+
+.project-card li i{
+    color:var(--green);
+    margin-top:4px;
+}
+
+/* ================= CAREERS ================= */
+
+.role{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.role-icon{
+    width:45px;
+    height:45px;
+    flex:0 0 45px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.role h3{
+    font-size:16px;
+}
+
+.role p{
+    margin-top:4px;
+}
+
+/* ================= RESOURCES ================= */
+
+.resource{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.resource-icon{
+    width:46px;
+    height:46px;
+    flex:0 0 46px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.resource h3{
+    font-size:16px;
+}
+
+.resource p{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:3px;
+}
+
+.resource a{
+    display:inline-block;
+    margin-top:6px;
+    font-size:11px;
+    color:var(--primary);
+    font-weight:700;
+}
+
+/* ================= TIPS ================= */
+
+.tips{
+    background:var(--dark);
+    color:white;
+}
+
+.tips .section-heading h2{
+    color:white;
+}
+
+.tips .section-heading p{
+    color:#98A2B3;
+}
+
+.tip-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.tip{
+    background:#1D2939;
+    border:1px solid #344054;
+    border-radius:15px;
+    padding:22px;
+}
+
+.tip i{
+    color:var(--yellow);
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.tip h3{
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.tip p{
+    color:#98A2B3;
+    font-size:12px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:65px 0;
+}
+
+.cta-box{
+    background:
+        radial-gradient(circle at 85% 20%,rgba(255,212,59,.18),transparent 25%),
+        var(--primary);
+    color:white;
+    border-radius:24px;
+    padding:50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta-box h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.cta-box p{
+    color:#DDE7FF;
+    max-width:650px;
+    margin:0 auto;
+    font-size:14px;
+}
+
+.cta-box .btn{
+    margin-top:22px;
+    background:white;
+    color:var(--primary);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0B1220;
+    color:white;
+    padding:45px 0 85px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+    font-size:12px;
+    margin-top:12px;
+    max-width:400px;
+}
+
+.footer-col h4{
+    margin-bottom:12px;
+    font-size:14px;
+}
+
+.footer-col a{
+    display:block;
+    color:#98A2B3;
+    font-size:12px;
+    margin-top:8px;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid #1D2939;
+    margin-top:30px;
+    padding-top:20px;
+    color:#667085;
+    font-size:11px;
+    text-align:center;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* ================= ANIMATION ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:.7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:55px;
+    }
+
+    .hero-visual{
+        min-height:420px;
+    }
+
+    .grid-4{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .flow{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:700px){
+
+    .container{
+        width:94%;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .float-card{
+        display:none;
+    }
+
+    .grid-3,
+    .grid-4,
+    .flow,
+    .tip-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading h2{
+        font-size:29px;
+    }
+
+    .roadmap::before{
+        left:24px;
+    }
+
+    .step{
+        gap:15px;
+    }
+
+    .step-number{
+        flex:0 0 50px;
+        height:50px;
+    }
+
+    .cta-box{
+        padding:35px 20px;
+    }
+
+    .cta-box h2{
+        font-size:29px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        left:12px;
+        right:12px;
+        bottom:12px;
+        height:64px;
+        z-index:2000;
+        background:rgba(255,255,255,.96);
+        backdrop-filter:blur(15px);
+        border:1px solid var(--border);
+        border-radius:18px;
+        box-shadow:0 15px 40px rgba(16,24,40,.16);
+        align-items:center;
+        justify-content:space-around;
+    }
+
+    .mobile-nav a{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:4px;
+        font-size:9px;
+        color:var(--muted);
+        font-weight:700;
+    }
+
+    .mobile-nav a i{
+        font-size:17px;
+    }
+
+    .mobile-nav a.active{
+        color:var(--primary);
+    }
+
+    footer{
+        padding-bottom:100px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+    <a href="../index.html" class="logo">
+
+        <img src="../logo.png" alt="ASCEND Logo">
+
+        ASCEND
+
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="../index.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="../Books.html">
+            <i class="fa-solid fa-book"></i>
+            Learn
+        </a>
+
+        <a href="../Assignments.html">
+            <i class="fa-solid fa-list-check"></i>
+            Tasks
+        </a>
+
+        <a href="Skills.html" class="active">
+            <i class="fa-solid fa-code"></i>
+            Skills
+        </a>
+
+        <a href="../Careers.html">
+            <i class="fa-solid fa-briefcase"></i>
+            Careers
+        </a>
+
+        <a href="../Aboutus.html">
+            <i class="fa-solid fa-circle-info"></i>
+            About
+        </a>
+
+        <a href="../Business.html">
+            <i class="fa-solid fa-lightbulb"></i>
+            Business
+        </a>
+
+        <a href="../Leadership.html">
+            <i class="fa-solid fa-users"></i>
+            Leadership
+        </a>
+
+        <a href="../Faq.html">
+            <i class="fa-solid fa-circle-question"></i>
+            FAQ
+        </a>
+
+    </nav>
+
+
+    <button class="menu-btn" onclick="toggleMenu()">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+    <div class="reveal">
+
+        <div class="badge">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            ASCEND GENERATIVE AI SKILL
+
+        </div>
+
+
+        <h1>
+
+            Learn <span>Generative AI</span><br>
+
+            Build Intelligent Applications.
+
+        </h1>
+
+
+        <p>
+
+            Learn how modern AI systems generate text, images,
+            code and other content. Build practical applications
+            using large language models, prompt engineering,
+            embeddings, RAG and AI agents.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#roadmap" class="btn btn-primary">
+
+                <i class="fa-solid fa-route"></i>
+
+                Start Roadmap
+
+            </a>
+
+
+            <a href="#projects" class="btn btn-light">
+
+                <i class="fa-solid fa-robot"></i>
+
+                Explore Projects
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual reveal">
+
+
+        <div class="float-card float-1">
+
+            <i class="fa-solid fa-terminal"></i>
+
+            Prompt → AI
+
+        </div>
+
+
+        <div class="ai-orbit">
+
+            <div class="ai-node ai-node-1">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+            </div>
+
+            <div class="ai-node ai-node-2">
+
+                <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <div class="ai-node ai-node-3">
+
+                <i class="fa-solid fa-image"></i>
+
+            </div>
+
+            <div class="ai-node ai-node-4">
+
+                <i class="fa-solid fa-comments"></i>
+
+            </div>
+
+
+            <div class="ai-center">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            </div>
+
+        </div>
+
+
+        <div class="float-card float-2">
+
+            <i class="fa-solid fa-brain"></i>
+
+            Large Language Models
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section class="overview">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Generative AI Overview
+        </div>
+
+        <h2>
+            From Prompts to AI Applications
+        </h2>
+
+        <p>
+            Understand the building blocks behind modern
+            generative AI applications.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-4">
+
+
+        <div class="card stat reveal">
+
+            <strong>01</strong>
+
+            <span>
+                AI Fundamentals
+            </span>
+
+        </div>
+
+
+        <div class="card stat reveal">
+
+            <strong>02</strong>
+
+            <span>
+                Large Language Models
+            </span>
+
+        </div>
+
+
+        <div class="card stat reveal">
+
+            <strong>03</strong>
+
+            <span>
+                RAG & AI Agents
+            </span>
+
+        </div>
+
+
+        <div class="card stat reveal">
+
+            <strong>04</strong>
+
+            <span>
+                AI Applications
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CORE TOPICS ================= -->
+
+<section>
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            What You Learn
+        </div>
+
+        <h2>
+            Generative AI Core Topics
+        </h2>
+
+        <p>
+            Learn the technologies and concepts used to
+            design and build modern generative AI applications.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card reveal">
+
+            <div class="icon-box blue">
+
+                <i class="fa-brands fa-python"></i>
+
+            </div>
+
+            <h3>
+                Python for AI
+            </h3>
+
+            <p>
+                Build the programming foundation required
+                for AI application development.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Python Basics
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    APIs
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    JSON & Data
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-brain"></i>
+
+            </div>
+
+            <h3>
+                AI Fundamentals
+            </h3>
+
+            <p>
+                Understand how modern generative AI systems
+                learn patterns from large datasets.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Neural Networks
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Transformers
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Tokens
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box orange">
+
+                <i class="fa-solid fa-terminal"></i>
+
+            </div>
+
+            <h3>
+                Prompt Engineering
+            </h3>
+
+            <p>
+                Learn how to design clear instructions
+                for generative AI systems.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Prompt Structure
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Few-Shot Examples
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Output Control
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box green">
+
+                <i class="fa-solid fa-vector-square"></i>
+
+            </div>
+
+            <h3>
+                Embeddings
+            </h3>
+
+            <p>
+                Represent text and other information as
+                vectors for semantic search and retrieval.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Vector Embeddings
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Similarity Search
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Vector Databases
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box red">
+
+                <i class="fa-solid fa-book-open"></i>
+
+            </div>
+
+            <h3>
+                RAG
+            </h3>
+
+            <p>
+                Connect AI models with external knowledge
+                to retrieve relevant information.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Document Loading
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Chunking
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Retrieval
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box cyan">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <h3>
+                AI Agents
+            </h3>
+
+            <p>
+                Build applications where AI can use tools,
+                retrieve information and perform defined tasks.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Tools
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Function Calling
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Agent Workflows
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= AI STACK ================= -->
+
+<section style="background:white;">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Generative AI Toolkit
+        </div>
+
+        <h2>
+            Technologies to Learn
+        </h2>
+
+        <p>
+            Explore the tools commonly used for building
+            generative AI applications and workflows.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-4">
+
+
+        <div class="card stack-card reveal">
+
+            <div class="stack-icon blue">
+
+                <i class="fa-brands fa-python"></i>
+
+            </div>
+
+            <h3>
+                Python
+            </h3>
+
+            <p>
+                Build AI applications and backend services.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="stack-icon purple">
+
+                <i class="fa-solid fa-link"></i>
+
+            </div>
+
+            <h3>
+                LangChain
+            </h3>
+
+            <p>
+                Build applications around language models.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="stack-icon green">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <h3>
+                Vector Databases
+            </h3>
+
+            <p>
+                Store and retrieve vector embeddings.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="stack-icon orange">
+
+                <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <h3>
+                APIs
+            </h3>
+
+            <p>
+                Connect applications with AI model services.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="stack-icon red">
+
+                <i class="fa-solid fa-face-smile"></i>
+
+            </div>
+
+            <h3>
+                Hugging Face
+            </h3>
+
+            <p>
+                Explore models, datasets and AI resources.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="stack-icon cyan">
+
+                <i class="fa-solid fa-flask"></i>
+
+            </div>
+
+            <h3>
+                Jupyter
+            </h3>
+
+            <p>
+                Experiment with Python and AI workflows.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="stack-icon blue">
+
+                <i class="fa-brands fa-git-alt"></i>
+
+            </div>
+
+            <h3>
+                Git & GitHub
+            </h3>
+
+            <p>
+                Manage and publish AI application projects.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="stack-icon green">
+
+                <i class="fa-solid fa-server"></i>
+
+            </div>
+
+            <h3>
+                FastAPI
+            </h3>
+
+            <p>
+                Create APIs for AI-powered applications.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= GENERATIVE AI FLOW ================= -->
+
+<section>
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            How Generative AI Applications Work
+        </div>
+
+        <h2>
+            From User Input to AI Output
+        </h2>
+
+        <p>
+            Understand the basic flow of a modern
+            generative AI application.
+        </p>
+
+    </div>
+
+
+    <div class="flow">
+
+
+        <div class="flow-card reveal">
+
+            <div class="flow-number">
+                01
+            </div>
+
+            <h3>
+                User Input
+            </h3>
+
+            <p>
+                The user provides a question,
+                instruction or other input.
+            </p>
+
+        </div>
+
+
+        <div class="flow-card reveal">
+
+            <div class="flow-number">
+                02
+            </div>
+
+            <h3>
+                Prompt
+            </h3>
+
+            <p>
+                The application structures the
+                input into a suitable prompt.
+            </p>
+
+        </div>
+
+
+        <div class="flow-card reveal">
+
+            <div class="flow-number">
+                03
+            </div>
+
+            <h3>
+                AI Model
+            </h3>
+
+            <p>
+                The model processes the prompt
+                and generates an output.
+            </p>
+
+        </div>
+
+
+        <div class="flow-card reveal">
+
+            <div class="flow-number">
+                04
+            </div>
+
+            <h3>
+                Application Output
+            </h3>
+
+            <p>
+                The application presents the
+                generated result to the user.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROMPT ENGINEERING ================= -->
+
+<section style="background:white;">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Prompt Engineering
+        </div>
+
+        <h2>
+            Learn to Communicate With AI Models
+        </h2>
+
+        <p>
+            Good prompts provide clear instructions,
+            useful context and an expected output format.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-2" style="grid-template-columns:1fr 1fr;">
+
+
+        <div class="card reveal">
+
+            <div class="icon-box orange">
+
+                <i class="fa-solid fa-terminal"></i>
+
+            </div>
+
+            <h3>
+                Basic Prompt Structure
+            </h3>
+
+            <p>
+                A useful prompt can define the task,
+                context, constraints and expected output.
+            </p>
+
+
+            <div class="prompt-box">
+
+                <div class="prompt-label">
+                    EXAMPLE
+                </div>
+
+                <br>
+
+                <span class="prompt-user">
+                    Role:
+                </span>
+
+                AI tutor
+
+                <br><br>
+
+                <span class="prompt-user">
+                    Task:
+                </span>
+
+                <span class="prompt-text">
+                    Explain SQL joins to a beginner.
+                </span>
+
+                <br><br>
+
+                <span class="prompt-user">
+                    Format:
+                </span>
+
+                <span class="prompt-text">
+                    Use simple examples and a table.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+            </div>
+
+            <h3>
+                Advanced Prompt Concepts
+            </h3>
+
+            <p>
+                Improve consistency by providing examples,
+                constraints and structured output requirements.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-check"></i>
+                    Zero-Shot Prompting
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-check"></i>
+                    Few-Shot Prompting
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-check"></i>
+                    Structured Output
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-check"></i>
+                    Context Engineering
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Learning Path
+        </div>
+
+        <h2>
+            Generative AI Roadmap
+        </h2>
+
+        <p>
+            Follow a structured path from programming basics
+            to production-ready AI applications.
+        </p>
+
+    </div>
+
+
+    <div class="roadmap">
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Python & Programming
+                </h3>
+
+                <p>
+                    Learn Python, functions, data structures,
+                    APIs, JSON and basic application development.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    AI Fundamentals
+                </h3>
+
+                <p>
+                    Understand machine learning basics,
+                    neural networks, tokens and transformers.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Large Language Models
+                </h3>
+
+                <p>
+                    Learn how language models process text,
+                    generate responses and use context.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Prompt Engineering
+                </h3>
+
+                <p>
+                    Learn prompt structure, examples,
+                    output control and context management.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                05
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Embeddings & Vector Search
+                </h3>
+
+                <p>
+                    Learn embeddings, similarity search,
+                    vector databases and semantic retrieval.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                06
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Retrieval-Augmented Generation
+                </h3>
+
+                <p>
+                    Build applications that retrieve relevant
+                    information before generating an answer.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                07
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Fine-Tuning & Model Adaptation
+                </h3>
+
+                <p>
+                    Understand when model adaptation is useful
+                    and learn the fundamentals of fine-tuning.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                08
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    AI Agents
+                </h3>
+
+                <p>
+                    Learn tool use, function calling,
+                    workflows and controlled agent systems.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                09
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Multimodal AI
+                </h3>
+
+                <p>
+                    Explore applications involving text,
+                    images, audio and other supported modalities.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                10
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    AI Applications & Portfolio
+                </h3>
+
+                <p>
+                    Build practical applications, deploy them,
+                    document your work and create a strong portfolio.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects" style="background:white;">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Hands-On Practice
+        </div>
+
+        <h2>
+            Generative AI Projects
+        </h2>
+
+        <p>
+            Build practical applications to demonstrate
+            your understanding of modern generative AI.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                BEGINNER
+            </span>
+
+            <div class="icon-box blue">
+
+                <i class="fa-solid fa-comments"></i>
+
+            </div>
+
+            <h3>
+                AI Study Assistant
+            </h3>
+
+            <p>
+                Create an application that helps students
+                understand topics and generate study material.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Prompt Engineering
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    API Integration
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Web Interface
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                BEGINNER
+            </span>
+
+            <div class="icon-box green">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+            </div>
+
+            <h3>
+                AI Text Summarizer
+            </h3>
+
+            <p>
+                Build an application that converts long
+                text into concise summaries.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Text Processing
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    LLM API
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Output Formatting
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                INTERMEDIATE
+            </span>
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-book"></i>
+
+            </div>
+
+            <h3>
+                Document Q&A with RAG
+            </h3>
+
+            <p>
+                Build a system that answers questions
+                using information from uploaded documents.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Embeddings
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Vector Search
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    RAG
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                INTERMEDIATE
+            </span>
+
+            <div class="icon-box orange">
+
+                <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <h3>
+                AI Coding Assistant
+            </h3>
+
+            <p>
+                Create an educational coding assistant
+                that explains code and suggests improvements.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    LLM Integration
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Prompt Design
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Web Application
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                ADVANCED
+            </span>
+
+            <div class="icon-box red">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <h3>
+                AI Research Assistant
+            </h3>
+
+            <p>
+                Build a system that organizes documents,
+                retrieves information and generates structured summaries.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    RAG
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Tool Integration
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    AI Workflow
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                ADVANCED
+            </span>
+
+            <div class="icon-box cyan">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            </div>
+
+            <h3>
+                Multimodal AI App
+            </h3>
+
+            <p>
+                Create an application that combines
+                supported text, image or audio capabilities.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Multimodal AI
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    API Integration
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Application Design
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CAREERS ================= -->
+
+<section>
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Career Applications
+        </div>
+
+        <h2>
+            Generative AI Career Paths
+        </h2>
+
+        <p>
+            Generative AI skills can be applied to software
+            products, automation, AI platforms and intelligent applications.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Generative AI Engineer
+                </h3>
+
+                <p>
+                    Build applications and systems powered
+                    by generative AI models.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-brain"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    LLM Engineer
+                </h3>
+
+                <p>
+                    Work with language models, evaluation,
+                    retrieval and application integration.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-terminal"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Prompt Engineer
+                </h3>
+
+                <p>
+                    Design and test prompts and workflows
+                    for reliable AI-assisted applications.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    RAG Engineer
+                </h3>
+
+                <p>
+                    Develop retrieval systems that connect
+                    AI models with external knowledge.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    AI Agent Developer
+                </h3>
+
+                <p>
+                    Build controlled AI workflows that
+                    can use tools and perform defined tasks.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-gears"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    AI Application Developer
+                </h3>
+
+                <p>
+                    Integrate AI capabilities into
+                    web, mobile and software applications.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FREE RESOURCES ================= -->
+
+<section style="background:white;">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Free Learning
+        </div>
+
+        <h2>
+            Learn Generative AI for Free
+        </h2>
+
+        <p>
+            Start with official documentation, tutorials,
+            courses and open AI learning resources.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Hugging Face
+                </h3>
+
+                <p>
+                    Explore models, datasets, libraries
+                    and learning resources.
+                </p>
+
+                <a href="https://huggingface.co/learn"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-brands fa-google"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Google AI
+                </h3>
+
+                <p>
+                    Explore Google's AI learning materials,
+                    guides and educational resources.
+                </p>
+
+                <a href="https://ai.google/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Google Machine Learning
+                </h3>
+
+                <p>
+                    Learn machine learning concepts
+                    through practical educational material.
+                </p>
+
+                <a href="https://developers.google.com/machine-learning"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-brands fa-python"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Python
+                </h3>
+
+                <p>
+                    Learn the Python programming foundation
+                    used in many AI applications.
+                </p>
+
+                <a href="https://docs.python.org/3/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-link"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    LangChain
+                </h3>
+
+                <p>
+                    Explore documentation for building
+                    applications around language models.
+                </p>
+
+                <a href="https://python.langchain.com/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Weaviate Academy
+                </h3>
+
+                <p>
+                    Learn concepts related to vector search,
+                    embeddings and AI application development.
+                </p>
+
+                <a href="https://academy.weaviate.io/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= STUDY TIPS ================= -->
+
+<section class="tips">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Study Strategy
+        </div>
+
+        <h2>
+            How to Learn Generative AI
+        </h2>
+
+        <p>
+            Focus on fundamentals, experimentation and
+            building useful applications rather than only
+            learning individual AI tools.
+        </p>
+
+    </div>
+
+
+    <div class="tip-grid">
+
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-code"></i>
+
+            <h3>
+                Learn Python
+            </h3>
+
+            <p>
+                Build a strong programming foundation
+                before developing complex AI applications.
+            </p>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-terminal"></i>
+
+            <h3>
+                Practice Prompts
+            </h3>
+
+            <p>
+                Experiment with instructions, context,
+                examples and structured outputs.
+            </p>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-layer-group"></i>
+
+            <h3>
+                Build Real Projects
+            </h3>
+
+            <p>
+                Combine models, APIs, retrieval and
+                application interfaces to create useful projects.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+<div class="container">
+
+
+    <div class="cta-box reveal">
+
+        <h2>
+            Start Your Generative AI Journey
+        </h2>
+
+        <p>
+            Learn how modern AI systems work, experiment with
+            prompts and models, and build practical AI-powered
+            applications for your portfolio.
+        </p>
+
+
+        <a href="#roadmap" class="btn">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            Begin Learning
+
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+
+    <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+            <div class="logo" style="color:white;">
+
+                <img src="../logo.png" alt="ASCEND Logo">
+
+                ASCEND
+
+            </div>
+
+            <p>
+                ASCEND Learning Community helps students
+                develop knowledge, technical skills,
+                career awareness and practical abilities.
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../Books.html">
+                Learn
+            </a>
+
+            <a href="../Assignments.html">
+                Assignments
+            </a>
+
+            <a href="Skills.html">
+                Skills
+            </a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>
+                ASCEND
+            </h4>
+
+            <a href="../Careers.html">
+                Careers
+            </a>
+
+            <a href="../Business.html">
+                Business
+            </a>
+
+            <a href="../Leadership.html">
+                Leadership
+            </a>
+
+            <a href="../Faq.html">
+                FAQ
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 ASCEND Learning Community.
+        All Rights Reserved.
+
+    </div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<nav class="mobile-nav">
+
+    <a href="../index.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        Home
+
+    </a>
+
+
+    <a href="../Books.html">
+
+        <i class="fa-solid fa-book"></i>
+
+        Learn
+
+    </a>
+
+
+    <a href="Skills.html" class="active">
+
+        <i class="fa-solid fa-code"></i>
+
+        Skills
+
+    </a>
+
+
+    <a href="../Careers.html">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        Careers
+
+    </a>
+
+
+    <a href="../Aboutus.html">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        About
+
+    </a>
+
+</nav>
+
+
+<script>
+
+/* ================= MOBILE MENU ================= */
+
+function toggleMenu(){
+
+    const nav = document.querySelector(".nav-links");
+
+    if(nav.style.display === "flex"){
+
+        nav.style.display = "none";
+
+    }else{
+
+        nav.style.display = "flex";
+
+        nav.style.position = "absolute";
+        nav.style.top = "72px";
+        nav.style.left = "0";
+        nav.style.right = "0";
+        nav.style.background = "#ffffff";
+        nav.style.padding = "15px";
+        nav.style.borderBottom = "1px solid #E4EAF2";
+        nav.style.flexDirection = "column";
+        nav.style.alignItems = "stretch";
+
+    }
+
+}
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+document.querySelectorAll(".reveal").forEach(el => {
+
+    observer.observe(el);
+
+});
+
+</script>
+
+</body>
+</html>

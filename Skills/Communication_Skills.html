@@ -1,0 +1,3285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Communication Skills — ASCEND Skills</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --radius:20px;
+
+    --shadow:0 10px 30px rgba(16,24,40,.07);
+    --shadow-hover:0 18px 40px rgba(16,24,40,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:Outfit,sans-serif;
+    font-size:25px;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.logo img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:10px;
+    color:var(--muted);
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.home-btn{
+    background:var(--primary);
+    color:white !important;
+    padding:10px 16px !important;
+}
+
+.home-btn:hover{
+    background:var(--primary-dark) !important;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:75px 0 55px;
+    background:
+        radial-gradient(circle at 85% 20%,rgba(21,94,239,.12),transparent 28%),
+        radial-gradient(circle at 10% 80%,rgba(255,212,59,.12),transparent 25%),
+        var(--white);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--primary-light);
+    color:var(--primary);
+    border:1px solid #D7E3FF;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:Outfit,sans-serif;
+    font-size:clamp(40px,6vw,68px);
+    line-height:1.02;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    max-width:680px;
+    color:var(--muted);
+    font-size:17px;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:13px 19px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:white;
+    color:var(--dark);
+    border:1px solid var(--border);
+}
+
+.btn-secondary:hover{
+    border-color:var(--primary);
+    color:var(--primary);
+}
+
+/* ================= COMMUNICATION VISUAL ================= */
+
+.communication-window{
+    background:#101828;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 25px 55px rgba(16,24,40,.2);
+    transform:rotate(1deg);
+}
+
+.communication-top{
+    height:48px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:0 18px;
+    background:#182230;
+}
+
+.dot{
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:#98A2B3;
+}
+
+.window-title{
+    margin:auto;
+    color:#98A2B3;
+    font-size:12px;
+}
+
+.communication-body{
+    padding:25px;
+}
+
+.message{
+    display:flex;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.message:last-child{
+    margin-bottom:0;
+}
+
+.avatar{
+    width:38px;
+    height:38px;
+    min-width:38px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:#253B80;
+    color:#84CAFF;
+}
+
+.message-content{
+    flex:1;
+    background:#182230;
+    border:1px solid #344054;
+    border-radius:13px;
+    padding:12px 14px;
+}
+
+.message-name{
+    color:#84CAFF;
+    font-size:11px;
+    font-weight:800;
+    margin-bottom:4px;
+}
+
+.message-text{
+    color:#E4E7EC;
+    font-size:12px;
+}
+
+.communication-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:20px;
+}
+
+.communication-badge{
+    padding:6px 10px;
+    border-radius:8px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.speaking{
+    background:#EAF1FF;
+    color:#155EEF;
+}
+
+.listening{
+    background:#ECFDF3;
+    color:#067647;
+}
+
+.presentation{
+    background:#FFF7D6;
+    color:#946200;
+}
+
+.professional{
+    background:#F4F3FF;
+    color:#6941C6;
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:75px 0;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:760px;
+    margin:0 auto 42px;
+}
+
+.section-heading span{
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+}
+
+.section-heading h2{
+    font-family:Outfit,sans-serif;
+    font-size:38px;
+    margin:8px 0 12px;
+}
+
+.section-heading p{
+    color:var(--muted);
+}
+
+/* ================= CARDS ================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:25px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-hover);
+}
+
+.icon{
+    width:50px;
+    height:50px;
+    display:grid;
+    place-items:center;
+    border-radius:14px;
+    font-size:20px;
+    margin-bottom:18px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.yellow{
+    background:var(--yellow-light);
+    color:#B78103;
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.card h3{
+    font-family:Outfit,sans-serif;
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.card ul{
+    list-style:none;
+    margin-top:14px;
+}
+
+.card li{
+    color:var(--muted);
+    font-size:14px;
+    padding:6px 0;
+}
+
+.card li i{
+    color:var(--primary);
+    margin-right:8px;
+}
+
+/* ================= FOUR SKILLS ================= */
+
+.skill-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.skill-box{
+    text-align:center;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px 18px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.skill-box:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-hover);
+}
+
+.skill-circle{
+    width:70px;
+    height:70px;
+    margin:0 auto 15px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    font-size:25px;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.skill-box h3{
+    font-family:Outfit,sans-serif;
+    margin-bottom:6px;
+}
+
+.skill-box p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.topic{
+    display:flex;
+    gap:17px;
+    padding:22px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+}
+
+.topic-number{
+    min-width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:var(--primary-light);
+    color:var(--primary);
+    font-weight:800;
+}
+
+.topic h3{
+    font-family:Outfit,sans-serif;
+    margin-bottom:5px;
+}
+
+.topic p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ================= TOOLKIT ================= */
+
+.toolkit{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+}
+
+.tool{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:12px 16px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+    box-shadow:0 5px 15px rgba(16,24,40,.04);
+}
+
+.tool i{
+    color:var(--primary);
+}
+
+/* ================= COMMUNICATION FLOW ================= */
+
+.communication-flow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.flow-item{
+    min-width:145px;
+    text-align:center;
+    padding:20px 15px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+}
+
+.flow-item i{
+    display:block;
+    color:var(--primary);
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.flow-item strong{
+    font-size:13px;
+}
+
+.flow-arrow{
+    color:var(--primary);
+    font-size:18px;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.roadmap::before{
+    content:"";
+    position:absolute;
+    left:24px;
+    top:20px;
+    bottom:20px;
+    width:2px;
+    background:#D7E3FF;
+}
+
+.step{
+    position:relative;
+    display:flex;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.step:last-child{
+    margin-bottom:0;
+}
+
+.step-number{
+    position:relative;
+    z-index:2;
+    width:50px;
+    height:50px;
+    min-width:50px;
+    display:grid;
+    place-items:center;
+    background:var(--primary);
+    color:white;
+    border-radius:50%;
+    font-weight:800;
+    border:5px solid var(--bg);
+}
+
+.step-content{
+    flex:1;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px 22px;
+}
+
+.step-content h3{
+    font-family:Outfit,sans-serif;
+    margin-bottom:4px;
+}
+
+.step-content p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ================= PROJECTS ================= */
+
+.project{
+    position:relative;
+    overflow:hidden;
+}
+
+.project-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.project-level{
+    font-size:11px;
+    font-weight:800;
+    padding:5px 9px;
+    border-radius:20px;
+    background:var(--primary-light);
+    color:var(--primary);
+    white-space:nowrap;
+}
+
+.project h3{
+    font-family:Outfit,sans-serif;
+}
+
+.project p{
+    margin-top:8px;
+}
+
+.project-tech{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:15px;
+}
+
+.project-tech span{
+    background:#F2F4F7;
+    padding:5px 8px;
+    border-radius:7px;
+    font-size:11px;
+    font-weight:700;
+    color:var(--muted);
+}
+
+/* ================= CAREERS ================= */
+
+.career-card{
+    display:flex;
+    align-items:flex-start;
+    gap:17px;
+}
+
+.career-icon{
+    min-width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border-radius:13px;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+/* ================= RESOURCES ================= */
+
+.resource{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.resource-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.resource-icon{
+    width:46px;
+    height:46px;
+    display:grid;
+    place-items:center;
+    background:var(--primary-light);
+    color:var(--primary);
+    border-radius:12px;
+    flex-shrink:0;
+}
+
+.resource h3{
+    font-family:Outfit,sans-serif;
+    font-size:17px;
+}
+
+.resource p{
+    font-size:13px;
+    color:var(--muted);
+}
+
+.resource-link{
+    color:var(--primary);
+    font-weight:800;
+    font-size:13px;
+    white-space:nowrap;
+}
+
+/* ================= TIPS ================= */
+
+.tips{
+    background:#101828;
+    color:white;
+}
+
+.tips .section-heading p{
+    color:#98A2B3;
+}
+
+.tips .section-heading span{
+    color:#84CAFF;
+}
+
+.tip-card{
+    background:#182230;
+    border:1px solid #344054;
+    border-radius:18px;
+    padding:22px;
+}
+
+.tip-card h3{
+    font-family:Outfit,sans-serif;
+    margin-bottom:7px;
+}
+
+.tip-card p{
+    color:#98A2B3;
+    font-size:14px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:70px 0;
+}
+
+.cta-box{
+    background:
+        radial-gradient(circle at 90% 10%,rgba(255,255,255,.14),transparent 25%),
+        var(--primary);
+    color:white;
+    border-radius:28px;
+    padding:55px;
+    text-align:center;
+}
+
+.cta-box h2{
+    font-family:Outfit,sans-serif;
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.cta-box p{
+    color:#D7E3FF;
+    max-width:650px;
+    margin:0 auto 25px;
+}
+
+.cta .btn{
+    background:white;
+    color:var(--primary);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0B1220;
+    color:white;
+    padding:50px 0 90px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+    margin-top:12px;
+    max-width:430px;
+    font-size:14px;
+}
+
+.footer-title{
+    font-family:Outfit,sans-serif;
+    margin-bottom:14px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+.footer-links a{
+    color:#98A2B3;
+    font-size:14px;
+}
+
+.footer-links a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid #344054;
+    margin-top:35px;
+    padding-top:22px;
+    color:#98A2B3;
+    font-size:13px;
+    text-align:center;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav{
+    display:none;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:2000;
+    background:white;
+    border-top:1px solid var(--border);
+    padding:9px 8px;
+    box-shadow:0 -8px 25px rgba(16,24,40,.08);
+}
+
+.mobile-nav a{
+    flex:1;
+    text-align:center;
+    color:var(--muted);
+    font-size:10px;
+    font-weight:700;
+}
+
+.mobile-nav i{
+    display:block;
+    font-size:17px;
+    margin-bottom:3px;
+}
+
+.mobile-nav a.active{
+    color:var(--primary);
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:.7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .skill-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .mobile-nav{
+        display:flex;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:90%;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:55px 0 40px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .skill-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .section-heading h2{
+        font-size:30px;
+    }
+
+    .communication-flow{
+        flex-direction:column;
+    }
+
+    .flow-arrow{
+        transform:rotate(90deg);
+    }
+
+    .flow-item{
+        width:100%;
+    }
+
+    .cta-box{
+        padding:40px 22px;
+    }
+
+    .cta-box h2{
+        font-size:30px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .navbar{
+        min-height:65px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .logo img{
+        width:36px;
+        height:36px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="../index.html" class="logo">
+
+<img src="../logo.png" alt="ASCEND">
+
+ASCEND
+
+</a>
+
+
+<nav class="nav-links">
+
+<a href="../index.html" class="home-btn">
+<i class="fa-solid fa-house"></i>
+Home
+</a>
+
+<a href="../Books.html">
+<i class="fa-solid fa-book"></i>
+Learn
+</a>
+
+<a href="../Assignments.html">
+<i class="fa-solid fa-list-check"></i>
+Tasks
+</a>
+
+<a href="../Skills.html" class="active">
+<i class="fa-solid fa-code"></i>
+Skills
+</a>
+
+<a href="../Careers.html">
+<i class="fa-solid fa-briefcase"></i>
+Careers
+</a>
+
+<a href="../Aboutus.html">
+<i class="fa-solid fa-circle-info"></i>
+About
+</a>
+
+<a href="../Business.html">
+<i class="fa-solid fa-lightbulb"></i>
+Business
+</a>
+
+<a href="../Leadership.html">
+<i class="fa-solid fa-users"></i>
+Leadership
+</a>
+
+<a href="../Faq.html">
+<i class="fa-solid fa-circle-question"></i>
+FAQ
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+
+<div class="reveal">
+
+<div class="badge">
+
+<i class="fa-solid fa-comments"></i>
+
+ASCEND • Soft Skills
+
+</div>
+
+
+<h1>
+
+Master <span>Communication</span><br>
+
+Speak With Confidence
+
+</h1>
+
+
+<p>
+
+Develop clear speaking, active listening, vocabulary,
+professional communication, presentation and interpersonal
+skills for academic, workplace and everyday situations.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a href="#roadmap" class="btn btn-primary">
+
+<i class="fa-solid fa-road"></i>
+
+Start Learning
+
+</a>
+
+
+<a href="#projects" class="btn btn-secondary">
+
+<i class="fa-solid fa-microphone"></i>
+
+Practice Skills
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- COMMUNICATION VISUAL -->
+
+<div class="communication-window reveal">
+
+<div class="communication-top">
+
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+
+<div class="window-title">
+communication.practice
+</div>
+
+</div>
+
+
+<div class="communication-body">
+
+
+<div class="message">
+
+<div class="avatar">
+
+<i class="fa-solid fa-user"></i>
+
+</div>
+
+<div class="message-content">
+
+<div class="message-name">
+SPEAKER
+</div>
+
+<div class="message-text">
+Clear words • Confident voice • Simple message
+</div>
+
+</div>
+
+</div>
+
+
+<div class="message">
+
+<div class="avatar">
+
+<i class="fa-solid fa-ear-listen"></i>
+
+</div>
+
+<div class="message-content">
+
+<div class="message-name">
+LISTENER
+</div>
+
+<div class="message-text">
+Listen carefully • Understand • Respond appropriately
+</div>
+
+</div>
+
+</div>
+
+
+<div class="message">
+
+<div class="avatar">
+
+<i class="fa-solid fa-users"></i>
+
+</div>
+
+<div class="message-content">
+
+<div class="message-name">
+TEAM
+</div>
+
+<div class="message-text">
+Discuss • Collaborate • Give feedback • Solve problems
+</div>
+
+</div>
+
+</div>
+
+
+<div class="communication-badges">
+
+<span class="communication-badge speaking">
+Speaking
+</span>
+
+<span class="communication-badge listening">
+Listening
+</span>
+
+<span class="communication-badge presentation">
+Presentation
+</span>
+
+<span class="communication-badge professional">
+Professional
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>Communication Foundation</span>
+
+<h2>Why Learn Communication Skills?</h2>
+
+<p>
+
+Good communication helps you express ideas clearly,
+understand others and work effectively with people.
+
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card reveal">
+
+<div class="icon blue">
+
+<i class="fa-solid fa-bullseye"></i>
+
+</div>
+
+<h3>Express Ideas Clearly</h3>
+
+<p>
+
+Learn to organize your thoughts and communicate
+ideas in a simple and understandable way.
+
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon green">
+
+<i class="fa-solid fa-handshake"></i>
+
+</div>
+
+<h3>Build Better Relationships</h3>
+
+<p>
+
+Develop listening, empathy, teamwork and
+respectful interaction skills.
+
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon purple">
+
+<i class="fa-solid fa-briefcase"></i>
+
+</div>
+
+<h3>Professional Growth</h3>
+
+<p>
+
+Improve communication for interviews,
+meetings, presentations and workplace situations.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOUR SKILLS ================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>The Four Foundations</span>
+
+<h2>Core Communication Skills</h2>
+
+<p>
+
+Build communication through four fundamental areas.
+
+</p>
+
+</div>
+
+
+<div class="skill-grid">
+
+
+<div class="skill-box reveal">
+
+<div class="skill-circle">
+
+<i class="fa-solid fa-microphone"></i>
+
+</div>
+
+<h3>Speaking</h3>
+
+<p>
+Speak clearly, confidently and appropriately.
+</p>
+
+</div>
+
+
+<div class="skill-box reveal">
+
+<div class="skill-circle">
+
+<i class="fa-solid fa-ear-listen"></i>
+
+</div>
+
+<h3>Listening</h3>
+
+<p>
+Listen actively and understand the speaker.
+</p>
+
+</div>
+
+
+<div class="skill-box reveal">
+
+<div class="skill-circle">
+
+<i class="fa-solid fa-book-open"></i>
+
+</div>
+
+<h3>Reading</h3>
+
+<p>
+Understand written information and ideas.
+</p>
+
+</div>
+
+
+<div class="skill-box reveal">
+
+<div class="skill-circle">
+
+<i class="fa-solid fa-pen"></i>
+
+</div>
+
+<h3>Writing</h3>
+
+<p>
+Write clear, structured and professional messages.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CORE TOPICS ================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>What You Will Learn</span>
+
+<h2>Core Communication Topics</h2>
+
+<p>
+
+Develop practical communication skills step by step.
+
+</p>
+
+</div>
+
+
+<div class="topic-grid">
+
+
+<div class="topic reveal">
+
+<div class="topic-number">
+01
+</div>
+
+<div>
+
+<h3>English Fundamentals</h3>
+
+<p>
+
+Build basic grammar, sentence structure,
+common vocabulary and correct usage.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">
+02
+</div>
+
+<div>
+
+<h3>Vocabulary Building</h3>
+
+<p>
+
+Learn useful words, phrases, synonyms,
+collocations and professional vocabulary.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">
+03
+</div>
+
+<div>
+
+<h3>Speaking Skills</h3>
+
+<p>
+
+Improve pronunciation, fluency, clarity,
+confidence and conversational ability.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">
+04
+</div>
+
+<div>
+
+<h3>Active Listening</h3>
+
+<p>
+
+Pay attention, understand key information,
+ask questions and respond appropriately.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">
+05
+</div>
+
+<div>
+
+<h3>Body Language</h3>
+
+<p>
+
+Understand posture, eye contact,
+facial expressions and professional presence.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">
+06
+</div>
+
+<div>
+
+<h3>Presentation Skills</h3>
+
+<p>
+
+Plan presentations, explain ideas,
+use visual support and answer questions.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">
+07
+</div>
+
+<div>
+
+<h3>Public Speaking</h3>
+
+<p>
+
+Practice speeches, introductions,
+group discussions and speaking to audiences.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">
+08
+</div>
+
+<div>
+
+<h3>Professional Communication</h3>
+
+<p>
+
+Learn emails, meetings, workplace conversations,
+team communication and professional etiquette.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= COMMUNICATION TYPES ================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>Practical Communication</span>
+
+<h2>Where Communication Skills Are Used</h2>
+
+<p>
+
+Communication is important across education,
+careers, teamwork and everyday interactions.
+
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card reveal">
+
+<div class="icon blue">
+
+<i class="fa-solid fa-comments"></i>
+
+</div>
+
+<h3>Conversation</h3>
+
+<p>
+
+Practice introductions, small conversations,
+questions, responses and everyday communication.
+
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon yellow">
+
+<i class="fa-solid fa-users"></i>
+
+</div>
+
+<h3>Group Discussion</h3>
+
+<p>
+
+Share ideas, listen to others, build on points
+and communicate respectfully.
+
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon green">
+
+<i class="fa-solid fa-person-chalkboard"></i>
+
+</div>
+
+<h3>Presentation</h3>
+
+<p>
+
+Organize information and present your ideas
+clearly to an audience.
+
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon purple">
+
+<i class="fa-solid fa-people-group"></i>
+
+</div>
+
+<h3>Teamwork</h3>
+
+<p>
+
+Coordinate with teammates, give feedback,
+solve disagreements and achieve shared goals.
+
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon orange">
+
+<i class="fa-solid fa-user-tie"></i>
+
+</div>
+
+<h3>Interview</h3>
+
+<p>
+
+Introduce yourself, answer questions clearly
+and communicate your experiences confidently.
+
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon cyan">
+
+<i class="fa-solid fa-envelope"></i>
+
+</div>
+
+<h3>Written Communication</h3>
+
+<p>
+
+Write professional emails, messages,
+reports and other workplace documents.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOOLKIT ================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>Learning Toolkit</span>
+
+<h2>Communication Practice Tools</h2>
+
+<p>
+
+Use simple tools and activities to practice
+communication consistently.
+
+</p>
+
+</div>
+
+
+<div class="toolkit reveal">
+
+
+<div class="tool">
+
+<i class="fa-solid fa-microphone"></i>
+
+Voice Recording
+
+</div>
+
+
+<div class="tool">
+
+<i class="fa-solid fa-book"></i>
+
+Dictionary
+
+</div>
+
+
+<div class="tool">
+
+<i class="fa-solid fa-volume-high"></i>
+
+Pronunciation
+
+</div>
+
+
+<div class="tool">
+
+<i class="fa-solid fa-video"></i>
+
+Video Practice
+
+</div>
+
+
+<div class="tool">
+
+<i class="fa-solid fa-note-sticky"></i>
+
+Vocabulary Notes
+
+</div>
+
+
+<div class="tool">
+
+<i class="fa-solid fa-users"></i>
+
+Group Discussion
+
+</div>
+
+
+<div class="tool">
+
+<i class="fa-solid fa-person-chalkboard"></i>
+
+Presentations
+
+</div>
+
+
+<div class="tool">
+
+<i class="fa-solid fa-envelope"></i>
+
+Email Writing
+
+</div>
+
+
+<div class="tool">
+
+<i class="fa-solid fa-comments"></i>
+
+Conversation Practice
+
+</div>
+
+
+<div class="tool">
+
+<i class="fa-solid fa-book-open"></i>
+
+Reading
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= COMMUNICATION FLOW ================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>Communication Process</span>
+
+<h2>How Effective Communication Works</h2>
+
+<p>
+
+Good communication is more than speaking.
+It involves understanding, expressing and receiving information.
+
+</p>
+
+</div>
+
+
+<div class="communication-flow reveal">
+
+
+<div class="flow-item">
+
+<i class="fa-solid fa-brain"></i>
+
+<strong>Think</strong>
+
+</div>
+
+
+<div class="flow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+
+<div class="flow-item">
+
+<i class="fa-solid fa-message"></i>
+
+<strong>Organize</strong>
+
+</div>
+
+
+<div class="flow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+
+<div class="flow-item">
+
+<i class="fa-solid fa-microphone"></i>
+
+<strong>Express</strong>
+
+</div>
+
+
+<div class="flow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+
+<div class="flow-item">
+
+<i class="fa-solid fa-ear-listen"></i>
+
+<strong>Listen</strong>
+
+</div>
+
+
+<div class="flow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+
+<div class="flow-item">
+
+<i class="fa-solid fa-check"></i>
+
+<strong>Understand</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>Learning Path</span>
+
+<h2>Communication Skills Roadmap</h2>
+
+<p>
+
+Follow a structured path from basic communication
+to professional-level confidence.
+
+</p>
+
+</div>
+
+
+<div class="roadmap">
+
+
+<div class="step reveal">
+
+<div class="step-number">
+1
+</div>
+
+<div class="step-content">
+
+<h3>Language Fundamentals</h3>
+
+<p>
+
+Learn basic grammar, sentence construction,
+common vocabulary and everyday expressions.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+2
+</div>
+
+<div class="step-content">
+
+<h3>Vocabulary & Pronunciation</h3>
+
+<p>
+
+Build useful vocabulary and practice clear
+pronunciation and word usage.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+3
+</div>
+
+<div class="step-content">
+
+<h3>Daily Speaking Practice</h3>
+
+<p>
+
+Practice self-introduction, conversations,
+descriptions and everyday speaking.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+4
+</div>
+
+<div class="step-content">
+
+<h3>Active Listening</h3>
+
+<p>
+
+Listen to conversations, talks and presentations
+and identify important information.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+5
+</div>
+
+<div class="step-content">
+
+<h3>Presentation & Public Speaking</h3>
+
+<p>
+
+Practice structured presentations,
+speeches and audience interaction.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+6
+</div>
+
+<div class="step-content">
+
+<h3>Group Discussion & Teamwork</h3>
+
+<p>
+
+Learn how to express opinions, listen to others,
+ask questions and collaborate.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+7
+</div>
+
+<div class="step-content">
+
+<h3>Professional Communication</h3>
+
+<p>
+
+Practice workplace conversations, emails,
+meetings, reports and professional etiquette.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+8
+</div>
+
+<div class="step-content">
+
+<h3>Interview & Career Communication</h3>
+
+<p>
+
+Practice self-introduction, interview answers,
+professional conversations and career presentations.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>Learn by Practicing</span>
+
+<h2>Communication Practice Activities</h2>
+
+<p>
+
+Turn communication theory into practical daily activities.
+
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card project reveal">
+
+<div class="project-top">
+
+<h3>Self Introduction</h3>
+
+<span class="project-level">
+Beginner
+</span>
+
+</div>
+
+<p>
+
+Prepare and record a 1–2 minute introduction
+covering your education, interests and goals.
+
+</p>
+
+<div class="project-tech">
+
+<span>Speaking</span>
+<span>Confidence</span>
+<span>Practice</span>
+
+</div>
+
+</div>
+
+
+<div class="card project reveal">
+
+<div class="project-top">
+
+<h3>Daily Speaking Journal</h3>
+
+<span class="project-level">
+Beginner
+</span>
+
+</div>
+
+<p>
+
+Choose one topic every day and speak about it
+for a few minutes without reading a script.
+
+</p>
+
+<div class="project-tech">
+
+<span>Fluency</span>
+<span>Vocabulary</span>
+<span>Speaking</span>
+
+</div>
+
+</div>
+
+
+<div class="card project reveal">
+
+<div class="project-top">
+
+<h3>Presentation Challenge</h3>
+
+<span class="project-level">
+Intermediate
+</span>
+
+</div>
+
+<p>
+
+Prepare a short presentation on an academic,
+technical or general-interest topic.
+
+</p>
+
+<div class="project-tech">
+
+<span>Presentation</span>
+<span>Public Speaking</span>
+<span>Research</span>
+
+</div>
+
+</div>
+
+
+<div class="card project reveal">
+
+<div class="project-top">
+
+<h3>Group Discussion</h3>
+
+<span class="project-level">
+Intermediate
+</span>
+
+</div>
+
+<p>
+
+Practice discussing a topic while focusing
+on listening, clarity and respectful responses.
+
+</p>
+
+<div class="project-tech">
+
+<span>Teamwork</span>
+<span>Discussion</span>
+<span>Listening</span>
+
+</div>
+
+</div>
+
+
+<div class="card project reveal">
+
+<div class="project-top">
+
+<h3>Professional Email</h3>
+
+<span class="project-level">
+Intermediate
+</span>
+
+</div>
+
+<p>
+
+Practice writing clear subject lines,
+greetings, requests and professional replies.
+
+</p>
+
+<div class="project-tech">
+
+<span>Writing</span>
+<span>Email</span>
+<span>Professional</span>
+
+</div>
+
+</div>
+
+
+<div class="card project reveal">
+
+<div class="project-top">
+
+<h3>Mock Interview</h3>
+
+<span class="project-level">
+Advanced
+</span>
+
+</div>
+
+<p>
+
+Conduct a practice interview and review
+your clarity, structure, listening and responses.
+
+</p>
+
+<div class="project-tech">
+
+<span>Interview</span>
+<span>Speaking</span>
+<span>Confidence</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CAREERS ================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>Career Applications</span>
+
+<h2>Where Communication Skills Matter</h2>
+
+<p>
+
+Communication is a transferable skill used
+across almost every academic and professional field.
+
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card career-card reveal">
+
+<div class="career-icon">
+
+<i class="fa-solid fa-user-tie"></i>
+
+</div>
+
+<div>
+
+<h3>Job Interviews</h3>
+
+<p>
+
+Explain your skills, experiences and ideas
+clearly during interviews.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card career-card reveal">
+
+<div class="career-icon">
+
+<i class="fa-solid fa-people-group"></i>
+
+</div>
+
+<div>
+
+<h3>Team Collaboration</h3>
+
+<p>
+
+Work effectively with teammates and
+communicate responsibilities clearly.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card career-card reveal">
+
+<div class="career-icon">
+
+<i class="fa-solid fa-person-chalkboard"></i>
+
+</div>
+
+<div>
+
+<h3>Presentations</h3>
+
+<p>
+
+Present technical, academic or business
+information to different audiences.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card career-card reveal">
+
+<div class="career-icon">
+
+<i class="fa-solid fa-briefcase"></i>
+
+</div>
+
+<div>
+
+<h3>Workplace Communication</h3>
+
+<p>
+
+Participate in meetings, discussions,
+emails and professional conversations.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card career-card reveal">
+
+<div class="career-icon">
+
+<i class="fa-solid fa-users"></i>
+
+</div>
+
+<div>
+
+<h3>Leadership</h3>
+
+<p>
+
+Communicate goals, give feedback and
+coordinate people effectively.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card career-card reveal">
+
+<div class="career-icon">
+
+<i class="fa-solid fa-handshake"></i>
+
+</div>
+
+<div>
+
+<h3>Client Communication</h3>
+
+<p>
+
+Understand requirements and communicate
+solutions clearly and respectfully.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RESOURCES ================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>Free Learning Resources</span>
+
+<h2>Improve Communication for Free</h2>
+
+<p>
+
+Use free resources to practice listening,
+vocabulary, grammar and professional communication.
+
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card resource reveal">
+
+<div class="resource-left">
+
+<div class="resource-icon">
+
+<i class="fa-solid fa-language"></i>
+
+</div>
+
+<div>
+
+<h3>British Council LearnEnglish</h3>
+
+<p>English learning and communication practice</p>
+
+</div>
+
+</div>
+
+<a
+href="https://learnenglish.britishcouncil.org/"
+target="_blank"
+class="resource-link">
+
+Visit
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+</a>
+
+</div>
+
+
+<div class="card resource reveal">
+
+<div class="resource-left">
+
+<div class="resource-icon">
+
+<i class="fa-brands fa-youtube"></i>
+
+</div>
+
+<div>
+
+<h3>TED</h3>
+
+<p>Talks for listening and presentation practice</p>
+
+</div>
+
+</div>
+
+<a
+href="https://www.ted.com/"
+target="_blank"
+class="resource-link">
+
+Visit
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+</a>
+
+</div>
+
+
+<div class="card resource reveal">
+
+<div class="resource-left">
+
+<div class="resource-icon">
+
+<i class="fa-solid fa-book"></i>
+
+</div>
+
+<div>
+
+<h3>Cambridge Dictionary</h3>
+
+<p>Vocabulary, meanings and pronunciation</p>
+
+</div>
+
+</div>
+
+<a
+href="https://dictionary.cambridge.org/"
+target="_blank"
+class="resource-link">
+
+Visit
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+</a>
+
+</div>
+
+
+<div class="card resource reveal">
+
+<div class="resource-left">
+
+<div class="resource-icon">
+
+<i class="fa-solid fa-spell-check"></i>
+
+</div>
+
+<div>
+
+<h3>Grammarly Handbook</h3>
+
+<p>Writing and grammar guidance</p>
+
+</div>
+
+</div>
+
+<a
+href="https://www.grammarly.com/blog/"
+target="_blank"
+class="resource-link">
+
+Visit
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+</a>
+
+</div>
+
+
+<div class="card resource reveal">
+
+<div class="resource-left">
+
+<div class="resource-icon">
+
+<i class="fa-solid fa-book-open"></i>
+
+</div>
+
+<div>
+
+<h3>BBC Learning English</h3>
+
+<p>Free English learning resources</p>
+
+</div>
+
+</div>
+
+<a
+href="https://www.bbc.co.uk/learningenglish/"
+target="_blank"
+class="resource-link">
+
+Visit
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+</a>
+
+</div>
+
+
+<div class="card resource reveal">
+
+<div class="resource-left">
+
+<div class="resource-icon">
+
+<i class="fa-solid fa-comments"></i>
+
+</div>
+
+<div>
+
+<h3>Toastmasters</h3>
+
+<p>Public speaking and communication practice</p>
+
+</div>
+
+</div>
+
+<a
+href="https://www.toastmasters.org/"
+target="_blank"
+class="resource-link">
+
+Visit
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TIPS ================= -->
+
+<section class="tips">
+
+<div class="container">
+
+
+<div class="section-heading reveal">
+
+<span>Study Strategy</span>
+
+<h2>How to Improve Communication</h2>
+
+<p>
+
+Consistent practice is more important than
+trying to become fluent overnight.
+
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="tip-card reveal">
+
+<h3>
+
+<i class="fa-solid fa-1"></i>
+
+Speak Every Day
+
+</h3>
+
+<p>
+
+Spend a few minutes speaking about your
+day, studies, interests or a chosen topic.
+
+</p>
+
+</div>
+
+
+<div class="tip-card reveal">
+
+<h3>
+
+<i class="fa-solid fa-2"></i>
+
+Listen Actively
+
+</h3>
+
+<p>
+
+Listen to English conversations, talks and
+presentations and note useful expressions.
+
+</p>
+
+</div>
+
+
+<div class="tip-card reveal">
+
+<h3>
+
+<i class="fa-solid fa-3"></i>
+
+Build Vocabulary
+
+</h3>
+
+<p>
+
+Learn useful words in context and use
+new vocabulary in your own sentences.
+
+</p>
+
+</div>
+
+
+<div class="tip-card reveal">
+
+<h3>
+
+<i class="fa-solid fa-4"></i>
+
+Record Yourself
+
+</h3>
+
+<p>
+
+Record short speeches and review your
+clarity, pace and sentence structure.
+
+</p>
+
+</div>
+
+
+<div class="tip-card reveal">
+
+<h3>
+
+<i class="fa-solid fa-5"></i>
+
+Read Regularly
+
+</h3>
+
+<p>
+
+Read articles, books and quality educational
+content to improve vocabulary and understanding.
+
+</p>
+
+</div>
+
+
+<div class="tip-card reveal">
+
+<h3>
+
+<i class="fa-solid fa-6"></i>
+
+Practice With People
+
+</h3>
+
+<p>
+
+Use group discussions, presentations and
+conversations to develop real-world confidence.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+<div class="container">
+
+
+<div class="cta-box reveal">
+
+<h2>
+Ready to Communicate Better?
+</h2>
+
+<p>
+
+Develop clear speaking, active listening,
+professional communication and presentation
+skills with ASCEND.
+
+</p>
+
+
+<a href="../Skills.html" class="btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back to Skills
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<div class="logo">
+
+<img src="../logo.png" alt="ASCEND">
+
+ASCEND
+
+</div>
+
+<p>
+
+ASCEND Learning Community helps students
+develop knowledge, technical skills,
+career awareness and practical abilities.
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3 class="footer-title">
+Explore
+</h3>
+
+<div class="footer-links">
+
+<a href="../index.html">Home</a>
+
+<a href="../Books.html">Learn</a>
+
+<a href="../Assignments.html">Assignments</a>
+
+<a href="../Skills.html">Skills</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<h3 class="footer-title">
+Career
+</h3>
+
+<div class="footer-links">
+
+<a href="../Careers.html">Careers</a>
+
+<a href="../Business.html">Business</a>
+
+<a href="../Leadership.html">Leadership</a>
+
+<a href="../Faq.html">FAQ</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 ASCEND Learning Community.
+Learn • Build • Grow • Lead.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<div class="mobile-nav">
+
+<a href="../index.html">
+
+<i class="fa-solid fa-house"></i>
+
+Home
+
+</a>
+
+
+<a href="../Books.html">
+
+<i class="fa-solid fa-book"></i>
+
+Learn
+
+</a>
+
+
+<a href="../Skills.html" class="active">
+
+<i class="fa-solid fa-code"></i>
+
+Skills
+
+</a>
+
+
+<a href="../Careers.html">
+
+<i class="fa-solid fa-briefcase"></i>
+
+Career
+
+</a>
+
+
+<a href="../Aboutus.html">
+
+<i class="fa-solid fa-circle-info"></i>
+
+About
+
+</a>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(
+
+(entries) => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{
+threshold:0.12
+}
+
+);
+
+
+revealElements.forEach(el => {
+
+observer.observe(el);
+
+});
+
+</script>
+
+</body>
+</html>

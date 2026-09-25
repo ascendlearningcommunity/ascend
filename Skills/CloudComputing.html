@@ -1,0 +1,2723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cloud Computing — ASCEND Skills</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+
+    :root {
+      --primary: #155EEF;
+      --primary-dark: #0B46C5;
+      --primary-light: #EAF1FF;
+
+      --yellow: #FFD43B;
+      --yellow-light: #FFF7D6;
+
+      --dark: #101828;
+      --dark-2: #1D2939;
+
+      --muted: #667085;
+      --muted-2: #98A2B3;
+
+      --bg: #F6F8FC;
+      --white: #FFFFFF;
+      --border: #E4EAF2;
+
+      --green: #12B76A;
+      --green-light: #ECFDF3;
+
+      --orange: #F79009;
+      --orange-light: #FFFAEB;
+
+      --purple: #7F56D9;
+      --purple-light: #F4F3FF;
+
+      --red: #F04438;
+      --red-light: #FEF3F2;
+
+      --cyan: #06AED4;
+      --cyan-light: #ECFDFF;
+
+      --shadow-sm: 0 4px 14px rgba(16, 24, 40, 0.06);
+      --shadow-md: 0 12px 30px rgba(16, 24, 40, 0.09);
+      --shadow-lg: 0 20px 45px rgba(16, 24, 40, 0.12);
+
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+      padding-bottom: 75px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Outfit", sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .logo img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: var(--primary-light);
+      color: var(--primary);
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 70px 0 55px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(21,94,239,.10), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(255,212,59,.16), transparent 30%),
+        var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(42px, 6vw, 70px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 650px;
+      margin-bottom: 27px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 8px 18px rgba(21,94,239,.20);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--dark);
+      border-color: var(--border);
+    }
+
+    .btn-light:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ================= CLOUD TERMINAL ================= */
+
+    .cloud-card {
+      background: var(--dark);
+      border-radius: 25px;
+      padding: 22px;
+      color: white;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cloud-card::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      background: rgba(21,94,239,.25);
+      border-radius: 50%;
+      right: -80px;
+      top: -110px;
+      filter: blur(5px);
+    }
+
+    .terminal-head {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #667085;
+    }
+
+    .terminal-title {
+      margin-left: 7px;
+      color: #98A2B3;
+      font-size: 12px;
+    }
+
+    .cloud-diagram {
+      background: #0B1220;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 15px;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cloud-main {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .cloud-main i {
+      font-size: 55px;
+      color: #66A3FF;
+      margin-bottom: 8px;
+    }
+
+    .cloud-main h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 21px;
+    }
+
+    .cloud-main p {
+      color: #98A2B3;
+      font-size: 12px;
+    }
+
+    .cloud-services {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 8px;
+    }
+
+    .cloud-service {
+      background: rgba(255,255,255,.07);
+      border-radius: 10px;
+      padding: 11px 5px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .cloud-service i {
+      display: block;
+      color: #66A3FF;
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    /* ================= SECTIONS ================= */
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 40px;
+    }
+
+    .section-head span {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-head h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: 38px;
+      margin: 8px 0 12px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+    }
+
+    /* ================= CARDS ================= */
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: .25s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      margin-bottom: 17px;
+    }
+
+    .blue {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .yellow {
+      background: var(--yellow-light);
+      color: #B54708;
+    }
+
+    .green {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .purple {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .cyan {
+      background: var(--cyan-light);
+      color: var(--cyan);
+    }
+
+    .orange {
+      background: var(--orange-light);
+      color: var(--orange);
+    }
+
+    .info-card h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ================= TOPICS ================= */
+
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .topic-card {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .topic-card h3 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 14px;
+    }
+
+    .topic-list {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .topic-list li {
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .topic-list i {
+      color: var(--green);
+      margin-top: 4px;
+    }
+
+    /* ================= CLOUD PROVIDERS ================= */
+
+    .providers {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .provider {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: .25s;
+    }
+
+    .provider:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .provider-icon {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 15px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 27px;
+    }
+
+    .provider h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    .provider p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= ROADMAP ================= */
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(6,1fr);
+      gap: 15px;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 22px 18px;
+      border-radius: 17px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-number {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: white;
+      border-radius: 10px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .step h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .project {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: .25s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .project-top {
+      padding: 25px;
+      background: linear-gradient(135deg, var(--primary-light), white);
+    }
+
+    .project-top i {
+      font-size: 30px;
+      color: var(--primary);
+    }
+
+    .project-body {
+      padding: 22px;
+    }
+
+    .project-body h3 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      padding: 5px 8px;
+      border-radius: 7px;
+      font-weight: 600;
+    }
+
+    /* ================= CAREERS ================= */
+
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .career {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 23px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .career-header {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .career-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+    }
+
+    .career h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 17px;
+    }
+
+    .career p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= RESOURCES ================= */
+
+    .resources {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .resource {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 23px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .resource i {
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .resource h3 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 7px;
+    }
+
+    .resource p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .resource a {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .resource a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= TIPS ================= */
+
+    .tips {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 18px;
+    }
+
+    .tip {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: var(--radius);
+      display: flex;
+      gap: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tip-number {
+      min-width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: var(--yellow-light);
+      color: #B54708;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .tip h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .tip p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      background: linear-gradient(135deg, var(--primary), #4F46E5);
+      color: white;
+      border-radius: 28px;
+      padding: 50px 35px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: #DDE7FF;
+      max-width: 680px;
+      margin: auto auto 22px;
+    }
+
+    .cta .btn {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 40px 0;
+      margin-top: 70px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    footer h3 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: #98A2B3;
+      font-size: 13px;
+    }
+
+    footer a {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.10);
+      margin-top: 30px;
+      padding-top: 20px;
+      color: #667085;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* ================= MOBILE NAV ================= */
+
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 65px;
+      background: white;
+      border-top: 1px solid var(--border);
+      z-index: 2000;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 -5px 20px rgba(0,0,0,.06);
+    }
+
+    .bottom-nav a {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .bottom-nav i {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
+
+    .bottom-nav a.active {
+      color: var(--primary);
+    }
+
+    /* ================= REVEAL ================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1100px) {
+
+      .roadmap {
+        grid-template-columns: repeat(3,1fr);
+      }
+
+    }
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        padding: 15px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        text-align: center;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .topics {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .career-grid,
+      .projects,
+      .resources,
+      .providers {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+    }
+
+    @media (max-width: 650px) {
+
+      body {
+        padding-bottom: 70px;
+      }
+
+      .container {
+        width: 91%;
+      }
+
+      section {
+        padding: 52px 0;
+      }
+
+      .hero {
+        padding: 48px 0;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .section-head h2 {
+        font-size: 30px;
+      }
+
+      .grid-4,
+      .topics,
+      .roadmap,
+      .projects,
+      .career-grid,
+      .resources,
+      .tips,
+      .providers {
+        grid-template-columns: 1fr;
+      }
+
+      .cloud-services {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .bottom-nav {
+        display: flex;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding: 38px 22px;
+      }
+
+      .cta h2 {
+        font-size: 30px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <div class="container nav">
+
+      <a href="../index.html" class="logo">
+        <img src="../logo.png" alt="ASCEND Logo">
+        ASCEND
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="../index.html">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+
+        <a href="../Books.html">
+          <i class="fa-solid fa-book"></i> Learn
+        </a>
+
+        <a href="../Assignments.html">
+          <i class="fa-solid fa-list-check"></i> Tasks
+        </a>
+
+        <a href="Skills.html" class="active">
+          <i class="fa-solid fa-code"></i> Skills
+        </a>
+
+        <a href="../Careers.html">
+          <i class="fa-solid fa-briefcase"></i> Careers
+        </a>
+
+        <a href="../Aboutus.html">
+          <i class="fa-solid fa-circle-info"></i> About
+        </a>
+
+        <a href="../Business.html">
+          <i class="fa-solid fa-lightbulb"></i> Business
+        </a>
+
+        <a href="../Leadership.html">
+          <i class="fa-solid fa-people-group"></i> Leadership
+        </a>
+
+      </nav>
+
+      <button class="menu-btn" id="menuBtn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="badge">
+          <i class="fa-solid fa-cloud"></i>
+          ASCEND SKILLS • CLOUD COMPUTING
+        </div>
+
+        <h1>
+          Build With
+          <span>The Cloud.</span>
+        </h1>
+
+        <p>
+          Learn how modern applications are hosted, deployed,
+          scaled and managed using cloud computing. Understand
+          cloud services, virtualization, storage, networking,
+          security and deployment.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#roadmap" class="btn btn-primary">
+            <i class="fa-solid fa-rocket"></i>
+            Start Learning
+          </a>
+
+          <a href="#projects" class="btn btn-light">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            Explore Projects
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CLOUD CARD -->
+
+      <div class="cloud-card">
+
+        <div class="terminal-head">
+
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+
+          <span class="terminal-title">
+            cloud-platform / infrastructure
+          </span>
+
+        </div>
+
+        <div class="cloud-diagram">
+
+          <div class="cloud-main">
+
+            <i class="fa-solid fa-cloud"></i>
+
+            <h3>Cloud Infrastructure</h3>
+
+            <p>
+              Compute • Storage • Database • Network
+            </p>
+
+          </div>
+
+
+          <div class="cloud-services">
+
+            <div class="cloud-service">
+              <i class="fa-solid fa-server"></i>
+              Compute
+            </div>
+
+            <div class="cloud-service">
+              <i class="fa-solid fa-database"></i>
+              Database
+            </div>
+
+            <div class="cloud-service">
+              <i class="fa-solid fa-hard-drive"></i>
+              Storage
+            </div>
+
+            <div class="cloud-service">
+              <i class="fa-solid fa-network-wired"></i>
+              Network
+            </div>
+
+            <div class="cloud-service">
+              <i class="fa-solid fa-shield-halved"></i>
+              Security
+            </div>
+
+            <div class="cloud-service">
+              <i class="fa-solid fa-chart-line"></i>
+              Monitoring
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= OVERVIEW ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>CLOUD COMPUTING</span>
+
+        <h2>What Will You Learn?</h2>
+
+        <p>
+          Understand the core concepts behind modern cloud
+          infrastructure and cloud-based applications.
+        </p>
+
+      </div>
+
+
+      <div class="grid-4">
+
+        <div class="info-card reveal">
+
+          <div class="icon blue">
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+
+          <h3>Cloud Fundamentals</h3>
+
+          <p>
+            Understand cloud computing, virtualization,
+            scalability and on-demand resources.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon orange">
+            <i class="fa-solid fa-server"></i>
+          </div>
+
+          <h3>Cloud Compute</h3>
+
+          <p>
+            Learn how virtual machines, containers and
+            serverless services run applications.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon green">
+            <i class="fa-solid fa-database"></i>
+          </div>
+
+          <h3>Cloud Storage</h3>
+
+          <p>
+            Understand object, block and file storage
+            and how cloud applications use data.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon purple">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+
+          <h3>Cloud Networking</h3>
+
+          <p>
+            Learn virtual networks, DNS, load balancing,
+            routing and connectivity.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CORE TOPICS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>CORE KNOWLEDGE</span>
+
+        <h2>Cloud Computing Topics</h2>
+
+        <p>
+          Build your knowledge from fundamental concepts
+          to practical cloud infrastructure.
+        </p>
+
+      </div>
+
+
+      <div class="topics">
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-cloud"></i>
+            Cloud Fundamentals
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              What is Cloud Computing?
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Benefits of Cloud
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Virtualization
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Scalability
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Elasticity
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-layer-group"></i>
+            Cloud Models
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              IaaS
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              PaaS
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              SaaS
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Public Cloud
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Private & Hybrid Cloud
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-server"></i>
+            Compute
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Virtual Machines
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Containers
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Serverless Computing
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Auto Scaling
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Load Balancing
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-database"></i>
+            Storage & Databases
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Object Storage
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Block Storage
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              File Storage
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Cloud Databases
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Backup & Recovery
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-network-wired"></i>
+            Networking
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Virtual Networks
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Subnets
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              DNS
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Routing
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Load Balancers
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-shield-halved"></i>
+            Cloud Security
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Identity & Access
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Authentication
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Encryption
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Security Groups
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Security Best Practices
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CLOUD PROVIDERS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>CLOUD PLATFORMS</span>
+
+        <h2>Major Cloud Providers</h2>
+
+        <p>
+          Start with cloud fundamentals and then explore
+          one major cloud platform in depth.
+        </p>
+
+      </div>
+
+
+      <div class="providers">
+
+        <div class="provider reveal">
+
+          <div class="provider-icon">
+            <i class="fa-brands fa-aws"></i>
+          </div>
+
+          <h3>Amazon Web Services</h3>
+
+          <p>
+            Explore compute, storage, databases, networking,
+            security and other cloud services.
+          </p>
+
+        </div>
+
+
+        <div class="provider reveal">
+
+          <div class="provider-icon">
+            <i class="fa-brands fa-microsoft"></i>
+          </div>
+
+          <h3>Microsoft Azure</h3>
+
+          <p>
+            Learn Microsoft's cloud platform and its
+            infrastructure and application services.
+          </p>
+
+        </div>
+
+
+        <div class="provider reveal">
+
+          <div class="provider-icon">
+            <i class="fa-brands fa-google"></i>
+          </div>
+
+          <h3>Google Cloud</h3>
+
+          <p>
+            Explore cloud infrastructure, data,
+            application and developer services.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= TOOLS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>CLOUD TOOLKIT</span>
+
+        <h2>Tools You Should Know</h2>
+
+        <p>
+          Learn the tools that help developers and cloud
+          engineers build, deploy and manage applications.
+        </p>
+
+      </div>
+
+
+      <div class="grid-4">
+
+        <div class="info-card reveal">
+
+          <div class="icon blue">
+            <i class="fa-brands fa-docker"></i>
+          </div>
+
+          <h3>Docker</h3>
+
+          <p>
+            Package applications and their dependencies
+            into portable containers.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon purple">
+            <i class="fa-solid fa-dharmachakra"></i>
+          </div>
+
+          <h3>Kubernetes</h3>
+
+          <p>
+            Understand container orchestration and
+            management of containerized workloads.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon orange">
+            <i class="fa-solid fa-terminal"></i>
+          </div>
+
+          <h3>Linux</h3>
+
+          <p>
+            Build command-line and server administration
+            skills used in cloud environments.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon green">
+            <i class="fa-brands fa-git-alt"></i>
+          </div>
+
+          <h3>Git & GitHub</h3>
+
+          <p>
+            Track code changes and manage software
+            projects collaboratively.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ROADMAP ================= -->
+
+  <section id="roadmap">
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>LEARNING ROADMAP</span>
+
+        <h2>Beginner → Cloud Professional</h2>
+
+        <p>
+          Follow a structured path from basic concepts
+          to practical cloud deployment.
+        </p>
+
+      </div>
+
+
+      <div class="roadmap">
+
+        <div class="step reveal">
+
+          <div class="step-number">01</div>
+
+          <h3>IT Fundamentals</h3>
+
+          <p>
+            Learn basic computers, operating systems,
+            networking and internet concepts.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <div class="step-number">02</div>
+
+          <h3>Linux & Networking</h3>
+
+          <p>
+            Practice Linux commands, IP addresses,
+            DNS, HTTP and networking fundamentals.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <div class="step-number">03</div>
+
+          <h3>Cloud Fundamentals</h3>
+
+          <p>
+            Understand IaaS, PaaS, SaaS, virtualization,
+            scalability and cloud architecture.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <div class="step-number">04</div>
+
+          <h3>Cloud Platform</h3>
+
+          <p>
+            Choose AWS, Azure or Google Cloud and
+            learn its core services.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <div class="step-number">05</div>
+
+          <h3>Containers & DevOps</h3>
+
+          <p>
+            Learn Docker, CI/CD concepts, infrastructure
+            automation and deployment workflows.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <div class="step-number">06</div>
+
+          <h3>Projects & Portfolio</h3>
+
+          <p>
+            Deploy real applications and document
+            your cloud projects on GitHub.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PROJECTS ================= -->
+
+  <section id="projects">
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>PROJECTS</span>
+
+        <h2>Build Cloud Projects</h2>
+
+        <p>
+          Practice cloud computing by deploying real
+          applications and infrastructure.
+        </p>
+
+      </div>
+
+
+      <div class="projects">
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Deploy a Website</h3>
+
+            <p>
+              Deploy a responsive website to a cloud
+              platform and connect it to a domain.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Cloud</span>
+              <span class="tag">HTML</span>
+              <span class="tag">Deployment</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-server"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Cloud Virtual Machine</h3>
+
+            <p>
+              Create a virtual machine, configure Linux
+              and deploy a simple web application.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Linux</span>
+              <span class="tag">VM</span>
+              <span class="tag">Cloud</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-database"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Cloud Database</h3>
+
+            <p>
+              Create a cloud database and connect it
+              with a simple application.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Database</span>
+              <span class="tag">API</span>
+              <span class="tag">Cloud</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-brands fa-docker"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Containerized Application</h3>
+
+            <p>
+              Package a web application using Docker
+              and run it in a cloud environment.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Docker</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Cloud</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Cloud File Storage</h3>
+
+            <p>
+              Build an application that uploads and
+              retrieves files using cloud storage.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Storage</span>
+              <span class="tag">API</span>
+              <span class="tag">Security</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-gears"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>CI/CD Deployment</h3>
+
+            <p>
+              Create a basic workflow that automatically
+              builds and deploys an application.
+            </p>
+
+            <div class="tags">
+              <span class="tag">GitHub</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">DevOps</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CAREERS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>CAREER APPLICATIONS</span>
+
+        <h2>Where Cloud Skills Are Used</h2>
+
+        <p>
+          Cloud computing supports software development,
+          infrastructure, deployment and many IT operations.
+        </p>
+
+      </div>
+
+
+      <div class="career-grid">
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+
+            <h3>Cloud Infrastructure</h3>
+
+          </div>
+
+          <p>
+            Build and manage cloud-based computing,
+            storage and networking environments.
+          </p>
+
+        </div>
+
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>Cloud Development</h3>
+
+          </div>
+
+          <p>
+            Develop applications designed to run on
+            cloud infrastructure.
+          </p>
+
+        </div>
+
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-gears"></i>
+            </div>
+
+            <h3>DevOps</h3>
+
+          </div>
+
+          <p>
+            Automate software development, testing,
+            deployment and infrastructure workflows.
+          </p>
+
+        </div>
+
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>Cloud Security</h3>
+
+          </div>
+
+          <p>
+            Help protect cloud infrastructure, identities,
+            applications and data.
+          </p>
+
+        </div>
+
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+
+            <h3>Cloud Data</h3>
+
+          </div>
+
+          <p>
+            Work with cloud databases, storage systems
+            and data platforms.
+          </p>
+
+        </div>
+
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <h3>Cloud Operations</h3>
+
+          </div>
+
+          <p>
+            Monitor applications, manage infrastructure
+            and maintain cloud environments.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= JOB ROLES ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>CAREER ROLES</span>
+
+        <h2>Possible Job Roles</h2>
+
+        <p>
+          Cloud computing knowledge can support several
+          infrastructure and software roles.
+        </p>
+
+      </div>
+
+
+      <div class="grid-4">
+
+        <div class="info-card reveal">
+
+          <div class="icon blue">
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+
+          <h3>Cloud Engineer</h3>
+
+          <p>
+            Work with cloud infrastructure, services,
+            deployment and cloud environments.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon purple">
+            <i class="fa-solid fa-gears"></i>
+          </div>
+
+          <h3>DevOps Engineer</h3>
+
+          <p>
+            Work with automation, CI/CD, infrastructure
+            and application deployment.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon green">
+            <i class="fa-solid fa-server"></i>
+          </div>
+
+          <h3>Cloud Administrator</h3>
+
+          <p>
+            Manage cloud resources, users, systems,
+            monitoring and infrastructure.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon cyan">
+            <i class="fa-solid fa-code"></i>
+          </div>
+
+          <h3>Cloud Developer</h3>
+
+          <p>
+            Build and integrate applications with
+            cloud-based services.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FREE RESOURCES ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>FREE LEARNING</span>
+
+        <h2>Learn Cloud Computing for Free</h2>
+
+        <p>
+          Start with fundamentals and then explore
+          official cloud learning platforms.
+        </p>
+
+      </div>
+
+
+      <div class="resources">
+
+        <div class="resource reveal">
+
+          <i class="fa-brands fa-aws"></i>
+
+          <h3>AWS Skill Builder</h3>
+
+          <p>
+            Explore AWS learning resources and foundational
+            cloud training.
+          </p>
+
+          <a href="https://skillbuilder.aws/"
+             target="_blank">
+            Learn AWS →
+          </a>
+
+        </div>
+
+
+        <div class="resource reveal">
+
+          <i class="fa-brands fa-microsoft"></i>
+
+          <h3>Microsoft Learn</h3>
+
+          <p>
+            Learn Azure and other Microsoft technologies
+            through structured learning paths.
+          </p>
+
+          <a href="https://learn.microsoft.com/training/"
+             target="_blank">
+            Learn Azure →
+          </a>
+
+        </div>
+
+
+        <div class="resource reveal">
+
+          <i class="fa-brands fa-google"></i>
+
+          <h3>Google Cloud Skills</h3>
+
+          <p>
+            Explore Google Cloud learning paths and
+            cloud technology resources.
+          </p>
+
+          <a href="https://cloud.google.com/learn"
+             target="_blank">
+            Learn Google Cloud →
+          </a>
+
+        </div>
+
+
+        <div class="resource reveal">
+
+          <i class="fa-brands fa-docker"></i>
+
+          <h3>Docker Docs</h3>
+
+          <p>
+            Learn containers, images, Dockerfiles and
+            container-based application development.
+          </p>
+
+          <a href="https://docs.docker.com/get-started/"
+             target="_blank">
+            Learn Docker →
+          </a>
+
+        </div>
+
+
+        <div class="resource reveal">
+
+          <i class="fa-brands fa-linux"></i>
+
+          <h3>Linux Documentation</h3>
+
+          <p>
+            Strengthen the Linux and command-line knowledge
+            needed for cloud environments.
+          </p>
+
+          <a href="https://www.linux.org/"
+             target="_blank">
+            Learn Linux →
+          </a>
+
+        </div>
+
+
+        <div class="resource reveal">
+
+          <i class="fa-solid fa-network-wired"></i>
+
+          <h3>Networking Fundamentals</h3>
+
+          <p>
+            Build your understanding of networking concepts
+            before working deeply with cloud infrastructure.
+          </p>
+
+          <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work"
+             target="_blank">
+            Learn Networking →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= STUDY TIPS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>STUDY STRATEGY</span>
+
+        <h2>How to Learn Cloud Computing</h2>
+
+        <p>
+          Focus on fundamentals, practical labs and
+          real deployments.
+        </p>
+
+      </div>
+
+
+      <div class="tips">
+
+        <div class="tip reveal">
+
+          <div class="tip-number">01</div>
+
+          <div>
+
+            <h3>Learn Networking</h3>
+
+            <p>
+              Understand IP addresses, DNS, HTTP,
+              ports, routing and basic network security.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+          <div class="tip-number">02</div>
+
+          <div>
+
+            <h3>Practice Linux</h3>
+
+            <p>
+              Become comfortable with the terminal,
+              files, permissions, processes and services.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+          <div class="tip-number">03</div>
+
+          <div>
+
+            <h3>Choose One Cloud Platform</h3>
+
+            <p>
+              Start with one major cloud provider and
+              understand its core services properly.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+          <div class="tip-number">04</div>
+
+          <div>
+
+            <h3>Build Hands-On Projects</h3>
+
+            <p>
+              Deploy websites, APIs, databases and
+              containerized applications.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+          <div class="tip-number">05</div>
+
+          <div>
+
+            <h3>Learn Git & Docker</h3>
+
+            <p>
+              Use version control and containers to
+              understand modern development workflows.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+          <div class="tip-number">06</div>
+
+          <div>
+
+            <h3>Document Your Projects</h3>
+
+            <p>
+              Maintain GitHub repositories with project
+              descriptions, architecture and deployment steps.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CTA ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="cta reveal">
+
+        <h2>Start Your Cloud Journey</h2>
+
+        <p>
+          Networking → Linux → Cloud Fundamentals →
+          AWS / Azure / Google Cloud → Docker → DevOps →
+          Projects → Portfolio.
+        </p>
+
+        <a href="../Assignments.html" class="btn">
+          <i class="fa-solid fa-rocket"></i>
+          Practice on ASCEND
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <h3>
+            <i class="fa-solid fa-layer-group"></i>
+            ASCEND
+          </h3>
+
+          <p>
+            Learn skills. Build projects. Explore careers.
+            Grow with the ASCEND Learning Community.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>Quick Links</h3>
+
+          <a href="../index.html">Home</a>
+          <a href="../Books.html">Learn</a>
+          <a href="../Assignments.html">Assignments</a>
+          <a href="Skills.html">Skills</a>
+          <a href="../Careers.html">Careers</a>
+
+        </div>
+
+
+        <div>
+
+          <h3>ASCEND</h3>
+
+          <a href="../Aboutus.html">About Us</a>
+          <a href="../Business.html">Business</a>
+          <a href="../Leadership.html">Leadership</a>
+          <a href="../Faq.html">FAQ</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+        © 2026 ASCEND Learning Community. All Rights Reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= MOBILE BOTTOM NAV ================= -->
+
+  <div class="bottom-nav">
+
+    <a href="../index.html">
+      <i class="fa-solid fa-house"></i>
+      Home
+    </a>
+
+    <a href="../Books.html">
+      <i class="fa-solid fa-book"></i>
+      Learn
+    </a>
+
+    <a href="Skills.html" class="active">
+      <i class="fa-solid fa-code"></i>
+      Skills
+    </a>
+
+    <a href="../Assignments.html">
+      <i class="fa-solid fa-list-check"></i>
+      Tasks
+    </a>
+
+    <a href="../Careers.html">
+      <i class="fa-solid fa-briefcase"></i>
+      Careers
+    </a>
+
+  </div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    /* Mobile Menu */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+
+      navLinks.classList.toggle("show");
+
+      const icon = menuBtn.querySelector("i");
+
+      if (navLinks.classList.contains("show")) {
+
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+
+      } else {
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+      }
+
+    });
+
+
+    /* Close Menu After Clicking */
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navLinks.classList.remove("show");
+
+        const icon = menuBtn.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+      });
+
+    });
+
+
+    /* Scroll Reveal */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("show");
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    revealElements.forEach(element => {
+
+      observer.observe(element);
+
+    });
+
+  </script>
+
+</body>
+</html>

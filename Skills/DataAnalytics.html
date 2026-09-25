@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Data Analytics — ASCEND Skills</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #155EEF;
+      --primary-dark: #0B46C5;
+      --primary-light: #EAF1FF;
+
+      --yellow: #FFD43B;
+      --yellow-light: #FFF7D6;
+
+      --dark: #101828;
+      --dark-2: #1D2939;
+
+      --muted: #667085;
+      --muted-2: #98A2B3;
+
+      --bg: #F6F8FC;
+      --white: #FFFFFF;
+      --border: #E4EAF2;
+
+      --green: #12B76A;
+      --green-light: #ECFDF3;
+
+      --orange: #F79009;
+      --orange-light: #FFFAEB;
+
+      --purple: #7F56D9;
+      --purple-light: #F4F3FF;
+
+      --red: #F04438;
+      --red-light: #FEF3F2;
+
+      --cyan: #06AED4;
+      --cyan-light: #ECFDFF;
+
+      --shadow-sm: 0 4px 14px rgba(16, 24, 40, 0.06);
+      --shadow-md: 0 12px 30px rgba(16, 24, 40, 0.09);
+      --shadow-lg: 0 20px 45px rgba(16, 24, 40, 0.12);
+
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+      padding-bottom: 75px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Outfit", sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .logo img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: var(--primary-light);
+      color: var(--primary);
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 70px 0 55px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(21,94,239,.10), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(255,212,59,.16), transparent 30%),
+        var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(42px, 6vw, 70px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 650px;
+      margin-bottom: 27px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 8px 18px rgba(21,94,239,.20);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--dark);
+      border-color: var(--border);
+    }
+
+    .btn-light:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ================= DATA CARD ================= */
+
+    .analytics-card {
+      background: var(--dark);
+      border-radius: 25px;
+      padding: 24px;
+      color: white;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .analytics-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: rgba(21,94,239,.30);
+      border-radius: 50%;
+      top: -80px;
+      right: -60px;
+      filter: blur(5px);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .card-status {
+      background: rgba(255,255,255,.10);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      color: #D1FADF;
+    }
+
+    .chart {
+      height: 190px;
+      display: flex;
+      align-items: end;
+      gap: 12px;
+      padding: 15px 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+
+    .bar {
+      flex: 1;
+      background: linear-gradient(to top, var(--primary), #66A3FF);
+      border-radius: 8px 8px 0 0;
+      min-height: 35px;
+      animation: grow 1s ease;
+    }
+
+    .bar:nth-child(1) { height: 45%; }
+    .bar:nth-child(2) { height: 62%; }
+    .bar:nth-child(3) { height: 50%; }
+    .bar:nth-child(4) { height: 75%; }
+    .bar:nth-child(5) { height: 67%; }
+    .bar:nth-child(6) { height: 88%; }
+    .bar:nth-child(7) { height: 96%; }
+
+    @keyframes grow {
+      from {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    .analytics-values {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .value-box {
+      background: rgba(255,255,255,.07);
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    .value-box small {
+      display: block;
+      color: #98A2B3;
+      font-size: 10px;
+      margin-bottom: 4px;
+    }
+
+    .value-box strong {
+      font-size: 18px;
+    }
+
+    /* ================= SECTION ================= */
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 40px;
+    }
+
+    .section-head span {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-head h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: 38px;
+      margin: 8px 0 12px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+    }
+
+    /* ================= CARDS ================= */
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: .25s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      margin-bottom: 17px;
+    }
+
+    .blue {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .yellow {
+      background: var(--yellow-light);
+      color: #B54708;
+    }
+
+    .green {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .purple {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .cyan {
+      background: var(--cyan-light);
+      color: var(--cyan);
+    }
+
+    .orange {
+      background: var(--orange-light);
+      color: var(--orange);
+    }
+
+    .red {
+      background: var(--red-light);
+      color: var(--red);
+    }
+
+    .info-card h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ================= TOPICS ================= */
+
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .topic-card {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .topic-card h3 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 14px;
+    }
+
+    .topic-list {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .topic-list li {
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .topic-list i {
+      color: var(--green);
+      margin-top: 4px;
+    }
+
+    /* ================= ROADMAP ================= */
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(5,1fr);
+      gap: 15px;
+    }
+
+    .step {
+      position: relative;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 22px 18px;
+      border-radius: 17px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-number {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: white;
+      border-radius: 10px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .step h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .project {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: .25s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .project-top {
+      padding: 25px;
+      background: linear-gradient(135deg, var(--primary-light), white);
+    }
+
+    .project-top i {
+      font-size: 30px;
+      color: var(--primary);
+    }
+
+    .project-body {
+      padding: 22px;
+    }
+
+    .project-body h3 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      padding: 5px 8px;
+      border-radius: 7px;
+      font-weight: 600;
+    }
+
+    /* ================= CAREERS ================= */
+
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .career {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 23px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .career-header {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .career-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+    }
+
+    .career h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 17px;
+    }
+
+    .career p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= TOOLS ================= */
+
+    .tools {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tool {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .tool i {
+      color: var(--primary);
+    }
+
+    /* ================= RESOURCES ================= */
+
+    .resources {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .resource {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 23px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .resource i {
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .resource h3 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 7px;
+    }
+
+    .resource p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .resource a {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .resource a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= TIPS ================= */
+
+    .tips {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 18px;
+    }
+
+    .tip {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: var(--radius);
+      display: flex;
+      gap: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tip-number {
+      min-width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: var(--yellow-light);
+      color: #B54708;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .tip h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .tip p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      background: linear-gradient(135deg, var(--primary), #4F46E5);
+      color: white;
+      border-radius: 28px;
+      padding: 50px 35px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: #DDE7FF;
+      max-width: 650px;
+      margin: auto auto 22px;
+    }
+
+    .cta .btn {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 40px 0;
+      margin-top: 70px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    footer h3 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: #98A2B3;
+      font-size: 13px;
+    }
+
+    footer a {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.10);
+      margin-top: 30px;
+      padding-top: 20px;
+      color: #667085;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* ================= MOBILE NAV ================= */
+
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 65px;
+      background: white;
+      border-top: 1px solid var(--border);
+      z-index: 2000;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 -5px 20px rgba(0,0,0,.06);
+    }
+
+    .bottom-nav a {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .bottom-nav i {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
+
+    .bottom-nav a.active {
+      color: var(--primary);
+    }
+
+    /* ================= REVEAL ================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        padding: 15px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        text-align: center;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .roadmap {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .career-grid,
+      .projects,
+      .resources {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .topics {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      body {
+        padding-bottom: 70px;
+      }
+
+      .container {
+        width: 91%;
+      }
+
+      section {
+        padding: 52px 0;
+      }
+
+      .hero {
+        padding: 48px 0;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .section-head h2 {
+        font-size: 30px;
+      }
+
+      .grid-4,
+      .topics,
+      .roadmap,
+      .projects,
+      .career-grid,
+      .resources,
+      .tips {
+        grid-template-columns: 1fr;
+      }
+
+      .analytics-values {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bottom-nav {
+        display: flex;
+      }
+
+      .cta {
+        padding: 38px 22px;
+      }
+
+      .cta h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="../index.html" class="logo">
+        <img src="../logo.png" alt="ASCEND Logo">
+        ASCEND
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="../index.html">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+
+        <a href="../Books.html">
+          <i class="fa-solid fa-book"></i> Learn
+        </a>
+
+        <a href="../Assignments.html">
+          <i class="fa-solid fa-list-check"></i> Tasks
+        </a>
+
+        <a href="Skills.html" class="active">
+          <i class="fa-solid fa-code"></i> Skills
+        </a>
+
+        <a href="../Careers.html">
+          <i class="fa-solid fa-briefcase"></i> Careers
+        </a>
+
+        <a href="../Aboutus.html">
+          <i class="fa-solid fa-circle-info"></i> About
+        </a>
+
+        <a href="../Business.html">
+          <i class="fa-solid fa-lightbulb"></i> Business
+        </a>
+
+        <a href="../Leadership.html">
+          <i class="fa-solid fa-people-group"></i> Leadership
+        </a>
+
+      </nav>
+
+      <button class="menu-btn" id="menuBtn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="badge">
+          <i class="fa-solid fa-chart-column"></i>
+          ASCEND SKILLS • DATA ANALYTICS
+        </div>
+
+        <h1>
+          Turn Data Into
+          <span>Insights.</span>
+        </h1>
+
+        <p>
+          Learn how to collect, clean, analyze and visualize data
+          to discover useful patterns and support better decisions.
+          Start from the basics and gradually build real-world
+          Data Analytics skills.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#roadmap" class="btn btn-primary">
+            <i class="fa-solid fa-rocket"></i>
+            Start Learning
+          </a>
+
+          <a href="#projects" class="btn btn-light">
+            <i class="fa-solid fa-diagram-project"></i>
+            Explore Projects
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- DATA DASHBOARD -->
+
+      <div class="analytics-card">
+
+        <div class="card-top">
+
+          <div class="card-title">
+            <i class="fa-solid fa-chart-line"></i>
+            Sales Analytics
+          </div>
+
+          <div class="card-status">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+            Growing
+          </div>
+
+        </div>
+
+        <div class="chart">
+
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+
+        </div>
+
+        <div class="analytics-values">
+
+          <div class="value-box">
+            <small>Total Sales</small>
+            <strong>₹8.4L</strong>
+          </div>
+
+          <div class="value-box">
+            <small>Growth</small>
+            <strong>+24%</strong>
+          </div>
+
+          <div class="value-box">
+            <small>Customers</small>
+            <strong>2.8K</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= OVERVIEW ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>DATA ANALYTICS</span>
+
+        <h2>What Will You Learn?</h2>
+
+        <p>
+          Build the essential skills needed to understand data,
+          find patterns and communicate meaningful insights.
+        </p>
+
+      </div>
+
+
+      <div class="grid-4">
+
+        <div class="info-card reveal">
+
+          <div class="icon blue">
+            <i class="fa-solid fa-database"></i>
+          </div>
+
+          <h3>Collect Data</h3>
+
+          <p>
+            Understand datasets, spreadsheets, databases,
+            APIs and different sources of data.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon green">
+            <i class="fa-solid fa-broom"></i>
+          </div>
+
+          <h3>Clean Data</h3>
+
+          <p>
+            Handle missing values, duplicates, incorrect
+            formats and inconsistent data.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon purple">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+
+          <h3>Analyze Data</h3>
+
+          <p>
+            Use statistics, SQL and programming techniques
+            to discover useful patterns.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon yellow">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+
+          <h3>Visualize Insights</h3>
+
+          <p>
+            Create dashboards, charts and reports that make
+            complex information easy to understand.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CORE TOPICS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>CORE KNOWLEDGE</span>
+
+        <h2>Data Analytics Topics</h2>
+
+        <p>
+          Learn the important concepts step-by-step.
+        </p>
+
+      </div>
+
+
+      <div class="topics">
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-table"></i>
+            Data Fundamentals
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Types of Data
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Structured & Unstructured Data
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Data Collection
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Data Quality
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Data Formats
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-filter"></i>
+            Data Cleaning
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Missing Values
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Duplicate Records
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Data Transformation
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Outliers
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Data Validation
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-calculator"></i>
+            Statistics
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Mean, Median & Mode
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Range & Variance
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Standard Deviation
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Correlation
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Probability Basics
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-code"></i>
+            SQL
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              SELECT Queries
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              WHERE & ORDER BY
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              GROUP BY
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              JOIN Operations
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Subqueries
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-brands fa-python"></i>
+            Python Analytics
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Python Basics
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              NumPy
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Pandas
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Data Cleaning
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Exploratory Data Analysis
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card reveal">
+
+          <h3>
+            <i class="fa-solid fa-chart-simple"></i>
+            Visualization
+          </h3>
+
+          <ul class="topic-list">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Charts & Graphs
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Matplotlib
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Seaborn
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Power BI
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Dashboards
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= TOOLS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>TOOLS</span>
+
+        <h2>Tools Used in Data Analytics</h2>
+
+        <p>
+          Become comfortable with commonly used analytics tools.
+        </p>
+
+      </div>
+
+
+      <div class="tools reveal">
+
+        <div class="tool">
+          <i class="fa-solid fa-file-excel"></i>
+          Microsoft Excel
+        </div>
+
+        <div class="tool">
+          <i class="fa-solid fa-database"></i>
+          SQL
+        </div>
+
+        <div class="tool">
+          <i class="fa-brands fa-python"></i>
+          Python
+        </div>
+
+        <div class="tool">
+          <i class="fa-solid fa-table"></i>
+          Pandas
+        </div>
+
+        <div class="tool">
+          <i class="fa-solid fa-chart-column"></i>
+          Power BI
+        </div>
+
+        <div class="tool">
+          <i class="fa-solid fa-chart-pie"></i>
+          Tableau
+        </div>
+
+        <div class="tool">
+          <i class="fa-solid fa-chart-line"></i>
+          Matplotlib
+        </div>
+
+        <div class="tool">
+          <i class="fa-solid fa-chart-area"></i>
+          Seaborn
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ROADMAP ================= -->
+
+  <section id="roadmap">
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>LEARNING ROADMAP</span>
+
+        <h2>Beginner → Job Ready</h2>
+
+        <p>
+          Follow this practical sequence to develop your
+          Data Analytics foundation.
+        </p>
+
+      </div>
+
+
+      <div class="roadmap">
+
+        <div class="step reveal">
+
+          <div class="step-number">01</div>
+
+          <h3>Data Basics</h3>
+
+          <p>
+            Understand datasets, variables, data types,
+            spreadsheets and basic data concepts.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <div class="step-number">02</div>
+
+          <h3>Excel</h3>
+
+          <p>
+            Learn formulas, functions, sorting, filtering,
+            pivot tables and charts.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <div class="step-number">03</div>
+
+          <h3>SQL</h3>
+
+          <p>
+            Learn how to retrieve, filter, combine and
+            summarize data from databases.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <div class="step-number">04</div>
+
+          <h3>Python</h3>
+
+          <p>
+            Use Python, Pandas and visualization libraries
+            for data analysis.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <div class="step-number">05</div>
+
+          <h3>Dashboard</h3>
+
+          <p>
+            Build dashboards, explain insights and create
+            portfolio projects.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PROJECTS ================= -->
+
+  <section id="projects">
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>PROJECTS</span>
+
+        <h2>Build Real Projects</h2>
+
+        <p>
+          Practice with projects that demonstrate your
+          ability to work with real-world datasets.
+        </p>
+
+      </div>
+
+
+      <div class="projects">
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Sales Analysis Dashboard</h3>
+
+            <p>
+              Analyze sales, products, regions and monthly
+              performance using a business dataset.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Excel</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Power BI</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-users"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Student Performance Analysis</h3>
+
+            <p>
+              Explore student marks, attendance and other
+              factors to identify useful patterns.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Charts</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-building"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Employee Analytics</h3>
+
+            <p>
+              Analyze employee data such as departments,
+              experience, salaries and attrition patterns.
+            </p>
+
+            <div class="tags">
+              <span class="tag">SQL</span>
+              <span class="tag">Power BI</span>
+              <span class="tag">Excel</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Personal Finance Analysis</h3>
+
+            <p>
+              Analyze income, expenses, savings and spending
+              categories using a personal finance dataset.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Excel</span>
+              <span class="tag">Python</span>
+              <span class="tag">Visualization</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-store"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Customer Analysis</h3>
+
+            <p>
+              Study customer purchases, frequency and
+              spending patterns to understand customers.
+            </p>
+
+            <div class="tags">
+              <span class="tag">SQL</span>
+              <span class="tag">Python</span>
+              <span class="tag">Dashboard</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+          <div class="project-top">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+
+          <div class="project-body">
+
+            <h3>Public Data Analysis</h3>
+
+            <p>
+              Choose an open dataset and transform raw data
+              into charts, insights and a final report.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Open Data</span>
+              <span class="tag">Python</span>
+              <span class="tag">Power BI</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CAREERS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>CAREER APPLICATIONS</span>
+
+        <h2>Where Data Analytics Is Used</h2>
+
+        <p>
+          Data analytics skills can be applied across many
+          industries and business functions.
+        </p>
+
+      </div>
+
+
+      <div class="career-grid">
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <h3>Business Analytics</h3>
+
+          </div>
+
+          <p>
+            Analyze business performance and support
+            data-based decision making.
+          </p>
+
+        </div>
+
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-bullhorn"></i>
+            </div>
+
+            <h3>Marketing Analytics</h3>
+
+          </div>
+
+          <p>
+            Analyze campaigns, customers, traffic and
+            marketing performance.
+          </p>
+
+        </div>
+
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-coins"></i>
+            </div>
+
+            <h3>Financial Analytics</h3>
+
+          </div>
+
+          <p>
+            Work with financial datasets, reports,
+            transactions and business metrics.
+          </p>
+
+        </div>
+
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-user-group"></i>
+            </div>
+
+            <h3>HR Analytics</h3>
+
+          </div>
+
+          <p>
+            Analyze workforce information such as hiring,
+            retention and employee trends.
+          </p>
+
+        </div>
+
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+            <h3>Retail Analytics</h3>
+
+          </div>
+
+          <p>
+            Study sales, inventory, customers and product
+            performance.
+          </p>
+
+        </div>
+
+
+        <div class="career reveal">
+
+          <div class="career-header">
+
+            <div class="career-icon">
+              <i class="fa-solid fa-industry"></i>
+            </div>
+
+            <h3>Operations Analytics</h3>
+
+          </div>
+
+          <p>
+            Analyze processes, resources, productivity
+            and operational performance.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= JOB ROLES ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>CAREER ROLES</span>
+
+        <h2>Possible Job Roles</h2>
+
+        <p>
+          Common roles where Data Analytics skills can be useful.
+        </p>
+
+      </div>
+
+
+      <div class="grid-4">
+
+        <div class="info-card reveal">
+
+          <div class="icon blue">
+            <i class="fa-solid fa-chart-column"></i>
+          </div>
+
+          <h3>Data Analyst</h3>
+
+          <p>
+            Collect, clean, analyze and communicate insights
+            from datasets.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon green">
+            <i class="fa-solid fa-business-time"></i>
+          </div>
+
+          <h3>Business Analyst</h3>
+
+          <p>
+            Analyze business requirements, processes,
+            performance and information.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon purple">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+
+          <h3>BI Analyst</h3>
+
+          <p>
+            Build reports and dashboards that help
+            organizations understand their data.
+          </p>
+
+        </div>
+
+
+        <div class="info-card reveal">
+
+          <div class="icon orange">
+            <i class="fa-solid fa-database"></i>
+          </div>
+
+          <h3>Reporting Analyst</h3>
+
+          <p>
+            Prepare recurring reports and transform data
+            into useful business information.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= RESOURCES ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>FREE LEARNING</span>
+
+        <h2>Learn Data Analytics for Free</h2>
+
+        <p>
+          Use free documentation, courses and practice platforms
+          to build your foundation.
+        </p>
+
+      </div>
+
+
+      <div class="resources">
+
+        <div class="resource reveal">
+
+          <i class="fa-solid fa-file-excel"></i>
+
+          <h3>Microsoft Learn</h3>
+
+          <p>
+            Explore Microsoft learning materials for
+            Excel and Power BI.
+          </p>
+
+          <a href="https://learn.microsoft.com/training/"
+             target="_blank">
+            Explore Resources →
+          </a>
+
+        </div>
+
+
+        <div class="resource reveal">
+
+          <i class="fa-solid fa-database"></i>
+
+          <h3>SQLBolt</h3>
+
+          <p>
+            Practice SQL interactively with simple
+            lessons and exercises.
+          </p>
+
+          <a href="https://sqlbolt.com/"
+             target="_blank">
+            Learn SQL →
+          </a>
+
+        </div>
+
+
+        <div class="resource reveal">
+
+          <i class="fa-brands fa-python"></i>
+
+          <h3>Python Documentation</h3>
+
+          <p>
+            Learn Python fundamentals using the official
+            Python documentation.
+          </p>
+
+          <a href="https://docs.python.org/3/tutorial/"
+             target="_blank">
+            Open Python Tutorial →
+          </a>
+
+        </div>
+
+
+        <div class="resource reveal">
+
+          <i class="fa-solid fa-table"></i>
+
+          <h3>pandas Documentation</h3>
+
+          <p>
+            Learn how to manipulate and analyze tabular
+            data using pandas.
+          </p>
+
+          <a href="https://pandas.pydata.org/docs/"
+             target="_blank">
+            Learn pandas →
+          </a>
+
+        </div>
+
+
+        <div class="resource reveal">
+
+          <i class="fa-solid fa-graduation-cap"></i>
+
+          <h3>Khan Academy Statistics</h3>
+
+          <p>
+            Build your foundation in statistics and
+            probability.
+          </p>
+
+          <a href="https://www.khanacademy.org/math/statistics-probability"
+             target="_blank">
+            Learn Statistics →
+          </a>
+
+        </div>
+
+
+        <div class="resource reveal">
+
+          <i class="fa-solid fa-code"></i>
+
+          <h3>freeCodeCamp</h3>
+
+          <p>
+            Practice data analysis concepts through
+            free programming courses.
+          </p>
+
+          <a href="https://www.freecodecamp.org/"
+             target="_blank">
+            Start Learning →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= STUDY TIPS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <span>STUDY STRATEGY</span>
+
+        <h2>How to Become Better at Analytics</h2>
+
+        <p>
+          Focus on practical problem-solving rather than
+          learning tools alone.
+        </p>
+
+      </div>
+
+
+      <div class="tips">
+
+        <div class="tip reveal">
+
+          <div class="tip-number">01</div>
+
+          <div>
+            <h3>Learn Excel First</h3>
+
+            <p>
+              Practice formulas, filtering, pivot tables
+              and charts with small datasets.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+          <div class="tip-number">02</div>
+
+          <div>
+            <h3>Practice SQL Regularly</h3>
+
+            <p>
+              Solve SQL problems and learn how databases
+              store and retrieve information.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+          <div class="tip-number">03</div>
+
+          <div>
+            <h3>Understand Statistics</h3>
+
+            <p>
+              Focus on understanding what statistical
+              measures actually mean.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+          <div class="tip-number">04</div>
+
+          <div>
+            <h3>Build Dashboards</h3>
+
+            <p>
+              Convert datasets into clear visual reports
+              using Power BI or similar tools.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+          <div class="tip-number">05</div>
+
+          <div>
+            <h3>Work With Real Data</h3>
+
+            <p>
+              Use public datasets instead of only following
+              tutorials.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+          <div class="tip-number">06</div>
+
+          <div>
+            <h3>Create a Portfolio</h3>
+
+            <p>
+              Document your projects, datasets, analysis,
+              dashboards and conclusions.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CTA ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="cta reveal">
+
+        <h2>Start Your Data Analytics Journey</h2>
+
+        <p>
+          Learn Excel → Statistics → SQL → Python →
+          Visualization → Projects → Portfolio.
+        </p>
+
+        <a href="../Assignments.html" class="btn">
+          <i class="fa-solid fa-rocket"></i>
+          Practice on ASCEND
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <h3>
+            <i class="fa-solid fa-chart-column"></i>
+            ASCEND
+          </h3>
+
+          <p>
+            Learn skills. Build projects. Explore careers.
+            Grow with the ASCEND Learning Community.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>Quick Links</h3>
+
+          <a href="../index.html">Home</a>
+          <a href="../Books.html">Learn</a>
+          <a href="../Assignments.html">Assignments</a>
+          <a href="Skills.html">Skills</a>
+          <a href="../Careers.html">Careers</a>
+
+        </div>
+
+
+        <div>
+
+          <h3>ASCEND</h3>
+
+          <a href="../Aboutus.html">About Us</a>
+          <a href="../Business.html">Business</a>
+          <a href="../Leadership.html">Leadership</a>
+          <a href="../Faq.html">FAQ</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+        © 2026 ASCEND Learning Community. All Rights Reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= MOBILE BOTTOM NAV ================= -->
+
+  <div class="bottom-nav">
+
+    <a href="../index.html">
+      <i class="fa-solid fa-house"></i>
+      Home
+    </a>
+
+    <a href="../Books.html">
+      <i class="fa-solid fa-book"></i>
+      Learn
+    </a>
+
+    <a href="Skills.html" class="active">
+      <i class="fa-solid fa-code"></i>
+      Skills
+    </a>
+
+    <a href="../Assignments.html">
+      <i class="fa-solid fa-list-check"></i>
+      Tasks
+    </a>
+
+    <a href="../Careers.html">
+      <i class="fa-solid fa-briefcase"></i>
+      Careers
+    </a>
+
+  </div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    /* Mobile Menu */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+
+      navLinks.classList.toggle("show");
+
+      const icon = menuBtn.querySelector("i");
+
+      if (navLinks.classList.contains("show")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+      } else {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+      }
+
+    });
+
+
+    /* Close mobile menu */
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navLinks.classList.remove("show");
+
+        const icon = menuBtn.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+      });
+
+    });
+
+
+    /* Scroll Reveal */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+
+    revealElements.forEach(element => {
+      observer.observe(element);
+    });
+
+  </script>
+
+</body>
+</html>

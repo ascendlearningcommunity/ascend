@@ -1,0 +1,3156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JavaScript / TypeScript — ASCEND Skills</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --radius:20px;
+
+    --shadow:
+        0 10px 30px rgba(16,24,40,.07);
+
+    --shadow-hover:
+        0 18px 45px rgba(16,24,40,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+h1,h2,h3,h4{
+    font-family:"Outfit",sans-serif;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:74px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-family:"Outfit",sans-serif;
+    font-size:24px;
+    font-weight:800;
+
+    color:var(--primary);
+}
+
+.logo img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.nav-links a{
+    padding:10px 13px;
+
+    border-radius:10px;
+
+    font-size:14px;
+    font-weight:600;
+
+    color:var(--muted);
+
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+.home-btn{
+    display:flex;
+    align-items:center;
+    gap:7px;
+
+    background:var(--primary);
+    color:white;
+
+    padding:10px 15px;
+    border-radius:11px;
+
+    font-weight:700;
+    font-size:14px;
+
+    transition:.25s;
+}
+
+.home-btn:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    padding:75px 0 65px;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(21,94,239,.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(255,212,59,.10),
+            transparent 25%
+        );
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+
+    align-items:center;
+
+    gap:60px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 13px;
+
+    border-radius:30px;
+
+    background:var(--primary-light);
+    color:var(--primary);
+
+    font-size:13px;
+    font-weight:800;
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,68px);
+    line-height:1.03;
+
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    max-width:650px;
+
+    color:var(--muted);
+
+    font-size:18px;
+
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    padding:13px 20px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:white;
+    color:var(--dark);
+    border:1px solid var(--border);
+}
+
+.btn-secondary:hover{
+    border-color:var(--primary);
+    color:var(--primary);
+}
+
+/* =========================
+   CODE VISUAL
+========================= */
+
+.code-visual{
+    position:relative;
+
+    min-height:390px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.code-window{
+    width:100%;
+    max-width:450px;
+
+    background:#101828;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 30px 70px rgba(16,24,40,.25);
+}
+
+.window-top{
+    height:48px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 16px;
+
+    background:#1D2939;
+
+    gap:7px;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#667085;
+}
+
+.window-title{
+    margin-left:auto;
+    margin-right:auto;
+
+    color:#D0D5DD;
+
+    font-size:12px;
+}
+
+.code{
+    padding:25px;
+
+    font-family:monospace;
+
+    font-size:13px;
+
+    line-height:2;
+}
+
+.line{
+    white-space:nowrap;
+}
+
+.keyword{
+    color:#D6BBFB;
+}
+
+.function{
+    color:#84CAFF;
+}
+
+.string{
+    color:#6CE9A6;
+}
+
+.variable{
+    color:#FDB022;
+}
+
+.comment{
+    color:#98A2B3;
+}
+
+.type{
+    color:#FEC84B;
+}
+
+.js-badge{
+    position:absolute;
+
+    right:-12px;
+    top:25px;
+
+    width:70px;
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#F7DF1E;
+    color:#101828;
+
+    border-radius:16px;
+
+    font-size:28px;
+    font-weight:900;
+
+    box-shadow:var(--shadow-hover);
+}
+
+.ts-badge{
+    position:absolute;
+
+    left:-18px;
+    bottom:30px;
+
+    width:68px;
+    height:68px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#3178C6;
+    color:white;
+
+    border-radius:16px;
+
+    font-size:24px;
+    font-weight:900;
+
+    box-shadow:var(--shadow-hover);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:75px 0;
+}
+
+.section-heading{
+    text-align:center;
+
+    max-width:720px;
+
+    margin:0 auto 45px;
+}
+
+.section-heading .tag{
+    display:inline-block;
+
+    padding:7px 12px;
+
+    border-radius:20px;
+
+    background:var(--yellow-light);
+    color:#B54708;
+
+    font-size:12px;
+    font-weight:800;
+
+    margin-bottom:12px;
+}
+
+.section-heading h2{
+    font-size:36px;
+
+    margin-bottom:12px;
+}
+
+.section-heading p{
+    color:var(--muted);
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.card{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:27px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-hover);
+}
+
+.icon-box{
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    font-size:22px;
+
+    margin-bottom:18px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.dark-icon{
+    background:#EAECF0;
+    color:var(--dark);
+}
+
+.card h3{
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* =========================
+   CORE TOPICS
+========================= */
+
+.topic-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.topic{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:21px;
+
+    display:flex;
+    gap:15px;
+
+    transition:.25s;
+}
+
+.topic:hover{
+    border-color:#B2CCFF;
+    transform:translateY(-3px);
+}
+
+.topic-number{
+    width:38px;
+    height:38px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:var(--primary-light);
+    color:var(--primary);
+
+    font-weight:800;
+}
+
+.topic h3{
+    font-size:16px;
+    margin-bottom:4px;
+}
+
+.topic p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+   JS / TS COMPARISON
+========================= */
+
+.comparison-section{
+    background:white;
+}
+
+.comparison{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+}
+
+.compare-card{
+    background:var(--bg);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:27px;
+}
+
+.compare-header{
+    display:flex;
+    align-items:center;
+    gap:13px;
+
+    margin-bottom:18px;
+}
+
+.compare-logo{
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    font-weight:900;
+    font-size:19px;
+}
+
+.js-logo{
+    background:#F7DF1E;
+    color:#101828;
+}
+
+.ts-logo{
+    background:#3178C6;
+    color:white;
+}
+
+.compare-card h3{
+    font-size:21px;
+}
+
+.compare-card p{
+    color:var(--muted);
+
+    font-size:14px;
+
+    margin-bottom:17px;
+}
+
+.compare-list{
+    list-style:none;
+}
+
+.compare-list li{
+    display:flex;
+
+    gap:9px;
+
+    margin:10px 0;
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+.compare-list i{
+    color:var(--green);
+
+    margin-top:4px;
+}
+
+/* =========================
+   TOOLKIT
+========================= */
+
+.toolkit{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:17px;
+}
+
+.tool{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:22px;
+
+    text-align:center;
+
+    transition:.25s;
+}
+
+.tool:hover{
+    transform:translateY(-4px);
+
+    border-color:#B2CCFF;
+}
+
+.tool i{
+    font-size:29px;
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+}
+
+.tool h3{
+    font-size:16px;
+}
+
+.tool p{
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-top:4px;
+}
+
+/* =========================
+   ROADMAP
+========================= */
+
+.roadmap{
+    position:relative;
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+.roadmap::before{
+    content:"";
+
+    position:absolute;
+
+    left:25px;
+    top:0;
+    bottom:0;
+
+    width:2px;
+
+    background:#D0D5DD;
+}
+
+.roadmap-item{
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:52px 1fr;
+
+    gap:20px;
+
+    margin-bottom:25px;
+}
+
+.roadmap-number{
+    position:relative;
+    z-index:2;
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-weight:800;
+}
+
+.roadmap-content{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:19px 22px;
+
+    box-shadow:var(--shadow);
+}
+
+.roadmap-content h3{
+    font-size:18px;
+
+    margin-bottom:5px;
+}
+
+.roadmap-content p{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.project-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.project{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-hover);
+}
+
+.project-top{
+    height:115px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-light),
+            #F7F9FF
+        );
+
+    color:var(--primary);
+
+    font-size:38px;
+}
+
+.project-content{
+    padding:22px;
+}
+
+.project-content h3{
+    font-size:18px;
+
+    margin-bottom:7px;
+}
+
+.project-content p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:12px;
+}
+
+.level{
+    display:inline-block;
+
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    background:var(--green-light);
+    color:var(--green);
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+/* =========================
+   CAREER
+========================= */
+
+.career-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.career{
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:22px;
+
+    transition:.25s;
+}
+
+.career:hover{
+    transform:translateY(-4px);
+}
+
+.career i{
+    color:var(--primary);
+
+    font-size:24px;
+
+    margin-bottom:14px;
+}
+
+.career h3{
+    font-size:17px;
+
+    margin-bottom:6px;
+}
+
+.career p{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* =========================
+   RESOURCES
+========================= */
+
+.resources{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.resource{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:19px;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    transition:.25s;
+}
+
+.resource:hover{
+    border-color:#B2CCFF;
+
+    transform:translateY(-3px);
+}
+
+.resource-icon{
+    width:45px;
+    height:45px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+}
+
+.resource h3{
+    font-size:15px;
+}
+
+.resource p{
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+.resource .arrow{
+    margin-left:auto;
+
+    color:var(--muted-2);
+}
+
+/* =========================
+   TIPS
+========================= */
+
+.tips{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:18px;
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.tip{
+    display:flex;
+
+    gap:13px;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:18px;
+}
+
+.tip i{
+    color:var(--green);
+
+    margin-top:4px;
+}
+
+.tip p{
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    margin:30px auto 75px;
+
+    max-width:1050px;
+
+    border-radius:25px;
+
+    padding:50px 35px;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #155EEF,
+            #0B46C5
+        );
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.cta::before{
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    top:-90px;
+    right:-50px;
+}
+
+.cta h2{
+    font-size:35px;
+
+    margin-bottom:10px;
+}
+
+.cta p{
+    max-width:650px;
+
+    margin:0 auto 23px;
+
+    color:#D9E5FF;
+}
+
+.cta .btn{
+    background:var(--yellow);
+
+    color:var(--dark);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#101828;
+
+    color:white;
+
+    padding:45px 0 90px;
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+    gap:35px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+
+    font-size:13px;
+
+    max-width:330px;
+
+    margin-top:12px;
+}
+
+.footer h3{
+    font-size:15px;
+
+    margin-bottom:14px;
+}
+
+.footer a{
+    display:block;
+
+    color:#98A2B3;
+
+    font-size:13px;
+
+    margin:8px 0;
+}
+
+.footer a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    margin-top:35px;
+
+    padding-top:20px;
+
+    border-top:1px solid #344054;
+
+    color:#98A2B3;
+
+    font-size:12px;
+
+    text-align:center;
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .code-visual{
+        min-height:330px;
+    }
+
+    .cards,
+    .topic-grid,
+    .project-grid,
+    .career-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .comparison{
+        grid-template-columns:1fr;
+    }
+
+    .toolkit{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .resources{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .container{
+        width:90%;
+    }
+
+    .hero{
+        padding:55px 0;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .section-heading h2{
+        font-size:29px;
+    }
+
+    .cards,
+    .topic-grid,
+    .project-grid,
+    .career-grid,
+    .resources,
+    .tips{
+        grid-template-columns:1fr;
+    }
+
+    .toolkit{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .code-window{
+        max-width:100%;
+    }
+
+    .code{
+        padding:20px;
+
+        font-size:11px;
+    }
+
+    .js-badge{
+        right:-3px;
+    }
+
+    .ts-badge{
+        left:-3px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .mobile-nav{
+        position:fixed;
+
+        display:flex;
+
+        bottom:0;
+        left:0;
+        right:0;
+
+        z-index:2000;
+
+        background:white;
+
+        border-top:1px solid var(--border);
+
+        padding:9px 8px;
+
+        justify-content:space-around;
+
+        box-shadow:
+            0 -8px 25px rgba(16,24,40,.08);
+    }
+
+    .mobile-nav a{
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:3px;
+
+        color:var(--muted);
+
+        font-size:10px;
+
+        font-weight:700;
+    }
+
+    .mobile-nav i{
+        font-size:18px;
+    }
+
+    .mobile-nav a.active{
+        color:var(--primary);
+    }
+
+    footer{
+        padding-bottom:100px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="../index.html" class="logo">
+
+<img src="../logo.png" alt="ASCEND">
+
+<span>ASCEND</span>
+
+</a>
+
+<nav class="nav-links">
+
+<a href="../index.html">
+<i class="fa-solid fa-house"></i> Home
+</a>
+
+<a href="../Books.html">
+<i class="fa-solid fa-book"></i> Learn
+</a>
+
+<a href="../Assignments.html">
+<i class="fa-solid fa-list-check"></i> Tasks
+</a>
+
+<a href="Skills.html" class="active">
+<i class="fa-solid fa-code"></i> Skills
+</a>
+
+<a href="../Careers.html">
+<i class="fa-solid fa-briefcase"></i> Careers
+</a>
+
+<a href="../Aboutus.html">
+<i class="fa-solid fa-circle-info"></i> About
+</a>
+
+<a href="../Business.html">
+<i class="fa-solid fa-lightbulb"></i> Business
+</a>
+
+<a href="../Leadership.html">
+<i class="fa-solid fa-users"></i> Leadership
+</a>
+
+<a href="../Faq.html">
+<i class="fa-solid fa-circle-question"></i> FAQ
+</a>
+
+</nav>
+
+<a href="../index.html" class="home-btn">
+<i class="fa-solid fa-arrow-left"></i>
+Home
+</a>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">
+<i class="fa-brands fa-js"></i>
+Modern Web Development Skill
+</div>
+
+<h1>
+Master <span>JavaScript & TypeScript</span>
+for Modern Applications
+</h1>
+
+<p>
+Learn JavaScript fundamentals, DOM manipulation,
+asynchronous programming, APIs, modern ES features,
+TypeScript, frontend development and full-stack workflows.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#roadmap" class="btn btn-primary">
+<i class="fa-solid fa-road"></i>
+Start Roadmap
+</a>
+
+<a href="#projects" class="btn btn-secondary">
+<i class="fa-solid fa-code"></i>
+View Projects
+</a>
+
+</div>
+
+</div>
+
+
+<div class="code-visual">
+
+<div class="code-window">
+
+<div class="window-top">
+
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+
+<span class="window-title">
+ASCEND — JavaScript / TypeScript
+</span>
+
+</div>
+
+<div class="code">
+
+<div class="line">
+<span class="keyword">const</span>
+<span class="variable">student</span>
+=
+<span class="string">"ASCEND"</span>;
+</div>
+
+<div class="line">
+&nbsp;
+</div>
+
+<div class="line">
+<span class="keyword">function</span>
+<span class="function">learn</span>
+<span class="variable">(skill)</span> {
+</div>
+
+<div class="line">
+&nbsp;&nbsp;
+<span class="keyword">return</span>
+<span class="string">`Learning ${skill}`</span>;
+</div>
+
+<div class="line">
+}
+</div>
+
+<div class="line">
+&nbsp;
+</div>
+
+<div class="line">
+<span class="keyword">interface</span>
+<span class="type">Developer</span> {
+</div>
+
+<div class="line">
+&nbsp;&nbsp;
+<span class="variable">name</span>:
+<span class="type">string</span>;
+</div>
+
+<div class="line">
+&nbsp;&nbsp;
+<span class="variable">skills</span>:
+<span class="type">string[]</span>;
+</div>
+
+<div class="line">
+}
+</div>
+
+</div>
+
+</div>
+
+
+<div class="js-badge">
+JS
+</div>
+
+<div class="ts-badge">
+TS
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     OVERVIEW
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="tag">FOUNDATION</span>
+
+<h2>What are JavaScript & TypeScript?</h2>
+
+<p>
+Understand two important technologies used
+throughout modern web and application development.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box orange">
+<i class="fa-brands fa-js"></i>
+</div>
+
+<h3>JavaScript</h3>
+
+<p>
+JavaScript is a programming language widely
+used to create interactive websites, web
+applications, servers and many other applications.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+<span style="font-weight:900;">TS</span>
+</div>
+
+<h3>TypeScript</h3>
+
+<p>
+TypeScript extends JavaScript with static typing
+and additional development features that can
+make large codebases easier to maintain.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box purple">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+
+<h3>Modern Development</h3>
+
+<p>
+JavaScript and TypeScript can be used across
+frontend, backend, APIs, mobile applications,
+desktop applications and full-stack projects.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CORE TOPICS
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="tag">CORE TOPICS</span>
+
+<h2>What You Should Learn</h2>
+
+<p>
+Build your skills from JavaScript fundamentals
+to TypeScript and modern application development.
+</p>
+
+</div>
+
+
+<div class="topic-grid">
+
+<div class="topic reveal">
+
+<div class="topic-number">01</div>
+
+<div>
+
+<h3>JavaScript Fundamentals</h3>
+
+<p>
+Variables, data types, operators, conditions,
+loops, functions and scope.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">02</div>
+
+<div>
+
+<h3>Arrays & Objects</h3>
+
+<p>
+Work with collections, objects, destructuring,
+spread syntax and modern methods.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">03</div>
+
+<div>
+
+<h3>DOM Manipulation</h3>
+
+<p>
+Select elements, update content, styles,
+attributes and respond to user events.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">04</div>
+
+<div>
+
+<h3>Events</h3>
+
+<p>
+Handle clicks, forms, keyboard events and
+other interactions in web applications.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">05</div>
+
+<div>
+
+<h3>ES6+ Features</h3>
+
+<p>
+Learn let, const, arrow functions, modules,
+classes, promises and modern syntax.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">06</div>
+
+<div>
+
+<h3>Asynchronous JavaScript</h3>
+
+<p>
+Understand callbacks, promises, async/await
+and asynchronous application workflows.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">07</div>
+
+<div>
+
+<h3>APIs & Fetch</h3>
+
+<p>
+Connect applications with APIs and work
+with JSON and HTTP requests.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">08</div>
+
+<div>
+
+<h3>TypeScript Fundamentals</h3>
+
+<p>
+Types, interfaces, functions, unions,
+generics and type inference.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="topic reveal">
+
+<div class="topic-number">09</div>
+
+<div>
+
+<h3>Modules & Tooling</h3>
+
+<p>
+Learn imports, exports, package managers,
+build tools and development workflows.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     JS / TS COMPARISON
+========================= -->
+
+<section class="comparison-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="tag">UNDERSTAND THE DIFFERENCE</span>
+
+<h2>JavaScript vs TypeScript</h2>
+
+<p>
+Learn how TypeScript builds on top of JavaScript
+for development at scale.
+</p>
+
+</div>
+
+
+<div class="comparison">
+
+<div class="compare-card reveal">
+
+<div class="compare-header">
+
+<div class="compare-logo js-logo">
+JS
+</div>
+
+<div>
+<h3>JavaScript</h3>
+</div>
+
+</div>
+
+<p>
+A flexible programming language used across
+the web and many application environments.
+</p>
+
+<ul class="compare-list">
+
+<li>
+<i class="fa-solid fa-check"></i>
+Runs directly in modern browsers.
+</li>
+
+<li>
+<i class="fa-solid fa-check"></i>
+Supports dynamic typing.
+</li>
+
+<li>
+<i class="fa-solid fa-check"></i>
+Widely used for frontend development.
+</li>
+
+<li>
+<i class="fa-solid fa-check"></i>
+Also used for backend development with Node.js.
+</li>
+
+<li>
+<i class="fa-solid fa-check"></i>
+Essential foundation for learning TypeScript.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="compare-card reveal">
+
+<div class="compare-header">
+
+<div class="compare-logo ts-logo">
+TS
+</div>
+
+<div>
+<h3>TypeScript</h3>
+</div>
+
+</div>
+
+<p>
+A typed superset of JavaScript designed to
+improve development workflows and maintainability.
+</p>
+
+<ul class="compare-list">
+
+<li>
+<i class="fa-solid fa-check"></i>
+Adds static type checking.
+</li>
+
+<li>
+<i class="fa-solid fa-check"></i>
+Supports interfaces and type aliases.
+</li>
+
+<li>
+<i class="fa-solid fa-check"></i>
+Helps catch many errors during development.
+</li>
+
+<li>
+<i class="fa-solid fa-check"></i>
+Works with modern JavaScript features.
+</li>
+
+<li>
+<i class="fa-solid fa-check"></i>
+Commonly used in larger web applications.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TOOLKIT
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="tag">DEVELOPER TOOLKIT</span>
+
+<h2>JavaScript / TypeScript Ecosystem</h2>
+
+<p>
+Explore the tools and technologies that work
+with modern JavaScript and TypeScript development.
+</p>
+
+</div>
+
+
+<div class="toolkit">
+
+<div class="tool reveal">
+
+<i class="fa-brands fa-js"></i>
+
+<h3>JavaScript</h3>
+
+<p>Core programming language</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<div style="
+font-size:29px;
+font-weight:900;
+color:#3178C6;
+margin-bottom:12px;
+">
+TS
+</div>
+
+<h3>TypeScript</h3>
+
+<p>Typed JavaScript development</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-brands fa-node-js"></i>
+
+<h3>Node.js</h3>
+
+<p>JavaScript runtime</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-brands fa-react"></i>
+
+<h3>React</h3>
+
+<p>Frontend library</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-server"></i>
+
+<h3>Express.js</h3>
+
+<p>Backend framework</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-box"></i>
+
+<h3>npm</h3>
+
+<p>Package management</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h3>Vite</h3>
+
+<p>Modern build tool</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-brands fa-github"></i>
+
+<h3>GitHub</h3>
+
+<p>Version control & collaboration</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ROADMAP
+========================= -->
+
+<section id="roadmap">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="tag">LEARNING ROADMAP</span>
+
+<h2>JavaScript / TypeScript Roadmap</h2>
+
+<p>
+Follow a structured path from programming
+fundamentals to full-stack development.
+</p>
+
+</div>
+
+
+<div class="roadmap">
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-number">1</div>
+
+<div class="roadmap-content">
+
+<h3>HTML & CSS Foundation</h3>
+
+<p>
+Understand HTML structure, CSS styling,
+layouts, forms and responsive design.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-number">2</div>
+
+<div class="roadmap-content">
+
+<h3>JavaScript Fundamentals</h3>
+
+<p>
+Variables, data types, operators, conditions,
+loops, functions and scope.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-number">3</div>
+
+<div class="roadmap-content">
+
+<h3>Arrays, Objects & Functions</h3>
+
+<p>
+Learn objects, arrays, higher-order functions,
+destructuring and modern syntax.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-number">4</div>
+
+<div class="roadmap-content">
+
+<h3>DOM & Browser APIs</h3>
+
+<p>
+Build interactive websites using the DOM,
+events, forms and browser APIs.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-number">5</div>
+
+<div class="roadmap-content">
+
+<h3>Async JavaScript & APIs</h3>
+
+<p>
+Learn promises, async/await, Fetch API,
+JSON and API-based applications.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-number">6</div>
+
+<div class="roadmap-content">
+
+<h3>Modern JavaScript</h3>
+
+<p>
+Modules, classes, optional chaining,
+spread syntax and other ES features.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-number">7</div>
+
+<div class="roadmap-content">
+
+<h3>TypeScript</h3>
+
+<p>
+Types, interfaces, generics, enums,
+type narrowing and TypeScript configuration.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-number">8</div>
+
+<div class="roadmap-content">
+
+<h3>Frontend Framework</h3>
+
+<p>
+Move into React or another modern
+JavaScript/TypeScript frontend framework.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-number">9</div>
+
+<div class="roadmap-content">
+
+<h3>Backend Development</h3>
+
+<p>
+Learn Node.js, Express.js, APIs,
+authentication and database integration.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-item reveal">
+
+<div class="roadmap-number">10</div>
+
+<div class="roadmap-content">
+
+<h3>Full-Stack Projects</h3>
+
+<p>
+Build complete applications and publish
+your work through GitHub and a portfolio.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="tag">PRACTICE</span>
+
+<h2>JavaScript / TypeScript Projects</h2>
+
+<p>
+Practice concepts by building useful projects
+from beginner to advanced levels.
+</p>
+
+</div>
+
+
+<div class="project-grid">
+
+<div class="project reveal">
+
+<div class="project-top">
+<i class="fa-solid fa-calculator"></i>
+</div>
+
+<div class="project-content">
+
+<h3>Smart Calculator</h3>
+
+<p>
+Build a calculator using JavaScript
+functions, events and DOM manipulation.
+</p>
+
+<span class="level">
+BEGINNER
+</span>
+
+</div>
+
+</div>
+
+
+<div class="project reveal">
+
+<div class="project-top">
+<i class="fa-solid fa-list-check"></i>
+</div>
+
+<div class="project-content">
+
+<h3>To-Do Application</h3>
+
+<p>
+Create tasks, update them, delete them
+and store application data locally.
+</p>
+
+<span class="level">
+BEGINNER
+</span>
+
+</div>
+
+</div>
+
+
+<div class="project reveal">
+
+<div class="project-top">
+<i class="fa-solid fa-cloud-sun"></i>
+</div>
+
+<div class="project-content">
+
+<h3>Weather Dashboard</h3>
+
+<p>
+Build an API-powered dashboard that
+displays weather information.
+</p>
+
+<span class="level">
+INTERMEDIATE
+</span>
+
+</div>
+
+</div>
+
+
+<div class="project reveal">
+
+<div class="project-top">
+<i class="fa-solid fa-chart-column"></i>
+</div>
+
+<div class="project-content">
+
+<h3>Expense Tracker</h3>
+
+<p>
+Create a TypeScript application for
+recording and displaying expenses.
+</p>
+
+<span class="level">
+INTERMEDIATE
+</span>
+
+</div>
+
+</div>
+
+
+<div class="project reveal">
+
+<div class="project-top">
+<i class="fa-solid fa-users"></i>
+</div>
+
+<div class="project-content">
+
+<h3>Student Management App</h3>
+
+<p>
+Build a CRUD application using
+TypeScript and an API backend.
+</p>
+
+<span class="level">
+INTERMEDIATE
+</span>
+
+</div>
+
+</div>
+
+
+<div class="project reveal">
+
+<div class="project-top">
+<i class="fa-solid fa-cart-shopping"></i>
+</div>
+
+<div class="project-content">
+
+<h3>Full-Stack E-Commerce App</h3>
+
+<p>
+Build a complete application with
+frontend, backend, APIs and database.
+</p>
+
+<span class="level">
+ADVANCED
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CAREER
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="tag">CAREER APPLICATION</span>
+
+<h2>Career Paths</h2>
+
+<p>
+JavaScript and TypeScript are useful across
+frontend, backend and full-stack development.
+</p>
+
+</div>
+
+
+<div class="career-grid">
+
+<div class="career reveal">
+
+<i class="fa-solid fa-globe"></i>
+
+<h3>Frontend Developer</h3>
+
+<p>
+Build interactive and responsive web
+interfaces using JavaScript or TypeScript.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-server"></i>
+
+<h3>Backend Developer</h3>
+
+<p>
+Build APIs and server-side applications
+using Node.js and TypeScript.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-layer-group"></i>
+
+<h3>Full-Stack Developer</h3>
+
+<p>
+Develop complete web applications across
+frontend, backend and databases.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-brands fa-react"></i>
+
+<h3>React Developer</h3>
+
+<p>
+Create component-based frontend
+applications with React and TypeScript.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-cloud"></i>
+
+<h3>Cloud Application Developer</h3>
+
+<p>
+Develop and deploy JavaScript or TypeScript
+applications on cloud platforms.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-mobile-screen"></i>
+
+<h3>Application Developer</h3>
+
+<p>
+Use JavaScript ecosystems to build
+web, mobile or cross-platform applications.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     RESOURCES
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="tag">FREE RESOURCES</span>
+
+<h2>Learn JavaScript & TypeScript for Free</h2>
+
+<p>
+Use official documentation and free educational
+resources to develop practical skills.
+</p>
+
+</div>
+
+
+<div class="resources">
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+target="_blank"
+class="resource reveal">
+
+<div class="resource-icon">
+<i class="fa-brands fa-js"></i>
+</div>
+
+<div>
+
+<h3>MDN JavaScript</h3>
+
+<p>JavaScript documentation & guides</p>
+
+</div>
+
+<i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+</a>
+
+
+<a href="https://www.typescriptlang.org/docs/"
+target="_blank"
+class="resource reveal">
+
+<div class="resource-icon">
+<span style="font-weight:900;">TS</span>
+</div>
+
+<div>
+
+<h3>TypeScript Docs</h3>
+
+<p>Official TypeScript documentation</p>
+
+</div>
+
+<i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+</a>
+
+
+<a href="https://javascript.info/"
+target="_blank"
+class="resource reveal">
+
+<div class="resource-icon">
+<i class="fa-solid fa-book"></i>
+</div>
+
+<div>
+
+<h3>JavaScript.info</h3>
+
+<p>Modern JavaScript tutorial</p>
+
+</div>
+
+<i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+</a>
+
+
+<a href="https://developer.mozilla.org/en-US/docs/Learn"
+target="_blank"
+class="resource reveal">
+
+<div class="resource-icon">
+<i class="fa-solid fa-graduation-cap"></i>
+</div>
+
+<div>
+
+<h3>MDN Learn Web Development</h3>
+
+<p>Web development learning path</p>
+
+</div>
+
+<i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+</a>
+
+
+<a href="https://nodejs.org/en/learn"
+target="_blank"
+class="resource reveal">
+
+<div class="resource-icon">
+<i class="fa-brands fa-node-js"></i>
+</div>
+
+<div>
+
+<h3>Node.js Learn</h3>
+
+<p>Server-side JavaScript learning</p>
+
+</div>
+
+<i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+</a>
+
+
+<a href="https://www.typescriptlang.org/play"
+target="_blank"
+class="resource reveal">
+
+<div class="resource-icon">
+<i class="fa-solid fa-code"></i>
+</div>
+
+<div>
+
+<h3>TypeScript Playground</h3>
+
+<p>Practice TypeScript in the browser</p>
+
+</div>
+
+<i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     STUDY TIPS
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="tag">ASCEND TIPS</span>
+
+<h2>How to Learn JavaScript / TypeScript</h2>
+
+<p>
+Build strong JavaScript fundamentals before
+moving into advanced frameworks.
+</p>
+
+</div>
+
+
+<div class="tips">
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<p>
+Master variables, functions, arrays, objects,
+conditions and loops before learning frameworks.
+</p>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<p>
+Practice DOM manipulation by building
+small interactive web applications.
+</p>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<p>
+Understand asynchronous programming,
+Promises and async/await.
+</p>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<p>
+Practice working with real APIs and JSON data.
+</p>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<p>
+Learn TypeScript after developing a solid
+understanding of JavaScript.
+</p>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<p>
+Use Git and GitHub to track your projects
+and build a public development portfolio.
+</p>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<p>
+Build projects instead of only watching
+tutorials.
+</p>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<p>
+Gradually move from frontend projects to
+full-stack applications.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<div class="container">
+
+<div class="cta">
+
+<h2>Code. Build. Create. 🚀</h2>
+
+<p>
+Start your JavaScript and TypeScript journey
+with ASCEND and turn programming concepts
+into real applications.
+</p>
+
+<a href="../Assignments.html" class="btn">
+
+<i class="fa-solid fa-list-check"></i>
+
+Practice with ASCEND Tasks
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<div class="logo">
+
+<img src="../logo.png" alt="ASCEND">
+
+<span>ASCEND</span>
+
+</div>
+
+<p>
+ASCEND Learning Community helps students
+build knowledge, practical skills, career
+awareness and leadership.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>Learn</h3>
+
+<a href="../Books.html">Books</a>
+
+<a href="../Assignments.html">Assignments</a>
+
+<a href="Skills.html">Skills</a>
+
+<a href="../Careers.html">Careers</a>
+
+</div>
+
+
+<div>
+
+<h3>Community</h3>
+
+<a href="../Business.html">Business</a>
+
+<a href="../Leadership.html">Leadership</a>
+
+<a href="../Aboutus.html">About Us</a>
+
+<a href="../Faq.html">FAQ</a>
+
+</div>
+
+
+<div>
+
+<h3>JavaScript / TypeScript</h3>
+
+<a href="#roadmap">Roadmap</a>
+
+<a href="#projects">Projects</a>
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+target="_blank">
+MDN JavaScript
+</a>
+
+<a href="https://www.typescriptlang.org/docs/"
+target="_blank">
+TypeScript Docs
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 ASCEND Learning Community.
+Learn • Build • Lead • Grow.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =========================
+     MOBILE NAV
+========================= -->
+
+<div class="mobile-nav">
+
+<a href="../index.html">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Home</span>
+
+</a>
+
+
+<a href="../Books.html">
+
+<i class="fa-solid fa-book"></i>
+
+<span>Learn</span>
+
+</a>
+
+
+<a href="Skills.html" class="active">
+
+<i class="fa-solid fa-code"></i>
+
+<span>Skills</span>
+
+</a>
+
+
+<a href="../Careers.html">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<span>Careers</span>
+
+</a>
+
+
+<a href="../Aboutus.html">
+
+<i class="fa-solid fa-circle-info"></i>
+
+<span>About</span>
+
+</a>
+
+</div>
+
+
+<script>
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+const revealObserver =
+new IntersectionObserver(
+(entries) => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+revealObserver.unobserve(entry.target);
+
+}
+
+});
+
+},
+{
+threshold:0.12
+}
+);
+
+revealElements.forEach(
+element => revealObserver.observe(element)
+);
+
+</script>
+
+</body>
+</html>

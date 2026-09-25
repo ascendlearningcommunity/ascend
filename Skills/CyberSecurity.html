@@ -1,0 +1,2996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cybersecurity — ASCEND Skills</title>
+
+<link rel="icon" href="../logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --shadow:0 10px 30px rgba(16,24,40,.07);
+    --shadow-hover:0 18px 45px rgba(16,24,40,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+h1,h2,h3,h4{
+    font-family:'Outfit',sans-serif;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Outfit',sans-serif;
+    font-size:24px;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.logo img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:9px;
+    color:var(--muted);
+    font-size:13px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--primary-light);
+    color:var(--primary);
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:75px 0 65px;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(21,94,239,.10),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(127,86,217,.12),transparent 28%),
+        var(--white);
+    border-bottom:1px solid var(--border);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:999px;
+    background:var(--red-light);
+    color:var(--red);
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,68px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    color:var(--muted);
+    max-width:650px;
+    font-size:16px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 19px;
+    border-radius:11px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-light{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.btn-light:hover{
+    transform:translateY(-2px);
+}
+
+/* ================= SECURITY VISUAL ================= */
+
+.hero-visual{
+    position:relative;
+    min-height:360px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.security-dashboard{
+    width:min(100%,450px);
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:22px;
+    box-shadow:0 25px 70px rgba(16,24,40,.15);
+}
+
+.dashboard-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.dashboard-title{
+    font-family:'Outfit';
+    font-weight:700;
+}
+
+.dashboard-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:var(--primary-light);
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+}
+
+.shield{
+    height:150px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--bg);
+    border-radius:15px;
+    position:relative;
+}
+
+.shield i{
+    font-size:92px;
+    color:var(--primary);
+    filter:drop-shadow(0 10px 20px rgba(21,94,239,.22));
+}
+
+.shield-check{
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:var(--green);
+    color:white;
+    font-size:14px;
+    margin-top:-8px;
+}
+
+.security-status{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.status-box{
+    background:var(--bg);
+    border-radius:11px;
+    padding:12px;
+    text-align:center;
+}
+
+.status-box i{
+    color:var(--green);
+    font-size:14px;
+}
+
+.status-box strong{
+    display:block;
+    font-family:'Outfit';
+    font-size:17px;
+    margin-top:3px;
+}
+
+.status-box span{
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+}
+
+.float-card{
+    position:absolute;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    padding:14px 16px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.float-card i{
+    color:var(--primary);
+}
+
+.float-1{
+    top:25px;
+    left:0;
+}
+
+.float-2{
+    bottom:25px;
+    right:0;
+}
+
+/* ================= COMMON ================= */
+
+section{
+    padding:70px 0;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 40px;
+}
+
+.section-heading .mini{
+    color:var(--primary);
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.section-heading h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.grid{
+    display:grid;
+    gap:20px;
+}
+
+.grid-3{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.grid-4{
+    grid-template-columns:repeat(4,1fr);
+}
+
+.card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:24px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-hover);
+}
+
+.icon-box{
+    width:48px;
+    height:48px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:18px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.card h3{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= OVERVIEW ================= */
+
+.overview{
+    background:var(--bg);
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-family:'Outfit';
+    font-size:30px;
+    color:var(--primary);
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:18px;
+}
+
+.topic{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:11px 12px;
+    background:var(--bg);
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.topic i{
+    color:var(--primary);
+}
+
+/* ================= TOOLS ================= */
+
+.stack-card{
+    text-align:center;
+}
+
+.stack-card .icon-box{
+    margin:0 auto 15px;
+}
+
+.stack-card h3{
+    font-size:17px;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.roadmap::before{
+    content:"";
+    position:absolute;
+    left:28px;
+    top:10px;
+    bottom:10px;
+    width:2px;
+    background:var(--border);
+}
+
+.step{
+    position:relative;
+    display:flex;
+    gap:22px;
+    margin-bottom:24px;
+}
+
+.step:last-child{
+    margin-bottom:0;
+}
+
+.step-number{
+    flex:0 0 58px;
+    height:58px;
+    border-radius:16px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Outfit';
+    font-weight:800;
+    z-index:2;
+    box-shadow:0 0 0 7px var(--bg);
+}
+
+.step-content{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:18px 20px;
+    flex:1;
+    box-shadow:var(--shadow);
+}
+
+.step-content h3{
+    font-size:18px;
+    margin-bottom:4px;
+}
+
+.step-content p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= PROJECTS ================= */
+
+.project-card{
+    position:relative;
+}
+
+.project-card .level{
+    position:absolute;
+    right:18px;
+    top:18px;
+    padding:5px 9px;
+    border-radius:999px;
+    font-size:10px;
+    font-weight:800;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.project-card ul{
+    list-style:none;
+    margin-top:16px;
+}
+
+.project-card li{
+    display:flex;
+    gap:8px;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:8px;
+}
+
+.project-card li i{
+    color:var(--green);
+    margin-top:4px;
+}
+
+/* ================= CAREERS ================= */
+
+.role{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.role-icon{
+    width:45px;
+    height:45px;
+    flex:0 0 45px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.role h3{
+    font-size:16px;
+}
+
+.role p{
+    margin-top:4px;
+}
+
+/* ================= RESOURCES ================= */
+
+.resource{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.resource-icon{
+    width:46px;
+    height:46px;
+    flex:0 0 46px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.resource h3{
+    font-size:16px;
+}
+
+.resource p{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:3px;
+}
+
+.resource a{
+    display:inline-block;
+    margin-top:6px;
+    font-size:11px;
+    color:var(--primary);
+    font-weight:700;
+}
+
+/* ================= TIPS ================= */
+
+.tips{
+    background:var(--dark);
+    color:white;
+}
+
+.tips .section-heading h2{
+    color:white;
+}
+
+.tips .section-heading p{
+    color:#98A2B3;
+}
+
+.tip-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.tip{
+    background:#1D2939;
+    border:1px solid #344054;
+    border-radius:15px;
+    padding:22px;
+}
+
+.tip i{
+    color:var(--yellow);
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.tip h3{
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.tip p{
+    color:#98A2B3;
+    font-size:12px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:65px 0;
+}
+
+.cta-box{
+    background:
+        radial-gradient(circle at 85% 20%,rgba(255,212,59,.18),transparent 25%),
+        var(--primary);
+    color:white;
+    border-radius:24px;
+    padding:50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta-box h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.cta-box p{
+    color:#DDE7FF;
+    max-width:650px;
+    margin:0 auto;
+    font-size:14px;
+}
+
+.cta-box .btn{
+    margin-top:22px;
+    background:white;
+    color:var(--primary);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0B1220;
+    color:white;
+    padding:45px 0 85px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+    font-size:12px;
+    margin-top:12px;
+    max-width:400px;
+}
+
+.footer-col h4{
+    margin-bottom:12px;
+    font-size:14px;
+}
+
+.footer-col a{
+    display:block;
+    color:#98A2B3;
+    font-size:12px;
+    margin-top:8px;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid #1D2939;
+    margin-top:30px;
+    padding-top:20px;
+    color:#667085;
+    font-size:11px;
+    text-align:center;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* ================= ANIMATION ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:.7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:55px;
+    }
+
+    .hero-visual{
+        min-height:300px;
+    }
+
+    .grid-4{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:700px){
+
+    .container{
+        width:94%;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .float-card{
+        display:none;
+    }
+
+    .security-dashboard{
+        width:100%;
+    }
+
+    .grid-3,
+    .grid-4,
+    .tip-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading h2{
+        font-size:29px;
+    }
+
+    .roadmap::before{
+        left:24px;
+    }
+
+    .step{
+        gap:15px;
+    }
+
+    .step-number{
+        flex:0 0 50px;
+        height:50px;
+    }
+
+    .cta-box{
+        padding:35px 20px;
+    }
+
+    .cta-box h2{
+        font-size:29px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        left:12px;
+        right:12px;
+        bottom:12px;
+        height:64px;
+        z-index:2000;
+        background:rgba(255,255,255,.96);
+        backdrop-filter:blur(15px);
+        border:1px solid var(--border);
+        border-radius:18px;
+        box-shadow:0 15px 40px rgba(16,24,40,.16);
+        align-items:center;
+        justify-content:space-around;
+    }
+
+    .mobile-nav a{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:4px;
+        font-size:9px;
+        color:var(--muted);
+        font-weight:700;
+    }
+
+    .mobile-nav a i{
+        font-size:17px;
+    }
+
+    .mobile-nav a.active{
+        color:var(--primary);
+    }
+
+    footer{
+        padding-bottom:100px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+    <a href="../index.html" class="logo">
+
+        <img src="../logo.png" alt="ASCEND Logo">
+
+        ASCEND
+
+    </a>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="../Books.html">
+            <i class="fa-solid fa-book"></i>
+            Learn
+        </a>
+
+        <a href="../Assignments.html">
+            <i class="fa-solid fa-list-check"></i>
+            Tasks
+        </a>
+
+        <a href="Skills.html" class="active">
+            <i class="fa-solid fa-code"></i>
+            Skills
+        </a>
+
+        <a href="../Careers.html">
+            <i class="fa-solid fa-briefcase"></i>
+            Careers
+        </a>
+
+        <a href="../Aboutus.html">
+            <i class="fa-solid fa-circle-info"></i>
+            About
+        </a>
+
+        <a href="../Business.html">
+            <i class="fa-solid fa-lightbulb"></i>
+            Business
+        </a>
+
+        <a href="../Leadership.html">
+            <i class="fa-solid fa-users"></i>
+            Leadership
+        </a>
+
+        <a href="../Faq.html">
+            <i class="fa-solid fa-circle-question"></i>
+            FAQ
+        </a>
+
+    </nav>
+
+    <button class="menu-btn" onclick="toggleMenu()">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+    <div class="reveal">
+
+        <div class="badge">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            ASCEND TECH SKILL
+
+        </div>
+
+        <h1>
+
+            Master <span>Cybersecurity</span><br>
+
+            Protect the Digital World.
+
+        </h1>
+
+        <p>
+
+            Learn how computers, networks and applications
+            are protected from security threats. Build
+            practical knowledge in networking, Linux,
+            security operations, web security and ethical
+            security testing.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#roadmap" class="btn btn-primary">
+
+                <i class="fa-solid fa-route"></i>
+
+                Start Roadmap
+
+            </a>
+
+            <a href="#projects" class="btn btn-light">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Explore Projects
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual reveal">
+
+        <div class="float-card float-1">
+
+            <i class="fa-solid fa-lock"></i>
+
+            Secure Systems
+
+        </div>
+
+
+        <div class="security-dashboard">
+
+            <div class="dashboard-top">
+
+                <div>
+
+                    <div class="dashboard-title">
+                        Security Monitor
+                    </div>
+
+                    <small style="color:#667085;">
+                        System Protection
+                    </small>
+
+                </div>
+
+                <div class="dashboard-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="shield">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <div class="shield-check">
+
+                    <i class="fa-solid fa-check"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="security-status">
+
+                <div class="status-box">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <strong>Safe</strong>
+
+                    <span>System</span>
+
+                </div>
+
+                <div class="status-box">
+
+                    <i class="fa-solid fa-network-wired"></i>
+
+                    <strong>ON</strong>
+
+                    <span>Network</span>
+
+                </div>
+
+                <div class="status-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <strong>Secure</strong>
+
+                    <span>Access</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="float-card float-2">
+
+            <i class="fa-solid fa-user-shield"></i>
+
+            Security Skills
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section class="overview">
+
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Cybersecurity Overview
+        </div>
+
+        <h2>
+            Understand the Complete Security Landscape
+        </h2>
+
+        <p>
+            Start with computing and networking fundamentals,
+            then progress toward security operations,
+            application security and defensive practices.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-4">
+
+        <div class="card stat reveal">
+
+            <strong>01</strong>
+
+            <span>
+                Systems
+            </span>
+
+        </div>
+
+        <div class="card stat reveal">
+
+            <strong>02</strong>
+
+            <span>
+                Networking
+            </span>
+
+        </div>
+
+        <div class="card stat reveal">
+
+            <strong>03</strong>
+
+            <span>
+                Security
+            </span>
+
+        </div>
+
+        <div class="card stat reveal">
+
+            <strong>04</strong>
+
+            <span>
+                Defense & Monitoring
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CORE TOPICS ================= -->
+
+<section>
+
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            What You Learn
+        </div>
+
+        <h2>
+            Cybersecurity Core Topics
+        </h2>
+
+        <p>
+            Build a strong foundation across systems,
+            networks, applications and security operations.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <!-- Networking -->
+
+        <div class="card reveal">
+
+            <div class="icon-box blue">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+            </div>
+
+            <h3>
+                Computer Networking
+            </h3>
+
+            <p>
+                Understand how computers and devices
+                communicate across networks.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    IP Addressing
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    TCP/IP
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    DNS & HTTP
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Linux -->
+
+        <div class="card reveal">
+
+            <div class="icon-box green">
+
+                <i class="fa-brands fa-linux"></i>
+
+            </div>
+
+            <h3>
+                Linux Fundamentals
+            </h3>
+
+            <p>
+                Learn the operating system concepts and
+                command-line skills used in security work.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Linux Commands
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    File Permissions
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Processes
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Security Fundamentals -->
+
+        <div class="card reveal">
+
+            <div class="icon-box red">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <h3>
+                Security Fundamentals
+            </h3>
+
+            <p>
+                Understand core principles used to protect
+                information and systems.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    CIA Triad
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Authentication
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Access Control
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Web Security -->
+
+        <div class="card reveal">
+
+            <div class="icon-box orange">
+
+                <i class="fa-solid fa-globe"></i>
+
+            </div>
+
+            <h3>
+                Web Security
+            </h3>
+
+            <p>
+                Learn how web applications are designed
+                and protected against common security risks.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    HTTP & HTTPS
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    OWASP Concepts
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Secure Coding
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Cryptography -->
+
+        <div class="card reveal">
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-key"></i>
+
+            </div>
+
+            <h3>
+                Cryptography
+            </h3>
+
+            <p>
+                Understand how information can be protected
+                using cryptographic techniques.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Encryption
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Hashing
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Digital Signatures
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Security Operations -->
+
+        <div class="card reveal">
+
+            <div class="icon-box cyan">
+
+                <i class="fa-solid fa-eye"></i>
+
+            </div>
+
+            <h3>
+                Security Operations
+            </h3>
+
+            <p>
+                Learn how security teams monitor systems,
+                investigate alerts and respond to incidents.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Logs
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Monitoring
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Incident Response
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SECURITY TOOLKIT ================= -->
+
+<section style="background:white;">
+
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Cybersecurity Toolkit
+        </div>
+
+        <h2>
+            Tools You Should Know
+        </h2>
+
+        <p>
+            Develop familiarity with operating systems,
+            networking, analysis and security tools.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-4">
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box green">
+
+                <i class="fa-brands fa-linux"></i>
+
+            </div>
+
+            <h3>
+                Linux
+            </h3>
+
+            <p>
+                Operating system and command-line skills.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box blue">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+            </div>
+
+            <h3>
+                Wireshark
+            </h3>
+
+            <p>
+                Network traffic analysis and learning.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-terminal"></i>
+
+            </div>
+
+            <h3>
+                Nmap
+            </h3>
+
+            <p>
+                Network discovery and security assessment.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box orange">
+
+                <i class="fa-solid fa-bug"></i>
+
+            </div>
+
+            <h3>
+                Burp Suite
+            </h3>
+
+            <p>
+                Web application security testing.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box red">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <h3>
+                SIEM
+            </h3>
+
+            <p>
+                Security event monitoring and analysis.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box cyan">
+
+                <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <h3>
+                Python
+            </h3>
+
+            <p>
+                Automation and security scripting.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box green">
+
+                <i class="fa-solid fa-lock"></i>
+
+            </div>
+
+            <h3>
+                OpenSSL
+            </h3>
+
+            <p>
+                Learn practical cryptography concepts.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box blue">
+
+                <i class="fa-brands fa-git-alt"></i>
+
+            </div>
+
+            <h3>
+                Git
+            </h3>
+
+            <p>
+                Version control and secure project workflows.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Learning Path
+        </div>
+
+        <h2>
+            Cybersecurity Roadmap
+        </h2>
+
+        <p>
+            Follow a structured path from computer fundamentals
+            to practical defensive security skills.
+        </p>
+
+    </div>
+
+
+    <div class="roadmap">
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Computer Fundamentals
+                </h3>
+
+                <p>
+                    Understand operating systems, hardware,
+                    software, processes and basic system concepts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Networking Fundamentals
+                </h3>
+
+                <p>
+                    Learn IP addresses, ports, protocols,
+                    TCP/IP, DNS, HTTP and network architecture.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Linux & Command Line
+                </h3>
+
+                <p>
+                    Practice Linux commands, permissions,
+                    processes, services and system administration.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Cybersecurity Fundamentals
+                </h3>
+
+                <p>
+                    Learn security principles, threats,
+                    vulnerabilities, authentication and access control.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                05
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Cryptography & Security
+                </h3>
+
+                <p>
+                    Understand encryption, hashing, keys,
+                    certificates and secure communication.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                06
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Web & Application Security
+                </h3>
+
+                <p>
+                    Learn secure web architecture, common
+                    application risks and defensive practices.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                07
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Security Monitoring
+                </h3>
+
+                <p>
+                    Learn logs, alerts, monitoring,
+                    detection and incident response concepts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                08
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Security Projects & Portfolio
+                </h3>
+
+                <p>
+                    Build projects in controlled environments,
+                    document your work and create a security portfolio.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects" style="background:white;">
+
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Hands-On Practice
+        </div>
+
+        <h2>
+            Cybersecurity Projects
+        </h2>
+
+        <p>
+            Practice cybersecurity concepts using
+            authorized and isolated learning environments.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                BEGINNER
+            </span>
+
+            <div class="icon-box blue">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+            </div>
+
+            <h3>
+                Network Traffic Analysis
+            </h3>
+
+            <p>
+                Study sample network traffic and identify
+                protocols, connections and communication patterns.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Wireshark
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    TCP/IP
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Packet Analysis
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                BEGINNER
+            </span>
+
+            <div class="icon-box green">
+
+                <i class="fa-brands fa-linux"></i>
+
+            </div>
+
+            <h3>
+                Linux Security Lab
+            </h3>
+
+            <p>
+                Build a local Linux lab and practice users,
+                permissions, processes and system configuration.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Linux
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Permissions
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    System Administration
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                BEGINNER
+            </span>
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-key"></i>
+
+            </div>
+
+            <h3>
+                Password Security Demo
+            </h3>
+
+            <p>
+                Build a safe educational application demonstrating
+                password hashing and secure authentication concepts.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Hashing
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Authentication
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Secure Storage
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                INTERMEDIATE
+            </span>
+
+            <div class="icon-box orange">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+            <h3>
+                Security Log Analyzer
+            </h3>
+
+            <p>
+                Create a Python application that reads sample
+                security logs and highlights unusual patterns.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Python
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Log Analysis
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Data Processing
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                INTERMEDIATE
+            </span>
+
+            <div class="icon-box red">
+
+                <i class="fa-solid fa-shield-virus"></i>
+
+            </div>
+
+            <h3>
+                Security Monitoring Dashboard
+            </h3>
+
+            <p>
+                Create a dashboard that displays simulated
+                security events, alerts and system status.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    JavaScript
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Logs
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Visualization
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                ADVANCED
+            </span>
+
+            <div class="icon-box cyan">
+
+                <i class="fa-solid fa-user-shield"></i>
+
+            </div>
+
+            <h3>
+                Secure Web Application
+            </h3>
+
+            <p>
+                Build a web application with authentication,
+                authorization, validation and secure configuration.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Secure Coding
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Authentication
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Access Control
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CAREERS ================= -->
+
+<section>
+
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Career Applications
+        </div>
+
+        <h2>
+            Cybersecurity Career Paths
+        </h2>
+
+        <p>
+            Cybersecurity skills can be applied across
+            security operations, infrastructure, applications
+            and governance.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Cybersecurity Analyst
+                </h3>
+
+                <p>
+                    Monitor systems, investigate security alerts
+                    and support defensive security operations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-eye"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    SOC Analyst
+                </h3>
+
+                <p>
+                    Monitor security events and help investigate
+                    potential incidents in a Security Operations Center.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Network Security Engineer
+                </h3>
+
+                <p>
+                    Help design, configure and maintain secure
+                    network infrastructure.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-globe"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Application Security Analyst
+                </h3>
+
+                <p>
+                    Help development teams identify and reduce
+                    security risks in applications.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Incident Response Analyst
+                </h3>
+
+                <p>
+                    Support the investigation and response
+                    process when security incidents occur.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-lock"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Security Engineer
+                </h3>
+
+                <p>
+                    Implement and maintain technical controls
+                    that help protect systems and applications.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FREE RESOURCES ================= -->
+
+<section style="background:white;">
+
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Free Learning
+        </div>
+
+        <h2>
+            Learn Cybersecurity for Free
+        </h2>
+
+        <p>
+            Use documentation, learning platforms and
+            controlled labs to develop practical knowledge.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Cisco Networking Academy
+                </h3>
+
+                <p>
+                    Free learning resources covering networking
+                    and cybersecurity fundamentals.
+                </p>
+
+                <a href="https://www.netacad.com/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    TryHackMe
+                </h3>
+
+                <p>
+                    Guided cybersecurity learning and
+                    browser-based practice environments.
+                </p>
+
+                <a href="https://tryhackme.com/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-flask"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    PortSwigger Web Security Academy
+                </h3>
+
+                <p>
+                    Free web security learning materials
+                    and authorized practice labs.
+                </p>
+
+                <a href="https://portswigger.net/web-security"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-brands fa-linux"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Linux Documentation
+                </h3>
+
+                <p>
+                    Learn Linux concepts, commands and
+                    system administration fundamentals.
+                </p>
+
+                <a href="https://www.linux.org/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-globe"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    OWASP
+                </h3>
+
+                <p>
+                    Open resources for learning about
+                    application security.
+                </p>
+
+                <a href="https://owasp.org/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-book-open"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    CISA Cybersecurity
+                </h3>
+
+                <p>
+                    Public cybersecurity guidance and
+                    educational resources.
+                </p>
+
+                <a href="https://www.cisa.gov/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= STUDY TIPS ================= -->
+
+<section class="tips">
+
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Study Strategy
+        </div>
+
+        <h2>
+            How to Learn Cybersecurity
+        </h2>
+
+        <p>
+            Build strong fundamentals and practice only
+            in systems and environments where you have
+            explicit authorization.
+        </p>
+
+    </div>
+
+
+    <div class="tip-grid">
+
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-network-wired"></i>
+
+            <h3>
+                Learn Networking First
+            </h3>
+
+            <p>
+                Understand how devices, protocols, ports
+                and services communicate before moving
+                into advanced security topics.
+            </p>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+            <i class="fa-brands fa-linux"></i>
+
+            <h3>
+                Practice Linux
+            </h3>
+
+            <p>
+                Become comfortable with the terminal,
+                files, permissions, processes and services.
+            </p>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-flask"></i>
+
+            <h3>
+                Use Safe Labs
+            </h3>
+
+            <p>
+                Practice through intentionally vulnerable
+                or simulated environments designed for learning.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+<div class="container">
+
+    <div class="cta-box reveal">
+
+        <h2>
+            Start Your Cybersecurity Journey
+        </h2>
+
+        <p>
+            Learn systems, networking, Linux and security
+            fundamentals — then turn your knowledge into
+            practical, authorized security projects.
+        </p>
+
+        <a href="#roadmap" class="btn">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Begin Learning
+
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <div class="logo" style="color:white;">
+
+                <img src="../logo.png" alt="ASCEND Logo">
+
+                ASCEND
+
+            </div>
+
+            <p>
+                ASCEND Learning Community helps students
+                develop knowledge, technical skills,
+                career awareness and practical abilities.
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../Books.html">
+                Learn
+            </a>
+
+            <a href="../Assignments.html">
+                Assignments
+            </a>
+
+            <a href="Skills.html">
+                Skills
+            </a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>
+                ASCEND
+            </h4>
+
+            <a href="../Careers.html">
+                Careers
+            </a>
+
+            <a href="../Business.html">
+                Business
+            </a>
+
+            <a href="../Leadership.html">
+                Leadership
+            </a>
+
+            <a href="../Faq.html">
+                FAQ
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 ASCEND Learning Community.
+        All Rights Reserved.
+
+    </div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<nav class="mobile-nav">
+
+    <a href="../index.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        Home
+
+    </a>
+
+    <a href="../Books.html">
+
+        <i class="fa-solid fa-book"></i>
+
+        Learn
+
+    </a>
+
+    <a href="Skills.html" class="active">
+
+        <i class="fa-solid fa-code"></i>
+
+        Skills
+
+    </a>
+
+    <a href="../Careers.html">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        Careers
+
+    </a>
+
+    <a href="../Aboutus.html">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        About
+
+    </a>
+
+</nav>
+
+
+<script>
+
+/* ================= MOBILE MENU ================= */
+
+function toggleMenu(){
+
+    const nav = document.querySelector(".nav-links");
+
+    if(nav.style.display === "flex"){
+
+        nav.style.display = "none";
+
+    }else{
+
+        nav.style.display = "flex";
+
+        nav.style.position = "absolute";
+        nav.style.top = "72px";
+        nav.style.left = "0";
+        nav.style.right = "0";
+        nav.style.background = "#ffffff";
+        nav.style.padding = "15px";
+        nav.style.borderBottom = "1px solid #E4EAF2";
+        nav.style.flexDirection = "column";
+        nav.style.alignItems = "stretch";
+
+    }
+
+}
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+document.querySelectorAll(".reveal").forEach(el => {
+
+    observer.observe(el);
+
+});
+
+</script>
+
+</body>
+</html>

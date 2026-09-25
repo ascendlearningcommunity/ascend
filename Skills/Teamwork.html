@@ -1,0 +1,2617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teamwork — ASCEND Skills</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --radius:20px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:"Outfit",sans-serif;
+    font-size:23px;
+    font-weight:800;
+    color:var(--dark);
+}
+
+.logo img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:10px;
+    color:var(--muted);
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--primary-light);
+    color:var(--primary);
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:72px 0 60px;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(21,94,239,.09),transparent 28%),
+        radial-gradient(circle at 90% 10%,rgba(255,212,59,.13),transparent 25%);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.08fr .92fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:999px;
+    background:var(--primary-light);
+    color:var(--primary);
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-family:"Outfit",sans-serif;
+    font-size:clamp(40px,5vw,68px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:17px;
+    max-width:650px;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 19px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:white;
+    border:1px solid var(--border);
+    color:var(--dark);
+}
+
+.btn-secondary:hover{
+    border-color:var(--primary);
+    color:var(--primary);
+}
+
+/* ================= TEAM VISUAL ================= */
+
+.team-visual{
+    position:relative;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.team-card{
+    width:320px;
+    height:320px;
+    border-radius:30px;
+    background:linear-gradient(145deg,#ffffff,#eef4ff);
+    border:10px solid white;
+    box-shadow:
+        0 30px 70px rgba(16,24,40,.12),
+        inset 0 0 0 1px var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.team-center{
+    width:115px;
+    height:115px;
+    border-radius:32px;
+    background:var(--primary-light);
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:55px;
+    z-index:2;
+}
+
+.person{
+    position:absolute;
+    width:58px;
+    height:58px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:white;
+    color:var(--primary);
+    border:1px solid var(--border);
+    box-shadow:0 10px 25px rgba(16,24,40,.1);
+    font-size:22px;
+}
+
+.person-1{
+    top:30px;
+    left:35px;
+}
+
+.person-2{
+    top:30px;
+    right:35px;
+}
+
+.person-3{
+    bottom:30px;
+    left:35px;
+}
+
+.person-4{
+    bottom:30px;
+    right:35px;
+}
+
+.team-line{
+    position:absolute;
+    height:2px;
+    background:#B7C9F8;
+    width:105px;
+}
+
+.line-1{
+    transform:rotate(35deg);
+}
+
+.line-2{
+    transform:rotate(-35deg);
+}
+
+.line-3{
+    transform:rotate(-35deg);
+}
+
+.line-4{
+    transform:rotate(35deg);
+}
+
+.team-node{
+    position:absolute;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:0 14px 35px rgba(16,24,40,.1);
+    border-radius:15px;
+    padding:11px 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.team-node i{
+    color:var(--primary);
+}
+
+.node-1{
+    top:5px;
+    right:-5px;
+}
+
+.node-2{
+    bottom:5px;
+    left:-5px;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:72px 0;
+}
+
+.section-head{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 40px;
+}
+
+.section-head .mini{
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.section-head h2{
+    font-family:"Outfit",sans-serif;
+    font-size:38px;
+    line-height:1.15;
+    margin-bottom:12px;
+}
+
+.section-head p{
+    color:var(--muted);
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:25px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 45px rgba(16,24,40,.08);
+}
+
+.icon-box{
+    width:50px;
+    height:50px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:17px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.yellow{
+    background:var(--yellow-light);
+    color:#B78103;
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.card h3{
+    font-family:"Outfit",sans-serif;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.topic{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.topic:hover{
+    border-color:#B7C9F8;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.topic i{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+    border-radius:10px;
+}
+
+/* ================= TEAMWORK PROCESS ================= */
+
+.team-process{
+    background:var(--dark);
+    color:white;
+}
+
+.team-process .section-head p{
+    color:#98A2B3;
+}
+
+.process-flow{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+    align-items:center;
+}
+
+.process-item{
+    text-align:center;
+}
+
+.process-box{
+    background:#1D2939;
+    border:1px solid #344054;
+    border-radius:18px;
+    padding:20px 10px;
+    min-height:125px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:9px;
+}
+
+.process-box i{
+    font-size:23px;
+    color:var(--yellow);
+}
+
+.process-box span{
+    font-weight:700;
+    font-size:12px;
+}
+
+.process-arrow{
+    color:var(--yellow);
+    text-align:center;
+}
+
+/* ================= TOOLKIT ================= */
+
+.tool-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+}
+
+.tool{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px 14px;
+    text-align:center;
+}
+
+.tool i{
+    font-size:25px;
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.tool h4{
+    font-size:14px;
+}
+
+.tool p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.step{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.step-number{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.step h3{
+    font-family:"Outfit",sans-serif;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.step p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= ACTIVITIES ================= */
+
+.activity-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.activity{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.activity-top{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:13px;
+}
+
+.activity-icon{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--yellow-light);
+    color:#A56F00;
+}
+
+.activity h3{
+    font-family:"Outfit",sans-serif;
+    font-size:18px;
+}
+
+.activity p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= CAREERS ================= */
+
+.career-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.career{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.career i{
+    color:var(--primary);
+    font-size:24px;
+    margin-bottom:13px;
+}
+
+.career h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:7px;
+}
+
+.career p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= RESOURCES ================= */
+
+.resource-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.resource{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.resource h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:7px;
+}
+
+.resource p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.resource a{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+}
+
+/* ================= TIPS ================= */
+
+.tips{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.tip{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    display:flex;
+    gap:15px;
+}
+
+.tip i{
+    color:var(--green);
+    margin-top:4px;
+}
+
+.tip h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.tip p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    background:linear-gradient(135deg,var(--primary),#3D7BFF);
+    color:white;
+    border-radius:28px;
+    padding:50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta:before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:-100px;
+    left:-80px;
+}
+
+.cta h2{
+    font-family:"Outfit",sans-serif;
+    font-size:38px;
+    margin-bottom:10px;
+    position:relative;
+}
+
+.cta p{
+    color:#EAF1FF;
+    max-width:650px;
+    margin:0 auto 23px;
+    position:relative;
+}
+
+.cta .btn{
+    background:var(--yellow);
+    color:var(--dark);
+    position:relative;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0B1220;
+    color:white;
+    padding:45px 0 80px;
+    margin-top:70px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+    font-size:13px;
+    max-width:420px;
+    margin-top:13px;
+}
+
+.footer-col h4{
+    margin-bottom:14px;
+    font-family:"Outfit",sans-serif;
+}
+
+.footer-col a{
+    display:block;
+    color:#98A2B3;
+    font-size:13px;
+    margin:9px 0;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid #273244;
+    margin-top:35px;
+    padding-top:20px;
+    color:#98A2B3;
+    font-size:12px;
+    text-align:center;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .career-grid,
+    .resource-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .topic-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .tool-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .activity-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    body{
+        padding-bottom:65px;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .team-visual{
+        min-height:350px;
+    }
+
+    .team-card{
+        width:255px;
+        height:280px;
+    }
+
+    .team-center{
+        width:95px;
+        height:95px;
+        font-size:45px;
+    }
+
+    .person{
+        width:48px;
+        height:48px;
+        font-size:18px;
+    }
+
+    .person-1{
+        top:30px;
+        left:25px;
+    }
+
+    .person-2{
+        top:30px;
+        right:25px;
+    }
+
+    .person-3{
+        bottom:30px;
+        left:25px;
+    }
+
+    .person-4{
+        bottom:30px;
+        right:25px;
+    }
+
+    .team-node{
+        font-size:10px;
+        padding:9px 11px;
+    }
+
+    .node-1{
+        right:-3px;
+    }
+
+    .node-2{
+        left:-3px;
+    }
+
+    .section-head h2{
+        font-size:31px;
+    }
+
+    .cards,
+    .career-grid,
+    .resource-grid,
+    .activity-grid,
+    .tips{
+        grid-template-columns:1fr;
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tool-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:1fr;
+    }
+
+    .process-flow{
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .process-arrow{
+        transform:rotate(90deg);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta{
+        padding:35px 20px;
+        border-radius:20px;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        bottom:0;
+        left:0;
+        right:0;
+        height:64px;
+        background:white;
+        border-top:1px solid var(--border);
+        z-index:2000;
+        justify-content:space-around;
+        align-items:center;
+        box-shadow:0 -8px 25px rgba(16,24,40,.08);
+    }
+
+    .mobile-nav a{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:3px;
+        color:var(--muted);
+        font-size:10px;
+        font-weight:700;
+    }
+
+    .mobile-nav a i{
+        font-size:17px;
+    }
+
+    .mobile-nav a.active{
+        color:var(--primary);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="../index.html" class="logo">
+    <img src="../logo.png" alt="ASCEND Logo">
+    <div>AS<span>CEND</span></div>
+</a>
+
+<nav class="nav-links">
+
+<a href="../index.html">
+    <i class="fa-solid fa-house"></i> Home
+</a>
+
+<a href="../Books.html">
+    <i class="fa-solid fa-book"></i> Learn
+</a>
+
+<a href="../Assignments.html">
+    <i class="fa-solid fa-list-check"></i> Tasks
+</a>
+
+<a href="../Skills.html" class="active">
+    <i class="fa-solid fa-bolt"></i> Skills
+</a>
+
+<a href="../Careers.html">
+    <i class="fa-solid fa-briefcase"></i> Careers
+</a>
+
+<a href="../Aboutus.html">
+    <i class="fa-solid fa-circle-info"></i> About
+</a>
+
+<a href="../Business.html">
+    <i class="fa-solid fa-lightbulb"></i> Business
+</a>
+
+<a href="../Leadership.html">
+    <i class="fa-solid fa-users"></i> Leadership
+</a>
+
+<a href="../Faq.html">
+    <i class="fa-solid fa-circle-question"></i> FAQ
+</a>
+
+</nav>
+
+<button class="menu-btn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div class="reveal">
+
+<div class="badge">
+    <i class="fa-solid fa-users"></i>
+    ASCEND SKILL
+</div>
+
+<h1>
+    Master <span>Teamwork</span>
+</h1>
+
+<p>
+    Learn how to collaborate effectively, communicate
+    with teammates, share responsibilities, handle
+    differences and work together toward common goals.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#roadmap" class="btn btn-primary">
+    <i class="fa-solid fa-route"></i>
+    Start Learning
+</a>
+
+<a href="#activities" class="btn btn-secondary">
+    <i class="fa-solid fa-people-group"></i>
+    Practice Skills
+</a>
+
+</div>
+
+</div>
+
+
+<div class="team-visual reveal">
+
+<div class="team-card">
+
+<div class="team-center">
+    <i class="fa-solid fa-people-group"></i>
+</div>
+
+<div class="person person-1">
+    <i class="fa-solid fa-user"></i>
+</div>
+
+<div class="person person-2">
+    <i class="fa-solid fa-user"></i>
+</div>
+
+<div class="person person-3">
+    <i class="fa-solid fa-user"></i>
+</div>
+
+<div class="person person-4">
+    <i class="fa-solid fa-user"></i>
+</div>
+
+<div class="team-node node-1">
+    <i class="fa-solid fa-comments"></i>
+    Communicate
+</div>
+
+<div class="team-node node-2">
+    <i class="fa-solid fa-handshake"></i>
+    Collaborate
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Why Teamwork?</div>
+
+<h2>Work Together. Grow Together.</h2>
+
+<p>
+Teamwork helps people combine different skills,
+ideas and responsibilities to achieve a shared goal.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+    <i class="fa-solid fa-comments"></i>
+</div>
+
+<h3>Communicate Clearly</h3>
+
+<p>
+Share ideas, information and feedback clearly
+with teammates.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box yellow">
+    <i class="fa-solid fa-handshake"></i>
+</div>
+
+<h3>Collaborate</h3>
+
+<p>
+Work with others, share responsibilities and
+contribute toward a common objective.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box green">
+    <i class="fa-solid fa-bullseye"></i>
+</div>
+
+<h3>Achieve Goals</h3>
+
+<p>
+Coordinate individual contributions to complete
+shared tasks and achieve team goals.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CORE SKILLS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Core Skills</div>
+
+<h2>Six Skills of an Effective Team Member</h2>
+
+<p>
+Develop the habits required to contribute positively
+to a team and support shared success.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+    <i class="fa-solid fa-comments"></i>
+</div>
+
+<h3>Communication</h3>
+
+<p>
+Express ideas clearly and keep teammates informed
+about important information.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box purple">
+    <i class="fa-solid fa-ear-listen"></i>
+</div>
+
+<h3>Active Listening</h3>
+
+<p>
+Listen carefully to understand other people's ideas,
+concerns and suggestions.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box orange">
+    <i class="fa-solid fa-handshake"></i>
+</div>
+
+<h3>Cooperation</h3>
+
+<p>
+Support teammates and work together instead of
+focusing only on individual tasks.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box yellow">
+    <i class="fa-solid fa-user-check"></i>
+</div>
+
+<h3>Responsibility</h3>
+
+<p>
+Complete assigned tasks on time and take ownership
+of your contribution.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box green">
+    <i class="fa-solid fa-comments"></i>
+</div>
+
+<h3>Conflict Management</h3>
+
+<p>
+Handle disagreements respectfully and focus on
+finding constructive solutions.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box red">
+    <i class="fa-solid fa-people-arrows"></i>
+</div>
+
+<h3>Adaptability</h3>
+
+<p>
+Adjust to changing situations, roles, ideas and
+team requirements.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOPICS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Learning Topics</div>
+
+<h2>Teamwork Topics</h2>
+
+<p>
+Learn the practical skills needed to work effectively
+with different types of teams.
+</p>
+
+</div>
+
+
+<div class="topic-grid">
+
+<div class="topic reveal">
+    <i class="fa-solid fa-comments"></i>
+    Team Communication
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-ear-listen"></i>
+    Active Listening
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-handshake"></i>
+    Cooperation
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-user-check"></i>
+    Responsibility
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-users"></i>
+    Team Roles
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-bullseye"></i>
+    Shared Goals
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-calendar-check"></i>
+    Task Coordination
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-message"></i>
+    Feedback
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-scale-balanced"></i>
+    Conflict Management
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-people-arrows"></i>
+    Adaptability
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-user-tie"></i>
+    Leadership
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-medal"></i>
+    Team Performance
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TEAMWORK PROCESS ================= -->
+
+<section class="team-process">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Teamwork Framework</div>
+
+<h2>From Individuals to One Team</h2>
+
+<p>
+Effective teamwork connects people, responsibilities
+and communication around a common goal.
+</p>
+
+</div>
+
+
+<div class="process-flow">
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-bullseye"></i>
+    <span>Common Goal</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-users"></i>
+    <span>Build Team</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-list-check"></i>
+    <span>Share Roles</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-comments"></i>
+    <span>Communicate</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-handshake"></i>
+    <span>Collaborate</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-chart-line"></i>
+    <span>Review</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-trophy"></i>
+    <span>Achieve</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOOLKIT ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Teamwork Toolkit</div>
+
+<h2>Tools for Better Collaboration</h2>
+
+<p>
+Use simple tools and methods to organize tasks,
+communicate and coordinate team activities.
+</p>
+
+</div>
+
+
+<div class="tool-grid">
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-list-check"></i>
+
+<h4>Task List</h4>
+
+<p>Track team responsibilities</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+<h4>Calendar</h4>
+
+<p>Coordinate schedules</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-comments"></i>
+
+<h4>Chat</h4>
+
+<p>Communicate quickly</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-video"></i>
+
+<h4>Meetings</h4>
+
+<p>Discuss team progress</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-diagram-project"></i>
+
+<h4>Project Board</h4>
+
+<p>Track project tasks</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-file-lines"></i>
+
+<h4>Shared Docs</h4>
+
+<p>Work on information together</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-comments"></i>
+
+<h4>Feedback</h4>
+
+<p>Improve team performance</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-check-double"></i>
+
+<h4>Progress Check</h4>
+
+<p>Review completed work</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-chart-simple"></i>
+
+<h4>Team Metrics</h4>
+
+<p>Understand progress</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-clipboard-check"></i>
+
+<h4>Review</h4>
+
+<p>Learn from completed projects</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Learning Roadmap</div>
+
+<h2>Teamwork Roadmap</h2>
+
+<p>
+Progress from becoming a good team member to
+coordinating and leading effective teams.
+</p>
+
+</div>
+
+
+<div class="roadmap">
+
+<div class="step reveal">
+
+<div class="step-number">01</div>
+
+<h3>Understand Teamwork</h3>
+
+<p>
+Learn why teams are formed and how collaboration
+helps achieve shared goals.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">02</div>
+
+<h3>Communication</h3>
+
+<p>
+Learn how to share information and ideas clearly
+with teammates.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">03</div>
+
+<h3>Active Listening</h3>
+
+<p>
+Learn to understand different ideas, concerns
+and suggestions.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">04</div>
+
+<h3>Team Roles</h3>
+
+<p>
+Understand responsibilities and how different
+roles contribute to team goals.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">05</div>
+
+<h3>Collaboration</h3>
+
+<p>
+Learn to share work, support teammates and
+coordinate tasks.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">06</div>
+
+<h3>Conflict Management</h3>
+
+<p>
+Learn respectful ways to handle disagreements
+and find common ground.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">07</div>
+
+<h3>Team Leadership</h3>
+
+<p>
+Develop the ability to coordinate people,
+tasks and shared objectives.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">08</div>
+
+<h3>Team Performance</h3>
+
+<p>
+Review team results and continuously improve
+how the team works together.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ACTIVITIES ================= -->
+
+<section id="activities">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Practice</div>
+
+<h2>Teamwork Activities</h2>
+
+<p>
+Practice collaboration through projects, discussions
+and team-based challenges.
+</p>
+
+</div>
+
+
+<div class="activity-grid">
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-people-group"></i>
+</div>
+
+<h3>Team Project</h3>
+
+</div>
+
+<p>
+Work with a small group to complete a project with
+shared responsibilities and a common outcome.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-comments"></i>
+</div>
+
+<h3>Group Discussion</h3>
+
+</div>
+
+<p>
+Discuss a topic, listen to different viewpoints
+and work toward a clear conclusion.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-puzzle-piece"></i>
+</div>
+
+<h3>Team Challenge</h3>
+
+</div>
+
+<p>
+Solve a problem together by dividing responsibilities
+and combining different ideas.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-user-check"></i>
+</div>
+
+<h3>Role Assignment</h3>
+
+</div>
+
+<p>
+Assign different roles to team members and observe
+how responsibilities affect project coordination.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-handshake"></i>
+</div>
+
+<h3>Peer Support</h3>
+
+</div>
+
+<p>
+Help a teammate complete a difficult task and
+practice constructive collaboration.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-chart-line"></i>
+</div>
+
+<h3>Team Review</h3>
+
+</div>
+
+<p>
+After completing a project, discuss what worked,
+what did not and how the team can improve.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CAREER APPLICATIONS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Career Applications</div>
+
+<h2>Teamwork at Work</h2>
+
+<p>
+Teamwork is important across technical, business,
+academic and professional environments.
+</p>
+
+</div>
+
+
+<div class="career-grid">
+
+<div class="career reveal">
+
+<i class="fa-solid fa-code"></i>
+
+<h3>Software Development</h3>
+
+<p>
+Develop applications with developers, designers,
+testers and other technical team members.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<h3>Business</h3>
+
+<p>
+Coordinate people, projects, customers and
+business operations.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h3>Project Management</h3>
+
+<p>
+Coordinate tasks, timelines, responsibilities
+and project communication.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-flask"></i>
+
+<h3>Research</h3>
+
+<p>
+Work with researchers and specialists to
+investigate questions and develop solutions.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-users"></i>
+
+<h3>Human Resources</h3>
+
+<p>
+Support employee collaboration, communication
+and organizational activities.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-user-tie"></i>
+
+<h3>Leadership</h3>
+
+<p>
+Coordinate people, communicate goals and help
+teams work toward common objectives.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RESOURCES ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Free Learning Resources</div>
+
+<h2>Learn & Practice</h2>
+
+<p>
+Use these resources to develop collaboration,
+communication and leadership-related skills.
+</p>
+
+</div>
+
+
+<div class="resource-grid">
+
+<div class="resource reveal">
+
+<h3>MindTools</h3>
+
+<p>
+Explore practical resources for teamwork,
+communication, leadership and workplace skills.
+</p>
+
+<a href="https://www.mindtools.com/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>OpenLearn</h3>
+
+<p>
+Explore free learning materials related to
+working with others and professional development.
+</p>
+
+<a href="https://www.open.edu/openlearn/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Coursera</h3>
+
+<p>
+Explore teamwork, communication and collaboration
+courses and learning materials.
+</p>
+
+<a href="https://www.coursera.org/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>TED</h3>
+
+<p>
+Explore ideas about collaboration, leadership,
+communication and working with people.
+</p>
+
+<a href="https://www.ted.com/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Toastmasters</h3>
+
+<p>
+Practice communication, speaking and leadership
+skills that support effective teamwork.
+</p>
+
+<a href="https://www.toastmasters.org/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Harvard Business Review</h3>
+
+<p>
+Explore articles and ideas about teamwork,
+leadership and workplace collaboration.
+</p>
+
+<a href="https://hbr.org/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= STUDY TIPS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Study Tips</div>
+
+<h2>Become a Better Team Member</h2>
+
+<p>
+Good teamwork is developed through consistent
+practice and positive team habits.
+</p>
+
+</div>
+
+
+<div class="tips">
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Listen Before Responding</h3>
+
+<p>
+Understand what your teammate is saying before
+forming your response.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Do Your Part</h3>
+
+<p>
+Complete your responsibilities on time so that
+your work does not block the team.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Respect Different Ideas</h3>
+
+<p>
+Different team members may approach the same
+problem in different ways.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Communicate Early</h3>
+
+<p>
+Tell your team about important changes,
+difficulties or delays as early as possible.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Give Constructive Feedback</h3>
+
+<p>
+Focus feedback on improving the work rather
+than criticizing the person.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Celebrate Team Success</h3>
+
+<p>
+Recognize contributions and appreciate the
+efforts of teammates.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="cta reveal">
+
+<h2>Communicate. Collaborate. Achieve.</h2>
+
+<p>
+Build practical teamwork skills through
+collaboration, projects, communication and practice.
+</p>
+
+<a href="../Assignments.html" class="btn">
+    <i class="fa-solid fa-list-check"></i>
+    Practice on ASCEND
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<a href="../index.html" class="logo">
+    <img src="../logo.png" alt="ASCEND Logo">
+    <div style="color:white;">AS<span>CEND</span></div>
+</a>
+
+<p>
+ASCEND Learning Community helps students develop
+knowledge, skills, career awareness and practical
+abilities for the future.
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Learn</h4>
+
+<a href="../Books.html">Books & Learning</a>
+<a href="../Assignments.html">Assignments</a>
+<a href="../Skills.html">Skills</a>
+<a href="../Careers.html">Careers</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>ASCEND</h4>
+
+<a href="../Aboutus.html">About Us</a>
+<a href="../Business.html">Business</a>
+<a href="../Leadership.html">Leadership</a>
+<a href="../Faq.html">FAQ</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 ASCEND Learning Community. Learn • Build • Grow.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<div class="mobile-nav">
+
+<a href="../index.html">
+    <i class="fa-solid fa-house"></i>
+    Home
+</a>
+
+<a href="../Books.html">
+    <i class="fa-solid fa-book"></i>
+    Learn
+</a>
+
+<a href="../Skills.html" class="active">
+    <i class="fa-solid fa-bolt"></i>
+    Skills
+</a>
+
+<a href="../Careers.html">
+    <i class="fa-solid fa-briefcase"></i>
+    Careers
+</a>
+
+<a href="../Faq.html">
+    <i class="fa-solid fa-circle-question"></i>
+    FAQ
+</a>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    (entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold:0.12
+    }
+);
+
+revealElements.forEach(el=>{
+    observer.observe(el);
+});
+
+
+/* Mobile Menu */
+
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click",()=>{
+
+    if(navLinks.style.display === "flex"){
+
+        navLinks.style.display = "";
+
+    }else{
+
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "74px";
+        navLinks.style.left = "0";
+        navLinks.style.right = "0";
+        navLinks.style.background = "white";
+        navLinks.style.padding = "15px";
+        navLinks.style.borderBottom = "1px solid #E4EAF2";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

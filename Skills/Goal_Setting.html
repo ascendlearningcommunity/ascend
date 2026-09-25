@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Goal Setting — ASCEND Skills</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --radius:20px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:"Outfit",sans-serif;
+    font-size:23px;
+    font-weight:800;
+    color:var(--dark);
+}
+
+.logo img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:10px;
+    color:var(--muted);
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--primary-light);
+    color:var(--primary);
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:72px 0 60px;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(21,94,239,.09),transparent 28%),
+        radial-gradient(circle at 90% 10%,rgba(255,212,59,.13),transparent 25%);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.08fr .92fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:999px;
+    background:var(--primary-light);
+    color:var(--primary);
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-family:"Outfit",sans-serif;
+    font-size:clamp(40px,5vw,68px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:17px;
+    max-width:650px;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 19px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:white;
+    border:1px solid var(--border);
+    color:var(--dark);
+}
+
+.btn-secondary:hover{
+    border-color:var(--primary);
+    color:var(--primary);
+}
+
+/* ================= GOAL VISUAL ================= */
+
+.goal-visual{
+    position:relative;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.goal-board{
+    width:360px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:24px;
+    box-shadow:0 30px 70px rgba(16,24,40,.12);
+    position:relative;
+}
+
+.board-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.board-title{
+    font-family:"Outfit",sans-serif;
+    font-size:20px;
+    font-weight:800;
+}
+
+.progress-circle{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:conic-gradient(
+        var(--primary) 0deg 250deg,
+        var(--primary-light) 250deg 360deg
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.progress-circle:after{
+    content:"";
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:white;
+}
+
+.goal-line{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    background:var(--bg);
+    border-radius:14px;
+    margin-bottom:11px;
+}
+
+.goal-check{
+    width:28px;
+    height:28px;
+    border-radius:8px;
+    background:var(--green-light);
+    color:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+}
+
+.goal-line span{
+    font-size:13px;
+    font-weight:700;
+}
+
+.goal-progress{
+    height:6px;
+    background:#E9EEF6;
+    border-radius:10px;
+    margin-left:40px;
+    margin-top:-6px;
+    margin-bottom:12px;
+    overflow:hidden;
+}
+
+.goal-progress span{
+    display:block;
+    height:100%;
+    background:var(--primary);
+    border-radius:10px;
+}
+
+.goal-node{
+    position:absolute;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:0 14px 35px rgba(16,24,40,.1);
+    border-radius:15px;
+    padding:11px 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.goal-node i{
+    color:var(--primary);
+}
+
+.node-1{
+    top:20px;
+    right:-35px;
+}
+
+.node-2{
+    bottom:20px;
+    left:-35px;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:72px 0;
+}
+
+.section-head{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 40px;
+}
+
+.section-head .mini{
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.section-head h2{
+    font-family:"Outfit",sans-serif;
+    font-size:38px;
+    line-height:1.15;
+    margin-bottom:12px;
+}
+
+.section-head p{
+    color:var(--muted);
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:25px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 45px rgba(16,24,40,.08);
+}
+
+.icon-box{
+    width:50px;
+    height:50px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:17px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.yellow{
+    background:var(--yellow-light);
+    color:#B78103;
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.card h3{
+    font-family:"Outfit",sans-serif;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.topic{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.topic:hover{
+    border-color:#B7C9F8;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.topic i{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+    border-radius:10px;
+}
+
+/* ================= GOAL PROCESS ================= */
+
+.goal-process{
+    background:var(--dark);
+    color:white;
+}
+
+.goal-process .section-head p{
+    color:#98A2B3;
+}
+
+.process-flow{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+    align-items:center;
+}
+
+.process-item{
+    text-align:center;
+}
+
+.process-box{
+    background:#1D2939;
+    border:1px solid #344054;
+    border-radius:18px;
+    padding:20px 10px;
+    min-height:125px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:9px;
+}
+
+.process-box i{
+    font-size:23px;
+    color:var(--yellow);
+}
+
+.process-box span{
+    font-weight:700;
+    font-size:12px;
+}
+
+.process-arrow{
+    color:var(--yellow);
+    text-align:center;
+}
+
+/* ================= TOOLKIT ================= */
+
+.tool-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+}
+
+.tool{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px 14px;
+    text-align:center;
+}
+
+.tool i{
+    font-size:25px;
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.tool h4{
+    font-size:14px;
+}
+
+.tool p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.step{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.step-number{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.step h3{
+    font-family:"Outfit",sans-serif;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.step p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= ACTIVITIES ================= */
+
+.activity-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.activity{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.activity-top{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:13px;
+}
+
+.activity-icon{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--yellow-light);
+    color:#A56F00;
+}
+
+.activity h3{
+    font-family:"Outfit",sans-serif;
+    font-size:18px;
+}
+
+.activity p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= CAREER ================= */
+
+.career-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.career{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.career i{
+    color:var(--primary);
+    font-size:24px;
+    margin-bottom:13px;
+}
+
+.career h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:7px;
+}
+
+.career p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= RESOURCES ================= */
+
+.resource-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.resource{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.resource h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:7px;
+}
+
+.resource p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.resource a{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+}
+
+/* ================= TIPS ================= */
+
+.tips{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.tip{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    display:flex;
+    gap:15px;
+}
+
+.tip i{
+    color:var(--green);
+    margin-top:4px;
+}
+
+.tip h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.tip p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    background:linear-gradient(135deg,var(--primary),#3D7BFF);
+    color:white;
+    border-radius:28px;
+    padding:50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta:before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:-100px;
+    left:-80px;
+}
+
+.cta h2{
+    font-family:"Outfit",sans-serif;
+    font-size:38px;
+    margin-bottom:10px;
+    position:relative;
+}
+
+.cta p{
+    color:#EAF1FF;
+    max-width:650px;
+    margin:0 auto 23px;
+    position:relative;
+}
+
+.cta .btn{
+    background:var(--yellow);
+    color:var(--dark);
+    position:relative;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0B1220;
+    color:white;
+    padding:45px 0 80px;
+    margin-top:70px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+    font-size:13px;
+    max-width:420px;
+    margin-top:13px;
+}
+
+.footer-col h4{
+    margin-bottom:14px;
+    font-family:"Outfit",sans-serif;
+}
+
+.footer-col a{
+    display:block;
+    color:#98A2B3;
+    font-size:13px;
+    margin:9px 0;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid #273244;
+    margin-top:35px;
+    padding-top:20px;
+    color:#98A2B3;
+    font-size:12px;
+    text-align:center;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .career-grid,
+    .resource-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .topic-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .tool-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .activity-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    body{
+        padding-bottom:65px;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .goal-visual{
+        min-height:350px;
+    }
+
+    .goal-board{
+        width:300px;
+    }
+
+    .goal-node{
+        font-size:10px;
+        padding:9px 11px;
+    }
+
+    .node-1{
+        right:-5px;
+    }
+
+    .node-2{
+        left:-5px;
+    }
+
+    .section-head h2{
+        font-size:31px;
+    }
+
+    .cards,
+    .career-grid,
+    .resource-grid,
+    .activity-grid,
+    .tips{
+        grid-template-columns:1fr;
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tool-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:1fr;
+    }
+
+    .process-flow{
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .process-arrow{
+        transform:rotate(90deg);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta{
+        padding:35px 20px;
+        border-radius:20px;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        bottom:0;
+        left:0;
+        right:0;
+        height:64px;
+        background:white;
+        border-top:1px solid var(--border);
+        z-index:2000;
+        justify-content:space-around;
+        align-items:center;
+        box-shadow:0 -8px 25px rgba(16,24,40,.08);
+    }
+
+    .mobile-nav a{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:3px;
+        color:var(--muted);
+        font-size:10px;
+        font-weight:700;
+    }
+
+    .mobile-nav a i{
+        font-size:17px;
+    }
+
+    .mobile-nav a.active{
+        color:var(--primary);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="../index.html" class="logo">
+    <img src="../logo.png" alt="ASCEND Logo">
+    <div>AS<span>CEND</span></div>
+</a>
+
+<nav class="nav-links">
+
+<a href="../index.html">
+    <i class="fa-solid fa-house"></i> Home
+</a>
+
+<a href="../Books.html">
+    <i class="fa-solid fa-book"></i> Learn
+</a>
+
+<a href="../Assignments.html">
+    <i class="fa-solid fa-list-check"></i> Tasks
+</a>
+
+<a href="../Skills.html" class="active">
+    <i class="fa-solid fa-bolt"></i> Skills
+</a>
+
+<a href="../Careers.html">
+    <i class="fa-solid fa-briefcase"></i> Careers
+</a>
+
+<a href="../Aboutus.html">
+    <i class="fa-solid fa-circle-info"></i> About
+</a>
+
+<a href="../Business.html">
+    <i class="fa-solid fa-lightbulb"></i> Business
+</a>
+
+<a href="../Leadership.html">
+    <i class="fa-solid fa-users"></i> Leadership
+</a>
+
+<a href="../Faq.html">
+    <i class="fa-solid fa-circle-question"></i> FAQ
+</a>
+
+</nav>
+
+<button class="menu-btn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div class="reveal">
+
+<div class="badge">
+    <i class="fa-solid fa-bullseye"></i>
+    ASCEND SKILL
+</div>
+
+<h1>
+    Master <span>Goal Setting</span>
+</h1>
+
+<p>
+    Learn how to define clear goals, create practical
+    action plans, track your progress and stay focused
+    until you achieve meaningful results.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#roadmap" class="btn btn-primary">
+    <i class="fa-solid fa-route"></i>
+    Start Learning
+</a>
+
+<a href="#activities" class="btn btn-secondary">
+    <i class="fa-solid fa-bullseye"></i>
+    Practice Skills
+</a>
+
+</div>
+
+</div>
+
+
+<div class="goal-visual reveal">
+
+<div class="goal-board">
+
+<div class="board-header">
+
+<div class="board-title">
+    My Goals
+</div>
+
+<div class="progress-circle"></div>
+
+</div>
+
+
+<div class="goal-line">
+
+<div class="goal-check">
+    <i class="fa-solid fa-check"></i>
+</div>
+
+<span>Define the Goal</span>
+
+</div>
+
+
+<div class="goal-progress">
+    <span style="width:100%"></span>
+</div>
+
+
+<div class="goal-line">
+
+<div class="goal-check">
+    <i class="fa-solid fa-check"></i>
+</div>
+
+<span>Create Action Plan</span>
+
+</div>
+
+
+<div class="goal-progress">
+    <span style="width:80%"></span>
+</div>
+
+
+<div class="goal-line">
+
+<div class="goal-check">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+<span>Take Action</span>
+
+</div>
+
+
+<div class="goal-progress">
+    <span style="width:55%"></span>
+</div>
+
+
+<div class="goal-line">
+
+<div class="goal-check">
+    <i class="fa-solid fa-chart-line"></i>
+</div>
+
+<span>Track Progress</span>
+
+</div>
+
+
+<div class="goal-progress">
+    <span style="width:30%"></span>
+</div>
+
+
+<div class="goal-node node-1">
+    <i class="fa-solid fa-flag"></i>
+    Target
+</div>
+
+<div class="goal-node node-2">
+    <i class="fa-solid fa-rocket"></i>
+    Action
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Why Goal Setting?</div>
+
+<h2>Know Where You Want to Go</h2>
+
+<p>
+Goal setting turns ideas and ambitions into clear
+targets that can be planned, measured and improved.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+    <i class="fa-solid fa-bullseye"></i>
+</div>
+
+<h3>Create Direction</h3>
+
+<p>
+Clear goals help you understand what you want to
+achieve and where you should focus your effort.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box yellow">
+    <i class="fa-solid fa-route"></i>
+</div>
+
+<h3>Build a Plan</h3>
+
+<p>
+Break larger goals into smaller actions that can
+be completed step by step.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box green">
+    <i class="fa-solid fa-chart-line"></i>
+</div>
+
+<h3>Track Progress</h3>
+
+<p>
+Measure your progress and make adjustments when
+your plan needs improvement.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CORE SKILLS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Core Skills</div>
+
+<h2>Six Skills for Effective Goal Setting</h2>
+
+<p>
+Develop practical skills that help transform goals
+into consistent action.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+    <i class="fa-solid fa-bullseye"></i>
+</div>
+
+<h3>Clarity</h3>
+
+<p>
+Understand exactly what you want to accomplish
+instead of keeping your goal vague.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box yellow">
+    <i class="fa-solid fa-ruler-combined"></i>
+</div>
+
+<h3>Measurement</h3>
+
+<p>
+Define a way to determine whether you are making
+progress toward your goal.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box purple">
+    <i class="fa-solid fa-calendar-check"></i>
+</div>
+
+<h3>Planning</h3>
+
+<p>
+Create a practical timeline and identify the
+actions required to move forward.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box green">
+    <i class="fa-solid fa-person-running"></i>
+</div>
+
+<h3>Action</h3>
+
+<p>
+Turn your plan into consistent actions rather
+than only thinking about the goal.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box orange">
+    <i class="fa-solid fa-chart-line"></i>
+</div>
+
+<h3>Tracking</h3>
+
+<p>
+Regularly check your progress and identify
+what has been completed.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box red">
+    <i class="fa-solid fa-arrows-rotate"></i>
+</div>
+
+<h3>Adjustment</h3>
+
+<p>
+Modify your plan when circumstances change or
+your original approach is not working.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOPICS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Learning Topics</div>
+
+<h2>Goal Setting Topics</h2>
+
+<p>
+Learn how to move from an idea to a measurable
+and actionable goal.
+</p>
+
+</div>
+
+
+<div class="topic-grid">
+
+<div class="topic reveal">
+    <i class="fa-solid fa-lightbulb"></i>
+    Vision
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-bullseye"></i>
+    Goal Clarity
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-ruler-combined"></i>
+    Measurable Goals
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-flag"></i>
+    Milestones
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-list-check"></i>
+    Action Plans
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-calendar-days"></i>
+    Deadlines
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-ranking-star"></i>
+    Priorities
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-chart-line"></i>
+    Progress Tracking
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-rotate"></i>
+    Review
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-arrows-rotate"></i>
+    Goal Adjustment
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-fire"></i>
+    Motivation
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-check-double"></i>
+    Goal Completion
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= GOAL PROCESS ================= -->
+
+<section class="goal-process">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Goal Setting Framework</div>
+
+<h2>From Vision to Achievement</h2>
+
+<p>
+A simple process for turning an idea into a
+clear goal and then into measurable progress.
+</p>
+
+</div>
+
+
+<div class="process-flow">
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-lightbulb"></i>
+    <span>Vision</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-bullseye"></i>
+    <span>Define</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-list-check"></i>
+    <span>Plan</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-person-running"></i>
+    <span>Act</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-chart-line"></i>
+    <span>Track</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-magnifying-glass-chart"></i>
+    <span>Review</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-trophy"></i>
+    <span>Achieve</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOOLKIT ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Goal Setting Toolkit</div>
+
+<h2>Tools for Reaching Your Goals</h2>
+
+<p>
+Use simple planning and tracking tools to keep
+your goals visible and actionable.
+</p>
+
+</div>
+
+
+<div class="tool-grid">
+
+<div class="tool reveal">
+    <i class="fa-solid fa-bullseye"></i>
+    <h4>Goal List</h4>
+    <p>Write your targets</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-calendar-days"></i>
+    <h4>Calendar</h4>
+    <p>Set important dates</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-list-check"></i>
+    <h4>Task List</h4>
+    <p>Track actions</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-chart-line"></i>
+    <h4>Progress Tracker</h4>
+    <p>Measure progress</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-flag"></i>
+    <h4>Milestones</h4>
+    <p>Mark key stages</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-note-sticky"></i>
+    <h4>Journal</h4>
+    <p>Record learning</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-bell"></i>
+    <h4>Reminders</h4>
+    <p>Remember actions</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-check-double"></i>
+    <h4>Checklist</h4>
+    <p>Confirm completion</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-chart-simple"></i>
+    <h4>Review</h4>
+    <p>Evaluate results</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-rotate"></i>
+    <h4>Adjust</h4>
+    <p>Improve the plan</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Learning Roadmap</div>
+
+<h2>Goal Setting Roadmap</h2>
+
+<p>
+Progress from understanding what you want to achieve
+to building a system that helps you reach it.
+</p>
+
+</div>
+
+
+<div class="roadmap">
+
+<div class="step reveal">
+
+<div class="step-number">01</div>
+
+<h3>Discover Your Vision</h3>
+
+<p>
+Think about what you want to achieve in your
+education, career and personal development.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">02</div>
+
+<h3>Define the Goal</h3>
+
+<p>
+Turn a general idea into a clear and specific
+target.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">03</div>
+
+<h3>Make It Measurable</h3>
+
+<p>
+Decide how you will know that progress is being
+made and when the goal is complete.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">04</div>
+
+<h3>Set a Deadline</h3>
+
+<p>
+Choose a realistic time frame that gives the
+goal structure and direction.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">05</div>
+
+<h3>Create Action Steps</h3>
+
+<p>
+Break the goal into smaller actions that can
+be completed one by one.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">06</div>
+
+<h3>Take Consistent Action</h3>
+
+<p>
+Work regularly on the actions instead of waiting
+for motivation to appear.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">07</div>
+
+<h3>Track Progress</h3>
+
+<p>
+Measure what you have completed and identify
+where additional effort is required.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">08</div>
+
+<h3>Review & Improve</h3>
+
+<p>
+Review your results and adjust the goal or action
+plan when necessary.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ACTIVITIES ================= -->
+
+<section id="activities">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Practice</div>
+
+<h2>Goal Setting Activities</h2>
+
+<p>
+Practice turning your ideas into clear goals
+through simple real-life activities.
+</p>
+
+</div>
+
+
+<div class="activity-grid">
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-bullseye"></i>
+</div>
+
+<h3>My Goal List</h3>
+
+</div>
+
+<p>
+Write down three goals you would like to achieve
+in the coming months.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-ruler-combined"></i>
+</div>
+
+<h3>Make It Measurable</h3>
+
+</div>
+
+<p>
+Take a vague goal and convert it into a clear
+target that can be measured.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-list-check"></i>
+</div>
+
+<h3>Action Plan</h3>
+
+</div>
+
+<p>
+Choose one goal and write the actions required
+to move toward it.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-flag"></i>
+</div>
+
+<h3>Milestone Map</h3>
+
+</div>
+
+<p>
+Divide a large goal into smaller milestones
+and mark each stage of progress.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-chart-line"></i>
+</div>
+
+<h3>Progress Tracker</h3>
+
+</div>
+
+<p>
+Track your progress every week and identify
+what has been completed.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-magnifying-glass-chart"></i>
+</div>
+
+<h3>Goal Review</h3>
+
+</div>
+
+<p>
+Review one goal and decide what is working,
+what needs improvement and what to do next.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CAREER APPLICATIONS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Career Applications</div>
+
+<h2>Goal Setting in Real Life</h2>
+
+<p>
+Goal-setting skills can support education,
+career development, business and leadership.
+</p>
+
+</div>
+
+
+<div class="career-grid">
+
+<div class="career reveal">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<h3>Education</h3>
+
+<p>
+Set academic targets, plan projects, prepare
+for examinations and track learning progress.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-code"></i>
+
+<h3>Software Development</h3>
+
+<p>
+Set development milestones, project targets
+and learning objectives.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<h3>Career Development</h3>
+
+<p>
+Plan skill development, certifications,
+projects and professional growth.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-rocket"></i>
+
+<h3>Entrepreneurship</h3>
+
+<p>
+Set business objectives, product milestones,
+customer targets and growth plans.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-diagram-project"></i>
+
+<h3>Project Management</h3>
+
+<p>
+Define project outcomes, milestones, deadlines
+and measurable deliverables.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-user-tie"></i>
+
+<h3>Leadership</h3>
+
+<p>
+Create shared objectives and help teams work
+toward common outcomes.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RESOURCES ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Free Learning Resources</div>
+
+<h2>Learn & Practice</h2>
+
+<p>
+Explore free resources for goal setting,
+planning and personal development.
+</p>
+
+</div>
+
+
+<div class="resource-grid">
+
+<div class="resource reveal">
+
+<h3>MindTools</h3>
+
+<p>
+Explore practical resources related to goals,
+planning, decision-making and productivity.
+</p>
+
+<a href="https://www.mindtools.com/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>OpenLearn</h3>
+
+<p>
+Explore free courses and learning materials
+for personal and professional development.
+</p>
+
+<a href="https://www.open.edu/openlearn/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>TED</h3>
+
+<p>
+Explore talks about motivation, learning,
+leadership, careers and personal growth.
+</p>
+
+<a href="https://www.ted.com/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Coursera</h3>
+
+<p>
+Explore courses related to personal development,
+career planning and professional skills.
+</p>
+
+<a href="https://www.coursera.org/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Google Digital Garage</h3>
+
+<p>
+Explore learning materials for digital skills,
+career development and professional growth.
+</p>
+
+<a href="https://grow.google/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Harvard Business Review</h3>
+
+<p>
+Explore articles and ideas related to goals,
+leadership, performance and professional growth.
+</p>
+
+<a href="https://hbr.org/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TIPS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Goal Setting Tips</div>
+
+<h2>Build Better Goal Habits</h2>
+
+<p>
+Good goals become useful when they are supported
+by consistent action and regular review.
+</p>
+
+</div>
+
+
+<div class="tips">
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Write Your Goals Down</h3>
+
+<p>
+Writing goals makes them easier to remember,
+review and convert into action.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Start Small</h3>
+
+<p>
+Break large ambitions into smaller steps that
+you can realistically begin.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Make Goals Clear</h3>
+
+<p>
+Avoid vague targets. Define exactly what you
+want to accomplish.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Set Milestones</h3>
+
+<p>
+Use smaller milestones to understand whether
+you are moving in the right direction.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Track Regularly</h3>
+
+<p>
+Review your progress regularly instead of
+waiting until the deadline.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Learn From Setbacks</h3>
+
+<p>
+If a plan does not work, review it, make
+reasonable adjustments and continue.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="cta reveal">
+
+<h2>Set Goals. Take Action. Achieve.</h2>
+
+<p>
+Turn your ideas into clear goals, practical
+action plans and measurable progress with ASCEND.
+</p>
+
+<a href="../Assignments.html" class="btn">
+    <i class="fa-solid fa-list-check"></i>
+    Practice on ASCEND
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<a href="../index.html" class="logo">
+    <img src="../logo.png" alt="ASCEND Logo">
+    <div style="color:white;">AS<span>CEND</span></div>
+</a>
+
+<p>
+ASCEND Learning Community helps students develop
+knowledge, skills, career awareness and practical
+abilities for the future.
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Learn</h4>
+
+<a href="../Books.html">Books & Learning</a>
+<a href="../Assignments.html">Assignments</a>
+<a href="../Skills.html">Skills</a>
+<a href="../Careers.html">Careers</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>ASCEND</h4>
+
+<a href="../Aboutus.html">About Us</a>
+<a href="../Business.html">Business</a>
+<a href="../Leadership.html">Leadership</a>
+<a href="../Faq.html">FAQ</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 ASCEND Learning Community. Learn • Build • Grow.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<div class="mobile-nav">
+
+<a href="../index.html">
+    <i class="fa-solid fa-house"></i>
+    Home
+</a>
+
+<a href="../Books.html">
+    <i class="fa-solid fa-book"></i>
+    Learn
+</a>
+
+<a href="../Skills.html" class="active">
+    <i class="fa-solid fa-bolt"></i>
+    Skills
+</a>
+
+<a href="../Careers.html">
+    <i class="fa-solid fa-briefcase"></i>
+    Careers
+</a>
+
+<a href="../Faq.html">
+    <i class="fa-solid fa-circle-question"></i>
+    FAQ
+</a>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    (entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold:0.12
+    }
+);
+
+revealElements.forEach(el=>{
+    observer.observe(el);
+});
+
+
+/* Mobile Menu */
+
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click",()=>{
+
+    if(navLinks.style.display === "flex"){
+
+        navLinks.style.display = "";
+
+    }else{
+
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "74px";
+        navLinks.style.left = "0";
+        navLinks.style.right = "0";
+        navLinks.style.background = "white";
+        navLinks.style.padding = "15px";
+        navLinks.style.borderBottom = "1px solid #E4EAF2";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

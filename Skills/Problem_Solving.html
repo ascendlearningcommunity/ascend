@@ -1,0 +1,2562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Problem-Solving — ASCEND Skills</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --radius:20px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:"Outfit",sans-serif;
+    font-size:23px;
+    font-weight:800;
+    color:var(--dark);
+}
+
+.logo img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:10px;
+    color:var(--muted);
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--primary-light);
+    color:var(--primary);
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:72px 0 60px;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(21,94,239,.09),transparent 28%),
+        radial-gradient(circle at 90% 10%,rgba(255,212,59,.13),transparent 25%);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.08fr .92fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:999px;
+    background:var(--primary-light);
+    color:var(--primary);
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-family:"Outfit",sans-serif;
+    font-size:clamp(40px,5vw,68px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:17px;
+    max-width:650px;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 19px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:white;
+    border:1px solid var(--border);
+    color:var(--dark);
+}
+
+.btn-secondary:hover{
+    border-color:var(--primary);
+    color:var(--primary);
+}
+
+/* ================= PROBLEM VISUAL ================= */
+
+.problem-visual{
+    position:relative;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.problem-card{
+    width:320px;
+    min-height:320px;
+    border-radius:30px;
+    background:linear-gradient(145deg,#ffffff,#eef4ff);
+    border:10px solid white;
+    box-shadow:
+        0 30px 70px rgba(16,24,40,.12),
+        inset 0 0 0 1px var(--border);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    text-align:center;
+    padding:35px;
+}
+
+.problem-icon{
+    width:120px;
+    height:120px;
+    border-radius:30px;
+    background:var(--primary-light);
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:60px;
+    margin-bottom:18px;
+}
+
+.problem-card h3{
+    font-family:"Outfit",sans-serif;
+    font-size:23px;
+}
+
+.problem-card p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.solve-node{
+    position:absolute;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:0 14px 35px rgba(16,24,40,.1);
+    border-radius:15px;
+    padding:12px 15px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.solve-node i{
+    color:var(--primary);
+}
+
+.node-1{
+    top:25px;
+    left:0;
+}
+
+.node-2{
+    top:85px;
+    right:0;
+}
+
+.node-3{
+    bottom:50px;
+    left:0;
+}
+
+.node-4{
+    bottom:15px;
+    right:25px;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:72px 0;
+}
+
+.section-head{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 40px;
+}
+
+.section-head .mini{
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.section-head h2{
+    font-family:"Outfit",sans-serif;
+    font-size:38px;
+    line-height:1.15;
+    margin-bottom:12px;
+}
+
+.section-head p{
+    color:var(--muted);
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:25px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 45px rgba(16,24,40,.08);
+}
+
+.icon-box{
+    width:50px;
+    height:50px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:17px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.yellow{
+    background:var(--yellow-light);
+    color:#B78103;
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.card h3{
+    font-family:"Outfit",sans-serif;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.topic{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.topic:hover{
+    border-color:#B7C9F8;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.topic i{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+    border-radius:10px;
+}
+
+/* ================= SOLVING PROCESS ================= */
+
+.process{
+    background:var(--dark);
+    color:white;
+}
+
+.process .section-head p{
+    color:#98A2B3;
+}
+
+.process-flow{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+    align-items:center;
+}
+
+.process-item{
+    text-align:center;
+}
+
+.process-box{
+    background:#1D2939;
+    border:1px solid #344054;
+    border-radius:18px;
+    padding:20px 10px;
+    min-height:125px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:9px;
+}
+
+.process-box i{
+    font-size:23px;
+    color:var(--yellow);
+}
+
+.process-box span{
+    font-weight:700;
+    font-size:12px;
+}
+
+.process-arrow{
+    color:var(--yellow);
+    text-align:center;
+}
+
+/* ================= TOOLKIT ================= */
+
+.tool-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+}
+
+.tool{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px 14px;
+    text-align:center;
+}
+
+.tool i{
+    font-size:25px;
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.tool h4{
+    font-size:14px;
+}
+
+.tool p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.step{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.step-number{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.step h3{
+    font-family:"Outfit",sans-serif;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.step p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= ACTIVITIES ================= */
+
+.activity-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.activity{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.activity-top{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:13px;
+}
+
+.activity-icon{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--yellow-light);
+    color:#A56F00;
+}
+
+.activity h3{
+    font-family:"Outfit",sans-serif;
+    font-size:18px;
+}
+
+.activity p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= CAREERS ================= */
+
+.career-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.career{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.career i{
+    color:var(--primary);
+    font-size:24px;
+    margin-bottom:13px;
+}
+
+.career h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:7px;
+}
+
+.career p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= RESOURCES ================= */
+
+.resource-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.resource{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.resource h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:7px;
+}
+
+.resource p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.resource a{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+}
+
+/* ================= TIPS ================= */
+
+.tips{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.tip{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    display:flex;
+    gap:15px;
+}
+
+.tip i{
+    color:var(--green);
+    margin-top:4px;
+}
+
+.tip h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.tip p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    background:linear-gradient(135deg,var(--primary),#3D7BFF);
+    color:white;
+    border-radius:28px;
+    padding:50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta:before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:-100px;
+    left:-80px;
+}
+
+.cta h2{
+    font-family:"Outfit",sans-serif;
+    font-size:38px;
+    margin-bottom:10px;
+    position:relative;
+}
+
+.cta p{
+    color:#EAF1FF;
+    max-width:650px;
+    margin:0 auto 23px;
+    position:relative;
+}
+
+.cta .btn{
+    background:var(--yellow);
+    color:var(--dark);
+    position:relative;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0B1220;
+    color:white;
+    padding:45px 0 80px;
+    margin-top:70px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+    font-size:13px;
+    max-width:420px;
+    margin-top:13px;
+}
+
+.footer-col h4{
+    margin-bottom:14px;
+    font-family:"Outfit",sans-serif;
+}
+
+.footer-col a{
+    display:block;
+    color:#98A2B3;
+    font-size:13px;
+    margin:9px 0;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid #273244;
+    margin-top:35px;
+    padding-top:20px;
+    color:#98A2B3;
+    font-size:12px;
+    text-align:center;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .career-grid,
+    .resource-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .topic-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .tool-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .process-flow{
+        grid-template-columns:repeat(7,1fr);
+    }
+
+    .activity-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    body{
+        padding-bottom:65px;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .problem-visual{
+        min-height:350px;
+    }
+
+    .problem-card{
+        width:255px;
+        min-height:280px;
+    }
+
+    .problem-icon{
+        width:100px;
+        height:100px;
+        font-size:48px;
+    }
+
+    .solve-node{
+        font-size:11px;
+        padding:9px 11px;
+    }
+
+    .node-1{
+        left:0;
+    }
+
+    .node-2{
+        right:-3px;
+    }
+
+    .node-3{
+        left:-3px;
+    }
+
+    .node-4{
+        right:0;
+    }
+
+    .section-head h2{
+        font-size:31px;
+    }
+
+    .cards,
+    .career-grid,
+    .resource-grid,
+    .activity-grid,
+    .tips{
+        grid-template-columns:1fr;
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tool-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:1fr;
+    }
+
+    .process-flow{
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .process-arrow{
+        transform:rotate(90deg);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta{
+        padding:35px 20px;
+        border-radius:20px;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        bottom:0;
+        left:0;
+        right:0;
+        height:64px;
+        background:white;
+        border-top:1px solid var(--border);
+        z-index:2000;
+        justify-content:space-around;
+        align-items:center;
+        box-shadow:0 -8px 25px rgba(16,24,40,.08);
+    }
+
+    .mobile-nav a{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:3px;
+        color:var(--muted);
+        font-size:10px;
+        font-weight:700;
+    }
+
+    .mobile-nav a i{
+        font-size:17px;
+    }
+
+    .mobile-nav a.active{
+        color:var(--primary);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="../index.html" class="logo">
+    <img src="../logo.png" alt="ASCEND Logo">
+    <div>AS<span>CEND</span></div>
+</a>
+
+<nav class="nav-links">
+
+<a href="../index.html">
+    <i class="fa-solid fa-house"></i> Home
+</a>
+
+<a href="../Books.html">
+    <i class="fa-solid fa-book"></i> Learn
+</a>
+
+<a href="../Assignments.html">
+    <i class="fa-solid fa-list-check"></i> Tasks
+</a>
+
+<a href="../Skills.html" class="active">
+    <i class="fa-solid fa-bolt"></i> Skills
+</a>
+
+<a href="../Careers.html">
+    <i class="fa-solid fa-briefcase"></i> Careers
+</a>
+
+<a href="../Aboutus.html">
+    <i class="fa-solid fa-circle-info"></i> About
+</a>
+
+<a href="../Business.html">
+    <i class="fa-solid fa-lightbulb"></i> Business
+</a>
+
+<a href="../Leadership.html">
+    <i class="fa-solid fa-users"></i> Leadership
+</a>
+
+<a href="../Faq.html">
+    <i class="fa-solid fa-circle-question"></i> FAQ
+</a>
+
+</nav>
+
+<button class="menu-btn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div class="reveal">
+
+<div class="badge">
+    <i class="fa-solid fa-puzzle-piece"></i>
+    ASCEND SKILL
+</div>
+
+<h1>
+    Master <span>Problem-Solving</span>
+</h1>
+
+<p>
+    Learn how to identify problems, understand their causes,
+    generate solutions, evaluate alternatives and implement
+    effective solutions with confidence.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#roadmap" class="btn btn-primary">
+    <i class="fa-solid fa-route"></i>
+    Start Learning
+</a>
+
+<a href="#activities" class="btn btn-secondary">
+    <i class="fa-solid fa-puzzle-piece"></i>
+    Practice Skills
+</a>
+
+</div>
+
+</div>
+
+
+<div class="problem-visual reveal">
+
+<div class="problem-card">
+
+<div class="problem-icon">
+    <i class="fa-solid fa-puzzle-piece"></i>
+</div>
+
+<h3>Problem → Solution</h3>
+
+<p>
+Understand the problem, explore possibilities
+and build a practical solution.
+</p>
+
+<div class="solve-node node-1">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    Identify
+</div>
+
+<div class="solve-node node-2">
+    <i class="fa-solid fa-diagram-project"></i>
+    Analyze
+</div>
+
+<div class="solve-node node-3">
+    <i class="fa-solid fa-lightbulb"></i>
+    Solve
+</div>
+
+<div class="solve-node node-4">
+    <i class="fa-solid fa-check"></i>
+    Improve
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Why Problem-Solving?</div>
+
+<h2>Turn Problems Into Solutions</h2>
+
+<p>
+Problem-solving helps you understand challenges,
+find practical solutions and handle difficult situations
+systematically.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+    <i class="fa-solid fa-magnifying-glass"></i>
+</div>
+
+<h3>Identify Problems</h3>
+
+<p>
+Clearly understand what the actual problem is before
+trying to solve it.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box yellow">
+    <i class="fa-solid fa-diagram-project"></i>
+</div>
+
+<h3>Find Solutions</h3>
+
+<p>
+Generate multiple possible solutions instead of
+immediately choosing the first idea.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box green">
+    <i class="fa-solid fa-circle-check"></i>
+</div>
+
+<h3>Take Action</h3>
+
+<p>
+Implement a suitable solution, observe the results
+and improve when necessary.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CORE SKILLS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Core Skills</div>
+
+<h2>Six Skills of an Effective Problem Solver</h2>
+
+<p>
+Build the abilities needed to approach problems
+systematically and creatively.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+    <i class="fa-solid fa-crosshairs"></i>
+</div>
+
+<h3>Problem Identification</h3>
+
+<p>
+Recognize the real issue and clearly define what
+needs to be solved.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box purple">
+    <i class="fa-solid fa-magnifying-glass-chart"></i>
+</div>
+
+<h3>Analysis</h3>
+
+<p>
+Study information, relationships and possible causes
+behind a problem.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box orange">
+    <i class="fa-solid fa-sitemap"></i>
+</div>
+
+<h3>Root Cause Analysis</h3>
+
+<p>
+Find the underlying reason instead of only treating
+the visible symptoms.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box yellow">
+    <i class="fa-solid fa-lightbulb"></i>
+</div>
+
+<h3>Idea Generation</h3>
+
+<p>
+Create different possible approaches and solutions
+to the same challenge.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box green">
+    <i class="fa-solid fa-scale-balanced"></i>
+</div>
+
+<h3>Solution Evaluation</h3>
+
+<p>
+Compare solutions based on practicality, resources,
+risks and expected results.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box red">
+    <i class="fa-solid fa-rotate"></i>
+</div>
+
+<h3>Continuous Improvement</h3>
+
+<p>
+Review the outcome and improve the solution when
+the first attempt does not work.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOPICS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Learning Topics</div>
+
+<h2>Problem-Solving Topics</h2>
+
+<p>
+Learn practical methods that can be applied to
+academic, personal and professional problems.
+</p>
+
+</div>
+
+
+<div class="topic-grid">
+
+<div class="topic reveal">
+    <i class="fa-solid fa-crosshairs"></i>
+    Problem Identification
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    Problem Analysis
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-circle-nodes"></i>
+    Root Cause Analysis
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-brain"></i>
+    Logical Thinking
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-lightbulb"></i>
+    Idea Generation
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-arrows-left-right"></i>
+    Alternative Solutions
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-scale-balanced"></i>
+    Solution Evaluation
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    Risk Analysis
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-list-check"></i>
+    Decision Making
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-gears"></i>
+    Implementation
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-chart-line"></i>
+    Result Evaluation
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-rotate"></i>
+    Continuous Improvement
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROBLEM SOLVING PROCESS ================= -->
+
+<section class="process">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Problem-Solving Framework</div>
+
+<h2>A Simple Problem-Solving Process</h2>
+
+<p>
+Follow a structured process instead of reacting
+to a problem without understanding it.
+</p>
+
+</div>
+
+
+<div class="process-flow">
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-crosshairs"></i>
+    <span>Identify</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span>Understand</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-sitemap"></i>
+    <span>Analyze</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-lightbulb"></i>
+    <span>Generate</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-scale-balanced"></i>
+    <span>Evaluate</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-gears"></i>
+    <span>Implement</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-chart-line"></i>
+    <span>Improve</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOOLKIT ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Problem-Solving Toolkit</div>
+
+<h2>Methods & Frameworks</h2>
+
+<p>
+Use practical frameworks to understand problems
+and develop structured solutions.
+</p>
+
+</div>
+
+
+<div class="tool-grid">
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-question"></i>
+
+<h4>5 Whys</h4>
+
+<p>Find the root cause</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-diagram-project"></i>
+
+<h4>Fishbone</h4>
+
+<p>Explore possible causes</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-sitemap"></i>
+
+<h4>Mind Map</h4>
+
+<p>Organize ideas visually</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-layer-group"></i>
+
+<h4>SWOT</h4>
+
+<p>Study strengths and challenges</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-scale-balanced"></i>
+
+<h4>Pros & Cons</h4>
+
+<p>Compare alternatives</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-table-list"></i>
+
+<h4>Decision Matrix</h4>
+
+<p>Compare solutions systematically</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-arrows-to-circle"></i>
+
+<h4>Root Cause</h4>
+
+<p>Find underlying issues</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-code-branch"></i>
+
+<h4>Decision Tree</h4>
+
+<p>Explore possible outcomes</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-list-ol"></i>
+
+<h4>Step-by-Step</h4>
+
+<p>Break big problems down</p>
+
+</div>
+
+
+<div class="tool reveal">
+
+<i class="fa-solid fa-rotate"></i>
+
+<h4>PDCA</h4>
+
+<p>Improve through repeated cycles</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Learning Roadmap</div>
+
+<h2>Problem-Solving Roadmap</h2>
+
+<p>
+Progress from understanding a problem to implementing
+and improving a solution.
+</p>
+
+</div>
+
+
+<div class="roadmap">
+
+<div class="step reveal">
+
+<div class="step-number">01</div>
+
+<h3>Understand Problems</h3>
+
+<p>
+Learn how to recognize and clearly define a problem.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">02</div>
+
+<h3>Collect Information</h3>
+
+<p>
+Gather relevant facts, observations and available information.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">03</div>
+
+<h3>Find the Cause</h3>
+
+<p>
+Use root-cause techniques to understand why the problem exists.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">04</div>
+
+<h3>Generate Ideas</h3>
+
+<p>
+Create several possible solutions instead of stopping at one idea.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">05</div>
+
+<h3>Compare Solutions</h3>
+
+<p>
+Evaluate possible solutions based on practical criteria.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">06</div>
+
+<h3>Implement</h3>
+
+<p>
+Put the selected solution into action using a clear plan.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">07</div>
+
+<h3>Measure Results</h3>
+
+<p>
+Check whether the solution actually addresses the problem.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">08</div>
+
+<h3>Improve</h3>
+
+<p>
+Learn from the result and make the solution better.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ACTIVITIES ================= -->
+
+<section id="activities">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Practice</div>
+
+<h2>Problem-Solving Activities</h2>
+
+<p>
+Practice solving realistic problems to turn knowledge
+into a practical skill.
+</p>
+
+</div>
+
+
+<div class="activity-grid">
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-bug"></i>
+</div>
+
+<h3>Find the Problem</h3>
+
+</div>
+
+<p>
+Take an everyday situation and identify the actual
+problem instead of focusing only on its symptoms.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-question"></i>
+</div>
+
+<h3>5 Whys Challenge</h3>
+
+</div>
+
+<p>
+Choose a simple problem and repeatedly ask why to
+explore its possible underlying cause.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-lightbulb"></i>
+</div>
+
+<h3>Solution Brainstorm</h3>
+
+</div>
+
+<p>
+Generate at least five possible solutions before
+deciding which approach to explore.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-scale-balanced"></i>
+</div>
+
+<h3>Decision Challenge</h3>
+
+</div>
+
+<p>
+Compare multiple solutions using cost, time,
+resources, benefits and possible risks.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-gears"></i>
+</div>
+
+<h3>Build a Solution</h3>
+
+</div>
+
+<p>
+Choose a small real-world problem and create a
+simple practical solution or prototype.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-chart-line"></i>
+</div>
+
+<h3>Review & Improve</h3>
+
+</div>
+
+<p>
+Review your solution, identify weaknesses and
+improve the result through another iteration.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CAREER APPLICATIONS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Career Applications</div>
+
+<h2>Problem-Solving at Work</h2>
+
+<p>
+Problem-solving is useful in almost every professional
+field and workplace situation.
+</p>
+
+</div>
+
+
+<div class="career-grid">
+
+<div class="career reveal">
+
+<i class="fa-solid fa-code"></i>
+
+<h3>Software Development</h3>
+
+<p>
+Debug programs, analyze requirements and develop
+practical technical solutions.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h3>Data Analysis</h3>
+
+<p>
+Investigate data, identify patterns and solve
+information-based problems.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<h3>Business</h3>
+
+<p>
+Handle operational challenges, evaluate alternatives
+and improve business processes.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-users"></i>
+
+<h3>Teamwork</h3>
+
+<p>
+Work with others to understand problems and
+develop practical solutions.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-user-tie"></i>
+
+<h3>Leadership</h3>
+
+<p>
+Understand situations, evaluate options and
+coordinate effective actions.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-flask"></i>
+
+<h3>Research</h3>
+
+<p>
+Investigate questions, test possible approaches
+and learn from results.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RESOURCES ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Free Learning Resources</div>
+
+<h2>Learn & Practice</h2>
+
+<p>
+Explore free educational resources to improve
+reasoning, creativity and problem-solving.
+</p>
+
+</div>
+
+
+<div class="resource-grid">
+
+<div class="resource reveal">
+
+<h3>Khan Academy</h3>
+
+<p>
+Practice mathematics, logic and analytical problem-solving
+through structured learning.
+</p>
+
+<a href="https://www.khanacademy.org/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>OpenLearn</h3>
+
+<p>
+Explore free learning materials covering thinking,
+learning and problem-solving concepts.
+</p>
+
+<a href="https://www.open.edu/openlearn/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>MIT OpenCourseWare</h3>
+
+<p>
+Access free course materials from MIT across
+science, technology and other disciplines.
+</p>
+
+<a href="https://ocw.mit.edu/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Project Zero</h3>
+
+<p>
+Explore thinking routines and approaches designed
+to support deeper learning and thinking.
+</p>
+
+<a href="https://pz.harvard.edu/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>TED</h3>
+
+<p>
+Explore different ideas and perspectives while
+practicing evaluation and reasoning.
+</p>
+
+<a href="https://www.ted.com/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Stanford Encyclopedia of Philosophy</h3>
+
+<p>
+Explore deeper concepts related to logic,
+reasoning and problem-solving.
+</p>
+
+<a href="https://plato.stanford.edu/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= STUDY TIPS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Study Tips</div>
+
+<h2>Become a Better Problem Solver</h2>
+
+<p>
+Problem-solving becomes stronger when you practice
+with real situations regularly.
+</p>
+
+</div>
+
+
+<div class="tips">
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Define the Problem Clearly</h3>
+
+<p>
+A clear problem statement makes it easier to
+understand what needs to be solved.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Do Not Rush to the First Solution</h3>
+
+<p>
+Generate multiple possibilities before selecting
+one approach.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Look for Root Causes</h3>
+
+<p>
+Try to understand why a problem exists instead
+of only fixing its visible symptoms.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Break Big Problems Into Parts</h3>
+
+<p>
+Divide a complex challenge into smaller,
+manageable tasks.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Learn From Mistakes</h3>
+
+<p>
+A solution that does not work can provide useful
+information for the next attempt.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Practice Every Day</h3>
+
+<p>
+Solve puzzles, coding problems, real-life challenges
+and decision-making exercises regularly.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="cta reveal">
+
+<h2>Think. Solve. Improve.</h2>
+
+<p>
+Build practical problem-solving skills through
+structured learning, challenges and real-world practice.
+</p>
+
+<a href="../Assignments.html" class="btn">
+    <i class="fa-solid fa-list-check"></i>
+    Practice on ASCEND
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<a href="../index.html" class="logo">
+    <img src="../logo.png" alt="ASCEND Logo">
+    <div style="color:white;">AS<span>CEND</span></div>
+</a>
+
+<p>
+ASCEND Learning Community helps students develop
+knowledge, skills, career awareness and practical
+abilities for the future.
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Learn</h4>
+
+<a href="../Books.html">Books & Learning</a>
+<a href="../Assignments.html">Assignments</a>
+<a href="../Skills.html">Skills</a>
+<a href="../Careers.html">Careers</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>ASCEND</h4>
+
+<a href="../Aboutus.html">About Us</a>
+<a href="../Business.html">Business</a>
+<a href="../Leadership.html">Leadership</a>
+<a href="../Faq.html">FAQ</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 ASCEND Learning Community. Learn • Build • Grow.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<div class="mobile-nav">
+
+<a href="../index.html">
+    <i class="fa-solid fa-house"></i>
+    Home
+</a>
+
+<a href="../Books.html">
+    <i class="fa-solid fa-book"></i>
+    Learn
+</a>
+
+<a href="../Skills.html" class="active">
+    <i class="fa-solid fa-bolt"></i>
+    Skills
+</a>
+
+<a href="../Careers.html">
+    <i class="fa-solid fa-briefcase"></i>
+    Careers
+</a>
+
+<a href="../Faq.html">
+    <i class="fa-solid fa-circle-question"></i>
+    FAQ
+</a>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    (entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold:0.12
+    }
+);
+
+revealElements.forEach(el=>{
+    observer.observe(el);
+});
+
+
+/* Mobile Menu */
+
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click",()=>{
+
+    if(navLinks.style.display === "flex"){
+
+        navLinks.style.display = "";
+
+    }else{
+
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "74px";
+        navLinks.style.left = "0";
+        navLinks.style.right = "0";
+        navLinks.style.background = "white";
+        navLinks.style.padding = "15px";
+        navLinks.style.borderBottom = "1px solid #E4EAF2";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

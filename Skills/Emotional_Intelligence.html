@@ -1,0 +1,2807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Emotional Intelligence — ASCEND Skills</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --radius:20px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:"Outfit",sans-serif;
+    font-size:23px;
+    font-weight:800;
+    color:var(--dark);
+}
+
+.logo img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:10px;
+    color:var(--muted);
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--primary-light);
+    color:var(--primary);
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:72px 0 60px;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(21,94,239,.09),transparent 28%),
+        radial-gradient(circle at 90% 10%,rgba(255,212,59,.13),transparent 25%);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.08fr .92fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:999px;
+    background:var(--primary-light);
+    color:var(--primary);
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-family:"Outfit",sans-serif;
+    font-size:clamp(40px,5vw,68px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:17px;
+    max-width:650px;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 19px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:white;
+    border:1px solid var(--border);
+    color:var(--dark);
+}
+
+.btn-secondary:hover{
+    border-color:var(--primary);
+    color:var(--primary);
+}
+
+/* ================= EMOTIONAL VISUAL ================= */
+
+.emotion-visual{
+    position:relative;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.emotion-card{
+    width:350px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:25px;
+    box-shadow:0 30px 70px rgba(16,24,40,.12);
+}
+
+.emotion-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:22px;
+}
+
+.emotion-title{
+    font-family:"Outfit",sans-serif;
+    font-size:21px;
+    font-weight:800;
+}
+
+.status{
+    background:var(--green-light);
+    color:var(--green);
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:10px;
+    font-weight:800;
+}
+
+.emotion-center{
+    text-align:center;
+    padding:10px 0 20px;
+}
+
+.face{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:var(--yellow-light);
+    color:#B78103;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    box-shadow:0 12px 30px rgba(255,212,59,.2);
+}
+
+.emotion-center h3{
+    font-family:"Outfit",sans-serif;
+    margin-top:13px;
+}
+
+.emotion-center p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.emotion-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px;
+    background:var(--bg);
+    border-radius:13px;
+    margin-top:9px;
+}
+
+.emotion-icon{
+    width:35px;
+    height:35px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.emotion-row span{
+    font-size:12px;
+    font-weight:700;
+}
+
+.emotion-node{
+    position:absolute;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:0 14px 35px rgba(16,24,40,.1);
+    border-radius:15px;
+    padding:11px 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.emotion-node i{
+    color:var(--primary);
+}
+
+.node-1{
+    top:22px;
+    right:-25px;
+}
+
+.node-2{
+    bottom:22px;
+    left:-25px;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:72px 0;
+}
+
+.section-head{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 40px;
+}
+
+.section-head .mini{
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.section-head h2{
+    font-family:"Outfit",sans-serif;
+    font-size:38px;
+    line-height:1.15;
+    margin-bottom:12px;
+}
+
+.section-head p{
+    color:var(--muted);
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:25px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 45px rgba(16,24,40,.08);
+}
+
+.icon-box{
+    width:50px;
+    height:50px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:17px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.yellow{
+    background:var(--yellow-light);
+    color:#B78103;
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.card h3{
+    font-family:"Outfit",sans-serif;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.topic{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.topic:hover{
+    border-color:#B7C9F8;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.topic i{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+    border-radius:10px;
+}
+
+/* ================= EMOTIONAL PROCESS ================= */
+
+.emotion-process{
+    background:var(--dark);
+    color:white;
+}
+
+.emotion-process .section-head p{
+    color:#98A2B3;
+}
+
+.process-flow{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+    align-items:center;
+}
+
+.process-item{
+    text-align:center;
+}
+
+.process-box{
+    background:#1D2939;
+    border:1px solid #344054;
+    border-radius:18px;
+    padding:20px 10px;
+    min-height:125px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:9px;
+}
+
+.process-box i{
+    font-size:23px;
+    color:var(--yellow);
+}
+
+.process-box span{
+    font-weight:700;
+    font-size:12px;
+}
+
+.process-arrow{
+    color:var(--yellow);
+    text-align:center;
+}
+
+/* ================= TOOLKIT ================= */
+
+.tool-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+}
+
+.tool{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px 14px;
+    text-align:center;
+}
+
+.tool i{
+    font-size:25px;
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.tool h4{
+    font-size:14px;
+}
+
+.tool p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* ================= EQ MODEL ================= */
+
+.eq-model{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:28px;
+}
+
+.eq-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+    align-items:center;
+}
+
+.eq-title{
+    font-family:"Outfit",sans-serif;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.eq-text{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.eq-bars{
+    display:flex;
+    flex-direction:column;
+    gap:13px;
+}
+
+.eq-bar{
+    display:grid;
+    grid-template-columns:130px 1fr;
+    align-items:center;
+    gap:12px;
+}
+
+.eq-bar strong{
+    font-size:12px;
+}
+
+.bar{
+    height:12px;
+    border-radius:20px;
+    background:var(--bg);
+    overflow:hidden;
+}
+
+.bar span{
+    display:block;
+    height:100%;
+    border-radius:20px;
+}
+
+.bar-blue{
+    width:90%;
+    background:var(--primary);
+}
+
+.bar-green{
+    width:82%;
+    background:var(--green);
+}
+
+.bar-yellow{
+    width:76%;
+    background:var(--yellow);
+}
+
+.bar-purple{
+    width:86%;
+    background:var(--purple);
+}
+
+.eq-note{
+    background:var(--bg);
+    border-radius:16px;
+    padding:22px;
+}
+
+.eq-note h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:8px;
+}
+
+.eq-note p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.step{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.step-number{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.step h3{
+    font-family:"Outfit",sans-serif;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.step p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= ACTIVITIES ================= */
+
+.activity-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.activity{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.activity-top{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:13px;
+}
+
+.activity-icon{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--yellow-light);
+    color:#A56F00;
+}
+
+.activity h3{
+    font-family:"Outfit",sans-serif;
+    font-size:18px;
+}
+
+.activity p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= CAREER ================= */
+
+.career-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.career{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.career i{
+    color:var(--primary);
+    font-size:24px;
+    margin-bottom:13px;
+}
+
+.career h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:7px;
+}
+
+.career p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= RESOURCES ================= */
+
+.resource-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.resource{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.resource h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:7px;
+}
+
+.resource p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.resource a{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+}
+
+/* ================= TIPS ================= */
+
+.tips{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.tip{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    display:flex;
+    gap:15px;
+}
+
+.tip i{
+    color:var(--green);
+    margin-top:4px;
+}
+
+.tip h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.tip p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    background:linear-gradient(135deg,var(--primary),#3D7BFF);
+    color:white;
+    border-radius:28px;
+    padding:50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta:before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:-100px;
+    left:-80px;
+}
+
+.cta h2{
+    font-family:"Outfit",sans-serif;
+    font-size:38px;
+    margin-bottom:10px;
+    position:relative;
+}
+
+.cta p{
+    color:#EAF1FF;
+    max-width:650px;
+    margin:0 auto 23px;
+    position:relative;
+}
+
+.cta .btn{
+    background:var(--yellow);
+    color:var(--dark);
+    position:relative;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0B1220;
+    color:white;
+    padding:45px 0 80px;
+    margin-top:70px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+    font-size:13px;
+    max-width:420px;
+    margin-top:13px;
+}
+
+.footer-col h4{
+    margin-bottom:14px;
+    font-family:"Outfit",sans-serif;
+}
+
+.footer-col a{
+    display:block;
+    color:#98A2B3;
+    font-size:13px;
+    margin:9px 0;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid #273244;
+    margin-top:35px;
+    padding-top:20px;
+    color:#98A2B3;
+    font-size:12px;
+    text-align:center;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .career-grid,
+    .resource-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .topic-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .tool-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .activity-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    body{
+        padding-bottom:65px;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .emotion-visual{
+        min-height:350px;
+    }
+
+    .emotion-card{
+        width:300px;
+    }
+
+    .emotion-node{
+        font-size:10px;
+        padding:9px 11px;
+    }
+
+    .node-1{
+        right:-5px;
+    }
+
+    .node-2{
+        left:-5px;
+    }
+
+    .section-head h2{
+        font-size:31px;
+    }
+
+    .cards,
+    .career-grid,
+    .resource-grid,
+    .activity-grid,
+    .tips{
+        grid-template-columns:1fr;
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tool-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:1fr;
+    }
+
+    .eq-grid{
+        grid-template-columns:1fr;
+    }
+
+    .eq-bar{
+        grid-template-columns:110px 1fr;
+    }
+
+    .process-flow{
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .process-arrow{
+        transform:rotate(90deg);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta{
+        padding:35px 20px;
+        border-radius:20px;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        bottom:0;
+        left:0;
+        right:0;
+        height:64px;
+        background:white;
+        border-top:1px solid var(--border);
+        z-index:2000;
+        justify-content:space-around;
+        align-items:center;
+        box-shadow:0 -8px 25px rgba(16,24,40,.08);
+    }
+
+    .mobile-nav a{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:3px;
+        color:var(--muted);
+        font-size:10px;
+        font-weight:700;
+    }
+
+    .mobile-nav a i{
+        font-size:17px;
+    }
+
+    .mobile-nav a.active{
+        color:var(--primary);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="../index.html" class="logo">
+    <img src="../logo.png" alt="ASCEND Logo">
+    <div>AS<span>CEND</span></div>
+</a>
+
+<nav class="nav-links">
+
+<a href="../index.html">
+    <i class="fa-solid fa-house"></i> Home
+</a>
+
+<a href="../Books.html">
+    <i class="fa-solid fa-book"></i> Learn
+</a>
+
+<a href="../Assignments.html">
+    <i class="fa-solid fa-list-check"></i> Tasks
+</a>
+
+<a href="../Skills.html" class="active">
+    <i class="fa-solid fa-bolt"></i> Skills
+</a>
+
+<a href="../Careers.html">
+    <i class="fa-solid fa-briefcase"></i> Careers
+</a>
+
+<a href="../Aboutus.html">
+    <i class="fa-solid fa-circle-info"></i> About
+</a>
+
+<a href="../Business.html">
+    <i class="fa-solid fa-lightbulb"></i> Business
+</a>
+
+<a href="../Leadership.html">
+    <i class="fa-solid fa-users"></i> Leadership
+</a>
+
+<a href="../Faq.html">
+    <i class="fa-solid fa-circle-question"></i> FAQ
+</a>
+
+</nav>
+
+<button class="menu-btn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div class="reveal">
+
+<div class="badge">
+    <i class="fa-solid fa-heart"></i>
+    ASCEND SKILL
+</div>
+
+<h1>
+    Master <span>Emotional Intelligence</span>
+</h1>
+
+<p>
+    Understand your emotions, manage your responses,
+    recognize other people's feelings and build healthier
+    communication, relationships and teamwork.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#roadmap" class="btn btn-primary">
+    <i class="fa-solid fa-route"></i>
+    Start Learning
+</a>
+
+<a href="#activities" class="btn btn-secondary">
+    <i class="fa-solid fa-brain"></i>
+    Practice Skills
+</a>
+
+</div>
+
+</div>
+
+
+<div class="emotion-visual reveal">
+
+<div class="emotion-card">
+
+<div class="emotion-header">
+
+<div class="emotion-title">
+    Emotional Check
+</div>
+
+<div class="status">
+    SELF-AWARE
+</div>
+
+</div>
+
+
+<div class="emotion-center">
+
+<div class="face">
+    <i class="fa-regular fa-face-smile"></i>
+</div>
+
+<h3>Stay Aware</h3>
+
+<p>
+Notice your emotions before choosing your response.
+</p>
+
+</div>
+
+
+<div class="emotion-row">
+
+<div class="emotion-icon">
+    <i class="fa-solid fa-eye"></i>
+</div>
+
+<span>Recognize Emotions</span>
+
+</div>
+
+
+<div class="emotion-row">
+
+<div class="emotion-icon">
+    <i class="fa-solid fa-sliders"></i>
+</div>
+
+<span>Manage Responses</span>
+
+</div>
+
+
+<div class="emotion-row">
+
+<div class="emotion-icon">
+    <i class="fa-solid fa-people-arrows"></i>
+</div>
+
+<span>Understand Others</span>
+
+</div>
+
+
+<div class="emotion-row">
+
+<div class="emotion-icon">
+    <i class="fa-solid fa-comments"></i>
+</div>
+
+<span>Communicate Effectively</span>
+
+</div>
+
+
+<div class="emotion-node node-1">
+    <i class="fa-solid fa-brain"></i>
+    Self-Awareness
+</div>
+
+<div class="emotion-node node-2">
+    <i class="fa-solid fa-handshake"></i>
+    Empathy
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Why Emotional Intelligence?</div>
+
+<h2>Understand Yourself & Others</h2>
+
+<p>
+Emotional intelligence helps you recognize emotions,
+respond thoughtfully, understand other people and
+develop stronger relationships.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+    <i class="fa-solid fa-eye"></i>
+</div>
+
+<h3>Self-Awareness</h3>
+
+<p>
+Recognize your emotions, thoughts, strengths,
+limitations and personal triggers.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box green">
+    <i class="fa-solid fa-sliders"></i>
+</div>
+
+<h3>Self-Management</h3>
+
+<p>
+Learn to pause, regulate your responses and
+choose constructive actions.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box purple">
+    <i class="fa-solid fa-people-group"></i>
+</div>
+
+<h3>Social Awareness</h3>
+
+<p>
+Understand other people's perspectives, emotions
+and communication styles.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CORE SKILLS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Core Skills</div>
+
+<h2>Five Areas of Emotional Intelligence</h2>
+
+<p>
+Build emotional skills that support personal growth,
+communication and relationships.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+    <i class="fa-solid fa-eye"></i>
+</div>
+
+<h3>Self-Awareness</h3>
+
+<p>
+Identify emotions and understand how they can
+influence thoughts and behavior.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box green">
+    <i class="fa-solid fa-shield-heart"></i>
+</div>
+
+<h3>Self-Regulation</h3>
+
+<p>
+Pause before reacting and manage emotional
+responses in challenging situations.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box yellow">
+    <i class="fa-solid fa-bullseye"></i>
+</div>
+
+<h3>Motivation</h3>
+
+<p>
+Stay focused on meaningful goals and continue
+working through setbacks.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box purple">
+    <i class="fa-solid fa-hand-holding-heart"></i>
+</div>
+
+<h3>Empathy</h3>
+
+<p>
+Try to understand another person's feelings,
+perspective and situation.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box orange">
+    <i class="fa-solid fa-people-arrows"></i>
+</div>
+
+<h3>Social Skills</h3>
+
+<p>
+Develop communication, cooperation, conflict
+management and relationship-building skills.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box cyan">
+    <i class="fa-solid fa-comments"></i>
+</div>
+
+<h3>Relationship Management</h3>
+
+<p>
+Build respectful relationships through listening,
+communication and constructive feedback.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOPICS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Learning Topics</div>
+
+<h2>Emotional Intelligence Topics</h2>
+
+<p>
+Explore practical concepts for understanding and
+managing emotions.
+</p>
+
+</div>
+
+
+<div class="topic-grid">
+
+<div class="topic reveal">
+    <i class="fa-solid fa-eye"></i>
+    Self-Awareness
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-heart-pulse"></i>
+    Emotional Awareness
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-sliders"></i>
+    Self-Regulation
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-brain"></i>
+    Emotional Control
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-bullseye"></i>
+    Motivation
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-hand-holding-heart"></i>
+    Empathy
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-ear-listen"></i>
+    Active Listening
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-comments"></i>
+    Communication
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-people-group"></i>
+    Social Awareness
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-handshake"></i>
+    Relationships
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-scale-balanced"></i>
+    Conflict Management
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-arrow-rotate-right"></i>
+    Resilience
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= EMOTIONAL PROCESS ================= -->
+
+<section class="emotion-process">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Emotional Intelligence Framework</div>
+
+<h2>Pause. Understand. Respond.</h2>
+
+<p>
+A simple process for becoming more intentional
+about emotional responses.
+</p>
+
+</div>
+
+
+<div class="process-flow">
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-eye"></i>
+    <span>Notice</span>
+</div>
+
+</div>
+
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-brain"></i>
+    <span>Identify</span>
+</div>
+
+</div>
+
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-pause"></i>
+    <span>Pause</span>
+</div>
+
+</div>
+
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-person-circle-question"></i>
+    <span>Reflect</span>
+</div>
+
+</div>
+
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-hand-pointer"></i>
+    <span>Choose</span>
+</div>
+
+</div>
+
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-comments"></i>
+    <span>Communicate</span>
+</div>
+
+</div>
+
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-handshake"></i>
+    <span>Connect</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOOLKIT ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Practice Toolkit</div>
+
+<h2>Tools for Emotional Growth</h2>
+
+<p>
+Simple activities can help you develop awareness,
+reflection, empathy and communication.
+</p>
+
+</div>
+
+
+<div class="tool-grid">
+
+<div class="tool reveal">
+    <i class="fa-solid fa-book"></i>
+    <h4>Journal</h4>
+    <p>Reflect on experiences</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-face-smile"></i>
+    <h4>Emotion Check</h4>
+    <p>Identify how you feel</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-pause"></i>
+    <h4>Pause Practice</h4>
+    <p>Think before responding</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-ear-listen"></i>
+    <h4>Active Listening</h4>
+    <p>Listen without interrupting</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-comments"></i>
+    <h4>Conversation</h4>
+    <p>Practice clear communication</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-hand-holding-heart"></i>
+    <h4>Empathy</h4>
+    <p>Consider other perspectives</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-people-group"></i>
+    <h4>Team Practice</h4>
+    <p>Learn through collaboration</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-scale-balanced"></i>
+    <h4>Conflict Practice</h4>
+    <p>Explore constructive responses</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-bullseye"></i>
+    <h4>Goal Reflection</h4>
+    <p>Review personal progress</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-arrow-rotate-right"></i>
+    <h4>Resilience</h4>
+    <p>Learn from setbacks</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= EQ MODEL ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">EQ Development</div>
+
+<h2>Build Your Emotional Intelligence</h2>
+
+<p>
+Emotional intelligence develops through awareness,
+reflection, practice and constructive interaction.
+</p>
+
+</div>
+
+
+<div class="eq-model reveal">
+
+<div class="eq-grid">
+
+<div>
+
+<div class="eq-title">
+    Four Practical Areas
+</div>
+
+<div class="eq-text">
+    Focus on different aspects of emotional
+    intelligence rather than trying to change
+    everything at once.
+</div>
+
+
+<div class="eq-bars">
+
+<div class="eq-bar">
+
+<strong>Awareness</strong>
+
+<div class="bar">
+    <span class="bar-blue"></span>
+</div>
+
+</div>
+
+
+<div class="eq-bar">
+
+<strong>Regulation</strong>
+
+<div class="bar">
+    <span class="bar-green"></span>
+</div>
+
+</div>
+
+
+<div class="eq-bar">
+
+<strong>Empathy</strong>
+
+<div class="bar">
+    <span class="bar-yellow"></span>
+</div>
+
+</div>
+
+
+<div class="eq-bar">
+
+<strong>Social Skills</strong>
+
+<div class="bar">
+    <span class="bar-purple"></span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="eq-note">
+
+<h3>
+    Remember
+</h3>
+
+<p>
+    Emotional intelligence is not about never feeling
+    difficult emotions. It is about recognizing emotions,
+    understanding their context and developing more
+    thoughtful ways to respond.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Learning Roadmap</div>
+
+<h2>Emotional Intelligence Roadmap</h2>
+
+<p>
+Progress from understanding your own emotions to
+building stronger interpersonal skills.
+</p>
+
+</div>
+
+
+<div class="roadmap">
+
+<div class="step reveal">
+
+<div class="step-number">01</div>
+
+<h3>Understand Emotions</h3>
+
+<p>
+Learn what emotions are and how they can influence
+thoughts, decisions and behavior.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">02</div>
+
+<h3>Build Self-Awareness</h3>
+
+<p>
+Identify emotional patterns, strengths, challenges
+and situations that affect you.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">03</div>
+
+<h3>Practice Self-Regulation</h3>
+
+<p>
+Learn to pause, reflect and choose constructive
+responses to challenging situations.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">04</div>
+
+<h3>Develop Motivation</h3>
+
+<p>
+Connect emotions with meaningful goals and
+maintain progress through setbacks.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">05</div>
+
+<h3>Develop Empathy</h3>
+
+<p>
+Practice understanding different perspectives
+without immediately judging them.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">06</div>
+
+<h3>Improve Communication</h3>
+
+<p>
+Use active listening, clear expression and
+respectful communication.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">07</div>
+
+<h3>Manage Relationships</h3>
+
+<p>
+Build trust, cooperation and constructive
+relationships with others.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">08</div>
+
+<h3>Practice Resilience</h3>
+
+<p>
+Reflect on challenges, learn from experiences
+and continue developing your skills.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ACTIVITIES ================= -->
+
+<section id="activities">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Practice</div>
+
+<h2>Emotional Intelligence Activities</h2>
+
+<p>
+Practice emotional awareness and interpersonal
+skills through simple everyday activities.
+</p>
+
+</div>
+
+
+<div class="activity-grid">
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-book"></i>
+</div>
+
+<h3>Emotion Journal</h3>
+
+</div>
+
+<p>
+Write about a situation, identify the emotion you
+experienced and reflect on your response.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-pause"></i>
+</div>
+
+<h3>Pause Challenge</h3>
+
+</div>
+
+<p>
+Practice taking a short pause before responding
+during everyday moments of frustration.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-ear-listen"></i>
+</div>
+
+<h3>Active Listening</h3>
+
+</div>
+
+<p>
+Have a conversation where your goal is to listen
+carefully without interrupting.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-hand-holding-heart"></i>
+</div>
+
+<h3>Perspective Practice</h3>
+
+</div>
+
+<p>
+Choose a fictional situation and consider how
+different people involved might feel.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-comments"></i>
+</div>
+
+<h3>Communication Practice</h3>
+
+</div>
+
+<p>
+Practice expressing an idea clearly while
+remaining respectful of another person's view.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-people-group"></i>
+</div>
+
+<h3>Team Reflection</h3>
+
+</div>
+
+<p>
+After a group activity, reflect on communication,
+cooperation and how the team handled differences.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CAREER APPLICATIONS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Real-Life Applications</div>
+
+<h2>Emotional Intelligence in Career & Life</h2>
+
+<p>
+Emotional intelligence can support communication,
+teamwork, leadership and professional relationships.
+</p>
+
+</div>
+
+
+<div class="career-grid">
+
+<div class="career reveal">
+
+<i class="fa-solid fa-users"></i>
+
+<h3>Teamwork</h3>
+
+<p>
+Understand teammates, communicate respectfully
+and cooperate toward shared goals.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-user-tie"></i>
+
+<h3>Leadership</h3>
+
+<p>
+Listen to people, communicate expectations and
+handle interpersonal situations thoughtfully.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-comments"></i>
+
+<h3>Communication</h3>
+
+<p>
+Express ideas clearly while paying attention to
+the needs and perspectives of others.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-handshake"></i>
+
+<h3>Relationships</h3>
+
+<p>
+Build trust and maintain respectful professional
+and personal relationships.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-scale-balanced"></i>
+
+<h3>Conflict Management</h3>
+
+<p>
+Approach disagreements calmly and work toward
+constructive solutions.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-person-chalkboard"></i>
+
+<h3>Presentations</h3>
+
+<p>
+Manage nervousness, understand your audience and
+communicate with greater confidence.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RESOURCES ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Free Learning Resources</div>
+
+<h2>Learn Emotional Intelligence</h2>
+
+<p>
+Explore reliable educational resources related to
+emotions, communication, relationships and personal growth.
+</p>
+
+</div>
+
+
+<div class="resource-grid">
+
+<div class="resource reveal">
+
+<h3>MindTools</h3>
+
+<p>
+Explore educational resources covering emotional
+intelligence, communication and workplace skills.
+</p>
+
+<a href="https://www.mindtools.com/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>OpenLearn</h3>
+
+<p>
+Explore free courses and learning materials from
+The Open University.
+</p>
+
+<a href="https://www.open.edu/openlearn/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>TED</h3>
+
+<p>
+Explore talks covering communication, emotions,
+relationships and personal development.
+</p>
+
+<a href="https://www.ted.com/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Greater Good Science Center</h3>
+
+<p>
+Explore educational resources about empathy,
+well-being, relationships and social connection.
+</p>
+
+<a href="https://greatergood.berkeley.edu/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Harvard Business Review</h3>
+
+<p>
+Explore articles and ideas related to leadership,
+communication and workplace relationships.
+</p>
+
+<a href="https://hbr.org/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Toastmasters</h3>
+
+<p>
+Practice communication, speaking and leadership
+skills through structured activities.
+</p>
+
+<a href="https://www.toastmasters.org/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TIPS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Daily Practice</div>
+
+<h2>Build Better Emotional Habits</h2>
+
+<p>
+Small daily practices can help you become more aware
+of your emotions and interactions.
+</p>
+
+</div>
+
+
+<div class="tips">
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Pause Before Reacting</h3>
+
+<p>
+Give yourself a moment to understand what you
+are feeling before responding.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Listen Carefully</h3>
+
+<p>
+Focus on understanding the speaker rather than
+planning your response immediately.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Name Your Emotions</h3>
+
+<p>
+Try to identify what you are feeling instead of
+simply reacting to the situation.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Consider Another Perspective</h3>
+
+<p>
+Ask yourself how another person might understand
+the same situation differently.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Accept Constructive Feedback</h3>
+
+<p>
+Listen to useful feedback and consider what you
+can learn from it.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Reflect Regularly</h3>
+
+<p>
+Review important interactions and identify
+what you can improve next time.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="cta reveal">
+
+<h2>Understand. Respond. Connect.</h2>
+
+<p>
+Build emotional awareness, communicate thoughtfully
+and develop stronger relationships through ASCEND.
+</p>
+
+<a href="../Assignments.html" class="btn">
+    <i class="fa-solid fa-list-check"></i>
+    Practice on ASCEND
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<a href="../index.html" class="logo">
+    <img src="../logo.png" alt="ASCEND Logo">
+    <div style="color:white;">AS<span>CEND</span></div>
+</a>
+
+<p>
+ASCEND Learning Community helps students develop
+knowledge, skills, career awareness and practical
+abilities for the future.
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Learn</h4>
+
+<a href="../Books.html">Books & Learning</a>
+<a href="../Assignments.html">Assignments</a>
+<a href="../Skills.html">Skills</a>
+<a href="../Careers.html">Careers</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>ASCEND</h4>
+
+<a href="../Aboutus.html">About Us</a>
+<a href="../Business.html">Business</a>
+<a href="../Leadership.html">Leadership</a>
+<a href="../Faq.html">FAQ</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 ASCEND Learning Community. Learn • Build • Grow.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<div class="mobile-nav">
+
+<a href="../index.html">
+    <i class="fa-solid fa-house"></i>
+    Home
+</a>
+
+<a href="../Books.html">
+    <i class="fa-solid fa-book"></i>
+    Learn
+</a>
+
+<a href="../Skills.html" class="active">
+    <i class="fa-solid fa-bolt"></i>
+    Skills
+</a>
+
+<a href="../Careers.html">
+    <i class="fa-solid fa-briefcase"></i>
+    Careers
+</a>
+
+<a href="../Faq.html">
+    <i class="fa-solid fa-circle-question"></i>
+    FAQ
+</a>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    (entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold:0.12
+    }
+);
+
+revealElements.forEach(el=>{
+    observer.observe(el);
+});
+
+
+/* Mobile Menu */
+
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click",()=>{
+
+    if(navLinks.style.display === "flex"){
+
+        navLinks.style.display = "";
+
+    }else{
+
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "74px";
+        navLinks.style.left = "0";
+        navLinks.style.right = "0";
+        navLinks.style.background = "white";
+        navLinks.style.padding = "15px";
+        navLinks.style.borderBottom = "1px solid #E4EAF2";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

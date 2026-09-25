@@ -1,0 +1,2229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Social Networking — ASCEND Skills</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #155EEF;
+      --primary-dark: #0B46C5;
+      --primary-light: #EAF1FF;
+
+      --yellow: #FFD43B;
+      --yellow-light: #FFF7D6;
+
+      --dark: #101828;
+      --dark-2: #1D2939;
+
+      --muted: #667085;
+      --muted-2: #98A2B3;
+
+      --bg: #F6F8FC;
+      --white: #FFFFFF;
+      --border: #E4EAF2;
+
+      --green: #12B76A;
+      --green-light: #ECFDF3;
+
+      --orange: #F79009;
+      --orange-light: #FFFAEB;
+
+      --purple: #7F56D9;
+      --purple-light: #F4F3FF;
+
+      --red: #F04438;
+      --red-light: #FEF3F2;
+
+      --cyan: #06AED4;
+      --cyan-light: #ECFDFF;
+
+      --radius: 20px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Outfit", sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .logo img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      padding: 10px 13px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: var(--primary-light);
+      color: var(--primary);
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 75px 0 55px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(21,94,239,0.08), transparent 28%),
+        radial-gradient(circle at 90% 30%, rgba(127,86,217,0.08), transparent 28%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .badge i {
+      font-size: 13px;
+    }
+
+    h1 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(42px, 6vw, 70px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      color: var(--primary);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 8px 20px rgba(21,94,239,0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--dark);
+      border: 1px solid var(--border);
+    }
+
+    .btn-light:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ================= NETWORK VISUAL ================= */
+
+    .network-visual {
+      position: relative;
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .network-card {
+      position: relative;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, white 0 28%, transparent 29%),
+        radial-gradient(circle, var(--primary-light) 0 58%, transparent 59%);
+      border: 1px solid var(--border);
+      box-shadow: 0 25px 60px rgba(16,24,40,0.10);
+    }
+
+    .network-card::before,
+    .network-card::after {
+      content: "";
+      position: absolute;
+      inset: 45px;
+      border: 1px dashed #B8C8E8;
+      border-radius: 50%;
+    }
+
+    .network-card::after {
+      inset: 90px;
+      border-style: solid;
+      opacity: 0.5;
+    }
+
+    .center-person {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      box-shadow: 0 12px 30px rgba(21,94,239,0.3);
+      z-index: 3;
+    }
+
+    .person-node {
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(16,24,40,0.09);
+      color: var(--primary);
+      font-size: 22px;
+      z-index: 4;
+    }
+
+    .node-1 { top: 10px; left: 132px; }
+    .node-2 { top: 132px; right: 10px; }
+    .node-3 { bottom: 10px; left: 132px; }
+    .node-4 { top: 132px; left: 10px; }
+
+    .visual-label {
+      position: absolute;
+      background: white;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 25px rgba(16,24,40,0.08);
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 5;
+    }
+
+    .label-top {
+      top: 0;
+      right: 0;
+    }
+
+    .label-bottom {
+      bottom: 15px;
+      right: -5px;
+    }
+
+    /* ================= SECTIONS ================= */
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 42px;
+    }
+
+    .section-head span {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-head h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.1;
+      margin: 8px 0 12px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+    }
+
+    /* ================= CARDS ================= */
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(16,24,40,0.08);
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      margin-bottom: 18px;
+    }
+
+    .blue {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .green {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .purple {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .orange {
+      background: var(--orange-light);
+      color: var(--orange);
+    }
+
+    .cyan {
+      background: var(--cyan-light);
+      color: var(--cyan);
+    }
+
+    .yellow {
+      background: var(--yellow-light);
+      color: #B77900;
+    }
+
+    .card h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ================= CORE SKILLS ================= */
+
+    .skill-card {
+      padding: 22px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .skill-card i {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .skill-card strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .skill-card span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ================= TOPICS ================= */
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .topic {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .topic i {
+      color: var(--primary);
+    }
+
+    /* ================= PROCESS ================= */
+
+    .process-section {
+      background: var(--dark);
+      color: white;
+    }
+
+    .process-section .section-head span {
+      color: var(--yellow);
+    }
+
+    .process-section .section-head p {
+      color: #98A2B3;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      align-items: center;
+    }
+
+    .process-step {
+      text-align: center;
+    }
+
+    .process-number {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--yellow);
+      font-weight: 800;
+    }
+
+    .process-step strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .arrow {
+      text-align: center;
+      color: #667085;
+    }
+
+    /* ================= TOOLKIT ================= */
+
+    .tool {
+      text-align: center;
+      padding: 22px 15px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .tool i {
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .tool strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    /* ================= ROADMAP ================= */
+
+    .roadmap {
+      max-width: 850px;
+      margin: auto;
+      position: relative;
+    }
+
+    .roadmap::before {
+      content: "";
+      position: absolute;
+      left: 25px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #D9E2F2;
+    }
+
+    .roadmap-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .roadmap-number {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      z-index: 2;
+      border: 5px solid var(--bg);
+    }
+
+    .roadmap-content {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 19px 22px;
+      border-radius: 15px;
+    }
+
+    .roadmap-content h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .roadmap-content p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= ACTIVITIES ================= */
+
+    .activity-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .activity-card .activity-icon {
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 13px;
+    }
+
+    .activity-card h3 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 6px;
+    }
+
+    .activity-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= CAREER ================= */
+
+    .career-section {
+      background: white;
+    }
+
+    .career-card {
+      padding: 24px;
+      border-radius: 18px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+    .career-card i {
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .career-card h3 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 6px;
+    }
+
+    .career-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= RESOURCES ================= */
+
+    .resource {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 19px 21px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      margin-bottom: 12px;
+    }
+
+    .resource-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .resource-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .resource strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .resource span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .resource a {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ================= TIPS ================= */
+
+    .tips {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .tip {
+      padding: 18px;
+      border-radius: 14px;
+      background: white;
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .tip i {
+      color: var(--green);
+      margin-top: 3px;
+    }
+
+    .tip strong {
+      font-size: 14px;
+    }
+
+    .tip p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      padding: 65px 0;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary), #6941C6);
+      border-radius: 25px;
+      padding: 55px 30px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 25px 60px rgba(21,94,239,0.22);
+    }
+
+    .cta-box h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(30px, 4vw, 45px);
+      margin-bottom: 10px;
+    }
+
+    .cta-box p {
+      color: #E7EDFF;
+      margin-bottom: 25px;
+    }
+
+    .cta-box .btn {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 45px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand p {
+      color: #98A2B3;
+      max-width: 400px;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+
+    footer h4 {
+      margin-bottom: 13px;
+    }
+
+    footer a {
+      display: block;
+      color: #98A2B3;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 35px;
+      padding-top: 20px;
+      color: #667085;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* ================= REVEAL ================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        padding: 15px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        text-align: center;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .network-visual {
+        min-height: 380px;
+      }
+
+      .grid-4,
+      .topic-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 55px 0;
+      }
+
+      .hero {
+        padding: 55px 0 40px;
+      }
+
+      h1 {
+        font-size: 43px;
+      }
+
+      .grid-3,
+      .grid-4,
+      .topic-grid,
+      .tips {
+        grid-template-columns: 1fr;
+      }
+
+      .network-card {
+        width: 285px;
+        height: 285px;
+      }
+
+      .node-1 {
+        left: 109px;
+      }
+
+      .node-3 {
+        left: 109px;
+      }
+
+      .node-2 {
+        right: 0;
+      }
+
+      .node-4 {
+        left: 0;
+      }
+
+      .roadmap-item {
+        grid-template-columns: 45px 1fr;
+        gap: 14px;
+      }
+
+      .roadmap-number {
+        width: 45px;
+        height: 45px;
+      }
+
+      .roadmap::before {
+        left: 22px;
+      }
+
+      .resource {
+        align-items: flex-start;
+      }
+
+      .resource a {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+  <div class="container nav">
+
+    <a href="../index.html" class="logo">
+      <img src="../logo.png" alt="ASCEND Logo">
+      ASCEND
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html">Home</a>
+      <a href="../Books.html">Learn</a>
+      <a href="../Assignments.html">Tasks</a>
+      <a href="../Skills.html" class="active">Skills</a>
+      <a href="../Careers.html">Careers</a>
+      <a href="../Business.html">Business</a>
+      <a href="../Leadership.html">Leadership</a>
+      <a href="../Aboutus.html">About</a>
+      <a href="../Faq.html">FAQ</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+  </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+    <div class="reveal">
+
+      <div class="badge">
+        <i class="fa-solid fa-people-group"></i>
+        ASCEND SOCIAL SKILL
+      </div>
+
+      <h1>
+        Master
+        <span class="gradient-text">Social Networking</span>
+      </h1>
+
+      <p>
+        Social networking isn't simply collecting contacts.
+        Learn how to introduce yourself, talk to professionals,
+        attend events, ask meaningful questions, maintain professional
+        relationships, help others and follow up professionally.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#roadmap" class="btn btn-primary">
+          <i class="fa-solid fa-route"></i>
+          Start Learning
+        </a>
+
+        <a href="../Skills.html" class="btn btn-light">
+          <i class="fa-solid fa-arrow-left"></i>
+          All Skills
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="network-visual reveal">
+
+      <div class="network-card">
+
+        <div class="center-person">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div class="person-node node-1">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+
+        <div class="person-node node-2">
+          <i class="fa-solid fa-people-group"></i>
+        </div>
+
+        <div class="person-node node-3">
+          <i class="fa-solid fa-handshake"></i>
+        </div>
+
+        <div class="person-node node-4">
+          <i class="fa-solid fa-comments"></i>
+        </div>
+
+      </div>
+
+      <div class="visual-label label-top">
+        <i class="fa-solid fa-comment"></i>
+        Meaningful Conversations
+      </div>
+
+      <div class="visual-label label-bottom">
+        <i class="fa-solid fa-handshake"></i>
+        Build Relationships
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head reveal">
+      <span>Why Social Networking?</span>
+
+      <h2>Build Relationships, Not Just Contacts</h2>
+
+      <p>
+        Effective networking is about creating genuine professional
+        relationships based on communication, curiosity, trust and mutual support.
+      </p>
+    </div>
+
+
+    <div class="grid-3">
+
+      <div class="card reveal">
+
+        <div class="icon-box blue">
+          <i class="fa-solid fa-user-plus"></i>
+        </div>
+
+        <h3>Meet People</h3>
+
+        <p>
+          Learn how to introduce yourself confidently and start
+          conversations with new people.
+        </p>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <div class="icon-box purple">
+          <i class="fa-solid fa-comments"></i>
+        </div>
+
+        <h3>Communicate</h3>
+
+        <p>
+          Ask meaningful questions, listen carefully and have
+          useful professional conversations.
+        </p>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <div class="icon-box green">
+          <i class="fa-solid fa-handshake"></i>
+        </div>
+
+        <h3>Build Relationships</h3>
+
+        <p>
+          Maintain professional connections, offer help and
+          follow up respectfully.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CORE SKILLS ================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <span>Core Skills</span>
+
+      <h2>What You Will Learn</h2>
+
+      <p>
+        Develop practical networking skills that can be used in
+        college, events, internships and professional environments.
+      </p>
+
+    </div>
+
+
+    <div class="grid-3">
+
+      <div class="skill-card reveal">
+        <i class="fa-solid fa-user"></i>
+        <div>
+          <strong>Self Introduction</strong>
+          <span>Introduce yourself clearly and confidently</span>
+        </div>
+      </div>
+
+
+      <div class="skill-card reveal">
+        <i class="fa-solid fa-comments"></i>
+        <div>
+          <strong>Conversation Skills</strong>
+          <span>Start and maintain meaningful conversations</span>
+        </div>
+      </div>
+
+
+      <div class="skill-card reveal">
+        <i class="fa-solid fa-user-tie"></i>
+        <div>
+          <strong>Professional Interaction</strong>
+          <span>Communicate respectfully with professionals</span>
+        </div>
+      </div>
+
+
+      <div class="skill-card reveal">
+        <i class="fa-solid fa-calendar-days"></i>
+        <div>
+          <strong>Event Networking</strong>
+          <span>Connect with people at events and conferences</span>
+        </div>
+      </div>
+
+
+      <div class="skill-card reveal">
+        <i class="fa-solid fa-circle-question"></i>
+        <div>
+          <strong>Meaningful Questions</strong>
+          <span>Ask useful questions that create conversation</span>
+        </div>
+      </div>
+
+
+      <div class="skill-card reveal">
+        <i class="fa-solid fa-heart"></i>
+        <div>
+          <strong>Relationship Building</strong>
+          <span>Create genuine and respectful connections</span>
+        </div>
+      </div>
+
+
+      <div class="skill-card reveal">
+        <i class="fa-solid fa-hands-helping"></i>
+        <div>
+          <strong>Helping Others</strong>
+          <span>Share knowledge, opportunities and support</span>
+        </div>
+      </div>
+
+
+      <div class="skill-card reveal">
+        <i class="fa-solid fa-reply"></i>
+        <div>
+          <strong>Professional Follow-Up</strong>
+          <span>Stay connected after meeting someone</span>
+        </div>
+      </div>
+
+
+      <div class="skill-card reveal">
+        <i class="fa-solid fa-shield-heart"></i>
+        <div>
+          <strong>Professional Etiquette</strong>
+          <span>Respect boundaries and communicate appropriately</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TOPICS ================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <span>Learning Topics</span>
+
+      <h2>Social Networking Fundamentals</h2>
+
+      <p>
+        Learn the complete process of meeting people,
+        starting conversations and developing professional relationships.
+      </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-user"></i>
+        Self Introduction
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-comments"></i>
+        Starting Conversations
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-ear-listen"></i>
+        Active Listening
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-circle-question"></i>
+        Asking Questions
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-user-tie"></i>
+        Talking to Professionals
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-calendar-days"></i>
+        Networking Events
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-handshake"></i>
+        Relationship Building
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-people-arrows"></i>
+        Professional Connections
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-hands-helping"></i>
+        Helping Others
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-reply"></i>
+        Follow-Up
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-envelope"></i>
+        Professional Messages
+      </div>
+
+      <div class="topic reveal">
+        <i class="fa-solid fa-network-wired"></i>
+        Building Your Network
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PROCESS ================= -->
+
+<section class="process-section">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <span>Networking Process</span>
+
+      <h2>From Introduction to Relationship</h2>
+
+      <p>
+        A simple process for developing meaningful professional connections.
+      </p>
+
+    </div>
+
+
+    <div class="process">
+
+      <div class="process-step reveal">
+        <div class="process-number">1</div>
+        <strong>Introduce</strong>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="process-step reveal">
+        <div class="process-number">2</div>
+        <strong>Connect</strong>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="process-step reveal">
+        <div class="process-number">3</div>
+        <strong>Talk</strong>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="process-step reveal">
+        <div class="process-number">4</div>
+        <strong>Listen</strong>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="process-step reveal">
+        <div class="process-number">5</div>
+        <strong>Ask</strong>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="process-step reveal">
+        <div class="process-number">6</div>
+        <strong>Help</strong>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="process-step reveal">
+        <div class="process-number">7</div>
+        <strong>Follow Up</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TOOLKIT ================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <span>Networking Toolkit</span>
+
+      <h2>Tools for Better Connections</h2>
+
+      <p>
+        Use simple tools and habits to organize and maintain your professional network.
+      </p>
+
+    </div>
+
+
+    <div class="grid-4">
+
+      <div class="tool reveal">
+        <i class="fa-solid fa-address-book"></i>
+        <strong>Contact List</strong>
+      </div>
+
+      <div class="tool reveal">
+        <i class="fa-solid fa-id-card"></i>
+        <strong>Professional Profile</strong>
+      </div>
+
+      <div class="tool reveal">
+        <i class="fa-solid fa-envelope"></i>
+        <strong>Email</strong>
+      </div>
+
+      <div class="tool reveal">
+        <i class="fa-solid fa-message"></i>
+        <strong>Messages</strong>
+      </div>
+
+      <div class="tool reveal">
+        <i class="fa-solid fa-calendar-check"></i>
+        <strong>Events</strong>
+      </div>
+
+      <div class="tool reveal">
+        <i class="fa-solid fa-note-sticky"></i>
+        <strong>Notes</strong>
+      </div>
+
+      <div class="tool reveal">
+        <i class="fa-solid fa-bell"></i>
+        <strong>Reminders</strong>
+      </div>
+
+      <div class="tool reveal">
+        <i class="fa-solid fa-users"></i>
+        <strong>Communities</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <span>Learning Roadmap</span>
+
+      <h2>Social Networking Roadmap</h2>
+
+      <p>
+        Follow these steps to gradually develop your networking ability.
+      </p>
+
+    </div>
+
+
+    <div class="roadmap">
+
+      <div class="roadmap-item reveal">
+
+        <div class="roadmap-number">1</div>
+
+        <div class="roadmap-content">
+          <h3>Understand Networking</h3>
+          <p>
+            Learn what professional networking means and why relationships
+            can support learning and career development.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="roadmap-item reveal">
+
+        <div class="roadmap-number">2</div>
+
+        <div class="roadmap-content">
+          <h3>Prepare Your Introduction</h3>
+          <p>
+            Create a short and clear introduction about who you are,
+            what you study and what you are interested in.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="roadmap-item reveal">
+
+        <div class="roadmap-number">3</div>
+
+        <div class="roadmap-content">
+          <h3>Start Conversations</h3>
+          <p>
+            Learn simple ways to approach people and begin respectful,
+            natural conversations.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="roadmap-item reveal">
+
+        <div class="roadmap-number">4</div>
+
+        <div class="roadmap-content">
+          <h3>Talk to Professionals</h3>
+          <p>
+            Practice communicating with professionals, seniors,
+            mentors and people working in fields you are interested in.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="roadmap-item reveal">
+
+        <div class="roadmap-number">5</div>
+
+        <div class="roadmap-content">
+          <h3>Attend Events</h3>
+          <p>
+            Learn how to participate in seminars, workshops,
+            conferences, career events and community activities.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="roadmap-item reveal">
+
+        <div class="roadmap-number">6</div>
+
+        <div class="roadmap-content">
+          <h3>Ask Meaningful Questions</h3>
+          <p>
+            Ask questions that show genuine curiosity and help you
+            learn from other people's experiences.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="roadmap-item reveal">
+
+        <div class="roadmap-number">7</div>
+
+        <div class="roadmap-content">
+          <h3>Maintain Relationships</h3>
+          <p>
+            Stay connected through useful conversations, updates,
+            appreciation and occasional professional interaction.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="roadmap-item reveal">
+
+        <div class="roadmap-number">8</div>
+
+        <div class="roadmap-content">
+          <h3>Help Others & Follow Up</h3>
+          <p>
+            Share useful information, support others when appropriate
+            and follow up professionally after meeting them.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ACTIVITIES ================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <span>Practice Activities</span>
+
+      <h2>Learn by Connecting</h2>
+
+      <p>
+        Practice networking through realistic student and professional situations.
+      </p>
+
+    </div>
+
+
+    <div class="grid-3">
+
+      <div class="activity-card reveal">
+        <div class="activity-icon">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <h3>Self Introduction</h3>
+        <p>
+          Prepare and practice a 30–60 second professional introduction.
+        </p>
+      </div>
+
+
+      <div class="activity-card reveal">
+        <div class="activity-icon">
+          <i class="fa-solid fa-comments"></i>
+        </div>
+        <h3>Conversation Challenge</h3>
+        <p>
+          Practice starting a conversation with someone you have not met before.
+        </p>
+      </div>
+
+
+      <div class="activity-card reveal">
+        <div class="activity-icon">
+          <i class="fa-solid fa-circle-question"></i>
+        </div>
+        <h3>Question Challenge</h3>
+        <p>
+          Prepare five meaningful questions for a professional or mentor.
+        </p>
+      </div>
+
+
+      <div class="activity-card reveal">
+        <div class="activity-icon">
+          <i class="fa-solid fa-calendar-days"></i>
+        </div>
+        <h3>Event Networking</h3>
+        <p>
+          Practice meeting people and introducing yourself at an event.
+        </p>
+      </div>
+
+
+      <div class="activity-card reveal">
+        <div class="activity-icon">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <h3>Follow-Up Message</h3>
+        <p>
+          Write a short professional message after meeting someone.
+        </p>
+      </div>
+
+
+      <div class="activity-card reveal">
+        <div class="activity-icon">
+          <i class="fa-solid fa-hands-helping"></i>
+        </div>
+        <h3>Help Someone</h3>
+        <p>
+          Share a useful resource, idea or opportunity with someone in your network.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CAREER APPLICATIONS ================= -->
+
+<section class="career-section">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <span>Real-World Applications</span>
+
+      <h2>Where Social Networking Helps</h2>
+
+      <p>
+        Networking can support communication, learning, collaboration and
+        professional development in many situations.
+      </p>
+
+    </div>
+
+
+    <div class="grid-3">
+
+      <div class="career-card reveal">
+        <i class="fa-solid fa-briefcase"></i>
+        <h3>Job Search</h3>
+        <p>
+          Learn about industries, roles and opportunities through professional connections.
+        </p>
+      </div>
+
+
+      <div class="career-card reveal">
+        <i class="fa-solid fa-user-graduate"></i>
+        <h3>Mentorship</h3>
+        <p>
+          Connect with experienced people and learn from their knowledge.
+        </p>
+      </div>
+
+
+      <div class="career-card reveal">
+        <i class="fa-solid fa-building"></i>
+        <h3>Industry Exposure</h3>
+        <p>
+          Understand professional environments by interacting with people in the field.
+        </p>
+      </div>
+
+
+      <div class="career-card reveal">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h3>Entrepreneurship</h3>
+        <p>
+          Build relationships with customers, collaborators, mentors and other founders.
+        </p>
+      </div>
+
+
+      <div class="career-card reveal">
+        <i class="fa-solid fa-people-group"></i>
+        <h3>Team Collaboration</h3>
+        <p>
+          Build relationships that make communication and teamwork easier.
+        </p>
+      </div>
+
+
+      <div class="career-card reveal">
+        <i class="fa-solid fa-chalkboard-user"></i>
+        <h3>Professional Learning</h3>
+        <p>
+          Discover ideas, communities, events and learning opportunities.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= RESOURCES ================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <span>Free Resources</span>
+
+      <h2>Learn More About Networking</h2>
+
+      <p>
+        Explore these platforms for communication, professional development
+        and relationship-building skills.
+      </p>
+
+    </div>
+
+
+    <div class="resource reveal">
+
+      <div class="resource-info">
+
+        <div class="resource-icon">
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+
+        <div>
+          <strong>LinkedIn</strong>
+          <span>Professional networking and career exploration</span>
+        </div>
+
+      </div>
+
+      <a href="https://www.linkedin.com/" target="_blank">
+        Visit <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+
+    </div>
+
+
+    <div class="resource reveal">
+
+      <div class="resource-info">
+
+        <div class="resource-icon">
+          <i class="fa-solid fa-microphone"></i>
+        </div>
+
+        <div>
+          <strong>Toastmasters</strong>
+          <span>Practice communication and public speaking</span>
+        </div>
+
+      </div>
+
+      <a href="https://www.toastmasters.org/" target="_blank">
+        Visit <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+
+    </div>
+
+
+    <div class="resource reveal">
+
+      <div class="resource-info">
+
+        <div class="resource-icon">
+          <i class="fa-solid fa-lightbulb"></i>
+        </div>
+
+        <div>
+          <strong>TED</strong>
+          <span>Explore ideas, speakers and communication styles</span>
+        </div>
+
+      </div>
+
+      <a href="https://www.ted.com/" target="_blank">
+        Visit <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+
+    </div>
+
+
+    <div class="resource reveal">
+
+      <div class="resource-info">
+
+        <div class="resource-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <div>
+          <strong>OpenLearn</strong>
+          <span>Free courses and learning resources</span>
+        </div>
+
+      </div>
+
+      <a href="https://www.open.edu/openlearn/" target="_blank">
+        Visit <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+
+    </div>
+
+
+    <div class="resource reveal">
+
+      <div class="resource-info">
+
+        <div class="resource-icon">
+          <i class="fa-solid fa-book"></i>
+        </div>
+
+        <div>
+          <strong>MindTools</strong>
+          <span>Professional and workplace skills</span>
+        </div>
+
+      </div>
+
+      <a href="https://www.mindtools.com/" target="_blank">
+        Visit <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+
+    </div>
+
+
+    <div class="resource reveal">
+
+      <div class="resource-info">
+
+        <div class="resource-icon">
+          <i class="fa-solid fa-globe"></i>
+        </div>
+
+        <div>
+          <strong>Coursera</strong>
+          <span>Courses for communication and professional development</span>
+        </div>
+
+      </div>
+
+      <a href="https://www.coursera.org/" target="_blank">
+        Visit <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TIPS ================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <span>Networking Tips</span>
+
+      <h2>Build Connections the Right Way</h2>
+
+      <p>
+        Good networking focuses on genuine communication and mutual value.
+      </p>
+
+    </div>
+
+
+    <div class="tips">
+
+      <div class="tip reveal">
+        <i class="fa-solid fa-check"></i>
+        <div>
+          <strong>Introduce Yourself Clearly</strong>
+          <p>Say who you are, what you do and what interests you.</p>
+        </div>
+      </div>
+
+
+      <div class="tip reveal">
+        <i class="fa-solid fa-check"></i>
+        <div>
+          <strong>Listen Carefully</strong>
+          <p>Give the other person your attention instead of only talking about yourself.</p>
+        </div>
+      </div>
+
+
+      <div class="tip reveal">
+        <i class="fa-solid fa-check"></i>
+        <div>
+          <strong>Ask Meaningful Questions</strong>
+          <p>Show genuine curiosity about the person's work and experience.</p>
+        </div>
+      </div>
+
+
+      <div class="tip reveal">
+        <i class="fa-solid fa-check"></i>
+        <div>
+          <strong>Don't Collect Contacts Only</strong>
+          <p>A useful network is based on relationships, not just a long contact list.</p>
+        </div>
+      </div>
+
+
+      <div class="tip reveal">
+        <i class="fa-solid fa-check"></i>
+        <div>
+          <strong>Offer Help</strong>
+          <p>Share useful information or support others when you can.</p>
+        </div>
+      </div>
+
+
+      <div class="tip reveal">
+        <i class="fa-solid fa-check"></i>
+        <div>
+          <strong>Follow Up Professionally</strong>
+          <p>Send a short, respectful follow-up after an important interaction.</p>
+        </div>
+      </div>
+
+
+      <div class="tip reveal">
+        <i class="fa-solid fa-check"></i>
+        <div>
+          <strong>Respect Boundaries</strong>
+          <p>Give people appropriate space and avoid excessive messaging.</p>
+        </div>
+      </div>
+
+
+      <div class="tip reveal">
+        <i class="fa-solid fa-check"></i>
+        <div>
+          <strong>Stay Genuine</strong>
+          <p>Focus on learning and building real relationships instead of forcing connections.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+  <div class="container">
+
+    <div class="cta-box reveal">
+
+      <h2>Connect. Learn. Grow.</h2>
+
+      <p>
+        Meet people, learn from experiences, help others
+        and build meaningful professional relationships.
+      </p>
+
+      <a href="../Skills.html" class="btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Explore More Skills
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <div class="logo">
+          <img src="../logo.png" alt="ASCEND Logo">
+          ASCEND
+        </div>
+
+        <p>
+          Learn skills. Build confidence. Explore careers.
+          ASCEND helps learners develop practical skills for education,
+          careers and personal growth.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>Explore</h4>
+
+        <a href="../index.html">Home</a>
+        <a href="../Books.html">Learn</a>
+        <a href="../Assignments.html">Tasks</a>
+        <a href="../Skills.html">Skills</a>
+        <a href="../Careers.html">Careers</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>ASCEND</h4>
+
+        <a href="../Aboutus.html">About Us</a>
+        <a href="../Business.html">Business</a>
+        <a href="../Leadership.html">Leadership</a>
+        <a href="../Faq.html">FAQ</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 ASCEND Learning Community. All rights reserved.
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+
+    const icon = menuBtn.querySelector("i");
+
+    if (navLinks.classList.contains("show")) {
+      icon.classList.remove("fa-bars");
+      icon.classList.add("fa-xmark");
+    } else {
+      icon.classList.remove("fa-xmark");
+      icon.classList.add("fa-bars");
+    }
+  });
+
+
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.12
+    }
+  );
+
+
+  revealElements.forEach((element) => {
+    observer.observe(element);
+  });
+
+</script>
+
+</body>
+</html>

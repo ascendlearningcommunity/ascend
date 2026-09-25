@@ -1,0 +1,3475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Database & SQL — ASCEND Skills</title>
+
+<link rel="icon" href="../logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --shadow:0 10px 30px rgba(16,24,40,.07);
+    --shadow-hover:0 18px 45px rgba(16,24,40,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+h1,h2,h3,h4{
+    font-family:'Outfit',sans-serif;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Outfit',sans-serif;
+    font-size:24px;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.logo img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:9px;
+    color:var(--muted);
+    font-size:13px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--primary-light);
+    color:var(--primary);
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:75px 0 65px;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(21,94,239,.10),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(127,86,217,.12),transparent 28%),
+        var(--white);
+    border-bottom:1px solid var(--border);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:999px;
+    background:var(--purple-light);
+    color:var(--purple);
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,68px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    color:var(--muted);
+    max-width:650px;
+    font-size:16px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 19px;
+    border-radius:11px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-light{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.btn-light:hover{
+    transform:translateY(-2px);
+}
+
+/* ================= DATABASE VISUAL ================= */
+
+.hero-visual{
+    position:relative;
+    min-height:360px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.database-dashboard{
+    width:min(100%,450px);
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:22px;
+    box-shadow:0 25px 70px rgba(16,24,40,.15);
+}
+
+.dashboard-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.dashboard-title{
+    font-family:'Outfit';
+    font-weight:700;
+}
+
+.dashboard-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:var(--primary-light);
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+}
+
+.database-screen{
+    background:var(--dark);
+    border-radius:15px;
+    padding:20px;
+    min-height:170px;
+    color:#D1E0FF;
+    font-family:monospace;
+    font-size:12px;
+    overflow:hidden;
+}
+
+.code-line{
+    margin-bottom:9px;
+}
+
+.code-keyword{
+    color:#7FB3FF;
+}
+
+.code-table{
+    color:#7EE2B8;
+}
+
+.code-value{
+    color:#FFD43B;
+}
+
+.db-row{
+    display:grid;
+    grid-template-columns:1.1fr 1fr 1fr;
+    gap:8px;
+    margin-top:14px;
+}
+
+.db-box{
+    background:var(--bg);
+    border-radius:11px;
+    padding:12px;
+    text-align:center;
+}
+
+.db-box i{
+    color:var(--primary);
+    font-size:14px;
+}
+
+.db-box strong{
+    display:block;
+    font-family:'Outfit';
+    font-size:17px;
+    margin-top:3px;
+}
+
+.db-box span{
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+}
+
+.float-card{
+    position:absolute;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    padding:14px 16px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.float-card i{
+    color:var(--primary);
+}
+
+.float-1{
+    top:25px;
+    left:0;
+}
+
+.float-2{
+    bottom:25px;
+    right:0;
+}
+
+/* ================= COMMON ================= */
+
+section{
+    padding:70px 0;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 40px;
+}
+
+.section-heading .mini{
+    color:var(--primary);
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.section-heading h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.grid{
+    display:grid;
+    gap:20px;
+}
+
+.grid-3{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.grid-4{
+    grid-template-columns:repeat(4,1fr);
+}
+
+.card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:24px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-hover);
+}
+
+.icon-box{
+    width:48px;
+    height:48px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:18px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.card h3{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= OVERVIEW ================= */
+
+.overview{
+    background:var(--bg);
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-family:'Outfit';
+    font-size:30px;
+    color:var(--primary);
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:18px;
+}
+
+.topic{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:11px 12px;
+    background:var(--bg);
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.topic i{
+    color:var(--primary);
+}
+
+/* ================= DATABASE TYPES ================= */
+
+.database-card{
+    position:relative;
+    overflow:hidden;
+}
+
+.database-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    right:-45px;
+    top:-45px;
+    background:var(--primary-light);
+}
+
+.database-card .icon-box{
+    position:relative;
+    z-index:1;
+}
+
+/* ================= TOOLS ================= */
+
+.stack-card{
+    text-align:center;
+}
+
+.stack-card .icon-box{
+    margin:0 auto 15px;
+}
+
+.stack-card h3{
+    font-size:17px;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.roadmap::before{
+    content:"";
+    position:absolute;
+    left:28px;
+    top:10px;
+    bottom:10px;
+    width:2px;
+    background:var(--border);
+}
+
+.step{
+    position:relative;
+    display:flex;
+    gap:22px;
+    margin-bottom:24px;
+}
+
+.step:last-child{
+    margin-bottom:0;
+}
+
+.step-number{
+    flex:0 0 58px;
+    height:58px;
+    border-radius:16px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Outfit';
+    font-weight:800;
+    z-index:2;
+    box-shadow:0 0 0 7px var(--bg);
+}
+
+.step-content{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:18px 20px;
+    flex:1;
+    box-shadow:var(--shadow);
+}
+
+.step-content h3{
+    font-size:18px;
+    margin-bottom:4px;
+}
+
+.step-content p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= SQL EXAMPLES ================= */
+
+.sql-box{
+    background:var(--dark);
+    border-radius:15px;
+    padding:22px;
+    color:#D1E0FF;
+    font-family:monospace;
+    font-size:12px;
+    overflow:auto;
+    margin-top:18px;
+}
+
+.sql-keyword{
+    color:#7FB3FF;
+}
+
+.sql-table{
+    color:#7EE2B8;
+}
+
+.sql-string{
+    color:#FFD43B;
+}
+
+.sql-comment{
+    color:#98A2B3;
+}
+
+/* ================= PROJECTS ================= */
+
+.project-card{
+    position:relative;
+}
+
+.project-card .level{
+    position:absolute;
+    right:18px;
+    top:18px;
+    padding:5px 9px;
+    border-radius:999px;
+    font-size:10px;
+    font-weight:800;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.project-card ul{
+    list-style:none;
+    margin-top:16px;
+}
+
+.project-card li{
+    display:flex;
+    gap:8px;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:8px;
+}
+
+.project-card li i{
+    color:var(--green);
+    margin-top:4px;
+}
+
+/* ================= CAREERS ================= */
+
+.role{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.role-icon{
+    width:45px;
+    height:45px;
+    flex:0 0 45px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.role h3{
+    font-size:16px;
+}
+
+.role p{
+    margin-top:4px;
+}
+
+/* ================= RESOURCES ================= */
+
+.resource{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.resource-icon{
+    width:46px;
+    height:46px;
+    flex:0 0 46px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.resource h3{
+    font-size:16px;
+}
+
+.resource p{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:3px;
+}
+
+.resource a{
+    display:inline-block;
+    margin-top:6px;
+    font-size:11px;
+    color:var(--primary);
+    font-weight:700;
+}
+
+/* ================= TIPS ================= */
+
+.tips{
+    background:var(--dark);
+    color:white;
+}
+
+.tips .section-heading h2{
+    color:white;
+}
+
+.tips .section-heading p{
+    color:#98A2B3;
+}
+
+.tip-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.tip{
+    background:#1D2939;
+    border:1px solid #344054;
+    border-radius:15px;
+    padding:22px;
+}
+
+.tip i{
+    color:var(--yellow);
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.tip h3{
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.tip p{
+    color:#98A2B3;
+    font-size:12px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:65px 0;
+}
+
+.cta-box{
+    background:
+        radial-gradient(circle at 85% 20%,rgba(255,212,59,.18),transparent 25%),
+        var(--primary);
+    color:white;
+    border-radius:24px;
+    padding:50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta-box h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.cta-box p{
+    color:#DDE7FF;
+    max-width:650px;
+    margin:0 auto;
+    font-size:14px;
+}
+
+.cta-box .btn{
+    margin-top:22px;
+    background:white;
+    color:var(--primary);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0B1220;
+    color:white;
+    padding:45px 0 85px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+    font-size:12px;
+    margin-top:12px;
+    max-width:400px;
+}
+
+.footer-col h4{
+    margin-bottom:12px;
+    font-size:14px;
+}
+
+.footer-col a{
+    display:block;
+    color:#98A2B3;
+    font-size:12px;
+    margin-top:8px;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid #1D2939;
+    margin-top:30px;
+    padding-top:20px;
+    color:#667085;
+    font-size:11px;
+    text-align:center;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* ================= ANIMATION ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:.7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:55px;
+    }
+
+    .hero-visual{
+        min-height:300px;
+    }
+
+    .grid-4{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:700px){
+
+    .container{
+        width:94%;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .float-card{
+        display:none;
+    }
+
+    .database-dashboard{
+        width:100%;
+    }
+
+    .grid-3,
+    .grid-4,
+    .tip-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading h2{
+        font-size:29px;
+    }
+
+    .roadmap::before{
+        left:24px;
+    }
+
+    .step{
+        gap:15px;
+    }
+
+    .step-number{
+        flex:0 0 50px;
+        height:50px;
+    }
+
+    .cta-box{
+        padding:35px 20px;
+    }
+
+    .cta-box h2{
+        font-size:29px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        left:12px;
+        right:12px;
+        bottom:12px;
+        height:64px;
+        z-index:2000;
+        background:rgba(255,255,255,.96);
+        backdrop-filter:blur(15px);
+        border:1px solid var(--border);
+        border-radius:18px;
+        box-shadow:0 15px 40px rgba(16,24,40,.16);
+        align-items:center;
+        justify-content:space-around;
+    }
+
+    .mobile-nav a{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:4px;
+        font-size:9px;
+        color:var(--muted);
+        font-weight:700;
+    }
+
+    .mobile-nav a i{
+        font-size:17px;
+    }
+
+    .mobile-nav a.active{
+        color:var(--primary);
+    }
+
+    footer{
+        padding-bottom:100px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+    <a href="../index.html" class="logo">
+
+        <img src="../logo.png" alt="ASCEND Logo">
+
+        ASCEND
+
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="../index.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="../Books.html">
+            <i class="fa-solid fa-book"></i>
+            Learn
+        </a>
+
+        <a href="../Assignments.html">
+            <i class="fa-solid fa-list-check"></i>
+            Tasks
+        </a>
+
+        <a href="Skills.html" class="active">
+            <i class="fa-solid fa-code"></i>
+            Skills
+        </a>
+
+        <a href="../Careers.html">
+            <i class="fa-solid fa-briefcase"></i>
+            Careers
+        </a>
+
+        <a href="../Aboutus.html">
+            <i class="fa-solid fa-circle-info"></i>
+            About
+        </a>
+
+        <a href="../Business.html">
+            <i class="fa-solid fa-lightbulb"></i>
+            Business
+        </a>
+
+        <a href="../Leadership.html">
+            <i class="fa-solid fa-users"></i>
+            Leadership
+        </a>
+
+        <a href="../Faq.html">
+            <i class="fa-solid fa-circle-question"></i>
+            FAQ
+        </a>
+
+    </nav>
+
+
+    <button class="menu-btn" onclick="toggleMenu()">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+    <div class="reveal">
+
+        <div class="badge">
+
+            <i class="fa-solid fa-database"></i>
+
+            ASCEND TECH SKILL
+
+        </div>
+
+
+        <h1>
+
+            Master <span>Database & SQL</span><br>
+
+            Manage Data with Confidence.
+
+        </h1>
+
+
+        <p>
+
+            Learn how data is stored, organized, queried and
+            managed using databases and SQL. Build strong
+            foundations in relational databases, database design,
+            queries, optimization and real-world data systems.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#roadmap" class="btn btn-primary">
+
+                <i class="fa-solid fa-route"></i>
+
+                Start Roadmap
+
+            </a>
+
+
+            <a href="#projects" class="btn btn-light">
+
+                <i class="fa-solid fa-database"></i>
+
+                Explore Projects
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual reveal">
+
+
+        <div class="float-card float-1">
+
+            <i class="fa-solid fa-table"></i>
+
+            Structured Data
+
+        </div>
+
+
+        <div class="database-dashboard">
+
+
+            <div class="dashboard-top">
+
+                <div>
+
+                    <div class="dashboard-title">
+                        SQL Database
+                    </div>
+
+                    <small style="color:#667085;">
+                        Query & Manage Data
+                    </small>
+
+                </div>
+
+
+                <div class="dashboard-icon">
+
+                    <i class="fa-solid fa-database"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="database-screen">
+
+                <div class="code-line">
+                    <span class="code-keyword">SELECT</span>
+                    name, email
+                </div>
+
+                <div class="code-line">
+                    <span class="code-keyword">FROM</span>
+                    <span class="code-table">students</span>
+                </div>
+
+                <div class="code-line">
+                    <span class="code-keyword">WHERE</span>
+                    course =
+                    <span class="code-value">'Computer Science'</span>;
+                </div>
+
+                <br>
+
+                <div class="code-line">
+                    ✓ Query executed successfully
+                </div>
+
+            </div>
+
+
+            <div class="db-row">
+
+                <div class="db-box">
+
+                    <i class="fa-solid fa-table"></i>
+
+                    <strong>Tables</strong>
+
+                    <span>Structured Data</span>
+
+                </div>
+
+
+                <div class="db-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <strong>SQL</strong>
+
+                    <span>Query Data</span>
+
+                </div>
+
+
+                <div class="db-box">
+
+                    <i class="fa-solid fa-link"></i>
+
+                    <strong>Relations</strong>
+
+                    <span>Connect Data</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="float-card float-2">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            Data Management
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section class="overview">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Database & SQL Overview
+        </div>
+
+        <h2>
+            Understand How Data Systems Work
+        </h2>
+
+        <p>
+            Learn how applications store, retrieve and manage
+            information efficiently using database technologies.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-4">
+
+
+        <div class="card stat reveal">
+
+            <strong>01</strong>
+
+            <span>
+                Data Fundamentals
+            </span>
+
+        </div>
+
+
+        <div class="card stat reveal">
+
+            <strong>02</strong>
+
+            <span>
+                SQL
+            </span>
+
+        </div>
+
+
+        <div class="card stat reveal">
+
+            <strong>03</strong>
+
+            <span>
+                Database Design
+            </span>
+
+        </div>
+
+
+        <div class="card stat reveal">
+
+            <strong>04</strong>
+
+            <span>
+                Optimization
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CORE TOPICS ================= -->
+
+<section>
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            What You Learn
+        </div>
+
+        <h2>
+            Database & SQL Core Topics
+        </h2>
+
+        <p>
+            Build knowledge from basic data concepts
+            to advanced database management.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <!-- Fundamentals -->
+
+        <div class="card reveal">
+
+            <div class="icon-box blue">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <h3>
+                Database Fundamentals
+            </h3>
+
+            <p>
+                Understand what databases are and why
+                applications use them.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    Data & Information
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    DBMS
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    Relational Databases
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SQL -->
+
+        <div class="card reveal">
+
+            <div class="icon-box green">
+
+                <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <h3>
+                SQL
+            </h3>
+
+            <p>
+                Learn how to create, retrieve, update and
+                delete information using SQL.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    SELECT
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    INSERT / UPDATE
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    DELETE
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Joins -->
+
+        <div class="card reveal">
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-link"></i>
+
+            </div>
+
+            <h3>
+                SQL Joins
+            </h3>
+
+            <p>
+                Learn how multiple tables can be connected
+                and queried together.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    INNER JOIN
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    LEFT JOIN
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    RIGHT JOIN
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Database Design -->
+
+        <div class="card reveal">
+
+            <div class="icon-box orange">
+
+                <i class="fa-solid fa-diagram-project"></i>
+
+            </div>
+
+            <h3>
+                Database Design
+            </h3>
+
+            <p>
+                Learn how to design structured and
+                maintainable database systems.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    ER Diagrams
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    Primary Keys
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    Foreign Keys
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Normalization -->
+
+        <div class="card reveal">
+
+            <div class="icon-box red">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+            </div>
+
+            <h3>
+                Normalization
+            </h3>
+
+            <p>
+                Organize relational data to reduce unnecessary
+                duplication and improve consistency.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    1NF
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    2NF
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    3NF
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Performance -->
+
+        <div class="card reveal">
+
+            <div class="icon-box cyan">
+
+                <i class="fa-solid fa-gauge-high"></i>
+
+            </div>
+
+            <h3>
+                Performance & Optimization
+            </h3>
+
+            <p>
+                Learn techniques that help databases handle
+                queries efficiently.
+            </p>
+
+
+            <div class="topic-list">
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    Indexes
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    Query Optimization
+
+                </div>
+
+
+                <div class="topic">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    Execution Plans
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= DATABASE TYPES ================= -->
+
+<section style="background:white;">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Database Technologies
+        </div>
+
+        <h2>
+            Databases You Should Know
+        </h2>
+
+        <p>
+            Understand both relational databases and
+            commonly used modern database technologies.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card database-card reveal">
+
+            <div class="icon-box blue">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <h3>
+                MySQL
+            </h3>
+
+            <p>
+                A widely used relational database system
+                for web applications and software projects.
+            </p>
+
+        </div>
+
+
+        <div class="card database-card reveal">
+
+            <div class="icon-box green">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <h3>
+                PostgreSQL
+            </h3>
+
+            <p>
+                A powerful relational database known for
+                its advanced SQL capabilities and extensibility.
+            </p>
+
+        </div>
+
+
+        <div class="card database-card reveal">
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <h3>
+                SQLite
+            </h3>
+
+            <p>
+                A lightweight database commonly used for
+                local applications and embedded systems.
+            </p>
+
+        </div>
+
+
+        <div class="card database-card reveal">
+
+            <div class="icon-box orange">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <h3>
+                Microsoft SQL Server
+            </h3>
+
+            <p>
+                A relational database platform widely used
+                in enterprise software environments.
+            </p>
+
+        </div>
+
+
+        <div class="card database-card reveal">
+
+            <div class="icon-box red">
+
+                <i class="fa-solid fa-leaf"></i>
+
+            </div>
+
+            <h3>
+                MongoDB
+            </h3>
+
+            <p>
+                A document-oriented database useful for
+                applications that work with flexible data structures.
+            </p>
+
+        </div>
+
+
+        <div class="card database-card reveal">
+
+            <div class="icon-box cyan">
+
+                <i class="fa-solid fa-cloud"></i>
+
+            </div>
+
+            <h3>
+                Supabase
+            </h3>
+
+            <p>
+                A developer platform providing PostgreSQL,
+                authentication, APIs and other application services.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SQL COMMANDS ================= -->
+
+<section>
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            SQL Practice
+        </div>
+
+        <h2>
+            Learn SQL Through Queries
+        </h2>
+
+        <p>
+            Start with simple queries and gradually combine
+            filtering, grouping and table relationships.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card reveal">
+
+            <div class="icon-box blue">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <h3>
+                SELECT
+            </h3>
+
+            <p>
+                Retrieve information from a database table.
+            </p>
+
+
+            <div class="sql-box">
+
+                <span class="sql-keyword">SELECT</span> name, email
+
+                <br>
+
+                <span class="sql-keyword">FROM</span>
+                <span class="sql-table">students</span>;
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box green">
+
+                <i class="fa-solid fa-filter"></i>
+
+            </div>
+
+            <h3>
+                WHERE
+            </h3>
+
+            <p>
+                Filter records according to a condition.
+            </p>
+
+
+            <div class="sql-box">
+
+                <span class="sql-keyword">SELECT</span> *
+
+                <br>
+
+                <span class="sql-keyword">FROM</span>
+                <span class="sql-table">students</span>
+
+                <br>
+
+                <span class="sql-keyword">WHERE</span>
+                age &gt; 18;
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-link"></i>
+
+            </div>
+
+            <h3>
+                JOIN
+            </h3>
+
+            <p>
+                Combine related information from multiple tables.
+            </p>
+
+
+            <div class="sql-box">
+
+                <span class="sql-keyword">SELECT</span> *
+
+                <br>
+
+                <span class="sql-keyword">FROM</span>
+                <span class="sql-table">students</span>
+
+                <br>
+
+                <span class="sql-keyword">JOIN</span>
+                <span class="sql-table">courses</span>
+
+                <br>
+
+                <span class="sql-keyword">ON</span>
+                students.course_id =
+                courses.id;
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOOLS ================= -->
+
+<section style="background:white;">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Database Toolkit
+        </div>
+
+        <h2>
+            Tools You Should Know
+        </h2>
+
+        <p>
+            Build practical skills using popular database
+            systems and development tools.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-4">
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box blue">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <h3>
+                MySQL
+            </h3>
+
+            <p>
+                Relational database management.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box green">
+
+                <i class="fa-solid fa-elephant"></i>
+
+            </div>
+
+            <h3>
+                PostgreSQL
+            </h3>
+
+            <p>
+                Advanced open-source SQL database.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-server"></i>
+
+            </div>
+
+            <h3>
+                SQL Server
+            </h3>
+
+            <p>
+                Enterprise database platform.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box orange">
+
+                <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <h3>
+                SQL Developer Tools
+            </h3>
+
+            <p>
+                Query editors and database clients.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box cyan">
+
+                <i class="fa-solid fa-cloud"></i>
+
+            </div>
+
+            <h3>
+                Supabase
+            </h3>
+
+            <p>
+                PostgreSQL-based application platform.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box red">
+
+                <i class="fa-solid fa-leaf"></i>
+
+            </div>
+
+            <h3>
+                MongoDB
+            </h3>
+
+            <p>
+                Document-oriented database.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box green">
+
+                <i class="fa-brands fa-docker"></i>
+
+            </div>
+
+            <h3>
+                Docker
+            </h3>
+
+            <p>
+                Run databases in isolated containers.
+            </p>
+
+        </div>
+
+
+        <div class="card stack-card reveal">
+
+            <div class="icon-box blue">
+
+                <i class="fa-brands fa-github"></i>
+
+            </div>
+
+            <h3>
+                GitHub
+            </h3>
+
+            <p>
+                Store and document database projects.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Learning Path
+        </div>
+
+        <h2>
+            Database & SQL Roadmap
+        </h2>
+
+        <p>
+            Follow a structured path from basic data concepts
+            to real-world database development.
+        </p>
+
+    </div>
+
+
+    <div class="roadmap">
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Data Fundamentals
+                </h3>
+
+                <p>
+                    Understand data, records, fields, tables,
+                    databases and database management systems.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Relational Database Concepts
+                </h3>
+
+                <p>
+                    Learn tables, rows, columns, relationships,
+                    primary keys and foreign keys.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    SQL Fundamentals
+                </h3>
+
+                <p>
+                    Practice SELECT, INSERT, UPDATE, DELETE,
+                    WHERE, ORDER BY and basic filtering.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Intermediate SQL
+                </h3>
+
+                <p>
+                    Learn aggregate functions, GROUP BY,
+                    HAVING, subqueries and more advanced queries.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                05
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    SQL Joins
+                </h3>
+
+                <p>
+                    Work with INNER JOIN, LEFT JOIN and
+                    other table relationship techniques.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                06
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Database Design
+                </h3>
+
+                <p>
+                    Learn ER diagrams, normalization,
+                    constraints and relational modeling.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                07
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Performance & Security
+                </h3>
+
+                <p>
+                    Understand indexes, query optimization,
+                    transactions, permissions and safe database practices.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">
+                08
+            </div>
+
+            <div class="step-content">
+
+                <h3>
+                    Projects & Portfolio
+                </h3>
+
+                <p>
+                    Build complete database-backed applications
+                    and document your SQL skills on GitHub.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects" style="background:white;">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Hands-On Practice
+        </div>
+
+        <h2>
+            Database & SQL Projects
+        </h2>
+
+        <p>
+            Turn SQL concepts into practical applications
+            and portfolio projects.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                BEGINNER
+            </span>
+
+
+            <div class="icon-box blue">
+
+                <i class="fa-solid fa-user-graduate"></i>
+
+            </div>
+
+
+            <h3>
+                Student Database
+            </h3>
+
+            <p>
+                Create a database for students, courses,
+                marks and attendance.
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Tables
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    CRUD Operations
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    SQL Queries
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                BEGINNER
+            </span>
+
+
+            <div class="icon-box green">
+
+                <i class="fa-solid fa-book"></i>
+
+            </div>
+
+
+            <h3>
+                Library Management Database
+            </h3>
+
+            <p>
+                Manage books, students, borrowing records
+                and return information.
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Relationships
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Primary Keys
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Foreign Keys
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                BEGINNER
+            </span>
+
+
+            <div class="icon-box orange">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+            </div>
+
+
+            <h3>
+                E-Commerce Database
+            </h3>
+
+            <p>
+                Design tables for customers, products,
+                orders and payments.
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Database Design
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    SQL Joins
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Aggregation
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                INTERMEDIATE
+            </span>
+
+
+            <div class="icon-box purple">
+
+                <i class="fa-solid fa-hospital"></i>
+
+            </div>
+
+
+            <h3>
+                Hospital Management Database
+            </h3>
+
+            <p>
+                Build a database for patients, doctors,
+                appointments and medical records.
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Complex Relationships
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Constraints
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Advanced SQL
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                INTERMEDIATE
+            </span>
+
+
+            <div class="icon-box red">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+            </div>
+
+
+            <h3>
+                Sales Analytics Database
+            </h3>
+
+            <p>
+                Store sales transactions and use SQL to
+                generate business reports.
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    GROUP BY
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Aggregations
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Reporting
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">
+                ADVANCED
+            </span>
+
+
+            <div class="icon-box cyan">
+
+                <i class="fa-solid fa-globe"></i>
+
+            </div>
+
+
+            <h3>
+                Full-Stack Database Application
+            </h3>
+
+            <p>
+                Connect a web application to a database
+                with authentication and CRUD functionality.
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Frontend
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Backend
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Database
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CAREERS ================= -->
+
+<section>
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Career Applications
+        </div>
+
+        <h2>
+            Database & SQL Career Paths
+        </h2>
+
+        <p>
+            Database skills are useful across software
+            development, data analysis, backend systems
+            and enterprise applications.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Database Developer
+                </h3>
+
+                <p>
+                    Develop database structures, SQL queries,
+                    procedures and database-backed applications.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-server"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Database Administrator
+                </h3>
+
+                <p>
+                    Help manage database systems, access,
+                    backups, availability and performance.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Backend Developer
+                </h3>
+
+                <p>
+                    Build application logic and connect
+                    backend services with databases.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Data Analyst
+                </h3>
+
+                <p>
+                    Use SQL to retrieve, transform and
+                    analyze structured data.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-cloud"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Cloud Database Engineer
+                </h3>
+
+                <p>
+                    Work with database services and
+                    data systems hosted on cloud platforms.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+
+                <i class="fa-solid fa-gears"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Data Engineer
+                </h3>
+
+                <p>
+                    Build systems that collect, process,
+                    transform and store data.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FREE RESOURCES ================= -->
+
+<section style="background:white;">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Free Learning
+        </div>
+
+        <h2>
+            Learn Database & SQL for Free
+        </h2>
+
+        <p>
+            Start with official documentation and
+            interactive learning resources.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    PostgreSQL Documentation
+                </h3>
+
+                <p>
+                    Official PostgreSQL documentation
+                    and SQL reference.
+                </p>
+
+                <a href="https://www.postgresql.org/docs/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    MySQL Documentation
+                </h3>
+
+                <p>
+                    Official MySQL documentation,
+                    tutorials and SQL reference.
+                </p>
+
+                <a href="https://dev.mysql.com/doc/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    SQLBolt
+                </h3>
+
+                <p>
+                    Interactive SQL lessons and
+                    exercises for beginners.
+                </p>
+
+                <a href="https://sqlbolt.com/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    W3Schools SQL
+                </h3>
+
+                <p>
+                    Beginner-friendly SQL tutorials
+                    and interactive examples.
+                </p>
+
+                <a href="https://www.w3schools.com/sql/"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-laptop-code"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    HackerRank SQL
+                </h3>
+
+                <p>
+                    Practice SQL problems and
+                    improve query-solving skills.
+                </p>
+
+                <a href="https://www.hackerrank.com/domains/sql"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+
+                <i class="fa-solid fa-cloud"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Supabase Documentation
+                </h3>
+
+                <p>
+                    Learn PostgreSQL-powered application
+                    development using Supabase.
+                </p>
+
+                <a href="https://supabase.com/docs"
+                   target="_blank"
+                   rel="noopener">
+
+                    Visit Resource →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= STUDY TIPS ================= -->
+
+<section class="tips">
+
+<div class="container">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            Study Strategy
+        </div>
+
+        <h2>
+            How to Learn Database & SQL
+        </h2>
+
+        <p>
+            Focus on understanding how data is structured,
+            then practice writing queries repeatedly.
+        </p>
+
+    </div>
+
+
+    <div class="tip-grid">
+
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-table"></i>
+
+            <h3>
+                Think in Tables
+            </h3>
+
+            <p>
+                Practice converting real-world situations
+                into tables, columns and relationships.
+            </p>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-code"></i>
+
+            <h3>
+                Write SQL Daily
+            </h3>
+
+            <p>
+                Practice SELECT, filtering, grouping and
+                joins until SQL becomes natural.
+            </p>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-diagram-project"></i>
+
+            <h3>
+                Build Projects
+            </h3>
+
+            <p>
+                Create real database-backed applications
+                instead of learning queries only theoretically.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+<div class="container">
+
+
+    <div class="cta-box reveal">
+
+        <h2>
+            Start Your Database Journey
+        </h2>
+
+        <p>
+            Learn SQL, design databases, build practical
+            projects and develop the skills needed to work
+            with data-driven applications.
+        </p>
+
+
+        <a href="#roadmap" class="btn">
+
+            <i class="fa-solid fa-database"></i>
+
+            Begin Learning
+
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+
+    <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+            <div class="logo" style="color:white;">
+
+                <img src="../logo.png" alt="ASCEND Logo">
+
+                ASCEND
+
+            </div>
+
+            <p>
+                ASCEND Learning Community helps students
+                develop knowledge, technical skills,
+                career awareness and practical abilities.
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../Books.html">
+                Learn
+            </a>
+
+            <a href="../Assignments.html">
+                Assignments
+            </a>
+
+            <a href="Skills.html">
+                Skills
+            </a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>
+                ASCEND
+            </h4>
+
+            <a href="../Careers.html">
+                Careers
+            </a>
+
+            <a href="../Business.html">
+                Business
+            </a>
+
+            <a href="../Leadership.html">
+                Leadership
+            </a>
+
+            <a href="../Faq.html">
+                FAQ
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 ASCEND Learning Community.
+        All Rights Reserved.
+
+    </div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<nav class="mobile-nav">
+
+    <a href="../index.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        Home
+
+    </a>
+
+
+    <a href="../Books.html">
+
+        <i class="fa-solid fa-book"></i>
+
+        Learn
+
+    </a>
+
+
+    <a href="Skills.html" class="active">
+
+        <i class="fa-solid fa-code"></i>
+
+        Skills
+
+    </a>
+
+
+    <a href="../Careers.html">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        Careers
+
+    </a>
+
+
+    <a href="../Aboutus.html">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        About
+
+    </a>
+
+</nav>
+
+
+<script>
+
+/* ================= MOBILE MENU ================= */
+
+function toggleMenu(){
+
+    const nav = document.querySelector(".nav-links");
+
+    if(nav.style.display === "flex"){
+
+        nav.style.display = "none";
+
+    }else{
+
+        nav.style.display = "flex";
+
+        nav.style.position = "absolute";
+        nav.style.top = "72px";
+        nav.style.left = "0";
+        nav.style.right = "0";
+        nav.style.background = "#ffffff";
+        nav.style.padding = "15px";
+        nav.style.borderBottom = "1px solid #E4EAF2";
+        nav.style.flexDirection = "column";
+        nav.style.alignItems = "stretch";
+
+    }
+
+}
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+document.querySelectorAll(".reveal").forEach(el => {
+
+    observer.observe(el);
+
+});
+
+</script>
+
+</body>
+</html>

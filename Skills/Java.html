@@ -1,0 +1,2940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Java Programming — ASCEND Skills</title>
+
+  <meta name="description"
+        content="Learn Java programming with ASCEND — fundamentals, object-oriented programming, problem solving, projects and practical software development skills.">
+
+  <meta name="theme-color" content="#155EEF">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #155EEF;
+      --primary-dark: #0B46C5;
+      --primary-light: #EAF1FF;
+
+      --yellow: #FFD43B;
+      --yellow-light: #FFF7D6;
+
+      --dark: #101828;
+      --dark-2: #1D2939;
+
+      --muted: #667085;
+      --muted-2: #98A2B3;
+
+      --bg: #F6F8FC;
+      --white: #FFFFFF;
+
+      --border: #E4EAF2;
+
+      --green: #12B76A;
+      --green-light: #ECFDF3;
+
+      --orange: #F79009;
+      --orange-light: #FFFAEB;
+
+      --purple: #7F56D9;
+      --purple-light: #F4F3FF;
+
+      --red: #F04438;
+
+      --shadow-sm: 0 4px 12px rgba(16, 24, 40, 0.06);
+      --shadow: 0 12px 35px rgba(16, 24, 40, 0.08);
+      --shadow-lg: 0 22px 55px rgba(16, 24, 40, 0.12);
+
+      --radius-sm: 12px;
+      --radius: 18px;
+      --radius-lg: 26px;
+
+      --max-width: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(228,234,242,0.85);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: auto;
+      height: 76px;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-family: "Outfit", sans-serif;
+      font-weight: 800;
+      font-size: 24px;
+      color: var(--dark);
+      white-space: nowrap;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .desktop-nav a {
+      padding: 10px 13px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .desktop-nav a:hover,
+    .desktop-nav a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .header-btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      transition: 0.25s ease;
+    }
+
+    .header-btn.primary {
+      color: white;
+      background: var(--primary);
+    }
+
+    .header-btn.primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 11px;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--dark);
+    }
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    .mobile-menu {
+      display: none;
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 12px 20px 18px;
+    }
+
+    .mobile-menu.show {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 10px;
+      border-radius: 10px;
+      color: var(--dark-2);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .mobile-menu a:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 72px 20px 80px;
+
+      background:
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,0.18), transparent 28%),
+        linear-gradient(135deg, #155EEF 0%, #0B46C5 100%);
+
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 70px solid rgba(255,255,255,0.06);
+      right: -130px;
+      top: -170px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      left: -150px;
+      bottom: -160px;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 55px;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .breadcrumb a:hover {
+      color: white;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.7px;
+
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -1.8px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--yellow);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.86);
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      padding: 13px 18px;
+      border-radius: 12px;
+
+      font-size: 14px;
+      font-weight: 800;
+
+      border: 1px solid transparent;
+      cursor: pointer;
+
+      transition: 0.25s ease;
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--dark);
+    }
+
+    .btn-yellow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.16);
+    }
+
+    .btn-white {
+      background: rgba(255,255,255,0.10);
+      color: white;
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    .btn-white:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* =========================
+       JAVA VISUAL
+    ========================== */
+
+    .java-card {
+      position: relative;
+      padding: 22px;
+
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 24px;
+
+      box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+      backdrop-filter: blur(12px);
+    }
+
+    .java-window {
+      overflow: hidden;
+      border-radius: 18px;
+      background: #101828;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.20);
+    }
+
+    .window-top {
+      height: 44px;
+      padding: 0 15px;
+
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      background: #172033;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #667085;
+    }
+
+    .window-title {
+      margin-left: 8px;
+      color: #98A2B3;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .code {
+      padding: 24px 22px 28px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #D0D5DD;
+      overflow-x: auto;
+    }
+
+    .code .keyword {
+      color: #A78BFA;
+    }
+
+    .code .class-name {
+      color: #FFD43B;
+    }
+
+    .code .string {
+      color: #6CE9A6;
+    }
+
+    .code .comment {
+      color: #667085;
+    }
+
+    .code .function {
+      color: #84CAFF;
+    }
+
+    .java-level {
+      margin-top: 14px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      padding: 13px 15px;
+      border-radius: 13px;
+      background: rgba(255,255,255,0.09);
+    }
+
+    .java-level span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .java-level strong {
+      font-size: 13px;
+      color: white;
+    }
+
+    /* =========================
+       MAIN
+    ========================== */
+
+    main {
+      padding: 70px 20px 100px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: auto;
+    }
+
+    .section {
+      margin-bottom: 80px;
+      scroll-margin-top: 100px;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 9px;
+
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -0.7px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    /* =========================
+       OVERVIEW
+    ========================== */
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .overview-card {
+      padding: 22px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow-sm);
+      transition: 0.25s ease;
+    }
+
+    .overview-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: #C9D7F2;
+    }
+
+    .overview-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 16px;
+
+      color: var(--primary);
+      background: var(--primary-light);
+      font-size: 18px;
+    }
+
+    .overview-card:nth-child(2) .overview-icon {
+      color: var(--purple);
+      background: var(--purple-light);
+    }
+
+    .overview-card:nth-child(3) .overview-icon {
+      color: var(--orange);
+      background: var(--orange-light);
+    }
+
+    .overview-card:nth-child(4) .overview-icon {
+      color: var(--green);
+      background: var(--green-light);
+    }
+
+    .overview-card h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .overview-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       TOPICS
+    ========================== */
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .topic-card {
+      padding: 21px;
+
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+
+      box-shadow: var(--shadow-sm);
+      transition: 0.25s ease;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-3px);
+      border-color: #C9D7F2;
+      box-shadow: var(--shadow);
+    }
+
+    .topic-number {
+      min-width: 38px;
+      height: 38px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 11px;
+
+      background: var(--primary-light);
+      color: var(--primary);
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .topic-card h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .topic-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    /* =========================
+       ROADMAP
+    ========================== */
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .roadmap-card {
+      position: relative;
+      padding: 24px 18px;
+
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    .roadmap-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 38px;
+      height: 38px;
+
+      margin-bottom: 18px;
+
+      border-radius: 50%;
+
+      color: white;
+      background: var(--primary);
+
+      font-family: "Outfit", sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .roadmap-card:nth-child(2) .roadmap-number {
+      background: #7F56D9;
+    }
+
+    .roadmap-card:nth-child(3) .roadmap-number {
+      background: #F79009;
+    }
+
+    .roadmap-card:nth-child(4) .roadmap-number {
+      background: #12B76A;
+    }
+
+    .roadmap-card:nth-child(5) .roadmap-number {
+      background: #344054;
+    }
+
+    .roadmap-card h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .roadmap-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================== */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .project-card {
+      overflow: hidden;
+
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+
+      box-shadow: var(--shadow-sm);
+      transition: 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-top {
+      min-height: 105px;
+      padding: 23px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: linear-gradient(135deg, var(--primary-light), #F8FAFF);
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 14px;
+
+      background: white;
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      font-size: 19px;
+    }
+
+    .project-level {
+      padding: 6px 9px;
+      border-radius: 999px;
+
+      color: var(--primary);
+      background: white;
+
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .project-content {
+      padding: 21px;
+    }
+
+    .project-content h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    /* =========================
+       CAREER APPLICATIONS
+    ========================== */
+
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .career-card {
+      padding: 23px;
+
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    .career-card i {
+      color: var(--primary);
+      font-size: 21px;
+      margin-bottom: 15px;
+    }
+
+    .career-card h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .career-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    /* =========================
+       RESOURCES
+    ========================== */
+
+    .resources {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .resource-card {
+      padding: 22px;
+
+      display: flex;
+      align-items: center;
+      gap: 17px;
+
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow-sm);
+      transition: 0.25s ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: #C9D7F2;
+    }
+
+    .resource-icon {
+      min-width: 48px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 13px;
+
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    .resource-card:nth-child(2) .resource-icon {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .resource-card:nth-child(3) .resource-icon {
+      background: var(--orange-light);
+      color: var(--orange);
+    }
+
+    .resource-card:nth-child(4) .resource-icon {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .resource-content {
+      flex: 1;
+    }
+
+    .resource-content h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .resource-content p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .resource-link {
+      min-width: 38px;
+      height: 38px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 10px;
+
+      color: var(--primary);
+      background: var(--primary-light);
+
+      transition: 0.2s ease;
+    }
+
+    .resource-link:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* =========================
+       STUDY PLAN
+    ========================== */
+
+    .study-box {
+      position: relative;
+      overflow: hidden;
+
+      padding: 34px;
+
+      background:
+        linear-gradient(135deg, #101828 0%, #1D2939 100%);
+
+      border-radius: 26px;
+      color: white;
+
+      box-shadow: var(--shadow-lg);
+    }
+
+    .study-box::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 55px solid rgba(255,255,255,0.04);
+      right: -100px;
+      top: -130px;
+    }
+
+    .study-box-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .study-box h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: 30px;
+      margin-bottom: 9px;
+    }
+
+    .study-box > p {
+      max-width: 700px;
+      color: #D0D5DD;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .study-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .study-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+
+      padding: 13px;
+
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.07);
+
+      color: #EAECF0;
+      font-size: 13px;
+    }
+
+    .study-item i {
+      color: #6CE9A6;
+      margin-top: 3px;
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+      text-align: center;
+      padding: 65px 25px;
+
+      background: linear-gradient(
+        135deg,
+        var(--primary-light),
+        white
+      );
+
+      border: 1px solid #D8E3FA;
+      border-radius: 28px;
+    }
+
+    .cta-icon {
+      width: 62px;
+      height: 62px;
+
+      margin: 0 auto 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 18px;
+
+      background: white;
+      color: var(--primary);
+
+      box-shadow: var(--shadow);
+      font-size: 25px;
+    }
+
+    .cta h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: 32px;
+      margin-bottom: 9px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 0 auto 22px;
+
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      padding: 45px 20px 100px;
+
+      background: #101828;
+      color: white;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 45px;
+
+      padding-bottom: 35px;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .footer-brand {
+      font-family: "Outfit", sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand span {
+      color: #6EA8FF;
+    }
+
+    .footer-description {
+      max-width: 450px;
+      color: #98A2B3;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .footer-column h4 {
+      font-family: "Outfit", sans-serif;
+      margin-bottom: 13px;
+      font-size: 15px;
+    }
+
+    .footer-column a {
+      display: block;
+      width: fit-content;
+
+      color: #98A2B3;
+      font-size: 13px;
+
+      margin-bottom: 9px;
+
+      transition: 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+
+      color: #98A2B3;
+      font-size: 12px;
+    }
+
+    /* =========================
+       MOBILE BOTTOM NAV
+    ========================== */
+
+    .mobile-bottom {
+      display: none;
+    }
+
+    /* =========================
+       REVEAL
+    ========================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 1050px) {
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .java-card {
+        max-width: 700px;
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .roadmap {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-grid,
+      .career-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      .header-inner {
+        height: 68px;
+        padding: 0 15px;
+      }
+
+      .brand {
+        font-size: 21px;
+      }
+
+      .brand img {
+        width: 36px;
+        height: 36px;
+      }
+
+      .header-actions .header-btn {
+        display: none;
+      }
+
+      .hero {
+        padding: 48px 16px 55px;
+      }
+
+      .hero-inner {
+        gap: 35px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      main {
+        padding: 50px 15px 85px;
+      }
+
+      .section {
+        margin-bottom: 60px;
+      }
+
+      .overview-grid,
+      .topics-grid,
+      .roadmap,
+      .projects-grid,
+      .career-grid,
+      .resources,
+      .study-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2 {
+        font-size: 31px;
+      }
+
+      .java-card {
+        padding: 12px;
+      }
+
+      .code {
+        font-size: 11px;
+        padding: 18px 15px 22px;
+      }
+
+      .study-box {
+        padding: 25px 19px;
+      }
+
+      .study-box h2 {
+        font-size: 26px;
+      }
+
+      .cta {
+        padding: 45px 18px;
+      }
+
+      .cta h2 {
+        font-size: 28px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .mobile-bottom {
+        position: fixed;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        height: 67px;
+
+        background: rgba(255,255,255,0.96);
+        backdrop-filter: blur(14px);
+
+        border-top: 1px solid var(--border);
+
+        z-index: 2000;
+
+        box-shadow: 0 -5px 25px rgba(16,24,40,0.08);
+      }
+
+      .mobile-bottom a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .mobile-bottom i {
+        font-size: 17px;
+      }
+
+      .mobile-bottom a.active {
+        color: var(--primary);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <a href="../index.html" class="brand">
+        <img src="../logo.png" alt="ASCEND Logo">
+        AS<span>CEND</span>
+      </a>
+
+      <nav class="desktop-nav">
+
+        <a href="../index.html">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </a>
+
+        <a href="../Books.html">
+          <i class="fa-solid fa-book-open"></i>
+          Learn
+        </a>
+
+        <a href="../Assignments.html">
+          <i class="fa-solid fa-list-check"></i>
+          Tasks
+        </a>
+
+        <a href="Skills.html" class="active">
+          <i class="fa-solid fa-bolt"></i>
+          Skills
+        </a>
+
+        <a href="../Careers.html">
+          <i class="fa-solid fa-briefcase"></i>
+          Careers
+        </a>
+
+        <a href="../Aboutus.html">
+          <i class="fa-solid fa-circle-info"></i>
+          About
+        </a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <a href="../Careers.html" class="header-btn primary">
+          Explore
+        </a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+
+      <a href="../index.html">
+        <i class="fa-solid fa-house"></i>
+        Home
+      </a>
+
+      <a href="../Books.html">
+        <i class="fa-solid fa-book-open"></i>
+        Learn
+      </a>
+
+      <a href="../Assignments.html">
+        <i class="fa-solid fa-list-check"></i>
+        Tasks
+      </a>
+
+      <a href="Skills.html">
+        <i class="fa-solid fa-bolt"></i>
+        Skills
+      </a>
+
+      <a href="../Careers.html">
+        <i class="fa-solid fa-briefcase"></i>
+        Careers
+      </a>
+
+      <a href="../Business.html">
+        <i class="fa-solid fa-store"></i>
+        Business
+      </a>
+
+      <a href="../Leadership.html">
+        <i class="fa-solid fa-people-group"></i>
+        Leadership
+      </a>
+
+      <a href="../Aboutus.html">
+        <i class="fa-solid fa-circle-info"></i>
+        About
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <div>
+
+        <div class="breadcrumb">
+          <a href="../index.html">ASCEND</a>
+          <i class="fa-solid fa-chevron-right"></i>
+
+          <a href="Skills.html">Skills</a>
+          <i class="fa-solid fa-chevron-right"></i>
+
+          <span>Java</span>
+        </div>
+
+        <div class="hero-badge">
+          <i class="fa-brands fa-java"></i>
+          JAVA PROGRAMMING SKILL
+        </div>
+
+        <h1>
+          Master <span>Java</span><br>
+          Programming
+        </h1>
+
+        <p class="hero-description">
+          Learn Java from fundamentals to practical programming.
+          Build strong programming logic, understand Object-Oriented
+          Programming, create applications and develop skills useful
+          for real-world software development.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#roadmap" class="btn btn-yellow">
+            <i class="fa-solid fa-rocket"></i>
+            Start Learning
+          </a>
+
+          <a href="#resources" class="btn btn-white">
+            <i class="fa-solid fa-graduation-cap"></i>
+            Free Resources
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- JAVA CODE VISUAL -->
+
+      <div class="java-card">
+
+        <div class="java-window">
+
+          <div class="window-top">
+
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+            <span class="window-title">
+              Main.java
+            </span>
+
+          </div>
+
+          <div class="code">
+
+            <div>
+              <span class="keyword">public class</span>
+              <span class="class-name">Main</span> {
+            </div>
+
+            <div>
+              &nbsp;&nbsp;
+              <span class="keyword">public static void</span>
+              <span class="function">main</span>(
+              <span class="class-name">String</span>[] args) {
+            </div>
+
+            <div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="class-name">System</span>.out.println(
+            </div>
+
+            <div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="string">
+                "Build. Practice. Create."
+              </span>);
+            </div>
+
+            <div>
+              &nbsp;&nbsp;}
+            </div>
+
+            <div>}</div>
+
+            <br>
+
+            <div class="comment">
+              // Your Java journey starts here.
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="java-level">
+
+          <span>
+            <i class="fa-solid fa-route"></i>
+            Learning Path
+          </span>
+
+          <strong>
+            Beginner → Advanced
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <main>
+
+    <div class="container">
+
+
+      <!-- =========================
+           OVERVIEW
+      ========================== -->
+
+      <section class="section reveal">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            Java Skill
+          </span>
+
+          <h2>
+            Build a Strong Java Foundation
+          </h2>
+
+          <p>
+            Follow a structured path from basic syntax and problem
+            solving to Object-Oriented Programming, projects and
+            practical application development.
+          </p>
+
+        </div>
+
+
+        <div class="overview-grid">
+
+          <div class="overview-card">
+
+            <div class="overview-icon">
+              <i class="fa-solid fa-signal"></i>
+            </div>
+
+            <h3>Level</h3>
+
+            <p>
+              Beginner → Intermediate → Advanced
+            </p>
+
+          </div>
+
+
+          <div class="overview-card">
+
+            <div class="overview-icon">
+              <i class="fa-brands fa-java"></i>
+            </div>
+
+            <h3>Category</h3>
+
+            <p>
+              Programming & Software Development
+            </p>
+
+          </div>
+
+
+          <div class="overview-card">
+
+            <div class="overview-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>Practice</h3>
+
+            <p>
+              Problems, coding exercises and projects
+            </p>
+
+          </div>
+
+
+          <div class="overview-card">
+
+            <div class="overview-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+
+            <h3>Outcome</h3>
+
+            <p>
+              Build practical Java applications
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           WHAT YOU WILL LEARN
+      ========================== -->
+
+      <section class="section reveal" id="topics">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            Core Topics
+          </span>
+
+          <h2>
+            What You’ll Learn
+          </h2>
+
+          <p>
+            Master the important concepts required to write,
+            understand and maintain Java programs.
+          </p>
+
+        </div>
+
+
+        <div class="topics-grid">
+
+          <div class="topic-card">
+
+            <div class="topic-number">01</div>
+
+            <div>
+              <h3>Java Basics</h3>
+
+              <p>
+                Introduction to Java, syntax, program structure
+                and the Java development environment.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">02</div>
+
+            <div>
+              <h3>Variables & Data Types</h3>
+
+              <p>
+                Learn variables, primitive data types,
+                constants and type conversion.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">03</div>
+
+            <div>
+              <h3>Operators</h3>
+
+              <p>
+                Arithmetic, relational, logical, assignment
+                and other Java operators.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">04</div>
+
+            <div>
+              <h3>Conditions & Loops</h3>
+
+              <p>
+                if, else, switch, for, while and do-while
+                for controlling program flow.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">05</div>
+
+            <div>
+              <h3>Arrays & Strings</h3>
+
+              <p>
+                Store collections of data and work with
+                Java strings and common operations.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">06</div>
+
+            <div>
+              <h3>Methods</h3>
+
+              <p>
+                Create reusable methods, parameters,
+                return values and method overloading.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">07</div>
+
+            <div>
+              <h3>OOP Concepts</h3>
+
+              <p>
+                Understand classes, objects, inheritance,
+                polymorphism, abstraction and encapsulation.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">08</div>
+
+            <div>
+              <h3>Collections</h3>
+
+              <p>
+                Work with ArrayList, LinkedList, HashSet,
+                HashMap and other collection concepts.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">09</div>
+
+            <div>
+              <h3>Exception Handling</h3>
+
+              <p>
+                Handle runtime problems using try, catch,
+                finally, throw and throws.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">10</div>
+
+            <div>
+              <h3>File Handling</h3>
+
+              <p>
+                Learn how Java programs can read, write
+                and work with files.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">11</div>
+
+            <div>
+              <h3>Generics</h3>
+
+              <p>
+                Understand type-safe reusable classes,
+                methods and collections.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="topic-card">
+
+            <div class="topic-number">12</div>
+
+            <div>
+              <h3>Modern Java</h3>
+
+              <p>
+                Explore useful modern concepts such as
+                lambda expressions and streams.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           ROADMAP
+      ========================== -->
+
+      <section class="section reveal" id="roadmap">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            Learning Roadmap
+          </span>
+
+          <h2>
+            Your Java Learning Path
+          </h2>
+
+          <p>
+            Progress step by step. Focus on understanding,
+            coding practice and building useful projects.
+          </p>
+
+        </div>
+
+
+        <div class="roadmap">
+
+          <div class="roadmap-card">
+
+            <div class="roadmap-number">
+              01
+            </div>
+
+            <h3>Fundamentals</h3>
+
+            <p>
+              Learn syntax, variables, data types,
+              operators, conditions and loops.
+            </p>
+
+          </div>
+
+
+          <div class="roadmap-card">
+
+            <div class="roadmap-number">
+              02
+            </div>
+
+            <h3>Problem Solving</h3>
+
+            <p>
+              Practice patterns, arrays, strings,
+              methods and programming problems.
+            </p>
+
+          </div>
+
+
+          <div class="roadmap-card">
+
+            <div class="roadmap-number">
+              03
+            </div>
+
+            <h3>Object-Oriented Java</h3>
+
+            <p>
+              Master classes, objects, inheritance,
+              abstraction, encapsulation and polymorphism.
+            </p>
+
+          </div>
+
+
+          <div class="roadmap-card">
+
+            <div class="roadmap-number">
+              04
+            </div>
+
+            <h3>Projects</h3>
+
+            <p>
+              Apply Java concepts by creating practical
+              applications and solving real problems.
+            </p>
+
+          </div>
+
+
+          <div class="roadmap-card">
+
+            <div class="roadmap-number">
+              05
+            </div>
+
+            <h3>Career Skills</h3>
+
+            <p>
+              Strengthen coding, debugging, Git,
+              project development and interview skills.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           PROJECTS
+      ========================== -->
+
+      <section class="section reveal" id="projects">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            Practice Projects
+          </span>
+
+          <h2>
+            Learn Java by Building
+          </h2>
+
+          <p>
+            Projects help you turn programming concepts into
+            practical skills.
+          </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+          <div class="project-card">
+
+            <div class="project-top">
+
+              <div class="project-icon">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+
+              <span class="project-level">
+                BEGINNER
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <h3>Calculator</h3>
+
+              <p>
+                Build a simple calculator using Java methods,
+                operators and user input.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-card">
+
+            <div class="project-top">
+
+              <div class="project-icon">
+                <i class="fa-solid fa-list-check"></i>
+              </div>
+
+              <span class="project-level">
+                BEGINNER
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <h3>To-Do Application</h3>
+
+              <p>
+                Create a command-line task manager using
+                collections and methods.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-card">
+
+            <div class="project-top">
+
+              <div class="project-icon">
+                <i class="fa-solid fa-circle-question"></i>
+              </div>
+
+              <span class="project-level">
+                BEGINNER
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <h3>Quiz Application</h3>
+
+              <p>
+                Create a multiple-choice quiz using conditions,
+                loops, arrays and user input.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-card">
+
+            <div class="project-top">
+
+              <div class="project-icon">
+                <i class="fa-solid fa-wallet"></i>
+              </div>
+
+              <span class="project-level">
+                INTERMEDIATE
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <h3>Expense Tracker</h3>
+
+              <p>
+                Build an application to record expenses,
+                categories and totals.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-card">
+
+            <div class="project-top">
+
+              <div class="project-icon">
+                <i class="fa-solid fa-users"></i>
+              </div>
+
+              <span class="project-level">
+                INTERMEDIATE
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <h3>Student Management</h3>
+
+              <p>
+                Practice classes, objects and collections
+                by creating a student management system.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-card">
+
+            <div class="project-top">
+
+              <div class="project-icon">
+                <i class="fa-solid fa-folder-open"></i>
+              </div>
+
+              <span class="project-level">
+                INTERMEDIATE
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <h3>File Organizer</h3>
+
+              <p>
+                Build a utility that works with files and
+                directories using Java file handling.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           CAREER APPLICATIONS
+      ========================== -->
+
+      <section class="section reveal">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            Applications
+          </span>
+
+          <h2>
+            Where Java Skills Can Be Used
+          </h2>
+
+          <p>
+            Java is useful across several areas of software
+            development and application building.
+          </p>
+
+        </div>
+
+
+        <div class="career-grid">
+
+          <div class="career-card">
+
+            <i class="fa-solid fa-code"></i>
+
+            <h3>Software Development</h3>
+
+            <p>
+              Use Java to develop structured software
+              applications and backend systems.
+            </p>
+
+          </div>
+
+
+          <div class="career-card">
+
+            <i class="fa-solid fa-server"></i>
+
+            <h3>Backend Development</h3>
+
+            <p>
+              Build server-side applications and APIs
+              using Java-based technologies.
+            </p>
+
+          </div>
+
+
+          <div class="career-card">
+
+            <i class="fa-solid fa-globe"></i>
+
+            <h3>Web Applications</h3>
+
+            <p>
+              Apply Java programming concepts to
+              web application development.
+            </p>
+
+          </div>
+
+
+          <div class="career-card">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            <h3>Application Development</h3>
+
+            <p>
+              Understand Java programming concepts
+              used in application development.
+            </p>
+
+          </div>
+
+
+          <div class="career-card">
+
+            <i class="fa-solid fa-vial"></i>
+
+            <h3>Testing & Automation</h3>
+
+            <p>
+              Use Java to build automated testing
+              and software quality workflows.
+            </p>
+
+          </div>
+
+
+          <div class="career-card">
+
+            <i class="fa-solid fa-database"></i>
+
+            <h3>Database Applications</h3>
+
+            <p>
+              Connect Java applications with databases
+              and work with stored application data.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           RESOURCES
+      ========================== -->
+
+      <section class="section reveal" id="resources">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            Learn for Free
+          </span>
+
+          <h2>
+            Java Learning Resources
+          </h2>
+
+          <p>
+            Use documentation, tutorials and practice platforms
+            to strengthen your Java skills.
+          </p>
+
+        </div>
+
+
+        <div class="resources">
+
+
+          <a
+            href="https://docs.oracle.com/en/java/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-card"
+          >
+
+            <div class="resource-icon">
+              <i class="fa-brands fa-java"></i>
+            </div>
+
+            <div class="resource-content">
+
+              <h3>Oracle Java Documentation</h3>
+
+              <p>
+                Official Java documentation and learning material.
+              </p>
+
+            </div>
+
+            <div class="resource-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+          </a>
+
+
+          <a
+            href="https://dev.java/learn/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-card"
+          >
+
+            <div class="resource-icon">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div class="resource-content">
+
+              <h3>Dev.java Learn</h3>
+
+              <p>
+                Java learning guides, tutorials and examples.
+              </p>
+
+            </div>
+
+            <div class="resource-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+          </a>
+
+
+          <a
+            href="https://www.w3schools.com/java/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-card"
+          >
+
+            <div class="resource-icon">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <div class="resource-content">
+
+              <h3>W3Schools Java</h3>
+
+              <p>
+                Beginner-friendly Java lessons and examples.
+              </p>
+
+            </div>
+
+            <div class="resource-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+          </a>
+
+
+          <a
+            href="https://www.programiz.com/java-programming"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-card"
+          >
+
+            <div class="resource-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+
+            <div class="resource-content">
+
+              <h3>Programiz Java</h3>
+
+              <p>
+                Java tutorials with simple explanations and examples.
+              </p>
+
+            </div>
+
+            <div class="resource-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+          </a>
+
+
+          <a
+            href="https://www.geeksforgeeks.org/java/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-card"
+          >
+
+            <div class="resource-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+
+            <div class="resource-content">
+
+              <h3>GeeksforGeeks Java</h3>
+
+              <p>
+                Java concepts, examples and programming practice.
+              </p>
+
+            </div>
+
+            <div class="resource-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+          </a>
+
+
+          <a
+            href="https://exercism.org/tracks/java"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resource-card"
+          >
+
+            <div class="resource-icon">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
+
+            <div class="resource-content">
+
+              <h3>Exercism Java</h3>
+
+              <p>
+                Practice Java programming through coding exercises.
+              </p>
+
+            </div>
+
+            <div class="resource-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+          </a>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           STUDY PLAN
+      ========================== -->
+
+      <section class="section reveal">
+
+        <div class="study-box">
+
+          <div class="study-box-content">
+
+            <h2>
+              How to Learn Java Effectively
+            </h2>
+
+            <p>
+              Don't only watch tutorials. Write code, solve problems,
+              debug your mistakes and build projects regularly.
+            </p>
+
+
+            <div class="study-list">
+
+              <div class="study-item">
+
+                <i class="fa-solid fa-check"></i>
+
+                <span>
+                  Learn one Java concept at a time.
+                </span>
+
+              </div>
+
+
+              <div class="study-item">
+
+                <i class="fa-solid fa-check"></i>
+
+                <span>
+                  Write programs instead of only reading code.
+                </span>
+
+              </div>
+
+
+              <div class="study-item">
+
+                <i class="fa-solid fa-check"></i>
+
+                <span>
+                  Practice arrays, strings and problem solving.
+                </span>
+
+              </div>
+
+
+              <div class="study-item">
+
+                <i class="fa-solid fa-check"></i>
+
+                <span>
+                  Understand Object-Oriented Programming deeply.
+                </span>
+
+              </div>
+
+
+              <div class="study-item">
+
+                <i class="fa-solid fa-check"></i>
+
+                <span>
+                  Build small projects before large projects.
+                </span>
+
+              </div>
+
+
+              <div class="study-item">
+
+                <i class="fa-solid fa-check"></i>
+
+                <span>
+                  Read errors and learn how to debug them.
+                </span>
+
+              </div>
+
+
+              <div class="study-item">
+
+                <i class="fa-solid fa-check"></i>
+
+                <span>
+                  Practice coding regularly.
+                </span>
+
+              </div>
+
+
+              <div class="study-item">
+
+                <i class="fa-solid fa-check"></i>
+
+                <span>
+                  Keep your projects organized and documented.
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           CTA
+      ========================== -->
+
+      <section class="section reveal">
+
+        <div class="cta">
+
+          <div class="cta-icon">
+            <i class="fa-brands fa-java"></i>
+          </div>
+
+          <h2>
+            Start Your Java Journey
+          </h2>
+
+          <p>
+            Learn the fundamentals, practice consistently,
+            build projects and gradually develop your Java
+            programming skills.
+          </p>
+
+          <a href="#topics" class="btn btn-yellow">
+            <i class="fa-solid fa-play"></i>
+            Begin Learning
+          </a>
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <div>
+
+          <div class="footer-brand">
+            AS<span>CEND</span>
+          </div>
+
+          <p class="footer-description">
+            ASCEND Learning Community helps students develop
+            knowledge, practical skills, career awareness and
+            personal growth through structured learning.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Learn</h4>
+
+          <a href="../Books.html">
+            Books & Learning
+          </a>
+
+          <a href="../Assignments.html">
+            Tasks & Assignments
+          </a>
+
+          <a href="Skills.html">
+            Skills
+          </a>
+
+          <a href="../Careers.html">
+            Careers
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>ASCEND</h4>
+
+          <a href="../index.html">
+            Home
+          </a>
+
+          <a href="../Business.html">
+            Business
+          </a>
+
+          <a href="../Leadership.html">
+            Leadership
+          </a>
+
+          <a href="../Aboutus.html">
+            About Us
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 ASCEND Learning Community. All rights reserved.
+        </span>
+
+        <span>
+          Learn • Build • Grow • ASCEND
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       MOBILE BOTTOM NAV
+  ========================== -->
+
+  <nav class="mobile-bottom">
+
+    <a href="../index.html">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+
+    <a href="../Books.html">
+      <i class="fa-solid fa-book-open"></i>
+      <span>Learn</span>
+    </a>
+
+    <a href="../Assignments.html">
+      <i class="fa-solid fa-list-check"></i>
+      <span>Tasks</span>
+    </a>
+
+    <a href="../Careers.html">
+      <i class="fa-solid fa-briefcase"></i>
+      <span>Careers</span>
+    </a>
+
+    <a href="../Aboutus.html">
+      <i class="fa-solid fa-circle-info"></i>
+      <span>About</span>
+    </a>
+
+  </nav>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("show");
+
+      const icon = menuBtn.querySelector("i");
+
+      if (mobileMenu.classList.contains("show")) {
+
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+
+      } else {
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+      }
+
+    });
+
+
+    /* =========================
+       CLOSE MOBILE MENU
+    ========================== */
+
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("show");
+
+        const icon = menuBtn.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+      });
+
+    });
+
+
+    /* =========================
+       SCROLL REVEAL
+    ========================== */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const revealObserver =
+      new IntersectionObserver(
+
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+
+              revealObserver.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+
+        {
+          threshold: 0.12
+        }
+
+      );
+
+
+    revealElements.forEach(element => {
+
+      revealObserver.observe(element);
+
+    });
+
+
+    /* =========================
+       ACTIVE MOBILE NAV
+    ========================== */
+
+    const currentPage =
+      window.location.pathname.split("/").pop().toLowerCase();
+
+    document.querySelectorAll(".mobile-bottom a").forEach(link => {
+
+      const href =
+        link.getAttribute("href");
+
+      if (!href) return;
+
+      const target =
+        href.split("/").pop().toLowerCase();
+
+      if (target === currentPage) {
+
+        link.classList.add("active");
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

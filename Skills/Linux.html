@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Linux — ASCEND Skills</title>
+
+<link rel="icon" href="../logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --shadow:0 10px 30px rgba(16,24,40,.07);
+    --shadow-hover:0 18px 45px rgba(16,24,40,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+h1,h2,h3,h4{
+    font-family:'Outfit',sans-serif;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Outfit',sans-serif;
+    font-size:24px;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.logo img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:9px;
+    color:var(--muted);
+    font-size:13px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--primary-light);
+    color:var(--primary);
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:75px 0 65px;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(21,94,239,.10),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(255,212,59,.14),transparent 28%),
+        var(--white);
+    border-bottom:1px solid var(--border);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:999px;
+    background:var(--green-light);
+    color:#087443;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,68px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    color:var(--muted);
+    max-width:650px;
+    font-size:16px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 19px;
+    border-radius:11px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-light{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.btn-light:hover{
+    transform:translateY(-2px);
+}
+
+.hero-visual{
+    position:relative;
+    min-height:360px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.linux-window{
+    width:min(100%,460px);
+    background:#101828;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 25px 70px rgba(16,24,40,.22);
+    transform:rotate(1deg);
+}
+
+.terminal-top{
+    height:44px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:0 16px;
+    background:#1D2939;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#98A2B3;
+}
+
+.terminal-title{
+    margin-left:10px;
+    color:#D0D5DD;
+    font-size:12px;
+    font-family:monospace;
+}
+
+.terminal-body{
+    padding:25px;
+    color:#D1FADF;
+    font-family:monospace;
+    font-size:13px;
+    line-height:2;
+}
+
+.command{
+    color:#84CAFF;
+}
+
+.prompt{
+    color:#FFD43B;
+}
+
+.output{
+    color:#D0D5DD;
+}
+
+.terminal-highlight{
+    color:#6CE9A6;
+}
+
+.float-card{
+    position:absolute;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    padding:14px 16px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.float-card i{
+    color:var(--primary);
+}
+
+.float-1{
+    top:35px;
+    left:0;
+}
+
+.float-2{
+    bottom:35px;
+    right:0;
+}
+
+/* ================= COMMON ================= */
+
+section{
+    padding:70px 0;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 40px;
+}
+
+.section-heading .mini{
+    color:var(--primary);
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.section-heading h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.grid{
+    display:grid;
+    gap:20px;
+}
+
+.grid-3{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.grid-4{
+    grid-template-columns:repeat(4,1fr);
+}
+
+.card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:24px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-hover);
+}
+
+.icon-box{
+    width:48px;
+    height:48px;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:18px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.card h3{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= OVERVIEW ================= */
+
+.overview{
+    background:var(--bg);
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-family:'Outfit',sans-serif;
+    font-size:30px;
+    color:var(--primary);
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:18px;
+}
+
+.topic{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:11px 12px;
+    background:var(--bg);
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.topic i{
+    color:var(--primary);
+}
+
+/* ================= DISTROS ================= */
+
+.distro-card{
+    position:relative;
+    overflow:hidden;
+}
+
+.distro-number{
+    position:absolute;
+    top:16px;
+    right:18px;
+    font-family:'Outfit';
+    font-size:30px;
+    font-weight:800;
+    color:#EEF2F7;
+}
+
+.distro-card ul{
+    list-style:none;
+    margin-top:15px;
+}
+
+.distro-card li{
+    padding:7px 0;
+    font-size:13px;
+    color:var(--muted);
+    border-bottom:1px solid var(--border);
+}
+
+.distro-card li:last-child{
+    border-bottom:0;
+}
+
+/* ================= COMMANDS ================= */
+
+.command-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.command-card{
+    background:#101828;
+    border-radius:16px;
+    padding:22px;
+    color:white;
+    box-shadow:var(--shadow);
+}
+
+.command-card h3{
+    margin-bottom:15px;
+    color:#FFFFFF;
+}
+
+.cmd{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:10px 12px;
+    background:#1D2939;
+    border-radius:9px;
+    margin-top:8px;
+    font-family:monospace;
+    font-size:12px;
+}
+
+.cmd code{
+    color:#84CAFF;
+}
+
+.cmd span{
+    color:#98A2B3;
+    font-family:'Inter';
+    font-size:11px;
+}
+
+/* ================= TOOLKIT ================= */
+
+.tool-card{
+    text-align:center;
+}
+
+.tool-card .icon-box{
+    margin:0 auto 15px;
+}
+
+.tool-card h3{
+    font-size:17px;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.roadmap::before{
+    content:"";
+    position:absolute;
+    left:28px;
+    top:10px;
+    bottom:10px;
+    width:2px;
+    background:var(--border);
+}
+
+.step{
+    position:relative;
+    display:flex;
+    gap:22px;
+    margin-bottom:24px;
+}
+
+.step:last-child{
+    margin-bottom:0;
+}
+
+.step-number{
+    flex:0 0 58px;
+    height:58px;
+    border-radius:16px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Outfit';
+    font-weight:800;
+    z-index:2;
+    box-shadow:0 0 0 7px var(--bg);
+}
+
+.step-content{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:18px 20px;
+    flex:1;
+    box-shadow:var(--shadow);
+}
+
+.step-content h3{
+    font-size:18px;
+    margin-bottom:4px;
+}
+
+.step-content p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= PROJECTS ================= */
+
+.project-card{
+    position:relative;
+}
+
+.project-card .level{
+    position:absolute;
+    right:18px;
+    top:18px;
+    padding:5px 9px;
+    border-radius:999px;
+    font-size:10px;
+    font-weight:800;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.project-card ul{
+    list-style:none;
+    margin-top:16px;
+}
+
+.project-card li{
+    display:flex;
+    gap:8px;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:8px;
+}
+
+.project-card li i{
+    color:var(--green);
+    margin-top:4px;
+}
+
+/* ================= CAREERS ================= */
+
+.role{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.role-icon{
+    width:45px;
+    height:45px;
+    flex:0 0 45px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.role h3{
+    font-size:16px;
+}
+
+.role p{
+    margin-top:4px;
+}
+
+/* ================= RESOURCES ================= */
+
+.resource{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.resource-icon{
+    width:46px;
+    height:46px;
+    flex:0 0 46px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.resource h3{
+    font-size:16px;
+}
+
+.resource p{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:3px;
+}
+
+.resource a{
+    display:inline-block;
+    margin-top:6px;
+    font-size:11px;
+    color:var(--primary);
+    font-weight:700;
+}
+
+/* ================= TIPS ================= */
+
+.tips{
+    background:var(--dark);
+    color:white;
+}
+
+.tips .section-heading h2{
+    color:white;
+}
+
+.tips .section-heading p{
+    color:#98A2B3;
+}
+
+.tip-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.tip{
+    background:#1D2939;
+    border:1px solid #344054;
+    border-radius:15px;
+    padding:22px;
+}
+
+.tip i{
+    color:var(--yellow);
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.tip h3{
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.tip p{
+    color:#98A2B3;
+    font-size:12px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:65px 0;
+}
+
+.cta-box{
+    background:
+        radial-gradient(circle at 85% 20%,rgba(255,212,59,.18),transparent 25%),
+        var(--primary);
+    color:white;
+    border-radius:24px;
+    padding:50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta-box h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.cta-box p{
+    color:#DDE7FF;
+    max-width:650px;
+    margin:0 auto;
+    font-size:14px;
+}
+
+.cta-box .btn{
+    margin-top:22px;
+    background:white;
+    color:var(--primary);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0B1220;
+    color:white;
+    padding:45px 0 85px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+    font-size:12px;
+    margin-top:12px;
+    max-width:400px;
+}
+
+.footer-col h4{
+    margin-bottom:12px;
+    font-size:14px;
+}
+
+.footer-col a{
+    display:block;
+    color:#98A2B3;
+    font-size:12px;
+    margin-top:8px;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid #1D2939;
+    margin-top:30px;
+    padding-top:20px;
+    color:#667085;
+    font-size:11px;
+    text-align:center;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* ================= ANIMATION ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:.7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:55px;
+    }
+
+    .hero-visual{
+        min-height:300px;
+    }
+
+    .grid-4{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:700px){
+
+    .container{
+        width:94%;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .float-card{
+        display:none;
+    }
+
+    .linux-window{
+        transform:none;
+    }
+
+    .grid-3,
+    .grid-4,
+    .command-grid,
+    .tip-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading h2{
+        font-size:29px;
+    }
+
+    .roadmap::before{
+        left:24px;
+    }
+
+    .step{
+        gap:15px;
+    }
+
+    .step-number{
+        flex:0 0 50px;
+        height:50px;
+    }
+
+    .cta-box{
+        padding:35px 20px;
+    }
+
+    .cta-box h2{
+        font-size:29px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        left:12px;
+        right:12px;
+        bottom:12px;
+        height:64px;
+        z-index:2000;
+        background:rgba(255,255,255,.96);
+        backdrop-filter:blur(15px);
+        border:1px solid var(--border);
+        border-radius:18px;
+        box-shadow:0 15px 40px rgba(16,24,40,.16);
+        align-items:center;
+        justify-content:space-around;
+    }
+
+    .mobile-nav a{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:4px;
+        font-size:9px;
+        color:var(--muted);
+        font-weight:700;
+    }
+
+    .mobile-nav a i{
+        font-size:17px;
+    }
+
+    .mobile-nav a.active{
+        color:var(--primary);
+    }
+
+    footer{
+        padding-bottom:100px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+<div class="container navbar">
+
+    <a href="../index.html" class="logo">
+        <img src="../logo.png" alt="ASCEND Logo">
+        ASCEND
+    </a>
+
+    <nav class="nav-links">
+        <a href="../index.html">
+            <i class="fa-solid fa-house"></i> Home
+        </a>
+
+        <a href="../Books.html">
+            <i class="fa-solid fa-book"></i> Learn
+        </a>
+
+        <a href="../Assignments.html">
+            <i class="fa-solid fa-list-check"></i> Tasks
+        </a>
+
+        <a href="Skills.html" class="active">
+            <i class="fa-solid fa-code"></i> Skills
+        </a>
+
+        <a href="../Careers.html">
+            <i class="fa-solid fa-briefcase"></i> Careers
+        </a>
+
+        <a href="../Aboutus.html">
+            <i class="fa-solid fa-circle-info"></i> About
+        </a>
+
+        <a href="../Business.html">
+            <i class="fa-solid fa-lightbulb"></i> Business
+        </a>
+
+        <a href="../Leadership.html">
+            <i class="fa-solid fa-users"></i> Leadership
+        </a>
+
+        <a href="../Faq.html">
+            <i class="fa-solid fa-circle-question"></i> FAQ
+        </a>
+    </nav>
+
+    <button class="menu-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+</div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+<div class="container hero-grid">
+
+    <div class="reveal">
+
+        <div class="badge">
+            <i class="fa-brands fa-linux"></i>
+            ASCEND TECH SKILL
+        </div>
+
+        <h1>
+            Master <span>Linux</span><br>
+            from Basics to Pro.
+        </h1>
+
+        <p>
+            Learn Linux operating systems, terminal commands, file systems,
+            permissions, networking, shell scripting, server management,
+            security and DevOps fundamentals.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#roadmap" class="btn btn-primary">
+                <i class="fa-solid fa-route"></i>
+                Start Roadmap
+            </a>
+
+            <a href="#commands" class="btn btn-light">
+                <i class="fa-solid fa-terminal"></i>
+                Learn Commands
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual reveal">
+
+        <div class="float-card float-1">
+            <i class="fa-solid fa-server"></i>
+            Server Ready
+        </div>
+
+        <div class="linux-window">
+
+            <div class="terminal-top">
+
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+
+                <span class="terminal-title">
+                    ascend@linux: ~
+                </span>
+
+            </div>
+
+            <div class="terminal-body">
+
+                <div>
+                    <span class="prompt">$</span>
+                    <span class="command">whoami</span>
+                </div>
+
+                <div class="output">
+                    ascend
+                </div>
+
+                <div>
+                    <span class="prompt">$</span>
+                    <span class="command">ls</span>
+                </div>
+
+                <div class="output">
+                    Documents &nbsp; Projects &nbsp; Skills &nbsp; Server
+                </div>
+
+                <div>
+                    <span class="prompt">$</span>
+                    <span class="command">pwd</span>
+                </div>
+
+                <div class="terminal-highlight">
+                    /home/ascend
+                </div>
+
+                <div>
+                    <span class="prompt">$</span>
+                    <span class="command">echo "Keep Learning"</span>
+                </div>
+
+                <div class="terminal-highlight">
+                    Keep Learning
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="float-card float-2">
+            <i class="fa-solid fa-shield-halved"></i>
+            Secure Systems
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section class="overview">
+<div class="container">
+
+    <div class="section-heading reveal">
+        <div class="mini">Linux Overview</div>
+
+        <h2>Build Strong System Skills</h2>
+
+        <p>
+            Linux is a foundation for servers, cloud computing,
+            cybersecurity, DevOps and software infrastructure.
+        </p>
+    </div>
+
+
+    <div class="grid grid-4">
+
+        <div class="card stat reveal">
+            <strong>01</strong>
+            <span>Operating System</span>
+        </div>
+
+        <div class="card stat reveal">
+            <strong>02</strong>
+            <span>Command Line</span>
+        </div>
+
+        <div class="card stat reveal">
+            <strong>03</strong>
+            <span>Server Skills</span>
+        </div>
+
+        <div class="card stat reveal">
+            <strong>04</strong>
+            <span>Automation</span>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= CORE TOPICS ================= -->
+
+<section>
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">What You Learn</div>
+
+        <h2>Linux Core Topics</h2>
+
+        <p>
+            Develop practical Linux knowledge step by step.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+        <div class="card reveal">
+
+            <div class="icon-box blue">
+                <i class="fa-solid fa-terminal"></i>
+            </div>
+
+            <h3>Terminal & CLI</h3>
+
+            <p>
+                Learn how to interact with Linux using
+                terminal commands.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Command Line
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Shell
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Environment Variables
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box green">
+                <i class="fa-solid fa-folder-tree"></i>
+            </div>
+
+            <h3>File System</h3>
+
+            <p>
+                Understand Linux directories, files and
+                storage organization.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    /home
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    /etc
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    /var
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box orange">
+                <i class="fa-solid fa-user-shield"></i>
+            </div>
+
+            <h3>Users & Permissions</h3>
+
+            <p>
+                Learn Linux users, groups, ownership and
+                file permissions.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Users
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Groups
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    chmod & chown
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box purple">
+                <i class="fa-solid fa-network-wired"></i>
+            </div>
+
+            <h3>Networking</h3>
+
+            <p>
+                Understand networking commands and basic
+                Linux network administration.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    IP Address
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Ports
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    SSH
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box red">
+                <i class="fa-solid fa-gears"></i>
+            </div>
+
+            <h3>Processes & Services</h3>
+
+            <p>
+                Learn how Linux runs applications and
+                background services.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Processes
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    systemd
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Logs
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card reveal">
+
+            <div class="icon-box cyan">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>Shell Scripting</h3>
+
+            <p>
+                Automate repetitive Linux tasks using
+                shell scripts.
+            </p>
+
+            <div class="topic-list">
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Bash
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Variables
+                </div>
+
+                <div class="topic">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    Automation
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= DISTROS ================= -->
+
+<section style="background:white;">
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">Linux Ecosystem</div>
+
+        <h2>Popular Linux Distributions</h2>
+
+        <p>
+            Learn the common Linux distributions used for
+            desktops, servers, development and security.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+        <div class="card distro-card reveal">
+
+            <div class="distro-number">01</div>
+
+            <div class="icon-box orange">
+                <i class="fa-brands fa-ubuntu"></i>
+            </div>
+
+            <h3>Ubuntu</h3>
+
+            <p>
+                Beginner-friendly Linux distribution
+                widely used for development and servers.
+            </p>
+
+            <ul>
+                <li>Desktop Development</li>
+                <li>Cloud Servers</li>
+                <li>Programming</li>
+            </ul>
+
+        </div>
+
+
+        <div class="card distro-card reveal">
+
+            <div class="distro-number">02</div>
+
+            <div class="icon-box blue">
+                <i class="fa-solid fa-server"></i>
+            </div>
+
+            <h3>Debian</h3>
+
+            <p>
+                Stable Linux distribution used as a
+                foundation for many systems.
+            </p>
+
+            <ul>
+                <li>Servers</li>
+                <li>Infrastructure</li>
+                <li>System Administration</li>
+            </ul>
+
+        </div>
+
+
+        <div class="card distro-card reveal">
+
+            <div class="distro-number">03</div>
+
+            <div class="icon-box red">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>Red Hat Enterprise Linux</h3>
+
+            <p>
+                Enterprise-focused Linux platform used
+                in professional infrastructure.
+            </p>
+
+            <ul>
+                <li>Enterprise Servers</li>
+                <li>Cloud Infrastructure</li>
+                <li>Administration</li>
+            </ul>
+
+        </div>
+
+
+        <div class="card distro-card reveal">
+
+            <div class="distro-number">04</div>
+
+            <div class="icon-box purple">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>Fedora</h3>
+
+            <p>
+                Community-driven distribution with modern
+                Linux technologies.
+            </p>
+
+            <ul>
+                <li>Development</li>
+                <li>Testing</li>
+                <li>Modern Linux</li>
+            </ul>
+
+        </div>
+
+
+        <div class="card distro-card reveal">
+
+            <div class="distro-number">05</div>
+
+            <div class="icon-box green">
+                <i class="fa-solid fa-user-secret"></i>
+            </div>
+
+            <h3>Kali Linux</h3>
+
+            <p>
+                Linux distribution designed for security
+                testing and cybersecurity learning.
+            </p>
+
+            <ul>
+                <li>Security Testing</li>
+                <li>Digital Forensics</li>
+                <li>Security Tools</li>
+            </ul>
+
+        </div>
+
+
+        <div class="card distro-card reveal">
+
+            <div class="distro-number">06</div>
+
+            <div class="icon-box cyan">
+                <i class="fa-solid fa-cube"></i>
+            </div>
+
+            <h3>Arch Linux</h3>
+
+            <p>
+                Flexible distribution useful for learning
+                Linux systems in greater depth.
+            </p>
+
+            <ul>
+                <li>Customization</li>
+                <li>Advanced Learning</li>
+                <li>Linux Internals</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= COMMANDS ================= -->
+
+<section id="commands">
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">Command Line</div>
+
+        <h2>Essential Linux Commands</h2>
+
+        <p>
+            Start building your terminal confidence with
+            commonly used commands.
+        </p>
+
+    </div>
+
+
+    <div class="command-grid">
+
+        <div class="command-card reveal">
+
+            <h3>
+                <i class="fa-solid fa-folder"></i>
+                Files & Directories
+            </h3>
+
+            <div class="cmd">
+                <code>pwd</code>
+                <span>Show current directory</span>
+            </div>
+
+            <div class="cmd">
+                <code>ls</code>
+                <span>List files</span>
+            </div>
+
+            <div class="cmd">
+                <code>cd</code>
+                <span>Change directory</span>
+            </div>
+
+            <div class="cmd">
+                <code>mkdir</code>
+                <span>Create directory</span>
+            </div>
+
+            <div class="cmd">
+                <code>touch</code>
+                <span>Create file</span>
+            </div>
+
+            <div class="cmd">
+                <code>rm</code>
+                <span>Remove files</span>
+            </div>
+
+        </div>
+
+
+        <div class="command-card reveal">
+
+            <h3>
+                <i class="fa-solid fa-file-lines"></i>
+                File Operations
+            </h3>
+
+            <div class="cmd">
+                <code>cp</code>
+                <span>Copy files</span>
+            </div>
+
+            <div class="cmd">
+                <code>mv</code>
+                <span>Move or rename</span>
+            </div>
+
+            <div class="cmd">
+                <code>cat</code>
+                <span>Display file content</span>
+            </div>
+
+            <div class="cmd">
+                <code>less</code>
+                <span>Read files</span>
+            </div>
+
+            <div class="cmd">
+                <code>grep</code>
+                <span>Search text</span>
+            </div>
+
+            <div class="cmd">
+                <code>find</code>
+                <span>Find files</span>
+            </div>
+
+        </div>
+
+
+        <div class="command-card reveal">
+
+            <h3>
+                <i class="fa-solid fa-user-lock"></i>
+                Permissions
+            </h3>
+
+            <div class="cmd">
+                <code>chmod</code>
+                <span>Change permissions</span>
+            </div>
+
+            <div class="cmd">
+                <code>chown</code>
+                <span>Change ownership</span>
+            </div>
+
+            <div class="cmd">
+                <code>whoami</code>
+                <span>Current user</span>
+            </div>
+
+            <div class="cmd">
+                <code>sudo</code>
+                <span>Run with privileges</span>
+            </div>
+
+        </div>
+
+
+        <div class="command-card reveal">
+
+            <h3>
+                <i class="fa-solid fa-microchip"></i>
+                System & Processes
+            </h3>
+
+            <div class="cmd">
+                <code>ps</code>
+                <span>View processes</span>
+            </div>
+
+            <div class="cmd">
+                <code>top</code>
+                <span>Monitor processes</span>
+            </div>
+
+            <div class="cmd">
+                <code>df</code>
+                <span>Disk usage</span>
+            </div>
+
+            <div class="cmd">
+                <code>free</code>
+                <span>Memory usage</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= TOOLKIT ================= -->
+
+<section style="background:white;">
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">Linux Toolkit</div>
+
+        <h2>Tools You Should Know</h2>
+
+        <p>
+            Linux becomes more powerful when combined with
+            development and infrastructure tools.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-4">
+
+        <div class="card tool-card reveal">
+
+            <div class="icon-box blue">
+                <i class="fa-solid fa-terminal"></i>
+            </div>
+
+            <h3>Bash</h3>
+
+            <p>
+                Command-line shell and scripting.
+            </p>
+
+        </div>
+
+
+        <div class="card tool-card reveal">
+
+            <div class="icon-box orange">
+                <i class="fa-brands fa-docker"></i>
+            </div>
+
+            <h3>Docker</h3>
+
+            <p>
+                Containerize applications.
+            </p>
+
+        </div>
+
+
+        <div class="card tool-card reveal">
+
+            <div class="icon-box purple">
+                <i class="fa-solid fa-dharmachakra"></i>
+            </div>
+
+            <h3>Kubernetes</h3>
+
+            <p>
+                Manage containerized workloads.
+            </p>
+
+        </div>
+
+
+        <div class="card tool-card reveal">
+
+            <div class="icon-box green">
+                <i class="fa-brands fa-git-alt"></i>
+            </div>
+
+            <h3>Git</h3>
+
+            <p>
+                Version control for projects.
+            </p>
+
+        </div>
+
+
+        <div class="card tool-card reveal">
+
+            <div class="icon-box cyan">
+                <i class="fa-solid fa-network-wired"></i>
+            </div>
+
+            <h3>SSH</h3>
+
+            <p>
+                Secure remote system access.
+            </p>
+
+        </div>
+
+
+        <div class="card tool-card reveal">
+
+            <div class="icon-box red">
+                <i class="fa-solid fa-gears"></i>
+            </div>
+
+            <h3>systemd</h3>
+
+            <p>
+                Manage Linux services.
+            </p>
+
+        </div>
+
+
+        <div class="card tool-card reveal">
+
+            <div class="icon-box purple">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>Vim</h3>
+
+            <p>
+                Terminal-based text editing.
+            </p>
+
+        </div>
+
+
+        <div class="card tool-card reveal">
+
+            <div class="icon-box orange">
+                <i class="fa-solid fa-cubes"></i>
+            </div>
+
+            <h3>VirtualBox</h3>
+
+            <p>
+                Run virtual machines for practice.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">Learning Path</div>
+
+        <h2>Linux Roadmap</h2>
+
+        <p>
+            Follow this sequence from beginner to
+            professional-level Linux skills.
+        </p>
+
+    </div>
+
+
+    <div class="roadmap">
+
+        <div class="step reveal">
+
+            <div class="step-number">01</div>
+
+            <div class="step-content">
+
+                <h3>Computer & OS Fundamentals</h3>
+
+                <p>
+                    Understand operating systems, hardware,
+                    files, processes and basic networking.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">02</div>
+
+            <div class="step-content">
+
+                <h3>Linux Fundamentals</h3>
+
+                <p>
+                    Install Linux and become comfortable
+                    with the desktop and terminal.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">03</div>
+
+            <div class="step-content">
+
+                <h3>Linux Commands</h3>
+
+                <p>
+                    Practice navigation, file management,
+                    text processing and system commands.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">04</div>
+
+            <div class="step-content">
+
+                <h3>Users, Groups & Permissions</h3>
+
+                <p>
+                    Learn ownership, permissions, sudo,
+                    users and groups.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">05</div>
+
+            <div class="step-content">
+
+                <h3>Networking & SSH</h3>
+
+                <p>
+                    Learn IP addresses, ports, DNS,
+                    network commands and remote access.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">06</div>
+
+            <div class="step-content">
+
+                <h3>Shell Scripting</h3>
+
+                <p>
+                    Automate repetitive tasks using Bash
+                    scripts and command-line tools.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">07</div>
+
+            <div class="step-content">
+
+                <h3>Servers & Services</h3>
+
+                <p>
+                    Practice web servers, services, logs,
+                    storage and system administration.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step reveal">
+
+            <div class="step-number">08</div>
+
+            <div class="step-content">
+
+                <h3>Linux + Cloud + DevOps</h3>
+
+                <p>
+                    Connect Linux knowledge with Docker,
+                    Kubernetes, cloud and DevOps workflows.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section style="background:white;">
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">Hands-On Practice</div>
+
+        <h2>Linux Projects</h2>
+
+        <p>
+            Learn Linux by building and managing practical
+            projects.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+        <div class="card project-card reveal">
+
+            <span class="level">BEGINNER</span>
+
+            <div class="icon-box blue">
+                <i class="fa-solid fa-server"></i>
+            </div>
+
+            <h3>Personal Linux Server</h3>
+
+            <p>
+                Set up a Linux machine and manage users,
+                files and services.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Install Linux
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Create users
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Manage permissions
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">INTERMEDIATE</span>
+
+            <div class="icon-box green">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>System Automation</h3>
+
+            <p>
+                Build Bash scripts to automate regular
+                administrative tasks.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Backup files
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Monitor disk usage
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Automate reports
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">INTERMEDIATE</span>
+
+            <div class="icon-box purple">
+                <i class="fa-solid fa-globe"></i>
+            </div>
+
+            <h3>Linux Web Server</h3>
+
+            <p>
+                Host a simple website on a Linux server
+                and understand server administration.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Configure server
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Deploy website
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Monitor service
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">INTERMEDIATE</span>
+
+            <div class="icon-box orange">
+                <i class="fa-solid fa-database"></i>
+            </div>
+
+            <h3>Automated Backup System</h3>
+
+            <p>
+                Create scheduled backups using shell
+                scripting and Linux scheduling.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Bash scripting
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Cron jobs
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Backup management
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">ADVANCED</span>
+
+            <div class="icon-box red">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>Linux Security Lab</h3>
+
+            <p>
+                Create a controlled Linux environment to
+                learn system security concepts.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    User permissions
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Logs
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Service security
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card project-card reveal">
+
+            <span class="level">ADVANCED</span>
+
+            <div class="icon-box cyan">
+                <i class="fa-solid fa-cloud"></i>
+            </div>
+
+            <h3>Linux Cloud Deployment</h3>
+
+            <p>
+                Deploy an application on a Linux-based
+                cloud server.
+            </p>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    SSH
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Application deployment
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    Server monitoring
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= CAREERS ================= -->
+
+<section>
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">Career Applications</div>
+
+        <h2>Where Linux Skills Are Used</h2>
+
+        <p>
+            Linux knowledge supports several technology
+            and infrastructure career paths.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+                <i class="fa-solid fa-server"></i>
+            </div>
+
+            <div>
+                <h3>Linux System Administrator</h3>
+
+                <p>
+                    Manage Linux servers, users, services,
+                    storage and system operations.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+                <i class="fa-solid fa-cloud"></i>
+            </div>
+
+            <div>
+                <h3>Cloud Engineer</h3>
+
+                <p>
+                    Work with Linux-based cloud infrastructure,
+                    servers and deployments.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+                <i class="fa-solid fa-infinity"></i>
+            </div>
+
+            <div>
+                <h3>DevOps Engineer</h3>
+
+                <p>
+                    Use Linux with automation, containers,
+                    CI/CD and infrastructure tools.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+                <h3>Cybersecurity Professional</h3>
+
+                <p>
+                    Work with Linux systems, security tools,
+                    monitoring and system hardening.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+                <i class="fa-solid fa-network-wired"></i>
+            </div>
+
+            <div>
+                <h3>Network Engineer</h3>
+
+                <p>
+                    Use Linux networking tools for
+                    troubleshooting and infrastructure.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="card role reveal">
+
+            <div class="role-icon">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <div>
+                <h3>Backend / Software Developer</h3>
+
+                <p>
+                    Develop and deploy applications on
+                    Linux development environments.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= FREE RESOURCES ================= -->
+
+<section style="background:white;">
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">Free Learning</div>
+
+        <h2>Learn Linux for Free</h2>
+
+        <p>
+            Start learning with documentation,
+            tutorials and community resources.
+        </p>
+
+    </div>
+
+
+    <div class="grid grid-3">
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+                <i class="fa-brands fa-linux"></i>
+            </div>
+
+            <div>
+
+                <h3>Linux.org</h3>
+
+                <p>
+                    Linux tutorials, community and
+                    learning resources.
+                </p>
+
+                <a href="https://www.linux.org/"
+                   target="_blank"
+                   rel="noopener">
+                    Visit Resource →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-book"></i>
+            </div>
+
+            <div>
+
+                <h3>Linux Documentation</h3>
+
+                <p>
+                    Explore official Linux documentation
+                    and technical references.
+                </p>
+
+                <a href="https://docs.kernel.org/"
+                   target="_blank"
+                   rel="noopener">
+                    Visit Resource →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div>
+
+                <h3>Linux Foundation</h3>
+
+                <p>
+                    Explore Linux and open-source
+                    learning resources.
+                </p>
+
+                <a href="https://www.linuxfoundation.org/"
+                   target="_blank"
+                   rel="noopener">
+                    Visit Resource →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+                <i class="fa-brands fa-redhat"></i>
+            </div>
+
+            <div>
+
+                <h3>Red Hat Learning</h3>
+
+                <p>
+                    Learn Linux administration and
+                    enterprise technologies.
+                </p>
+
+                <a href="https://www.redhat.com/en/services/training-and-certification"
+                   target="_blank"
+                   rel="noopener">
+                    Visit Resource →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+                <i class="fa-brands fa-ubuntu"></i>
+            </div>
+
+            <div>
+
+                <h3>Ubuntu Documentation</h3>
+
+                <p>
+                    Guides and documentation for
+                    Ubuntu Linux.
+                </p>
+
+                <a href="https://documentation.ubuntu.com/"
+                   target="_blank"
+                   rel="noopener">
+                    Visit Resource →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card resource reveal">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-terminal"></i>
+            </div>
+
+            <div>
+
+                <h3>Linux Journey</h3>
+
+                <p>
+                    Beginner-friendly Linux learning
+                    materials.
+                </p>
+
+                <a href="https://linuxjourney.com/"
+                   target="_blank"
+                   rel="noopener">
+                    Visit Resource →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= STUDY TIPS ================= -->
+
+<section class="tips">
+<div class="container">
+
+    <div class="section-heading reveal">
+
+        <div class="mini">Study Strategy</div>
+
+        <h2>How to Learn Linux Effectively</h2>
+
+        <p>
+            Build practical ability instead of only
+            memorizing commands.
+        </p>
+
+    </div>
+
+
+    <div class="tip-grid">
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-keyboard"></i>
+
+            <h3>Practice in Terminal</h3>
+
+            <p>
+                Type commands yourself and understand
+                what every command does.
+            </p>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-laptop-code"></i>
+
+            <h3>Build Projects</h3>
+
+            <p>
+                Use Linux for servers, automation,
+                websites and development.
+            </p>
+
+        </div>
+
+
+        <div class="tip reveal">
+
+            <i class="fa-solid fa-rotate"></i>
+
+            <h3>Practice Daily</h3>
+
+            <p>
+                Even short daily practice can improve
+                command-line confidence.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+<div class="container">
+
+    <div class="cta-box reveal">
+
+        <h2>Start Your Linux Journey</h2>
+
+        <p>
+            Learn the terminal, understand operating systems,
+            build servers and connect your Linux skills with
+            Cloud, DevOps and Cybersecurity.
+        </p>
+
+        <a href="#roadmap" class="btn">
+            <i class="fa-solid fa-rocket"></i>
+            Begin Learning
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <div class="logo" style="color:white;">
+
+                <img src="../logo.png" alt="ASCEND Logo">
+
+                ASCEND
+
+            </div>
+
+            <p>
+                ASCEND Learning Community helps students
+                develop knowledge, technical skills,
+                career awareness and practical abilities.
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>Explore</h4>
+
+            <a href="../index.html">Home</a>
+            <a href="../Books.html">Learn</a>
+            <a href="../Assignments.html">Assignments</a>
+            <a href="Skills.html">Skills</a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>ASCEND</h4>
+
+            <a href="../Careers.html">Careers</a>
+            <a href="../Business.html">Business</a>
+            <a href="../Leadership.html">Leadership</a>
+            <a href="../Faq.html">FAQ</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 ASCEND Learning Community. All Rights Reserved.
+
+    </div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<nav class="mobile-nav">
+
+    <a href="../index.html">
+        <i class="fa-solid fa-house"></i>
+        Home
+    </a>
+
+    <a href="../Books.html">
+        <i class="fa-solid fa-book"></i>
+        Learn
+    </a>
+
+    <a href="Skills.html" class="active">
+        <i class="fa-solid fa-code"></i>
+        Skills
+    </a>
+
+    <a href="../Careers.html">
+        <i class="fa-solid fa-briefcase"></i>
+        Careers
+    </a>
+
+    <a href="../Aboutus.html">
+        <i class="fa-solid fa-circle-info"></i>
+        About
+    </a>
+
+</nav>
+
+
+<script>
+
+/* ================= MOBILE MENU ================= */
+
+function toggleMenu(){
+
+    const nav = document.querySelector(".nav-links");
+
+    if(nav.style.display === "flex"){
+
+        nav.style.display = "none";
+
+    }else{
+
+        nav.style.display = "flex";
+
+        nav.style.position = "absolute";
+        nav.style.top = "72px";
+        nav.style.left = "0";
+        nav.style.right = "0";
+        nav.style.background = "#ffffff";
+        nav.style.padding = "15px";
+        nav.style.borderBottom = "1px solid #E4EAF2";
+        nav.style.flexDirection = "column";
+        nav.style.alignItems = "stretch";
+
+    }
+
+}
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+document.querySelectorAll(".reveal").forEach(el => {
+
+    observer.observe(el);
+
+});
+
+</script>
+
+</body>
+</html>

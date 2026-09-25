@@ -1,0 +1,2805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Financial Literacy — ASCEND Skills</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#155EEF;
+    --primary-dark:#0B46C5;
+    --primary-light:#EAF1FF;
+
+    --yellow:#FFD43B;
+    --yellow-light:#FFF7D6;
+
+    --dark:#101828;
+    --dark-2:#1D2939;
+
+    --muted:#667085;
+    --muted-2:#98A2B3;
+
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --border:#E4EAF2;
+
+    --green:#12B76A;
+    --green-light:#ECFDF3;
+
+    --orange:#F79009;
+    --orange-light:#FFFAEB;
+
+    --purple:#7F56D9;
+    --purple-light:#F4F3FF;
+
+    --red:#F04438;
+    --red-light:#FEF3F2;
+
+    --cyan:#06AED4;
+    --cyan-light:#ECFDFF;
+
+    --radius:20px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:"Outfit",sans-serif;
+    font-size:23px;
+    font-weight:800;
+    color:var(--dark);
+}
+
+.logo img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.nav-links a{
+    padding:9px 12px;
+    border-radius:10px;
+    color:var(--muted);
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--primary-light);
+    color:var(--primary);
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:72px 0 60px;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(21,94,239,.09),transparent 28%),
+        radial-gradient(circle at 90% 10%,rgba(255,212,59,.13),transparent 25%);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.08fr .92fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:999px;
+    background:var(--primary-light);
+    color:var(--primary);
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-family:"Outfit",sans-serif;
+    font-size:clamp(40px,5vw,68px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:17px;
+    max-width:650px;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 19px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:white;
+    border:1px solid var(--border);
+    color:var(--dark);
+}
+
+.btn-secondary:hover{
+    border-color:var(--primary);
+    color:var(--primary);
+}
+
+/* ================= FINANCE VISUAL ================= */
+
+.finance-visual{
+    position:relative;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.finance-card{
+    width:350px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:24px;
+    box-shadow:0 30px 70px rgba(16,24,40,.12);
+}
+
+.finance-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.finance-title{
+    font-family:"Outfit",sans-serif;
+    font-size:20px;
+    font-weight:800;
+}
+
+.balance{
+    background:var(--green-light);
+    color:var(--green);
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.money{
+    font-family:"Outfit",sans-serif;
+    font-size:34px;
+    font-weight:800;
+    margin-bottom:22px;
+}
+
+.money span{
+    color:var(--primary);
+}
+
+.finance-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px;
+    background:var(--bg);
+    border-radius:13px;
+    margin-bottom:10px;
+}
+
+.finance-row-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.finance-icon{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.finance-row span{
+    font-size:12px;
+    font-weight:700;
+}
+
+.amount{
+    font-weight:800;
+    font-size:12px;
+}
+
+.income{
+    color:var(--green);
+}
+
+.expense{
+    color:var(--red);
+}
+
+.saving{
+    color:var(--primary);
+}
+
+.finance-node{
+    position:absolute;
+    background:white;
+    border:1px solid var(--border);
+    box-shadow:0 14px 35px rgba(16,24,40,.1);
+    border-radius:15px;
+    padding:11px 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.finance-node i{
+    color:var(--primary);
+}
+
+.node-1{
+    top:25px;
+    right:-30px;
+}
+
+.node-2{
+    bottom:25px;
+    left:-30px;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:72px 0;
+}
+
+.section-head{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 40px;
+}
+
+.section-head .mini{
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.section-head h2{
+    font-family:"Outfit",sans-serif;
+    font-size:38px;
+    line-height:1.15;
+    margin-bottom:12px;
+}
+
+.section-head p{
+    color:var(--muted);
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:25px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 45px rgba(16,24,40,.08);
+}
+
+.icon-box{
+    width:50px;
+    height:50px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-bottom:17px;
+}
+
+.blue{
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.yellow{
+    background:var(--yellow-light);
+    color:#B78103;
+}
+
+.green{
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.purple{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.orange{
+    background:var(--orange-light);
+    color:var(--orange);
+}
+
+.red{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+.cyan{
+    background:var(--cyan-light);
+    color:var(--cyan);
+}
+
+.card h3{
+    font-family:"Outfit",sans-serif;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.topic{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.topic:hover{
+    border-color:#B7C9F8;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.topic i{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+    border-radius:10px;
+}
+
+/* ================= MONEY FLOW ================= */
+
+.money-process{
+    background:var(--dark);
+    color:white;
+}
+
+.money-process .section-head p{
+    color:#98A2B3;
+}
+
+.process-flow{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+    align-items:center;
+}
+
+.process-item{
+    text-align:center;
+}
+
+.process-box{
+    background:#1D2939;
+    border:1px solid #344054;
+    border-radius:18px;
+    padding:20px 10px;
+    min-height:125px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:9px;
+}
+
+.process-box i{
+    font-size:23px;
+    color:var(--yellow);
+}
+
+.process-box span{
+    font-weight:700;
+    font-size:12px;
+}
+
+.process-arrow{
+    color:var(--yellow);
+    text-align:center;
+}
+
+/* ================= TOOLKIT ================= */
+
+.tool-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+}
+
+.tool{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px 14px;
+    text-align:center;
+}
+
+.tool i{
+    font-size:25px;
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.tool h4{
+    font-size:14px;
+}
+
+.tool p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* ================= BUDGET ================= */
+
+.budget{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:28px;
+}
+
+.budget-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+    align-items:center;
+}
+
+.budget-title{
+    font-family:"Outfit",sans-serif;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.budget-text{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.budget-bar{
+    height:35px;
+    display:flex;
+    border-radius:12px;
+    overflow:hidden;
+    margin-bottom:15px;
+}
+
+.budget-needs{
+    width:50%;
+    background:var(--primary);
+}
+
+.budget-wants{
+    width:30%;
+    background:var(--yellow);
+}
+
+.budget-save{
+    width:20%;
+    background:var(--green);
+}
+
+.budget-legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.legend{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.legend-dot{
+    width:11px;
+    height:11px;
+    border-radius:50%;
+}
+
+.dot-blue{
+    background:var(--primary);
+}
+
+.dot-yellow{
+    background:var(--yellow);
+}
+
+.dot-green{
+    background:var(--green);
+}
+
+.budget-note{
+    background:var(--bg);
+    border-radius:16px;
+    padding:22px;
+}
+
+.budget-note h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:8px;
+}
+
+.budget-note p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.step{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.step-number{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.step h3{
+    font-family:"Outfit",sans-serif;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.step p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= ACTIVITIES ================= */
+
+.activity-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.activity{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.activity-top{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:13px;
+}
+
+.activity-icon{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--yellow-light);
+    color:#A56F00;
+}
+
+.activity h3{
+    font-family:"Outfit",sans-serif;
+    font-size:18px;
+}
+
+.activity p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= CAREER ================= */
+
+.career-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.career{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.career i{
+    color:var(--primary);
+    font-size:24px;
+    margin-bottom:13px;
+}
+
+.career h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:7px;
+}
+
+.career p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= RESOURCES ================= */
+
+.resource-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.resource{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+}
+
+.resource h3{
+    font-family:"Outfit",sans-serif;
+    margin-bottom:7px;
+}
+
+.resource p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.resource a{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+}
+
+/* ================= TIPS ================= */
+
+.tips{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.tip{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    display:flex;
+    gap:15px;
+}
+
+.tip i{
+    color:var(--green);
+    margin-top:4px;
+}
+
+.tip h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.tip p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    background:linear-gradient(135deg,var(--primary),#3D7BFF);
+    color:white;
+    border-radius:28px;
+    padding:50px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta:before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:-100px;
+    left:-80px;
+}
+
+.cta h2{
+    font-family:"Outfit",sans-serif;
+    font-size:38px;
+    margin-bottom:10px;
+    position:relative;
+}
+
+.cta p{
+    color:#EAF1FF;
+    max-width:650px;
+    margin:0 auto 23px;
+    position:relative;
+}
+
+.cta .btn{
+    background:var(--yellow);
+    color:var(--dark);
+    position:relative;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0B1220;
+    color:white;
+    padding:45px 0 80px;
+    margin-top:70px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer-brand p{
+    color:#98A2B3;
+    font-size:13px;
+    max-width:420px;
+    margin-top:13px;
+}
+
+.footer-col h4{
+    margin-bottom:14px;
+    font-family:"Outfit",sans-serif;
+}
+
+.footer-col a{
+    display:block;
+    color:#98A2B3;
+    font-size:13px;
+    margin:9px 0;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid #273244;
+    margin-top:35px;
+    padding-top:20px;
+    color:#98A2B3;
+    font-size:12px;
+    text-align:center;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .career-grid,
+    .resource-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .topic-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .tool-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .activity-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    body{
+        padding-bottom:65px;
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .finance-visual{
+        min-height:350px;
+    }
+
+    .finance-card{
+        width:300px;
+    }
+
+    .finance-node{
+        font-size:10px;
+        padding:9px 11px;
+    }
+
+    .node-1{
+        right:-5px;
+    }
+
+    .node-2{
+        left:-5px;
+    }
+
+    .section-head h2{
+        font-size:31px;
+    }
+
+    .cards,
+    .career-grid,
+    .resource-grid,
+    .activity-grid,
+    .tips{
+        grid-template-columns:1fr;
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tool-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .roadmap{
+        grid-template-columns:1fr;
+    }
+
+    .budget-grid{
+        grid-template-columns:1fr;
+    }
+
+    .process-flow{
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .process-arrow{
+        transform:rotate(90deg);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta{
+        padding:35px 20px;
+        border-radius:20px;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        bottom:0;
+        left:0;
+        right:0;
+        height:64px;
+        background:white;
+        border-top:1px solid var(--border);
+        z-index:2000;
+        justify-content:space-around;
+        align-items:center;
+        box-shadow:0 -8px 25px rgba(16,24,40,.08);
+    }
+
+    .mobile-nav a{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:3px;
+        color:var(--muted);
+        font-size:10px;
+        font-weight:700;
+    }
+
+    .mobile-nav a i{
+        font-size:17px;
+    }
+
+    .mobile-nav a.active{
+        color:var(--primary);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="../index.html" class="logo">
+    <img src="../logo.png" alt="ASCEND Logo">
+    <div>AS<span>CEND</span></div>
+</a>
+
+<nav class="nav-links">
+
+<a href="../index.html">
+    <i class="fa-solid fa-house"></i> Home
+</a>
+
+<a href="../Books.html">
+    <i class="fa-solid fa-book"></i> Learn
+</a>
+
+<a href="../Assignments.html">
+    <i class="fa-solid fa-list-check"></i> Tasks
+</a>
+
+<a href="../Skills.html" class="active">
+    <i class="fa-solid fa-bolt"></i> Skills
+</a>
+
+<a href="../Careers.html">
+    <i class="fa-solid fa-briefcase"></i> Careers
+</a>
+
+<a href="../Aboutus.html">
+    <i class="fa-solid fa-circle-info"></i> About
+</a>
+
+<a href="../Business.html">
+    <i class="fa-solid fa-lightbulb"></i> Business
+</a>
+
+<a href="../Leadership.html">
+    <i class="fa-solid fa-users"></i> Leadership
+</a>
+
+<a href="../Faq.html">
+    <i class="fa-solid fa-circle-question"></i> FAQ
+</a>
+
+</nav>
+
+<button class="menu-btn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div class="reveal">
+
+<div class="badge">
+    <i class="fa-solid fa-wallet"></i>
+    ASCEND SKILL
+</div>
+
+<h1>
+    Master <span>Financial Literacy</span>
+</h1>
+
+<p>
+    Learn how money works, how to manage income and
+    expenses, create a budget, build savings, understand
+    financial products and make informed financial decisions.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#roadmap" class="btn btn-primary">
+    <i class="fa-solid fa-route"></i>
+    Start Learning
+</a>
+
+<a href="#activities" class="btn btn-secondary">
+    <i class="fa-solid fa-coins"></i>
+    Practice Skills
+</a>
+
+</div>
+
+</div>
+
+
+<div class="finance-visual reveal">
+
+<div class="finance-card">
+
+<div class="finance-header">
+
+<div class="finance-title">
+    Money Plan
+</div>
+
+<div class="balance">
+    BALANCED
+</div>
+
+</div>
+
+<div class="money">
+    ₹<span>10,000</span>
+</div>
+
+
+<div class="finance-row">
+
+<div class="finance-row-left">
+
+<div class="finance-icon">
+    <i class="fa-solid fa-arrow-down"></i>
+</div>
+
+<span>Income</span>
+
+</div>
+
+<div class="amount income">
+    +₹15,000
+</div>
+
+</div>
+
+
+<div class="finance-row">
+
+<div class="finance-row-left">
+
+<div class="finance-icon">
+    <i class="fa-solid fa-cart-shopping"></i>
+</div>
+
+<span>Expenses</span>
+
+</div>
+
+<div class="amount expense">
+    -₹8,000
+</div>
+
+</div>
+
+
+<div class="finance-row">
+
+<div class="finance-row-left">
+
+<div class="finance-icon">
+    <i class="fa-solid fa-piggy-bank"></i>
+</div>
+
+<span>Savings</span>
+
+</div>
+
+<div class="amount saving">
+    ₹4,000
+</div>
+
+</div>
+
+
+<div class="finance-row">
+
+<div class="finance-row-left">
+
+<div class="finance-icon">
+    <i class="fa-solid fa-chart-line"></i>
+</div>
+
+<span>Investment</span>
+
+</div>
+
+<div class="amount saving">
+    ₹3,000
+</div>
+
+</div>
+
+
+<div class="finance-node node-1">
+    <i class="fa-solid fa-wallet"></i>
+    Budget
+</div>
+
+<div class="finance-node node-2">
+    <i class="fa-solid fa-piggy-bank"></i>
+    Save
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Why Financial Literacy?</div>
+
+<h2>Understand Your Money</h2>
+
+<p>
+Financial literacy helps you understand income,
+expenses, saving, borrowing, investing and financial
+risk so you can make informed decisions.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+    <i class="fa-solid fa-wallet"></i>
+</div>
+
+<h3>Manage Money</h3>
+
+<p>
+Understand where your money comes from and where
+it goes through simple budgeting and tracking.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box green">
+    <i class="fa-solid fa-piggy-bank"></i>
+</div>
+
+<h3>Build Savings</h3>
+
+<p>
+Learn the importance of saving for planned goals,
+unexpected expenses and future needs.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box yellow">
+    <i class="fa-solid fa-chart-line"></i>
+</div>
+
+<h3>Make Informed Decisions</h3>
+
+<p>
+Understand basic financial products, risks and
+trade-offs before making financial choices.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CORE SKILLS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Core Skills</div>
+
+<h2>Six Skills for Financial Literacy</h2>
+
+<p>
+Build practical knowledge for managing personal
+finances responsibly.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card reveal">
+
+<div class="icon-box blue">
+    <i class="fa-solid fa-money-bill-wave"></i>
+</div>
+
+<h3>Income</h3>
+
+<p>
+Understand salary, business income, allowances
+and other legitimate sources of money.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box red">
+    <i class="fa-solid fa-receipt"></i>
+</div>
+
+<h3>Expenses</h3>
+
+<p>
+Understand essential and discretionary expenses
+and track where money is being spent.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box yellow">
+    <i class="fa-solid fa-calculator"></i>
+</div>
+
+<h3>Budgeting</h3>
+
+<p>
+Create a realistic plan for allocating income
+toward needs, goals, savings and other expenses.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box green">
+    <i class="fa-solid fa-piggy-bank"></i>
+</div>
+
+<h3>Saving</h3>
+
+<p>
+Develop the habit of setting money aside for
+future goals and unexpected needs.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box purple">
+    <i class="fa-solid fa-chart-line"></i>
+</div>
+
+<h3>Investing Basics</h3>
+
+<p>
+Learn the basic concepts of risk, return,
+diversification and long-term investing.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon-box orange">
+    <i class="fa-solid fa-shield-halved"></i>
+</div>
+
+<h3>Financial Safety</h3>
+
+<p>
+Recognize scams, protect financial information
+and think carefully before sharing sensitive data.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOPICS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Learning Topics</div>
+
+<h2>Financial Literacy Topics</h2>
+
+<p>
+Learn the essential concepts needed to understand
+and manage personal finances.
+</p>
+
+</div>
+
+
+<div class="topic-grid">
+
+<div class="topic reveal">
+    <i class="fa-solid fa-money-bill-wave"></i>
+    Income
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-receipt"></i>
+    Expenses
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-calculator"></i>
+    Budgeting
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-piggy-bank"></i>
+    Saving
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-chart-line"></i>
+    Investing Basics
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-building-columns"></i>
+    Banking
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-credit-card"></i>
+    Digital Payments
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-hand-holding-dollar"></i>
+    Borrowing
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-percent"></i>
+    Interest
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-shield-halved"></i>
+    Insurance Basics
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-file-invoice-dollar"></i>
+    Taxes Basics
+</div>
+
+<div class="topic reveal">
+    <i class="fa-solid fa-lock"></i>
+    Financial Security
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MONEY PROCESS ================= -->
+
+<section class="money-process">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Financial Management Framework</div>
+
+<h2>From Income to Financial Goals</h2>
+
+<p>
+A simple framework for understanding how money can
+be managed from earning to planning for the future.
+</p>
+
+</div>
+
+
+<div class="process-flow">
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-money-bill-wave"></i>
+    <span>Earn</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-calculator"></i>
+    <span>Budget</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-receipt"></i>
+    <span>Spend</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-piggy-bank"></i>
+    <span>Save</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-chart-line"></i>
+    <span>Invest</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-shield-halved"></i>
+    <span>Protect</span>
+</div>
+
+</div>
+
+<div class="process-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>
+
+
+<div class="process-item reveal">
+
+<div class="process-box">
+    <i class="fa-solid fa-bullseye"></i>
+    <span>Achieve Goals</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TOOLKIT ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Financial Toolkit</div>
+
+<h2>Tools for Managing Money</h2>
+
+<p>
+Simple tools can help you understand your income,
+expenses, savings and financial goals.
+</p>
+
+</div>
+
+
+<div class="tool-grid">
+
+<div class="tool reveal">
+    <i class="fa-solid fa-wallet"></i>
+    <h4>Wallet</h4>
+    <p>Manage daily spending</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-calculator"></i>
+    <h4>Calculator</h4>
+    <p>Calculate financial values</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-table"></i>
+    <h4>Budget Sheet</h4>
+    <p>Plan income and expenses</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-piggy-bank"></i>
+    <h4>Saving Goal</h4>
+    <p>Track savings targets</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-calendar-days"></i>
+    <h4>Bill Calendar</h4>
+    <p>Track payment dates</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-chart-pie"></i>
+    <h4>Expense Tracker</h4>
+    <p>Understand spending</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-chart-line"></i>
+    <h4>Portfolio Tracker</h4>
+    <p>Monitor investments</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-file-invoice"></i>
+    <h4>Records</h4>
+    <p>Keep financial documents</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-bell"></i>
+    <h4>Reminders</h4>
+    <p>Remember payments</p>
+</div>
+
+<div class="tool reveal">
+    <i class="fa-solid fa-lock"></i>
+    <h4>Security</h4>
+    <p>Protect financial accounts</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= BUDGET ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Budgeting Basics</div>
+
+<h2>Give Every Rupee a Purpose</h2>
+
+<p>
+A budget is a plan for how available money will
+be allocated across different needs and goals.
+</p>
+
+</div>
+
+
+<div class="budget reveal">
+
+<div class="budget-grid">
+
+<div>
+
+<div class="budget-title">
+    Simple Budget Example
+</div>
+
+<div class="budget-text">
+    One possible example of organizing monthly
+    income. Actual percentages should depend on
+    a person's circumstances and goals.
+</div>
+
+<div class="budget-bar">
+    <div class="budget-needs"></div>
+    <div class="budget-wants"></div>
+    <div class="budget-save"></div>
+</div>
+
+<div class="budget-legend">
+
+<div class="legend">
+    <div class="legend-dot dot-blue"></div>
+    Needs
+</div>
+
+<div class="legend">
+    <div class="legend-dot dot-yellow"></div>
+    Wants
+</div>
+
+<div class="legend">
+    <div class="legend-dot dot-green"></div>
+    Savings / Goals
+</div>
+
+</div>
+
+</div>
+
+
+<div class="budget-note">
+
+<h3>
+    Example: ₹10,000
+</h3>
+
+<p>
+    A simple budget could allocate money toward
+    essential expenses, discretionary spending and
+    savings or financial goals. The exact allocation
+    should be adapted to individual circumstances.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section id="roadmap">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Learning Roadmap</div>
+
+<h2>Financial Literacy Roadmap</h2>
+
+<p>
+Progress from understanding basic money concepts
+to making informed financial decisions.
+</p>
+
+</div>
+
+
+<div class="roadmap">
+
+<div class="step reveal">
+
+<div class="step-number">01</div>
+
+<h3>Understand Money</h3>
+
+<p>
+Learn basic concepts such as income, expenses,
+saving and financial goals.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">02</div>
+
+<h3>Track Income & Expenses</h3>
+
+<p>
+Record money coming in and going out so you can
+understand your spending patterns.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">03</div>
+
+<h3>Create a Budget</h3>
+
+<p>
+Plan how available income can be allocated to
+needs, goals, savings and other expenses.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">04</div>
+
+<h3>Build Savings</h3>
+
+<p>
+Develop a regular saving habit and identify
+specific financial goals.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">05</div>
+
+<h3>Understand Banking</h3>
+
+<p>
+Learn about common banking services, digital
+payments and account safety.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">06</div>
+
+<h3>Learn Investing Basics</h3>
+
+<p>
+Understand concepts such as risk, return,
+diversification and long-term investing.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">07</div>
+
+<h3>Understand Borrowing</h3>
+
+<p>
+Learn how interest, repayment obligations and
+borrowing costs can affect financial decisions.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">08</div>
+
+<h3>Protect Your Money</h3>
+
+<p>
+Learn basic financial safety practices and
+recognize common fraud and scam risks.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ACTIVITIES ================= -->
+
+<section id="activities">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Practice</div>
+
+<h2>Financial Literacy Activities</h2>
+
+<p>
+Practice basic financial skills using realistic
+and educational scenarios.
+</p>
+
+</div>
+
+
+<div class="activity-grid">
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-calculator"></i>
+</div>
+
+<h3>Monthly Budget</h3>
+
+</div>
+
+<p>
+Create a sample monthly budget using a fictional
+income and list of expenses.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-receipt"></i>
+</div>
+
+<h3>Expense Tracking</h3>
+
+</div>
+
+<p>
+Record a week's fictional expenses and group
+them into different categories.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-piggy-bank"></i>
+</div>
+
+<h3>Savings Goal</h3>
+
+</div>
+
+<p>
+Choose a fictional financial goal and calculate
+how much would need to be saved over time.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-chart-line"></i>
+</div>
+
+<h3>Risk & Return</h3>
+
+</div>
+
+<p>
+Compare fictional financial choices and identify
+the relationship between potential return and risk.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-building-columns"></i>
+</div>
+
+<h3>Banking Basics</h3>
+
+</div>
+
+<p>
+Learn the purpose of common banking services and
+how to keep account information secure.
+</p>
+
+</div>
+
+
+<div class="activity reveal">
+
+<div class="activity-top">
+
+<div class="activity-icon">
+    <i class="fa-solid fa-shield-halved"></i>
+</div>
+
+<h3>Scam Awareness</h3>
+
+</div>
+
+<p>
+Study common warning signs of financial scams,
+fraudulent messages and unsafe requests.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CAREER APPLICATIONS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Real-Life Applications</div>
+
+<h2>Financial Literacy in Real Life</h2>
+
+<p>
+Financial knowledge is useful for students,
+employees, entrepreneurs and families.
+</p>
+
+</div>
+
+
+<div class="career-grid">
+
+<div class="career reveal">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<h3>Student Life</h3>
+
+<p>
+Manage allowances, educational expenses, savings
+goals and responsible spending.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<h3>Career Planning</h3>
+
+<p>
+Understand income, expenses, savings and financial
+planning when entering the workforce.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-rocket"></i>
+
+<h3>Entrepreneurship</h3>
+
+<p>
+Understand revenue, expenses, cash flow,
+pricing and basic business financial planning.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h3>Investing</h3>
+
+<p>
+Develop basic knowledge of financial markets,
+risk and long-term investing concepts.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-building-columns"></i>
+
+<h3>Banking</h3>
+
+<p>
+Understand common banking services, payments,
+accounts and financial documentation.
+</p>
+
+</div>
+
+
+<div class="career reveal">
+
+<i class="fa-solid fa-user-tie"></i>
+
+<h3>Leadership</h3>
+
+<p>
+Use financial awareness when planning resources,
+budgets and organizational priorities.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RESOURCES ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Free Learning Resources</div>
+
+<h2>Learn Financial Literacy</h2>
+
+<p>
+Use reliable educational resources to build your
+understanding of personal finance.
+</p>
+
+</div>
+
+
+<div class="resource-grid">
+
+<div class="resource reveal">
+
+<h3>RBI Financial Education</h3>
+
+<p>
+Explore financial education resources from the
+Reserve Bank of India.
+</p>
+
+<a href="https://www.rbi.org.in/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>SEBI Investor Education</h3>
+
+<p>
+Learn about investor awareness, financial markets
+and basic investment concepts.
+</p>
+
+<a href="https://investor.sebi.gov.in/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>NCFE</h3>
+
+<p>
+Explore financial education resources and
+awareness material for learners.
+</p>
+
+<a href="https://www.ncfe.org.in/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Investor.gov</h3>
+
+<p>
+Explore educational information about investing,
+risk, diversification and financial planning.
+</p>
+
+<a href="https://www.investor.gov/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>MoneyHelper</h3>
+
+<p>
+Explore educational resources about budgeting,
+saving, borrowing and financial planning.
+</p>
+
+<a href="https://www.moneyhelper.org.uk/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+
+<div class="resource reveal">
+
+<h3>Khan Academy</h3>
+
+<p>
+Explore free educational content covering
+financial literacy and related concepts.
+</p>
+
+<a href="https://www.khanacademy.org/" target="_blank">
+    Explore Resource
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TIPS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="mini">Financial Habits</div>
+
+<h2>Build Better Money Habits</h2>
+
+<p>
+Small financial habits can help you develop
+greater awareness and control over your money.
+</p>
+
+</div>
+
+
+<div class="tips">
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Track Your Spending</h3>
+
+<p>
+Know where your money goes instead of relying
+only on memory.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Separate Needs and Wants</h3>
+
+<p>
+Think carefully about whether a purchase is
+necessary or discretionary.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Set Savings Goals</h3>
+
+<p>
+Give your savings a clear purpose and track
+progress toward the goal.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Understand Before You Commit</h3>
+
+<p>
+Read and understand the important terms,
+costs and risks of financial products.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Protect Financial Information</h3>
+
+<p>
+Never casually share passwords, PINs, OTPs or
+other sensitive account information.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip reveal">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+
+<h3>Learn Continuously</h3>
+
+<p>
+Financial products and rules can change, so
+continue learning from reliable sources.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="cta reveal">
+
+<h2>Earn. Plan. Save. Grow.</h2>
+
+<p>
+Build the financial knowledge needed to understand
+your money, plan your goals and make informed decisions.
+</p>
+
+<a href="../Assignments.html" class="btn">
+    <i class="fa-solid fa-list-check"></i>
+    Practice on ASCEND
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<a href="../index.html" class="logo">
+    <img src="../logo.png" alt="ASCEND Logo">
+    <div style="color:white;">AS<span>CEND</span></div>
+</a>
+
+<p>
+ASCEND Learning Community helps students develop
+knowledge, skills, career awareness and practical
+abilities for the future.
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Learn</h4>
+
+<a href="../Books.html">Books & Learning</a>
+<a href="../Assignments.html">Assignments</a>
+<a href="../Skills.html">Skills</a>
+<a href="../Careers.html">Careers</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>ASCEND</h4>
+
+<a href="../Aboutus.html">About Us</a>
+<a href="../Business.html">Business</a>
+<a href="../Leadership.html">Leadership</a>
+<a href="../Faq.html">FAQ</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 ASCEND Learning Community. Learn • Build • Grow.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<div class="mobile-nav">
+
+<a href="../index.html">
+    <i class="fa-solid fa-house"></i>
+    Home
+</a>
+
+<a href="../Books.html">
+    <i class="fa-solid fa-book"></i>
+    Learn
+</a>
+
+<a href="../Skills.html" class="active">
+    <i class="fa-solid fa-bolt"></i>
+    Skills
+</a>
+
+<a href="../Careers.html">
+    <i class="fa-solid fa-briefcase"></i>
+    Careers
+</a>
+
+<a href="../Faq.html">
+    <i class="fa-solid fa-circle-question"></i>
+    FAQ
+</a>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    (entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold:0.12
+    }
+);
+
+revealElements.forEach(el=>{
+    observer.observe(el);
+});
+
+
+/* Mobile Menu */
+
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click",()=>{
+
+    if(navLinks.style.display === "flex"){
+
+        navLinks.style.display = "";
+
+    }else{
+
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "74px";
+        navLinks.style.left = "0";
+        navLinks.style.right = "0";
+        navLinks.style.background = "white";
+        navLinks.style.padding = "15px";
+        navLinks.style.borderBottom = "1px solid #E4EAF2";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
